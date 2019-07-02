@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.1.0-draft' of edci model version '0.2.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.2.0-xsd-0.1.0-draft">
+	<xs:simpleType name="SkillAlignmentTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/closeMatch"/>
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/exactMatch"/>
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/broaderMatch"/>
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/narrowerMatch"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningSettingTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/learningSettingType/formal"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningSettingType/nonFormal"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningSettingType/informal"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ActivityTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/educationalProgram"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/workShop"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/internship"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/apprenticeship"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssessmentTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/writtenExamen"/>
+			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/oralExamen"/>
+			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/continuousEvaluation"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ImageMediaTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/png"/>
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/jpeg"/>
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/gif"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ImageContentEncodingEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/mediaContentEncoding/base64"/>
+		</xs:restriction>
+		<!-- todo -->
+	</xs:simpleType>
+	<xs:simpleType name="ContentTypeCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="text/html"/>
+			<xs:enumeration value="text/plain"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="QualificationFrameworkEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/AT"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/BE2"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/BE3"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/BE4"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/BG"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/CH"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/CY"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/CZ"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/DE"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/DK"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/EE"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/EL"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/ES"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/FI"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/FR"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/HR"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/HU"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/IE"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/IS"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/IT"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/LI"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/LT"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/LU"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/LV"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/ME"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/MK"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/MT"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/NL"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/NO"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/PL"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/PT"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/RO"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/SE"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/SK"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/SI"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/TR"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/UK"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/UKM"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qdr/QF/UKL"/>
+			<xs:enumeration value="http://data.europa.eu/esco/concept-scheme/eqf"/>
+			<!-- Austria NQF -->
+			<!-- Belgian qualifications framework of the Flemish Community (FQF) -->
+			<!-- Belgian qualifications framework of the French Community (CFC) -->
+			<!-- Belgian qualifications framework of the German Community (QDG) -->
+			<!-- Bulgaria NQF -->
+			<!-- Switzerland NQF -->
+			<!-- Cyprus NQF -->
+			<!-- Czech Republic NQF -->
+			<!-- Germany NQF -->
+			<!-- Denmark NQF -->
+			<!-- Estonia NQF -->
+			<!-- Greece NQF -->
+			<!-- Spain NQF -->
+			<!-- Finland NQF -->
+			<!-- France NQF -->
+			<!-- Croatia NQF -->
+			<!-- Hungary NQF -->
+			<!-- Ireland NQF -->
+			<!-- Iceland NQF -->
+			<!-- Italy NQF -->
+			<!-- Liechtenstein NQF -->
+			<!-- Lithuania NQF -->
+			<!-- Luxembourg NQF -->
+			<!-- Latvia NQF -->
+			<!-- Montenegro NQF -->
+			<!-- Former Yugoslav Republic of Macedonia NQF -->
+			<!-- Malta NQF -->
+			<!-- Netherlands NQF -->
+			<!-- Norway NQF -->
+			<!-- Poland NQF -->
+			<!-- Portugal NQF -->
+			<!-- Romania NQF -->
+			<!-- Sweden NQF -->
+			<!-- Slovakia NQF -->
+			<!-- Slovenia NQF -->
+			<!-- Turkey NQF -->
+			<!-- England and Northern Ireland NQF -->
+			<!-- Scotland NQF -->
+			<!-- Wales NQF -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GenderEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:union memberTypes="MDRHumanSexEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="LocationCodeContentType">
+		<xs:union memberTypes="MDRCountryCodeEnumType NutsCodeEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="LanguageCharCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:language">
+			<xs:enumeration value="bg"/>
+			<xs:enumeration value="cs"/>
+			<xs:enumeration value="da"/>
+			<xs:enumeration value="de"/>
+			<xs:enumeration value="el"/>
+			<xs:enumeration value="en"/>
+			<xs:enumeration value="es"/>
+			<xs:enumeration value="et"/>
+			<xs:enumeration value="fi"/>
+			<xs:enumeration value="fr"/>
+			<xs:enumeration value="ga"/>
+			<xs:enumeration value="hr"/>
+			<xs:enumeration value="hu"/>
+			<xs:enumeration value="is"/>
+			<xs:enumeration value="it"/>
+			<xs:enumeration value="lt"/>
+			<xs:enumeration value="lv"/>
+			<xs:enumeration value="mt"/>
+			<xs:enumeration value="nl"/>
+			<xs:enumeration value="no"/>
+			<xs:enumeration value="pl"/>
+			<xs:enumeration value="pt"/>
+			<xs:enumeration value="ro"/>
+			<xs:enumeration value="sk"/>
+			<xs:enumeration value="sl"/>
+			<xs:enumeration value="sv"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SubjectTypeCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/esco/qualification-topics#accreditation-and-quality-assurance"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qualification-topics#assessment"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qualification-topics#awarding-activity"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qualification-topics#regulations-and-certificates"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qualification-topics#learning-outcomes"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qualification-topics#entry-requirements"/>
+			<xs:enumeration value="http://data.europa.eu/esco/qualification-topics#labour-market-and-employment"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EscoOrganizationTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/esco/agent-type#academic-institution"/>
+			<xs:enumeration value="http://data.europa.eu/esco/agent-type#company"/>
+			<xs:enumeration value="http://data.europa.eu/esco/agent-type#government-agency"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReusabilityLevelEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/esco/skill-reuse-level/occupation-specific"/>
+			<xs:enumeration value="http://data.europa.eu/esco/skill-reuse-level/sector-specific"/>
+			<xs:enumeration value="http://data.europa.eu/esco/skill-reuse-level/transversal"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningOutcomeTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/esco/skill-type/knowledge"/>
+			<xs:enumeration value="http://data.europa.eu/esco/skill-type/skill"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EQFLevelEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/esco/eqf/1"/>
+			<xs:enumeration value="http://data.europa.eu/esco/eqf/2"/>
+			<xs:enumeration value="http://data.europa.eu/esco/eqf/3"/>
+			<xs:enumeration value="http://data.europa.eu/esco/eqf/4"/>
+			<xs:enumeration value="http://data.europa.eu/esco/eqf/5"/>
+			<xs:enumeration value="http://data.europa.eu/esco/eqf/6"/>
+			<xs:enumeration value="http://data.europa.eu/esco/eqf/7"/>
+			<xs:enumeration value="http://data.europa.eu/esco/eqf/8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IscedFOetCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/esco/isced-f/0532"/>
+			<xs:enumeration value="http://data.europa.eu/esco/isced-f/0533"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MDRHumanSexEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/human-sex/MALE"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/human-sex/FEMALE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MDRLanguageCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/NLD"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/DEU"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SPA"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/FRA"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/ENG"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/ELL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/ITA"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MDRCountryCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/country/BEL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/country/DEU"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/country/ESP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/country/FRA"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/country/GBR"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/country/GRC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/country/ITA"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NutsCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/esco/nuts/BE"/>
+			<xs:enumeration value="http://data.europa.eu/esco/nuts/ES"/>
+			<xs:enumeration value="http://data.europa.eu/esco/nuts/DE"/>
+			<xs:enumeration value="http://data.europa.eu/esco/nuts/FR"/>
+			<xs:enumeration value="http://data.europa.eu/esco/nuts/IT"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
