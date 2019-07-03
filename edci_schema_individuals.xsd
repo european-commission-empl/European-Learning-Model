@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- xsd version '0.1.0-draft' of edci model version '0.2.0' -->
-<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.2.0-xsd-0.1.0-draft">
+<!-- xsd version '0.1.0' of edci model version '0.2.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.1.0">
 	<xs:simpleType name="SkillAlignmentTypeEnumType">
 		<xs:annotation>
 			<xs:documentation/>
@@ -32,6 +32,13 @@
 			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/workShop"/>
 			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/internship"/>
 			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/apprenticeship"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/selfmotivatedstudy"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/volunteering"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/jobexperience"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/classroom"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/lab"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/elearning"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/research"/>
 			<!-- todo -->
 		</xs:restriction>
 	</xs:simpleType>
@@ -42,6 +49,7 @@
 		<xs:restriction base="xs:anyURI">
 			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/writtenExamen"/>
 			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/oralExamen"/>
+			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/markedAssignment"/>
 			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/continuousEvaluation"/>
 			<!-- todo -->
 		</xs:restriction>

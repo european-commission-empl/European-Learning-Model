@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- xsd version '0.1.0-draft' of edci model version '0.2.0' -->
-<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.2.0-xsd-0.1.0-draft">
-	<xs:include schemaLocation="edci_schema_individuals_0.2.0-xsd-0.1.0-draft.xsd"/>
+<!-- xsd version '0.1.0' of edci model version '0.2.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.1.0">
+	<xs:include schemaLocation="edci_schema_individuals.xsd"/>
 	<xs:complexType name="LanguageStringType">
 		<xs:annotation>
 			<xs:documentation>A character string (i.e. a finite set of characters) in the form of words of a language.</xs:documentation>
