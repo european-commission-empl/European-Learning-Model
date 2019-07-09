@@ -1,7 +1,9 @@
 # EDCI-Data-Model
 Data Model for the Europass Digital Credentials Infrastructure
 
-<p> [Action 3 of the European Commission Digital Education Action Plan](https://ec.europa.eu/education/education-in-the-eu/european-education-area/digital-education-action-plan-action-3-digitally-signed-qualifications_en) proposes the integration of digitally signed qualifications into the new Europass.</p>
+<p>The European Commission is developing the Europass Digital Credentials Infrastructure (EDCI) – a set of tools, services and software to support the issuance of authentic, tamper-proof digital credentials (such as qualifications and other learning achievements) across Europe. The EDCI is being developed as part of ongoing work to implement the new Europass Framework for supporting transparency of skills and qualifications in Europe.</p>
+
+<p>As part of this work, the Commission has developed a draft data model for a learning credential. The draft data model is now available for consultation and will be open for consultation until the end of 2019.</p>
 
 <p>The following data model aims to capture the results of any non-formal, informal and formal learning across Europe. It is designed to provide a single format to describe certificates of attendance, examination results, degrees and diplomas, diploma supplements, professional certifications, employer recommendations and any other kind of claims that are related to learning.</p>
 
