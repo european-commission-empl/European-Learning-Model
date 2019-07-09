@@ -11,6 +11,8 @@ assignees: ''
 Provide the name of your organisation and a clear and concise description of its profile
 
 **Specify the *nature* of your comment**
+Choose labels from the right hand side to categorise your comment
+![Screenshot of EDCI Github labels](EDCI-Github-labels.png)
 Your comment could be:
 * general commentary on the whole data model
 * a question about the data model or a specific content item
