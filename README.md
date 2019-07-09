@@ -21,7 +21,7 @@ The namespaces and URIs provided in the model xsd files are currently placeholde
 <p>The data model will be put into production as part of the Europass portal in Q1 2020.</p>
 
 ## Further Information
-Additional documentation, explanations and walkthroughs are available from our JoinUp.
+ThAdditional documentation, explanations and walkthroughs are available from our [https://joinup.ec.europa.eu/solution/european-digital-credentials-infrastructure-data-model/release/020](JoinUp Solution).
 
 ## Providing Feedback
-Feedback on the data model is welcome either by submitting issues here in Github, or by sending them to the functional mailbox: EMPL-EUROPASS@ec.europa.eu.
+Feedback on the data model is welcome by submitting issues here in Github.
