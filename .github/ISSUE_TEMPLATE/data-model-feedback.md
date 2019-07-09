@@ -2,7 +2,7 @@
 name: Data Model feedback
 about: Follow this template to submit structured feedback on the EDCI data model
 title: "[DMF]"
-labels: ''
+labels: general
 assignees: ''
 
 ---
@@ -13,7 +13,7 @@ Provide the name of your organisation and a clear and concise description of its
 **Specify the *nature* of your comment**
 Your comment could be:
 * general commentary on the whole data model
-* a question about the data model or a specific content item (with reference)
+* a question about the data model or a specific content item
 * a suggested change or adjustment 
 * a suggested addition
 
