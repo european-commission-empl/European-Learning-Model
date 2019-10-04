@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.2.0' based on edci model version '0.3.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.2.0">
+	<xs:include schemaLocation="imported/edci_mdr_countries.xsd"/>
+	<xs:include schemaLocation="imported/edci_mdr_languages.xsd"/>
+	<xs:include schemaLocation="imported/edci_esco_nuts2016.xsd"/>
+	<xs:include schemaLocation="imported/edci_mdr_currency.xsd"/>
+	<xs:include schemaLocation="imported/edci_mdr_humansex.xsd"/>
+	<xs:include schemaLocation="imported/edci_esco_iscedf2013.xsd"/>
+	<xs:include schemaLocation="imported/edci_esco_eqf.xsd"/>
+	<xs:include schemaLocation="imported/edci_esco_individuals.xsd"/>
+	<xs:simpleType name="ActivityTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/educationalProgram"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/workShop"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/internship"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/apprenticeship"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/selfmotivatedstudy"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/volunteering"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/jobexperience"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/classroom"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/lab"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/elearning"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningActivityType/research"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningOpportunityTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/learningOpportunityType/educationalProgram"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningOpportunityType/programModule"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningOpportunityType/course"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningOpportunityType/class"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningOpportunityType/thesis"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningModeTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/modeOfLearningAndAssessment/online"/>
+			<xs:enumeration value="http://data.europa.eu/europass/modeOfLearningAndAssessment/presential"/>
+			<xs:enumeration value="http://data.europa.eu/europass/modeOfLearningAndAssessment/workbased"/>
+			<xs:enumeration value="http://data.europa.eu/europass/modeOfLearningAndAssessment/blended"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningScheduleTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/learningScheduleType/fullTime"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningScheduleType/partTimeIntensive"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningScheduleType/partTimeLight"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningSettingTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/learningSettingType/formal"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningSettingType/nonFormal"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TargetGroupCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/targetGroup/adults"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssessmentTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/writtenExamen"/>
+			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/oralExamen"/>
+			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/markedAssignment"/>
+			<xs:enumeration value="http://data.europa.eu/europass/assessmentType/continuousEvaluation"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IDVerificationMethodEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/methodOfSupervisionAndVerification/idVerification"/>
+			<xs:enumeration value="http://data.europa.eu/europass/methodOfSupervisionAndVerification/noIDVerification"/>
+			<xs:enumeration value="http://data.europa.eu/europass/methodOfSupervisionAndVerification/supervisedWithIDVerification"/>
+			<xs:enumeration value="http://data.europa.eu/europass/methodOfSupervisionAndVerification/unsupervisedWithIDVerification"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AccreditationTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/accreditationType/institutionalQualityAssurance"/>
+			<xs:enumeration value="http://data.europa.eu/europass/accreditationType/institutionalLicense"/>
+			<xs:enumeration value="http://data.europa.eu/europass/accreditationType/programQualityAssurance"/>
+			<xs:enumeration value="http://data.europa.eu/europass/accreditationType/programLicense"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CommunicationChannelEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/phone"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/mobilephone"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/email"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/fax"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/web"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/post"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CommunicationChannelUseEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelUsage/personal"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelUsage/business"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelUsage/mobile"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MediaTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/png"/>
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/jpeg"/>
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/gif"/>
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/application/pdf"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ImageMediaTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="MediaTypeEnumType">
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/png"/>
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/jpeg"/>
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/gif"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContentEncodingEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/mediaContentEncoding/base64"/>
+		</xs:restriction>
+		<!-- todo -->
+	</xs:simpleType>
+	<xs:simpleType name="CreditPointSystemEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/educationalCreditPointSystem/ects"/>
+			<xs:enumeration value="http://data.europa.eu/europass/educationalCreditPointSystem/ecvet"/>
+		</xs:restriction>
+		<!-- todo -->
+	</xs:simpleType>
+	<xs:simpleType name="ECTSCreditPointSystemEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="CreditPointSystemEnumType">
+			<xs:enumeration value="http://data.europa.eu/europass/educationalCreditPointSystem/ects"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SkillAlignmentTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/closeMatch"/>
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/exactMatch"/>
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/broaderMatch"/>
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/narrowerMatch"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CurrencyEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:union memberTypes="MDRCurrencyEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="GenderEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:union memberTypes="MDRHumanSexEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="LocationCodeContentType">
+		<xs:union memberTypes="MDRCountryCodeEnumType NutsCodeEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="CountryCodeContentType">
+		<xs:union memberTypes="MDRCountryCodeEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="TextContentTypeCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="text/html"/>
+			<xs:enumeration value="text/plain"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LanguageEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:union memberTypes="MDRLanguageCodeEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="LanguageCharCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:language">
+			<xs:enumeration value="bg"/>
+			<xs:enumeration value="cs"/>
+			<xs:enumeration value="da"/>
+			<xs:enumeration value="de"/>
+			<xs:enumeration value="el"/>
+			<xs:enumeration value="en"/>
+			<xs:enumeration value="es"/>
+			<xs:enumeration value="et"/>
+			<xs:enumeration value="fi"/>
+			<xs:enumeration value="fr"/>
+			<xs:enumeration value="ga"/>
+			<xs:enumeration value="hr"/>
+			<xs:enumeration value="hu"/>
+			<xs:enumeration value="is"/>
+			<xs:enumeration value="it"/>
+			<xs:enumeration value="lt"/>
+			<xs:enumeration value="lv"/>
+			<xs:enumeration value="mt"/>
+			<xs:enumeration value="nl"/>
+			<xs:enumeration value="no"/>
+			<xs:enumeration value="pl"/>
+			<xs:enumeration value="pt"/>
+			<xs:enumeration value="ro"/>
+			<xs:enumeration value="sk"/>
+			<xs:enumeration value="sl"/>
+			<xs:enumeration value="sv"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
