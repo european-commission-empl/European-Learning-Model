@@ -12,7 +12,7 @@ The EDCI Data Model is an extension of the [W3C Verifiable Credentials Data Mode
 
 ## Development Plan
 * The current version of the data model provides a basic structure of claims, which are divided into activities, assessments and achievements.
-* v0.3.0: will model Learning Opportunities and authorisation of NQF Qualifications. It will also link these concepts to the Common Information Model.
+* v0.3.0: will model Learning Opportunities and authorisation of NQF Qualifications.
 * v0.4.0: will incorporate the Europass Supplements
 * v0.5.0: will describe credential revocation, as well as detailed display properties.
 
