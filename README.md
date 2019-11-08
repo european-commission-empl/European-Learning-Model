@@ -11,9 +11,11 @@ Data Model for the Europass Digital Credentials Infrastructure
 The EDCI Data Model is an extension of the [W3C Verifiable Credentials Data Model](https://github.com/w3c/vc-data-model) expressed as XML/XSD, for the purposes of providing a standardised format of describing learning within the European Union and European Economic Area.
 
 ## Development Plan
-* The current version of the data model provides a basic structure of claims, which are divided into activities, assessments and achievements.
-* v0.3.0: will model Learning Opportunities and authorisation of NQF Qualifications.
-* v0.4.0: will incorporate the Europass Supplements
+* The current version of the data model provides description of concepts including:
+** definition of activities, assessments and achievements as base units for describing learning
+** definition of the Europass extension of a W3C Verifiable Credential
+** definition of a Europass learning opportunity
+** definition of accreditation concepts
 * v0.5.0: will describe credential revocation, as well as detailed display properties.
 
 The namespaces and URIs provided in the model xsd files are currently placeholders, and will change on final release.
@@ -21,7 +23,7 @@ The namespaces and URIs provided in the model xsd files are currently placeholde
 <p>The data model will be put into production as part of the Europass portal in Q1 2020.</p>
 
 ## Further Information
-Additional documentation, explanations and walkthroughs are available from our [JoinUp solution page](https://joinup.ec.europa.eu/solution/european-digital-credentials-infrastructure-data-model/release/020).
+Additional documentation, explanations and walkthroughs are available from our [JoinUp solution page](https://joinup.ec.europa.eu/solution/european-digital-credentials-infrastructure-data-model/release/040).
 
 ## Providing Feedback
 Feedback on the data model is welcome by submitting issues here in Github.
