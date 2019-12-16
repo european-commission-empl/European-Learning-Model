@@ -24,6 +24,7 @@
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/LAV"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/MLT"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/NLD"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/NOR"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/POL"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/POR"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/RON"/>
