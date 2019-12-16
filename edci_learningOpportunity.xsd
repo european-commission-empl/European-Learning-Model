@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2019 rel. 3 sp1 (http://www.altova.com) by Pieter Fannes (Cognizone bvba) -->
-<!-- xsd version '0.3.0' based on edci model version '0.3.0' -->
-<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.3.0">
+<!-- xsd version '0.4.0' based on edci model version '0.5.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.4.0">
 	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
 	<xs:include schemaLocation="edci_commonTypes.xsd"/>
+	<xs:include schemaLocation="edci_associationobject.xsd"/>
 	<xs:complexType name="LearningOpportunityType">
 		<xs:annotation>
 			<xs:documentation>An opportunity to learn. An opportunity to realize a given set of learning outcomes via a learning activity and/or assessment. For example a training, a degree programme or a course, provided by a given institution at a given time, to obtain a certain learning award such as a qualification, this is a learning opportunity.
@@ -40,19 +40,39 @@ A 'learning opportunity' is the opportunity for an individual to do a set of 'le
 					<xs:documentation>The homepage (a public web document) of the learning opportunity. There can be only one learning opportunity that has a particular homepage.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+			<!-- removed in edci 0.5.0 -->
+			<!--xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A web page that can be navigated to in a web browser to gain access to the learning opportunity and/or additional information. A learning opportunity might not have a homepage but instead a landing page.</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element-->
 			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A public web document containing additional documentation about the learning opportunity. It can be any document containing further information about the learning opportunity. The document can be a web page that can be navigated or a downloadable file.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="period" type="PeriodOfTimeType" minOccurs="0">
+			<!-- removed in edci 0.5.0 -->
+			<!--xs:element name="period" type="PeriodOfTimeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The time period in which the learning opportunity will take place. (e.g. to specify start- and end date or to specify the academic term)</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+			<!-- new in edci 0.5.0 -->
+			<xs:element name="startedAtDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The start date when the learning opportunity will take place.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- new in edci 0.5.0 -->
+			<xs:element name="endedAtDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The end date until when the learning opportunity will take or took place.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- new in edci 0.5.0 -->
+			<xs:element name="duration" type="xs:duration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The nominal duration of the learning opportunity. The duration for which the learning opportunity will continue to be offered.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="learningSchedule" type="LearningScheduleTypeType" minOccurs="0" maxOccurs="1">
@@ -87,7 +107,7 @@ A 'learning opportunity' is the opportunity for an individual to do a set of 'le
 			</xs:element>
 			<xs:element name="specifiedBy" type="IdReferenceType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The specification, including the curricula, of a learning opportunity. A LearningOpportunitySpecification specifies the curricula of a learning opportunity: 1) What a learner will learn, the expected learning outcomes (LearningSpecification or Qualification). 2) What a learner will do to learn (LearningActivitySpecification). 3) How the expected learning outcomes will be proofed (AssessmentSpecification). Additionaly the LearningOpportunitySpecification includes some properties describing the learning opportunities for which this specification is designed. It MUST refer to an existing 'learningOpportunitySpecification'-record in the 'learningOpportunitySpecificationReferences'-section of the xml document.</xs:documentation>
+					<xs:documentation>The learning specification, including the curricula,  of this learning opportunity. It MUST refer to an existing 'learningSpecification'- or 'quailification'- record in the 'learningSpecificationReferences'-section of the xml document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
@@ -109,21 +129,16 @@ A 'learning opportunity' is the opportunity for an individual to do a set of 'le
 					<xs:documentation>An alternative identifier of the specification.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="title" type="LanguageStringType" maxOccurs="unbounded">
+			<xs:element name="title" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The title of the specification. Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="altLabel" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>An alternative name of the assessment specification.</xs:documentation>
+					<xs:documentation>An alternative name of the specification.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!--xs:element name="definition" type="NoteType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Short and abstract description about the learning specification. Maximum one value per language is allowed.</xs:documentation>
-				</xs:annotation>
-			</xs:element-->
 			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A free text description of the specification. Maximum one value per language is allowed.</xs:documentation>
@@ -139,11 +154,12 @@ A 'learning opportunity' is the opportunity for an individual to do a set of 'le
 					<xs:documentation>The homepage (a public web document) of the specification. There can be only one specification that has a particular homepage.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+			<!-- removed in edci 0.5.0 -->
+			<!--xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A web page that can be navigated to in a web browser to gain access to the specification and/or additional information. A specification might not have a homepage but instead a landing page.</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element-->
 			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A public web document containing additional documentation about the specification. It can be any document containing further information about the specification. The document can be a web page that can be navigated or a downloadable file.</xs:documentation>
@@ -151,83 +167,6 @@ A 'learning opportunity' is the opportunity for an individual to do a set of 'le
 			</xs:element>
 		</xs:sequence>
 	</xs:group>
-	<xs:complexType name="LearningOpportunitySpecificationType">
-		<xs:annotation>
-			<xs:documentation>The specification, including the curricula, of a learning opportunity. A LearningOpportunitySpecification specifies the curricula of a learning opportunity: 1) What a learner will learn, the expected learning outcomes (LearningSpecification or Qualification). 2) What a learner will do to learn (LearningActivitySpecification). 3) How the expected learning outcomes will be proofed (AssessmentSpecification). Additionaly the LearningOpportunitySpecification includes some properties describing the learning opportunities for which this specification is designed.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:group ref="CommonSpecificationElements"/>
-			<xs:element name="type" type="LearningOpportunityTypeType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The type of learning opportunity. The form(at) or type of learning opportunity for which this learning opportunity specification (curricula) is designed. It needs to have some pedalogical relevance or some logical relevance in the structure of the curricula. In case of a tree of learning opportunities (cfr hasPart poperty), make sure that the proper structure is followed. All types can be put on the top level but the type of the descendant nodes is limited by the types of their ancestors. e.g. 'Degree programme' > 'Module' > 'Course' > 'Class'</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="language" type="LanguageCodeType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The instruction and/or assessment language(s) used.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="mode" type="LearningModeType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The mode of learning and or assessment (i.e. online, blended, presential, work based)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="learningSettingType" type="LearningSettingTypeType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The type of learning setting (i.e. formal learning, non-formal learning).</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="duration" type="xs:duration" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The maximum duration of a learning opportunity for which this specification is designed. The maximum duration a learning opportunity that implements this specification should take.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="targetGroup" type="TargetGroupCodeType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The maximum duration of a learning opportunity for which this specification is designed. The maximum duration a learning opportunity that implements this specification should take.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="entryRequirementsNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Specific entry requirements or prerequisites of individuals for which this specification is designed. Maximum one value per language is allowed.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="learningSpecification" type="IdReferenceType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>What will or can be learned. The expected learning outcomes. This is given by a LearningSpecification (e.g. a qualification). The LearningSpecification specifies the learning outcomes and credit points (ects) that individuals might acquire. It MUST refer to an existing record in the 'learningSpecificationReferences-section of this credential.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="learningActivitySpecification" type="IdReferenceType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>What will or can an individual do to acquire the expected learning outcomes. The learning activities. It MUST refer to an existing record in the 'learningActivitySpecificationReferences-section of this credential.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="assessmentSpecification" type="IdReferenceType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>How will a learner be assessed to proof the (expected) learning outcomes. The assessments. It MUST refer to an existing record in the 'assessmentSpecificationReferences-section of this credential.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-					A learning opportunity specification can be composed of other "narrower" learning opportunity specifications.
-To specify the full curricula of opportunities ,implementing this specification, as a tree structure a LearningOpportunitySpecification can be decomposed into other LearningOpportunitySpecification components. Each LearningOpportunitySpecification-component specifies another (internal) sub- or child learning opportunity with its own curricula (expexted learning outcomes, learning activties, assessment specifications,...). For example,a degree programme might be represented by a tree of nodes such as a modules, a course, a class. It MUST refer to an existing record in the 'learningOpportunitySpecificationReferences'-section of this credential.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>
-					A learning opportunity specification (e.g. a standard) of which this specification is a specialization. 
-An opportunity can have its own specific curricula,  based on or in addition to a given standard. In this case the LearningOpportunitySpecification of the opportunity is a specialization of another LearningOpportunitySpecification which is a standard. It MUST refer to an existing record in the 'learningOpportunitySpecificationReferences'-section of this credential.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="id" type="IdType" use="required">
-			<xs:annotation>
-				<xs:documentation>A portable identifier of the learning opportunity specification. (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this learning opportunity specification from other places within the credential document.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
 	<xs:complexType name="LearningActivitySpecificationType">
 		<xs:annotation>
 			<xs:documentation>A LearningActivitySpecification is a specification of a process which leads to the acquisition of knowdledge, skills or responsibilty and autonomy.</xs:documentation>
@@ -266,7 +205,7 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					An assessment specification (a "package") can be part of another "broader" assessment specification. It MUST refer to an existing record in the 'learningActivitySpecificationReferences'-section of this credential.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0">
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 					An activity specification can be a specialization of another activity specification. It MUST refer to an existing record in the 'learningActivitySpecificationReferences'-section of this credential.</xs:documentation>
@@ -300,16 +239,23 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>The mode of learning and or assessment (i.e. online, blended, presential, work based)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="proofs" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-					Which learning outcomes are or have been prooved. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="gradingScheme" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 					Used grading scheme. It MUST refer to an existing record in the 'scoringSchemeReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="idref" type="xs:normalizedString" use="required">
+						<xs:annotation>
+							<xs:documentation>The id of the referenced entity (record).</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="proves" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					Which learning outcomes are or have been prooved. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
@@ -318,7 +264,7 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					An assessment specification (a "package") can be part of another "broader" assessment specification. It MUST refer to an existing record in the 'assessmentSpecificationReferences'-section of this credential.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0">
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 					An assessment specification (a "package") can be a specialization of another assessment specification. It MUST refer to an existing record in the 'assessmentSpecificationReferences'-section of this credential.</xs:documentation>
@@ -335,7 +281,13 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 	<xs:group name="LearningSpecificationElements">
 		<xs:sequence>
 			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="title" type="LanguageStringType" maxOccurs="unbounded">
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="type" type="LearningOpportunityTypeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The type of learning opportunity. The form(at) or type of learning opportunity for which this learning specification (curricula) is designed. It needs to have some pedalogical relevance or some logical relevance in the structure of the curricula of the learning specification. In case of a tree of learning opportunities (cfr hasPart poperty), make sure that the proper structure is followed. All types can be put on the top level but the type of the descendant nodes is limited by the types of their ancestors. e.g. 'Degree programme' > 'Module' > 'Course' > 'Class'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="title" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The exact and official title of the learning specification. Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
@@ -346,11 +298,12 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>Short and abstract description about the learning specification. Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!--xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+			<!-- added in xsd 0.4.0 -->
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The full learning outcome description of the learning specification. Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
-			</xs:element-->
+			</xs:element>
 			<xs:element name="additionalNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>An additional free text note containing any further information about a learning specification.</xs:documentation>
@@ -361,19 +314,15 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>The homepage (a public web document) of the learning specification. There can be only one learning specification that has a particular homepage.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+			<!-- removed in edci 0.5.0 -->
+			<!--xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A web page that can be navigated to in a web browser to gain access to the learning specification and/or additional information. A learning specification might not have a homepage but instead a landing page.</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element-->
 			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A public web document containing additional documentation about the learning specification, such as a diploma or certificate supplement. It can be any document containing further information about the learning specification. The document can be a web page that can be navigated or a downloadable file.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="volumeOfLearning" type="xs:duration" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>An indication of how many hours of learning efforts are needed, i.e. notional learning hours.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasISCED-FCode" type="IscedFOetCodeType" minOccurs="0" maxOccurs="unbounded">
@@ -381,9 +330,14 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>The ISCED  FoET 2013 classification code. It indicates the thematic area of the learning specification.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="hasEducationSubject" type="EducationSubjectAssociationType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="hasEducationSubject" type="EducationSubjectAssociationSimpleType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>An associated field of education from another semantic framework than the ISCED classification.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="volumeOfLearning" type="xs:duration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>An indication of how many hours of learning efforts are needed, i.e. notional learning hours.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hasECTSCreditPoints" type="ECTSCreditPointsType" minOccurs="0">
@@ -396,9 +350,45 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>The credit points assigned to the learning specification, following a given credit system other than ECTS.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="hasEducationLevel" type="EducationLevelAssociationType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="hasEducationLevel" type="EducationLevelAssociationSimpleType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>An associated level of education within a semantic framework describing education levels.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="language" type="LanguageCodeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The instruction and/or assessment language(s) used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="mode" type="LearningModeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The mode of learning and or assessment (i.e. online, blended, presential, work based)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="learningSettingType" type="LearningSettingTypeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The type of learning setting (i.e. formal learning, non-formal learning).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="duration" type="xs:duration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The maximum duration of a learning opportunity for which this specification is designed. The maximum duration a learning opportunity that implements this specification should take.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="targetGroup" type="TargetGroupCodeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A specific target group or category for which this specification is designed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="entryRequirementsNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Specific entry requirements or prerequisites of individuals for which this specification is designed. Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="learningOutcomes" minOccurs="0">
@@ -411,6 +401,21 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="learningActivitySpecification" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>What will or can an individual do to acquire the expected learning outcomes. The learning activities. It MUST refer to an existing record in the 'learningActivitySpecificationReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="assessmentSpecification" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>How will a learner be assessed to proof the (expected) learning outcomes. The assessments. It MUST refer to an existing record in the 'assessmentSpecificationReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="entitlementSpecification" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A specification of an entitlement to which this LearningSpecification may give rise to. A specification of a right this LearningSpecification may give access to. It MUST refer to an existing record in the 'entitlementSpecificationReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="awardingOpportunities" minOccurs="0">
 				<xs:complexType>
@@ -433,11 +438,17 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 			<xs:group ref="LearningSpecificationElements"/>
 			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>
-					A learning specification (a "package") can be part of another "broader" learning specification. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
+					<xs:documentation>A learning specification can be composed of other "narrower" learning specifications. To specify the full curricula as a tree structure a LearningSpecification can be decomposed into other LearningSpecification components in which each component `has its own curricula (learning outcomes and credit points,  learning activties, ,...). For example,a degree programme might be represented by a tree of nodes such as a modules, a course, a class. In theory the depth of such a tree is unlimited. Each level has an OPTIONAL type, and these types (if given) SHOULD follow a logical structure - in order of their depth. For example it is valid to include a 'Course' with a 'Degree programme' parent, but it would be invalid to include them the other way around.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!-- xs:element name="specializationOf" type="xs:anyURI" minOccurs="0"/-->
+			<!-- enabled in xsd 0.4.0 -->
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					A learning specification (e.g. a standard) of which this specification is a specialization. 
+An opportunity can have its own specific curricula,  based on or in addition to a given standard. In this case the LearningSpecification of the opportunity is a specialization of another LearningSpecification which is a standard. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="IdType" use="required">
 			<xs:annotation>
@@ -461,7 +472,7 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>The qualification level as specified by the European Qualification Framework.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="nqfLevel" type="QFLevelAssociationType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="nqfLevel" type="QFLevelAssociationSimpleType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A qualification can be part of a national qualification framework (NQF Qualification) which can be specified by the NQF level. This the qualification level as specified by a National Qualifications Framework.</xs:documentation>
 				</xs:annotation>
@@ -471,6 +482,12 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>The accreditation (i.e. quality assurance) of a qualification. It MUST refer to an existing 'accreditation'-record in the 'accreditationReferences'-section.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<!-- how do we name this field and what do we expect as value? -->
+			<xs:element name="qualificationCode" type="QualificationAssociationSimpleType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An identifying code from a qualification based reference semantic asset. This property is used to classify the qualification information with a qualification from a known qualification framework. (e.g. the link to the accredidated NQF qualification)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
@@ -478,7 +495,14 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<!-- todo qualification code, how do we name this field and what do we expect as value? -->
+			<!-- enabled in xsd 0.4.0 -->
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+					A learning specification (e.g. a standard) of which this specification is a specialization. 
+An opportunity can have its own specific curricula,  based on or in addition to a given standard. In this case the LearningSpecification of the opportunity is a specialization of another LearningSpecification which is a standard. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="IdType" use="required">
 			<xs:annotation>
@@ -502,17 +526,17 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>A free text describing the learning outcome. Maximum cardinality of one per language.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="learningOutcomeType" type="LearningOutcomeTypeType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="learningOutcomeType" type="LearningOutcomeTypeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The learning outcome type (i.e. knowledge, skill, ...).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="reusabilityLevel" type="ReusabilityLevelType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="reusabilityLevel" type="ReusabilityLevelType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The reusability level.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relatedEscoSkill" type="EscoSkillAssociationType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="relatedEscoSkill" type="EscoSkillAssociationSimpleType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A link/alignment to an ESCO Skill.</xs:documentation>
 				</xs:annotation>
@@ -539,135 +563,82 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>The location where the awarding activities take/took place (country/region where the qualification is awarded)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="period" type="PeriodOfTimeType" minOccurs="0">
+			<!-- replaced by start and end date fields in edci 0.5.0 -->
+			<!--xs:element name="period" type="PeriodOfTimeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The period when the awarding activities take/took place (now or in the past). If not specified it is undefined (“not known”)</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="EscoSkillAssociationType">
-		<xs:annotation>
-			<xs:documentation>Represents an alignment object to an existing ESCO Skill.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="type" type="SkillAlignmentTypeType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element-->
+			<xs:element name="startedAtTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A concept indicating the semantics of the relation.</xs:documentation>
+					<xs:documentation>The date since when the awarding activities take place. If not specified it is undefined (“not known”)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="description" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="endedAtTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A free text describing the semantics of the relation.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="target" type="xs:anyURI">
-				<xs:annotation>
-					<xs:documentation>The URI identifier of the related ESCO skill.</xs:documentation>
+					<xs:documentation>The date until when the awarding activities take/took place</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="EducationLevelAssociationType">
+	<xs:complexType name="EntitlementSpecificationType">
 		<xs:annotation>
-			<xs:documentation>Represents an association of a learning specification to an education level according a certain framework or system describing education levels.</xs:documentation>
+			<xs:documentation>The specification of a right a person has access to, typically as a result of a learning achievement. A specification may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career. An entitlment may be prospective, i.e. awarding the right to apply for the entitlement, or actual, i.e. granting the entitlement</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="targetFramework" type="IdReferenceType">
+			<xs:group ref="CommonSpecificationElements"/>
+			<xs:element name="type" type="EntitlementTypeType">
 				<xs:annotation>
-					<xs:documentation>The framework or system used to describe education levels. It MUST refer to an existing 'framework'-record in the frameworkReferences-section of this credential.</xs:documentation>
+					<xs:documentation>The type of entitlement. A concept indicating the type of entitlement.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="targetNotation" type="xs:token" minOccurs="0">
+			<xs:element name="status" type="EntitlementStatusType">
 				<xs:annotation>
-					<xs:documentation>A notation or code of the associated edcuation level in the targeted framework.</xs:documentation>
+					<xs:documentation>The status of the entitlement. A concept indicating the status of the entitlement. Whether the entitlement is  prospective, i.e. awarding the right to apply for the entitlement; or actual, i.e. granting the entitlement</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="targetName" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="limitOrganization" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A name or label of the associated education level in the targeted framework.</xs:documentation>
+					<xs:documentation>It MUST refer to an existing 'organization'-record in the 'agentReferences'-section.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="limitJurisdiction" type="LocationCodeType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A free-text description of the associated education level in the targeted framework.</xs:documentation>
+					<xs:documentation>The jurisdiction for which the entitlement is valid.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="QFLevelAssociationType">
-		<xs:annotation>
-			<xs:documentation>Represents an association of a qualification to a qualification framework level in a given qualification framework.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="targetFramework" type="QualificationFrameworkType">
+			<xs:element name="limitOccupation" type="EscoOccupationAssociationSimpleType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The national qualification framework.</xs:documentation>
+					<xs:documentation>A link to an ESCO Occupcation or Occupational Category..</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="targetNotation" type="xs:token">
+			<xs:element name="limitNationalOccupation" type="OccupationAssociationSimpleType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The qualification framework level within the national framework.</xs:documentation>
+					<xs:documentation>A link to a National Occupation.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="EducationSubjectAssociationType">
-		<xs:annotation>
-			<xs:documentation>Represents an association of a learning specification to a field or subject of education according a certain framework or system describing fields of education.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="targetFramework" type="IdReferenceType">
+			<xs:element name="mayResultFrom" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The framework or system used to describe fields of education. It MUST refer to an existing 'framework'-record in the frameworkReferences-section of this credential.</xs:documentation>
+					<xs:documentation>
+					A LearningSpecification that may give rise to an entitlement with this specification. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="targetNotation" type="xs:token" minOccurs="0">
+			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A notation or code of the associated field of education in the targeted framework.</xs:documentation>
+					<xs:documentation>
+					A sub specification. An entitlement specification can be part of another "broader" entitlement specification. It MUST refer to an existing record in the 'entitlementSpecificationReferences'-section of this credential.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="targetName" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A name or label of the associated field of education in the targeted framework.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>A free-text description of the associated field of education in the targeted framework.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="SemanticFrameworkType">
-		<xs:annotation>
-			<xs:documentation>The details about a semantic framework or system. Used to describe other semantic frameworks to which resources in EDCI can be associated, tagged or aligned with</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>An alternative identifier of the semantic framework or system.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="title" type="LanguageStringType" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Maximum one value per language is allowed.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>A free text describing the semantic framework. Maximum one value per language is allowed.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>A public web document containing additional documentation about the semantic framework. It can be any document containing further information about the the semantic framework. The document can be a web page that can be navigated or a downloadable file</xs:documentation>
+					<xs:documentation>
+					An entitlement specification can be a specialization of another entitlement specification. It MUST refer to an existing record in the 'entitlementSpecificationReferences'-section of this credential.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="IdType" use="required">
 			<xs:annotation>
-				<xs:documentation>A portable identifier of the the semantic framework (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this semantic framework from other places within the credential document.</xs:documentation>
+				<xs:documentation>A portable identifier of the entitlement specification. (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this entitlement specification from other places within the credential document.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>

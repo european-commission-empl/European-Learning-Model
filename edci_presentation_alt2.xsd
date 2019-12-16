@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- xsd version '0.4.0' based on edci model version '0.5.0' -->
-<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.4.0">
+<!-- xsd version '0.3.0' based on edci model version '0.3.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.3.0">
 	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
 	<xs:element name="verifiablePresentation" type="VerifiablePresentationType">
 		<xs:annotation>
-			<xs:documentation>A verifiable presentation of a set of credentials.</xs:documentation>
+			<xs:documentation>A verifiable presentation of a set of europass credentials.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="VerifiablePresentationType">
@@ -41,26 +41,26 @@
 			<xs:documentation>Container element that records all the verifiable credentials that are presented in this presentation.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="verifiableCredential" type="VerifiableCredentialDefinedAsAnyType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="verifiableCredential" type="VerifiableCredentialDefinedAsEncodedStringType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Element that can contains any xml credential of any type and structure. It will not be validated by this schema.</xs:documentation>
+					<xs:documentation>An original credential document encoded using Base64. The actual (encoded) binary data (the actual bytes) of the xml document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="VerifiableCredentialDefinedAsAnyType">
+	<xs:complexType name="VerifiableCredentialDefinedAsEncodedStringType">
 		<xs:annotation>
-			<xs:documentation>Can contain any wellformed xml structure. Any wellformed xml content model can be included. It will not be validated by this schema. The xml header of the original credential xml document must be encoded (i.e. <![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]>) </xs:documentation>
+			<xs:documentation>An original credential document encoded using Base64. The actual (encoded) binary data (the actual bytes) of the xml document. The original credential xml document can be extracted and validated against its own xsd schema.</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="xs:anyType">
+		<xs:simpleContent>
+			<xs:extension base="xs:base64Binary">
 				<xs:attribute name="id" type="xs:ID" use="required">
 					<xs:annotation>
 						<xs:documentation>Random and unique id within the scope of this document. Can be used to link to this verifiableCredential record from other places in the presentation document</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
-		</xs:complexContent>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="VerificationType">
 		<xs:sequence>

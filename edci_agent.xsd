@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- xsd version '0.3.0' based on edci model version '0.3.0' -->
-<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.3.0">
+<!-- xsd version '0.4.0' based on edci model version '0.5.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.4.0">
 	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
 	<xs:include schemaLocation="edci_commonTypes.xsd"/>
 	<xs:include schemaLocation="edci_contact.xsd"/>
@@ -12,6 +12,11 @@
 			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A formally-issued Identifier for the Agent.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="EscoOrganizationTypeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The type of agent.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="prefLabel" type="LanguageStringType" maxOccurs="unbounded">
@@ -29,12 +34,12 @@
 					<xs:documentation>An additional free text note about the agent.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="hasAddress" type="AddressType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="hasLocation" type="LocationType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>An Address related to an Agent. Asserting the address relationship implies that the Agent has an Address.</xs:documentation>
+					<xs:documentation>A location related to an Agent. (e.g. a person's home or residence location, a person's work place location, site location of an organisation,….)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="communication" type="CommunicationChannelType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="contactPoint" type="ContactPointType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The contact information of an agent. This property links to any "channel" through which the agent can be contacted. It is a means of contacting the agent.  It gives the details of how to contact the agent and is repeatable for each type of contact method.</xs:documentation>
 				</xs:annotation>
@@ -83,21 +88,26 @@
 					<xs:documentation>The country that has conferred citizenship rights on the person. The Country which has issued Citizenship status to an individual either by birth or by application process. The citizenship rights include rights such as the right to vote, to receive certain protection from the community or the issuance of a passport. Multiple citizenships are recorded as multiple instances of the Citizenship relationship. Citizenship is information needed by many cross-border use cases and is a legal status as opposed to the more culturally-focussed and less well-defined term "nationality".</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="homepage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+			<!--xs:element name="homepage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A homepage about the person.</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<!--xs:element name="hasAddress" type="AddressType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>An Address related to the person. Asserting the address relationship implies that the Person has an Address.</xs:documentation>
-				</xs:annotation>
 			</xs:element-->
-			<xs:element name="communication" type="CommunicationChannelType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="hasLocation" type="LocationType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A location related to an Agent. (e.g. a person's home or residence location, a person's work place location)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactPoint" type="ContactPointType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The contact information of the person. This property links to any "channel" through which the person can be contacted. It is a means of contacting the person.  It gives the details of how to contact the person and is repeatable for each type of contact method.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<!--xs:element name="memberOf" type="IdReferenceType">
+				<xs:annotation>
+					<xs:documentation>Indicates that an agent (person or other organization) is a member of an Organization with no indication of the nature of that membership or the role played. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section within the xml document.</xs:documentation>
+			</xs:annotation>
+			</xs:element-->
 		</xs:sequence>
 		<xs:attribute name="id" type="IdType" use="required">
 			<xs:annotation>
@@ -126,6 +136,11 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="type" type="EscoOrganizationTypeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The type of agent (i.e. the ESCO organization category).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="prefLabel" type="LanguageStringType" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The primary name of the organization (e.g. legally recognized name). The name by which to refer to an organisation. In case of a registered organisation this is the legal name of the organization. Maximum one value per language is allowed.</xs:documentation>
@@ -146,17 +161,17 @@
 					<xs:documentation>An additional free text note containing any further information about a organization.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="spatial" type="LocationCodeType" minOccurs="0">
+			<!--xs:element name="spatial" type="LocationCodeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The location of the main site of the organization. The country or region where the main site of the organization is located. The country or region of formation.</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element name="hasAddress" type="AddressType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element-->
+			<xs:element name="hasLocation" type="SpatialCodeLocationType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>An Address related to the organization. Asserting the address relationship implies that the organization has an Address.</xs:documentation>
+					<xs:documentation>The legally registered site of the organisation. The country or region and eventually the address.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="communication" type="CommunicationChannelType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="contactPoint" type="ContactPointType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The contact information of the organization. This property links to any "channel" through which the organization can be contacted. It is a means of contacting the organization.  It gives the details of how to contact the organization and is repeatable for each type of contact method.</xs:documentation>
 				</xs:annotation>
@@ -166,6 +181,31 @@
 					<xs:documentation>The accreditation(s) (i.e the quality assurance or licensing) of an organization (i.e the issuer of the credential). It MUST refer to an existing 'accreditation'-record in the 'accreditationReferences'-section.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="hasUnit" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates a unit which is part of this Organization, e.g. a Department within a larger Organization. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section within the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="unitOf" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates an Organization of which this Unit is a part, e.g. a Department within a larger Organization. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section within the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="logo" type="ImageObjectType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The logo of the organization.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!--xs:element name="hasMember" type="IdReferenceType">
+				<xs:annotation>
+					<xs:documentation>Indicates an agent (person or other organization) who is a member of the Organization. It MUST refer to an existing record in the 'agentReferences'-section within the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="memberOf" type="IdReferenceType">
+				<xs:annotation>
+					<xs:documentation>Indicates that an agent (person or other organization) is a member of an Organization with no indication of the nature of that membership or the role played. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section within the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
 		</xs:sequence>
 		<xs:attribute name="id" type="IdType" use="required">
 			<xs:annotation>
