@@ -5,7 +5,7 @@ Data Model for the Europass Digital Credentials Infrastructure
 
 <p>As part of this work, the Commission has developed a draft data model for a learning credential. The draft data model is now available for consultation and will be open for consultation until the end of 2019.</p>
 
-<p>The following data model aims to capture the results of any non-formal, informal and formal learning across Europe. It is designed to provide a single format to describe certificates of attendance, examination results, degrees and diplomas, diploma supplements, professional certifications, employer recommendations and any other kind of claims that are related to learning.</p>
+<p>The following data model aims to capture the results of any non-formal and formal learning across Europe, as well as the validation of non-formal and informal learning. It is designed to provide a single format to describe certificates of attendance, examination results, degrees and diplomas, diploma supplements, professional certifications, employer recommendations and any other kind of claims that are related to learning.</p>
 
 ## Alignment with Other Standards
 <p>The EDCI Data Model is an extension of the [W3C Verifiable Credentials Data Model](https://github.com/w3c/vc-data-model) expressed as XML/XSD, for the purposes of providing a standardised format of describing learning within the European Union and European Economic Area.</p>
