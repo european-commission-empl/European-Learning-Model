@@ -28,3 +28,6 @@ Additional documentation, explanations and walkthroughs are available from our [
 
 ## Providing Feedback
 Feedback on the data model is welcome by submitting issues here in Github.
+
+## Credits
+This model is informed by research from the [MicroHE](https://microcredentials.eu) and [OEPASS](https://oepass.eu) projects, funded by the Erasmus+ Programme of the European Commission.  
