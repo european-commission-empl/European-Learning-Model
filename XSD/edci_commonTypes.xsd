@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- xsd version '0.4.0' based on edci model version '0.5.0' -->
-<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.4.0">
+<xs:schema elementFormDefault="qualified" targetNamespace="http://data.europa.eu/europass/model/credentials#" version="0.4.0" xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:ns1="http://uri.etsi.org/01903/v1.4.1#" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
+	<xs:import namespace="http://uri.etsi.org/01903/v1.4.1#" schemaLocation="imported/XAdES01903v141-201601.xsd"/>
 	<xs:complexType name="ScoringSchemeType">
 		<xs:annotation>
 			<xs:documentation>A scoring scheme. A numeric or text type of scoring methodology or convention. A grading system.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="title" type="LanguageStringType" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" name="title" type="LanguageStringType">
 				<xs:annotation>
 					<xs:documentation>Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="description" type="NoteType">
 				<xs:annotation>
 					<xs:documentation>A free text describing the scoring methodology or convention. Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="supplementaryDoc" type="DocumentType">
 				<xs:annotation>
 					<xs:documentation>A public web document containing additional documentation about the scoring/grading system. It can be any document containing further information about the scoring system. The document can be a web page that can be navigated or a downloadable file</xs:documentation>
 				</xs:annotation>
@@ -34,17 +35,17 @@
 			<xs:documentation>A public accessible web document.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="title" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="title" type="LanguageStringType">
 				<xs:annotation>
 					<xs:documentation>Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="language" type="LanguageCodeType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="language" type="LanguageCodeType">
 				<xs:annotation>
 					<xs:documentation>The language of the document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="subject" type="SubjectTypeCodeType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="subject" type="SubjectTypeCodeType">
 				<xs:annotation>
 					<xs:documentation>A subject or topic that is described in the document.</xs:documentation>
 				</xs:annotation>
@@ -72,7 +73,7 @@
 			</xs:element>
 			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A free tex describing the period of time. Maximum one value per language is allowed.</xs:documentation>
+					<xs:documentation>A free text describing the period of time. Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -82,23 +83,23 @@
 			<xs:documentation>An identifiable geographic place. A physical location.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="name" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="identifier" type="IdentifierType"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="name" type="LanguageStringType">
 				<xs:annotation>
 					<xs:documentation>A proper noun applied to a spatial object. The place name. A simple (string) label or name for a location. Only one value per language allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="description" type="NoteType">
 				<xs:annotation>
 					<xs:documentation>A free text describing the location. Only one value per language allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="hasAddress" type="AddressType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="hasAddress" type="AddressType">
 				<xs:annotation>
 					<xs:documentation>An address associated with the location.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="spatialCode" type="LocationCodeType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="spatialCode" type="LocationCodeType">
 				<xs:annotation>
 					<xs:documentation>A code (i.e. location or region) identifying a spatial scope in which this physical location is located</xs:documentation>
 				</xs:annotation>
@@ -112,23 +113,23 @@
 		<xs:complexContent>
 			<xs:restriction base="LocationType">
 				<xs:sequence>
-					<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="name" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="identifier" type="IdentifierType"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="name" type="LanguageStringType">
 						<xs:annotation>
 							<xs:documentation>A proper noun applied to a spatial object. The place name. A simple (string) label or name for a location. Only one value per language allowed.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="description" type="NoteType">
 						<xs:annotation>
 							<xs:documentation>A free text describing the location. Only one value per language allowed.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="hasAddress" type="AddressType" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="hasAddress" type="AddressType">
 						<xs:annotation>
 							<xs:documentation>An address associated with the location.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="spatialCode" type="LocationCodeType" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" name="spatialCode" type="LocationCodeType">
 						<xs:annotation>
 							<xs:documentation>A code (i.e. location or region) identifying a spatial scope in which this physical location is located</xs:documentation>
 						</xs:annotation>
@@ -139,20 +140,20 @@
 	</xs:complexType>
 	<xs:complexType name="AddressType">
 		<xs:annotation>
-			<xs:documentation>An adress. Properties specifying an entity’s physical location.</xs:documentation>
+			<xs:documentation>An address. Properties specifying an entity’s physical location.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="identifier" type="IdentifierType">
 				<xs:annotation>
 					<xs:documentation>An adress identifier.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fullAddress" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="fullAddress" type="NoteType">
 				<xs:annotation>
 					<xs:documentation>The complete address with or without formatting. Use of this property is recommended as it will not suffer any misunderstandings that might arise through the breaking up of an address into its component parts. Maximum one value per language is allowed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="country" type="CountryCodeType" minOccurs="0">
+			<xs:element minOccurs="0" name="country" type="CountryCodeType">
 				<xs:annotation>
 					<xs:documentation>The address country Code. The uppermost administrative unit for the address.</xs:documentation>
 				</xs:annotation>
@@ -164,22 +165,22 @@
 			<xs:documentation>A phone number.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="phoneNumber" type="xs:normalizedString" minOccurs="0">
+			<xs:element minOccurs="0" name="phoneNumber" type="xs:normalizedString">
 				<xs:annotation>
 					<xs:documentation>The full phone number as a string.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="countryDialing" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="countryDialing" type="xs:token">
 				<xs:annotation>
 					<xs:documentation>The country dialling code for a contact number. (e.g. “0032”, “0034”, etc.)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="areaDialing" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="areaDialing" type="xs:token">
 				<xs:annotation>
 					<xs:documentation>The area dialling code for a contact number.(e.g. “2”, “71, “93”, etc.)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="dialNumber" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="dialNumber" type="xs:token">
 				<xs:annotation>
 					<xs:documentation>The contact number, not including country dialling or area dialling codes. (e.g. “3445654”, “1234567”, etc.)</xs:documentation>
 				</xs:annotation>
@@ -233,12 +234,12 @@
 					<xs:documentation>The encoding used to encode the binary data contents of the media resource. MUST be Base64.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="contentSize" type="xs:integer" minOccurs="0">
+			<xs:element minOccurs="0" name="contentSize" type="xs:integer">
 				<xs:annotation>
 					<xs:documentation>The Content-Length indicates the size of the content, in bytes</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="contentUrl" type="xs:anyURI" minOccurs="0"/>
+			<xs:element minOccurs="0" name="contentUrl" type="xs:anyURI"/>
 			<xs:element name="content" type="xs:base64Binary">
 				<xs:annotation>
 					<xs:documentation>The binary data encoded using Base64. The actual (encoded) binary data in the media type specified by the mediatype property. The actual bytes of the media resource (e.g the image file).</xs:documentation>
@@ -268,12 +269,12 @@
 							<xs:documentation>The encoding used to encode the binary data contents of the image type resource. MUST be Base64.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="contentSize" type="xs:integer" minOccurs="0">
+					<xs:element minOccurs="0" name="contentSize" type="xs:integer">
 						<xs:annotation>
 							<xs:documentation>The Content-Length indicates the size of the content, in bytes</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="contentUrl" type="xs:anyURI" minOccurs="0"/>
+					<xs:element minOccurs="0" name="contentUrl" type="xs:anyURI"/>
 					<xs:element name="content" type="xs:base64Binary">
 						<xs:annotation>
 							<xs:documentation>The binary data encoded using Base64.</xs:documentation>
@@ -290,7 +291,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Attachment" type="MediaObjectType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Attachment" type="MediaObjectType">
 				<xs:annotation>
 					<xs:documentation>The attached document. Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Europass document to support/evidence of personal data, learning achievements, workexperiences, skills, competences, diplomas, etc.</xs:documentation>
 				</xs:annotation>
