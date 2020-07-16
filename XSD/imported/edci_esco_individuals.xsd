@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.7.0">
+	<xs:simpleType name="QualificationFrameworkEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/AT"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/BE2"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/BE3"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/BE4"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/BG"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/CH"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/CY"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/CZ"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/DE"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/DK"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/EE"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/EL"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/ES"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/FI"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/FR"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/HR"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/HU"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/IE"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/IS"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/IT"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/LI"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/LT"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/LU"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/LV"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/ME"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/MK"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/MT"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/NL"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/NO"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/PL"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/PT"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/RO"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/SE"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/SK"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/SI"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/TR"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/UK"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/UKM"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/UKL"/>
+			<xs:enumeration value="http://data.europa.eu/snb/concept-scheme/eqf"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qdr/QF/RS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SubjectTypeCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#accreditation-and-quality-assurance"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#assessment"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#awarding-activity"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#regulations-and-certificates"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#learning-outcomes"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#entry-requirements"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#labour-market-and-employment"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#contact-info"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#ways-to-acquire"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#history-and-lifecycle"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#labour-market-and-employment"/>
+			<xs:enumeration value="http://data.europa.eu/snb/qualification-topics#pathways"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EscoOrganizationTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/agent-type#academic-institution"/>
+			<xs:enumeration value="http://data.europa.eu/snb/agent-type#company"/>
+			<xs:enumeration value="http://data.europa.eu/snb/agent-type#government-agency"/>
+			<xs:enumeration value="http://data.europa.eu/snb/agent-type#regional-authority"/>
+			<xs:enumeration value="http://data.europa.eu/snb/agent-type#national-authority"/>
+			<xs:enumeration value="http://data.europa.eu/snb/agent-type#international-authority"/>
+			<xs:enumeration value="http://data.europa.eu/snb/agent-type#education-training-provider"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReusabilityLevelEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/skill-reuse-level/occupation-specific"/>
+			<xs:enumeration value="http://data.europa.eu/snb/skill-reuse-level/sector-specific"/>
+			<xs:enumeration value="http://data.europa.eu/snb/skill-reuse-level/transversal"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningOutcomeTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/skill-type/knowledge"/>
+			<xs:enumeration value="http://data.europa.eu/snb/skill-type/skill"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

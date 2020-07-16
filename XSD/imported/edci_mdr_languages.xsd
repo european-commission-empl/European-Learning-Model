@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.2.0">
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.7.0">
 	<xs:simpleType name="MDRLanguageCodeEnumType">
 		<xs:annotation>
 			<xs:documentation/>
@@ -24,12 +24,12 @@
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/LAV"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/MLT"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/NLD"/>
-			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/NOR"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/POL"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/POR"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/RON"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SLK"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SLV"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SRB"/>
 			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SWE"/>
 			<!-- todo -->
 		</xs:restriction>

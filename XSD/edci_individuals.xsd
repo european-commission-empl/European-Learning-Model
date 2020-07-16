@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- xsd version '0.4.0' based on edci model version '0.5.0' -->
-<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.4.0">
+<!-- xsd version '0.8.0' based on edci model version '0.7.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.8.0">
 	<xs:include schemaLocation="imported/edci_mdr_countries.xsd"/>
 	<xs:include schemaLocation="imported/edci_mdr_languages.xsd"/>
 	<xs:include schemaLocation="imported/edci_esco_nuts2016.xsd"/>
@@ -14,11 +14,9 @@
 			<xs:documentation/>
 		</xs:annotation>
 		<xs:restriction base="xs:anyURI">
-			<xs:enumeration value="http://data.europa.eu/europass/credentialType/learning"/>
+			<xs:enumeration value="http://data.europa.eu/europass/credentialType/generic"/>
 			<xs:enumeration value="http://data.europa.eu/europass/credentialType/qualification"/>
 			<xs:enumeration value="http://data.europa.eu/europass/credentialType/diplomaSupplement"/>
-			<xs:enumeration value="http://data.europa.eu/europass/credentialType/activity "/>
-			<xs:enumeration value="http://data.europa.eu/europass/credentialType/entitlement"/>
 			<!-- todo -->
 		</xs:restriction>
 	</xs:simpleType>
