@@ -13,11 +13,17 @@ Also the xml header from the original credential xml document cannot be included
 			<europassCredential xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xsi:schemaLocation="http://data.europa.eu/europass/model/credentials# edci_credential.xsd" id="urn:example:credential:b576d4a4-c669-458b-ba17-23bd3237e177" xsdVersion="0.4.0">
 				<issuanceDate>2016-08-16T11:13:35</issuanceDate>
 				<issuer idref="urn:example:organization:0001"/>
-				<title lang="en">KULeuven Credential Master in Geology</title>
+				<title>
+					<text content-type="text/plain" lang="en">KULeuven Credential Master in Geology</text>
+				</title>
 				<credentialSubject id="">
 					<nationalId schemeID="" schemeAgencyName="" spatialID="http://publications.europa.eu/resource/authority/country/BEL">86.02.20-409.89</nationalId>
-					<givenNames lang="nl">Pieter Herman</givenNames>
-					<familyName lang="nl">Fannes</familyName>
+					<givenNames>
+						<text content-type="text/plain" lang="nl">Pieter Herman</text>
+					</givenNames>
+					<familyName>
+						<text content-type="text/plain" lang="nl">Fannes</text>
+					</familyName>
 					<dateOfBirth>1986-02-20</dateOfBirth>
 				</credentialSubject>
 				<agentReferences>
@@ -25,8 +31,12 @@ Also the xml header from the original credential xml document cannot be included
 						<registration schemeID="http://data.europa.eu/idTypes/KBO" schemeAgencyName="Kruispuntbank van Ondernemingen" issuedDate="2000-10-01T00:00:00" spatialID="http://publications.europa.eu/resource/authority/country/BEL">0419.052.173</registration>
 						<vatIdentifier schemeID="http://data.europa.eu/idTypes/VatId" schemeAgencyName="Kruispuntbank van Ondernemingen" issuedDate="1992-02-25T00:00:00" spatialID="http://publications.europa.eu/resource/authority/country/BEL">BE0419.052.173</vatIdentifier>
 						<!--taxIdentifier schemeID="" schemeAgencyName="" spatial=""></taxIdentifier-->
-						<prefLabel lang="en">KU Leuven</prefLabel>
-						<altLabel lang="en">Katholieke Universiteit Leuven</altLabel>
+						<prefLabel>
+							<text content-type="text/plain" lang="en">KU Leuven</text>
+						</prefLabel>
+						<altLabel>
+							<text content-type="text/plain" lang="en">Katholieke Universiteit Leuven</text>
+						</altLabel>
 						<homepage>
 							<uri>https://www.kuleuven.be</uri>
 						</homepage>
@@ -40,8 +50,12 @@ Also the xml header from the original credential xml document cannot be included
 					</organization>
 					<organization id="urn:example:organization:0003">
 						<registration schemeID="http://data.europa.eu/idTypes/KBO" schemeAgencyName="Kruispuntbank van Ondernemingen" issuedDate="2000-10-01T00:00:00" spatialID="http://publications.europa.eu/resource/authority/country/BEL">00101.052.173</registration>
-						<prefLabel lang="en">NVAO</prefLabel>
-						<prefLabel lang="en">The Accreditation Organisation of the Netherlands and Flanders</prefLabel>
+						<prefLabel>
+							<text content-type="text/plain" lang="en">NVAO</text>
+						</prefLabel>
+						<prefLabel>
+							<text content-type="text/plain" lang="en">The Accreditation Organisation of the Netherlands and Flanders</text>
+						</prefLabel>
 						<homepage>
 							<uri>https://www.nvao.net/en/about-us</uri>
 						</homepage>
@@ -50,7 +64,9 @@ Also the xml header from the original credential xml document cannot be included
 				<accreditationReferences>
 					<accreditation id="urn:example:accreditation:0001">
 						<type uri="http://data.europa.eu/europass/accreditationType/institutionalLicense"/>
-						<title lang="en">ddd</title>
+						<title>
+							<text content-type="text/plain" lang="en">ddd</text>
+						</title>
 						<organization idref="urn:example:organization:0001"/>
 						<accreditingAgent idref="urn:example:organization:0003"/>
 					</accreditation>
