@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.10.0' based on edci model version '0.8.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.10.0">
+	<xs:include schemaLocation="edci_individuals.xsd"/>
+	<xs:complexType name="LanguageStringType">
+		<xs:annotation>
+			<xs:documentation>A character string (i.e. a finite set of characters) in the form of words of a language.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="text" type="TextType">
+				<xs:annotation>
+					<xs:documentation>A formatted character string (i.e. a finite set of characters) generally in the form of words of a language.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TextType">
+		<xs:annotation>
+			<xs:documentation>A formatted character string (i.e. a finite set of characters) in the form of words of a language.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="lang" type="LanguageCharCodeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The language used in the text</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="content-type" type="TextContentTypeCodeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The text format specified by the corresponding mimetype (text/plain, text/html)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="NotationType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="schemeID" type="xs:anyURI" use="required">
+					<xs:annotation>
+						<xs:documentation>The syntax encoding scheme. A particular system of notations or classification codes.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="IdentifierType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Identifiers are needed to identify and link resources in a unique and persistent way.
+				A resource identifier must be unique and persistent, meaning the identifier will always refer to the same resource and cannot be reused to identify other resources.
+				A resource identifier consists of:
+				 - a string identifier, unique and persistent within the scope of the issuing system.
+				 - a unique identifier of the publishing system that issued the string identifier for that particular resource.
+				The combination of both, the string identifier and the unique identifier of the issuing system, makes the resource identifier globally unique.
+				
+				The IdentifierType is used to describe a full (alternative) identifier of an entity or resource.
+				- The text content of the IdentifierType-element contains the character string to identify and distinguish uniquely the resource within the scope of the identification scheme
+				- The schemeID attribute is used to specify the identifier scheme. The identifier schema (or identifier register) refers to the agent/system that issued the identifier, it specifies where the identifier originates from.
+				  It is the namespace in which the identifier is unique and persistent.
+								
+				The other attributes of the IdentifierType-element provide supplementary information such as the identifier of the used code list and the agency that maintains this list
+			</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:normalizedString">
+				<xs:attribute name="schemeID" type="xs:normalizedString" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identification of the identifier scheme or the identifier register (~ the managing/originating system of the identifier). This can be seen as the namespace in which the assigned identifier is unique.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="schemeName" type="xs:string" use="optional">
+					<xs:annotation>
+						<xs:documentation>Name of the identifier scheme.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="schemeAgencyName" type="xs:string" use="optional">
+					<xs:annotation>
+						<xs:documentation>The name of the agent that manages the identifier scheme. The agent that issued the identifier.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="issuedDate" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation>The date on which the identifier was issued.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="type" type="xs:token" use="optional">
+					<xs:annotation>
+						<xs:documentation>A code used to classify the type of identifier</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="spatialID" type="LocationCodeContentType" use="optional">
+					<xs:annotation>
+						<xs:documentation>The related country or region code (jurisdiction) of a legal identifier. A legal identifier is a formally issued identifier by a given authorithy within a given jurisdiction. The identifier has a spatial context. </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LegalIdentifierType">
+		<xs:simpleContent>
+			<xs:restriction base="IdentifierType">
+				<xs:attribute name="spatialID" type="LocationCodeContentType" use="required"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ColorNotationType">
+		<xs:simpleContent>
+			<xs:restriction base="NotationType">
+				<xs:pattern value="#([0-9]|[A-F]){6}"/>
+				<xs:attribute name="schemeID" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:anyURI">
+							<xs:enumeration value="http://data.europa.eu/europass/colorNotation/hexadecimal"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="NumericScoreType">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attribute name="schemeID" type="xs:normalizedString" use="optional">
+					<xs:annotation>
+						<xs:documentation>The grading or scoring scheme ID. </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TextScoreType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="schemeID" type="xs:normalizedString" use="optional">
+					<xs:annotation>
+						<xs:documentation>The grading or scoring scheme ID. </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="CreditPointsType">
+		<xs:simpleContent>
+			<xs:restriction base="NumericScoreType">
+				<xs:attribute name="schemeID" type="CreditPointSystemEnumType" use="optional">
+					<xs:annotation>
+						<xs:documentation>The credit point system used when assigning credits to a learning specification (e.g ECVET)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ECTSCreditPointsType">
+		<xs:simpleContent>
+			<xs:restriction base="NumericScoreType">
+				<xs:attribute name="schemeID" type="ECTSCreditPointSystemEnumType" use="optional">
+					<xs:annotation>
+						<xs:documentation>The credit point system used when assigning credits to a learning specification (e.g ECTS credit points system)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AmountType">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attribute name="unit" type="CurrencyEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the currency in which the amount is indicated/expressed.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="IdReferenceType">
+		<xs:annotation>
+			<xs:documentation>A link or reference to another entity record in the credential document.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="idref" type="xs:anyURI" use="required">
+			<xs:annotation>
+				<xs:documentation>The id of the referenced entity (record).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="IdType">
+		<xs:annotation>
+			<xs:documentation>A portable identifier of an entity (i.e. a urn in the uuid namespace).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<xs:simpleType name="DocumentURLType">
+		<xs:restriction base="xs:anyURI">
+			<xs:pattern value="http://.*"/>
+			<xs:pattern value="https://.*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MailToUriType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				mailto: URI scheme conform to RFC 2368.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:pattern value="mailto:.*"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

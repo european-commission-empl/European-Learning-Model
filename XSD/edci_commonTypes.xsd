@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.10.0' based on edci model version '0.8.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.10.0">
+	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
+	<xs:include schemaLocation="edci_complexContentTypes.xsd"/>
+	<xs:complexType name="ScoringSchemeType">
+		<xs:annotation>
+			<xs:documentation>A scoring scheme. A numeric or text type of scoring methodology or convention. A grading system.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="title" type="LanguageStringType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text describing the scoring methodology or convention. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A public web document containing additional documentation about the scoring/grading system. It can be any document containing further information about the scoring system. The document can be a web page that can be navigated or a downloadable file</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:normalizedString" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the grading system (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this grading system from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="DocumentType">
+		<xs:annotation>
+			<xs:documentation>A public accessible web document.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="title" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="language" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The language of the document.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LanguageEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that indicates/specifies the language.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="subject" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A subject or topic that is described in the document.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="SubjectTypeCodeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that indicates/specifies the topic or subject of a text or document.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="uri" type="DocumentURLType" use="required">
+			<xs:annotation>
+				<xs:documentation>The URL of the web document. The URL to access or download the web document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- removed in edci 0.5.0 -->
+	<!--xs:complexType name="PeriodOfTimeType">
+		<xs:annotation>
+			<xs:documentation>An interval of time that is named or defined by its start and end dates. A PeriodOfTime is any temporal entity with an extend or duration and is characterised by/defined by a certain start and enddate. In some cases we can model a start and a enddate on a class conceptually as an association to a PeriodOfTime because different things, that can represent a Periof of Time, exist. There are different ways to express and represent a period of time. e.g. an academic term can represent a period of time. A period of time might have an id, a name, start and end date</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="startedAtTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="endedAtTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="name" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A name for the period (or interval) of time. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free tex describing the period of time. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType-->
+	<xs:complexType name="LocationType">
+		<xs:annotation>
+			<xs:documentation>An identifiable geographic place. A physical location.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="name" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A proper noun applied to a spatial object. The place name. A simple (string) label or name for a location. Only one value per language allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text describing the location. Only one value per language allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasAddress" type="AddressType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An address associated with the location.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="spatialCode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A code (i.e. location or region) identifying a spatial scope in which this physical location is located</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LocationCodeContentType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies a location(i.e. a country or
+										region)</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SpatialCodeLocationType">
+		<xs:annotation>
+			<xs:documentation>An identifiable geographic place. A physical location. Spatial code is mandatory.</xs:documentation>
+		</xs:annotation>
+		<!--<xs:complexContent>
+			<xs:restriction base="LocationType">-->
+				<xs:sequence>
+					<xs:element name="id" type="xs:anyURI" minOccurs="0"/>
+					<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="name" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A proper noun applied to a spatial object. The place name. A simple (string) label or name for a location. Only one value per language allowed.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A free text describing the location. Only one value per language allowed.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="hasAddress" type="AddressType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>An address associated with the location.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="spatialCode" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A code (i.e. location or region) identifying a spatial scope in which this physical location is located</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:restriction base="CodeType">
+									<xs:sequence>
+										<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+										<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+									</xs:sequence>
+									<xs:attribute name="uri" type="LocationCodeContentType" use="optional">
+										<xs:annotation>
+											<xs:documentation>The URI identifier of a known code that
+												indicates/specifies a location(i.e. a country or
+												region)</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+									<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+									<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+									<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+								</xs:restriction>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			<!--</xs:restriction>
+		</xs:complexContent>-->
+	</xs:complexType>
+	<xs:complexType name="AddressType">
+		<xs:annotation>
+			<xs:documentation>An adress. Properties specifying an entity’s physical location.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An adress identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fullAddress" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The complete address with or without formatting. Use of this property is recommended as it will not suffer any misunderstandings that might arise through the breaking up of an address into its component parts. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="country" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The address country Code. The uppermost administrative unit for the address.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="CountryCodeContentType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies a country</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PhoneType">
+		<xs:annotation>
+			<xs:documentation>A phone number.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="phoneNumber" type="xs:normalizedString" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The full phone number as a string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="countryDialing" type="xs:token" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The country dialling code for a contact number. (e.g. “0032”, “0034”, etc.)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="areaDialing" type="xs:token" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The area dialling code for a contact number.(e.g. “2”, “71, “93”, etc.)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dialNumber" type="xs:token" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The contact number, not including country dialling or area dialling codes. (e.g. “3445654”, “1234567”, etc.)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MBoxType">
+		<xs:annotation>
+			<xs:documentation>A mailbox (ie. an Internet mailbox)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
+		<xs:attribute name="uri" type="MailToUriType" use="required">
+			<xs:annotation>
+				<xs:documentation>The email address. A uri that specifies the e-mail adress using the 'mailto'-URI scheme. The 'mailto'-URI scheme is used to identify resources that are reached using Internet mail. In its simplest form, a 'mailto' URI contains an Internet mail address. (see https://tools.ietf.org/html/rfc6068)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="InteractiveWebResourceType">
+		<xs:annotation>
+			<xs:documentation>A web resource that can be used to communicate. A web resource requiring interaction from the user to be understood, executed, or experienced. (e.g. forms on a web page, a chat service,…</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
+		<xs:attribute name="uri" type="xs:anyURI" use="required">
+			<xs:annotation>
+				<xs:documentation>The URL to access the interactive web resource.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MediaObjectType">
+		<xs:annotation>
+			<xs:documentation>A media object, such as a pdf, image, video, or audio object embedded in another resource or published on the web.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!--xs:element name="title" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The title of the media object. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The description of the media object. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+			<xs:element name="contentType">
+				<xs:annotation>
+					<xs:documentation>The media-type, the format, of the media resource (e.g. application/pdf, image/png, image/jpeg, image/gif).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="MediaTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that indicates/specifies the mediatype of a media object.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="contentEncoding">
+				<xs:annotation>
+					<xs:documentation>The encoding used to encode the binary data contents of the media resource. MUST be Base64.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="ContentEncodingEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that indicates/specifies the encoding applied to encode the binary data contents of a media resource.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="contentSize" type="xs:integer" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Content-Length indicates the size of the content, in bytes</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contentUrl" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="content" type="xs:base64Binary">
+				<xs:annotation>
+					<xs:documentation>The binary data encoded using Base64. The actual (encoded) binary data in the media type specified by the mediatype property. The actual bytes of the media resource (e.g the image file).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="optional">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the media object. It is this identifier that MUST be used to link or refer to this media object from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ImageObjectType">
+		<xs:annotation>
+			<xs:documentation>A static visual representation. An image file as a media object embedded in another resource or published on the web.</xs:documentation>
+		</xs:annotation>
+		<!--<xs:complexContent>
+			<xs:restriction base="MediaObjectType">-->
+				<xs:sequence>
+					<xs:element name="contentType">
+						<xs:annotation>
+							<xs:documentation>The media-type, the format, of the image resource (image/png, image/jpeg, image/gif).</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:restriction base="CodeType">
+									<xs:sequence>
+										<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+										<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+									</xs:sequence>
+									<xs:attribute name="uri" type="ImageMediaTypeEnumType" use="optional">
+										<xs:annotation>
+											<xs:documentation>The URI identifier of a known code that indicates/specifies the mediatype of an image object.</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+									<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+									<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+									<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+								</xs:restriction>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="contentEncoding">
+						<xs:annotation>
+							<xs:documentation>The encoding used to encode the binary data contents of the image type resource. MUST be Base64.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:restriction base="CodeType">
+									<xs:sequence>
+										<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+										<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+									</xs:sequence>
+									<xs:attribute name="uri" type="ContentEncodingEnumType" use="optional">
+										<xs:annotation>
+											<xs:documentation>The URI identifier of a known code that indicates/specifies the encoding applied to encode the binary data contents of a media resource.</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+									<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+									<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+									<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+								</xs:restriction>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="contentSize" type="xs:integer" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Content-Length indicates the size of the content, in bytes</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="contentUrl" type="xs:anyURI" minOccurs="0"/>
+					<xs:element name="content" type="xs:base64Binary">
+						<xs:annotation>
+							<xs:documentation>The binary data encoded using Base64.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			<!--</xs:restriction>
+		</xs:complexContent>-->
+	</xs:complexType>
+	<xs:complexType name="AttachmentListType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				List any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Europass document to support/evidence of personal data, learning achievements, work experiences, skills, competences, diplomas, etc. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Attachment" type="MediaObjectType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The attached document. Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Europass document to support/evidence of personal data, learning achievements, workexperiences, skills, competences, diplomas, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

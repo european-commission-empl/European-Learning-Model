@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.10.0' based on edci model version '0.8.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.10.0">
+	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
+	<xs:include schemaLocation="edci_commonTypes.xsd"/>
+	<xs:complexType name="SemanticFrameworkType">
+		<xs:annotation>
+			<xs:documentation>The details about a semantic framework or system. Used to describe other semantic frameworks to which resources in EDCI can be associated, tagged or aligned with</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An alternative identifier of the semantic framework or system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="title" type="LanguageStringType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text describing the semantic framework. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A public web document containing additional documentation about the semantic framework. It can be any document containing further information about the the semantic framework. The document can be a web page that can be navigated or a downloadable file</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the the semantic framework (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this semantic framework from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!--<xs:complexType name="QualificationAssociationSimpleType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of a qualification to a qualification code in a certain framework or system describing qualification.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
+		<xs:attribute name="targetID" type="xs:anyURI" use="optional">
+			<xs:annotation>
+				<xs:documentation>The URI identifier of the associated qualification in the targeted framework.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetNotation" type="xs:token" use="optional">
+			<xs:annotation>
+				<xs:documentation>A notation or code of the associated qualification in the targeted framework.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkID" type="IdType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The ID of the framework or system used to describe qualifications.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkName" type="xs:normalizedString" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the framework or system used to describe qualifications.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The URL of the framework or system used to describe qualifications.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The spatial coverage (country or region) of the framework or system used to describe qualifications.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="EscoSkillAssociationSimpleType">
+		<xs:annotation>
+			<xs:documentation>Represents an alignment to an existing ESCO Skill.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
+		<xs:attribute name="type" type="SkillAlignmentTypeEnumType" use="optional">
+			<xs:annotation>
+				<xs:documentation>A code indicating the semantics of the relation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="description" type="xs:normalizedString" use="optional">
+			<xs:annotation>
+				<xs:documentation>A string describing the semantics of the relation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetID" type="xs:anyURI" use="optional">
+			<xs:annotation>
+				<xs:documentation>The URI identifier of the related ESCO skill.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="EscoOccupationAssociationSimpleType">
+		<xs:annotation>
+			<xs:documentation>Represents a relation of an entitlement to an existing ESCO occupation.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
+		<xs:attribute name="description" type="xs:normalizedString" use="optional">
+			<xs:annotation>
+				<xs:documentation>A string describing the semantics of the relation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetID" type="xs:anyURI" use="optional">
+			<xs:annotation>
+				<xs:documentation>The URI identifier of the related ESCO occupation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="OccupationAssociationSimpleType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of an entitlement to an occupation from a (national) occupational framework.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="targetName" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A name or label of the associated occupation in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A description of the associated occupation in the targeted framework</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:normalizedString" use="optional">
+			<xs:annotation>
+				<xs:documentation>A string describing the semantics of the relation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetNotation" type="xs:token" use="optional">
+			<xs:annotation>
+				<xs:documentation>A notation or code of the associated occupation in the targeted framework.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkID" type="IdType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The ID of the framework or system used to describe occupations.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkName" type="xs:normalizedString" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the framework or system used to describe occupations.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The URL of the framework or system used to describe occupations.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The spatial coverage (country or region) of the framework or system used to describe occupations.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="EducationLevelAssociationSimpleType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of a learning specification to an education level according a certain framework or system describing education levels.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="targetName" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A name or label of the associated edcuation level in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A description of the associated edcuation level in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="targetNotation" type="xs:token" use="optional">
+			<xs:annotation>
+				<xs:documentation>A notation or code of the associated edcuation level in the targeted framework.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkID" type="IdType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The ID of the framework or system used to education levels.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkName" type="xs:normalizedString" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the framework or system used to education levels.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The URL of the framework or system used to education levels.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The spatial coverage (country or region) of the framework or system used to describe education levels.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="QFLevelAssociationSimpleType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of a qualification to a qualification framework level in a given qualification framework.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
+		<xs:attribute name="targetNotation" type="xs:token" use="optional">
+			<xs:annotation>
+				<xs:documentation>A notation or code of the qualification framework level within the national framework.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkID" type="QualificationFrameworkEnumType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The ID (URI) of the national qualification framework.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="EducationSubjectAssociationSimpleType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of a learning specification to a field or subject of education according a certain framework or system describing fields of education.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="targetName" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A name or label of the associated field of education in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A description of the associated field of education in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="targetNotation" type="xs:token" use="optional">
+			<xs:annotation>
+				<xs:documentation>A notation or code of the associated field of education in the targeted framework.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkID" type="IdType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The ID of the framework or system used to describe fields of education.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkName" type="xs:normalizedString" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the framework or system used to describe fields of education.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The URL of the framework or system used to describe fields of education.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The spatial coverage (country or region) of the framework or system used to describe fields of education.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>-->
+	<!--
+	<xs:complexType name="QualificationAssociationType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of a qualification to a qualification code in a certain framework or system describing qualification.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="targetFramework" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The framework or system used to describe qualifications. It MUST refer to an existing 'framework'-record in the frameworkReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="target" type="xs:anyURI" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The URI identifier of the associated qualification in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetNotation" type="xs:token" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A notation or code of the associated qualification in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EscoSkillAssociationType">
+		<xs:annotation>
+			<xs:documentation>Represents an alignment object to an existing ESCO Skill.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="type" type="SkillAlignmentTypeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A concept indicating the semantics of the relation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text describing the semantics of the relation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="target" type="xs:anyURI">
+				<xs:annotation>
+					<xs:documentation>The URI identifier of the related ESCO skill.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EscoOccupationAssociationType">
+		<xs:annotation>
+			<xs:documentation>Represents a relation of an entitlement to an existing ESCO occupation.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text describing the semantics of the relation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="target" type="xs:anyURI">
+				<xs:annotation>
+					<xs:documentation>The URI identifier of the related ESCO occupation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OccupationAssociationType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of an entitlement to an occupation from a (national) occupational framework.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text describing the semantics of the relation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetFramework" type="IdReferenceType">
+				<xs:annotation>
+					<xs:documentation>The framework or system used to describe occupations. It MUST refer to an existing 'framework'-record in the frameworkReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetNotation" type="xs:token" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A notation or code of the associated occupation in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetName" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A name or label of the associated occupation in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free-text description of the associated occupation in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EducationLevelAssociationType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of a learning specification to an education level according a certain framework or system describing education levels.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="targetFramework" type="IdReferenceType">
+				<xs:annotation>
+					<xs:documentation>The framework or system used to describe education levels. It MUST refer to an existing 'framework'-record in the frameworkReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetNotation" type="xs:token" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A notation or code of the associated edcuation level in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetName" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A name or label of the associated education level in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free-text description of the associated education level in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QFLevelAssociationType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of a qualification to a qualification framework level in a given qualification framework.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="targetFramework" type="QualificationFrameworkType">
+				<xs:annotation>
+					<xs:documentation>The national qualification framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetNotation" type="xs:token">
+				<xs:annotation>
+					<xs:documentation>The qualification framework level within the national framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EducationSubjectAssociationType">
+		<xs:annotation>
+			<xs:documentation>Represents an association of a learning specification to a field or subject of education according a certain framework or system describing fields of education.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="targetFramework" type="IdReferenceType">
+				<xs:annotation>
+					<xs:documentation>The framework or system used to describe fields of education. It MUST refer to an existing 'framework'-record in the frameworkReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetNotation" type="xs:token" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A notation or code of the associated field of education in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetName" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A name or label of the associated field of education in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free-text description of the associated field of education in the targeted framework.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType> -->
+</xs:schema>

@@ -1,0 +1,1507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.10.0' based on edci model version '0.8.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:eup="http://data.europa.eu/europass/model/credentials#"
+	xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#"
+	targetNamespace="http://data.europa.eu/europass/model/credentials#"
+	elementFormDefault="qualified" version="0.10.0">
+	
+	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
+	<xs:include schemaLocation="edci_commonTypes.xsd"/>
+	<xs:include schemaLocation="edci_associationobject.xsd"/>
+	
+	<xs:complexType name="LearningOpportunityType">
+		<xs:annotation>
+			<xs:documentation>An opportunity to learn. An opportunity to realize a given set of learning outcomes via a learning activity and/or assessment. For example a training, a degree programme or a course, provided by a given institution at a given time, to obtain a certain learning award such as a qualification, this is a learning opportunity.
+A 'learning opportunity' is the opportunity for an individual to do a set of 'learning activities' where he can acquire knowledge, skills or responsibility and autonomy as proven by an assessment.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An alternative identifier of the learning opportunity.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="title" type="LanguageStringType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The title of the learning opportunity (e.g. name of a course offered at a given institution). Maximum cardinality of one per language.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="altLabel" type="LanguageStringType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An alternative name of the learning opportunity.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text description of the learning opportunity. Maximum cardinality of one per language.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="additionalNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An additional free text note (e.g. a comment, a remark,…) containing any further information about the learning opportunity.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="homepage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The homepage (a public web document) of the learning opportunity. There can be only one learning opportunity that has a particular homepage.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- removed in edci 0.5.0 -->
+			<!--xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A web page that can be navigated to in a web browser to gain access to the learning opportunity and/or additional information. A learning opportunity might not have a homepage but instead a landing page.</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A public web document containing additional documentation about the learning opportunity. It can be any document containing further information about the learning opportunity. The document can be a web page that can be navigated or a downloadable file.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- removed in edci 0.5.0 -->
+			<!--xs:element name="period" type="PeriodOfTimeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The time period in which the learning opportunity will take place. (e.g. to specify start- and end date or to specify the academic term)</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+			<!-- new in edci 0.5.0 -->
+			<xs:element name="startedAtDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The start date when the learning opportunity will take place.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- new in edci 0.5.0 -->
+			<xs:element name="endedAtDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The end date until when the learning opportunity will take or took place.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- new in edci 0.5.0 -->
+			<xs:element name="duration" type="xs:duration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The nominal duration of the learning opportunity. The duration for which the learning opportunity will continue to be offered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="learningSchedule" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The learning schedule. How often you need to go (i.e full time (more than 30 hours),  PT intensive (8-30 hoours),  PT light (less than 8 hours)).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LearningScheduleTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the learning schedule of learning
+										opportunity.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="scheduleInformation" type="NoteType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text note about the time schedule. More detailed information about the actual timetable (e.g twice a week, mondays at 4 pm,...). Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="admissionProcedure" type="NoteType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text note about the admission procedure. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="priceDetails" type="PriceDetailsType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The price details.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="providedBy" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The providing or directing agent. The cardinality can be more than one in case the learning opportunity is provided/organized by a collaboration of different agents, (e.g. co-awarding). It MUST refer to an existing 'organization'-record in the 'agentReferences'-section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="providedAt" type="LocationType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The location where the learning opportunity will take place (e.g. course location).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="specifiedBy" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The learning specification, including the curricula,  of this learning opportunity. It MUST refer to an existing 'learningSpecification'- or 'quailification'- record in the 'learningSpecificationReferences'-section of the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A learning opportunity can be composed of other learning opportunities. It MUST refer to an existing 'learningOpportunity'-record in the 'learningOpportunityReferences'-section of the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the learning opportunity (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this learning opportunity from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:group name="CommonSpecificationElements">
+		<xs:sequence>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An alternative identifier of the specification.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="title" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The title of the specification. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="altLabel" type="LanguageStringType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An alternative name of the specification.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text description of the specification. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="additionalNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An additional free text note containing any further information about the specification.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="homepage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The homepage (a public web document) of the specification. There can be only one specification that has a particular homepage.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- removed in edci 0.5.0 -->
+			<!--xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A web page that can be navigated to in a web browser to gain access to the specification and/or additional information. A specification might not have a homepage but instead a landing page.</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A public web document containing additional documentation about the specification. It can be any document containing further information about the specification. The document can be a web page that can be navigated or a downloadable file.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="LearningActivitySpecificationType">
+		<xs:annotation>
+			<xs:documentation>A LearningActivitySpecification is a specification of a process which leads to the acquisition of knowdledge, skills or responsibilty and autonomy.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="CommonSpecificationElements"/>
+			<xs:element name="type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The type of activity. A concept indicating the type of activity.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="ActivityTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the type of activity.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="workload" type="xs:duration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The expected workload. The expected workload in time. The expected amount of time the learner (will) spent undergoing the learning activity. The expected duration or volume of learning measured in years, days or hours of learning activity. The expected number of learning years, days or hours. This can be an indicative number (i.e. an estimated or notional number).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="language" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The language(s) of instruction.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LanguageEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the language.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="mode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The mode of learning and or assessment (i.e. online, blended, presential, work based)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LearningModeTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the type of learning or
+										assessment</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="teaches" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					The expected learning outcomes to which this learning activity specification contributes to. This is given by a LearningSpecification. A learning activity can lead to or contribute to the acquisition of a set of skills, knowdledge, autonomy and or responsibilty. It MUST refer to an existing record in the 'learningSpecificationReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					An assessment specification (a "package") can be part of another "broader" assessment specification. It MUST refer to an existing record in the 'learningActivitySpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					An activity specification can be a specialization of another activity specification. It MUST refer to an existing record in the 'learningActivitySpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the learning activity specification. (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this learning activity specification from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="AssessmentSpecificationType">
+		<xs:annotation>
+			<xs:documentation>An AssessmentSpecification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="CommonSpecificationElements"/>
+			<xs:element name="type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The type of assessment. A concept indicating the type of assessment.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="AssessmentTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the type of assessment.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="language" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The language(s) of assessment used.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LanguageEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the language.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="mode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The mode of learning and or assessment (i.e. online, blended, presential, work based)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LearningModeTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the type of learning or
+										assessment</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="gradingScheme" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					Used grading scheme. It MUST refer to an existing record in the 'scoringSchemeReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="idref" type="xs:normalizedString" use="required">
+						<xs:annotation>
+							<xs:documentation>The id of the referenced entity (record).</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="proves" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					Which learning outcomes are or have been prooved. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					An assessment specification (a "package") can be part of another "broader" assessment specification. It MUST refer to an existing record in the 'assessmentSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					An assessment specification (a "package") can be a specialization of another assessment specification. It MUST refer to an existing record in the 'assessmentSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- xs:element name="specializationOf" type="xs:anyURI" minOccurs="0"/-->
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the assessment specification. (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this assessment specification from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:group name="LearningSpecificationElements">
+		<xs:sequence>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The type of learning opportunity. The form(at) or type of learning opportunity for which this learning specification (curricula) is designed. It needs to have some pedalogical relevance or some logical relevance in the structure of the curricula of the learning specification. In case of a tree of learning opportunities (cfr hasPart poperty), make sure that the proper structure is followed. All types can be put on the top level but the type of the descendant nodes is limited by the types of their ancestors. e.g. 'Degree programme' > 'Module' > 'Course' > 'Class'</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LearningOpportunityTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the type of learning opportunity.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="title" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The exact and official title of the learning specification. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="altLabel" type="LanguageStringType" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="definition" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Short and abstract description about the learning specification. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- added in xsd 0.4.0 -->
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The full learning outcome description of the learning specification. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="additionalNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An additional free text note containing any further information about a learning specification.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="homepage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The homepage (a public web document) of the learning specification. There can be only one learning specification that has a particular homepage.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- removed in edci 0.5.0 -->
+			<!--xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A web page that can be navigated to in a web browser to gain access to the learning specification and/or additional information. A learning specification might not have a homepage but instead a landing page.</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A public web document containing additional documentation about the learning specification, such as a diploma or certificate supplement. It can be any document containing further information about the learning specification. The document can be a web page that can be navigated or a downloadable file.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasISCED-FCode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The ISCED  FoET 2013 classification code. It indicates the thematic area of the learning specification.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="IscedFOetCodeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the ISCED  FoET 2013
+										classification.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="hasEducationSubject" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An associated field of education from another semantic framework than the ISCED classification.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A name or label of the associated field of education in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A description of the associated field of education in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>The name of the framework or system used to describe fields of education.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="uri" use="optional"/>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional">
+								<xs:annotation>
+									<xs:documentation>A notation or code of the associated field of education in the targeted framework.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The ID of the framework or system used to describe fields of education.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required">
+								<xs:annotation>
+									<xs:documentation>The URL of the framework or system used to describe fields of education.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The spatial coverage (country or region) of the framework or system used to describe fields of education.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="volumeOfLearning" type="xs:duration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>An indication of how many hours of learning efforts are needed, i.e. notional learning hours.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasECTSCreditPoints" type="ECTSCreditPointsType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The credit points assigned to the learning specification, following the ECTS credit system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasCreditPoints" type="CreditPointsType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The credit points assigned to the learning specification, following a given credit system other than ECTS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasEducationLevel" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An associated level of education within a semantic framework describing education levels.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A name or label of the associated edcuation level in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A description of the associated edcuation level in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>The name of the framework or system used to education levels.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="uri" use="optional"/>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional">
+								<xs:annotation>
+									<xs:documentation>A notation or code of the associated edcuation level in the targeted framework.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The ID of the framework or system used to education levels.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required">
+								<xs:annotation>
+									<xs:documentation>The URL of the framework or system used to education levels.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The spatial coverage (country or region) of the framework or system used to describe education levels.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="language" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The instruction and/or assessment language(s) used.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LanguageEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the language.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="mode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The mode of learning and or assessment (i.e. online, blended, presential, work based)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LearningModeTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the type of learning or
+										assessment</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="learningSettingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The type of learning setting (i.e. formal learning, non-formal learning).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LearningSettingTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the type of learning (the learning
+										setting).</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="duration" type="xs:duration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The maximum duration of a learning opportunity for which this specification is designed. The maximum duration a learning opportunity that implements this specification should take.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="targetGroup" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A specific target group or category for which this specification is designed.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="TargetGroupCodeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the target group of a learning
+										opportunity.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<!-- added in edci 0.5.0 -->
+			<xs:element name="entryRequirementsNote" type="NoteType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Specific entry requirements or prerequisites of individuals for which this specification is designed. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="learningOutcomes" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="learningOutcome" type="IdReferenceType" minOccurs="0"
+							maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>An individual (expected) learning outcome of the learning specification. It MUST refer to an existing 'LearningOutcome'-record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="learningActivitySpecification" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>What will or can an individual do to acquire the expected learning outcomes. The learning activities. It MUST refer to an existing record in the 'learningActivitySpecificationReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="assessmentSpecification" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>How will a learner be assessed to proof the (expected) learning outcomes. The assessments. It MUST refer to an existing record in the 'assessmentSpecificationReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="entitlementSpecification" type="IdReferenceType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A specification of an entitlement to which this LearningSpecification may give rise to. A specification of a right this LearningSpecification may give access to. It MUST refer to an existing record in the 'entitlementSpecificationReferences-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="awardingOpportunities" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="awardingOpportunity" type="AwardingOpportunityType"
+							minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Refers to an activity related to the awarding of the learning specification, such as the country or region where the Learning Specification is or was awarded, the awarding body and optionally the awarding period now or in the past.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="LearningSpecificationType">
+		<xs:annotation>
+			<xs:documentation>A specification of learning. A specification or package of learning that is expressed in 1 or more learning outcomes. It is used to specify what a person did learn OR what a person can learn (e.g. by a given learning opportunity).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="LearningSpecificationElements"/>
+			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A learning specification can be composed of other "narrower" learning specifications. To specify the full curricula as a tree structure a LearningSpecification can be decomposed into other LearningSpecification components in which each component `has its own curricula (learning outcomes and credit points,  learning activties, ,...). For example,a degree programme might be represented by a tree of nodes such as a modules, a course, a class. In theory the depth of such a tree is unlimited. Each level has an OPTIONAL type, and these types (if given) SHOULD follow a logical structure - in order of their depth. For example it is valid to include a 'Course' with a 'Degree programme' parent, but it would be invalid to include them the other way around.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- enabled in xsd 0.4.0 -->
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					A learning specification (e.g. a standard) of which this specification is a specialization. 
+An opportunity can have its own specific curricula,  based on or in addition to a given standard. In this case the LearningSpecification of the opportunity is a specialization of another LearningSpecification which is a standard. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the learning specification. (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this learning specification from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="QualificationType">
+		<xs:annotation>
+			<xs:documentation>The details of a qualification that can or has been awarded such as the (expected) learning outcomes. This can be a copy or a specialization of an existing qualification standard. A qualification can be part of a national qualification framework (NQF Qualification) which can be specified by the NQF level. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="LearningSpecificationElements"/>
+			<xs:element name="isPartialQualification" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates whether a qualification is a full qualification or part of another qualification. In the latter, the qualification is only obtained as a formal outcome of a “broader” qualification of which it is part.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="eqfLevel" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The qualification level as specified by the European Qualification Framework.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="EQFLevelEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the EQF level.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="nqfLevel" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A qualification can be part of a national qualification framework (NQF Qualification) which can be specified by the NQF level. This the qualification level as specified by a National Qualifications Framework.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A name or label of the associated object in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A description of the associated object in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" use="optional"/>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional">
+								<xs:annotation>
+									<xs:documentation>A notation or code of the qualification framework level within the national framework.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkID" type="QualificationFrameworkEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The ID (URI) of the national qualification framework.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="hasAccreditation" type="IdReferenceType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The accreditation (i.e. quality assurance) of a qualification. It MUST refer to an existing 'accreditation'-record in the 'accreditationReferences'-section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- how do we name this field and what do we expect as value? -->
+			<xs:element name="qualificationCode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An identifying code from a qualification based reference semantic asset. This property is used to classify the qualification information with a qualification from a known qualification framework. (e.g. the link to the accredidated NQF qualification)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A name or label of the associated object in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A description of the associated object in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>The name of the framework or system used to describe qualifications.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="uri" use="optional"/>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of the associated qualification in the targeted framework.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional">
+								<xs:annotation>
+									<xs:documentation>A notation or code of the associated qualification in the targeted framework.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The ID of the framework or system used to describe qualifications.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required">
+								<xs:annotation>
+									<xs:documentation>The URL of the framework or system used to describe qualifications.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The spatial coverage (country or region) of the framework or system used to describe qualifications.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					A qualification can be part of another "broader" qualification. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- enabled in xsd 0.4.0 -->
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+					A learning specification (e.g. a standard) of which this specification is a specialization. 
+An opportunity can have its own specific curricula,  based on or in addition to a given standard. In this case the LearningSpecification of the opportunity is a specialization of another LearningSpecification which is a standard. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the qualification. (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this qualification from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="LearningOutcomeType">
+		<xs:annotation>
+			<xs:documentation>A learning outcome (i.e. knowledge, skill, autonomy-responsibility). The details, such as the description, of a learning outcome.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="prefLabel" type="LanguageStringType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A legible, descriptive name for the learning outcome. Maximum cardinality of one per language.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text describing the learning outcome. Maximum cardinality of one per language.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="learningOutcomeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The learning outcome type (i.e. knowledge, skill, ...).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LearningOutcomeTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the skill type.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="reusabilityLevel" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The reusability level.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="ReusabilityLevelEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the reusability level.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="relatedEscoSkill" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A link/alignment to an ESCO Skill.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A name or label of the associated object in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A description of the associated object in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" use="optional"/>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of the related ESCO skill.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="type" type="SkillAlignmentTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>A code indicating the semantics of the relation.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional">
+								<xs:annotation>
+									<xs:documentation>A string describing the semantics of the relation.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the learning outcome (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this learning outcome from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="AwardingOpportunityType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An awarding opportunity identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="organization" type="IdReferenceType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The awarding body. The organization that awards or issues the Learning Specification (i.e a qualification). It MUST refer to an existing 'organization'-record in the 'agentReferences'-section. Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="location" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The location where the awarding activities take/took place (country/region where the qualification is awarded)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LocationCodeContentType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies a location(i.e. a country or
+										region)</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<!-- replaced by start and end date fields in edci 0.5.0 -->
+			<!--xs:element name="period" type="PeriodOfTimeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The period when the awarding activities take/took place (now or in the past). If not specified it is undefined (“not known”)</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+			<xs:element name="startedAtTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The date since when the awarding activities take place. If not specified it is undefined (“not known”)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="endedAtTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The date until when the awarding activities take/took place</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EntitlementSpecificationType">
+		<xs:annotation>
+			<xs:documentation>The specification of a right a person has access to, typically as a result of a learning achievement. A specification may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career. An entitlment may be prospective, i.e. awarding the right to apply for the entitlement, or actual, i.e. granting the entitlement</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="CommonSpecificationElements"/>
+			<xs:element name="type">
+				<xs:annotation>
+					<xs:documentation>The type of entitlement. A concept indicating the type of entitlement.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="EntitlementTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the type of entitlement.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="status">
+				<xs:annotation>
+					<xs:documentation>The status of the entitlement. A concept indicating the status of the entitlement. Whether the entitlement is  prospective, i.e. awarding the right to apply for the entitlement; or actual, i.e. granting the entitlement</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="EntitlementStatusEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the status of the entitlement.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="limitOrganization" type="IdReferenceType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>It MUST refer to an existing 'organization'-record in the 'agentReferences'-section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="limitJurisdiction" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The jurisdiction for which the entitlement is valid.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LocationCodeContentType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies a location(i.e. a country or
+										region)</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="limitOccupation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A link to an ESCO Occupcation or Occupational Category..</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A name or label of the associated object in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A description of the associated object in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" use="optional"/>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of the related ESCO occupation.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional">
+								<xs:annotation>
+									<xs:documentation>A string describing the semantics of the relation.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="limitNationalOccupation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A link to a National Occupation.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A name or label of the associated occupation in the targeted framework.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A description of the associated occupation in the targeted framework</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>The name of the framework or system used to describe occupations.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="uri" use="optional"/>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional">
+								<xs:annotation>
+									<xs:documentation>A string describing the semantics of the relation.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional">
+								<xs:annotation>
+									<xs:documentation>A notation or code of the associated occupation in the targeted framework.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The ID of the framework or system used to describe occupations.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required">
+								<xs:annotation>
+									<xs:documentation>The URL of the framework or system used to describe occupations.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The spatial coverage (country or region) of the framework or system used to describe occupations.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="mayResultFrom" type="IdReferenceType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					A LearningSpecification that may give rise to an entitlement with this specification. It MUST refer to an existing record in the 'learningSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasPart" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					A sub specification. An entitlement specification can be part of another "broader" entitlement specification. It MUST refer to an existing record in the 'entitlementSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="specializationOf" type="IdReferenceType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					An entitlement specification can be a specialization of another entitlement specification. It MUST refer to an existing record in the 'entitlementSpecificationReferences'-section of this credential.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the entitlement specification. (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this entitlement specification from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PriceDetailsType">
+		<xs:annotation>
+			<xs:documentation>The details about a price or price category.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A price detail identifier.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="amount" type="AmountType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The amount.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A proper noun applied to a price. The price name. A simple (string) label or name for a price category.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free tex describing the price. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="additionalNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An additional free text note containing any further information about the price (e.g. conditions, reductions, ….).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

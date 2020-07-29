@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.10.0' based on edci model version '0.8.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.10.0">
+	<xs:include schemaLocation="imported/edci_mdr_countries.xsd"/>
+	<xs:include schemaLocation="imported/edci_mdr_languages.xsd"/>
+	<xs:include schemaLocation="imported/edci_esco_nuts2016.xsd"/>
+	<xs:include schemaLocation="imported/edci_mdr_currency.xsd"/>
+	<xs:include schemaLocation="imported/edci_mdr_humansex.xsd"/>
+	<xs:include schemaLocation="imported/edci_esco_iscedf2013.xsd"/>
+	<xs:include schemaLocation="imported/edci_esco_eqf.xsd"/>
+	<xs:include schemaLocation="imported/edci_esco_individuals.xsd"/>
+	<xs:simpleType name="CredentialTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/credentialType/generic"/>
+			<xs:enumeration value="http://data.europa.eu/europass/credentialType/qualification"/>
+			<xs:enumeration value="http://data.europa.eu/europass/credentialType/diplomaSupplement"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ActivityTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/fd33e234ae"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/efff75e10a"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/bf5588ff84"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/d46a826a39"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/b660f5dcea"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/59eaf34fab"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/4357e0e681"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/ff436ea7c9"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/3c8bd58d62"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/bf2e3a7bae"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-activity/a7e556215a"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningOpportunityTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/0f7dac46ca"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/11252a5207"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/7e1ac538db"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/17744a2647"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/63f9f6180c"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/8b965da2d4"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/b2434ca358"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/65a4cf5de2"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/05053c1cbe"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/74a4a268e8"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/77b99de990"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-opportunity/79343569f3"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningModeTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/learning-assessment/920fbb3cbe"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-assessment/9191af2ed9"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-assessment/e92d221e4d"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-assessment/729f3bed4b"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-assessment/7813801c77"/>
+			<xs:enumeration value="http://data.europa.eu/snb/learning-assessment/ed4c557045"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningScheduleTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/learningScheduleType/fullTime"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningScheduleType/partTimeIntensive"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningScheduleType/partTimeLight"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LearningSettingTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/learningSettingType/formal"/>
+			<xs:enumeration value="http://data.europa.eu/europass/learningSettingType/nonFormal"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TargetGroupCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/1cfca7f767"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/919082b88b"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/e7627913ad"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/527a6f97eb"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/808b99d38f"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/5b1417fd15"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/46806e0244"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/1599531db0"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/acb7f20f25"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/b0bf4f9fe9"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/5e56931138"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/cbedf28444"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/d45b47b458"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/05f11c859b"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/fd1279fd9f"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/022beab85a"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/c900d8ecb1"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/de9cd193ce"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/e3782a33ab"/>
+			<xs:enumeration value="http://data.europa.eu/snb/target-group/0247b300b0"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssessmentTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/6e6cb2cc78"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/d30284d7df"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/2939dae15f"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/3484bd7e51"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/19a2e5e671"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/4f03b91c0e"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/7331eb4762"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/795dac4096"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/56539a6507"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/6a4db9f11d"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/de4d165a6c"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/b1b68f6735"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/812e3b0ae1"/>
+			<xs:enumeration value="http://data.europa.eu/snb/assessment/c4256a2726"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IDVerificationMethodEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/supervision-verification/44314532f9"/>
+			<xs:enumeration value="http://data.europa.eu/snb/supervision-verification/70be69aaf9"/>
+			<xs:enumeration value="http://data.europa.eu/snb/supervision-verification/c598449d64"/>
+			<xs:enumeration value="http://data.europa.eu/snb/supervision-verification/df2880c5cb"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AccreditationTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/accreditationType/institutionalQualityAssurance"/>
+			<xs:enumeration value="http://data.europa.eu/europass/accreditationType/institutionalLicense"/>
+			<xs:enumeration value="http://data.europa.eu/europass/accreditationType/programQualityAssurance"/>
+			<xs:enumeration value="http://data.europa.eu/europass/accreditationType/programLicense"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EntitlementTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/entitlement/bebd32e8e6"/>
+			<xs:enumeration value="http://data.europa.eu/snb/entitlement/52f62180c2"/>
+			<xs:enumeration value="http://data.europa.eu/snb/entitlement/64aad92881"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EntitlementStatusEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/entitlement-status/5b8d6b34fb"/>
+			<xs:enumeration value="http://data.europa.eu/snb/entitlement-status/b7015a8a8c"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CommunicationChannelEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/phone"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/mobilephone"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/email"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/fax"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/web"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelType/post"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CommunicationChannelUseEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelUsage/personal"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelUsage/business"/>
+			<xs:enumeration value="http://data.europa.eu/europass/communicationChannelUsage/mobile"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MediaTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/7Z"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/AAC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/APK"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ARC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ARC_GZ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ARJ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/AZW"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/APPX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MAP_PRVW"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MAP_SRVC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ATOM"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BITS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BWF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BIN"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BMP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/CSS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LAZ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DBF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DCR"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DMG"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/E00"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/EAR"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ECW"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/EPUB"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/EXE"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/EPS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GRID_ASCII"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GDB"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/REST"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SHP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GRID"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLSX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/FMX4"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GIF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GZIP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GEOJSON"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/HDF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/HDT"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/HTML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/HTML_SIMPL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MSG_HTTP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ICS            "/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/IMMC_XML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/INDD"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ISO"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JAR"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JATS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JPEG"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JPEG2000"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JSON"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JSON_LD"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/KML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/KMZ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LAS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LEG"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LHA"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MBOX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MDB"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/METS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/METS_ZIP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MHTML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MOP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MPEG2"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MPEG4"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MPEG4_AVC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MSI"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MXD"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TAB"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TAB_RSTR"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MOBI"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MRSID"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/N3"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/NETCDF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODT"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/OVF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/OWL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/OCTET"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODB"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODG"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DMP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFA1A"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFA1B"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFA2A"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFA2B"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFX1A"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFX2A"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFX4"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDF1X"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFA3"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PNG"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PSD"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PWP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TXT"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PPSX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PPT"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PPTX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PPS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/QGS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RAR"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDF_N_QUADS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDF_N_TRIPLES"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDF_TRIG"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDF_TRIX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDF_XML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDFA"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RPM"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RSS"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RTF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SDMX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SGML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DTD_SGML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SKOS_XML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SPARQLQ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SPARQLQRES"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SQL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SVG"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SWM"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TAR"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TAR_GZ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TAR_XZ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TIFF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TIFF_FX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TMX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TSV"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WAR"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WARC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WARC_GZ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WFS_SRVC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WIM"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WMS_SRVC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DOC"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DOCX"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WORLD"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XHTML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XHTML_SIMPL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLIFF"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLSB"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLSM"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DTD_XML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SCHEMA_XML"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XSLFO"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XSLT"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XYZ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/Z"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ZIP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GMZ"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ISO_ZIP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BZIP2"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DEB"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LZIP"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LZMA"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LZO"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SB3"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XZ"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ImageMediaTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="MediaTypeEnumType">
+			<!--<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/png"/>
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/jpeg"/>
+			<xs:enumeration value="http://data.europa.eu/europass/mediaType/image/gif"/>-->
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContentEncodingEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/snb/encoding/6146cde7dd"/>
+		</xs:restriction>
+		<!-- todo -->
+	</xs:simpleType>
+	<xs:simpleType name="CreditPointSystemType">
+		<xs:union memberTypes="CreditPointSystemEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="CreditPointSystemEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:normalizedString">
+			<xs:enumeration value="http://data.europa.eu/europass/educationalCreditPointSystem/ects"/>
+			<xs:enumeration value="http://data.europa.eu/europass/educationalCreditPointSystem/ecvet"/>
+		</xs:restriction>
+		<!-- todo -->
+	</xs:simpleType>
+	<xs:simpleType name="ECTSCreditPointSystemEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="CreditPointSystemEnumType">
+			<xs:enumeration value="http://data.europa.eu/europass/educationalCreditPointSystem/ects"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SkillAlignmentTypeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/closeMatch"/>
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/exactMatch"/>
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/broaderMatch"/>
+			<xs:enumeration value="http://data.europa.eu/europass/skillAssociationType/narrowerMatch"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerificationCheckCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/verification/94d828f160"/>
+			<xs:enumeration value="http://data.europa.eu/snb/verification/e2bbc86a28"/>
+			<xs:enumeration value="http://data.europa.eu/snb/verification/f9c2016fe9"/>
+			<xs:enumeration value="http://data.europa.eu/snb/verification/1faf8d450f"/>
+			<xs:enumeration value="http://data.europa.eu/snb/verification/271aef9eb4"/>
+			<xs:enumeration value="http://data.europa.eu/snb/verification/2f5b89b96f"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerificationStatusEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://data.europa.eu/snb/verification-status/641f0c5e5d"/>
+			<xs:enumeration value="http://data.europa.eu/snb/verification-status/9895008394"/>
+			<xs:enumeration value="http://data.europa.eu/snb/verification-status/9d26eb9a37"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CurrencyEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:union memberTypes="MDRCurrencyEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="GenderEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:union memberTypes="MDRHumanSexEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="LocationCodeContentType">
+		<xs:union memberTypes="MDRCountryCodeEnumType NutsCodeEnumType xs:normalizedString"/>
+	</xs:simpleType>
+	<xs:simpleType name="CountryCodeContentType">
+		<xs:union memberTypes="MDRCountryCodeEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="TextContentTypeCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="text/html"/>
+			<xs:enumeration value="text/plain"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LanguageEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:union memberTypes="MDRLanguageCodeEnumType"/>
+	</xs:simpleType>
+	<xs:simpleType name="LanguageCharCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:language">
+			<xs:enumeration value="bg"/>
+			<xs:enumeration value="cs"/>
+			<xs:enumeration value="da"/>
+			<xs:enumeration value="de"/>
+			<xs:enumeration value="el"/>
+			<xs:enumeration value="en"/>
+			<xs:enumeration value="es"/>
+			<xs:enumeration value="et"/>
+			<xs:enumeration value="fi"/>
+			<xs:enumeration value="fr"/>
+			<xs:enumeration value="ga"/>
+			<xs:enumeration value="hr"/>
+			<xs:enumeration value="hu"/>
+			<xs:enumeration value="is"/>
+			<xs:enumeration value="it"/>
+			<xs:enumeration value="lt"/>
+			<xs:enumeration value="lv"/>
+			<xs:enumeration value="mt"/>
+			<xs:enumeration value="nl"/>
+			<xs:enumeration value="no"/>
+			<xs:enumeration value="pl"/>
+			<xs:enumeration value="pt"/>
+			<xs:enumeration value="ro"/>
+			<xs:enumeration value="sk"/>
+			<xs:enumeration value="sl"/>
+			<xs:enumeration value="sv"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.10.0' based on edci model version '0.8.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.10.0">
+	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
+	<xs:include schemaLocation="edci_commonTypes.xsd"/>
+	<xs:include schemaLocation="edci_contact.xsd"/>
+	<xs:include schemaLocation="edci_complexContentTypes.xsd"/>
+	<xs:complexType name="AgentType">
+		<xs:annotation>
+			<xs:documentation>An entity that is able to carry out actions. The Agent class does encompass organisations, natural persons, groups, systems, etc…</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A formally-issued Identifier for the Agent.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The type of agent (i.e. the ESCO organization category).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="EscoOrganizationTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the esco organization category.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="prefLabel" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The primary name of the agent.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="altLabel" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An agent may have any number of alternative or informal names.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="additionalNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An additional free text note about the agent.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasLocation" type="LocationType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A location related to an Agent. (e.g. a person's home or residence location, a person's work place location, site location of an organisation,….)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactPoint" type="ContactPointType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The contact information of an agent. This property links to any "channel" through which the agent can be contacted. It is a means of contacting the agent.  It gives the details of how to contact the agent and is repeatable for each type of contact method.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the agent.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PersonType">
+		<xs:complexContent>
+			<xs:extension base="AgentType">
+				<xs:sequence>
+					<xs:element name="nationalId" type="LegalIdentifierType">
+						<xs:annotation>
+							<xs:documentation>The "primary" national identifier of the person. (mandatory attribute EIDAS, a unique identifier constructed by the sending Member State in accordance with the technical specifications for the purposes of cross-border identification and which is as persistent as possible in time). Not mandatory if a person does not have a national id.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An (alternative) formally-issued identifier for the person. Identifiers are context-specific and when exchanging data between systems it is important to provide additional information that makes this explicit. People may have any number of identifiers. For example, an individual may be issued with identifiers for everything from social security to club membership.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="fullName" type="LanguageStringType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The complete name of the person as one string. Maximum cardinality of one per language.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="givenNames" type="LanguageStringType">
+						<xs:annotation>
+							<xs:documentation>The given name(s) of the person. The denominator(s) that identify the person within a family. Maximum cardinality of one per language.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="familyName" type="LanguageStringType">
+						<xs:annotation>
+							<xs:documentation>The family name of the person. A name that is usually shared by members of a family. Maximum cardinality of one per language.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="dateOfBirth" type="xs:date"/>
+					<xs:element name="placeOfBirth" type="LocationType" minOccurs="0"/>
+					<xs:element name="gender" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:restriction base="CodeType">
+									<xs:sequence>
+										<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+										<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+									</xs:sequence>
+									<xs:attribute name="uri" type="GenderEnumType" use="optional">
+										<xs:annotation>
+											<xs:documentation>The URI identifier of a known code that indicates/specifies the gender</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+									<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+									<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+									<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+								</xs:restriction>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="citizenshipCountry" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The country that has conferred citizenship rights on the person. The Country which has issued Citizenship status to an individual either by birth or by application process. The citizenship rights include rights such as the right to vote, to receive certain protection from the community or the issuance of a passport. Multiple citizenships are recorded as multiple instances of the Citizenship relationship. Citizenship is information needed by many cross-border use cases and is a legal status as opposed to the more culturally-focussed and less well-defined term "nationality".</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:restriction base="CodeType">
+									<xs:sequence>
+										<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+										<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+									</xs:sequence>
+									<xs:attribute name="uri" type="CountryCodeContentType" use="optional">
+										<xs:annotation>
+											<xs:documentation>The URI identifier of a known code that indicates/specifies a country</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+									<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+									<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+									<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+									<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+								</xs:restriction>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<!--xs:element name="homepage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A homepage about the person.</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+					<!--xs:element name="memberOf" type="IdReferenceType">
+				<xs:annotation>
+					<xs:documentation>Indicates that an agent (person or other organization) is a member of an Organization with no indication of the nature of that membership or the role played. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section within the xml document.</xs:documentation>
+			</xs:annotation>
+			</xs:element-->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrganizationType">
+		<xs:annotation>
+			<xs:documentation>A legal organization (e.g. the credential issuer, an awarding body, an academic or training institution,...).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="registration" type="IdentifierType">
+				<xs:annotation>
+					<xs:documentation>The legal identifier of an organization. The identifier given to a registered organization by the authority with which it is registered. The legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organization and the authority with which it is registered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="vatIdentifier" type="LegalIdentifierType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The Value-added Tax ID.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="taxIdentifier" type="LegalIdentifierType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The Tax/Fiscal ID of the organization.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The type of agent (i.e. the ESCO organization category).</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="EscoOrganizationTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the esco organization category.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="prefLabel" type="LanguageStringType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The primary name of the organization (e.g. legally recognized name). The name by which to refer to an organisation. In case of a registered organisation this is the legal name of the organization. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="altLabel" type="LanguageStringType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An alternative name of the organization. An organization may have any number of alternative or informal names.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="homepage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A homepage about the organization.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="additionalNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An additional free text note containing any further information about a organization.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!--xs:element name="spatial" type="LocationCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The location of the main site of the organization. The country or region where the main site of the organization is located. The country or region of formation.</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+			<xs:element name="hasLocation" type="LocationType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The legally registered site of the organisation. The country or region and eventually the address.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactPoint" type="ContactPointType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The contact information of the organization. This property links to any "channel" through which the organization can be contacted. It is a means of contacting the organization.  It gives the details of how to contact the organization and is repeatable for each type of contact method.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasAccreditation" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The accreditation(s) (i.e the quality assurance or licensing) of an organization (i.e the issuer of the credential). It MUST refer to an existing 'accreditation'-record in the 'accreditationReferences'-section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hasUnit" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates a unit which is part of this Organization, e.g. a Department within a larger Organization. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section within the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="unitOf" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates an Organization of which this Unit is a part, e.g. a Department within a larger Organization. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section within the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="logo" type="ImageObjectType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The logo of the organization.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!--xs:element name="hasMember" type="IdReferenceType">
+				<xs:annotation>
+					<xs:documentation>Indicates an agent (person or other organization) who is a member of the Organization. It MUST refer to an existing record in the 'agentReferences'-section within the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="memberOf" type="IdReferenceType">
+				<xs:annotation>
+					<xs:documentation>Indicates that an agent (person or other organization) is a member of an Organization with no indication of the nature of that membership or the role played. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section within the xml document.</xs:documentation>
+				</xs:annotation>
+			</xs:element-->
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the organization (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this organization from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

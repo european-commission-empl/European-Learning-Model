@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.10.0' based on edci model version '0.8.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.10.0">
+	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
+	<xs:include schemaLocation="edci_commonTypes.xsd"/>
+	<xs:include schemaLocation="edci_complexContentTypes.xsd"/>
+	<xs:complexType name="AccreditationType">
+		<xs:annotation>
+			<xs:documentation>The quality assurance or licensing of an organization or a qualification. An accreditation instance can be used to specify information about:
+- the quality assurance and/or licensing of an organization.
+- the quality assurance and/or licensing of an organization with respect to a specific qualification.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="type">
+				<xs:annotation>
+					<xs:documentation>The type of accreditation (i.e program quality assurance, institutional quality assurance, program license, institutional license)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="AccreditationTypeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifiesy the type of accreditation.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="title" type="LanguageStringType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The title of the accreditation. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A free text description of the accreditation. Maximum one value per language is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="decision" type="TextScoreType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+					The Quality Decision issued by the Quality Assuring Authority. A short description of the decision, such as "substantially compliant; awarded; gold level, etc."
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="report" type="DocumentType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A publicly accessible report of the quality assurance decision. This may be held by the awarded institution, by the quality assurance institution or by an independent registry such as DEQAR.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="organization" type="IdReferenceType">
+				<xs:annotation>
+					<!-- todo reference constraint-->
+					<xs:documentation>The organization whose activities are being accredited. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="limitQualification" type="IdReferenceType" minOccurs="0">
+				<xs:annotation>
+					<!-- todo reference constraint-->
+					<xs:documentation>The qualification that was accredited. It MUST refer to an existing 'qualification'-record in the 'learningSpecificationReferences'-section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="limitField" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The field of education for which the accreditation is valid.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="IscedFOetCodeEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the ISCED  FoET 2013
+										classification.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="limitEQFLevel" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The european qualification level for which the accreditation is valid.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="EQFLevelEnumType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies the EQF level.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="limitJurisdiction" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The jurisdiction for which the accreditation is valid.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="CodeType">
+							<xs:sequence>
+								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="uri" type="LocationCodeContentType" use="optional">
+								<xs:annotation>
+									<xs:documentation>The URI identifier of a known code that
+										indicates/specifies a location(i.e. a country or
+										region)</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="accreditingAgent" type="IdReferenceType">
+				<xs:annotation>
+					<!-- todo reference constraint-->
+					<xs:documentation>The Quality Assuring Authority. The competent body which administered the quality assurance process and awarded the decision. It MUST refer to an existing 'organization'-record in the 'agentReferences'-section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="issuedDate" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The date when the accreditation was formally approved/issued. If not specified it is undefined (“not known”)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reviewDate" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The date when the accreditation has to be re-viewed. If not specified it is undefined (“not known”)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="expiryDate" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The date when the accreditation expires or was expired. If not specified it is undefined (“not known”)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="additionalNote" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An additional free text note containing any further information about the accreditation (e.g applied standards and procedures in the assess-ment and quality assurance of the qualification).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="homepage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The homepage (a public web document) of an accreditation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="landingpage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A web page that can be navigated to in a web browser to gain access to the accreditation and/or additional information about the accreditation. An accreditation might not have a personal homepage but instead a landing page.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="supplementaryDoc" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A public web document containing supplemen-tary documentation about the accreditation (e.g applied standards and procedures in the assess-ment and quality assurance of the qualification). This can be a web page that can be navigated to or a downloadable file.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="IdType" use="required">
+			<xs:annotation>
+				<xs:documentation>A portable identifier of the accreditation (i.e. a urn in the uuid namespace). It is this identifier that MUST be used to link or refer to this accreditation from other places within the credential document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

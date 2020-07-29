@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.7.0">
+	<xs:simpleType name="MDRLanguageCodeEnumType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/BUL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/CES"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/DAN"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/DEU"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/ELL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/ENG"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SPA"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/EST"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/FIN"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/FRA"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/GLE"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/HRV"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/HUN"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/ISL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/ITA"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/LIT"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/LAV"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/MLT"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/NLD"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/POL"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/POR"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/RON"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SLK"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SLV"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SRB"/>
+			<xs:enumeration value="http://publications.europa.eu/resource/authority/language/SWE"/>
+			<!-- todo -->
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsd version '0.10.0' based on edci model version '0.8.0' -->
+<xs:schema xmlns="http://data.europa.eu/europass/model/credentials#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" targetNamespace="http://data.europa.eu/europass/model/credentials#" elementFormDefault="qualified" version="0.10.0">
+    <xs:include schemaLocation="edci_individuals.xsd"/>
+    <xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
+	<xs:import namespace="http://data.europa.eu/europass/model/credentials/w3c#"
+		schemaLocation="w3c_verifiableCredentials.xsd"/>
+    <xs:complexType name="NoteType">
+        <xs:annotation>
+            <xs:documentation>A formatted and annotated text fragment.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="text" type="TextType">
+                <xs:annotation>
+                    <xs:documentation>A formatted character string (i.e. a finite set of characters) generally in the form of words of a language.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="subject" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A subject or topic that is described in the text.</xs:documentation>
+                </xs:annotation>
+            	<xs:complexType>
+            		<xs:simpleContent>
+            			<xs:extension base="xs:string">
+            				<xs:attribute name="uri" type="SubjectTypeCodeEnumType" use="optional">
+            					<xs:annotation>
+            						<xs:documentation>The URI identifier of a known code that indicates/specifies the topic or subject of a text or document.</xs:documentation>
+            					</xs:annotation>
+            				</xs:attribute>
+            			</xs:extension>
+            		</xs:simpleContent>
+            	</xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CodeType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A term from a controlled vocabulary. 
+                
+                A code is a character string of letters, numbers, special characters (except escape sequences), and symbols.
+                It represents a definitive value, a method, or a property description in an abbreviated or language-independent form that is part of a finite list of allowed values.
+                The CodeType is used for all elements that are used to enable a common coded value representation. Typical example of code types are: Country Code and Language Code.
+                The CodeType should be used in case of a finite list of allowed values. The IdentifierType should be used in case of an infinite set of objects.
+                
+                This CodeType is a generic data type which is also used to represent association objects.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A name or label of the associated object in the targeted framework.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A description of the associated object in the targeted framework.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        	<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded">
+        		<xs:annotation>
+        			<xs:documentation>The name of the framework or system used to describe the associated object.</xs:documentation>
+        		</xs:annotation>
+        	</xs:element>
+        </xs:sequence>
+    	<xs:attribute name="uri" use="optional">
+    		<xs:annotation>
+    			<xs:documentation xml:lang="en">A URI identifier of the code. For URI identifier of an associated object, USE targetID attribute instead of this.</xs:documentation>
+    		</xs:annotation>
+    	</xs:attribute>
+    	<xs:attribute name="targetID" type="xs:anyURI" use="optional">
+    		<xs:annotation>
+    			<xs:documentation>The URI identifier of the associated object in the targeted framework. For URI identifier of the code, USE uri attribute instead of this.</xs:documentation>
+    		</xs:annotation>
+    	</xs:attribute>
+        <xs:attribute name="type" type="xs:anyURI" use="optional">
+            <xs:annotation>
+                <xs:documentation>A code indicating the semantics of the relation.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="description" type="xs:normalizedString" use="optional">
+            <xs:annotation>
+                <xs:documentation>A string describing the semantics of the relation.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="targetNotation" type="xs:token" use="optional">
+            <xs:annotation>
+                <xs:documentation>A notation or code of the associated object in the targeted framework.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="targetFrameworkID" type="xs:anyURI" use="optional">
+            <xs:annotation>
+                <xs:documentation>The ID of the framework or system used to describe the assoicated object.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required">
+            <xs:annotation>
+                <xs:documentation>The URL of the framework or system used to describe the assoicated object..</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional">
+            <xs:annotation>
+                <xs:documentation>The spatial coverage (country or region) of the framework or system used to describe the assoicated object..</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>	
+    </xs:complexType>
+    <xs:complexType name="URIBasedCodeType">
+        <xs:annotation>
+            <xs:documentation>A code (i.e a code from a controlled vocabulary) that can be fully identified by a URI</xs:documentation>
+        </xs:annotation>
+        <!--<xs:complexContent>-->
+            <!--<xs:restriction base="CodeType">-->
+                <xs:attribute name="uri" use="required">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            A URI identifier of the code
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            	<xs:attribute name="targetID" type="xs:anyURI" use="prohibited"/> 
+                <xs:attribute name="type" type="xs:anyURI" use="prohibited"/>
+                <xs:attribute name="description" type="xs:normalizedString" use="prohibited"/>            
+                <xs:attribute name="targetNotation" type="xs:token" use="prohibited"/>                
+                <xs:attribute name="targetFrameworkID" type="IdType" use="prohibited"/>                                        
+                <xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="prohibited"/>                   
+                <xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="prohibited"/>       
+            <!--</xs:restriction>-->
+        <!--</xs:complexContent>-->
+    </xs:complexType>
+    <xs:complexType name="LocationCodeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="LocationCodeContentType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies a location(i.e. a country or region)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CountryCodeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="CountryCodeContentType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies a country</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GenderCodeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="GenderEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the gender</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="IscedFOetCodeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="IscedFOetCodeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the ISCED  FoET 2013 classification.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EQFLevelType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="EQFLevelEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the EQF level.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LearningOutcomeTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="LearningOutcomeTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the skill type.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ReusabilityLevelType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="ReusabilityLevelEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the reusability level.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SkillAlignmentTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="SkillAlignmentTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the semantics of the alignment to the ESCO skill.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QualificationFrameworkType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="QualificationFrameworkEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the qualification framework.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LearningSettingTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="LearningSettingTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of learning (the learning setting).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LearningModeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="LearningModeTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of learning or assessment</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--<xs:complexType name="CredentialTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="CredentialTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of credential.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>-->
+	<xs:complexType name="CredentialTypeType">
+		<xs:complexContent>
+			<xs:extension base="cred:CredentialType">
+				<xs:sequence>
+					<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="uri" type="CredentialTypeEnumType" use="optional">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of credential.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+				<xs:attribute name="type" type="xs:anyURI" use="optional"/>
+				<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+				<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+				<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+				<xs:attribute name="targetFrameworkName" type="xs:normalizedString" use="optional"/>
+				<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+				<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ActivityTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="ActivityTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of activity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LearningOpportunityTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="LearningOpportunityTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of learning opportunity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TargetGroupCodeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="TargetGroupCodeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the target group of a learning opportunity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssessmentTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="AssessmentTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of assessment.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="IDVerificationMethodType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="IDVerificationMethodEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the method of ID verification.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LearningScheduleTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="LearningScheduleTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the learning schedule of learning opportunity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EscoOrganizationTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="EscoOrganizationTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the esco organization category.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AccreditationTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="AccreditationTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifiesy the type of accreditation.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EntitlementTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="EntitlementTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of entitlement.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EntitlementStatusType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="EntitlementStatusEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the status of the entitlement.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LanguageCodeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="LanguageEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the language.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SubjectTypeCodeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="SubjectTypeCodeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the topic or subject of a text or document.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CommunicationChannelTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="CommunicationChannelEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of communication channel.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CommunicationChannelUsageType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="CommunicationChannelUseEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the type of use of the communication channel.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="MediaTypeType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="MediaTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the mediatype of a media object.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ImageMediaTypeType">
+		<xs:complexContent>
+			<xs:restriction base="MediaTypeType">
+				<xs:attribute name="uri" type="ImageMediaTypeEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the mediatype of an image object.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContentEncodingType">
+		<xs:complexContent>
+			<xs:restriction base="URIBasedCodeType">
+				<xs:attribute name="uri" type="ContentEncodingEnumType" use="required">
+					<xs:annotation>
+						<xs:documentation>The URI identifier of a known code that indicates/specifies the encoding applied to encode the binary data contents of a media resource.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+    <xs:complexType name="VerificationCheckCodeType">
+        <xs:complexContent>
+            <xs:restriction base="URIBasedCodeType">
+                <xs:attribute name="uri" type="VerificationCheckCodeEnumType" use="required">
+                    <xs:annotation>
+                        <xs:documentation>The URI identifier of a known code that indicates/specifies the type of learning or assessment</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="VerificationStatusCodeType">
+        <xs:complexContent>
+            <xs:restriction base="URIBasedCodeType">
+                <xs:attribute name="uri" type="VerificationStatusEnumType" use="required">
+                    <xs:annotation>
+                        <xs:documentation>The URI identifier of a known code that indicates/specifies the type of learning or assessment</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
