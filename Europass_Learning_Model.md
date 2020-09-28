@@ -368,7 +368,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Start Date|The date from which a person may follow the learning opportunity.|startedAtDate|`Property`<br>Date|0. .1|The start date.||
 |End Date|The final date a person may start to follow the learning opportunity.|endedAtDate|`Property`<br>Date|0. .1|The end date.||
 |Duration|The duration for which the learning opportunity will continue to run. Note, this may be after the end-date, since admissions may be closed but the learning opportunity may still be ongoing.|duration|`Property`<br>Duration|0. .1|The nominal duration of the learning opportunity.||
-|Provided by|The organisation providing or directing the learning opportunity. In the case of, e.g. joint qualifications, there may be several organisations directing the learning opportunity. |providedBy|`Association`<br>Organization|*|The providing or directing organization.||
+|Provided by|The organisation providing or directing the learning opportunity. In the case of, e.g. joint qualifications, there may be several organisations directing the learning opportunity. |providedBy|`Association`<br>Organisation|*|The providing or directing organisation.||
 |Provided at|The location where the learning opportunity will take place. This may also include a virtual space.|providedAt|`Association`<br>Location|*|The location of the opportunity.||
 |Learning Schedule|N/A|learningSchedule|`Property`<br>Code|0. .1|The learning schedule.|Europass Standard List of Learning Schedule Types.|
 |Schedule Information|Detailed information about the timetable or schedule. This may include weekly schedules (e.g. "Every Monday, 4pm", but may also include the overall schedule for the course, (e.g. October: lectures, November: group-work, December: break, January: assessmnet)|scheduleInformation|`Property`<br>Note|0. .1|A free text note about the time schedule.||
@@ -377,10 +377,21 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Sub-Opportunities|Smaller learning opportunities, which when combined make up this learning opportunity.|hasPart|`Association`<br>LearningOpportunity|*|A learning opportunity can be composed of other "narrower" learning opportunities.||
 |Banner Image|An image which is displayed alongside the learning opportunity|bannerImage|`Association`<br>ImageObject|0. .1|The image to be displayed alongside the learning opportunity.||
 
+### Price Details
+**Class description**: The price details. The details about a price or price category.
+|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|--|--|--|--|--|--|--|
+|Price Details UID|The unique identifier of the Price Details.|id|`ID/PK`<br>URI|0. .1|A portable identifier of the price category.|
+|Price Category Identifier|The identifier of the price category, allocated by the organisation charging the fee.|Identifier|`Property`<br>Identifier|*|A price category identifier.|
+|Fee|The full (sticker) price of the learning opportunity|amount|`Property`<br>Amount|0. .1|The amount.|
+|Price Category Name|The name of the price/price category.|name|`Property`<br>Text|0. .1|A proper noun applied to a price.|
+|Description|N/A|description|`Property`<br>Note|0. .1|A free text describing the price.|
+|Subsidies|N/A|additional note|`Property`<br>Note|*|An additional free text note about the price.|
+
 ### Accreditation
 **Class description**: The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about:
-- the quality assurance and/or licensing of an organization.
-- the quality assurance and/or licensing of an organization with respect to a specific qualification.
+- the quality assurance and/or licensing of an organisation.
+- the quality assurance and/or licensing of an organisation with respect to a specific qualification.
 
 |Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
 |--|--|--|--|--|--|--|
@@ -391,12 +402,12 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Description||description|`Property`<br>Note|0. .0|A free text description of the accreditation.||
 |Decision||decision|`Property`<br>TextScore|0. .1|The Quality Decision issued by the Quality Assuring Authority.||
 |Report||report|`Association`<br>WebDocument|0. .1|A publicly accessible report of the quality assurance decision||
-|Organization|The organization whose activities are being accredited.|organization|`Association`<br>Organization|1|The organization whose activities are being accredited.||
+|Organisation|The organisation whose activities are being accredited.|organisation|`Association`<br>Organisation|1|The organisation whose activities are being accredited.||
 |Qualification Accredited|The qualification that was accredited.|limitQualification|`Association`<br>Qualification|0. .1|The qualification that was accredited.||
 |Accredit for Thematic Area|The field of education for which the accreditation is valid.|limitField|`Properties`<br>Code|*|The field of education for which the accreditation is valid.|ISCED-F|
 |Accredited for EQF Level|The european qualification level for which the accreditation is valid.|limitEQFLevel|`Properties`<br>Code|*|The european qualification level for which the accreditation is valid.|EQF|
 |Accredited in Jurisdiction|The jurisdiction for which the accreditation is valid.|limitJurisdiction|`Properties`<br>Code|*|The jurisdiction for which the accreditation is valid.|"MDR Countries Named Authority List NUTS"|
-|Accrediting Agent|The Quality Assuring Authority. (i.e assurer)|accrediting agent|`Association`<br>Organization|1|The Quality Assuring Authority. (i.e assurer)||
+|Accrediting Agent|The Quality Assuring Authority. (i.e assurer)|accrediting agent|`Association`<br>Organisation|1|The Quality Assuring Authority. (i.e assurer)||
 |Issue Date|The Quality Assuring Authority. (i.e assurer)|issue date|`Property`<br>DateTime|0. .1|The date when the accreditation was formally approved/issued.||
 |Review Date|The date when the accreditation was formally approved/issued.|review date|`Property`<br>DateTime|0. .1|The date when the accreditation has to be re-viewed.||
 |Expiry Date|The date when the accreditation has to be re-viewed.|expiry date|`Property`<br>DateTime|0. .1|The date when the accreditation expires or was expired.||
@@ -590,7 +601,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 ### Identifier - Composite Type
 **Definition**: A character string used to identify a resource.  
 An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency.  
-The Identifier class is a critical aspect of the edci model. It is used to identify persons and organizations. In these cases and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised.
+The Identifier class is a critical aspect of the edci model. It is used to identify persons and organisations. In these cases and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Identifier|Content|`Attribute`<br>String|1|Content string which is the identifier.|Content string which is the identifier. A character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency.||
