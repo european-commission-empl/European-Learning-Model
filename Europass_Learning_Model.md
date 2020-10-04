@@ -289,7 +289,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Valid within|The region or country where the entitlement is valid.|limitJurisidiction|`Property`<br>Code|*|The jurisdiction for which the entitlement is valid.|MDR Countries Named Authority List. NUTS.|
 |Related Occupation|The occupation or occupational class which the individual may access through the entitlement.|limitOccupation|`Association`<br>EscoOccupationAssociation|*|An ESCO Occupation or Occupational Category.|ESCO Occupations.|
 |N/A|N/A|limitNationalOccupation|Association<br>OccupationAssociation|*|An Occupation or Occupational Category||
-|N/A|N/A|mayResultFrom|`Association`<br>LearningSpecification|*|||
+|N/A|N/A|mayResultFrom|`Association`<br>LearningSpecification|0. . 1|||
 |Entitlement sub-specification|Smaller entitlement specifications, which when combined make up this entitlement specification.|hasPart|`Association`<br>EntitlementSpecification|*|A sub-specification.||
 |N/A|N/A|specializationOf|`Association`<br>EntitlementSpecification|*|An entitlement specification (e.g. a standard) of which this specification is a specialization.||
 
