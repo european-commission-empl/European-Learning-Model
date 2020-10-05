@@ -73,7 +73,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Learning Sub-Specifications|Smaller learning specifications, which when combined make up this  learning specification.|hasPart|`Association`<br>LearningSpecification|*|A learning specification can be composed of other "narrower" learning specifications.||
 |N/A|N/A|specialisationOf|`Association`<br>LearningSpecification|*|A learning specification (e.g. a standard) of which this specification is a specialisation.<a href="#FN1">[1]</a>||
 
-<a name="FN1">To be implemented at a later stage</a>
+<a name="FN1">[1]: To be implemented at a later stage</a>
 
 ### Qualification < extends LearningSpecification >
 **Class description**: a specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.
@@ -331,7 +331,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |--|--|--|--|--|--|--|
 |Organisation UID|The unique identifier of the organisation.|id|`ID/PK`<br>URI|1|A portable identifier of the organisation.||
 |Other Identifier|N/A|identifier|`Property`<br>Identifier|*|Another formally-issued identifier for the organisation.||
-|eIDAS Identifier|The official identification number of the organisation, as awarded by the relevant national authority.authority.[^2]|eidasLegalIdentifier|`Property`<br>Identifier|1|The identifier given to a registered organisation by the authority with which it is registered.||
+|eIDAS Identifier|The official identification number of the organisation, as awarded by the relevant national authority.authority.<a href="#FN2">[2]</a>|eidasLegalIdentifier|`Property`<br>Identifier|1|The identifier given to a registered organisation by the authority with which it is registered.||
 |Registration|N/A|registration|`Property`<br>Identifier|1|The legal identifier of an organization. The identifier given to a registered organization by the authority with which it is registered. The legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organization and the authority with which it is registered.||
 |VAT Number|N/A|vatIdentifier|`Property`<br>LegalIdentifier|*|The Value-Added Tax ID.||
 |Tax / Fiscal Identifier|N/A|taxIdentifier|`Property`<br>LegalIdentifier|*|The Tax / Fiscal ID of the organisation.||
@@ -343,7 +343,8 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Child Organisation|A smaller organisation of which forms part of this organisation.|hasUnit|`Association`<br>Organisation|*|Indicates a unit which is part of this Organisation, e.g. a Department within a larger Organisation.||
 |Parent Organisation|A larger organisation of which this unit/sub-organisation forms part|unitOf|`Association`<br>Organisation|0. .1|Indicates an Organisation of which this Unit is a part, e.g. the Organisation within which a Department operates.||
 |Logo|N/A|logo|`Association`<br>ImageObject|0. .1|The logo of the organisation.||
-[^2]: See chapter 5.1.4 in Draft ETSI EN 319 412-1 V1.4.2 https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.02_20/en_31941201v010402a.pdf
+
+<a name="FN2">[2]: See chapter 5.1.4 in [Draft ETSI EN 319 412-1 V1.4.2](https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.02_20/en_31941201v010402a.pdf)</a>
 
 ### Contact information
 **Class description**: Details to Contact an Agent. A contact point for an agent.
