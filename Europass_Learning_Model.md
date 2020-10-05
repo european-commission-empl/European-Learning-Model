@@ -71,8 +71,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Entitlements|Rights (such as  which the person may acquire as a result of acquiring the learning outcomes)|entitlementSpecification|`Association`<br>EntitlementSpecification|*|A specification of an entitlement to which this LearningSpecification may give rise to.||
 |Awarding Information|Information about the award of a qualification or other achievement on completing this opportunity.|awardingOpportunity|`Association`<br>AwardingOpportunity|*|Refers to an activity related to the awarding of the learning specification, such as the country or region where the qualifi-cation is awarded, the awarding body and optionally the awarding period now or in the past.||
 |Learning Sub-Specifications|Smaller learning specifications, which when combined make up this  learning specification.|hasPart|`Association`<br>LearningSpecification|*|A learning specification can be composed of other "narrower" learning specifications.||
-|N/A|N/A|specialisationOf|`Association`<br>LearningSpecification|*|A learning specification (e.g. a standard) of which this specification is a specialisation.[^1]||
-[^1]: To be implemented at a later stage
+|N/A|N/A|specialisationOf|`Association`<br>LearningSpecification|*|A learning specification (e.g. a standard) of which this specification is a specialisation.<a href="#FN1">[1]</a>||
+
+<a name="FN1">To be implemented at a later stage</a>
 
 ### Qualification < extends LearningSpecification >
 **Class description**: a specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.
