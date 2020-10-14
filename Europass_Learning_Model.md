@@ -27,7 +27,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Display Parameters|The display details of the credential.|display|`Association`<br>DisplayParameters|0. .1|||
 |Attachments|Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Europass document.|attachment|`Association`<br>MediaObject|*|||
 |Proof|The cryptographic proofs that can be used to detect tampering and verify the authorship of a credential or presentation.|proof|`Association`<br>Proof|1|||
-|Sub-credentials|A credential embedded within the credential. Smaller sub-credentials (micro-credentials), which when combined make up this  learning opportunity.|contains|`Association`<br>EuropassCredential|*|||
+|Sub-credentials|A credential embedded within the credential. Smaller sub-credentials (micro-credentials), that make up this larger credential when combined.|contains|`Association`<br>EuropassCredential|*|||
 
 ### Proof
 **Class description**: The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation.
@@ -81,7 +81,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |--|--|--|--|--|--|--|
 |Partial Qualification|Indicates whether a qualification is a full qualification or part of another qualification.|isPartialQualification|`Property`<br>xsd:boolean|0. .1| ||
 |EQF Level|The qualification level as specified by the European Qualification Framework.|EQFLevel|`Association (sub-property of education level)`<br>QFLevelAssociation|0. .1||EQF. QDR List of qualification frameworks.|
-|NQF Level|The qualification level as specified by a National Qualification Framework.|NQFLevel|`Association (sub-property of education level)`<br>QFLevelAssociation|*|The qualification level as specified by a National Qualification Framework.|QDR List of qualification frameworks|
+|NQF Level|The qualification level as specified by a National Qualification Framework.|NQFLevel|`Association (sub-property of education level)`<br>QFLevelAssociation|*||QDR List of qualification frameworks|
 |Accreditation|The accreditation of a qualification.|hasAccreditation|`Association`<br>Accreditation|*|||
 |Link to Europass Qualification Record|An identifying code from a qualification based reference semantic asset.|qualificationCode|`Association`<br>QualificationAssociationType|*||NQF qualifications from QDR.||
 
@@ -114,7 +114,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Language(s) of Instruction|The instruction language(s) used.|language|`Property`<br>Code|*||http://data.europa.eu/esco/skill/58095196-d766-4a5c-b16c-d941489f8e66|
 |Mode of learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
 |Expected Learning Outcomes|The expected learning outcomes this learning activity specification can lead or contribute to.|teaches|`Association`<br>LearningSpecification|*|||
-|Learning Activity Sub-Specifications|A learning activity specification can be composed of other "narrower" learning activity specifications. Smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br>LearningActivitySpecification|*|||
+|Learning Activity -Specifications|A learning activity specification can be composed of smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br>LearningActivitySpecification|*|||
 |N/A|An activity specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>LearningActivitySpecification|*|||
 
 #### Learning Activity
@@ -172,7 +172,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Method of assessment, supervision and id verification|Method of assessment supervision and id verification.|idVerification|`Property`<br>Code|0. .1||Europass Standard List of Methods Of Supervision And Verification.|
 |Assessment conducted by|The competent body that awarded the grade.|assessedBy|`Association`<br>Agent|*|||
 |N/A|The specification of this assessment.|specifiedBy|`Association`<br>AssessmentSpecification|0. .1|||
-|Sub-Assessments|Smaller assessments, which when combined make up and can influence this assessment|hasPArt|`Association`<br>Assessment|*|||
+|Sub-Assessments|Smaller assessments, which when combined make up and can influence this assessment.|hasPArt|`Association`<br>Assessment|*|||
 
 ### Shortened Grading
 **Class description**: Indicator of *how well* the student was graded when compared to other students.
@@ -250,48 +250,48 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: An awarding activity represents an activity related to the awarding of a LearningSpecification. It is used to specify the country or region where the LearningSpecification is awarded, the awarding body and optionally the awarding period now or in the past.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|||id|`ID/PK`<br>URI|1|A portable identifier of the awarding opportunity.||
-|||identifier|`Property`<br>Identifier|*|An alternative identifier of the awarding opportunity.||
-|||awardingBody |`Association`<br>Organisation|*|The awarding body related to this awarding activity (i.e the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1||
-|||location|`Property`<br>Code|0. .1|Location where the awarding activity takes place (country/region where the qualification is awarded)|MDR Countries Named Authority List; NUTS (skossified and published version by ESCO)|
-|||startedAtTime|`Property`<br>DateTime|0. .1|The date since when the awarding activities take place. If not specified it is undefined (“not known”)||
-|||endedAtTime|`Property`<br>DateTime|0. .1|The date until when the awarding activities take/took place||
+||A portable identifier of the awarding opportunity.|id|`ID/PK`<br>URI|1|||
+||An alternative identifier of the awarding opportunity.|identifier|`Property`<br>Identifier|*|||
+||The awarding body related to this awarding activity (i.e the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1|awardingBody |`Association`<br>Organisation|*|||
+||Location where the awarding activity takes place (country/region where the qualification is awarded)|location|`Property`<br>Code|0. .1||MDR Countries Named Authority List; NUTS (skossified and published version by ESCO)|
+||The date since when the awarding activities take place. If not specified it is undefined (“not known”)|startedAtTime|`Property`<br>DateTime|0. .1|||
+||The date until when the awarding activities take/took place|endedAtTime|`Property`<br>DateTime|0. .1|||
 
 ### Entitlement
 **Class description**: A right, e.g. to practice a profession, take advantage of a learning opportunity or join an organisation, as a result of the acquisition of knowledge, skills, responsibility and/or autonomy.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Entitlement UID|The unique identifier of the entitlement.|id|`ID/PK`<br>URI|1|A portable identifier of the entitlement.||
-|||identifier|`Property`<br>Identifier|*|An alternative identifier of the entitlement.||
-|Title|N/A|title|`Property`<br>Text|1|The title of the entitlement.||
-|Description|The specific rights the holder of the credential has acquired.|description|`Property`<br>Note|0. .1|A free text description of the entitlement.||
-|Date of Issue|N/A|issuedDate|`Property`<br>Date|0. .1|The date from which the entitlement was conferred.||
-|Expiry Date|N/A|expiryDate|`Property`<br>Date|0. .1|The date until which the entitlment was conferred.||
-|More information|N/A|additionalNote|`Property`<br>Note|*|An additional free text note about the entitlement.||
-|N/A|N/A|specifiedBy|`Association`<br>EntitlementSpecification|0. .1|What the person is entitled to.||
-|Derived from|The learning achievement (and related learning outcomes) which gave rise to this entitlement.|wasDerivedFrom|`Association`<br>LearningAchievement|*|A learning achievement which gave rise to the entitlement.||
-|Sub-Entitlements|Smaller entitlements, which when combined make up this entitlement.|hasPart|`Association`<br>Entitlement|*|A sub-entitlement||
+|Entitlement UID|A portable and identifier of the entitlement. id|`ID/PK`<br>URI|1|||
+||An alternative identifier of the entitlement.|identifier|`Property`<br>Identifier|*|||
+|Title|The title of the entitlement.|title|`Property`<br>Text|1|||
+|Description|A free text description of the specific rights the holder of the credential has acquired.|description|`Property`<br>Note|0. .1|||
+|Date of Issue|The date from which the entitlement was conferred.|issuedDate|`Property`<br>Date|0. .1|||
+|Expiry Date|The date until which the entitlment was conferred.|expiryDate|`Property`<br>Date|0. .1|||
+|More information|An additional free text note about the entitlement.|additionalNote|`Property`<br>Note|*|||
+|N/A|A learning achievement which gave rise to the entitlement.|specifiedBy|`Association`<br>EntitlementSpecification|0. .1|||
+|Derived from|The learning achievement (and related learning outcomes) which gave rise to this entitlement.|wasDerivedFrom|`Association`<br>LearningAchievement|*|||
+|Sub-Entitlements|Smaller entitlements, which when combined make up this entitlement.|hasPart|`Association`<br>Entitlement|*|||
 
 ### Entitlement Specification
 **Class description**: The specification of a right a person has access to, typically as a result of a learning achievement. It may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Entitlement Specification UID|The unique identifier of the entitlement specification.|id|`ID/PK`<br>URI|1|A portable identifier of the entitlement.||
-|Entitlement Specification Identifier|N/A|identifier|`Property`<br>Identifier|*|An alternative identifier of the entitlement.||
-|Title|N/A|title|`Property`<br>Text|0. .1|The title of the entitlement specification.||
-|N/A|N/A|alternativeLabel|`Property`<br>Text|*|An alternative name of the entitlement specification.||
-|Description|N/A|description|`Property`<br>Note|0. .1|A free text description of the entitlement specification.||
-|More information|N/A|additionalNote|`Property`<br>Note|*|An additional free text note about the entitlement specification.||
-|Homepage|Webpage describing the activity specification|homePage|`Association`<br>WebDocument|*|The homepage (a public web document) of the entitlement specification.||
-|Other Documents|Any other web documents describing the activity specification|supplementaryDocument|`Association`<br>WebDocument|*|A public web document containing additional documentation about the entitlement specification.||
-|Entitlement Type|A credential-holder may be entitled to membership of an organisation or professional association; to access a learning opportunity; or to perform a specific employment|entitlementType|`Property`<br>Code|1|The entitlement-type.|Europass Standard List of Entitlement Types.|
-|Status|An entitlement may be prospective, i.e. awarding the right to apply for the entitlement; or actual, i.e. granting the entitlement|status|`Property`<br>Code|1|The status of the entitlement.|Europass Standard List of Entitlement Status.|
+|Entitlement Specification UID|A portable and unique identifier of the entitlement specification.|id|`ID/PK`<br>URI|1|||
+|Entitlement Specification Identifier|An alternative identifier of the entitlement.|identifier|`Property`<br>Identifier|*|||
+|Title|The title of the entitlement specification.|title|`Property`<br>Text|0. .1|||
+|N/A|An alternative name of the entitlement specification.|alternativeLabel|`Property`<br>Text|*|||
+|Description|A free text description of the entitlement specification.|description|`Property`<br>Note|0. .1|||
+|More information|An additional free text note about the entitlement specification.|additionalNote|`Property`<br>Note|*|||
+|Homepage|The homepage (a public web document) of the entitlement specification.|homePage|`Association`<br>WebDocument|*|||
+|Other Documents|A public web document containing additional documentation about the entitlement specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Entitlement Type|A credential-holder may be entitled to membership of an organisation or professional association; to access a learning opportunity; or to perform a specific employment|entitlementType|`Property`<br>Code|1||Europass Standard List of Entitlement Types.|
+|Status|The status of the entitlement: an entitlement may be prospective, i.e. awarding the right to apply for the entitlement; or actual, i.e. granting the entitlement.|status|`Property`<br>Code|1||Europass Standard List of Entitlement Status.|
 |Valid with|The organisation which acknowledges the entitlement (i.e. the organisation offering the learning opportunity, membership or employment opportunity)|limitOrganisation|`Association`<br>Organisation|*|||
-|Valid within|The region or country where the entitlement is valid.|limitJurisidiction|`Property`<br>Code|*|The jurisdiction for which the entitlement is valid.|MDR Countries Named Authority List. NUTS.|
-|Related Occupation|The occupation or occupational class which the individual may access through the entitlement.|limitOccupation|`Association`<br>EscoOccupationAssociation|*|An ESCO Occupation or Occupational Category.|ESCO Occupations.|
+|Valid within|The jurisdiction for which the entitlement is valid (the region or country).|limitJurisidiction|`Property`<br>Code|*||MDR Countries Named Authority List. NUTS.|
+|Related Occupation|The An ESCO Occupation or Occupational class which the individual may access through the entitlement.|limitOccupation|`Association`<br>EscoOccupationAssociation|*||ESCO Occupations.|
 |N/A|N/A|limitNationalOccupation|Association<br>OccupationAssociation|*|An Occupation or Occupational Category||
 |N/A|N/A|mayResultFrom|`Association`<br>LearningSpecification|0. . 1|||
-|Entitlement sub-specification|Smaller entitlement specifications, which when combined make up this entitlement specification.|hasPart|`Association`<br>EntitlementSpecification|*|A sub-specification.||
+|Entitlement sub-specification|Smaller entitlement specifications, which when combined make up this entitlement specification.|hasPart|`Association`<br>EntitlementSpecification|*|||
 |N/A|N/A|specializationOf|`Association`<br>EntitlementSpecification|*|An entitlement specification (e.g. a standard) of which this specification is a specialization.||
 
 ### Agent < abstract >
@@ -316,8 +316,6 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Full name|N/A|fullName|`Property` (sub-Property of Agent prefferedName property)<br>Text|0. .1|The complete name of the person as one string.||
 |Given name|N/A|givenNames|`Property`<br>Text |1|The given name(s) of the person.||
 |Family name|N/A|familyName|`Property`<br>Text|1|The family name of the person.||
-|Birth name|N/A|birthName|`Property`<br>Text|0. .1|The name of the person at birth. Birth names tend to be persistent and for this reason they are recorded by some public sector information systems. There is no granularity for birth name - the full name should be recorded in a single field.||
-|Patronymic name|N/A|patronymicName|`Property`<br>Text|0. .1|Patronymic names are important in some countries. Iceland does not have a concept of 'family name' in the way that many other European countries do, for example, Erik Magnusson and Erika Magnusdottir are siblings, both offspring of Mangnus, irrespective of his patronymic name. In   Bulgaria and Russia, patronymic names are in every day usage, for example, the Sergeyevich in 'Mikhail Sergeyevich Gorbachev.'||
 |Date of birth|N/A|dateOfBirth|`Property`<br>Date|1|The birth date of the person.||
 |Place of birth|N/A|placeOfBirth|`Property`<br>Location|0. .1|The place of birth of the person.||
 |Gender|N/A|gender|`Property`<br>Code|0. .1|The gender of the person.|MDR Human Sex Named Authority List.|
