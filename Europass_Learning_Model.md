@@ -316,6 +316,8 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Full name|N/A|fullName|`Property` (sub-Property of Agent prefferedName property)<br>Text|0. .1|The complete name of the person as one string.||
 |Given name|N/A|givenNames|`Property`<br>Text |1|The given name(s) of the person.||
 |Family name|N/A|familyName|`Property`<br>Text|1|The family name of the person.||
+|Birth name|N/A|birthName|`Property`<br>Text|0. .1|The name of the person at birth. Birth names tend to be persistent and for this reason they are recorded by some public sector information systems. There is no granularity for birth name - the full name should be recorded in a single field.||
+|Patronymic name|N/A|patronymicName|`Property`<br>Text|0. .1|Patronymic names are important in some countries. Iceland does not have a concept of 'family name' in the way that many other European countries do, for example, Erik Magnusson and Erika Magnusdottir are siblings, both offspring of Mangnus, irrespective of his patronymic name. In   Bulgaria and Russia, patronymic names are in every day usage, for example, the Sergeyevich in 'Mikhail Sergeyevich Gorbachev.'||
 |Date of birth|N/A|dateOfBirth|`Property`<br>Date|1|The birth date of the person.||
 |Place of birth|N/A|placeOfBirth|`Property`<br>Location|0. .1|The place of birth of the person.||
 |Gender|N/A|gender|`Property`<br>Code|0. .1|The gender of the person.|MDR Human Sex Named Authority List.|
