@@ -236,12 +236,12 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: The process of an organisation awarding Learning Achievement to person based on a Learning Specification (e.g. a qualification). It is used to specify the organisation that awarded the LearningSpecification to the individual, the country or region where the LearningSpecification was awarded, and optionally the date of awarding.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Awarding Process UID|The Unique Identifier of the Awarding Process.|id|`ID/PK`<br>URI|1|A portable identifier of the awarding process.||
-|N/A|N/A|identifier|`Property`<br>Identifier|*|An alternative identifier of the awarding process.||
-|Description|N/A|description|`Property`<br>Text|0. .1|A description of the awarding process to the individual.||
-|More information|N/A|additionalNote|`Property`<br>Text|*|An additional free text note (e.g. a comment, a remark, etc.)||
+|Awarding Process UID|A portable and Unique Identifier of the Awarding Process.|id|`ID/PK`<br>URI|1|||
+|N/A|An alternative identifier of the awarding process.|identifier|`Property`<br>Identifier|*|||
+|Description|A description of the awarding process to the individual.|description|`Property`<br>Text|0. .1|||
+|More information|An additional free text note (e.g. a comment, a remark, etc.)|additionalNote|`Property`<br>Text|*|||
 |Assessment utilised|The assessment that provided the basis for this awarding.|used|`Association`<br>Assessment|*|||
-|Learning achievement|N/A|learningAchievement|`Association`<br>LearningAchievement|1. .*|The resulting learning achievement.||
+|Learning achievement|The resulting learning achievement.|learningAchievement|`Association`<br>LearningAchievement|1. .*|||
 |Awarding organisation|The awarding body that awarded the Achievement to the individual. Only in cases of co-awarding/co-graduation, where a qualification award is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody|`Association`<br>Organisation|1. .*|||
 |Location|The location where the awarding activity took place (country/region where the qualification was awarded).|awardingLocation|`Association`<br>Location|0. .1||MDR Countries Named Authority List. NUTS (skossified and published version by ESCO).|
 |Awarding Date|The date when the LearningSpecification was awarded. If not specified it is undefined (“not known”).|awardingDate|`Property`<br>DateTime|0. .1|||
@@ -289,10 +289,10 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Valid with|The organisation which acknowledges the entitlement (i.e. the organisation offering the learning opportunity, membership or employment opportunity)|limitOrganisation|`Association`<br>Organisation|*|||
 |Valid within|The jurisdiction for which the entitlement is valid (the region or country).|limitJurisidiction|`Property`<br>Code|*||MDR Countries Named Authority List. NUTS.|
 |Related Occupation|The An ESCO Occupation or Occupational class which the individual may access through the entitlement.|limitOccupation|`Association`<br>EscoOccupationAssociation|*||ESCO Occupations.|
-|N/A|N/A|limitNationalOccupation|Association<br>OccupationAssociation|*|An Occupation or Occupational Category||
+|N/A|An Occupation or Occupational Category|limitNationalOccupation|Association<br>OccupationAssociation|*|||
 |N/A|N/A|mayResultFrom|`Association`<br>LearningSpecification|0. . 1|||
 |Entitlement sub-specification|Smaller entitlement specifications, which when combined make up this entitlement specification.|hasPart|`Association`<br>EntitlementSpecification|*|||
-|N/A|N/A|specializationOf|`Association`<br>EntitlementSpecification|*|An entitlement specification (e.g. a standard) of which this specification is a specialization.||
+|N/A|An entitlement specification (e.g. a standard) of which this specification is a specialization.|specializationOf|`Association`<br>EntitlementSpecification|*|||
 
 ### Agent < abstract >
 **Class description**: An entity that is able to carry out actions.
