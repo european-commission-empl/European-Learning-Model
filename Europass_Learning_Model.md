@@ -5,11 +5,11 @@
 ### Verifiable Credential < abstract >
 **Class description**: A set of one or more claims made by an issuer.
 A credential is a set of one or more claims made by the same entity. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Credential UID|The unique identifier of the credential.|id|`ID/PK`<br>URI|1|A portable identifier of the credential.||
-|Issuance Date|N/A|issuanceDate|`Property`<br>DateTime|1|The issuance date.||
-|Issue Date|N/A|issued|`Property`<br>DateTime|1|The date and time the credential was digitally signed.||
+|Credential UID|A unique portable identifier of the credential.|id|`ID/PK`<br>URI|1|||
+|Issuance Date|The issuance date.|issuanceDate|`Property`<br>DateTime|1|||
+|Issue Date|The date and time the credential was digitally signed.|issued|`Property`<br>DateTime|1|||
 |Valid From|The earliest date when the information associated with the credential owner became valid.|validFrom|`Property`<br>DateTime|1|The earliest date when the information associated with the credentialSubject property became valid.||
 |Expiry Date|N/A|expirationDate|`Property`<br>DateTime|0. .1|The expiration date.||
 
