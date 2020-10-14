@@ -10,190 +10,190 @@ A credential is a set of one or more claims made by the same entity. A verifiabl
 |Credential UID|A unique portable identifier of the credential.|id|`ID/PK`<br>URI|1|||
 |Issuance Date|The issuance date.|issuanceDate|`Property`<br>DateTime|1|||
 |Issue Date|The date and time the credential was digitally signed.|issued|`Property`<br>DateTime|1|||
-|Valid From|The earliest date when the information associated with the credential owner became valid.|validFrom|`Property`<br>DateTime|1|The earliest date when the information associated with the credentialSubject property became valid.||
-|Expiry Date|N/A|expirationDate|`Property`<br>DateTime|0. .1|The expiration date.||
+|Valid From|The earliest date when the information associated with the credentialSubject property became valid.|validFrom|`Property`<br>DateTime|1|||
+|Expiry Date|The expiration date.|expirationDate|`Property`<br>DateTime|0. .1|||
 
 ### Europass Credential < extends VerifiableCredential >
 **Class description**: A set of claims made by an issuer in Europe, using the Europass Standards.
 A Europass credential is a set of one or more claims which may be used to demonstrate that the owner has certain skills or has achieved certain learning outcomes through formal, non-formal or informal learning.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Credential Identifier|An identifier assigned to the credential by the issuing organisation.|identifier|`Property`<br>Identifier|*|An alternative identifier of the credential.||
-|Type||type|`Property`<br>Code|1|The type of credential.|Europass Standard List of Credential Types|
-|Title|The full official title of the issued credential (maximum 50 characters).|title|`Property`<br>Text|1|The credential title.||
-|Description|A summary of the claim or group of claims being made about a person (maximum 140 words).|description|`Property`<br>Note|0. .1|A summary of the credential.||
-|Issuer|The organisaton that issued the credential and sealed it with their digital e-seal.|issuer|`Association`<br>Organisation|1|The issuer of the credential.||
-|Owner|The person about which claims are made and who owns the credential.|credentialSubject|`Association`<br>Person|1|The person about which claims are made and who owns the credential.||
-|Display Parameters|N/A|display|`Association`<br>DisplayParameters|0. .1|The display details of the credential.||
-|Attachments|N/A|attachment|`Association`<br>MediaObject|*|Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Europass document.||
-|Proof|The cryptographic proof that can be used to detect tampering and verify the authorship of a credential.|proof|`Association`<br>Proof|1|The cryptographic proofs that can be used to detect tampering and verify the authorship of a credential or presentation.||
-|Sub-credentials|Smaller sub-credentials (micro-credentials), which when combined make up this  learning opportunity.|contains|`Association`<br>EuropassCredential|*|A credential embedded within the credential.||
+|Credential Identifier|An alternative identifier of the credential typically assigned to the credential by the issuing organisation.|identifier|`Property`<br>Identifier|*|||
+|Type||The type of credential.|`Property`<br>Code|1||Europass Standard List of Credential Types|
+|Title|The full official title of the issued credential (maximum 50 characters).|title|`Property`<br>Text|1|||
+|Description|A summary of the claim or group of claims being made about a person (maximum 140 words).|description|`Property`<br>Note|0. .1|||
+|Issuer|The organisaton that issued the credential and sealed it with their digital e-seal.|issuer|`Association`<br>Organisation|1|||
+|Owner|The person about which claims are made and who owns the credential.|credentialSubject|`Association`<br>Person|1|||
+|Display Parameters|The display details of the credential.|display|`Association`<br>DisplayParameters|0. .1|||
+|Attachments|Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Europass document.|attachment|`Association`<br>MediaObject|*|||
+|Proof|The cryptographic proofs that can be used to detect tampering and verify the authorship of a credential or presentation.|proof|`Association`<br>Proof|1|||
+|Sub-credentials|A credential embedded within the credential. Smaller sub-credentials (micro-credentials), which when combined make up this  learning opportunity.|contains|`Association`<br>EuropassCredential|*|||
 
 ### Proof
 **Class description**: The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation.
 
 ### Display Parameters
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Display Code|The code indicating how to display the summary view of the credential.|summaryDisplay|`Property`<br>xsd:string|0. .1|The code indicating how to display the summary view of the credential.||
-|Background Image|N/A|background|`Association`<br>ImageObject|0. .1|The background image of the credential.||
+|Display Code|The code indicating how to display the summary view of the credential.|summaryDisplay|`Property`<br>xsd:string|0. .1|||
+|Background Image|The background image of the credential.|background|`Association`<br>ImageObject|0. .1|||
 
 ### Learning Specification
 **Class description**: A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning.
 
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Learning Specification UID|The unique identifier of the learning specification.|id|`ID/PK`<br>URI|1|A portable identifier of the learning specification.||
-|Learning specification Identifier|The Identifier of the Learning Specification, as assigned to it by the organisation who designed the specification.|identifier|`Property`<br>Identifier|*|An alternative identifier of the learning specification.||
-|Learning Opportunity Type|N/A|learningOpportunityType|`Property`<br>Code|*|The type of learning opportunity.|Europass Standard List of Learning Opportunity Types.|
-|Title|N/A|title|`Property`<br>Text|0. .1|The title of the learning specification.||
-|N/A|N/A|alternativeLabel|`Property`<br>Text|*|An alternative name of the learning specification.||
-|Description|N/A|definition|`Property`<br>Note|0. .1|Short and abstract description about the learning specification.||
-|N/A|N/A|learningOutcomeDescription|`Property`<br>Note|0. .1|The full learning outcome description of the learning specification.||
-|More information|N/A|additionalNote|`Property`<br>Note|*|An additional free text note about the learning specification.||
-|Homepage|Webpage describing the learning specification|homePage|`Association`<br>WebDocument|*|The homepage (a public web document) of the learning specification.||
-|Other Documents|Other Web Documents describing the learning specification|supplementaryDocument|`Association`<br>WebDocument|*|A public web document containing additional documentation about the learning specification.||
-|Thematic Area|Thematic Area according to the ISCED-F Classification|ISCEDFCode|`Property`<br>Code|*|The ISCED FoET 2013 classification code.|ISCED-F.|
-|N/A|N/A|educationSubject |`Association`<br>EducationSubjectAssociation|*|An associated field of education from another semantic framework than the ISCED classification.||
-|Volume of Learning|The estimated number of hours the learner is expected to spend engaged in learning to earn the award. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|The volume of learning.||
-|ECTS Credit Points|The credit points assigned to the learning specification, following the ECTS credit system.|ECTSCreditPoints|`Property`<br>NumericScore|0. .1|The credit points assigned to the learning specification, following the ECTS credit system.|ECTS scoring scheme from Europass Standard List of Educational Credit Systems.|
-|N/A|The credit points assigned to the learning specification, following an alternative educational credit system.|creditPoints|`Property`<br>NumericScore|*|The credit points assigned to the learning specification, following an alternative educational credit system.|Europass Standard List of Educational Credit Systems.|
-|N/A|An associated level of education within a semantic framework describing education levels.|educationLevel|`Association`<br>EducationLevelAssociation|*|An associated level of education within a semantic framework describing education levels.||
-|Language(s) of Instruction|N/A|language|`Property`<br>Code|*|The instruction and/or assessment language(s) used.|MDR Languages Named Authority List|
-|Mode of Learning|N/A|mode|`Property`<br>Code|*|The mode of learning and or assessment.|Europass Standard List of Modes Of Learning and Assessment.|
-|Learning Setting|N/A|learningSetting|`Property`<br>Code|0. .1|The type of learning setting.|formal, non-formal.|
-|Maximum Duration in Months|The maximum duration (in months) that a person may use to complete the learning opportunity.|maximumDuration|`Property`<br>Duration|0. .1|The maximum duration of a learning opportunity for which this specification is designed.||
-|Target Group|N/A|targetGroup|`Property`<br>Code|*|A specific target group or category for which this specification is designed.|Europass Standard List of Target Groups.|
-|Entry Requirements|The criteria the person should meet to start this learning opportunity.|entryRequirementsNote|`Property`<br>Note|0. .1|Specific entry requirements or prerequisites of individuals for which this specification is designed.||
-|Learning Outcomes|N/A|learningOutcome|`Association`<br>LearningOutcome|*|An individual (expected) learning outcome of the learning specification.||
-|Activities|Activities which a person can perform to acquire the expected learning outcomes|learningActivitySpecification|`Association`<br>LearningActivitySpecification|0. .1|What will or can an individual do to learn.||
-|Assessments|Assessments a person can undergo to prove the acquisition of the learning outcomes|assessmentSpecification|`Association`<br>AssessmentSpecification|0. .1|How will a learner be assessed.||
-|Entitlements|Rights (such as  which the person may acquire as a result of acquiring the learning outcomes)|entitlementSpecification|`Association`<br>EntitlementSpecification|*|A specification of an entitlement to which this LearningSpecification may give rise to.||
-|Awarding Information|Information about the award of a qualification or other achievement on completing this opportunity.|awardingOpportunity|`Association`<br>AwardingOpportunity|*|Refers to an activity related to the awarding of the learning specification, such as the country or region where the qualifi-cation is awarded, the awarding body and optionally the awarding period now or in the past.||
-|Learning Sub-Specifications|Smaller learning specifications, which when combined make up this  learning specification.|hasPart|`Association`<br>LearningSpecification|*|A learning specification can be composed of other "narrower" learning specifications.||
-|N/A|N/A|specialisationOf|`Association`<br>LearningSpecification|*|A learning specification (e.g. a standard) of which this specification is a specialisation.<a href="#FN1">[1]</a>||
+|Learning Specification UID|A portable and unique identifier of the learning specification.|id|`ID/PK`<br>URI|1|||
+|Learning specification Identifier|An alternative identifier of the learning specification, as assigned to it by the organisation who designed the specification.|identifier|`Property`<br>Identifier|*|||
+|Learning Opportunity Type|The type of learning opportunity.|learningOpportunityType|`Property`<br>Code|*||Europass Standard List of Learning Opportunity Types.|
+|Title|The title of the learning specification.|title|`Property`<br>Text|0. .1|||
+|N/A|An alternative name of the learning specification.|alternativeLabel|`Property`<br>Text|*|||
+|Description|Short and abstract description about the learning specification.|definition|`Property`<br>Note|0. .1|||
+|N/A|The full learning outcome description of the learning specification.|learningOutcomeDescription|`Property`<br>Note|0. .1|||
+|More information|An additional free text note about the learning specification.|additionalNote|`Property`<br>Note|*|||
+|Homepage|The homepage (a public web document) of the learning specification.|homePage|`Association`<br>WebDocument|*|||
+|Other Documents|A public web document containing additional documentation about the learning specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Thematic Area|Thematic Area according to the ISCED-F 2013 Classification|ISCEDFCode|`Property`<br>Code|*||ISCED-F.|
+|N/A|An associated field of education from another semantic framework than the ISCED classification.|educationSubject |`Association`<br>EducationSubjectAssociation|*|||
+|Volume of Learning|The estimated number of hours the learner is expected to spend engaged in learning to earn the award. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|||
+|ECTS Credit Points|The credit points assigned to the learning specification, following the ECTS credit system.|ECTSCreditPoints|`Property`<br>NumericScore|0. .1||ECTS scoring scheme from Europass Standard List of Educational Credit Systems.|
+|N/A|The credit points assigned to the learning specification, following an alternative educational credit system.|creditPoints|`Property`<br>NumericScore|*||Europass Standard List of Educational Credit Systems.|
+|N/A|An associated level of education within a semantic framework describing education levels.|educationLevel|`Association`<br>EducationLevelAssociation|*|||
+|Language(s) of Instruction|The instruction and/or assessment language(s) used.|language|`Property`<br>Code|*||MDR Languages Named Authority List|
+|Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
+|Learning Setting|The type of learning setting (formal, non-formal).|learningSetting|`Property`<br>Code|0. .1||formal, non-formal.|
+|Maximum Duration in Months|The maximum duration (in months) that a person may use to complete the learning opportunity.|maximumDuration|`Property`<br>Duration|0. .1|||
+|Target Group|A specific target group or category for which this specification is designed.|targetGroup|`Property`<br>Code|*||Europass Standard List of Target Groups.|
+|Entry Requirements|Specific entry requirements or prerequisites of individuals for which this specification is designed to start this learning opportunity.|entryRequirementsNote|`Property`<br>Note|0. .1|||
+|Learning Outcomes|An individual (expected) learning outcome of the learning specification.|learningOutcome|`Association`<br>LearningOutcome|*|||
+|Activities|Activities which a person can perform to acquire the expected learning outcomes|learningActivitySpecification|`Association`<br>LearningActivitySpecification|0. .1|||
+|Assessments|Assessments a person can undergo to prove the acquisition of the learning outcomes|assessmentSpecification|`Association`<br>AssessmentSpecification|0. .1|||
+|Entitlements|Rights (such as  which the person may acquire as a result of acquiring the learning outcomes)|entitlementSpecification|`Association`<br>EntitlementSpecification|*|||
+|Awarding Information|Refers to an activity related to the awarding of the learning specification, such as the country or region where the qualifi-cation is awarded, the awarding body and optionally the awarding period now or in the past. |awardingOpportunity|`Association`<br>AwardingOpportunity|*|||
+|Learning Sub-Specifications|A learning specification can be composed of other "narrower" learning specifications which when combined make up this learning specification.|hasPart|`Association`<br>LearningSpecification|*|||
+|N/A|A learning specification (e.g. a standard) of which this specification is a specialisation.<a href="#FN1">[1]</a>|specialisationOf|`Association`<br>LearningSpecification|*|||
 
 <a name="FN1">[1]: To be implemented at a later stage</a>
 
 ### Qualification < extends LearningSpecification >
 **Class description**: a specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Partial Qualification|Is the opportunity a partial qualification?|isPartialQualification|`Property`<br>xsd:boolean|0. .1|Indicates whether a qualification is a full qualification or part of another qualification. ||
-|EQF Level|N/A|EQFLevel|`Association (sub-property of education level)`<br>QFLevelAssociation|0. .1|The qualification level as specified by the European Qualification Framework.|EQF. QDR List of qualification frameworks.|
-|NQF Level|Level on the Awarding Body's National Qualification Framework|NQFLevel|`Association (sub-property of education level)`<br>QFLevelAssociation|*|The qualification level as specified by a National Qualification Framework.|QDR List of qualification frameworks|
-|Accreditation|N/A|hasAccreditation|`Association`<br>Accreditation|*|The accreditation of a qualification.||
-|Link to Europass Qualification Record|N/A|qualificationCode|`Association`<br>QualificationAssociationType|*|An identifying code from a qualification based reference semantic asset.|NQF qualifications from QDR.||
+|Partial Qualification|Indicates whether a qualification is a full qualification or part of another qualification.|isPartialQualification|`Property`<br>xsd:boolean|0. .1| ||
+|EQF Level|The qualification level as specified by the European Qualification Framework.|EQFLevel|`Association (sub-property of education level)`<br>QFLevelAssociation|0. .1||EQF. QDR List of qualification frameworks.|
+|NQF Level|The qualification level as specified by a National Qualification Framework.|NQFLevel|`Association (sub-property of education level)`<br>QFLevelAssociation|*|The qualification level as specified by a National Qualification Framework.|QDR List of qualification frameworks|
+|Accreditation|The accreditation of a qualification.|hasAccreditation|`Association`<br>Accreditation|*|||
+|Link to Europass Qualification Record|An identifying code from a qualification based reference semantic asset.|qualificationCode|`Association`<br>QualificationAssociationType|*||NQF qualifications from QDR.||
 
 ### Learning Outcome
 **Class description**: a statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Learning Outcome UID|The unique identifier of the learning outcome.|id|`PK/ID`<br>URI|1|A portable identifier of the learning outcome.||
-|N/A|N/A|identifier|`Property`<br>Identifier|*|An alternative identifier of the learning outcome.||
-|Title|N/A|name|`Property`<br>Text|1|A legible, descriptive name for the learning outcome.||
-|Description|A detailed learning outcome may include a description of what the student can do as a result of learning, with an indication of the level of achievement, and the conditions or context under which this can be performed (if applicable).|description|`Property`<br>Note|0. .1|A free text describing the learning outcome.||
-|Learning Outcome Type|N/A|learningOutcomeType|`Property`<br>Code|0. .1|The learning outcome type.|ESCO Skill Pilllar concept types.|
-|Reusability Level|N/A|reusabilityLevel|`Property`<br>Code|0. .1|The reusability level.|ESCO Skill Pilllar concept reusability levels.|
-|Related ESCO Skill(s)|N/A|relatedESCOSkill|`Association`<br>EscoSkillAssociation|*|A link to an ESCO Skill.|ESCO skills.|
+|Learning Outcome UID|A portable and unique identifier of the learning outcome.|id|`PK/ID`<br>URI|1|||
+|N/A|An alternative identifier of the learning outcome.|identifier|`Property`<br>Identifier|*|||
+|Title|A legible, descriptive name for the learning outcome.|name|`Property`<br>Text|1|||
+|Description|A free text describing the learning outcome. A detailed learning outcome may include a description of what the student can do as a result of learning, with an indication of the level of achievement, and the conditions or context under which this can be performed (if applicable).|description|`Property`<br>Note|0. .1|||
+|Learning Outcome Type|The learning outcome type.|learningOutcomeType|`Property`<br>Code|0. .1||ESCO Skill Pilllar concept types.|
+|Reusability Level|The reusability level.|reusabilityLevel|`Property`<br>Code|0. .1||ESCO Skill Pilllar concept reusability levels.|
+|Related ESCO Skill(s)|A link to an ESCO Skill.|relatedESCOSkill|`Association`<br>EscoSkillAssociation|*||ESCO skills.|
 
 ### Learning Activity Specification
 **Class description**: The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Learning activity specification UID|The unique identifier of the learning activity specification.|id|`ID/PK`<br>URI|1|A portable identifier of the learning activity specification.||
-|Learning Activity Specification Identifier|The Identifier of the Learning Activity, as assigned to it by the organisation who designed the specification.|identifier|`Property`<br>Identifier|*|An alternative identifier of the learning activity specification.||
-|Title|N/A|title|`Property`<br>Text|0. .1|The title of the learning activity specification.||
-|N/A|N/A|alternativeLabel|`Property`<br>Text|*|An alternative name of the activity specification.||
-|Description|N/A|description|`Property`<br>Note|0. .1|A free text description of the learning activity specification.||
-|More information|N/A|additionalNote|`Property`<br>Note|*|An additional free text note about the learning activity specification.||
-|Homepage|Webpage describing the activity specification|homePage|`Association`<br>WebDocument|*|The homepage (a public web document) of the learning activity specification.||
-|Other Documents|Any other web documents describing the activity specification|supplementaryDocument|`Association`<br>WebDocument|*|A public web document containing additional documentation about the learning activity specification.||
-|Learning activity type|N/A|learningActivityType|`Property`<br>Code|*|The type of activity.|Europass Standard List of Learning Activity Types.|
-|Volume of Learning|The estimated number of hours the learner is expected to spend engaged in the activity. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|workload|`Property`<br>Duration|0..1|The expected workload.||
-|Language(s) of Instruction|N/A|language|`Property`<br>Code|*|The instruction language(s) used.|http://data.europa.eu/esco/skill/58095196-d766-4a5c-b16c-d941489f8e66|
-|Mode of learning|N/A|mode|`Property`<br>Code|*|The mode of learning and or assessment.|Europass Standard List of Modes Of Learning and Assessment.|
-|Expected Learning Outcomes|N/A|teaches|`Association`<br>LearningSpecification|*|The expected learning outcomes this learning activity specification can lead or contribute to.|NEED TO CORRECT ALL TEXT HERE! Relation is correct, but all labels are not.|
-|Learning Activity Sub-Specifications|Smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br>LearningActivitySpecification|*|A learning activity specification can be composed of other "narrower" learning activity specifications.||
-|N/A|N/A|specialisationOf|`Association`<br>LearningActivitySpecification|*|An activity specification (e.g. a standard) of which this specification is a specialisation.||
+|Learning activity specification UID|A portable and unique identifier of the learning activity specification.|id|`ID/PK`<br>URI|1|||
+|Learning Activity Specification Identifier|An alternative identifier of the Learning Activity, as assigned to it by the organisation who designed the specification.|identifier|`Property`<br>Identifier|*|||
+|Title|The title of the learning activity specification.|title|`Property`<br>Text|0. .1|||
+|N/A|An alternative name of the activity specification.|alternativeLabel|`Property`<br>Text|*|||
+|Description|A free text description of the learning activity specification.|description|`Property`<br>Note|0. .1|||
+|More information|An additional free text note about the learning activity specification.|additionalNote|`Property`<br>Note|*|||
+|Homepage|Webpage describing the activity specification|homePage|`Association`<br>WebDocument|*|||
+|Other Documents|A public web document containing additional documentation about the learning activity specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Learning activity type|The type of activity.|learningActivityType|`Property`<br>Code|*||Europass Standard List of Learning Activity Types.|
+|Volume of Learning|The expected workload indicated in the estimated number of hours the learner is expected to spend engaged in the activity. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|workload|`Property`<br>Duration|0..1|||
+|Language(s) of Instruction|The instruction language(s) used.|language|`Property`<br>Code|*||http://data.europa.eu/esco/skill/58095196-d766-4a5c-b16c-d941489f8e66|
+|Mode of learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
+|Expected Learning Outcomes|The expected learning outcomes this learning activity specification can lead or contribute to.|teaches|`Association`<br>LearningSpecification|*|||
+|Learning Activity Sub-Specifications|A learning activity specification can be composed of other "narrower" learning activity specifications. Smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br>LearningActivitySpecification|*|||
+|N/A|An activity specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>LearningActivitySpecification|*|||
 
 #### Learning Activity
 **Class description**: Any process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Learning Activity UID|The unique identifier of the learning activity.|id|`ID/PK`<br>URI|1|A portable identifier of the learning activity. ||
-|Learning Activity Identifier|An identifier assigned to the assessment by the organisation directing the activity.|identifier|`Property`<br>Identifier|*|An alternative identifier of the learning activity.||
-|Title|N/A|title|`Property`<br>Text|1|The title of the learning activity.||
-|Description|N/A|description|`Property`<br>Note|0. .1|A free text description of the learning activity.||
-|More information|N/A|additionalNote|`Property`<br>Note|*|An additional free text note about the activity.||
-|Workload in Hours|The actual number of hours the learner has spent engaged in the activity. This would include the number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|workload|`Property`<br>Duration|0. .1|The actual workload.||
-|Start-Date|The date the learner started the activity|startedAtTime|`Property`<br>DateTime|0. .1|The date at which the activity started.||
-|End-Date|The date the learner ended the activity|endedAtTime|`Property`<br>DateTime|0. .1|The date at which the activity ended.||
-|Directed by|The organisation, or part of an organisation such as department, faculty, which directed the learning activity.|directedBy|`Association`<br>Agent|*|The directing agent.||
-|Location|The location the activity took place|location|`Association`<br>Location|*|The location where the activity took place.||
-|N/A|N/A|specifiedBy|`Association`<br>LearningActivitySpecification|0. .1|The specification of this learning activity.||
-|Linked to Learning Opportunity|N/A|usedLearningOpportunity|`Association`<br>LearningOpportunity|0. .1|The used or taken opportunity to do this learning activity.||
-|Achievements Influenced|Performing this activity contributed to the acquisition of these learning achievements.|influenced|`Association`<br>Achievement|*|A related achievement.||
-|Sub-Activities|Smaller units of activity, which when combined make up this activity.|hasPart|`Association`<br>LearningActivity|*|A sub-activity.||
+|Learning Activity UID|A portable and unique identifier of the learning activity.|id|`ID/PK`<br>URI|1| ||
+|Learning Activity Identifier|An alternative identifier of the learning activity assigned to the assessment by the organisation directing the activity.|identifier|`Property`<br>Identifier|*|||
+|Title|The title of the learning activity.|title|`Property`<br>Text|1|||
+|Description|A free text description of the learning activity.|description|`Property`<br>Note|0. .1|||
+|More information|An additional free text note about the activity.|additionalNote|`Property`<br>Note|*|||
+|Workload in Hours|The actual workload in number of hours the learner has spent engaged in the activity. This would include the number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|workload|`Property`<br>Duration|0. .1|||
+|Start-Date|The date the learner started the activity|startedAtTime|`Property`<br>DateTime|0. .1|||
+|End-Date|The date the learner ended the activity|endedAtTime|`Property`<br>DateTime|0. .1|||
+|Directed by|The organisation, or part of an organisation such as department, faculty, which directed the learning activity.|directedBy|`Association`<br>Agent|*|||
+|Location|The location where the activity took place|location|`Association`<br>Location|*|||
+|N/A|The specification of this learning activity.|specifiedBy|`Association`<br>LearningActivitySpecification|0. .1|||
+|Linked to Learning Opportunity|The used or taken opportunity to do this learning activity.|usedLearningOpportunity|`Association`<br>LearningOpportunity|0. .1|||
+|Achievements Influenced|Performing this activity contributed to the acquisition of these related learning achievements.|influenced|`Association`<br>Achievement|*|||
+|Sub-Activities|Smaller units of activity, which when combined make up this activity.|hasPart|`Association`<br>LearningActivity|*|||
 
 ### Assessment Specification
 **Class description**: An Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Assessment Specification UID|The Unique Identifier of the Assessment Specification|id|`ID/PK`<br>URI|1|A portable identifier of the assessment specification.||
-|Assessment Specification Identifier|The Identifier of the Assessment Specification, as assigned to it by the organisation who designed the specification.|identifier|`Property`<br>Identifier|*|An alternative identifier of the assessment specification.||
-|Title|N/A|title|`Property`<br>Text|0. .1|The title of the assessment specification.||
-|N/A|N/A|alternativeLabel|`Property`<br>Text|*|An alternative name of the assessment specification.||
-|Description|N/A|description|`Property`<br>Note|0. .1|A free text description of the assessment specification.||
-|More information|N/A|additionalNote|`Property`<br>Note|*|An additional free text note about the assessment specification.||
-|Homepage|Webpage describing the details of the assessment specification|homePage|`Association`<br>WebDocument|*|The homepage (a public web document) of the assessment specification.||
-|Other Documents|Other Web Documents describing the assessment specification|supplementaryDocument|`Association`<br>WebDocument|*|A public web document containing additional documentation about the assessment specification.||
-|Assessment Type|N/A|assessmentType|`Property`<br>Code|*|The type of assessment.|Europass Standard List of Assessment Types.|
-|Language of Assessment|N/A|language|`Property`<br>Code|*|The language(s) of assessment used.|MDR Languages Named Authority List.|
-|Mode of Assessment|N/A|mode|`Property`<br>Code|*|The mode of learning and or assessment|Europass Standard List of Modes Of Learning and Assessment.|
-|Grading Scheme|N/A|gradingscheme|`Association`<br>ScoringScheme|0. .1|A description of the Grading Scheme.||
-|Demonstrates|The learning achievement (and related learning outcomes) this assessment is designed to test.|proves|`Association`<br>LearningSpecification|*|A specification of which learning outcomes are or have been proven.||
-|Assessment Sub-Specifications|Smaller assessment specifications, which when combined make up this assessment specification.|hasPart|`Association`<br>AssessmentSpecification|*|A assessment specification can be composed of other "narrower" assessment specifications.||
-|N/A|N/A|specialisationOf|`Association`<br>AssessmentSpecification|*|An assessment specification (e.g. a standard) of which this specification is a specialisation.||
+|Assessment Specification UID|A portable and Unique Identifier of the Assessment Specification|id|`ID/PK`<br>URI|1|||
+|Assessment Specification Identifier|An alternative identifier of the assessment specification, as assigned to it by the organisation who designed the specification.|identifier|`Property`<br>Identifier|*|||
+|Title|The title of the assessment specification.|title|`Property`<br>Text|0. .1|||
+|N/A|An alternative name of the assessment specification.|alternativeLabel|`Property`<br>Text|*|||
+|Description|A free text description of the assessment specification.|description|`Property`<br>Note|0. .1|||
+|More information|An additional free text note about the assessment specification.|additionalNote|`Property`<br>Note|*|||
+|Homepage|The homepage (a public web document) describing the details of the assessment specification|homePage|`Association`<br>WebDocument|*|||
+|Other Documents|A public web document containing additional documentation about the assessment specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Assessment Type|The type of assessment.|assessmentType|`Property`<br>Code|*||Europass Standard List of Assessment Types.|
+|Language of Assessment|The language(s) of assessment used.|language|`Property`<br>Code|*||MDR Languages Named Authority List.|
+|Mode of Assessment|The mode of learning and or assessment|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
+|Grading Scheme|A description of the specification of which learning outcomes are or have been proven.|gradingscheme|`Association`<br>ScoringScheme|0. .1|||
+|Demonstrates|The learning achievement (and related learning outcomes) this assessment is designed to test.|proves|`Association`<br>LearningSpecification|*|||
+|Assessment Sub-Specifications|A assessment specification can be composed of other "narrower" assessment specifications which when combined make up this assessment specification.|hasPart|`Association`<br>AssessmentSpecification|*|||
+|N/A|An assessment specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>AssessmentSpecification|*|||
 
 ### Assessment
 **Class description**: The result of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Assessment UID|N/A|id|`ID/PK`<br>URI|1|A portable identifier of the assessment.||
-|Assessment Identifier|An identifier assigned to the assessment by the organisation grading the assessment|identifier|`Property`<br>Identifier|*|An alternative identifier of the assessment.||
-|Title|N/A|title|`Property`<br>Text|1|The title of the assessment.||
-|Description|N/A|description|`Property`<br>Text|0. .1|A description of the assessment.||
-|More information|N/A|additionalNote|`Property`<br>Note|*|An additional free text note about the assessment.||
-|Grade|N/A|grade|`Property`<br>Score|1|A resulting grade of the assessment.||
-|N/A|N/A|shortenedGrading|`Association`<br>ShortenedGrading|0. .1|Indicator of how well the student was graded when compared to other students.||
-|N/A|N/A|resultDistribution|`Association`<br>ResultDistribution|0. .1|Describes a histogram of results achieved by all the students of a particular learning assessment.||
+|Assessment UID|A portable identifier of the assessment.|id|`ID/PK`<br>URI|1|||
+|Assessment Identifier|An alternative identifier assigned to the assessment by the organisation grading the assessment|identifier|`Property`<br>Identifier|*|||
+|Title|The title of the assessment.|title|`Property`<br>Text|1|||
+|Description|A description of the assessment.|description|`Property`<br>Text|0. .1|||
+|More information|An additional free text note about the assessment.|additionalNote|`Property`<br>Note|*|||
+|Grade|A resulting grade of the assessment.|grade|`Property`<br>Score|1|||
+|N/A|Indicator of how well the student was graded when compared to other students|shortenedGrading|`Association`<br>ShortenedGrading|0. .1|||
+|N/A|Describes a histogram of results achieved by all the students of a particular learning assessment.|resultDistribution|`Association`<br>ResultDistribution|0. .1|||
 |Assessment Date|Date the grade was awarded.|issuedDate|`Property`<br>DateTime|0. .1|||
-|Method of assessment, supervision and id verification|N/A|idVerification|`Property`<br>Code|0. .1|Method of assessment supervision and id verification.|Europass Standard List of Methods Of Supervision And Verification.|
-|Assessment conducted by|N/A|assessedBy|`Association`<br>Agent|*|The competent body that awarded the grade.||
-|N/A|N/A|specifiedBy|`Association`<br>AssessmentSpecification|0. .1|The specification of this assessment.||
-|Sub-Assessments|Smaller assessments, which when combined make up this assessment.|hasPArt|`Association`<br>Assessment|*|A related assessment that influenced the result of this assessment.||
+|Method of assessment, supervision and id verification|Method of assessment supervision and id verification.|idVerification|`Property`<br>Code|0. .1||Europass Standard List of Methods Of Supervision And Verification.|
+|Assessment conducted by|The competent body that awarded the grade.|assessedBy|`Association`<br>Agent|*|||
+|N/A|The specification of this assessment.|specifiedBy|`Association`<br>AssessmentSpecification|0. .1|||
+|Sub-Assessments|Smaller assessments, which when combined make up and can influence this assessment|hasPArt|`Association`<br>Assessment|*|||
 
 ### Shortened Grading
 **Class description**: Indicator of *how well* the student was graded when compared to other students.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|N/A|N/A|percentageLower|`Property`<br>Numeric|1|The percentage of students of the same course who got a lower grade.||
-|N/A|N/A|percentageEqual|`Property`<br>Numeric|1|The percentage of students of the same course who got exactly the same grade.||
-|N/A|N/A|percentageHigher|`Property`<br>Numeric|1|The percentage of students of the same course who got a higher grade.||
+|N/A|The percentage of students of the same course who got a lower grade.|percentageLower|`Property`<br>Numeric|1|||
+|N/A|The percentage of students of the same course who got exactly the same grade.|percentageEqual|`Property`<br>Numeric|1|||
+|N/A|The percentage of students of the same course who got a higher grade.|percentageHigher|`Property`<br>Numeric|1|||
 
 ### Result Distribution
 **Class description**: Describes a histogram of results achieved by all the students of this course instance.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|N/A|N/A|category|`Property`<br>ResultCategory|*|Describes a single range within the histogram.||
-|N/A|N/A|description|`Property`<br>Note|0. .1|Free text description of the histogram.||
+|N/A|Describes a single range within the histogram.|category|`Property`<br>ResultCategory|*|||
+|N/A|Free text description of the histogram.|description|`Property`<br>Note|0. .1|||
 
 ### Result Category
 **Class description**: Description of a single score or score range within a histogram of results.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|N/A|N/A|label|`Property`<br>Text|1|The label of the histogram score or score range. Should correspond to the grading scheme which have been used. E.g. 'C', or '20-30'.||
+|N/A|The label of the histogram score or score range. Should correspond to the grading scheme which have been used. E.g. 'C', or '20-30'.|label|`Property`<br>Text|1|||
 |N/A|N/A|score|`Property`<br>Score|0. .1|||
 |N/A|N/A|minScore|`Property`<br>Score|0. .1|||
 |N/A|N/A|maxScore|`Property`<br>Score|0. .1|||
@@ -201,54 +201,54 @@ A Europass credential is a set of one or more claims which may be used to demons
 
 ### Grading Scheme
 **Class description**: A set of criteria that measures varying levels of achievement.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Grading Scheme UID|The unique identifier of the Grading Scheme.|id|`ID/PK`<br>URI|1|A portable identifier of the scoring scheme.||
-|Grading Scheme Identifier|The Identifier of the Grading Scheme assigned to it by the organisation administering the scheme.|identifier|`Property`<br>Identifier|*|An alternative identifier of the scoring scheme.||
-|Title|N/A|title|`Property`<br>Text|0. .1|The title of the scoring scheme.||
-|Description|N/A|description|`Property`<br>Note|0. .1|A free tex describing the scoring scheme.||
-|Other Documents|Other Web Documents describing the grading scheme|supplementaryDocument|`Association`<br>WebDocument|*|A public web document containing additional documentation about the scoring system.||
+|Grading Scheme UID|A portable and unique identifier of the Grading Scheme.|id|`ID/PK`<br>URI|1|||
+|Grading Scheme Identifier|An alternative identifier of the Grading Scheme assigned to it by the organisation administering the scheme.|identifier|`Property`<br>Identifier|*|||
+|Title|The title of the scoring scheme.|title|`Property`<br>Text|0. .1|||
+|Description|A free tex describing the scoring scheme.|description|`Property`<br>Note|0. .1|||
+|Other Documents|A public web document containing additional documentation about the scoring system.|supplementaryDocument|`Association`<br>WebDocument|*|||
 
 ### Learning Achievement
 **Class description**: The acquisition of knowledge, skills or responsibility and autonomy. A recognised and/or awarded set of learning outcomes of an individual.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Learning Achievement UID|The unique identifier of the learning achievement.|id|`ID/PK`<br>URI|1|A portable identifier of the achievement.||
-|Learning Achievement Identifier|An identifier assigned to the achievement by the organisation awarding the achievement.|identifier|`Property`<br>Identifier|*|An alternative identifier of the achievement.||
-|Title|N/A|title|`Property`<br>Text|1|The title of the achievement.||
-|Description|N/A|description|`Property`<br>Note|0. .1|A description of the achievement.||
-|More information|N/A|additionalNote|`Property`<br>Note|*|An additional free text note about the achievement.||
-|Proven by|Assessment which proves the acquisition of the learning outcomes which make up the achievement.|wasDerivedFrom|`Association`<br>Assessment|*|An assessment on which the awarding of this achievement was based.||
-|Influenced by|Activities which contributed to the acquisition of the learning outcomes which make up the achievement.|wasInfluencedBy|`Association`<br>LearningActivity|*|A learning activity associated with this achievement.||
-|Awarding Details|N/A|wasAwardedBy|`Association`<br>AwardingProcess|0. .1|The awarding details of this achievement.||
-|Sub-achievements|Smaller units of achievement, which when combined make up this achievement.|hasPart|`Association`<br>LearningAchievement|*|A sub-achievement.||
-|Entitles Owner to|Entitlements the owner has received as a result of this achievement.|entitlesTo|`Association`<br>Entitlement|*|An etitlement associated with this achievement.||
-|N/A|N/A|specifiedBy|`Association`<br>LearningSpecification|*|What has been learned.||
-|Linked to Learning Opportunity|N/A|associatedLearningOpportunity|`Association`<br>LearningOpportunity|0. .1|The learning opportunity that was taken to obtain the awarded LearningSpecification.||
+|Learning Achievement UID|A portable and identifier of the learning achievement.|id|`ID/PK`<br>URI|1|||
+|Learning Achievement Identifier|An alternative identifier assigned to the achievement by the organisation awarding the achievement.|identifier|`Property`<br>Identifier|*|||
+|Title|The title of the achievement.|title|`Property`<br>Text|1|||
+|Description|A description of the achievement.|description|`Property`<br>Note|0. .1|||
+|More information|An additional free text note about the achievement.|additionalNote|`Property`<br>Note|*|||
+|Proven by|An assessment which proves the acquisition of the learning outcomes which make up the achievement.|wasDerivedFrom|`Association`<br>Assessment|*|||
+|Influenced by|Activities which contributed to the acquisition of the learning outcomes which make up the achievement.|wasInfluencedBy|`Association`<br>LearningActivity|*|||
+|Awarding Details|The awarding details of this achievement.|wasAwardedBy|`Association`<br>AwardingProcess|0. .1|||
+|Sub-achievements|Smaller units of achievement, which when combined make up this achievement.|hasPart|`Association`<br>LearningAchievement|*|||
+|Entitles Owner to|Entitlements the owner has received as a result of this achievement.|entitlesTo|`Association`<br>Entitlement|*|||
+|N/A|What has been learned.|specifiedBy|`Association`<br>LearningSpecification|*|||
+|Linked to Learning Opportunity|The learning opportunity that was taken to obtain the awarded LearningSpecification.|associatedLearningOpportunity|`Association`<br>LearningOpportunity|0. .1|||
 
 ### Qualification Awarded < extends LearningAchievement >
 **Class description**: A formal outcome of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Qualification Awarded|N/A|specifiedBy|`Association`<br>Qualification|1|The details of the awarded qualification.||
+|Qualification Awarded|The details of the awarded qualification.|specifiedBy|`Association`<br>Qualification|1|||
 
 ### Awarding Process
 **Class description**: The process of an organisation awarding Learning Achievement to person based on a Learning Specification (e.g. a qualification). It is used to specify the organisation that awarded the LearningSpecification to the individual, the country or region where the LearningSpecification was awarded, and optionally the date of awarding.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Awarding Process UID|The Unique Identifier of the Awarding Process.|id|`ID/PK`<br>URI|1|A portable identifier of the awarding process.||
 |N/A|N/A|identifier|`Property`<br>Identifier|*|An alternative identifier of the awarding process.||
 |Description|N/A|description|`Property`<br>Text|0. .1|A description of the awarding process to the individual.||
 |More information|N/A|additionalNote|`Property`<br>Text|*|An additional free text note (e.g. a comment, a remark, etc.)||
-|Assessment utilised|The assessment that provided the basis for this awarding.|used|`Association`<br>Assessment|*|The assessment that provided the basis for this awarding.||
+|Assessment utilised|The assessment that provided the basis for this awarding.|used|`Association`<br>Assessment|*|||
 |Learning achievement|N/A|learningAchievement|`Association`<br>LearningAchievement|1. .*|The resulting learning achievement.||
-|Awarding organisation|The awarding body that awarded the achievement to the individual.|awardingBody|`Association`<br>Organisation|1. .*|The awarding body that awarded the Achievement to the individual. Only in cases of co-awarding/co-graduation, where a qualification award is issued to an individual by two or more organisations the cardinality is greater than 1.||
-|Location|N/A|awardingLocation|`Association`<br>Location|0. .1|The location where the awarding activity took place (country/region where the qualification was awarded).|MDR Countries Named Authority List. NUTS (skossified and published version by ESCO).|
-|Awarding Date|The date when the Learning Specification was awarded.|awardingDate|`Property`<br>DateTime|0. .1|The date when the LearningSpecification was awarded. If not specified it is undefined (“not known”).||
+|Awarding organisation|The awarding body that awarded the Achievement to the individual. Only in cases of co-awarding/co-graduation, where a qualification award is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody|`Association`<br>Organisation|1. .*|||
+|Location|The location where the awarding activity took place (country/region where the qualification was awarded).|awardingLocation|`Association`<br>Location|0. .1||MDR Countries Named Authority List. NUTS (skossified and published version by ESCO).|
+|Awarding Date|The date when the LearningSpecification was awarded. If not specified it is undefined (“not known”).|awardingDate|`Property`<br>DateTime|0. .1|||
 
 ### Awarding Opportunity
 **Class description**: An awarding activity represents an activity related to the awarding of a LearningSpecification. It is used to specify the country or region where the LearningSpecification is awarded, the awarding body and optionally the awarding period now or in the past.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |||id|`ID/PK`<br>URI|1|A portable identifier of the awarding opportunity.||
 |||identifier|`Property`<br>Identifier|*|An alternative identifier of the awarding opportunity.||
@@ -332,7 +332,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Organisation UID|The unique identifier of the organisation.|id|`ID/PK`<br>URI|1|A portable identifier of the organisation.||
 |Other Identifier|N/A|identifier|`Property`<br>Identifier|*|Another formally-issued identifier for the organisation.||
 |eIDAS Identifier|The official identification number of the organisation, as awarded by the relevant national authority.authority.<a href="#FN2">[2]</a>|eidasLegalIdentifier|`Property`<br>Identifier|1|The identifier given to a registered organisation by the authority with which it is registered.||
-|Registration|N/A|registration|`Property`<br>Identifier|1|The legal identifier of an organisation. The identifier given to a registered organisation by the authority with which it is registered. The legal status of a registered organisation is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organisation and the authority with which it is registered.||
+|Registration|N/A|registration|`Property`<br>Identifier|1|The legal identifier of an organization. The identifier given to a registered organization by the authority with which it is registered. The legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organization and the authority with which it is registered.||
 |VAT Number|N/A|vatIdentifier|`Property`<br>LegalIdentifier|*|The Value-Added Tax ID.||
 |Tax / Fiscal Identifier|N/A|taxIdentifier|`Property`<br>LegalIdentifier|*|The Tax / Fiscal ID of the organisation.||
 |Legal Name|N/A|preferredName|`Property`<br>Text|1|The primary name of the organisation.||
