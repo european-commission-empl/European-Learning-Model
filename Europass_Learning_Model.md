@@ -409,7 +409,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Description||A free text description of the accreditation.|`Property`<br>Note|0. .1|||
 |Decision||The Quality Decision issued by the Quality Assuring Authority.|`Property`<br>TextScore|0. .1|||
 |Report||A publicly accessible report of the quality assurance decision|`Association`<br>WebDocument|0. .1|||
-|Organisation|.The organisation whose activities are being accredited.|organisation|`Association`<br>Organisation|1|||
+|Organisation|The organisation whose activities are being accredited.|organisation|`Association`<br>Organisation|1|||
 |Qualification Accredited|The qualification that was accredited.|limitQualification|`Association`<br>Qualification|0. .1|||
 |Accredit for Thematic Area|The field of education for which the accreditation is valid.|limitField|`Properties`<br>Code|*||ISCED-F|
 |Accredited for EQF Level|The european qualification level for which the accreditation is valid.|limitEQFLevel|`Properties`<br>Code|*||EQF|
@@ -425,118 +425,118 @@ A Europass credential is a set of one or more claims which may be used to demons
 
 ### Verifiable Presentation
 **Class description**: A verifiable presentation of a set of credentials. A composition of a set of credentials that can be presented to and verified by a verifier.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|||id|`ID/PK`<br>URI|0. .1|A portable identifier of the presentation.||
+||A portable identifier of the presentation.|id|`ID/PK`<br>URI|0. .1|||
 
 ### Europass Presentation
 **Class description**: A verifiable presentation of a set of Europass credentials.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Verifiable Credential||verifiableCredential|`Association`<br>EuropassCredential|*|A verifiable EuropassCredential.||
+|Verifiable Credential|A verifiable EuropassCredential.|verifiableCredential|`Association`<br>EuropassCredential|*|||
 |Verification Check||verificationCheck|`Association`<br>VerificationCheck|*|||
 |Proof|The cryptographic proof that can be used to detect tampering and verify the authorship of a presentation.|proof|`Association`<br>Proof|*|||
 
 ### Verification Check
 **Class description**: A verification check.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Verification Check UID|The unique identifier of the verification check|id|`ID/PK`<br>URI|1|A portable identifier of the verification check||
-|Type||type|`Property`<br>Code|1|The type of verification check.|Europass Standard List of Verification Types.|
-|Subject||subject|`Association`<br>EuropassCredential|1|The credential subject of this verififcation check.||
-|Status||status|`Property`<br>Code|1|The result.|Europass Standard List of Verification Statusses|
-|Description||description|`Property`<br>Note|0. .1|A free text description of the check and the result.||
+|Verification Check UID|The portable and unique identifier of the verification check|id|`ID/PK`<br>URI|1|||
+|Type|The type of verification check.|type|`Property`<br>Code|1||Europass Standard List of Verification Types.|
+|Subject|The credential subject of this verififcation check.|subject|`Association`<br>EuropassCredential|1|||
+|Status|The result.|status|`Property`<br>Code|1||Europass Standard List of Verification Statusses|
+|Description|A free text description of the check and the result.|description|`Property`<br>Note|0. .1|||
 
 ## Media Classes
 
 ### Interactive Web Resource
 **Class description**: A web resource that can be used to communicate.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|URL||id|`ID/PK`<br>URL|?|The URL to access the interactive web resource.||
+|URL|The URL to access the interactive web resource.|id|`ID/PK`<br>URL|?|||
 
 ### Phone
 **Class description**: A phone number.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Full Phone Number||phoneNumber|`Property`<br>String|0. .1|The full phone number as a string.|
-|Country Dialling code||countryDialing|`Property`<br>String|0. .1|The country dialling code for a contact number.|
-|Area Dialling Code||areaDialing|`Property`<br>String|0. .1|The area dialling code for a contact number.|
-|Phone Number|The contact number, not including country dialling or area dialling codes. (e.g. “3445654”, “1234567”, etc.)|dialNumber|`Property`<br>String|0. .1|The contact number, not including country dialling or area dialling codes.|
+|Full Phone Number|The full phone number as a string.|phoneNumber|`Property`<br>String|0. .1||
+|Country Dialling code|The country dialling code for a contact number.|countryDialing|`Property`<br>String|0. .1||
+|Area Dialling Code|The area dialling code for a contact number.|areaDialing|`Property`<br>String|0. .1||
+|Phone Number|The contact number, not including country dialling or area dialling codes. (e.g. “3445654”, “1234567”, etc.)|dialNumber|`Property`<br>String|0. .1||
 
 ### Mailbox
 **Class description**: A mailbox.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|E-mail||id|`ID/PK`<br>URI|1|The e-mail address.||
+|E-mail|The e-mail address.|id|`ID/PK`<br>URI|1|||
 
 ### Address
 **Class description**: An address.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Address UID|The unique identifier of the address|id|`ID/PK`<br>URI|1|A portable identifier of the adress.||
-|N/A|N/A|Identifier|`Property`<br>Identifier|*|An address identifier.||
-|Full Address|N/A|fullAddress|`Property`<br>Note|0. .1|The complete address with or without formatting.||
-|Country|N/A|countryCode|`Property`<br>Code|1|The address’ country code.|MDR Countries Named Authority List.|
+|Address UID|The protable and unique identifier of the address|id|`ID/PK`<br>URI|1|||
+|N/A|An address identifier.|Identifier|`Property`<br>Identifier|*|||
+|Full Address|The complete address with or without formatting.|fullAddress|`Property`<br>Note|0. .1|||
+|Country|The address’ country code.|countryCode|`Property`<br>Code|1||MDR Countries Named Authority List.|
 
 ### Location
 **Class description**: An identifiable geographic place.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Location UID|N/A|id|`ID/PK`<br>URI|1|A portable identifier of the location.||
-||Identifier|`Property`<br>Identifier|*|A location identifier.||
-|Name||GeographicName|`Property`<br>Text|0. .1|A proper noun applied to a spatial object.||
-|Location|N/A|SpatialCode|`Property`<br>Code|*|A code identifying a spatial scope in which this physical location is located.|MDR Countries Named Authority List. NUTS. MDR Place Named Authority List.|
-|Description||Description|`Property`<br>Note|0. .1|A free text describing the location.||
-|Address||hasAddress|`Association`<br>Address|*|An address associated with the location.||
+|Location UID|A portable identifier of the location.|id|`ID/PK`<br>URI|1|||
+||A location identifier.|`Property`<br>Identifier|*|||
+|Name|A proper noun applied to a spatial object.|GeographicName|`Property`<br>Text|0. .1|||
+|Location|A code identifying a spatial scope in which this physical location is located.|SpatialCode|`Property`<br>Code|*||MDR Countries Named Authority List. NUTS. MDR Place Named Authority List.|
+|Description|A free text describing the location.|Description|`Property`<br>Note|0. .1|||
+|Address|An address associated with the location.|hasAddress|`Association`<br>Address|*|||
 
 ### Web Document
 **Class description**: A public web document.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|URL||id|`ID/PK`<br>URL|1|The URL of the web document.||
-|Document Name||title|`Property`<br>Text|0. .1|The name of the document.||
-|||language|`Property`<br>Code|0. .1|The language of the document.|MDR Languages Named Authority List.|
-|||subject|`Property`<br>Code|*|This property is used to point to the topic that is described in the document. The information topic specifies what kind of information is provided in the document.||
+|URL|The URL of the web document.|id|`ID/PK`<br>URL|1|||
+|Document Name|The name of the document.|title|`Property`<br>Text|0. .1|||
+||The language of the document.|language|`Property`<br>Code|0. .1||MDR Languages Named Authority List.|
+||This property is used to point to the topic that is described in the document. The information topic specifies what kind of information is provided in the document.|subject|`Property`<br>Code|*|||
 
 ### Media Object
 **Class description**: A media object.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|||id|`ID/PK`<br>URI|1|A portable identifier of the media object.||
-|||contentType|`Property`<br>Code|1|The media-type of the media object.|MDR Filetype|
-|||contentEncoding|`Property`<br>Code|0. .1|The encoding used to encode the binary data.|Europass Standard List of Content Encoding Types.|
-|||contentSize|`Property`<br>xsd:integer|0. .1|The content size.||
-|||content|`Property`<br>xsd:string|0. .1|The binary data. ||
-|||contentUrl|`Property`<br>xsd:anyURI|0. .1|The public access URL.||
+||A portable identifier of the media object.|id|`ID/PK`<br>URI|1|||
+||A portable identifier of the media object.|contentType|`Property`<br>Code|1|A portable identifier of the media object.| MDR Filetype|
+||The encoding used to encode the binary data.|contentEncoding|`Property`<br>Code|0. .1||Europass Standard List of Content Encoding Types.|
+||The content size.|contentSize|`Property`<br>xsd:integer|0. .1|||
+||The binary data.|content|`Property`<br>xsd:string|0. .1| ||
+||The public access URL.|contentUrl|`Property`<br>xsd:anyURI|0. .1|||
 
 ### Image Object < extends MediaObject >
 **Class description**: Still image.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|||contentType|`Property`<br>Code|0. .1|The media-type of the image resource.|MDR Filetype|
+||The media-type of the image resource.|contentType|`Property`<br>Code|0. .1||MDR Filetype|
 
 ## Association Classes
 
 ### Association Object
 **Class description**: The details of an association or an alignment between a resource and another node in an established semantic framework. This class can be used to relate, annotate or align a resource to another semantic asset. Described in the QMS.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|N/A|N/A|associationType|`Property`<br>Code|0. .1|The type of the association.|
-|N/A|N/A|description|`Property`<br>Text|0. .1|A description of the association.|
-|N/A|N/A|issueDate|`Property`<br>DateTime|0. .1|Date of creation of the association.|
-|N/A|N/A|isAssociationFor|`Association`<br>Resource|1|The resource being described.|
-|N/A|N/A|targetFramework|`?`<br>?|0. .1|The framework to which the resource being described is associated.|
-|N/A|N/A|targetFrameworkVersion|`Property`<br>String|0. .1|A version number or other designation of the target framework.|
-|N/A|N/A|targetResource|`Association`<br>Resource|0. .1|The resource representing the associated node in the targeted framework.|
-|N/A|N/A|targetNotation|`Property`<br>Notation/String|*|A notation or code of the associated node in the targeted framework.|
-|N/A|N/A|targetName|`Property`<br>Text|0. .1|A name or label of the associated node in the targeted framework.|
-|N/A|N/A|targetDescription|`Property`<br>Note|0. .1|A free-text description of the associated node in the targeted framework.|
-|N/A|N/A|targetUrl|`Property`<br>xsd:anyURI|*|The URL of the associated node in the targeted framework.|
+|N/A|The type of the association.|associationType|`Property`<br>Code|0. .1||
+|N/A|A description of the association.|description|`Property`<br>Text|0. .1||
+|N/A|Date of creation of the association.|issueDate|`Property`<br>DateTime|0. .1||
+|N/A|The resource being described.|isAssociationFor|`Association`<br>Resource|1||
+|N/A|The framework to which the resource being described is associated.|targetFramework|`?`<br>?|0. .1||
+|N/A|A version number or other designation of the target framework.|targetFrameworkVersion|`Property`<br>String|0. .1||
+|N/A|The resource representing the associated node in the targeted framework.|targetResource|`Association`<br>Resource|0. .1||
+|N/A|A notation or code of the associated node in the targeted framework.|targetNotation|`Property`<br>Notation/String|*||
+|N/A|A name or label of the associated node in the targeted framework.|targetName|`Property`<br>Text|0. .1||
+|N/A|A free-text description of the associated node in the targeted framework.|targetDescription|`Property`<br>Note|0. .1||
+|N/A|The URL of the associated node in the targeted framework.|targetUrl|`Property`<br>xsd:anyURI|*||
 
 ### Education Level Association < extends AssociationObject >
 **Class description**: The associated education level of a given LearningSpecification.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Education Level Framework|N/A|targetFramework|`Association`<br>Standard|0. .1|The framework/system used describing education levels.||
 |N/A|N/A|targetNotation|`Property`<br>String|0. .1|A notation or code of the associated edcuation level in the targeted framework.||
@@ -545,14 +545,14 @@ A Europass credential is a set of one or more claims which may be used to demons
 
 ### QF Level Association < extends EducationLevelAssociation >
 **Class description**: The associated education level of a given Qualification.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Qualfication Framework|N/A|targetFramework|`Association`<br>Standard|1|The qualification framework.|QDR List of qualification frameworks.|
 |Qualification Framework Level|N/A|targetNotation|`Property`<br>String|1|The qualification framework level.|Part of CList|
 
 ### Education Subject Association < extends AssociationObject >
 **Class description**: The associated subject or field of education of a given LearningSpecification.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Education Subject Scheme|N/A|targetFramework|`Association`<br>Standard|0. .1|The framework/system used describing fields of education.||
 |N/A|N/A|targetNotation|`Property`<br>String|0. .1|A notation or code of the associated field of education in the targeted framework.||
@@ -561,7 +561,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 
 ### Esco Skill Association < extends AssociationObject >
 **Class description**: Represents an alignment object to an existing ESCO Skill.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |N/A|N/A|associationType|`Property`<br>Code|0. .1|A code indicating the semantics of the relation.|Europass Standard List Of Skill Alignment Types.|
 |N/A|N/A|description|`Property`<br>Text|0. .1|A free text describing the semantics of the relation.||
@@ -569,14 +569,14 @@ A Europass credential is a set of one or more claims which may be used to demons
 
 ### Esco Occupation Association < extends AssociationObject >
 **Class description**: Represents a relation of an entitlement to an existing ESCO occupation.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |N/A|N/A|description|`Property`<br>Text|0..1|A free text describing the semantics of the relation.||
 |N/A|N/A|targetResource|`Association`<br>Resource|1|The URI identifier of the related ESCO occupation.|ESCO occupation.|
 
 ### Occupation Association  < extends AssociationObject >
 **Class description**: Represents an association of an entitlement to an occupation from a (national) occupational framework.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |N/A|N/A|description|`Property`<br>Text|0. .1|A free text describing the semantics of the relation.||
 |Occupational Framework|N/A|targetFramework|`Association`<br>Standard|0. .1|The framework/system used describing occupations.|ESCO occupation.|
@@ -587,7 +587,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 
 ### Qualification Association Type  < extends AssociationObject >
 **Class description**: Represents an association of a qualification to a qualification code in a certain framework or system describing qualification.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |N/A|N/A|targetFramework|`Association`<br>Standard|0. .1|The framework/system used describing qualifications.||
 |N/A|N/A|targetResource|`Association`<br>Resource|0. .1|The URI identifier of the related qualification in the targeted framework.||
@@ -595,7 +595,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 
 ### Standard
 **Class description**: This class is used to describe a semantic framework.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |N/A|N/A|id|`ID/PK`<br>URI|1|A portable identifier of the framework or system.||
 |N/A|N/A|identifier|`Property`<br>Identifier|*|An alternative identifier of the framework or system.||
@@ -609,7 +609,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Definition**: A character string used to identify a resource.  
 An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency.  
 The Identifier class is a critical aspect of the edci model. It is used to identify persons and organisations. In these cases and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised.
-|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
+|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Identifier|Content|`Attribute`<br>String|1|Content string which is the identifier.|Content string which is the identifier. A character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency.||
 |Identifier|Identifier Scheme ID|`Attribute`<br>String|0. .1|Identification of the identifier scheme.|Identification of the identifier scheme. The identifier register (the managing/originating system of the identifier). This can be seen as the namespace in which the assigned identifier is unique.||
@@ -623,14 +623,14 @@ The Identifier class is a critical aspect of the edci model. It is used to ident
 ### LegalIdentifier - Composite Type < extends Identifier >
 **Definition**: A legal identifier.
 A legal identifier is a formally issued identifier by a given authorithy within a given jurisdiction. The identifier has a spatial context.
-|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
+|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Identifier|Spatial ID|`Attribute`<br>String|1|The identifier of the country and/or jurisdiction.|The identifier of the country and/or jurisdiction.|MDR Countries Named Authority Lis. NUTS|
 
 ### Code - Composite Type
 **Definition**: A term from a controlled vocabulary. (a code from a code list)
 Interoperability between data sets is increased dramatically when terms from controlled vocabularies are used in favour of free text. The conceptual Code data type is used wherever one or more controlled vocabularies are known to exist for a particular domain of interest. It is not the job of the JV/CV Vocabularies to mandate which controlled vocabularies are used but we offer some guidance on how to use them.
-|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
+|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Code|Target Notation|`Attribute`<br>String|0. .1||The term.||
 |Code|Target Framework URI|`Attribute`<br>String|1|The identification of the controlled vocabulary.|The identification of the controlled vocabulary (the code list). (e.g. a URI)||
