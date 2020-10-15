@@ -296,132 +296,132 @@ A Europass credential is a set of one or more claims which may be used to demons
 
 ### Agent < abstract >
 **Class description**: An entity that is able to carry out actions.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Agent UID|N/A|id|`ID/PK`<br>URI|1|A portable identifier of the agent.||
-|N/A|N/A|identifier|`Property`<br>Identifier|*|A formally-issued Identifier for the Agent.||
-|N/A|N/A|type|`Property`<br>Code|*|The Type of an Agent as described in a controlled vocabulary. |QMS List Of Organisation Types.|
-|Preferred Name|N/A|preferredName|`Property`<br>Text|0. .1|The primary name of the agent.||
-|N/A|N/A|alternativeName|`Property`<br>Text|*|An agent may have any number of alternative or informal names.||
-|More information|N/A|note|`Property`<br>Note|*|An additional free text note about the agent.||
-|Contact information|N/A|contactPoint|`Association`<br>ContactPoint|*|The contact information of an agent.||
+|Agent UID|A portable identifier of the agent.|id|`ID/PK`<br>URI|1|||
+|N/A|A formally-issued Identifier for the Agent.|identifier|`Property`<br>Identifier|*|||
+|N/A|The Type of an Agent as described in a controlled vocabulary.|type|`Property`<br>Code|*||QMS List Of Organisation Types.|
+|Preferred Name|The primary name of the agent.|preferredName|`Property`<br>Text|0. .1|||
+|N/A|An agent may have any number of alternative or informal names.|alternativeName|`Property`<br>Text|*|||
+|More information|An additional free text note about the agent.|note|`Property`<br>Note|*|||
+|Contact information|The contact information of an agent.|contactPoint|`Association`<br>ContactPoint|*|||
 
 ### Person < extends Agent >
 **Class description**: A human being.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Person UID|The unique identifier of the person.|id|`ID/PK`<br>URI|1|A portable identifier of the person.||
-|National ID number|N/A|nationalId|`Property`<br>LegalIdentifier|0. .1|The "primary" national identifier of the person.||
-|Other identifier(s)|An (optional) alternative formally-issued identifier for the person, e.g. social security number, student ID card number, to club membership, etc.|identifier|`Property`<br>Identifier|*|An (alternative) formally-issued identifier for the person.||
-|Full name|N/A|fullName|`Property` (sub-Property of Agent prefferedName property)<br>Text|0. .1|The complete name of the person as one string.||
-|Given name|N/A|givenNames|`Property`<br>Text |1|The given name(s) of the person.||
-|Family name|N/A|familyName|`Property`<br>Text|1|The family name of the person.||
-|Birth name|N/A|birthName|`Property`<br>Text|0. .1|The name of the person at birth. Birth names tend to be persistent and for this reason they are recorded by some public sector information systems. There is no granularity for birth name - the full name should be recorded in a single field.||
-|Patronymic name|N/A|patronymicName|`Property`<br>Text|0. .1|Patronymic names are important in some countries. Iceland does not have a concept of 'family name' in the way that many other European countries do, for example, Erik Magnusson and Erika Magnusdottir are siblings, both offspring of Mangnus, irrespective of his patronymic name. In   Bulgaria and Russia, patronymic names are in every day usage, for example, the Sergeyevich in 'Mikhail Sergeyevich Gorbachev.'||
-|Date of birth|N/A|dateOfBirth|`Property`<br>Date|1|The birth date of the person.||
-|Place of birth|N/A|placeOfBirth|`Property`<br>Location|0. .1|The place of birth of the person.||
-|Gender|N/A|gender|`Property`<br>Code|0. .1|The gender of the person.|MDR Human Sex Named Authority List.|
-|Citizenship|The country (or countries) that conferred citizenship rights on the person.|citizenshipCountry|`Property`<br>Code|*|The country that has conferred citizenship rights on the person.|MDR Countries Named Authority List. NUTS.|
-|Location|N/A|hasLocation|`Association`<br>Location|*|A location related to a Person. (e.g. a person's home or residence location, a person's work place location, site location of an organisation, etc.)|MDR Countries Named Authority List. NUTS (skossified and published version by ESCO).|
-|Learning activities|N/A|performed|`Association`<br>LearningActivity|*|A learning activity that a person participated in or attended.||
-|Learning achievements|N/A|achieved|`Association`<br>LearningAchievement|*|An achievement of the person.||
-|Learning entitlements|N/A|entitledTo|`Association`<br>Entitlement|*|The entitlement of the person.||
+|Person UID|The unique and portable identifier of the person.|id|`ID/PK`<br>URI|1|||
+|National ID number|The "primary" national identifier of the person.|nationalId|`Property`<br>LegalIdentifier|0. .1|||
+|Other identifier(s)|An (optional) alternative formally-issued identifier for the person, e.g. social security number, student ID card number, to club membership, etc.|identifier|`Property`<br>Identifier|*|||
+|Full name|The complete name of the person as one string.|fullName|`Property` (sub-Property of Agent prefferedName property)<br>Text|0. .1|||
+|Given name|The given name(s) of the person.|givenNames|`Property`<br>Text |1|||
+|Family name|The family name of the person.|familyName|`Property`<br>Text|1|||
+|Birth name|The name of the person at birth. Birth names tend to be persistent and for this reason they are recorded by some public sector information systems. There is no granularity for birth name - the full name should be recorded in a single field.|birthName|`Property`<br>Text|0. .1|||
+|Patronymic name|Patronymic names are important in some countries. Iceland does not have a concept of 'family name' in the way that many other European countries do, for example, Erik Magnusson and Erika Magnusdottir are siblings, both offspring of Mangnus, irrespective of his patronymic name. In   Bulgaria and Russia, patronymic names are in every day usage, for example, the Sergeyevich in 'Mikhail Sergeyevich Gorbachev.'|patronymicName|`Property`<br>Text|0. .1|||
+|Date of birth|The birth date of the person.|dateOfBirth|`Property`<br>Date|1|||
+|Place of birth|The place of birth of the person.|placeOfBirth|`Property`<br>Location|0. .1|||
+|Gender|The gender of the person.|gender|`Property`<br>Code|0. .1||MDR Human Sex Named Authority List.|
+|Citizenship|The country (or countries) that conferred citizenship rights on the person.|citizenshipCountry|`Property`<br>Code|*||MDR Countries Named Authority List. NUTS.|
+|Location|A location related to a Person. (e.g. a person's home or residence location, a person's work place location, site location of an organisation, etc.)|hasLocation|`Association`<br>Location|*||MDR Countries Named Authority List. NUTS (skossified and published version by ESCO).|
+|Learning activities|A learning activity that a person participated in or attended.|performed|`Association`<br>LearningActivity|*|||
+|Learning achievements|An achievement of the person.|achieved|`Association`<br>LearningAchievement|*|||
+|Learning entitlements|The entitlement of the person.|entitledTo|`Association`<br>Entitlement|*|||
 
 ### Organisation < extends Agent >
 **Class description**: A legal person / registered organisation.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Organisation UID|The unique identifier of the organisation.|id|`ID/PK`<br>URI|1|A portable identifier of the organisation.||
-|Other Identifier|N/A|identifier|`Property`<br>Identifier|*|Another formally-issued identifier for the organisation.||
-|eIDAS Identifier|The official identification number of the organisation, as awarded by the relevant national authority.authority.<a href="#FN2">[2]</a>|eidasLegalIdentifier|`Property`<br>Identifier|1|The identifier given to a registered organisation by the authority with which it is registered.||
-|Registration|N/A|registration|`Property`<br>Identifier|1|The legal identifier of an organization. The identifier given to a registered organization by the authority with which it is registered. The legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organization and the authority with which it is registered.||
-|VAT Number|N/A|vatIdentifier|`Property`<br>LegalIdentifier|*|The Value-Added Tax ID.||
-|Tax / Fiscal Identifier|N/A|taxIdentifier|`Property`<br>LegalIdentifier|*|The Tax / Fiscal ID of the organisation.||
-|Legal Name|N/A|preferredName|`Property`<br>Text|1|The primary name of the organisation.||
-|Common Name|An (optional) alternative name of the organisation as typically used in documents, including credentials.|alternativeName|`Property`<br>Text|*|An alternative name of the organisation.||
-|Homepage|N/A|homepage|`Association`<br>WebDocument|*|A homepage about the organisation.||
-||N/A|hasLocation|`Association`<br>Location|1. .*|The legally registered site of the organisation.||
-|Accreditation|Accreditation Records associated with the organisation. More information about the accreditation database is available here.|hasAccreditation|`Association`<br>Accreditation|*|The accreditation of an organisation.||
-|Child Organisation|A smaller organisation of which forms part of this organisation.|hasUnit|`Association`<br>Organisation|*|Indicates a unit which is part of this Organisation, e.g. a Department within a larger Organisation.||
-|Parent Organisation|A larger organisation of which this unit/sub-organisation forms part|unitOf|`Association`<br>Organisation|0. .1|Indicates an Organisation of which this Unit is a part, e.g. the Organisation within which a Department operates.||
-|Logo|N/A|logo|`Association`<br>ImageObject|0. .1|The logo of the organisation.||
+|Organisation UID|The unique and portable identifier of the organisation.|id|`ID/PK`<br>URI|1|||
+|Other Identifier|Another formally-issued identifier for the organisation.|identifier|`Property`<br>Identifier|*|||
+|eIDAS Identifier|The official identification number of the organisation, as awarded by the relevant national authority.authority.<a href="#FN2">[2]</a>|eidasLegalIdentifier|`Property`<br>Identifier|1|||
+|Registration|The legal identifier of an organization. The identifier given to a registered organization by the authority with which it is registered. The legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organization and the authority with which it is registered.|registration|`Property`<br>Identifier|1|||
+|VAT Number|The Value-Added Tax ID.|vatIdentifier|`Property`<br>LegalIdentifier|*|||
+|Tax / Fiscal Identifier|Fiscal ID of the organisation.|taxIdentifier|`Property`<br>LegalIdentifier|*|The Tax / ||
+|Legal Name|The primary name of the organisation.|preferredName|`Property`<br>Text|1|||
+|Common Name|An (optional) alternative name of the organisation as typically used in documents, including credentials.|alternativeName|`Property`<br>Text|*|||
+|Homepage|A homepage about the organisation.|homepage|`Association`<br>WebDocument|*|||
+||The legally registered site of the organisation.|hasLocation|`Association`<br>Location|1. .*|||
+|Accreditation|Accreditation Records associated with the organisation. More information about the accreditation database is available here.|hasAccreditation|`Association`<br>Accreditation|*|||
+|Child Organisation|A smaller organisation of which forms part of this organisation, e.g. a Department within a larger Organisation.|hasUnit|`Association`<br>Organisation|*|||
+|Parent Organisation|Indicates a larger Organisation of which this Unit is a part of, e.g. the Organisation within which a Department operates. |unitOf|`Association`<br>Organisation|0. .1|||
+|Logo|The logo of the organisation.|logo|`Association`<br>ImageObject|0. .1|||
 
 <a name="FN2">[2]: See chapter 5.1.4 in [Draft ETSI EN 319 412-1 V1.4.2](https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.02_20/en_31941201v010402a.pdf)</a>
 
 ### Contact information
 **Class description**: Details to Contact an Agent. A contact point for an agent.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Context|Queries to direct this contact method, and any conditions.|note|`Property`<br>Note|*|A note about the contactpoint (e.g. availibility or usage note)||
-|Contact Details|N/A|description|`Property`<br>Note|0. .1|A free text describing the contact details.||
-|Postal Address|N/A|postalAddress|`Association`<br>Address|*|A postal address used for contacting the agent.||
-|Phone Number|N/A|phone|`Association`<br>Phone|*|A phone number used for contacting the agent.||
-|E-Mail Address|N/A|email|`Association`<br>Mailbox|*|An e-mail address used for contacting the agent.||
-|||walletAddress|`Association`<br>Mailbox|*|The wallet address of the agent.||
-|Contact Form|N/A|contactForm|`Association`<br>InteractiveWebResource|*|A contact form used for contacting the agent.||
+|Context|A note about the contactpoint (e.g. availibility or usage note)|note|`Property`<br>Note|*|||
+|Contact Details|A free text describing the contact details.|description|`Property`<br>Note|0. .1|||
+|Postal Address|A postal address used for contacting the agent.|postalAddress|`Association`<br>Address|*|||
+|Phone Number|A phone number used for contacting the agent.|phone|`Association`<br>Phone|*|||
+|E-Mail Address|An e-mail address used for contacting the agent.|email|`Association`<br>Mailbox|*|||
+||The wallet address of the agent.|walletAddress|`Association`<br>Mailbox|*|||
+|Contact Form|A contact form used for contacting the agent.|contactForm|`Association`<br>InteractiveWebResource|*|||
 
 ### Learning Opportunity
 **Class description**: An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Learning Opportunity UID|The unique identifier of the Learning Opportunity.|id|`ID/PK`<br>URI|1|A portable identifier of the learning opportunity.||
-|Learnring Opportunity Identifier|An identifier assigned to the learning opportunity by the organisation offering the opportunity.|identifier|`Property`<br>Identifier|*|An alternative identifier of the learning opportunity.||
-|Title|N/A|title|`Property`<br>Text|1|The title of the learning opportunity.||
-|Description|A summary of the learning opportunity. |description|`Property`<br>Note|0. .1|A free text description of the learning opportunity .||
-|More Information|Any additional information about the learning opportunity|additionalNote|`Property`<br>Note|*|An additional free text note about the learning opportunity.||
+|Learning Opportunity UID|The unique and portable identifier of the Learning Opportunity.|id|`ID/PK`<br>URI|1|||
+|Learning Opportunity Identifier|An alternative identifier assigned to the learning opportunity by the organisation offering the opportunity.|identifier|`Property`<br>Identifier|*|||
+|Title|The title of the learning opportunity.|title|`Property`<br>Text|1|||
+|Description|A free text description (summary) of the learning opportunity.|description|`Property`<br>Note|0. .1|||
+|More Information|An additional free text note about the learning opportunity.|additionalNote|`Property`<br>Note|*|||
 |Homepage|Webpage describing the learning opportunity|homePage|`Association`<br>WebDocument|*|The homepage (a public web document) of the learning opportunity.||
-|Other Documents|Other Web Documents describing the learning opportunity|supplementaryDocument|`Association`<br>WebDocument|*|A public web document containing additional documentation about the learning opportunity.||
-|Start Date|The date from which a person may follow the learning opportunity.|startedAtDate|`Property`<br>Date|0. .1|The start date.||
+|Other Documents|A public web document containing additional documentation about the learning opportunity.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Start Date|The startdate from which a person may follow the learning opportunity.|startedAtDate|`Property`<br>Date|0. .1|||
 |End Date|The final date a person may start to follow the learning opportunity.|endedAtDate|`Property`<br>Date|0. .1|The end date.||
-|Duration|The duration for which the learning opportunity will continue to run. Note, this may be after the end-date, since admissions may be closed but the learning opportunity may still be ongoing.|duration|`Property`<br>Duration|0. .1|The nominal duration of the learning opportunity.||
-|Learning Schedule|N/A|learningSchedule|`Property`<br>Code|0. .1|The learning schedule.|Europass Standard List of Learning Schedule Types.|
-|Schedule Information|Detailed information about the timetable or schedule. This may include weekly schedules (e.g. "Every Monday, 4pm", but may also include the overall schedule for the course, (e.g. October: lectures, November: group-work, December: break, January: assessmnet)|scheduleInformation|`Property`<br>Note|0. .1|A free text note about the time schedule.||
-|Admissions Procedure|Specific information on how to apply for the course |admissionProcedure|`Property`<br>Note|0. .1|A free text note about the admission procedure.||
+|Duration|The nominal duration for which the learning opportunity will continue to run. Note, this may be after the end-date, since admissions may be closed but the learning opportunity may still be ongoing.|duration|`Property`<br>Duration|0. .1|||
+|Learning Schedule|The learning schedule.|learningSchedule|`Property`<br>Code|0. .1||Europass Standard List of Learning Schedule Types.|
+|Schedule Information|Detailed information about the timetable or schedule. This may include weekly schedules (e.g. "Every Monday, 4pm", but may also include the overall schedule for the course, (e.g. October: lectures, November: group-work, December: break, January: assessmnet)|scheduleInformation|`Property`<br>Note|0. .1|||
+|Admissions Procedure|Specific information on how to apply for the course |admissionProcedure|`Property`<br>Note|0. .1|||
 |Fees|Information about the pricing of the course, including fees and scholarships/subsidies available|priceDetails|`Association`<br>PriceDetails|*|The price details.||
-|Provided by|The organisation providing or directing the learning opportunity. In the case of, e.g. joint qualifications, there may be several organisations directing the learning opportunity. |providedBy|`Association`<br>Organisation|*|The providing or directing organisation.||
-|Provided at|The location where the learning opportunity will take place. This may also include a virtual space.|providedAt|`Association`<br>Location|*|The location of the opportunity.||
-|Learning Specification|N/A|specifiedBy|`Association`<br>LearningSpecification|0. .1|The learning specification, including the curricula, of this learning opportunity.||
-|Sub-Opportunities|Smaller learning opportunities, which when combined make up this learning opportunity.|hasPart|`Association`<br>LearningOpportunity|*|A learning opportunity can be composed of other "narrower" learning opportunities.||
-|Banner Image|An image which is displayed alongside the learning opportunity|bannerImage|`Association`<br>ImageObject|0. .1|The image to be displayed alongside the learning opportunity.||
+|Provided by|The organisation providing or directing the learning opportunity. In the case of, e.g. joint qualifications, there may be several organisations directing the learning opportunity. |providedBy|`Association`<br>Organisation|*|||
+|Provided at|The location where the learning opportunity will take place. This may also include a virtual space.|providedAt|`Association`<br>Location|*|||
+|Learning Specification|The learning specification, including the curricula, of this learning opportunity.|specifiedBy|`Association`<br>LearningSpecification|0. .1|||
+|Sub-Opportunities|A learning opportunity can be composed of other "narrower" learning opportunities, which when combined make up this larger learning opportunity.|hasPart|`Association`<br>LearningOpportunity|*|||
+|Banner Image|An image which is displayed alongside the learning opportunity|bannerImage|`Association`<br>ImageObject|0. .1|||
 
 ### Price Details
 **Class description**: The price details. The details about a price or price category.
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Price Details UID|The unique identifier of the Price Details.|id|`ID/PK`<br>URI|1|A portable identifier of the price category.|
-|Price Category Identifier|The identifier of the price category, allocated by the organisation charging the fee.|Identifier|`Property`<br>Identifier|*|A price category identifier.|
-|Fee|The full (sticker) price of the learning opportunity|amount|`Property`<br>Amount|0. .1|The amount.|
-|Price Category Name|The name of the price/price category.|name|`Property`<br>Text|0. .1|A proper noun applied to a price.|
-|Description|N/A|description|`Property`<br>Note|0. .1|A free text describing the price.|
-|Subsidies|N/A|additional note|`Property`<br>Note|*|An additional free text note about the price.|
+|Price Details UID|The portable and unique identifier of the Price Details.|id|`ID/PK`<br>URI|1||
+|Price Category Identifier|The identifier of the price category, allocated by the organisation charging the fee.|Identifier|`Property`<br>Identifier|*||
+|Fee|The full (sticker) price of the learning opportunity|amount|`Property`<br>Amount|0. .1||
+|Price Category Name|The name of the price/price category.|name|`Property`<br>Text|0. .1||
+|Description|A free text describing the price.|description|`Property`<br>Note|0. .1||
+|Subsidies|An additional free text note about the price.|additional note|`Property`<br>Note|*||
 
 ### Accreditation
 **Class description**: The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about:
 - the quality assurance and/or licensing of an organisation.
 - the quality assurance and/or licensing of an organisation with respect to a specific qualification.
 
-|Label|Description|Field|`Type`<br>Range (data type)|Card|Definition|Recommended RSA|
+|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Accreditation ID|The unique identifier of the accreditation record.|id|`ID/PK`<br>URI|1|A portable identifier of the accreditation.||
-|Accreditation Identifier|The Identifier of the Accreditation, as assigned to it by the accrediting agent.|identifier|`Property`<br>Identifier|*|An alternative identifier of the accreditation.||
-|Accreditation Type||accreditationType|`Property`<br>Code|1|The type of accreditation.|Europass Standard List of Accreditation Types.|
-|Title||title |`Property`<br>Text|0. .1|A title of the accreditation.||
-|Description||description|`Property`<br>Note|0. .1|A free text description of the accreditation.||
-|Decision||decision|`Property`<br>TextScore|0. .1|The Quality Decision issued by the Quality Assuring Authority.||
-|Report||report|`Association`<br>WebDocument|0. .1|A publicly accessible report of the quality assurance decision||
-|Organisation|The organisation whose activities are being accredited.|organisation|`Association`<br>Organisation|1|The organisation whose activities are being accredited.||
-|Qualification Accredited|The qualification that was accredited.|limitQualification|`Association`<br>Qualification|0. .1|The qualification that was accredited.||
-|Accredit for Thematic Area|The field of education for which the accreditation is valid.|limitField|`Properties`<br>Code|*|The field of education for which the accreditation is valid.|ISCED-F|
-|Accredited for EQF Level|The european qualification level for which the accreditation is valid.|limitEQFLevel|`Properties`<br>Code|*|The european qualification level for which the accreditation is valid.|EQF|
-|Accredited in Jurisdiction|The jurisdiction for which the accreditation is valid.|limitJurisdiction|`Properties`<br>Code|*|The jurisdiction for which the accreditation is valid.|"MDR Countries Named Authority List NUTS"|
-|Accrediting Agent|The Quality Assuring Authority. (i.e assurer)|accrediting agent|`Association`<br>Organisation|1|The Quality Assuring Authority. (i.e assurer)||
-|Issue Date|The Quality Assuring Authority. (i.e assurer)|issue date|`Property`<br>DateTime|0. .1|The date when the accreditation was formally approved/issued.||
-|Review Date|The date when the accreditation was formally approved/issued.|review date|`Property`<br>DateTime|0. .1|The date when the accreditation has to be re-viewed.||
-|Expiry Date|The date when the accreditation has to be re-viewed.|expiry date|`Property`<br>DateTime|0. .1|The date when the accreditation expires or was expired.||
-|More information|The date when the accreditation expires or was expired.|additional note|`Property`<br>Note|*|An additional free text note about the accreditation.||
-|Home page|Webpage describing the accreditation|home page|`Association`<br>WebDocument|*|The homepage of the accreditation.||
-|N/A|N/A|landing page|`Association`<br>WebDocument|*|The landingpage of the accreditation.||
-|Other Documents|Other documents describing the Accreditation Procedures and Standards|supplementary document|`Association`<br>WebDocument|*|A public web document containing additional documentation about the accreditation.||
+|Accreditation ID|The portable and unique identifier of the accreditation record.|id|`ID/PK`<br>URI|1|||
+|Accreditation Identifier|An alternative Identifier of the Accreditation, as assigned to it by the accrediting agent.|identifier|`Property`<br>Identifier|*|||
+|Accreditation Type|The type of accreditation.|accreditationType|`Property`<br>Code|1||Europass Standard List of Accreditation Types.|
+|Title||A title of the accreditation.|`Property`<br>Text|0. .1|||
+|Description||A free text description of the accreditation.|`Property`<br>Note|0. .1|||
+|Decision||The Quality Decision issued by the Quality Assuring Authority.|`Property`<br>TextScore|0. .1|||
+|Report||A publicly accessible report of the quality assurance decision|`Association`<br>WebDocument|0. .1|||
+|Organisation|.The organisation whose activities are being accredited.|organisation|`Association`<br>Organisation|1|||
+|Qualification Accredited|The qualification that was accredited.|limitQualification|`Association`<br>Qualification|0. .1|||
+|Accredit for Thematic Area|The field of education for which the accreditation is valid.|limitField|`Properties`<br>Code|*||ISCED-F|
+|Accredited for EQF Level|The european qualification level for which the accreditation is valid.|limitEQFLevel|`Properties`<br>Code|*||EQF|
+|Accredited in Jurisdiction|The jurisdiction for which the accreditation is valid.|limitJurisdiction|`Properties`<br>Code|*||"MDR Countries Named Authority List NUTS"|
+|Accrediting Agent|The Quality Assuring Authority. (i.e assurer)|accrediting agent|`Association`<br>Organisation|1|||
+|Issue Date|The date when the accreditation was formally approved/issued.|issue date|`Property`<br>DateTime|0. .1|||
+|Review Date|The date when the accreditation has to be re-viewed.|review date|`Property`<br>DateTime|0. .1|||
+|Expiry Date|The date when the accreditation expires or was expired.|expiry date|`Property`<br>DateTime|0. .1|||
+|More information|An additional free text note about the accreditation. |additional note|`Property`<br>Note|*|||
+|Home page|The homepage of the accreditation.|home page|`Association`<br>WebDocument|*|||
+|N/A|N/A|The landingpage of the accreditation.|`Association`<br>WebDocument|*|||
+|Other Documents|A public web document containing additional documentation  describing the Accreditation Procedures and Standards|supplementary document|`Association`<br>WebDocument|*|||
 
 ### Verifiable Presentation
 **Class description**: A verifiable presentation of a set of credentials. A composition of a set of credentials that can be presented to and verified by a verifier.
