@@ -609,7 +609,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Definition**: A character string used to identify a resource.  
 An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency.  
 The Identifier class is a critical aspect of the edci model. It is used to identify persons and organisations. In these cases and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised.
-|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Suggested Use|Recommended RSA|
+|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Identifier|Content|`Attribute`<br>String|1|Content string which is the identifier.|Content string which is the identifier. A character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency.||
 |Identifier|Identifier Scheme ID|`Attribute`<br>String|0. .1|Identification of the identifier scheme.|Identification of the identifier scheme. The identifier register (the managing/originating system of the identifier). This can be seen as the namespace in which the assigned identifier is unique.||
@@ -623,14 +623,14 @@ The Identifier class is a critical aspect of the edci model. It is used to ident
 ### LegalIdentifier - Composite Type < extends Identifier >
 **Definition**: A legal identifier.
 A legal identifier is a formally issued identifier by a given authorithy within a given jurisdiction. The identifier has a spatial context.
-|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Suggested Use|Recommended RSA|
+|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Identifier|Spatial ID|`Attribute`<br>String|1|The identifier of the country and/or jurisdiction.|The identifier of the country and/or jurisdiction.|MDR Countries Named Authority Lis. NUTS|
 
 ### Code - Composite Type
 **Definition**: A term from a controlled vocabulary. (a code from a code list)
 Interoperability between data sets is increased dramatically when terms from controlled vocabularies are used in favour of free text. The conceptual Code data type is used wherever one or more controlled vocabularies are known to exist for a particular domain of interest. It is not the job of the JV/CV Vocabularies to mandate which controlled vocabularies are used but we offer some guidance on how to use them.
-|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Suggested Use|Recommended RSA|
+|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Code|Target Notation|`Attribute`<br>String|0. .1||The term.||
 |Code|Target Framework URI|`Attribute`<br>String|1|The identification of the controlled vocabulary.|The identification of the controlled vocabulary (the code list). (e.g. a URI)||
