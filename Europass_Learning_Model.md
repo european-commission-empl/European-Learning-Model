@@ -336,7 +336,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |eIDAS Identifier|The official identification number of the organisation, as awarded by the relevant national authority.authority.<a href="#FN2">[2]</a>|eidasLegalIdentifier|`Property`<br>Identifier|1|||
 |Registration|The legal identifier of an organization. The identifier given to a registered organization by the authority with which it is registered. The legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organization and the authority with which it is registered.|registration|`Property`<br>Identifier|1|||
 |VAT Number|The Value-Added Tax ID.|vatIdentifier|`Property`<br>LegalIdentifier|*|||
-|Tax / Fiscal Identifier|Fiscal ID of the organisation.|taxIdentifier|`Property`<br>LegalIdentifier|*|The Tax / ||
+|Tax / Fiscal Identifier|Fiscal ID of the organisation.|taxIdentifier|`Property`<br>LegalIdentifier|*| ||
 |Legal Name|The primary name of the organisation.|preferredName|`Property`<br>Text|1|||
 |Common Name|An (optional) alternative name of the organisation as typically used in documents, including credentials.|alternativeName|`Property`<br>Text|*|||
 |Homepage|A homepage about the organisation.|homepage|`Association`<br>WebDocument|*|||
@@ -369,15 +369,15 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Title|The title of the learning opportunity.|title|`Property`<br>Text|1|||
 |Description|A free text description (summary) of the learning opportunity.|description|`Property`<br>Note|0. .1|||
 |More Information|An additional free text note about the learning opportunity.|additionalNote|`Property`<br>Note|*|||
-|Homepage|Webpage describing the learning opportunity|homePage|`Association`<br>WebDocument|*|The homepage (a public web document) of the learning opportunity.||
+|Homepage|The homepage (a public web document) of the learning opportunity.|homePage|`Association`<br>WebDocument|*|||
 |Other Documents|A public web document containing additional documentation about the learning opportunity.|supplementaryDocument|`Association`<br>WebDocument|*|||
 |Start Date|The startdate from which a person may follow the learning opportunity.|startedAtDate|`Property`<br>Date|0. .1|||
-|End Date|The final date a person may start to follow the learning opportunity.|endedAtDate|`Property`<br>Date|0. .1|The end date.||
+|End Date|The final date a person may start to follow the learning opportunity.|endedAtDate|`Property`<br>Date|0. .1|||
 |Duration|The nominal duration for which the learning opportunity will continue to run. Note, this may be after the end-date, since admissions may be closed but the learning opportunity may still be ongoing.|duration|`Property`<br>Duration|0. .1|||
 |Learning Schedule|The learning schedule.|learningSchedule|`Property`<br>Code|0. .1||Europass Standard List of Learning Schedule Types.|
 |Schedule Information|Detailed information about the timetable or schedule. This may include weekly schedules (e.g. "Every Monday, 4pm", but may also include the overall schedule for the course, (e.g. October: lectures, November: group-work, December: break, January: assessmnet)|scheduleInformation|`Property`<br>Note|0. .1|||
 |Admissions Procedure|Specific information on how to apply for the course |admissionProcedure|`Property`<br>Note|0. .1|||
-|Fees|Information about the pricing of the course, including fees and scholarships/subsidies available|priceDetails|`Association`<br>PriceDetails|*|The price details.||
+|Fees|Information about the pricing of the course, including fees and scholarships/subsidies available|priceDetails|`Association`<br>PriceDetails|*|||
 |Provided by|The organisation providing or directing the learning opportunity. In the case of, e.g. joint qualifications, there may be several organisations directing the learning opportunity. |providedBy|`Association`<br>Organisation|*|||
 |Provided at|The location where the learning opportunity will take place. This may also include a virtual space.|providedAt|`Association`<br>Location|*|||
 |Learning Specification|The learning specification, including the curricula, of this learning opportunity.|specifiedBy|`Association`<br>LearningSpecification|0. .1|||
@@ -504,7 +504,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 ||A portable identifier of the media object.|id|`ID/PK`<br>URI|1|||
-||A portable identifier of the media object.|contentType|`Property`<br>Code|1|A portable identifier of the media object.| MDR Filetype|
+||A portable identifier of the media object.|contentType|`Property`<br>Code|1|| MDR Filetype|
 ||The encoding used to encode the binary data.|contentEncoding|`Property`<br>Code|0. .1||Europass Standard List of Content Encoding Types.|
 ||The content size.|contentSize|`Property`<br>xsd:integer|0. .1|||
 ||The binary data.|content|`Property`<br>xsd:string|0. .1| ||
@@ -538,60 +538,60 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: The associated education level of a given LearningSpecification.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Education Level Framework|N/A|targetFramework|`Association`<br>Standard|0. .1|The framework/system used describing education levels.||
-|N/A|N/A|targetNotation|`Property`<br>String|0. .1|A notation or code of the associated edcuation level in the targeted framework.||
-|Education Level|N/A|targetName|`Property`<br>Text|0. .1|A name or label of the associated education level in the targeted framework.||
-|N/A|N/A|targetDescription|`Property`<br>Note|0. .1|A free-text description of the associated education level in the targeted framework.||
+|Education Level Framework|The framework/system used describing education levels.|targetFramework|`Association`<br>Standard|0. .1|||
+|N/A|A notation or code of the associated edcuation level in the targeted framework.|targetNotation|`Property`<br>String|0. .1|||
+|Education Level|A name or label of the associated education level in the targeted framework.|targetName|`Property`<br>Text|0. .1|||
+|N/A|A free-text description of the associated education level in the targeted framework.|targetDescription|`Property`<br>Note|0. .1|||
 
 ### QF Level Association < extends EducationLevelAssociation >
 **Class description**: The associated education level of a given Qualification.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Qualfication Framework|N/A|targetFramework|`Association`<br>Standard|1|The qualification framework.|QDR List of qualification frameworks.|
-|Qualification Framework Level|N/A|targetNotation|`Property`<br>String|1|The qualification framework level.|Part of CList|
+|Qualfication Framework|The qualification framework.|targetFramework|`Association`<br>Standard|1||QDR List of qualification frameworks.|
+|Qualification Framework Level|The qualification framework level.|targetNotation|`Property`<br>String|1||Part of CList|
 
 ### Education Subject Association < extends AssociationObject >
 **Class description**: The associated subject or field of education of a given LearningSpecification.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Education Subject Scheme|N/A|targetFramework|`Association`<br>Standard|0. .1|The framework/system used describing fields of education.||
-|N/A|N/A|targetNotation|`Property`<br>String|0. .1|A notation or code of the associated field of education in the targeted framework.||
-|Education Subject|N/A|targetName|`Property`<br>Text|0. .1|A name or label of the associated field of education in the targeted framework.||
-|N/A|N/A|targetDescription|`Property`<br>Note|0. .1|A free-text description of the associated field of education in the targeted framework.||
+|Education Subject Scheme|The framework/system used describing fields of education.|targetFramework|`Association`<br>Standard|0. .1|||
+|N/A|A notation or code of the associated field of education in the targeted framework.|targetNotation|`Property`<br>String|0. .1|||
+|Education Subject|A name or label of the associated field of education in the targeted framework.|targetName|`Property`<br>Text|0. .1|||
+|N/A|A free-text description of the associated field of education in the targeted framework.|targetDescription|`Property`<br>Note|0. .1|||
 
 ### Esco Skill Association < extends AssociationObject >
 **Class description**: Represents an alignment object to an existing ESCO Skill.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|N/A|N/A|associationType|`Property`<br>Code|0. .1|A code indicating the semantics of the relation.|Europass Standard List Of Skill Alignment Types.|
-|N/A|N/A|description|`Property`<br>Text|0. .1|A free text describing the semantics of the relation.||
-|N/A|N/A|targetResource|`Association`<br>Resource|1|The URI identifier of the related ESCO skill.|ESCO skill.|
+|N/A|A code indicating the semantics of the relation.|Europass Standard List Of Skill Alignment Types.|associationType|`Property`<br>Code|0. .1||
+|N/A|A free text describing the semantics of the relation.|description|`Property`<br>Text|0. .1|||
+|N/A|The URI identifier of the related ESCO skill.|targetResource|`Association`<br>Resource|1||ESCO skill.|
 
 ### Esco Occupation Association < extends AssociationObject >
 **Class description**: Represents a relation of an entitlement to an existing ESCO occupation.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|N/A|N/A|description|`Property`<br>Text|0..1|A free text describing the semantics of the relation.||
-|N/A|N/A|targetResource|`Association`<br>Resource|1|The URI identifier of the related ESCO occupation.|ESCO occupation.|
+|N/A|A free text describing the semantics of the relation.|description|`Property`<br>Text|0..1|||
+|N/A|The URI identifier of the related ESCO occupation.|targetResource|`Association`<br>Resource|1||ESCO occupation.|
 
 ### Occupation Association  < extends AssociationObject >
 **Class description**: Represents an association of an entitlement to an occupation from a (national) occupational framework.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|N/A|N/A|description|`Property`<br>Text|0. .1|A free text describing the semantics of the relation.||
-|Occupational Framework|N/A|targetFramework|`Association`<br>Standard|0. .1|The framework/system used describing occupations.|ESCO occupation.|
-|N/A|N/A|targetNotation|`Property`<br>String|0. .1|A notation or code of the related occupation in the targeted framework.||
-|Occupation|N/A|targetName|`Property`<br>Text|0. .1|The name or label of the related occupation in the targeted framework.||
-|N/A|N/A|targetDescription|`Property`<br>Note|0. .1|A description of the related occupation in the targeted framework.||
-|N/A|N/A|targetResource|`Association`<br>Resource|1|The URI identifier of the occupation in the related Standard framework.||
+|N/A|A free text describing the semantics of the relation.|description|`Property`<br>Text|0. .1|||
+|Occupational Framework|The framework/system used describing occupations.|targetFramework|`Association`<br>Standard|0. .1||ESCO occupation.|
+|N/A|A notation or code of the related occupation in the targeted framework.|targetNotation|`Property`<br>String|0. .1|||
+|Occupation|The name or label of the related occupation in the targeted framework.|targetName|`Property`<br>Text|0. .1|||
+|N/A|A description of the related occupation in the targeted framework.|targetDescription|`Property`<br>Note|0. .1|||
+|N/A|The URI identifier of the occupation in the related Standard framework.|targetResource|`Association`<br>Resource|1|||
 
 ### Qualification Association Type  < extends AssociationObject >
 **Class description**: Represents an association of a qualification to a qualification code in a certain framework or system describing qualification.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|N/A|N/A|targetFramework|`Association`<br>Standard|0. .1|The framework/system used describing qualifications.||
-|N/A|N/A|targetResource|`Association`<br>Resource|0. .1|The URI identifier of the related qualification in the targeted framework.||
-|N/A|N/A|targetNotation|`Property`<br>String|0. .1|A notation or code of the associated qualification in the targeted framework.||
+|N/A|The framework/system used describing qualifications.|targetFramework|`Association`<br>Standard|0. .1|||
+|N/A|The URI identifier of the related qualification in the targeted framework.|targetResource|`Association`<br>Resource|0. .1|||
+|N/A|A notation or code of the associated qualification in the targeted framework.|targetNotation|`Property`<br>String|0. .1|||
 
 ### Standard
 **Class description**: This class is used to describe a semantic framework.
