@@ -357,7 +357,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Postal Address|A postal address used for contacting the agent.|postalAddress|`Association`<br>Address|*|||
 |Phone Number|A phone number used for contacting the agent.|phone|`Association`<br>Phone|*|||
 |E-Mail Address|An e-mail address used for contacting the agent.|email|`Association`<br>Mailbox|*|||
-||The wallet address of the agent.|walletAddress|`Association`<br>Mailbox|*|||
+|Wallet Address|The wallet address of the agent.|walletAddress|`Association`<br>Mailbox|*|||
 |Contact Form|A contact form used for contacting the agent.|contactForm|`Association`<br>InteractiveWebResource|*|||
 
 ### Learning Opportunity
