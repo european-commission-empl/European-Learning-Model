@@ -4056,6 +4056,7 @@
 			<xs:enumeration value="ro"/>
 			<xs:enumeration value="sk"/>
 			<xs:enumeration value="sl"/>
+			<xs:enumeration value="sr"/>
 			<xs:enumeration value="sv"/>
 			<xs:enumeration value="tr"/>
 		</xs:restriction>
