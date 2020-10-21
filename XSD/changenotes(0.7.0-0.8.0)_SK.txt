@@ -1,3 +1,0 @@
-0.7.0 - 0.8.0 changes:
-
-All changes based on 0.7.0 review and disucssion within EDCI Credential 0.7.0 Feedbacks google document. Please refer to it. This version doesn't include tag order changes as mentioned in the google document.
