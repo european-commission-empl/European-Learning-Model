@@ -161,7 +161,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Assessment UID|A portable identifier of the assessment.|id|`ID/PK`<br>URI|1|||
-|Assessment Identifier|An alternative identifier assigned to the assessment by the organisation grading the assessment|identifier|`Property`<br>Identifier|*|||
+|Assessment Identifier|An alternative identifier assigned to the assessment by the organisation grading the assessment.|identifier|`Property`<br>Identifier|*|||
 |Title|The title of the assessment.|title|`Property`<br>Text|1|||
 |Description|A description of the assessment.|description|`Property`<br>Text|0. .1|||
 |More information|An additional free text note about the assessment.|additionalNote|`Property`<br>Note|*|||
