@@ -277,7 +277,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Entitlement Specification UID|A portable and unique identifier of the entitlement specification.|id|`ID/PK`<br>URI|1|||
-|Entitlement Specification Identifier|An alternative identifier of the entitlement.|identifier|`Property`<br>Identifier|*|||
+|Entitlement Specification Identifier|An alternative identifier of the entitlement specification.|identifier|`Property`<br>Identifier|*|||
 |Title|The title of the entitlement specification.|title|`Property`<br>Text|0. .1|||
 |N/A|An alternative name of the entitlement specification.|alternativeLabel|`Property`<br>Text|*|||
 |Description|A free text description of the entitlement specification.|description|`Property`<br>Note|0. .1|||
