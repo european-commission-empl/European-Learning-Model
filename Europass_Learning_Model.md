@@ -19,7 +19,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Credential Identifier|An alternative identifier of the credential typically assigned to the credential by the issuing organisation.|identifier|`Property`<br>Identifier|*|||
-|Type||The type of credential.|`Property`<br>Code|1||Europass Standard List of Credential Types|
+|Type|The type of credential.|type|`Property`<br>Code|1||Europass Standard List of Credential Types|
 |Title|The full official title of the issued credential (maximum 50 characters).|title|`Property`<br>Text|1|||
 |Description|A summary of the claim or group of claims being made about a person (maximum 140 words).|description|`Property`<br>Note|0. .1|||
 |Issuer|The organisaton that issued the credential and sealed it with their digital e-seal.|issuer|`Association`<br>Organisation|1|||
