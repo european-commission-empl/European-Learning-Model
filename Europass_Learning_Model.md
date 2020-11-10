@@ -206,7 +206,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Grading Scheme UID|A portable and unique identifier of the Grading Scheme.|id|`ID/PK`<br>URI|1|||
 |Grading Scheme Identifier|An alternative identifier of the Grading Scheme assigned to it by the organisation administering the scheme.|identifier|`Property`<br>Identifier|*|||
 |Title|The title of the scoring scheme.|title|`Property`<br>Text|0. .1|||
-|Description|A free tex describing the scoring scheme.|description|`Property`<br>Note|0. .1|||
+|Description|A free text describing the scoring scheme.|description|`Property`<br>Note|0. .1|||
 |Other Documents|A public web document containing additional documentation about the scoring system.|supplementaryDocument|`Association`<br>WebDocument|*|||
 
 ### Learning Achievement
