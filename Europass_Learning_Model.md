@@ -253,7 +253,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: An awarding activity represents an activity related to the awarding of a LearningSpecification. It is used to specify the country or region where the LearningSpecification is awarded, the awarding body and optionally the awarding period now or in the past.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-||A portable identifier of the awarding opportunity.|id|`ID/PK`<br>URI|1|||
+|Awarding Opportunity UID|A portable identifier of the awarding opportunity.|id|`ID/PK`<br>URI|1|||
 |Identifier|An alternative identifier of the awarding opportunity.|identifier|`Property`<br>Identifier|*|||
 |Awarding Body|The awarding body related to this awarding activity (i.e the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody |`Association`<br>Organisation|*|||
 |Location|Location where the awarding activity takes place (country/region where the qualification is awarded).|location|`Property`<br>Code|0. .1||MDR Countries Named Authority List; NUTS (skossified and published version by ESCO)|
@@ -265,7 +265,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Entitlement UID|A portable and identifier of the entitlement.|id|`ID/PK`<br/>URI|1|||
-||An alternative identifier of the entitlement.|identifier|`Property`<br>Identifier|*|||
+|Alternative Identifier|An alternative identifier of the entitlement.|identifier|`Property`<br>Identifier|*|||
 |Title|The title of the entitlement.|title|`Property`<br>Text|1|||
 |Description|A free text description of the specific rights the holder of the credential has acquired.|description|`Property`<br>Note|0. .1|||
 |Date of Issue|The date from which the entitlement was conferred.|issuedDate|`Property`<br>Date|0. .1|||
@@ -431,7 +431,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: A verifiable presentation of a set of credentials. A composition of a set of credentials that can be presented to and verified by a verifier.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Identifier|A portable identifier of the presentation.|id|`ID/PK`<br>URI|0. .1|||
+|Verifiable Presentation UID|A portable identifier of the presentation.|id|`ID/PK`<br>URI|0. .1|||
 
 ### Europass Presentation
 **Class description**: A verifiable presentation of a set of Europass credentials.
@@ -507,8 +507,8 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: A media object.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-||A portable identifier of the media object.|id|`ID/PK`<br>URI|1|||
-|Content Type|A portable identifier of the media object.|contentType|`Property`<br>Code|1|| MDR Filetype|
+|Media Object UID|A portable identifier of the media object.|id|`ID/PK`<br>URI|1|||
+|Content Type|The media type of the media object.|contentType|`Property`<br>Code|1|| MDR Filetype|
 |Content Encoding|The encoding used to encode the binary data.|contentEncoding|`Property`<br>Code|0. .1||Europass Standard List of Content Encoding Types.|
 |Content Size|The content size.|contentSize|`Property`<br>xsd:integer|0. .1|||
 |Content|The binary data.|content|`Property`<br>xsd:string|0. .1| ||
