@@ -5,6 +5,7 @@
 ### Verifiable Credential < abstract >
 **Class description**: A set of one or more claims made by an issuer.
 A credential is a set of one or more claims made by the same entity. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.
+
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Credential UID|A unique portable identifier of the credential.|id|`ID/PK`<br>URI|1|||
@@ -76,28 +77,33 @@ A Europass credential is a set of one or more claims which may be used to demons
 <a name="FN1">[1]: To be implemented at a later stage</a>
 
 ### Qualification < extends LearningSpecification >
+
 **Class description**: a specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.
-|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
-|--|--|--|--|--|--|--|
-|Partial Qualification|Indicates whether a qualification is a full qualification or part of another qualification.|isPartialQualification|`Property`<br>xsd:boolean|0. .1| ||
-|EQF Level|The qualification level as specified by the European Qualification Framework.|EQFLevel|`Association (sub-property of education level)`<br>QFLevelAssociation|0. .1||EQF. QDR List of qualification frameworks.|
-|NQF Level|The qualification level as specified by a National Qualification Framework.|NQFLevel|`Association (sub-property of education level)`<br>QFLevelAssociation|*||QDR List of qualification frameworks|
-|Accreditation|The accreditation of a qualification.|hasAccreditation|`Association`<br>Accreditation|*|||
-|Link to Europass Qualification Record|An identifying code from a qualification based reference semantic asset.|qualificationCode|`Association`<br>QualificationAssociationType|*||NQF qualifications from QDR.||
+
+| Label                                 | Definition                                                   | Field                  | `Type`<br>Range (data type)                   | Card  | Suggested Use | Recommended RSA                            |
+| ------------------------------------- | ------------------------------------------------------------ | ---------------------- | --------------------------------------------- | ----- | ------------- | ------------------------------------------ |
+| Partial Qualification                 | Indicates whether a qualification is a full qualification or part of another qualification. | isPartialQualification | `Property`<br>xsd:boolean                     | 0. .1 |               |                                            |
+| EQF Level                             | The qualification level as specified by the European Qualification Framework. | EQFLevel               | `Code`                                        | 0. .1 |               | EQF. QDR List of qualification frameworks. |
+| NQF Level                             | The qualification level as specified by a National Qualification Framework. | NQFLevel               | `Code`                                        | *     |               | QDR List of qualification frameworks       |
+| Accreditation                         | The accreditation of a qualification.                        | hasAccreditation       | `Association`<br>Accreditation                | *     |               |                                            |
+| Link to Europass Qualification Record | An identifying code from a qualification based reference semantic asset. | qualificationCode      | `Association`<br>QualificationAssociationType | *     |               | NQF qualifications from QDR.               |
 
 ### Learning Outcome
+
 **Class description**: a statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
-|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
-|--|--|--|--|--|--|--|
-|Learning Outcome UID|A portable and unique identifier of the learning outcome.|id|`PK/ID`<br>URI|1|||
-|N/A|An alternative identifier of the learning outcome.|identifier|`Property`<br>Identifier|*|||
-|Title|A legible, descriptive name for the learning outcome.|name|`Property`<br>Text|1|||
-|Description|A free text describing the learning outcome. A detailed learning outcome may include a description of what the student can do as a result of learning, with an indication of the level of achievement, and the conditions or context under which this can be performed (if applicable).|description|`Property`<br>Note|0. .1|||
-|Learning Outcome Type|The learning outcome type.|learningOutcomeType|`Property`<br>Code|0. .1||ESCO Skill Pilllar concept types.|
-|Reusability Level|The reusability level.|reusabilityLevel|`Property`<br>Code|0. .1||ESCO Skill Pilllar concept reusability levels.|
-|Related ESCO Skill(s)|A link to an ESCO Skill.|relatedESCOSkill|`Association`<br>EscoSkillAssociation|*||ESCO skills.|
+
+| Label                 | Definition                                                   | Field               | `Type`<br>Range (data type) | Card  | Suggested Use | Recommended RSA                                |
+| --------------------- | ------------------------------------------------------------ | ------------------- | --------------------------- | ----- | ------------- | ---------------------------------------------- |
+| Learning Outcome UID  | A portable and unique identifier of the learning outcome.    | id                  | `PK/ID`<br>URI              | 1     |               |                                                |
+| N/A                   | An alternative identifier of the learning outcome.           | identifier          | `Property`<br>Identifier    | *     |               |                                                |
+| Title                 | A legible, descriptive name for the learning outcome.        | name                | `Property`<br>Text          | 1     |               |                                                |
+| Description           | A free text describing the learning outcome. A detailed learning outcome may include a description of what the student can do as a result of learning, with an indication of the level of achievement, and the conditions or context under which this can be performed (if applicable). | description         | `Property`<br>Note          | 0. .1 |               |                                                |
+| Learning Outcome Type | The learning outcome type.                                   | learningOutcomeType | `Property`<br>Code          | 0. .1 |               | ESCO Skill Pilllar concept types.              |
+| Reusability Level     | The reusability level.                                       | reusabilityLevel    | `Property`<br>Code          | 0. .1 |               | ESCO Skill Pilllar concept reusability levels. |
+| Related ESCO Skill(s) | A link to an ESCO Skill.                                     | relatedESCOSkill    | `Code`                      | *     |               | ESCO skills.                                   |
 
 ### Learning Activity Specification
+
 **Class description**: The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
@@ -593,18 +599,21 @@ A legal identifier is a formally issued identifier by a given authorithy within 
 |Identifier|Spatial ID|`Attribute`<br>String|1|The identifier of the country and/or jurisdiction.|The identifier of the country and/or jurisdiction.|MDR Countries Named Authority Lis. NUTS|
 
 ### Code - Composite Type
+
 **Definition**: A term from a controlled vocabulary. (a code from a code list)
 Interoperability between data sets is increased dramatically when terms from controlled vocabularies are used in favour of free text. The conceptual Code data type is used wherever one or more controlled vocabularies are known to exist for a particular domain of interest. It is not the job of the JV/CV Vocabularies to mandate which controlled vocabularies are used but we offer some guidance on how to use them.
-|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
-|--|--|--|--|--|--|--|
-|Code|Target Notation|`Attribute`<br>String|0. .1||The term.||
-|Code|Target Framework URI|`Attribute`<br>String|1|The identification of the controlled vocabulary.|The identification of the controlled vocabulary (the code list). (e.g. a URI)||
-|Code|Target Framework|`Text`<br>String|1|The name of the controlled vocabulary.|The name of the controlled vocabulary (the code list).||
-|Code|Target Name|`Text`<br>String|1|The text equivalent of the code content component.|The text equivalent of the code content component.||
-|Code|Target Description|`Text`<br>String|0. .1||||
-|Code|URI|`Attribute`<br>String|0. .1|A portable identifier (i.e a URI) of the code.|A portable identifier (i.e a URI) of the code.||
+
+| Data Type | Field                | `Type`<br>Range (data type) | Card  | Definition                                         | Description                                                  | Recommended RSA |
+| --------- | -------------------- | --------------------------- | ----- | -------------------------------------------------- | ------------------------------------------------------------ | --------------- |
+| Code      | Target Notation      | `Attribute`<br>String       | 0. .1 |                                                    | The term.                                                    |                 |
+| Code      | Target Framework URI | `Attribute`<br>String       | 1     | The identification of the controlled vocabulary.   | The identification of the controlled vocabulary (the code list). (e.g. a URI) |                 |
+| Code      | Target Framework     | `Text`<br>String            | 0..1  | The name of the controlled vocabulary.             | The name of the controlled vocabulary (the code list).       |                 |
+| Code      | Target Name          | `Text`<br>String            | 1     | The text equivalent of the code content component. | The text equivalent of the code content component.           |                 |
+| Code      | Target Description   | `Text`<br>String            | 0. .1 |                                                    |                                                              |                 |
+| Code      | URI                  | `Attribute`<br>String       | 1     | A portable identifier (i.e a URI) of the code.     | A portable identifier (i.e a URI) of the code.               |                 |
 
 ### Text - Composite Type
+
 **Definition**: A character string (i.e. a finite set of characters) generally in the form of words of a language.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
 |--|--|--|--|--|--|--|
