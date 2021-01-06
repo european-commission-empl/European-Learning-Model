@@ -55,16 +55,16 @@
 
 **Class description**: a statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
 
-| Label                            | Definition                                                   | Field                      | `Type`<br>Range (data type) | Card  | Suggested Use | Recommended RSA                                |
-| -------------------------------- | ------------------------------------------------------------ | -------------------------- | --------------------------- | ----- | ------------- | ---------------------------------------------- |
-| Learning Outcome UID             | A portable and unique identifier of the learning outcome.    | id                         | `PK/ID`<br>URI              | 1     |               |                                                |
-| N/A                              | An alternative identifier of the learning outcome.           | identifier                 | `Property`<br>Identifier    | *     |               |                                                |
-| Title                            | A legible, descriptive name for the learning outcome.        | name                       | `Property`<br>Text          | 1     |               |                                                |
-| Description                      | A free text describing the learning outcome. A detailed learning outcome may include a description of what the student can do as a result of learning, with an indication of the level of achievement, and the conditions or context under which this can be performed (if applicable). | description                | `Property`<br>Note          | 0. .1 |               |                                                |
-| Learning Outcome Type            | The learning outcome type.                                   | learningOutcomeType        | `Property`<br>Code          | 0. .1 |               | ESCO Skill Pilllar concept types.              |
-| Reusability Level                | The reusability level.                                       | reusabilityLevel           | `Property`<br>Code          | 0. .1 |               | ESCO Skill Pilllar concept reusability levels. |
-| Related ESCO Skill(s)            | A link to an ESCO Skill.                                     | relatedESCOSkill           | `Code`                      | *     |               | ESCO skills.                                   |
-| Related Skill Framework Skill(s) | A link to a skill on a skill framework                       | relatedSkillFrameworkSkill | `Code`                      | *     |               |                                                |
+| Label                 | Definition                                                   | Field               | `Type`<br>Range (data type) | Card  | Suggested Use | Recommended RSA                                |
+| --------------------- | ------------------------------------------------------------ | ------------------- | --------------------------- | ----- | ------------- | ---------------------------------------------- |
+| Learning Outcome UID  | A portable and unique identifier of the learning outcome.    | id                  | `PK/ID`<br>URI              | 1     |               |                                                |
+| N/A                   | An alternative identifier of the learning outcome.           | identifier          | `Property`<br>Identifier    | *     |               |                                                |
+| Title                 | A legible, descriptive name for the learning outcome.        | name                | `Property`<br>Text          | 1     |               |                                                |
+| Description           | A free text describing the learning outcome. A detailed learning outcome may include a description of what the student can do as a result of learning, with an indication of the level of achievement, and the conditions or context under which this can be performed (if applicable). | description         | `Property`<br>Note          | 0. .1 |               |                                                |
+| Learning Outcome Type | The learning outcome type.                                   | learningOutcomeType | `Property`<br>Code          | 0. .1 |               | ESCO Skill Pilllar concept types.              |
+| Reusability Level     | The reusability level.                                       | reusabilityLevel    | `Property`<br>Code          | 0. .1 |               | ESCO Skill Pilllar concept reusability levels. |
+| Related Skill(s)      | A link to a related skill or the level of a related skill on a skill framework (except ESCO). | relatedSkill        | `Code`                      | *     |               |                                                |
+| Related ESCO Skill(s) | A link to an ESCO Skill.                                     | relatedESCOSkill    | `Code`                      | *     |               | ESCO skills.                                   |
 
 ### Learning Activity Specification
 
