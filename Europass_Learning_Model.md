@@ -457,7 +457,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: A web resource that can be used to communicate.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|URL|The URL to access the interactive web resource.|id|`ID/PK`<br>URL|1|||
+|URL|The URL to access the interactive web resource.|id|`ID/PK`<br>URL|0. .1|||
 
 ### Phone
 **Class description**: A phone number.
