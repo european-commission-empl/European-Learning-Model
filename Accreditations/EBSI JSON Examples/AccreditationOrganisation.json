@@ -1,0 +1,21 @@
+
+{
+    "accreditationOrganization": {
+        "preferredName": "Austrian Ministry of Education",
+        "did": ["did:example:00001234", "did:example:00005678"],
+        "eidasCertificatePem": [{} ],
+        "serviceEndpoints": [{}, {}],
+        "accreditationPolicy": "https://someuri.com",
+        "organizationInfo": {
+            "id": "AT49200k",
+            "legalName": "Austrian Ministry of Education ",
+            "currentAddress": "Ministry Street 1, Vienna, Austria",
+            "domainName": "https://ministry.education.ac.at"
+        },
+    "accreditationAuthorization": [ {
+        "credentialSchemaId": "uniquepointertoTSRandschema1",
+        "validFrom": "01.01.2018",
+        "validUntil": "31.12.2018",
+        "evidence": "https://evidenceofissuance.org"
+    } ]
+}
