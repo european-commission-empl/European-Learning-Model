@@ -208,8 +208,8 @@
 |--|--|--|--|--|--|--|
 |Organisation UID|The unique and portable identifier of the organisation.|id|`ID/PK`<br>URI|1|||
 |Other Identifier|Another formally-issued identifier for the organisation.|identifier|`Property`<br>Identifier|*|||
-|eIDAS Identifier|The official identification number of the organisation, as awarded by the relevant national authority.authority.<a href="#FN2">[2]</a>|eidasLegalIdentifier|`Property`<br>Identifier|1|||
-|Registration|The legal identifier of an organization. The identifier given to a registered organization by the authority with which it is registered. The legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organization and the authority with which it is registered.|registration|`Property`<br>Identifier|1|||
+|eIDAS Identifier|The official identification number of the organisation, as awarded by the relevant national authority.authority.<a href="#FN2">[2]</a>|eidasLegalIdentifier|`Property`<br>Identifier|0..1|||
+|Registration|The legal identifier of an organization. The identifier given to a registered organization by the authority with which it is registered. The legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organization and the authority with which it is registered.|registration|`Property`<br>Identifier|0..1|||
 |VAT Number|The Value-Added Tax ID.|vatIdentifier|`Property`<br>LegalIdentifier|*|||
 |Tax / Fiscal Identifier|Fiscal ID of the organisation.|taxIdentifier|`Property`<br>LegalIdentifier|*| ||
 |Legal Name|The primary name of the organisation.|preferredName|`Property`<br>Text|1|||
