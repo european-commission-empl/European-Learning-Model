@@ -67,7 +67,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Target Group|A specific target group or category for which this specification is designed.|targetGroup|`Property`<br>Code|*||Europass Standard List of Target Groups.|
 |Entry Requirements|Specific entry requirements or prerequisites of individuals for which this specification is designed to start this learning opportunity.|entryRequirementsNote|`Property`<br>Note|0. .1|||
 |Learning Outcomes|An individual (expected) learning outcome of the learning specification.|learningOutcome|`Association`<br>LearningOutcome|*|||
-|Activities|Activities which a person can perform to acquire the expected learning outcomes|learningActivitySpecification|`Association`<br>LearningActivitySpecification|0. .1|||
+|Activities|Activities which a person can perform to acquire the expected learning outcomes|learningActivitySpecification|`Association`<br>LearningActivitySpecification|*|||
 |Assessments|Assessments a person can undergo to prove the acquisition of the learning outcomes|assessmentSpecification|`Association`<br>AssessmentSpecification|0. .1|||
 |Entitlements|Rights (such as  which the person may acquire as a result of acquiring the learning outcomes)|entitlementSpecification|`Association`<br>EntitlementSpecification|*|||
 |Awarding Information|Refers to an activity related to the awarding of the learning specification, such as the country or region where the qualification is awarded, the awarding body and optionally the awarding period now or in the past. |awardingOpportunity|`Association`<br>AwardingOpportunity|*|||
