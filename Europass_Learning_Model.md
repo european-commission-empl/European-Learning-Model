@@ -113,7 +113,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Homepage|Webpage describing the activity specification|homePage|`Association`<br>WebDocument|*|||
 |Other Documents|A public web document containing additional documentation about the learning activity specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
 |Learning Activity Type|The type of activity.|learningActivityType|`Property`<br>Code|*||Europass Standard List of Learning Activity Types.|
-|Volume of Learning|The expected workload indicated in the estimated number of hours the learner is expected to spend engaged in the activity. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|workload|`Property`<br>Duration|0. .1|||
+|Volume of Learning|The estimated number of hours the learner is expected to spend engaged in the activity. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|||
 |Language(s) of Instruction|The instruction language(s) used.|language|`Property`<br>Code|*||http://data.europa.eu/esco/skill/58095196-d766-4a5c-b16c-d941489f8e66|
 |Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
 |Expected Learning Outcomes|The expected learning outcomes this learning activity specification can lead or contribute to.|teaches|`Association`<br>LearningSpecification|*|||
@@ -154,7 +154,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Assessment Type|The type of assessment.|assessmentType|`Property`<br>Code|*||Europass Standard List of Assessment Types.|
 |Language of Assessment|The language(s) of assessment used.|language|`Property`<br>Code|*||MDR Languages Named Authority List.|
 |Mode of Assessment|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
-|Grading Scheme|A description of the specification of which learning outcomes are or have been proven.|gradingscheme|`Association`<br>ScoringScheme|0. .1|||
+|Grading Scheme|A description of the specification of which learning outcomes are or have been proven.|gradingscheme|`Association`<br>GradingScheme|0. .1|||
 |Demonstrates|The learning achievement (and related learning outcomes) this assessment is designed to test.|proves|`Association`<br>LearningSpecification|*|||
 |Assessment Sub-Specifications|A assessment specification can be composed of other "narrower" assessment specifications which when combined make up this assessment specification.|hasPart|`Association`<br>AssessmentSpecification|*|||
 |Specialisation of|An assessment specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>AssessmentSpecification|*|||
@@ -208,9 +208,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |--|--|--|--|--|--|--|
 |Grading Scheme UID|A portable and unique identifier of the Grading Scheme.|id|`ID/PK`<br>URI|1|||
 |Grading Scheme Identifier|An alternative identifier of the Grading Scheme assigned to it by the organisation administering the scheme.|identifier|`Property`<br>Identifier|*|||
-|Title|The title of the scoring scheme.|title|`Property`<br>Text|0. .1|||
-|Description|A free text describing the scoring scheme.|description|`Property`<br>Note|0. .1|||
-|Other Documents|A public web document containing additional documentation about the scoring system.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Title|The title of the grading scheme.|title|`Property`<br>Text|0. .1|||
+|Description|A free text describing the grading scheme.|description|`Property`<br>Note|0. .1|||
+|Other Documents|A public web document containing additional documentation about the grading system.|supplementaryDocument|`Association`<br>WebDocument|*|||
 
 ### Learning Achievement
 **Class description**: The acquisition of knowledge, skills or responsibility and autonomy. A recognised and/or awarded set of learning outcomes of an individual.
