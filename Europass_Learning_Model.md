@@ -55,11 +55,11 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Homepage|The homepage (a public web document) of the learning specification.|homePage|`Association`<br>WebDocument|*|||
 |Other Documents|A public web document containing additional documentation about the learning specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
 |Thematic Area|Thematic Area according to the ISCED-F 2013 Classification|ISCEDFCode|`Property`<br>Code|*||ISCED-F.|
-|Education Subject|An associated field of education from another semantic framework than the ISCED classification.|educationSubject |`Association`<br>EducationSubjectAssociation|*|||
+|Education Subject|An associated field of education from another semantic framework than the ISCED classification.|educationSubject |`Property`<br>Code|*|||
 |Volume of Learning|The estimated number of hours the learner is expected to spend engaged in learning to earn the award. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|||
 |ECTS Credit Points|The credit points assigned to the learning specification, following the ECTS credit system.|ECTSCreditPoints|`Property`<br>NumericScore|0. .1||ECTS scoring scheme from Europass Standard List of Educational Credit Systems.|
 |Credit Points|The credit points assigned to the learning specification, following an alternative educational credit system.|creditPoints|`Property`<br>NumericScore|*||Europass Standard List of Educational Credit Systems.|
-|Education Level|An associated level of education within a semantic framework describing education levels.|educationLevel|`Association`<br>EducationLevelAssociation|*|||
+|Education Level|An associated level of education within a semantic framework describing education levels.|educationLevel|`Property`<br>Code|*|||
 |Language(s) of Instruction|The instruction and/or assessment language(s) used.|language|`Property`<br>Code|*||MDR Languages Named Authority List|
 |Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
 |Learning Setting|The type of learning setting (formal, non-formal).|learningSetting|`Property`<br>Code|0. .1||formal, non-formal.|
@@ -116,7 +116,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Volume of Learning|The estimated number of hours the learner is expected to spend engaged in the activity. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|||
 |Language(s) of Instruction|The instruction language(s) used.|language|`Property`<br>Code|*||http://data.europa.eu/esco/skill/58095196-d766-4a5c-b16c-d941489f8e66|
 |Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
-|Expected Learning Outcomes|The expected learning outcomes this learning activity specification can lead or contribute to.|teaches|`Association`<br>LearningSpecification|*|||
+|Expected Learning Outcomes|The expected learning outcomes this learning activity specification can lead or contribute to.|teaches|`Association`<br>LearningOutcomes|*|||
 |Learning Activity Sub-Specifications|A learning activity specification can be composed of smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br>LearningActivitySpecification|*|||
 |Specialisation of|An activity specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>LearningActivitySpecification|*|||
 
@@ -189,7 +189,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: Describes a histogram of results achieved by all the students of this course instance.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Category|Describes a single range within the histogram.|category|`Property`<br>ResultCategory|*|||
+|Category|Describes a single range within the histogram.|category|`Association`<br>ResultCategory|*|||
 |Description|Free text description of the histogram.|description|`Property`<br>Note|0. .1|||
 
 ### Result Category
@@ -423,7 +423,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Review Date|The date when the accreditation has to be re-viewed.|reviewDate|`Property`<br>DateTime|0. .1|||
 |Expiry Date|The date when the accreditation expires or was expired.|expiryDate|`Property`<br>DateTime|0. .1|||
 |More Information|An additional free text note about the accreditation. |additionalNote|`Property`<br>Note|*|||
-|Home page|The homepage of the accreditation.|homePage|`Association`<br>WebDocument|*|||
+|Homepage|The homepage of the accreditation.|homePage|`Association`<br>WebDocument|*|||
 |Landing Page|The landing page of the accreditation.| landingPage                                                  |`Association`<br>WebDocument|*|||
 |Other Documents|A public web document containing additional documentation  describing the Accreditation Procedures and Standards.|supplementary document|`Association`<br>WebDocument|*|||
 
