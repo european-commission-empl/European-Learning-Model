@@ -6,7 +6,7 @@ The European Commission is developing the Europass Digital Credentials Infrastru
 
 As part of this work, the Commission has developed a draft data model for a learning credential. 
 
-The [Europass Learning Model](https://github.com/european-commission-europass/Europass-Learning-Model/blob/EuropassLM/Europass_Learning_Model.md) aims to capture the results of any non-formal and formal learning across Europe, as well as the validation of non-formal and informal learning. It is designed to provide a single format to describe certificates of attendance, examination results, degrees and diplomas, diploma supplements, professional certifications, employer recommendations and any other kind of claims that are related to learning.
+The [Europass Learning Model](https://github.com/european-commission-europass/Europass-Learning-Model/blob/master/Europass_Learning_Model.md) aims to capture the results of any non-formal and formal learning across Europe, as well as the validation of non-formal and informal learning. It is designed to provide a single format to describe certificates of attendance, examination results, degrees and diplomas, diploma supplements, professional certifications, employer recommendations and any other kind of claims that are related to learning.
 
 ## Alignment with Other Standards
 The Europass Learning Model is an extension of the [W3C Verifiable Credentials Data Model](https://github.com/w3c/vc-data-model) expressed as XML/XSD, for the purposes of providing a standardised format of describing learning within the European Union and European Economic Area.
