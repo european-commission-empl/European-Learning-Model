@@ -317,7 +317,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Person UID|The unique and portable identifier of the person.|id|`ID/PK`<br>URI|1|||
 |National ID Number|The "primary" national identifier of the person.|nationalId|`Property`<br>LegalIdentifier|0. .1|||
 |Other Identifier(s)|An (optional) alternative formally-issued identifier for the person, e.g. social security number, student ID card number, to club membership, etc.|identifier|`Property`<br>Identifier|*|||
-|Full Name|The complete name of the person as one string.|fullName|`Property` (sub-Property of Agent prefferedName property)<br>Text|0. .1|||
+|Full Name|The complete name of the person as one string.|fullName|`Property` (sub-Property of Agent preferredName property)<br>Text|0. .1|||
 |Given Name|The given name(s) of the person.|givenNames|`Property`<br>Text |1|||
 |Family Name|The family name of the person.|familyName|`Property`<br>Text|1|||
 |Birth Name|The name of the person at birth. Birth names tend to be persistent and for this reason they are recorded by some public sector information systems. There is no granularity for birth name - the full name should be recorded in a single field.|birthName|`Property`<br>Text|0. .1|||
