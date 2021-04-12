@@ -96,8 +96,8 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Description|A free text describing the learning outcome. A detailed learning outcome may include a description of what the student can do as a result of learning, with an indication of the level of achievement, and the conditions or context under which this can be performed (if applicable).|description|`Property`<br>Note|0. .1|||
 |Learning Outcome Type|The learning outcome type.|learningOutcomeType|`Property`<br>Code|0. .1||ESCO Skill Pilllar concept types.|
 |Reusability Level|The reusability level.|reusabilityLevel|`Property`<br>Code|0. .1||ESCO Skill Pilllar concept reusability levels.|
-|Related Skill(s)|A link to a related skill or the level of a related skill on a skill framework (except ESCO).|relatedSkill|`Code`|*|||
-|Related ESCO Skill(s)|A link to an ESCO Skill.|relatedESCOSkill|`Code`|*||ESCO skills.|
+|Related Skill(s)|A link to a related skill or the level of a related skill on a skill framework (except ESCO).|relatedSkill|`Property`<br>Code|*|||
+|Related ESCO Skill(s)|A link to an ESCO Skill.|relatedESCOSkill|`Property`<br>Code|*||ESCO skills.|
 
 ### Learning Activity Specification
 **Class description**: The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
@@ -291,9 +291,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Status|The status of the entitlement: an entitlement may be prospective, i.e. awarding the right to apply for the entitlement; or actual, i.e. granting the entitlement.|status|`Property`<br>Code|1||Europass Standard List of Entitlement Status.|
 |Valid With|The organisation which acknowledges the entitlement (i.e. the organisation offering the learning opportunity, membership or employment opportunity)|limitOrganisation|`Association`<br>Organisation|*|||
 |Valid Within|The jurisdiction for which the entitlement is valid (the region or country).|limitJurisidiction|`Property`<br>Code|*||MDR Countries Named Authority List. NUTS.|
-|Related Occupation|The An ESCO Occupation or Occupational class which the individual may access through the entitlement.|limitOccupation|`Association`<br>EscoOccupationAssociation|*||ESCO Occupations.|
-|Limit National Occupation|An Occupation or Occupational Category|limitNationalOccupation|Association<br>OccupationAssociation|*|||
-| May Result From                      |N/A|mayResultFrom|`Association`<br>LearningSpecification|0. . 1|||
+|Related Occupation(s)|The An ESCO Occupation or Occupational class which the individual may access through the entitlement.|limitOccupation|`Property`<br>EscoOccupationAssociation|*||ESCO Occupations.|
+|Limit National Occupation|An Occupation or Occupational Category|limitNationalOccupation|`Property`<br>OccupationAssociation|*|||
+|May Result From|N/A|mayResultFrom|`Association`<br>LearningSpecification|0. . 1|||
 |Entitlement Sub-Specification|Smaller entitlement specifications, which when combined make up this entitlement specification.|hasPart|`Association`<br>EntitlementSpecification|*|||
 |Specialisation of|An entitlement specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>EntitlementSpecification|*|||
 
