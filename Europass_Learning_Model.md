@@ -221,7 +221,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Title|The title of the achievement.|title|`Property`<br>Text|1|||
 |Description|A description of the achievement.|description|`Property`<br>Note|0. .1|||
 |More Information|An additional free text note about the achievement.|additionalNote|`Property`<br>Note|*|||
-|Proven by|An assessment which proves the acquisition of the learning outcomes which make up the achievement.|wasDerivedFrom|`Association`<br>Assessment|*|||
+|Proven by|An assessment which proves the acquisition of the learning outcomes which make up the achievement.|wasDerivedFrom|`Association`<br>Assessment|0. .1|||
 |Influenced by|Activities which contributed to the acquisition of the learning outcomes which make up the achievement.|wasInfluencedBy|`Association`<br>LearningActivity|*|||
 |Awarding Details|The awarding details of this achievement.|wasAwardedBy|`Association`<br>AwardingProcess|0. .1|||
 |Sub-Achievements|Smaller units of achievement, which when combined make up this achievement.|hasPart|`Association`<br>LearningAchievement|*|||
@@ -293,7 +293,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Valid Within|The jurisdiction for which the entitlement is valid (the region or country).|limitJurisidiction|`Property`<br>Code|*||MDR Countries Named Authority List. NUTS.|
 |Related Occupation(s)|The An ESCO Occupation or Occupational class which the individual may access through the entitlement.|limitOccupation|`Property`<br>EscoOccupationAssociation|*||ESCO Occupations.|
 |Limit National Occupation|An Occupation or Occupational Category|limitNationalOccupation|`Property`<br>OccupationAssociation|*|||
-|May Result From|N/A|mayResultFrom|`Association`<br>LearningSpecification|0. . 1|||
+|May Result From|N/A|mayResultFrom|`Association`<br>LearningSpecification|*|||
 |Entitlement Sub-Specification|Smaller entitlement specifications, which when combined make up this entitlement specification.|hasPart|`Association`<br>EntitlementSpecification|*|||
 |Specialisation of|An entitlement specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>EntitlementSpecification|*|||
 
