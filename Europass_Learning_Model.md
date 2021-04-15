@@ -120,7 +120,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Learning Activity Sub-Specifications|A learning activity specification can be composed of smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br>LearningActivitySpecification|*|||
 |Specialisation of|An activity specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>LearningActivitySpecification|*|||
 
-#### Learning Activity
+### Learning Activity
 **Class description**: Any process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
@@ -176,7 +176,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Assessment Conducted by|The competent body that awarded the grade.|assessedBy|`Association`<br>Agent|*|||
 |Assesses|The learning achievement (and related learning outcomes) which were acquired by successfully passing the assessment.|assesses|`Association`<br>LearningAchievement|0. .1|||
 |Specified by|The specification of this assessment.|specifiedBy|`Association`<br>AssessmentSpecification|0. .1|||
-|Sub-Assessments|Smaller assessments, which when combined make up and can influence this assessment.|hasPArt|`Association`<br>Assessment|*|||
+|Sub-Assessments|Smaller assessments, which when combined make up and can influence this assessment.|hasPart|`Association`<br>Assessment|*|||
 
 ### Shortened Grading
 **Class description**: Indicator of *how well* the student was graded when compared to other students.
