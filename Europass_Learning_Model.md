@@ -116,7 +116,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Volume of Learning|The estimated number of hours the learner is expected to spend engaged in the activity. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|||
 |Language(s) of Instruction|The instruction language(s) used.|language|`Property`<br>Code|*||http://data.europa.eu/esco/skill/58095196-d766-4a5c-b16c-d941489f8e66|
 |Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
-|Expected Learning Outcomes|The expected learning outcomes this learning activity specification can lead or contribute to.|teaches|`Association`<br>LearningOutcomes|*|||
+|Teaches|What may be learned by undertaking the activity described by this learning activity specification.|teaches|`Association`<br>LearningSpecification|*|||
 |Learning Activity Sub-Specifications|A learning activity specification can be composed of smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br>LearningActivitySpecification|*|||
 |Specialisation of|An activity specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>LearningActivitySpecification|*|||
 
