@@ -174,6 +174,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Assessment Date|Date the grade was awarded.|issuedDate|`Property`<br>DateTime|0. .1|||
 |Method of Assessment, Supervision and ID Verification|Method of assessment supervision and id verification.|idVerification|`Property`<br>Code|0. .1||Europass Standard List of Methods Of Supervision And Verification.|
 |Assessment Conducted by|The competent body that awarded the grade.|assessedBy|`Association`<br>Agent|*|||
+|Assesses|The learning achievement (and related learning outcomes) which were acquired by successfully passing the assessment.|assesses|`Association`<br>LearningAchievement|0. .1|||
 |Specified by|The specification of this assessment.|specifiedBy|`Association`<br>AssessmentSpecification|0. .1|||
 |Sub-Assessments|Smaller assessments, which when combined make up and can influence this assessment.|hasPArt|`Association`<br>Assessment|*|||
 
