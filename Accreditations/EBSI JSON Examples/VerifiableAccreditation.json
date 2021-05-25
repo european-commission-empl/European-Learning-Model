@@ -1,45 +1,52 @@
 {
-        "@context": [
-            "https://www.w3.org/2018/credentials/v1",
-            "https://essif.europa.eu/schemas/vc/2020/v1"
-        ],
-        "id": "https://essif.europa.eu/tsr/53",
-        "type": ["VerifiableCredential", "VerifiableAttestation"],
-        "issuer": "did:ebsi:00001234",
-        "issuanceDate": "2020-06-22T14:11:44Z",
-        "credentialSubject": {
-        "id": "did:ebsi:00001235"
-        "authorizationClaims": {
-            "eqf": "http://data.europa.eu/snb/eqf/6",
-            "qualification": "http://data.europa.eu/snb/12312412",
-            "reviewDate": "2024-02-22T14:11:44Z",
-            "decision":"fully compliant",
-            "report":"https://www.example.com/URLtoreport.pdf",
-        },
-        "expirationDate": "2024-06-22T14:11:44Z",
-         
-        "credentialStatus": {
-            "id": "https://essif.europa.eu/status/45",
-            "type": "CredentialsStatusList2020"
-        },
-        "credentialSchema": {
-            "id": "https://essif.europa.eu/tsr/education/CSR1224.json",
-            "type": "JsonSchemaValidator2018"
-        },
-        "evidence": [{
-        "id": "https://essif.europa.eu/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d4231",
-            "type": ["SiteVisit"],
-            "verifier": "https:// essif.europa.eu /issuers/48",
-            "processevidence": "https://qaa.eu/reviewreport24"
-    }
-        "proof": {
-            "type": "EidasSeal2019",
-            "created": "2019-06-22T14:11:44Z",
-            "proofPurpose": "assertionMethod",
-            "verificationMethod": {
-                "type": "EidasCertificate2019",
-                "CertSerial": "1088321447"
-            },
-            "proofValue": "BD21J4fdlnBvBA+y6D...fnC8Y="
-        }
-    }
+	"@context": [
+		"https://www.w3.org/2018/credentials/v1",
+		"https://essif.europa.eu/schemas/vc/2020/v1"
+	],
+	"id": "https://essif.europa.eu/tsr/53",
+	"type": [
+		"VerifiableCredential",
+		"VerifiableAttestation"
+	],
+	"issuer": "did:ebsi:00001234",
+	"issuanceDate": "2020-06-22T14:11:44Z",
+	"credentialSubject": {
+		"id": "did:ebsi:00001235",
+		"authorizationClaims": {
+			"eqf": "http://data.europa.eu/snb/eqf/6",
+			"qualification": "http://data.europa.eu/snb/12312412",
+			"reviewDate": "2024-02-22T14:11:44Z",
+			"decision": "fully compliant",
+			"report": "https://www.example.com/URLtoreport.pdf"
+		},
+		"expirationDate": "2024-06-22T14:11:44Z",
+		"credentialStatus": {
+			"id": "https://essif.europa.eu/status/45",
+			"type": "CredentialsStatusList2020"
+		},
+		"credentialSchema": {
+			"id": "https://essif.europa.eu/tsr/education/CSR1224.json",
+			"type": "JsonSchemaValidator2018"
+		},
+		"evidence": [
+			{
+				"id": "https://essif.europa.eu/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d4231",
+				"type": [
+					"SiteVisit"
+				],
+				"verifier": "https:// essif.europa.eu /issuers/48",
+				"processevidence": "https://qaa.eu/reviewreport24"
+			}
+		],
+		"proof": {
+			"type": "EidasSeal2019",
+			"created": "2019-06-22T14:11:44Z",
+			"proofPurpose": "assertionMethod",
+			"verificationMethod": {
+				"type": "EidasCertificate2019",
+				"CertSerial": "1088321447"
+			},
+			"proofValue": "BD21J4fdlnBvBA+y6D...fnC8Y="
+		}
+	}
+}
