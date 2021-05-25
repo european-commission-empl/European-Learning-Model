@@ -30,12 +30,14 @@
 		},
 		"evidence": [
 			{
-				"id": "https://essif.europa.eu/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d4231",
+				"id": "https://essif.europa.eu/tsr-vid/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d4231",
 				"type": [
-					"SiteVisit"
+					"DocumentVerification"
 				],
-				"verifier": "https:// essif.europa.eu /issuers/48",
-				"processevidence": "https://qaa.eu/reviewreport24"
+				"verifier": "did:ebsi-eth:00000001",
+				"evidenceDocument": "Passport",
+				"subjectPresence": "Physical",
+				"documentPresence": "Physical"
 			}
 		],
 		"proof": {
