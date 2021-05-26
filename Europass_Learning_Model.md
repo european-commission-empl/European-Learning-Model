@@ -46,7 +46,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |--|--|--|--|--|--|--|
 |Learning Specification UID|A portable and unique identifier of the learning specification.|id|`ID/PK`<br>URI|1|||
 |Learning specification Identifier|An alternative identifier of the learning specification, as assigned to it by the organisation who designed the specification.|identifier|`Property`<br>Identifier|*|||
-|Learning Opportunity Type|The type of learning opportunity.|learningOpportunityType|`Property`<br>Code|*||Europass Standard List of Learning Opportunity Types.|
+|Learning Opportunity Type|The type of learning opportunity.|learningOpportunityType|`Property`<br>Code|*||[Europass Standard List of Learning Opportunity Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-opportunity/25831c2)|
 |Title|The title of the learning specification.|title|`Property`<br>Text|0. .1|||
 |Alternative Label|An alternative name of the learning specification.|alternativeLabel|`Property`<br>Text|*|||
 |Description|Short and abstract description about the learning specification.|definition|`Property`<br>Note|0. .1|||
@@ -54,17 +54,17 @@ A Europass credential is a set of one or more claims which may be used to demons
 |More Information|An additional free text note about the learning specification.|additionalNote|`Property`<br>Note|*|||
 |Homepage|The homepage (a public web document) of the learning specification.|homePage|`Association`<br>WebDocument|*|||
 |Other Documents|A public web document containing additional documentation about the learning specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
-|Thematic Area|Thematic Area according to the ISCED-F 2013 Classification|ISCEDFCode|`Property`<br>Code|*||ISCED-F.|
+|Thematic Area|Thematic Area according to the ISCED-F 2013 Classification|ISCEDFCode|`Property`<br>Code|*||[ISCED-F](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/isced-f/25831c2)|
 |Education Subject|An associated field of education from another semantic framework than the ISCED classification.|educationSubject |`Property`<br>Code|*|||
 |Volume of Learning|The estimated number of hours the learner is expected to spend engaged in learning to earn the award. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|||
-|ECTS Credit Points|The credit points assigned to the learning specification, following the ECTS credit system.|ECTSCreditPoints|`Property`<br>NumericScore|0. .1||ECTS scoring scheme from Europass Standard List of Educational Credit Systems.|
-|Credit Points|The credit points assigned to the learning specification, following an alternative educational credit system.|creditPoints|`Property`<br>NumericScore|*||Europass Standard List of Educational Credit Systems.|
+|ECTS Credit Points|The credit points assigned to the learning specification, following the ECTS credit system.|ECTSCreditPoints|`Property`<br>NumericScore|0. .1||ECTS scoring scheme from Europass Standard List of Educational Credit Systems|
+|Credit Points|The credit points assigned to the learning specification, following an alternative educational credit system.|creditPoints|`Property`<br>NumericScore|*||[Europass Standard List of Educational Credit Systems](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/education-credit/25831c2)|
 |Education Level|An associated level of education within a semantic framework describing education levels.|educationLevel|`Property`<br>Code|*|||
-|Language(s) of Instruction|The instruction and/or assessment language(s) used.|language|`Property`<br>Code|*||MDR Languages Named Authority List|
-|Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
-|Learning Setting|The type of learning setting (formal, non-formal).|learningSetting|`Property`<br>Code|0. .1||formal, non-formal.|
+|Language(s) of Instruction|The instruction and/or assessment language(s) used.|language|`Property`<br>Code|*||[MDR Languages Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/language)|
+|Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||[Europass Standard List of Modes Of Learning and Assessment](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-assessment/25831c2)|
+|Learning Setting|The type of learning setting (formal, non-formal).|learningSetting|`Property`<br>Code|0. .1||[Europass Standard List of Learning Setting Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-setting/25831c2)|
 |Maximum Duration in Months|The maximum duration (in months) that a person may use to complete the learning opportunity.|maximumDuration|`Property`<br>Duration|0. .1|||
-|Target Group|A specific target group or category for which this specification is designed.|targetGroup|`Property`<br>Code|*||Europass Standard List of Target Groups.|
+|Target Group|A specific target group or category for which this specification is designed.|targetGroup|`Property`<br>Code|*||[Europass Standard List of Target Groups](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/target-group/25831c2)|
 |Entry Requirements|Specific entry requirements or prerequisites of individuals for which this specification is designed to start this learning opportunity.|entryRequirementsNote|`Property`<br>Note|0. .1|||
 |Learning Outcomes|An individual (expected) learning outcome of the learning specification.|learningOutcome|`Association`<br>LearningOutcome|*|||
 |Activities|Activities which a person can perform to acquire the expected learning outcomes|learningActivitySpecification|`Association`<br>LearningActivitySpecification|*|||
@@ -81,8 +81,8 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Partial Qualification|Indicates whether a qualification is a full qualification or part of another qualification.|isPartialQualification|`Property`<br>xsd:boolean|0. .1| ||
-|EQF Level|The qualification level as specified by the European Qualification Framework.|EQFLevel|`Property`<br>Code|0. .1||EQF. QDR List of qualification frameworks.|
-|NQF Level|The qualification level as specified by a National Qualification Framework.|NQFLevel|`Property`<br/>Code|*||QDR List of qualification frameworks|
+|EQF Level|The qualification level as specified by the European Qualification Framework.|EQFLevel|`Property`<br>Code|0. .1||[EQF. QDR List of qualification frameworks](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/eqf/25831c2)|
+|NQF Level|The qualification level as specified by a National Qualification Framework.|NQFLevel|`Property`<br/>Code|*||[QDR List of qualification frameworks](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/qdr/25831c2)|
 |Accreditation|The accreditation of a qualification.|hasAccreditation|`Association`<br>Accreditation|*|||
 
 ### Learning Outcome
@@ -94,10 +94,10 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Identifier|An alternative identifier of the learning outcome.|identifier|`Property`<br>Identifier|*|||
 |Title|A legible, descriptive name for the learning outcome.|name|`Property`<br>Text|1|||
 |Description|A free text describing the learning outcome. A detailed learning outcome may include a description of what the student can do as a result of learning, with an indication of the level of achievement, and the conditions or context under which this can be performed (if applicable).|description|`Property`<br>Note|0. .1|||
-|Learning Outcome Type|The learning outcome type.|learningOutcomeType|`Property`<br>Code|0. .1||ESCO Skill Pilllar concept types.|
-|Reusability Level|The reusability level.|reusabilityLevel|`Property`<br>Code|0. .1||ESCO Skill Pilllar concept reusability levels.|
+|Learning Outcome Type|The learning outcome type.|learningOutcomeType|`Property`<br>Code|0. .1||[ESCO Skill Pillar concept types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/skill-type/25831c2)|
+|Reusability Level|The reusability level.|reusabilityLevel|`Property`<br>Code|0. .1||[ESCO Skill Pillar concept reusability levels](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/skill-reuse-level/25831c2)|
 |Related Skill(s)|A link to a related skill or the level of a related skill on a skill framework (except ESCO).|relatedSkill|`Property`<br>Code|*|||
-|Related ESCO Skill(s)|A link to an ESCO Skill.|relatedESCOSkill|`Property`<br>Code|*||ESCO skills.|
+|Related ESCO Skill(s)|A link to an ESCO Skill.|relatedESCOSkill|`Property`<br>Code|*||[ESCO skills](https://ec.europa.eu/esco/portal/skill)|
 
 ### Learning Activity Specification
 **Class description**: The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
@@ -112,10 +112,10 @@ A Europass credential is a set of one or more claims which may be used to demons
 |More Information|An additional free text note about the learning activity specification.|additionalNote|`Property`<br>Note|*|||
 |Homepage|Webpage describing the activity specification|homePage|`Association`<br>WebDocument|*|||
 |Other Documents|A public web document containing additional documentation about the learning activity specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
-|Learning Activity Type|The type of activity.|learningActivityType|`Property`<br>Code|*||Europass Standard List of Learning Activity Types.|
+|Learning Activity Type|The type of activity.|learningActivityType|`Property`<br>Code|*||[Europass Standard List of Learning Activity Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-activity/25831c2)|
 |Volume of Learning|The estimated number of hours the learner is expected to spend engaged in the activity. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|||
-|Language(s) of Instruction|The instruction language(s) used.|language|`Property`<br>Code|*||http://data.europa.eu/esco/skill/58095196-d766-4a5c-b16c-d941489f8e66|
-|Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
+|Language(s) of Instruction|The instruction language(s) used.|language|`Property`<br>Code|*||[MDR Languages Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/language)|
+|Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||[Europass Standard List of Modes Of Learning and Assessment](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-assessment/25831c2)|
 |Teaches|What may be learned by undertaking the activity described by this learning activity specification.|teaches|`Association`<br>LearningSpecification|*|||
 |Learning Activity Sub-Specifications|A learning activity specification can be composed of smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br>LearningActivitySpecification|*|||
 |Specialisation of|An activity specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>LearningActivitySpecification|*|||
@@ -151,9 +151,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |More Information|An additional free text note about the assessment specification.|additionalNote|`Property`<br>Note|*|||
 |Homepage|The homepage (a public web document) describing the details of the assessment specification.|homePage|`Association`<br>WebDocument|*|||
 |Other Documents|A public web document containing additional documentation about the assessment specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
-|Assessment Type|The type of assessment.|assessmentType|`Property`<br>Code|*||Europass Standard List of Assessment Types.|
-|Language of Assessment|The language(s) of assessment used.|language|`Property`<br>Code|*||MDR Languages Named Authority List.|
-|Mode of Assessment|The mode of learning and or assessment.|mode|`Property`<br>Code|*||Europass Standard List of Modes Of Learning and Assessment.|
+|Assessment Type|The type of assessment.|assessmentType|`Property`<br>Code|*||[Europass Standard List of Assessment Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/assessment/25831c2)|
+|Language of Assessment|The language(s) of assessment used.|language|`Property`<br>Code|*||[MDR Languages Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/language)|
+|Mode of Assessment|The mode of learning and or assessment.|mode|`Property`<br>Code|*||[Europass Standard List of Modes Of Learning and Assessment](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-assessment/25831c2)|
 |Grading Scheme|A description of the specification of which learning outcomes are or have been proven.|gradingscheme|`Association`<br>GradingScheme|0. .1|||
 |Demonstrates|The learning achievement (and related learning outcomes) this assessment is designed to test.|proves|`Association`<br>LearningSpecification|*|||
 |Assessment Sub-Specifications|A assessment specification can be composed of other "narrower" assessment specifications which when combined make up this assessment specification.|hasPart|`Association`<br>AssessmentSpecification|*|||
@@ -172,7 +172,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Shortened Grading|Indicator of how well the student was graded when compared to other students|shortenedGrading|`Association`<br>ShortenedGrading|0. .1|||
 |Result Distribution|Describes a histogram of results achieved by all the students of a particular learning assessment.|resultDistribution|`Association`<br>ResultDistribution|0. .1|||
 |Assessment Date|Date the grade was awarded.|issuedDate|`Property`<br>DateTime|0. .1|||
-|Method of Assessment, Supervision and ID Verification|Method of assessment supervision and id verification.|idVerification|`Property`<br>Code|0. .1||Europass Standard List of Methods Of Supervision And Verification.|
+|Method of Assessment, Supervision and ID Verification|Method of assessment supervision and id verification.|idVerification|`Property`<br>Code|0. .1||[Europass Standard List of Methods Of Supervision And Verification](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/supervision-verification/25831c2)|
 |Assessment Conducted by|The competent body that awarded the grade.|assessedBy|`Association`<br>Agent|*|||
 |Assesses|The learning achievement (and related learning outcomes) which were acquired by successfully passing the assessment.|assesses|`Association`<br>LearningAchievement|0. .1|||
 |Specified by|The specification of this assessment.|specifiedBy|`Association`<br>AssessmentSpecification|0. .1|||
@@ -247,7 +247,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Assessment Utilised|The assessment that provided the basis for this awarding.|used|`Association`<br>Assessment|*|||
 |Learning Achievement|The resulting learning achievement.|learningAchievement|`Association`<br>LearningAchievement|1. .*|||
 |Awarding Organisation|The awarding body that awarded the Achievement to the individual. Only in cases of co-awarding/co-graduation, where a qualification award is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody|`Association`<br>Organisation|1. .*|||
-|Location|The location where the awarding activity took place (country/region where the qualification was awarded).|awardingLocation|`Association`<br>Location|0. .1||MDR Countries Named Authority List. NUTS (skossified and published version by ESCO).|
+|Location|The location where the awarding activity took place (country/region where the qualification was awarded).|awardingLocation|`Association`<br>Location|0. .1||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts)) (skossified and published version by ESCO)|
 |Awarding Date|The date when the LearningSpecification was awarded. If not specified it is undefined ("not known").|awardingDate|`Property`<br>DateTime|0. .1|||
 
 ### Awarding Opportunity
@@ -257,7 +257,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Awarding Opportunity UID|A portable identifier of the awarding opportunity.|id|`ID/PK`<br>URI|1|||
 |Identifier|An alternative identifier of the awarding opportunity.|identifier|`Property`<br>Identifier|*|||
 |Awarding Body|The awarding body related to this awarding activity (i.e the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody |`Association`<br>Organisation|*|||
-|Location|Location where the awarding activity takes place (country/region where the qualification is awarded).|location|`Property`<br>Code|0. .1||MDR Countries Named Authority List; NUTS (skossified and published version by ESCO)|
+|Location|Location where the awarding activity takes place (country/region where the qualification is awarded).|location|`Property`<br>Code|0. .1||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts)) (skossified and published version by ESCO)|
 |Start Date|The date since when the awarding activities take place. If not specified it is undefined ("not known")|startedAtTime|`Property`<br>DateTime|0. .1|||
 |End Date|The date until when the awarding activities take/took place|endedAtTime|`Property`<br>DateTime|0. .1|||
 
@@ -288,11 +288,11 @@ A Europass credential is a set of one or more claims which may be used to demons
 |More Information|An additional free text note about the entitlement specification.|additionalNote|`Property`<br>Note|*|||
 |Homepage|The homepage (a public web document) of the entitlement specification.|homePage|`Association`<br>WebDocument|*|||
 |Other Documents|A public web document containing additional documentation about the entitlement specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
-|Entitlement Type|A credential-holder may be entitled to membership of an organisation or professional association; to access a learning opportunity; or to perform a specific employment|entitlementType|`Property`<br>Code|1||Europass Standard List of Entitlement Types.|
-|Status|The status of the entitlement: an entitlement may be prospective, i.e. awarding the right to apply for the entitlement; or actual, i.e. granting the entitlement.|status|`Property`<br>Code|1||Europass Standard List of Entitlement Status.|
+|Entitlement Type|A credential-holder may be entitled to membership of an organisation or professional association; to access a learning opportunity; or to perform a specific employment|entitlementType|`Property`<br>Code|1||[Europass Standard List of Entitlement Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/entitlement/25831c2)|
+|Status|The status of the entitlement: an entitlement may be prospective, i.e. awarding the right to apply for the entitlement; or actual, i.e. granting the entitlement.|status|`Property`<br>Code|1||[Europass Standard List of Entitlement Status](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/entitlement-status/25831c2)|
 |Valid With|The organisation which acknowledges the entitlement (i.e. the organisation offering the learning opportunity, membership or employment opportunity)|limitOrganisation|`Association`<br>Organisation|*|||
-|Valid Within|The jurisdiction for which the entitlement is valid (the region or country).|limitJurisidiction|`Property`<br>Code|*||MDR Countries Named Authority List. NUTS.|
-|Related Occupation(s)|The An ESCO Occupation or Occupational class which the individual may access through the entitlement.|limitOccupation|`Property`<br>EscoOccupationAssociation|*||ESCO Occupations.|
+|Valid Within|The jurisdiction for which the entitlement is valid (the region or country).|limitJurisidiction|`Property`<br>Code|*||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts))|
+|Related Occupation(s)|The An ESCO Occupation or Occupational class which the individual may access through the entitlement.|limitOccupation|`Property`<br>EscoOccupationAssociation|*||[ESCO Occupations](https://ec.europa.eu/esco/portal/occupation)|
 |Limit National Occupation|An Occupation or Occupational Category|limitNationalOccupation|`Property`<br>OccupationAssociation|*|||
 |May Result From|N/A|mayResultFrom|`Association`<br>LearningSpecification|*|||
 |Entitlement Sub-Specification|Smaller entitlement specifications, which when combined make up this entitlement specification.|hasPart|`Association`<br>EntitlementSpecification|*|||
@@ -304,7 +304,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |--|--|--|--|--|--|--|
 |Agent UID|A portable identifier of the agent.|id|`ID/PK`<br>URI|1|||
 |Identifier|A formally-issued Identifier for the Agent.|identifier|`Property`<br>Identifier|*|||
-|Type|The Type of an Agent as described in a controlled vocabulary.|type|`Property`<br>Code|*||QMS List Of Organisation Types.|
+|Type|The Type of an Agent as described in a controlled vocabulary.|type|`Property`<br>Code|*||QMS List Of Organisation Types|
 |Preferred Name|The primary name of the agent.|preferredName|`Property`<br>Text|0. .1|||
 |Alternative Name|An agent may have any number of alternative or informal names.|alternativeName|`Property`<br>Text|*|||
 |More Information|An additional free text note about the agent.|note|`Property`<br>Note|*|||
@@ -325,9 +325,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Patronymic Name|Patronymic names are important in some countries. Iceland does not have a concept of 'family name' in the way that many other European countries do, for example, Erik Magnusson and Erika Magnusdottir are siblings, both offspring of Mangnus, irrespective of his patronymic name. In   Bulgaria and Russia, patronymic names are in every day usage, for example, the Sergeyevich in 'Mikhail Sergeyevich Gorbachev.'|patronymicName|`Property`<br>Text|0. .1|||
 |Date of Birth|The birth date of the person.|dateOfBirth|`Property`<br>Date|1|||
 |Place of Birth|The place of birth of the person.|placeOfBirth|`Property`<br>Location|0. .1|||
-|Gender|The gender of the person.|gender|`Property`<br>Code|0. .1||MDR Human Sex Named Authority List.|
-|Citizenship|The country (or countries) that conferred citizenship rights on the person.|citizenshipCountry|`Property`<br>Code|*||MDR Countries Named Authority List. NUTS.|
-|Location|A location related to a Person. (e.g. a person's home or residence location, a person's work place location, site location of an organisation, etc.)|hasLocation|`Association`<br>Location|*||MDR Countries Named Authority List. NUTS (skossified and published version by ESCO).|
+|Gender|The gender of the person.|gender|`Property`<br>Code|0. .1||[MDR Human Sex Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/human-sex)|
+|Citizenship|The country (or countries) that conferred citizenship rights on the person.|citizenshipCountry|`Property`<br>Code|*||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts))|
+|Location|A location related to a Person. (e.g. a person's home or residence location, a person's work place location, site location of an organisation, etc.)|hasLocation|`Association`<br>Location|*||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts)) (skossified and published version by ESCO)|
 |Learning Activities|A learning activity that a person participated in or attended.|performed|`Association`<br>LearningActivity|*|||
 |Learning Achievements|An achievement of the person.|achieved|`Association`<br>LearningAchievement|*|||
 |Learning Entitlements|The entitlement of the person.|entitledTo|`Association`<br>Entitlement|*|||
@@ -379,7 +379,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Start Date|The start date from which a person may follow the learning opportunity.|startedAtDate|`Property`<br>Date|0. .1|||
 |End Date|The final date a person may start to follow the learning opportunity.|endedAtDate|`Property`<br>Date|0. .1|||
 |Duration|The nominal duration for which the learning opportunity will continue to run. Note, this may be after the end-date, since admissions may be closed but the learning opportunity may still be ongoing.|duration|`Property`<br>Duration|0. .1|||
-|Learning Schedule|The learning schedule.|learningSchedule|`Property`<br>Code|0. .1||Europass Standard List of Learning Schedule Types.|
+|Learning Schedule|The learning schedule.|learningSchedule|`Property`<br>Code|0. .1||[Europass Standard List of Learning Schedule Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-schedule/25831c2)|
 |Schedule Information|Detailed information about the timetable or schedule. This may include weekly schedules (e.g. "Every Monday, 4pm", but may also include the overall schedule for the course, (e.g. October: lectures, November: group-work, December: break, January: assessment).|scheduleInformation|`Property`<br>Note|0. .1|||
 |Admissions Procedure|Specific information on how to apply for the course |admissionProcedure|`Property`<br>Note|0. .1|||
 |Fees|Information about the pricing of the course, including fees and scholarships/subsidies available|priceDetails|`Association`<br>PriceDetails|*|||
@@ -409,16 +409,16 @@ A Europass credential is a set of one or more claims which may be used to demons
 |--|--|--|--|--|--|--|
 |Accreditation ID|The portable and unique identifier of the accreditation record.|id|`ID/PK`<br>URI|1|||
 |Accreditation Identifier|An alternative Identifier of the Accreditation, as assigned to it by the accrediting agent.|identifier|`Property`<br>Identifier|*|||
-|Accreditation Type|The type of accreditation.|accreditationType|`Property`<br>Code|1||Europass Standard List of Accreditation Types.|
+|Accreditation Type|The type of accreditation.|accreditationType|`Property`<br>Code|1||[Europass Standard List of Accreditation Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/accreditation/25831c2)|
 |Title|A title of the accreditation.|title|`Property`<br>Text|0. .1|||
 |Description|A free text description of the accreditation.|description|`Property`<br>Note|0. .1|||
 |Decision|The Quality Decision issued by the Quality Assuring Authority.|decision|`Property`<br>TextScore|0. .1|||
 |Report|A publicly accessible report of the quality assurance decision|report|`Association`<br>WebDocument|0. .1|||
 |Organisation|The organisation whose activities are being accredited.|organisation|`Association`<br>Organisation|1|||
 |Qualification Accredited|The qualification that was accredited.|limitQualification|`Association`<br>Qualification|0. .1|||
-|Accredit for Thematic Area|The field of education for which the accreditation is valid.|limitField|`Properties`<br>Code|*||ISCED-F|
-|Accredited for EQF Level|The european qualification level for which the accreditation is valid.|limitEQFLevel|`Properties`<br>Code|*||EQF|
-|Accredited in Jurisdiction|The jurisdiction for which the accreditation is valid.|limitJurisdiction|`Properties`<br>Code|*||"MDR Countries Named Authority List NUTS"|
+|Accredit for Thematic Area|The field of education for which the accreditation is valid.|limitField|`Properties`<br>Code|*||[ISCED-F](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/isced-f/25831c2)|
+|Accredited for EQF Level|The european qualification level for which the accreditation is valid.|limitEQFLevel|`Properties`<br>Code|*||[EQF](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/eqf/25831c2)|
+|Accredited in Jurisdiction|The jurisdiction for which the accreditation is valid.|limitJurisdiction|`Properties`<br>Code|*||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts))|
 |Accrediting Agent|The Quality Assuring Authority. (i.e assurer)|accreditingAgent|`Association`<br>Organisation|1|||
 |Issue Date|The date when the accreditation was formally approved/issued.|issueDate|`Property`<br>DateTime|0. .1|||
 |Review Date|The date when the accreditation has to be re-viewed.|reviewDate|`Property`<br>DateTime|0. .1|||
@@ -447,9 +447,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Verification Check UID|The portable and unique identifier of the verification check.|id|`ID/PK`<br>URI|1|||
-|Type|The type of verification check.|type|`Property`<br>Code|1||Europass Standard List of Verification Types.|
+|Type|The type of verification check.|type|`Property`<br>Code|1||[Europass Standard List of Verification Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/verification/25831c2)|
 |Subject|The credential subject of this verification check.|subject|`Association`<br>EuropassCredential|1|||
-|Status|The result.|status|`Property`<br>Code|1||Europass Standard List of Verification Statusses|
+|Status|The result.|status|`Property`<br>Code|1||[Europass Standard List of Verification Statuses](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/verification-status/25831c2)|
 |Description|A free text description of the check and the result.|description|`Property`<br>Note|0. .1|||
 
 ## Media Classes
@@ -482,16 +482,17 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Address UID|The protable and unique identifier of the address.|id|`ID/PK`<br>URI|1|||
 |Identifier|An address identifier.|identifier|`Property`<br>Identifier|*|||
 |Full Address|The complete address with or without formatting.|fullAddress|`Property`<br>Note|0. .1|||
-|Country|The address’ country code.|countryCode|`Property`<br>Code|1||MDR Countries Named Authority List.|
+|Country|The address’ country code.|countryCode|`Property`<br>Code|1||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country)|
 
 ### Location
 **Class description**: An identifiable geographic place.
+
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Location UID|A portable identifier of the location.|id|`ID/PK`<br>URI|1|||
 |Identifier|A location identifier.|identifier|`Property`<br>Identifier|*|||
 |Name|A proper noun applied to a spatial object.|geographicName|`Property`<br>Text|0. .1|||
-|Location|A code identifying a spatial scope in which this physical location is located.|spatialCode|`Property`<br>Code|*||MDR Countries Named Authority List. NUTS. MDR Place Named Authority List.|
+|Location|A code identifying a spatial scope in which this physical location is located.|spatialCode|`Property`<br>Code|*||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts)) [MDR Place Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/place)|
 |Description|A free text describing the location.|description|`Property`<br>Note|0. .1|||
 |Address|An address associated with the location.|hasAddress|`Association`<br>Address|*|||
 
@@ -501,7 +502,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |--|--|--|--|--|--|--|
 |URL|The URL of the web document.|id|`ID/PK`<br>URL|1|||
 |Document Name|The name of the document.|title|`Property`<br>Text|0. .1|||
-|Language|The language of the document.|language|`Property`<br>Code|0. .1||MDR Languages Named Authority List.|
+|Language|The language of the document.|language|`Property`<br>Code|0. .1||[MDR Languages Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/language)|
 |Subject|This property is used to point to the topic that is described in the document. The information topic specifies what kind of information is provided in the document.|subject|`Property`<br>Code|*|||
 
 ### Media Object
@@ -509,8 +510,8 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Media Object UID|A portable identifier of the media object.|id|`ID/PK`<br>URI|1|||
-|Content Type|The media type of the media object.|contentType|`Property`<br>Code|1|| MDR Filetype|
-|Content Encoding|The encoding used to encode the binary data.|contentEncoding|`Property`<br>Code|0. .1||Europass Standard List of Content Encoding Types.|
+|Content Type|The media type of the media object.|contentType|`Property`<br>Code|1|| [MDR Filetype](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/file-type) |
+|Content Encoding|The encoding used to encode the binary data.|contentEncoding|`Property`<br>Code|0. .1||[Europass Standard List of Content Encoding Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/encoding/25831c2)|
 |Content Size|The content size.|contentSize|`Property`<br>xsd:integer|0. .1|||
 |Content|The binary data.|content|`Property`<br>xsd:string|0. .1| ||
 |Content URL|The public access URL.|contentUrl|`Property`<br>xsd:anyURI|0. .1|||
@@ -519,7 +520,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: Still image.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Media Type|The media type of the image resource.|contentType|`Property`<br>Code|0. .1||MDR Filetype|
+|Media Type|The media type of the image resource.|contentType|`Property`<br>Code|0. .1||[MDR Filetype](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/file-type)|
 
 ## Association Classes
 
@@ -561,7 +562,7 @@ The Identifier class is a critical aspect of the edci model. It is used to ident
 A legal identifier is a formally issued identifier by a given authorithy within a given jurisdiction. The identifier has a spatial context.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
 |--|--|--|--|--|--|--|
-|Identifier|Spatial ID|`Attribute`<br>String|1|The identifier of the country and/or jurisdiction.|The identifier of the country and/or jurisdiction.|MDR Countries Named Authority Lis. NUTS|
+|Identifier|Spatial ID|`Attribute`<br>String|1|The identifier of the country and/or jurisdiction.|The identifier of the country and/or jurisdiction.|[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts))|
 
 ### Code - Composite Type
 **Definition**: A term from a controlled vocabulary. (a code from a code list)
@@ -601,6 +602,7 @@ Interoperability between data sets is increased dramatically when terms from con
 
 ### Score - Composite Type
 **Definition**: A score.
+
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Score|Content|`Attribute`<br>Literal|1|The score.|The score.||
@@ -623,14 +625,14 @@ Interoperability between data sets is increased dramatically when terms from con
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Measure|Content|`Attribute`<br>Numeric|1|The numeric value (i.e. measure).|The numeric value (i.e. measure).||
-|Measure|Unit|`Attribute`<br>String|1|A code indicating the type of unit measure, such as "minutes", "hours", "meters", etc.|A code indicating the type of unit measure, such as "minutes", "hours", "meters", etc.|MDR Measurement unit Named Authority List|
+|Measure|Unit|`Attribute`<br>String|1|A code indicating the type of unit measure, such as "minutes", "hours", "meters", etc.|A code indicating the type of unit measure, such as "minutes", "hours", "meters", etc.|[MDR Measurement unit Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/measurement-unit)|
 
 ### Amount - Composite Type
 **Definition**: An amount.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended RSA|
 |--|--|--|--|--|--|--|
 |Amount|Content|`Attribute`<br>Numeric|1|The numeric value (i.e. price, salary, etc.).|||
-|Amount|Unit|`Attribute`<br>String|1|A code indicating the currency in which the amount is indicated/expressed.||MDR Currencies Named Authority List|
+|Amount|Unit|`Attribute`<br>String|1|A code indicating the currency in which the amount is indicated/expressed.||[MDR Currencies Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency)|
 
 ### Primitive Type Structured Data Types
 
