@@ -410,10 +410,10 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Accreditation ID|The portable and unique identifier of the accreditation record.|id|`ID/PK`<br>URI|1|||
 |Accreditation Identifier|An alternative Identifier of the Accreditation, as assigned to it by the accrediting agent.|identifier|`Property`<br>Identifier|*|||
 |Accreditation Type|The type of accreditation.|accreditationType|`Property`<br>Code|1||Europass Standard List of Accreditation Types.|
-|Title||A title of the accreditation.|`Property`<br>Text|0. .1|||
-|Description||A free text description of the accreditation.|`Property`<br>Note|0. .1|||
-|Decision||The Quality Decision issued by the Quality Assuring Authority.|`Property`<br>TextScore|0. .1|||
-|Report||A publicly accessible report of the quality assurance decision|`Association`<br>WebDocument|0. .1|||
+|Title|A title of the accreditation.|title|`Property`<br>Text|0. .1|||
+|Description|A free text description of the accreditation.|description|`Property`<br>Note|0. .1|||
+|Decision|The Quality Decision issued by the Quality Assuring Authority.|decision|`Property`<br>TextScore|0. .1|||
+|Report|A publicly accessible report of the quality assurance decision|report|`Association`<br>WebDocument|0. .1|||
 |Organisation|The organisation whose activities are being accredited.|organisation|`Association`<br>Organisation|1|||
 |Qualification Accredited|The qualification that was accredited.|limitQualification|`Association`<br>Qualification|0. .1|||
 |Accredit for Thematic Area|The field of education for which the accreditation is valid.|limitField|`Properties`<br>Code|*||ISCED-F|
