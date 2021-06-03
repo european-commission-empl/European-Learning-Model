@@ -492,7 +492,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Location UID|A portable identifier of the location.|id|`ID/PK`<br>URI|1|||
 |Identifier|A location identifier.|identifier|`Property`<br>Identifier|*|||
 |Name|A proper noun applied to a spatial object.|geographicName|`Property`<br>Text|0. .1|||
-|Location|A code identifying a spatial scope in which this physical location is located.|spatialCode|`Property`<br>Code|*||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts)) [MDR Place Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/place)|
+|Location|A code identifying a spatial scope in which this physical location is located.|spatialCode|`Property`<br>Code|*||[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts)) [Administrative territorial unit Authority Table](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/atu)|
 |Description|A free text describing the location.|description|`Property`<br>Note|0. .1|||
 |Address|An address associated with the location.|hasAddress|`Association`<br>Address|*|||
 
