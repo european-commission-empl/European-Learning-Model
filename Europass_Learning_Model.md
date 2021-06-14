@@ -2,7 +2,7 @@
 
 ## Content Classes
 
-### Verifiable Credential < abstract >
+### <a name="verifiablecredential">Verifiable Credential</a> < abstract >
 **Class description**: A set of one or more claims made by an issuer.
 A credential is a set of one or more claims made by the same entity. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified.
 
@@ -14,7 +14,7 @@ A credential is a set of one or more claims made by the same entity. A verifiabl
 |Valid From|The earliest date when the information associated with the credentialSubject property became valid.|validFrom|`Property`<br>DateTime|1|||
 |Expiry Date|The expiration date.|expirationDate|`Property`<br>DateTime|0. .1|||
 
-### Europass Credential < extends VerifiableCredential >
+### <a name="europasscredential">Europass Credential</a> < extends VerifiableCredential >
 **Class description**: A set of claims made by an issuer in Europe, using the Europass Standards.
 A Europass credential is a set of one or more claims which may be used to demonstrate that the owner has certain skills or has achieved certain learning outcomes through formal, non-formal or informal learning.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
@@ -24,22 +24,22 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Title|The full official title of the issued credential (maximum 50 characters).|title|`Property`<br>Text|1|||
 |Description|A summary of the claim or group of claims being made about a person (maximum 140 words).|description|`Property`<br>Note|0. .1|||
 |Issuer|The organisaton that issued the credential and sealed it with their digital e-seal.|issuer|`Association`<br><a href="#organisation">Organisation</a>|1|||
-|Owner|The person about which claims are made and who owns the credential.|credentialSubject|`Association`<br>Person|1|||
-|Display Parameters|The display details of the credential.|display|`Association`<br>DisplayParameters|0. .1|||
-|Attachments|Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Europass document.|attachment|`Association`<br>MediaObject|*|||
-|Proof|The cryptographic proofs that can be used to detect tampering and verify the authorship of a credential or presentation.|proof|`Association`<br>Proof|1|||
-|Sub-credentials|A credential embedded within the credential. Smaller sub-credentials (micro-credentials), that make up this larger credential when combined.|contains|`Association`<br>EuropassCredential|*|||
+|Owner|The person about which claims are made and who owns the credential.|credentialSubject|`Association`<br><a href="#person">Person</a>|1|||
+|Display Parameters|The display details of the credential.|display|`Association`<br><a href="#displayparameters">DisplayParameters</a>|0. .1|||
+|Attachments|Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Europass document.|attachment|`Association`<br><a href="#mediaobject">MediaObject</a>|*|||
+|Proof|The cryptographic proofs that can be used to detect tampering and verify the authorship of a credential or presentation.|proof|`Association`<br><a href="#proof">Proof</a>|1|||
+|Sub-credentials|A credential embedded within the credential. Smaller sub-credentials (micro-credentials), that make up this larger credential when combined.|contains|`Association`<br><a href="#europasscredential">EuropassCredential</a>|*|||
 
-### Proof
+### <a name="proof">Proof</a>
 **Class description**: The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation.
 
-### Display Parameters
+### <a name="displayparameters">Display Parameters</a>
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Display Code|The code indicating how to display the summary view of the credential.|summaryDisplay|`Property`<br>xsd:string|0. .1|||
-|Background Image|The background image of the credential.|background|`Association`<br>ImageObject|0. .1|||
+|Background Image|The background image of the credential.|background|`Association`<br><a href="#imageobject">ImageObject</a>|0. .1|||
 
-### Learning Specification
+### <a name="learningspecification">Learning Specification</a>
 **Class description**: A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning.
 
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
@@ -52,8 +52,8 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Description|Short and abstract description about the learning specification.|definition|`Property`<br>Note|0. .1|||
 |Learning Outcome Description|The full learning outcome description of the learning specification.|learningOutcomeDescription|`Property`<br>Note|0. .1|||
 |More Information|An additional free text note about the learning specification.|additionalNote|`Property`<br>Note|*|||
-|Homepage|The homepage (a public web document) of the learning specification.|homePage|`Association`<br>WebDocument|*|||
-|Other Documents|A public web document containing additional documentation about the learning specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Homepage|The homepage (a public web document) of the learning specification.|homePage|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
+|Other Documents|A public web document containing additional documentation about the learning specification.|supplementaryDocument|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
 |Thematic Area|Thematic Area according to the ISCED-F 2013 Classification|ISCEDFCode|`Property`<br>Code|*||[ISCED-F](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/isced-f/25831c2)|
 |Education Subject|An associated field of education from another semantic framework than the ISCED classification.|educationSubject |`Property`<br>Code|*|||
 |Volume of Learning|The estimated number of hours the learner is expected to spend engaged in learning to earn the award. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|||
@@ -66,26 +66,26 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Maximum Duration in Months|The maximum duration (in months) that a person may use to complete the learning opportunity.|maximumDuration|`Property`<br>Duration|0. .1|||
 |Target Group|A specific target group or category for which this specification is designed.|targetGroup|`Property`<br>Code|*||[Europass Standard List of Target Groups](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/target-group/25831c2)|
 |Entry Requirements|Specific entry requirements or prerequisites of individuals for which this specification is designed to start this learning opportunity.|entryRequirementsNote|`Property`<br>Note|0. .1|||
-|Learning Outcomes|An individual (expected) learning outcome of the learning specification.|learningOutcome|`Association`<br>LearningOutcome|*|||
-|Activities|Activities which a person can perform to acquire the expected learning outcomes|learningActivitySpecification|`Association`<br>LearningActivitySpecification|*|||
-|Assessments|Assessments a person can undergo to prove the acquisition of the learning outcomes|assessmentSpecification|`Association`<br>AssessmentSpecification|0. .1|||
-|Entitlements|Rights (such as  which the person may acquire as a result of acquiring the learning outcomes)|entitlementSpecification|`Association`<br>EntitlementSpecification|*|||
-|Awarding Information|Refers to an activity related to the awarding of the learning specification, such as the country or region where the qualification is awarded, the awarding body and optionally the awarding period now or in the past. |awardingOpportunity|`Association`<br>AwardingOpportunity|*|||
-|Learning Sub-Specifications|A learning specification can be composed of other "narrower" learning specifications which when combined make up this learning specification.|hasPart|`Association`<br>LearningSpecification|*|||
-|Specialisation of|A learning specification (e.g. a standard) of which this specification is a specialisation.<a href="#FN1">[1]</a>|specialisationOf|`Association`<br>LearningSpecification|*|||
+|Learning Outcomes|An individual (expected) learning outcome of the learning specification.|learningOutcome|`Association`<br><a href="#learningoutcome">LearningOutcome</a>|*|||
+|Activities|Activities which a person can perform to acquire the expected learning outcomes|learningActivitySpecification|`Association`<br><a href="#learningactivityspecification">LearningActivitySpecification</a>|*|||
+|Assessments|Assessments a person can undergo to prove the acquisition of the learning outcomes|assessmentSpecification|`Association`<br><a href="#assessmentspecification">AssessmentSpecification</a>|0. .1|||
+|Entitlements|Rights (such as  which the person may acquire as a result of acquiring the learning outcomes)|entitlementSpecification|`Association`<br><a href="#entitlementspecification">EntitlementSpecification</a>|*|||
+|Awarding Information|Refers to an activity related to the awarding of the learning specification, such as the country or region where the qualification is awarded, the awarding body and optionally the awarding period now or in the past. |awardingOpportunity|`Association`<br><a href="#awardingopportunity">AwardingOpportunity</a>|*|||
+|Learning Sub-Specifications|A learning specification can be composed of other "narrower" learning specifications which when combined make up this learning specification.|hasPart|`Association`<br><a href="#learningspecification">LearningSpecification</a>|*|||
+|Specialisation of|A learning specification (e.g. a standard) of which this specification is a specialisation.<a href="#FN1">[1]</a>|specialisationOf|`Association`<br><a href="#learningspecification">LearningSpecification</a>|*|||
 
 <a name="FN1">[1]: To be implemented at a later stage</a>
 
-### Qualification < extends LearningSpecification >
+### <a name="qualification">Qualification</a> < extends LearningSpecification >
 **Class description**: a specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Partial Qualification|Indicates whether a qualification is a full qualification or part of another qualification.|isPartialQualification|`Property`<br>xsd:boolean|0. .1| ||
 |EQF Level|The qualification level as specified by the European Qualification Framework.|EQFLevel|`Property`<br>Code|0. .1||[EQF. QDR List of qualification frameworks](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/eqf/25831c2)|
 |NQF Level|The qualification level as specified by a National Qualification Framework.|NQFLevel|`Property`<br/>Code|*||[QDR List of qualification frameworks](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/qdr/25831c2)|
-|Accreditation|The accreditation of a qualification.|hasAccreditation|`Association`<br>Accreditation|*|||
+|Accreditation|The accreditation of a qualification.|hasAccreditation|`Association`<br><a href="#accreditation">Accreditation</a>|*|||
 
-### Learning Outcome
+### <a name="learningoutcome">Learning Outcome</a>
 **Class description**: a statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
 
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
@@ -99,7 +99,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Related Skill(s)|A link to a related skill or the level of a related skill on a skill framework (except ESCO).|relatedSkill|`Property`<br>Code|*|||
 |Related ESCO Skill(s)|A link to an ESCO Skill.|relatedESCOSkill|`Property`<br>Code|*||[ESCO skills](https://ec.europa.eu/esco/portal/skill)|
 
-### Learning Activity Specification
+### <a name="learningactivityspecification">Learning Activity Specification</a>
 **Class description**: The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
 
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
@@ -110,17 +110,17 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Alternative Label|An alternative name of the activity specification.|alternativeLabel|`Property`<br>Text|*|||
 |Description|A free text description of the learning activity specification.|description|`Property`<br>Note|0. .1|||
 |More Information|An additional free text note about the learning activity specification.|additionalNote|`Property`<br>Note|*|||
-|Homepage|Webpage describing the activity specification|homePage|`Association`<br>WebDocument|*|||
-|Other Documents|A public web document containing additional documentation about the learning activity specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Homepage|Webpage describing the activity specification|homePage|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
+|Other Documents|A public web document containing additional documentation about the learning activity specification.|supplementaryDocument|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
 |Learning Activity Type|The type of activity.|learningActivityType|`Property`<br>Code|*||[Europass Standard List of Learning Activity Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-activity/25831c2)|
 |Volume of Learning|The estimated number of hours the learner is expected to spend engaged in the activity. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|volumeOfLearning|`Property`<br>Duration|0. .1|||
 |Language(s) of Instruction|The instruction language(s) used.|language|`Property`<br>Code|*||[Language Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/language)|
 |Mode of Learning|The mode of learning and or assessment.|mode|`Property`<br>Code|*||[Europass Standard List of Modes Of Learning and Assessment](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-assessment/25831c2)|
-|Teaches|What may be learned by undertaking the activity described by this learning activity specification.|teaches|`Association`<br>LearningSpecification|*|||
-|Learning Activity Sub-Specifications|A learning activity specification can be composed of smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br>LearningActivitySpecification|*|||
-|Specialisation of|An activity specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>LearningActivitySpecification|*|||
+|Teaches|What may be learned by undertaking the activity described by this learning activity specification.|teaches|`Association`<br><a href="#learningspecification">LearningSpecification</a>|*|||
+|Learning Activity Sub-Specifications|A learning activity specification can be composed of smaller learning specifications, which when combined make up this learning specification.|hasPart|`Association`<br><a href="#learningactivityspecification">LearningActivitySpecification</a>|*|||
+|Specialisation of|An activity specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br><a href="#learningactivityspecification">LearningActivitySpecification</a>|*|||
 
-### Learning Activity
+### <a name="learningactivity">Learning Activity</a>
 **Class description**: Any process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -132,14 +132,14 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Workload in Hours|The actual workload in number of hours the learner has spent engaged in the activity. This would include the number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.|workload|`Property`<br>Duration|0. .1|||
 |Start Date|The date the learner started the activity|startedAtTime|`Property`<br>DateTime|0. .1|||
 |End Date|The date the learner ended the activity|endedAtTime|`Property`<br>DateTime|0. .1|||
-|Directed by|The organisation, or part of an organisation such as department, faculty, which directed the learning activity.|directedBy|`Association`<br>Agent|*|||
-|Location|The location where the activity took place.|location|`Association`<br>Location|*|||
-|Specified by|The specification of this learning activity.|specifiedBy|`Association`<br>LearningActivitySpecification|0. .1|||
-|Linked to Learning Opportunity|The used or taken opportunity to do this learning activity.|usedLearningOpportunity|`Association`<br>LearningOpportunity|0. .1|||
-|Achievements Influenced|Performing this activity contributed to the acquisition of these related learning achievements.|influenced|`Association`<br>Achievement|*|||
-|Sub-Activities|Smaller units of activity, which when combined make up this activity.|hasPart|`Association`<br>LearningActivity|*|||
+|Directed by|The organisation, or part of an organisation such as department, faculty, which directed the learning activity.|directedBy|`Association`<br><a href="#agent">Agent</a>|*|||
+|Location|The location where the activity took place.|location|`Association`<br><a href="#location">Location</a>|*|||
+|Specified by|The specification of this learning activity.|specifiedBy|`Association`<br><a href="#learningactivityspecification">LearningActivitySpecification</a>|0. .1|||
+|Linked to Learning Opportunity|The used or taken opportunity to do this learning activity.|usedLearningOpportunity|`Association`<br><a href="#learningopportunity">LearningOpportunity</a>|0. .1|||
+|Achievements Influenced|Performing this activity contributed to the acquisition of these related learning achievements.|influenced|`Association`<br><a href="#learningachievement">LearningAchievement</a>|*|||
+|Sub-Activities|Smaller units of activity, which when combined make up this activity.|hasPart|`Association`<br><a href="#learningactivity">LearningActivity</a>|*|||
 
-### Assessment Specification
+### <a name="assessmentspecification">Assessment Specification</a>
 **Class description**: An Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -149,17 +149,17 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Alternative Label|An alternative name of the assessment specification.|alternativeLabel|`Property`<br>Text|*|||
 |Description|A free text description of the assessment specification.|description|`Property`<br>Note|0. .1|||
 |More Information|An additional free text note about the assessment specification.|additionalNote|`Property`<br>Note|*|||
-|Homepage|The homepage (a public web document) describing the details of the assessment specification.|homePage|`Association`<br>WebDocument|*|||
-|Other Documents|A public web document containing additional documentation about the assessment specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Homepage|The homepage (a public web document) describing the details of the assessment specification.|homePage|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
+|Other Documents|A public web document containing additional documentation about the assessment specification.|supplementaryDocument|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
 |Assessment Type|The type of assessment.|assessmentType|`Property`<br>Code|*||[Europass Standard List of Assessment Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/assessment/25831c2)|
 |Language of Assessment|The language(s) of assessment used.|language|`Property`<br>Code|*||[Language Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/language)|
 |Mode of Assessment|The mode of learning and or assessment.|mode|`Property`<br>Code|*||[Europass Standard List of Modes Of Learning and Assessment](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-assessment/25831c2)|
-|Grading Scheme|A description of the specification of which learning outcomes are or have been proven.|gradingscheme|`Association`<br>GradingScheme|0. .1|||
-|Demonstrates|The learning achievement (and related learning outcomes) this assessment is designed to test.|proves|`Association`<br>LearningSpecification|*|||
-|Assessment Sub-Specifications|A assessment specification can be composed of other "narrower" assessment specifications which when combined make up this assessment specification.|hasPart|`Association`<br>AssessmentSpecification|*|||
-|Specialisation of|An assessment specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>AssessmentSpecification|*|||
+|Grading Scheme|A description of the specification of which learning outcomes are or have been proven.|gradingscheme|`Association`<br><a href="#gradingscheme">GradingScheme</a>|0. .1|||
+|Demonstrates|The learning achievement (and related learning outcomes) this assessment is designed to test.|proves|`Association`<br><a href="#learningspecification">LearningSpecification</a>|*|||
+|Assessment Sub-Specifications|A assessment specification can be composed of other "narrower" assessment specifications which when combined make up this assessment specification.|hasPart|`Association`<br><a href="#assessmentspecification">AssessmentSpecification</a>|*|||
+|Specialisation of|An assessment specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br><a href="#assessmentspecification">AssessmentSpecification</a>|*|||
 
-### Assessment
+### <a name="assessment">Assessment</a>
 **Class description**: The result of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -169,16 +169,16 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Description|A description of the assessment.|description|`Property`<br>Text|0. .1|||
 |More Information|An additional free text note about the assessment.|additionalNote|`Property`<br>Note|*|||
 |Grade|A resulting grade of the assessment.|grade|`Property`<br>Score|1|||
-|Shortened Grading|Indicator of how well the student was graded when compared to other students|shortenedGrading|`Association`<br>ShortenedGrading|0. .1|||
-|Result Distribution|Describes a histogram of results achieved by all the students of a particular learning assessment.|resultDistribution|`Association`<br>ResultDistribution|0. .1|||
+|Shortened Grading|Indicator of how well the student was graded when compared to other students|shortenedGrading|`Association`<br><a href="#shortenedgrading">ShortenedGrading</a>|0. .1|||
+|Result Distribution|Describes a histogram of results achieved by all the students of a particular learning assessment.|resultDistribution|`Association`<br><a href="#resultdistribution">ResultDistribution</a>|0. .1|||
 |Assessment Date|Date the grade was awarded.|issuedDate|`Property`<br>DateTime|0. .1|||
 |Method of Assessment, Supervision and ID Verification|Method of assessment supervision and id verification.|idVerification|`Property`<br>Code|0. .1||[Europass Standard List of Methods Of Supervision And Verification](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/supervision-verification/25831c2)|
-|Assessment Conducted by|The competent body that awarded the grade.|assessedBy|`Association`<br>Agent|*|||
-|Assesses|The learning achievement (and related learning outcomes) which were acquired by successfully passing the assessment.|assesses|`Association`<br>LearningAchievement|0. .1|||
-|Specified by|The specification of this assessment.|specifiedBy|`Association`<br>AssessmentSpecification|0. .1|||
-|Sub-Assessments|Smaller assessments, which when combined make up and can influence this assessment.|hasPart|`Association`<br>Assessment|*|||
+|Assessment Conducted by|The competent body that awarded the grade.|assessedBy|`Association`<br><a href="#agent">Agent</a>|*|||
+|Assesses|The learning achievement (and related learning outcomes) which were acquired by successfully passing the assessment.|assesses|`Association`<br><a href="#learningachievement">LearningAchievement</a>|0. .1|||
+|Specified by|The specification of this assessment.|specifiedBy|`Association`<br><a href="#assessmentspecification">AssessmentSpecification</a>|0. .1|||
+|Sub-Assessments|Smaller assessments, which when combined make up and can influence this assessment.|hasPart|`Association`<br><a href="#assessment">Assessment</a>|*|||
 
-### Shortened Grading
+### <a name="shortenedgrading">Shortened Grading</a>
 **Class description**: Indicator of *how well* the student was graded when compared to other students.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -186,14 +186,14 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Percentage Equal|The percentage of students of the same course who got exactly the same grade.|percentageEqual|`Property`<br>Numeric|1|||
 |Percentage Higher|The percentage of students of the same course who got a higher grade.|percentageHigher|`Property`<br>Numeric|1|||
 
-### Result Distribution
+### <a name="resultdistribution">Result Distribution</a>
 **Class description**: Describes a histogram of results achieved by all the students of this course instance.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
-|Category|Describes a single range within the histogram.|category|`Association`<br>ResultCategory|*|||
+|Category|Describes a single range within the histogram.|category|`Association`<br><a href="#resultcategory">ResultCategory</a>|*|||
 |Description|Free text description of the histogram.|description|`Property`<br>Note|0. .1|||
 
-### Result Category
+### <a name="resultcategory">Result Category</a>
 **Class description**: Description of a single score or score range within a histogram of results.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -203,7 +203,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Maximum Score|N/A|maxScore|`Property`<br>Score|0. .1|||
 |Count|N/A|count|`Property`<br>PositiveInteger|1|||
 
-### Grading Scheme
+### <a name="gradingscheme">Grading Scheme</a>
 **Class description**: A set of criteria that measures varying levels of achievement.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -211,9 +211,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Grading Scheme Identifier|An alternative identifier of the Grading Scheme assigned to it by the organisation administering the scheme.|identifier|`Property`<br>Identifier|*|||
 |Title|The title of the grading scheme.|title|`Property`<br>Text|0. .1|||
 |Description|A free text describing the grading scheme.|description|`Property`<br>Note|0. .1|||
-|Other Documents|A public web document containing additional documentation about the grading system.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Other Documents|A public web document containing additional documentation about the grading system.|supplementaryDocument|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
 
-### Learning Achievement
+### <a name="learningachievement">Learning Achievement</a>
 **Class description**: The acquisition of knowledge, skills or responsibility and autonomy. A recognised and/or awarded set of learning outcomes of an individual.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -222,21 +222,21 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Title|The title of the achievement.|title|`Property`<br>Text|1|||
 |Description|A description of the achievement.|description|`Property`<br>Note|0. .1|||
 |More Information|An additional free text note about the achievement.|additionalNote|`Property`<br>Note|*|||
-|Proven by|An assessment which proves the acquisition of the learning outcomes which make up the achievement.|wasDerivedFrom|`Association`<br>Assessment|0. .1|||
-|Influenced by|Activities which contributed to the acquisition of the learning outcomes which make up the achievement.|wasInfluencedBy|`Association`<br>LearningActivity|*|||
-|Awarding Details|The awarding details of this achievement.|wasAwardedBy|`Association`<br>AwardingProcess|0. .1|||
-|Sub-Achievements|Smaller units of achievement, which when combined make up this achievement.|hasPart|`Association`<br>LearningAchievement|*|||
-|Entitles Owner to|Entitlements the owner has received as a result of this achievement.|entitlesTo|`Association`<br>Entitlement|*|||
-|Specified by|What has been learned.|specifiedBy|`Association`<br>LearningSpecification|*|||
-|Linked to Learning Opportunity|The learning opportunity that was taken to obtain the awarded LearningSpecification.|associatedLearningOpportunity|`Association`<br>LearningOpportunity|0. .1|||
+|Proven by|An assessment which proves the acquisition of the learning outcomes which make up the achievement.|wasDerivedFrom|`Association`<br><a href="#assessment">Assessment</a>|0. .1|||
+|Influenced by|Activities which contributed to the acquisition of the learning outcomes which make up the achievement.|wasInfluencedBy|`Association`<br><a href="#learningactivity">LearningActivity</a>|*|||
+|Awarding Details|The awarding details of this achievement.|wasAwardedBy|`Association`<br><a href="#awardingprocess">AwardingProcess</a>|0. .1|||
+|Sub-Achievements|Smaller units of achievement, which when combined make up this achievement.|hasPart|`Association`<br><a href="#learningachievement">LearningAchievement</a>|*|||
+|Entitles Owner to|Entitlements the owner has received as a result of this achievement.|entitlesTo|`Association`<br><a href="#entitlement">Entitlement</a>|*|||
+|Specified by|What has been learned.|specifiedBy|`Association`<br><a href="#learningspecification">LearningSpecification</a>|*|||
+|Linked to Learning Opportunity|The learning opportunity that was taken to obtain the awarded LearningSpecification.|associatedLearningOpportunity|`Association`<br><a href="#learningopportunity">LearningOpportunity</a>|0. .1|||
 
-### Qualification Awarded < extends LearningAchievement >
+### <a name="qualificationawarded">Qualification Awarded</a> < extends LearningAchievement >
 **Class description**: A formal outcome of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
-|Qualification Awarded|The details of the awarded qualification.|specifiedBy|`Association`<br>Qualification|1|||
+|Qualification Awarded|The details of the awarded qualification.|specifiedBy|`Association`<br><a href="#qualification">Qualification</a>|1|||
 
-### Awarding Process
+### <a name="awardingprocess">Awarding Process</a>
 **Class description**: The process of an organisation awarding Learning Achievement to person based on a Learning Specification (e.g. a qualification). It is used to specify the organisation that awarded the LearningSpecification to the individual, the country or region where the LearningSpecification was awarded, and optionally the date of awarding.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -244,24 +244,24 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Identifier|An alternative identifier of the awarding process.|identifier|`Property`<br>Identifier|*|||
 |Description|A description of the awarding process to the individual.|description|`Property`<br>Text|0. .1|||
 |More Information|An additional free text note (e.g. a comment, a remark, etc.)|additionalNote|`Property`<br>Text|*|||
-|Assessment Utilised|The assessment that provided the basis for this awarding.|used|`Association`<br>Assessment|*|||
-|Learning Achievement|The resulting learning achievement.|learningAchievement|`Association`<br>LearningAchievement|1. .*|||
-|Awarding Organisation|The awarding body that awarded the Achievement to the individual. Only in cases of co-awarding/co-graduation, where a qualification award is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody|`Association`<br>Organisation|1. .*|||
-|Location|The location where the awarding activity took place (country/region where the qualification was awarded).|awardingLocation|`Association`<br>Location|0. .1|||
+|Assessment Utilised|The assessment that provided the basis for this awarding.|used|`Association`<br><a href="#assessment">Assessment</a>|*|||
+|Learning Achievement|The resulting learning achievement.|learningAchievement|`Association`<br><a href="#learningachievement">LearningAchievement</a>|1. .*|||
+|Awarding Organisation|The awarding body that awarded the Achievement to the individual. Only in cases of co-awarding/co-graduation, where a qualification award is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody|`Association`<br><a href="#organisation">Organisation</a>|1. .*|||
+|Location|The location where the awarding activity took place (country/region where the qualification was awarded).|awardingLocation|`Association`<br><a href="#location">Location</a>|0. .1|||
 |Awarding Date|The date when the LearningSpecification was awarded. If not specified it is undefined ("not known").|awardingDate|`Property`<br>DateTime|0. .1|||
 
-### Awarding Opportunity
+### <a name="awardingopportunity">Awarding Opportunity</a>
 **Class description**: An awarding activity represents an activity related to the awarding of a LearningSpecification. It is used to specify the country or region where the LearningSpecification is awarded, the awarding body and optionally the awarding period now or in the past.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Awarding Opportunity UID|A portable identifier of the awarding opportunity.|id|`ID/PK`<br>URI|1|||
 |Identifier|An alternative identifier of the awarding opportunity.|identifier|`Property`<br>Identifier|*|||
-|Awarding Body|The awarding body related to this awarding activity (i.e the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody |`Association`<br>Organisation|*|||
-|Location|Location where the awarding activity takes place (country/region where the qualification is awarded).|location|`Association`<br>Code|0. .1|||
+|Awarding Body|The awarding body related to this awarding activity (i.e the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody |`Association`<br><a href="#organisation">Organisation</a>|*|||
+|Location|Location where the awarding activity takes place (country/region where the qualification is awarded).|location|`Association`<br><a href="#location">Location</a>|0. .1|||
 |Start Date|The date since when the awarding activities take place. If not specified it is undefined ("not known")|startedAtTime|`Property`<br>DateTime|0. .1|||
 |End Date|The date until when the awarding activities take/took place|endedAtTime|`Property`<br>DateTime|0. .1|||
 
-### Entitlement
+### <a name="entitlement">Entitlement</a>
 **Class description**: A right, e.g. to practice a profession, take advantage of a learning opportunity or join an organisation, as a result of the acquisition of knowledge, skills, responsibility and/or autonomy.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -272,12 +272,13 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Date of Issue|The date from which the entitlement was conferred.|issuedDate|`Property`<br>Date|0. .1|||
 |Expiry Date|The date until which the entitlement was conferred.|expiryDate|`Property`<br>Date|0. .1|||
 |More Information|An additional free text note about the entitlement.|additionalNote|`Property`<br>Note|*|||
-|Specified by|A learning achievement which gave rise to the entitlement.|specifiedBy|`Association`<br>EntitlementSpecification|0. .1|||
-|Derived from|The learning achievement (and related learning outcomes) which gave rise to this entitlement.|wasDerivedFrom|`Association`<br>LearningAchievement|*|||
-|Sub-Entitlements|Smaller entitlements, which when combined make up this entitlement.|hasPart|`Association`<br>Entitlement|*|||
+|Specified by|A learning achievement which gave rise to the entitlement.|specifiedBy|`Association`<br><a href="#entitlementspecification">EntitlementSpecification</a>|0. .1|||
+|Derived from|The learning achievement (and related learning outcomes) which gave rise to this entitlement.|wasDerivedFrom|`Association`<br><a href="#learningachievement">LearningAchievement</a>|*|||
+|Sub-Entitlements|Smaller entitlements, which when combined make up this entitlement.|hasPart|`Association`<br><a href="#entitlement">Entitlement</a>|*|||
 
-### Entitlement Specification
+### <a name="entitlementSpecification">Entitlement Specification</a>
 **Class description**: The specification of a right a person has access to, typically as a result of a learning achievement. It may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career.
+
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Entitlement Specification UID|A portable and unique identifier of the entitlement specification.|id|`ID/PK`<br>URI|1|||
@@ -286,19 +287,19 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Alternative Label|An alternative name of the entitlement specification.|alternativeLabel|`Property`<br>Text|*|||
 |Description|A free text description of the entitlement specification.|description|`Property`<br>Note|0. .1|||
 |More Information|An additional free text note about the entitlement specification.|additionalNote|`Property`<br>Note|*|||
-|Homepage|The homepage (a public web document) of the entitlement specification.|homePage|`Association`<br>WebDocument|*|||
-|Other Documents|A public web document containing additional documentation about the entitlement specification.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Homepage|The homepage (a public web document) of the entitlement specification.|homePage|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
+|Other Documents|A public web document containing additional documentation about the entitlement specification.|supplementaryDocument|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
 |Entitlement Type|A credential-holder may be entitled to membership of an organisation or professional association; to access a learning opportunity; or to perform a specific employment|entitlementType|`Property`<br>Code|1||[Europass Standard List of Entitlement Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/entitlement/25831c2)|
 |Status|The status of the entitlement: an entitlement may be prospective, i.e. awarding the right to apply for the entitlement; or actual, i.e. granting the entitlement.|status|`Property`<br>Code|1||[Europass Standard List of Entitlement Status](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/entitlement-status/25831c2)|
-|Valid With|The organisation which acknowledges the entitlement (i.e. the organisation offering the learning opportunity, membership or employment opportunity)|limitOrganisation|`Association`<br>Organisation|*|||
+|Valid With|The organisation which acknowledges the entitlement (i.e. the organisation offering the learning opportunity, membership or employment opportunity)|limitOrganisation|`Association`<br><a href="#organisation">Organisation</a>|*|||
 |Valid Within|The jurisdiction for which the entitlement is valid (the region or country).|limitJurisidiction|`Property`<br>Code|*||[Country Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country)|
 |Related Occupation(s)|The An ESCO Occupation or Occupational class which the individual may access through the entitlement.|limitOccupation|`Property`<br>EscoOccupationAssociation|*||[ESCO Occupations](https://ec.europa.eu/esco/portal/occupation)|
 |Limit National Occupation|An Occupation or Occupational Category|limitNationalOccupation|`Property`<br>OccupationAssociation|*|||
-|May Result From|N/A|mayResultFrom|`Association`<br>LearningSpecification|*|||
-|Entitlement Sub-Specification|Smaller entitlement specifications, which when combined make up this entitlement specification.|hasPart|`Association`<br>EntitlementSpecification|*|||
-|Specialisation of|An entitlement specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br>EntitlementSpecification|*|||
+|May Result From|N/A|mayResultFrom|`Association`<br><a href="#learningspecification">LearningSpecification</a>|*|||
+|Entitlement Sub-Specification|Smaller entitlement specifications, which when combined make up this entitlement specification.|hasPart|`Association`<br><a href="#entitlementspecification">EntitlementSpecification</a>|*|||
+|Specialisation of|An entitlement specification (e.g. a standard) of which this specification is a specialisation.|specialisationOf|`Association`<br><a href="#entitlementspecification">EntitlementSpecification</a>|*|||
 
-### Agent < abstract >
+### <a name="agent">Agent</a> < abstract >
 **Class description**: An entity that is able to carry out actions.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -308,9 +309,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Preferred Name|The primary name of the agent.|preferredName|`Property`<br>Text|0. .1|||
 |Alternative Name|An agent may have any number of alternative or informal names.|alternativeName|`Property`<br>Text|*|||
 |More Information|An additional free text note about the agent.|note|`Property`<br>Note|*|||
-|Contact Information|The contact information of an agent.|contactPoint|`Association`<br>ContactPoint|*|||
+|Contact Information|The contact information of an agent.|contactPoint|`Association`<br><a href="#contactpoint">ContactPoint</a>|*|||
 
-### Person < extends Agent >
+### <a name="person">Person</a> < extends Agent >
 **Class description**: A human being.
 
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
@@ -327,10 +328,10 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Place of Birth|The place of birth of the person.|placeOfBirth|`Property`<br>Location|0. .1||[Country Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country)|
 |Gender|The gender of the person.|gender|`Property`<br>Code|0. .1||[Human Sex Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/human-sex)|
 |Citizenship|The country (or countries) that conferred citizenship rights on the person.|citizenshipCountry|`Property`<br>Code|*||[Country Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country)|
-|Location|A location related to a Person. (e.g. a person's home or residence location, a person's work place location, site location of an organisation, etc.)|hasLocation|`Association`<br>Location|*||                                                              |
-|Learning Activities|A learning activity that a person participated in or attended.|performed|`Association`<br>LearningActivity|*|||
-|Learning Achievements|An achievement of the person.|achieved|`Association`<br>LearningAchievement|*|||
-|Learning Entitlements|The entitlement of the person.|entitledTo|`Association`<br>Entitlement|*|||
+|Location|A location related to a Person. (e.g. a person's home or residence location, a person's work place location, site location of an organisation, etc.)|hasLocation|`Association`<br><a href="#location">Location</a>|*||                                                              |
+|Learning Activities|A learning activity that a person participated in or attended.|performed|`Association`<br><a href="#learningactivity">LearningActivity</a>|*|||
+|Learning Achievements|An achievement of the person.|achieved|`Association`<br><a href="#learningachievement">LearningAchievement</a>|*|||
+|Learning Entitlements|The entitlement of the person.|entitledTo|`Association`<br><a href="#entitlement">Entitlement</a>|*|||
 
 ### <a name="organisation">Organisation</a> < extends Agent >
 **Class description**: A legal person / registered organisation.
@@ -345,28 +346,28 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Tax / Fiscal Identifier|Fiscal ID of the organisation.|taxIdentifier|`Property`<br>LegalIdentifier|*| ||
 |Legal Name|The primary name of the organisation.|preferredName|`Property`<br>Text|1|||
 |Common Name|An (optional) alternative name of the organisation as typically used in documents, including credentials.|alternativeName|`Property`<br>Text|*|||
-|Homepage|A homepage about the organisation.|homepage|`Association`<br>WebDocument|*|||
-|Location|The legally registered site of the organisation.|hasLocation|`Association`<br>Location|1. .*|||
-|Accreditation|Accreditation Records associated with the organisation. More information about the accreditation database is available here.|hasAccreditation|`Association`<br>Accreditation|*|||
-|Child Organisation|A smaller organisation of which forms part of this organisation, e.g. a Department within a larger Organisation.|hasUnit|`Association`<br>Organisation|*|||
-|Parent Organisation|Indicates a larger Organisation of which this Unit is a part of, e.g. the Organisation within which a Department operates. |unitOf|`Association`<br>Organisation|0. .1|||
-|Logo|The logo of the organisation.|logo|`Association`<br>ImageObject|0. .1|||
+|Homepage|A homepage about the organisation.|homepage|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
+|Location|The legally registered site of the organisation.|hasLocation|`Association`<br><a href="#location">Location</a>|1. .*|||
+|Accreditation|Accreditation Records associated with the organisation. More information about the accreditation database is available here.|hasAccreditation|`Association`<br><a href="#accreditation">Accreditation</a>|*|||
+|Child Organisation|A smaller organisation of which forms part of this organisation, e.g. a Department within a larger Organisation.|hasUnit|`Association`<br><a href="#organisation">Organisation</a>|*|||
+|Parent Organisation|Indicates a larger Organisation of which this Unit is a part of, e.g. the Organisation within which a Department operates. |unitOf|`Association`<br><a href="#organisation">Organisation</a>|0. .1|||
+|Logo|The logo of the organisation.|logo|`Association`<br><a href="#imageobject">ImageObject</a>|0. .1|||
 
 <a name="FN2">[2]: See chapter 5.1.4 in [Draft ETSI EN 319 412-1 V1.4.2](https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.02_20/en_31941201v010402a.pdf)</a>
 
-### Contact information
+### <a name="contactinformation">Contact information</a>
 **Class description**: Details to Contact an Agent. A contact point for an agent.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Context|A note about the contact point (e.g. availability or usage note).|note|`Property`<br>Note|*|||
 |Contact Details|A free text describing the contact details.|description|`Property`<br>Note|0. .1|||
-|Postal Address|A postal address used for contacting the agent.|postalAddress|`Association`<br>Address|*|||
-|Phone Number|A phone number used for contacting the agent.|phone|`Association`<br>Phone|*|||
-|E-Mail Address|An e-mail address used for contacting the agent.|email|`Association`<br>Mailbox|*|||
-|Wallet Address|The wallet address of the agent.|walletAddress|`Association`<br>Mailbox|*|||
-|Contact Form|A contact form used for contacting the agent.|contactForm|`Association`<br>InteractiveWebResource|*|||
+|Postal Address|A postal address used for contacting the agent.|postalAddress|`Association`<br><a href="#address">Address</a>|*|||
+|Phone Number|A phone number used for contacting the agent.|phone|`Association`<br><a href="#phone">Phone</a>|*|||
+|E-Mail Address|An e-mail address used for contacting the agent.|email|`Association`<br><a href="#mailbox">Mailbox</a>|*|||
+|Wallet Address|The wallet address of the agent.|walletAddress|`Association`<br><a href="#mailbox">Mailbox</a>|*|||
+|Contact Form|A contact form used for contacting the agent.|contactForm|`Association`<br><a href="#interactivewebresource">InteractiveWebResource</a>|*|||
 
-### Learning Opportunity
+### <a name="learningopportunity">Learning Opportunity</a>
 **Class description**: An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -375,22 +376,22 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Title|The title of the learning opportunity.|title|`Property`<br>Text|1|||
 |Description|A free text description (summary) of the learning opportunity.|description|`Property`<br>Note|0. .1|||
 |More Information|An additional free text note about the learning opportunity.|additionalNote|`Property`<br>Note|*|||
-|Homepage|The homepage (a public web document) of the learning opportunity.|homePage|`Association`<br>WebDocument|*|||
-|Other Documents|A public web document containing additional documentation about the learning opportunity.|supplementaryDocument|`Association`<br>WebDocument|*|||
+|Homepage|The homepage (a public web document) of the learning opportunity.|homePage|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
+|Other Documents|A public web document containing additional documentation about the learning opportunity.|supplementaryDocument|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
 |Start Date|The start date from which a person may follow the learning opportunity.|startedAtDate|`Property`<br>Date|0. .1|||
 |End Date|The final date a person may start to follow the learning opportunity.|endedAtDate|`Property`<br>Date|0. .1|||
 |Duration|The nominal duration for which the learning opportunity will continue to run. Note, this may be after the end-date, since admissions may be closed but the learning opportunity may still be ongoing.|duration|`Property`<br>Duration|0. .1|||
 |Learning Schedule|The learning schedule.|learningSchedule|`Property`<br>Code|0. .1||[Europass Standard List of Learning Schedule Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/learning-schedule/25831c2)|
 |Schedule Information|Detailed information about the timetable or schedule. This may include weekly schedules (e.g. "Every Monday, 4pm", but may also include the overall schedule for the course, (e.g. October: lectures, November: group-work, December: break, January: assessment).|scheduleInformation|`Property`<br>Note|0. .1|||
 |Admissions Procedure|Specific information on how to apply for the course |admissionProcedure|`Property`<br>Note|0. .1|||
-|Fees|Information about the pricing of the course, including fees and scholarships/subsidies available|priceDetails|`Association`<br>PriceDetails|*|||
-|Provided by|The organisation providing or directing the learning opportunity. In the case of, e.g. joint qualifications, there may be several organisations directing the learning opportunity. |providedBy|`Association`<br>Organisation|*|||
-|Provided at|The location where the learning opportunity will take place. This may also include a virtual space.|providedAt|`Association`<br>Location|*|||
-|Learning Specification|The learning specification, including the curricula, of this learning opportunity.|specifiedBy|`Association`<br>LearningSpecification|0. .1|||
-|Sub-Opportunities|A learning opportunity can be composed of other "narrower" learning opportunities, which when combined make up this larger learning opportunity.|hasPart|`Association`<br>LearningOpportunity|*|||
-|Banner Image|An image which is displayed alongside the learning opportunity|bannerImage|`Association`<br>ImageObject|0. .1|||
+|Fees|Information about the pricing of the course, including fees and scholarships/subsidies available|priceDetails|`Association`<br><a href="#pricedetails">PriceDetails</a>|*|||
+|Provided by|The organisation providing or directing the learning opportunity. In the case of, e.g. joint qualifications, there may be several organisations directing the learning opportunity. |providedBy|`Association`<br><a href="#organisation">Organisation</a>|*|||
+|Provided at|The location where the learning opportunity will take place. This may also include a virtual space.|providedAt|`Association`<br><a href="#location">Location</a>|*|||
+|Learning Specification|The learning specification, including the curricula, of this learning opportunity.|specifiedBy|`Association`<br><a href="#learningspecification">LearningSpecification</a>|0. .1|||
+|Sub-Opportunities|A learning opportunity can be composed of other "narrower" learning opportunities, which when combined make up this larger learning opportunity.|hasPart|`Association`<br><a href="#learningopportunity">LearningOpportunity</a>|*|||
+|Banner Image|An image which is displayed alongside the learning opportunity|bannerImage|`Association`<br><a href="#imageobject">ImageObject</a>|0. .1|||
 
-### Price Details
+### <a name="pricedetails">Price Details</a>
 **Class description**: The price details. The details about a price or price category.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -401,7 +402,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Description|A free text describing the price.|description|`Property`<br>Note|0. .1|||
 |Subsidies|An additional free text note about the price.|additional note|`Property`<br>Note|*|||
 
-### Accreditation
+### <a name="accreditation">Accreditation</a>
 **Class description**: The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about:
 - the quality assurance and/or licensing of an organisation.
 - the quality assurance and/or licensing of an organisation with respect to a specific qualification.
@@ -414,54 +415,54 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Title|A title of the accreditation.|title|`Property`<br>Text|0. .1|||
 |Description|A free text description of the accreditation.|description|`Property`<br>Note|0. .1|||
 |Decision|The Quality Decision issued by the Quality Assuring Authority.|decision|`Property`<br>TextScore|0. .1|||
-|Report|A publicly accessible report of the quality assurance decision|report|`Association`<br>WebDocument|0. .1|||
-|Organisation|The organisation whose activities are being accredited.|organisation|`Association`<br>Organisation|1|||
-|Qualification Accredited|The qualification that was accredited.|limitQualification|`Association`<br>Qualification|0. .1|||
+|Report|A publicly accessible report of the quality assurance decision|report|`Association`<br><a href="#webdocument">WebDocument</a>|0. .1|||
+|Organisation|The organisation whose activities are being accredited.|organisation|`Association`<br><a href="#organisation">Organisation</a>|1|||
+|Qualification Accredited|The qualification that was accredited.|limitQualification|`Association`<br><a href="#qualification">Qualification</a>|0. .1|||
 |Accredit for Thematic Area|The field of education for which the accreditation is valid.|limitField|`Properties`<br>Code|*||[ISCED-F](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/isced-f/25831c2)|
 |Accredited for EQF Level|The european qualification level for which the accreditation is valid.|limitEQFLevel|`Properties`<br>Code|*||[EQF](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/eqf/25831c2)|
 |Accredited in Jurisdiction|The jurisdiction for which the accreditation is valid.|limitJurisdiction|`Properties`<br>Code|*||[Country Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country)|
-|Accrediting Agent|The Quality Assuring Authority. (i.e assurer)|accreditingAgent|`Association`<br>Organisation|1|||
+|Accrediting Agent|The Quality Assuring Authority. (i.e assurer)|accreditingAgent|`Association`<br><a href="#organisation">Organisation</a>|1|||
 |Issue Date|The date when the accreditation was formally approved/issued.|issueDate|`Property`<br>DateTime|0. .1|||
 |Review Date|The date when the accreditation has to be re-viewed.|reviewDate|`Property`<br>DateTime|0. .1|||
 |Expiry Date|The date when the accreditation expires or was expired.|expiryDate|`Property`<br>DateTime|0. .1|||
 |More Information|An additional free text note about the accreditation. |additionalNote|`Property`<br>Note|*|||
-|Homepage|The homepage of the accreditation.|homePage|`Association`<br>WebDocument|*|||
-|Landing Page|The landing page of the accreditation.| landingPage                                                  |`Association`<br>WebDocument|*|||
-|Other Documents|A public web document containing additional documentation  describing the Accreditation Procedures and Standards.|supplementary document|`Association`<br>WebDocument|*|||
+|Homepage|The homepage of the accreditation.|homePage|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
+|Landing Page|The landing page of the accreditation.| landingPage                                                  |`Association`<br><a href="#webdocument">WebDocument</a>|*|||
+|Other Documents|A public web document containing additional documentation  describing the Accreditation Procedures and Standards.|supplementary document|`Association`<br><a href="#webdocument">WebDocument</a>|*|||
 
-### Verifiable Presentation
+### <a name="verifiablepresentation">Verifiable Presentation</a>
 **Class description**: A verifiable presentation of a set of credentials. A composition of a set of credentials that can be presented to and verified by a verifier.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Verifiable Presentation UID|A portable identifier of the presentation.|id|`ID/PK`<br>URI|0. .1|||
 
-### Europass Presentation
+### <a name="europasspresentation">Europass Presentation</a>
 **Class description**: A verifiable presentation of a set of Europass credentials.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
-|Verifiable Credential|A verifiable EuropassCredential.|verifiableCredential|`Association`<br>EuropassCredential|*|||
-|Verification Check||verificationCheck|`Association`<br>VerificationCheck|*|||
-|Proof|The cryptographic proof that can be used to detect tampering and verify the authorship of a presentation.|proof|`Association`<br>Proof|*|||
+|Verifiable Credential|A verifiable EuropassCredential.|verifiableCredential|`Association`<br><a href="#europasscredential">EuropassCredential</a>|*|||
+|Verification Check||verificationCheck|`Association`<br><a href="#verificationcheck">VerificationCheck</a>|*|||
+|Proof|The cryptographic proof that can be used to detect tampering and verify the authorship of a presentation.|proof|`Association`<br><a href="#proof">Proof</a>|*|||
 
-### Verification Check
+### <a name="verificationcheck">Verification Check</a>
 **Class description**: A verification check.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Verification Check UID|The portable and unique identifier of the verification check.|id|`ID/PK`<br>URI|1|||
 |Type|The type of verification check.|type|`Property`<br>Code|1||[Europass Standard List of Verification Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/verification/25831c2)|
-|Subject|The credential subject of this verification check.|subject|`Association`<br>EuropassCredential|1|||
+|Subject|The credential subject of this verification check.|subject|`Association`<br><a href="#europasscredential">EuropassCredential</a>|1|||
 |Status|The result.|status|`Property`<br>Code|1||[Europass Standard List of Verification Statuses](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/verification-status/25831c2)|
 |Description|A free text description of the check and the result.|description|`Property`<br>Note|0. .1|||
 
-## Media Classes
+## <a name="mediaclasses">Media Classes</a>
 
-### Interactive Web Resource
+### <a name="interactivewebresource">Interactive Web Resource</a>
 **Class description**: A web resource that can be used to communicate.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |URL|The URL to access the interactive web resource.|id|`ID/PK`<br>URL|0. .1|||
 
-### Phone
+### <a name="phone">Phone</a>
 **Class description**: A phone number.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -470,13 +471,13 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Area Dialing Code|The area dialing code for a contact number.|areaDialing|`Property`<br>String|0. .1|||
 |Phone Number|The contact number, not including country dialling or area dialling codes. (e.g. "3445654", "1234567", etc.).|dialNumber|`Property`<br>String|0. .1|||
 
-### Mailbox
+### <a name="mailbox">Mailbox</a>
 **Class description**: A mailbox.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |E-mail|The e-mail address.|id|`ID/PK`<br>URI|1|||
 
-### Address
+### <a name="address">Address</a>
 **Class description**: An address.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -485,7 +486,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Full Address|The complete address with or without formatting.|fullAddress|`Property`<br>Note|0. .1|||
 |Country|The address’ country code.|countryCode|`Property`<br>Code|1||[Country Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country)|
 
-### Location
+### <a name="location">Location</a>
 **Class description**: An identifiable geographic place.
 
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
@@ -495,9 +496,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Name|A proper noun applied to a spatial object.|geographicName|`Property`<br>Text|0. .1|||
 |Location|A code identifying a spatial scope in which this physical location is located.|spatialCode|`Property`<br>Code|*|| [Administrative territorial unit Authority Table](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/atu) |
 |Description|A free text describing the location.|description|`Property`<br>Note|0. .1|||
-|Address|An address associated with the location.|hasAddress|`Association`<br>Address|*|||
+|Address|An address associated with the location.|hasAddress|`Association`<br><a href="#address">Address</a>|*|||
 
-### Web Document
+### <a name="webdocument">Web Document</a>
 **Class description**: A public web document.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -506,7 +507,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Language|The language of the document.|language|`Property`<br>Code|0. .1||[Language Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/language)|
 |Subject|This property is used to point to the topic that is described in the document. The information topic specifies what kind of information is provided in the document.|subject|`Property`<br>Code|*|||
 
-### Media Object
+### <a name="mediaobject">Media Object</a>
 **Class description**: A media object.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -517,15 +518,15 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Content|The binary data.|content|`Property`<br>xsd:string|0. .1| ||
 |Content URL|The public access URL.|contentUrl|`Property`<br>xsd:anyURI|0. .1|||
 
-### Image Object < extends MediaObject >
+### <a name="imageobject">Image Object</a> < extends MediaObject >
 **Class description**: Still image.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Media Type|The media type of the image resource.|contentType|`Property`<br>Code|0. .1||[Filetype](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/file-type)|
 
-## Association Classes
+## <a name="associationclasses">Association Classes</a>
 
-### Association Object
+### <a name="associationobject">Association Object</a>
 **Class description**: The details of an association or an alignment between a resource and another node in an established semantic framework. This class can be used to relate, annotate or align a resource to another semantic asset. Described in the QMS.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -541,12 +542,13 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Target Description|A free-text description of the associated node in the targeted framework.|targetDescription|`Property`<br>Note|0. .1|||
 |Target URL|The URL of the associated node in the targeted framework.|targetUrl|`Property`<br>xsd:anyURI|*|||
 
-## Structured Data Types
+## <a name="structureddatatypes">Structured Data Types</a>
 
-### Identifier - Composite Type
+### <a name="identifier-compositetype">Identifier - Composite Type</a>
 **Definition**: A character string used to identify a resource.  
 An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency.  
 The Identifier class is a critical aspect of the edci model. It is used to identify persons and organisations. In these cases and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised.
+
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Identifier|Content|`Attribute`<br>String|1|Content string which is the identifier.|Content string which is the identifier. A character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency.||
@@ -558,14 +560,14 @@ The Identifier class is a critical aspect of the edci model. It is used to ident
 |Identifier|Issued Date|`Attribute`<br>Date|0. .1|The date on which the identifier was issued|The date on which the identifier was issued||
 |Identifier|Identifier Type|`Attribute`<br>String|*|A code used to classify the type of identifier|A code used to classify the type of identifier||
 
-### LegalIdentifier - Composite Type < extends Identifier >
+### <a name="leagalidentifier-compositetype">LegalIdentifier - Composite Type</a> < extends Identifier >
 **Definition**: A legal identifier.
 A legal identifier is a formally issued identifier by a given authorithy within a given jurisdiction. The identifier has a spatial context.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Identifier|Spatial ID|`Attribute`<br>String|1|The identifier of the country and/or jurisdiction.|The identifier of the country and/or jurisdiction.|[MDR Countries Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country) ([NUTS](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/nuts))|
 
-### Code - Composite Type
+### <a name="code-compositetype">Code - Composite Type</a>
 **Definition**: A term from a controlled vocabulary. (a code from a code list)
 Interoperability between data sets is increased dramatically when terms from controlled vocabularies are used in favour of free text. The conceptual Code data type is used wherever one or more controlled vocabularies are known to exist for a particular domain of interest. It is not the job of the JV/CV Vocabularies to mandate which controlled vocabularies are used but we offer some guidance on how to use them.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
@@ -577,14 +579,14 @@ Interoperability between data sets is increased dramatically when terms from con
 |Code|Target Description|`Text`<br>String|0. .1||||
 |Code|URI|`Attribute`<br>String|1|A portable identifier (i.e a URI) of the code.|A portable identifier (i.e a URI) of the code.||
 
-### Text - Composite Type
+### <a name="text-compositetype">Text - Composite Type</a>
 **Definition**: A character string (i.e. a finite set of characters) generally in the form of words of a language.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Text|Content|`Attribute`<br>String|1|The character string.|The character string.||
 |Text|Language|`Attribute`<br>String|0. .1|The identifier of the language used in the Content attribute.|The identifier of the language used in the Content attribute.||
 
-### Note - Composite Type
+### <a name="note-compositetype">Note - Composite Type</a>
 **Definition**: A formatted character string (i.e. a finite set of characters) generally in the form of words of a language. The character string is passed/included in, and can be represented as, a (formatted) document fragment (formatted) according a given mimetype (e.g. "text/plain", "text/html", etc.)
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
@@ -593,7 +595,7 @@ Interoperability between data sets is increased dramatically when terms from con
 |Note|Format|`Attribute`<br>String|0. .1|The identifier of the mimetype used in the Content attribute.|The identifier of the mimetype used in the Content attribute.||
 |Note|Topic|`Attribute`<br>String|*|The information topic this note is about.|The information topic this note is about.||
 
-### Notation - Composite Type
+### <a name="notation-compositetype">Notation - Composite Type</a>
 **Definition**: A notation (or code) is a character string according a given syntax encoding scheme.
 
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
@@ -601,7 +603,7 @@ Interoperability between data sets is increased dramatically when terms from con
 |Notation|Content|`Attribute`<br>String|1|A notation (or code).|A notation (or code).||
 |Notation|Scheme ID|`Attribute`<br>String|0. .1|The syntax encoding scheme.|The syntax encoding scheme. A particular system of notations or classification codes.||
 
-### Score - Composite Type
+### <a name="score-compositetype">Score - Composite Type</a>
 **Definition**: A score.
 
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
@@ -609,33 +611,33 @@ Interoperability between data sets is increased dramatically when terms from con
 |Score|Content|`Attribute`<br>Literal|1|The score.|The score.||
 |Score|Scoring Scheme ID|`Attribute`<br>String|0. .1|The identifier of the scoring scheme used in the Content attribute.|The identifier of the scoring scheme used in the Content attribute. Refers to the type of scoring methodology or convention.||
 
-### NumericScore < extends Score >
+### <a name="numericscore">NumericScore</a> < extends Score >
 **Definition**: A numeric score.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |NumericScore|Content|`Attribute`<br>Numeric|1|The numeric score.|The numeric score.||
 
-### TextScore < extends Score >
+### <a name="textscore">TextScore</a> < extends Score >
 **Definition**: A textual score.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |TextScore|Content|`Attribute`<br>String|1|The textual score.|The textual score.||
 
-### Measure - Composite Type
+### <a name="measure-compositetype">Measure - Composite Type</a>
 **Definition**: A measure.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Measure|Content|`Attribute`<br>Numeric|1|The numeric value (i.e. measure).|The numeric value (i.e. measure).||
 |Measure|Unit|`Attribute`<br>String|1|A code indicating the type of unit measure, such as "minutes", "hours", "meters", etc.|A code indicating the type of unit measure, such as "minutes", "hours", "meters", etc.|[Measurement unit Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/measurement-unit)|
 
-### Amount - Composite Type
+### <a name="amount-compositetype">Amount - Composite Type</a>
 **Definition**: An amount.
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Amount|Content|`Attribute`<br>Numeric|1|The numeric value (i.e. price, salary, etc.).|||
 |Amount|Unit|`Attribute`<br>String|1|A code indicating the currency in which the amount is indicated/expressed.||[Currencies Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/currency)|
 
-### Primitive Type Structured Data Types
+### <a name="primitivetypestructureddatatypes">Primitive Type Structured Data Types</a>
 
 |Data Type|Range (data type)|Definition|
 |--|--|--|
