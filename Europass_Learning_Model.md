@@ -23,7 +23,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Type|The type of credential.|type|`Property`<br>Code|1||[Europass Standard List of Credential Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/credential/25831c2)|
 |Title|The full official title of the issued credential (maximum 50 characters).|title|`Property`<br>Text|1|||
 |Description|A summary of the claim or group of claims being made about a person (maximum 140 words).|description|`Property`<br>Note|0. .1|||
-|Issuer|The organisaton that issued the credential and sealed it with their digital e-seal.|issuer|`Association`<br>Organisation|1|||
+|Issuer|The organisaton that issued the credential and sealed it with their digital e-seal.|issuer|`Association`<br>[Organisation](#organisation)|1|||
 |Owner|The person about which claims are made and who owns the credential.|credentialSubject|`Association`<br>Person|1|||
 |Display Parameters|The display details of the credential.|display|`Association`<br>DisplayParameters|0. .1|||
 |Attachments|Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Europass document.|attachment|`Association`<br>MediaObject|*|||
@@ -332,8 +332,9 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Learning Achievements|An achievement of the person.|achieved|`Association`<br>LearningAchievement|*|||
 |Learning Entitlements|The entitlement of the person.|entitledTo|`Association`<br>Entitlement|*|||
 
-### Organisation < extends Agent >
+### #Organisation < extends Agent >
 **Class description**: A legal person / registered organisation.
+
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Organisation UID|The unique and portable identifier of the organisation.|id|`ID/PK`<br>URI|1|||
