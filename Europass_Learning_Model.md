@@ -481,7 +481,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 **Class description**: An address.
 |Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
-|Address UID|The protable and unique identifier of the address.|id|`ID/PK`<br>URI|1|||
+|Address UID|The portable and unique identifier of the address.|id|`ID/PK`<br>URI|1|||
 |Identifier|An address identifier.|identifier|`Property`<br>Identifier|*|||
 |Full Address|The complete address with or without formatting.|fullAddress|`Property`<br>Note|0. .1|||
 |Country|The address’ country code.|countryCode|`Property`<br>Code|1||[Country Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country)|
