@@ -524,24 +524,6 @@ A Europass credential is a set of one or more claims which may be used to demons
 |--|--|--|--|--|--|--|
 |Media Type|The media type of the image resource.|contentType|`Property`<br>Code|0. .1||[Filetype](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/file-type)|
 
-## <a name="associationclasses">Association Classes</a>
-
-### <a name="associationobject">Association Object</a>
-**Class description**: The details of an association or an alignment between a resource and another node in an established semantic framework. This class can be used to relate, annotate or align a resource to another semantic asset. Described in the QMS.
-|Label|Definition|Field|`Type`<br>Range (data type)|Card|Suggested Use|Recommended Controlled Vocabulary|
-|--|--|--|--|--|--|--|
-|Association Type|The type of the association.|associationType|`Property`<br>Code|0. .1|||
-|Description|A description of the association.|description|`Property`<br>Text|0. .1|||
-|Issue Date|Date of creation of the association.|issueDate|`Property`<br>DateTime|0. .1|||
-|Is Association For|isAssociationForThe resource being described.|isAssociationFor|`Association`<br>Resource|1|||
-|Target Framework|The framework to which the resource being described is associated.|targetFramework|`Property`<br>Text|0. .1|||
-|Target Framework Version|A version number or other designation of the target framework.|targetFrameworkVersion|`Property`<br>String|0. .1|||
-|Target Resource|The resource representing the associated node in the targeted framework.|targetResource|`Association`<br>Resource|0. .1|||
-|Target Notation|A notation or code of the associated node in the targeted framework.|targetNotation|`Property`<br>Notation/String|*|||
-|Target Name|A name or label of the associated node in the targeted framework.|targetName|`Property`<br>Text|0. .1|||
-|Target Description|A free-text description of the associated node in the targeted framework.|targetDescription|`Property`<br>Note|0. .1|||
-|Target URL|The URL of the associated node in the targeted framework.|targetUrl|`Property`<br>xsd:anyURI|*|||
-
 ## <a name="structureddatatypes">Structured Data Types</a>
 
 ### <a name="identifier-compositetype">Identifier - Composite Type</a>
@@ -622,13 +604,6 @@ Interoperability between data sets is increased dramatically when terms from con
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |TextScore|Content|`Attribute`<br>String|1|The textual score.|The textual score.||
-
-### <a name="measure-compositetype">Measure - Composite Type</a>
-**Definition**: A measure.
-|Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
-|--|--|--|--|--|--|--|
-|Measure|Content|`Attribute`<br>Numeric|1|The numeric value (i.e. measure).|The numeric value (i.e. measure).||
-|Measure|Unit|`Attribute`<br>String|1|A code indicating the type of unit measure, such as "minutes", "hours", "meters", etc.|A code indicating the type of unit measure, such as "minutes", "hours", "meters", etc.|[Measurement unit Named Authority List](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/measurement-unit)|
 
 ### <a name="amount-compositetype">Amount - Composite Type</a>
 **Definition**: An amount.
