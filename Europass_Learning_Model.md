@@ -23,6 +23,8 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Type|The type of credential.|type|`Property`<br>Code|1||[Europass Standard List of Credential Types](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://data.europa.eu/snb/credential/25831c2)|
 |Title|The full official title of the issued credential (maximum 50 characters).|title|`Property`<br>Text|1|||
 |Description|A summary of the claim or group of claims being made about a person (maximum 140 words).|description|`Property`<br>Note|0. .1|||
+|Primary language|The primary language of the credential (only one language can be applied).|primaryLanguage|`Property`<br/>String|1||bg, cs, da, de, el, en, es, et, fi, fr, ga, hr, hu, is, it, lt, lv, mk, mt, nl, no, pl, pt, ro, sk, sl, sr, sv, tr|
+|Available Languages|The list of minimum 1 to maximum 29 languages the credential content is available in. This list must include the Primary language as well.|availableLanguages|`Property`<br/>String|1. .29||bg, cs, da, de, el, en, es, et, fi, fr, ga, hr, hu, is, it, lt, lv, mk, mt, nl, no, pl, pt, ro, sk, sl, sr, sv, tr|
 |Issuer|The organisaton that issued the credential and sealed it with their digital e-seal.|issuer|`Association`<br><a href="#organisation">Organisation</a>|1|||
 |Owner|The person about which claims are made and who owns the credential.|credentialSubject|`Association`<br><a href="#person">Person</a>|1|||
 |Display Parameters|The display details of the credential.|display|`Association`<br><a href="#displayparameters">DisplayParameters</a>|0. .1|||
@@ -566,6 +568,7 @@ Interoperability between data sets is increased dramatically when terms from con
 |Data Type|Field|`Type`<br>Range (data type)|Card|Definition|Description|Recommended Controlled Vocabulary|
 |--|--|--|--|--|--|--|
 |Text|Content|`Attribute`<br>String|1|The character string.|The character string.||
+|Text|ContentType|`Attribute`<br/>String|0. .1|The text format specified by the corresponding mimetype (or just type) (text/plain, text/html).|The text format specified by the corresponding mimetype (or just type) (text/plain, text/html).||
 |Text|Language|`Attribute`<br>String|0. .1|The identifier of the language used in the Content attribute.|The identifier of the language used in the Content attribute.||
 
 ### <a name="note-compositetype">Note - Composite Type</a>
