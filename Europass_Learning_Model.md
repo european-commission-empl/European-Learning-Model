@@ -259,7 +259,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Awarding Opportunity UID|A portable identifier of the awarding opportunity.|id|`ID/PK`<br>URI|1|||
 |Identifier|An alternative identifier of the awarding opportunity.|identifier|`Property`<br>Identifier|*|||
 |Awarding Body|The awarding body related to this awarding activity (i.e the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1.|awardingBody |`Association`<br><a href="#organisation">Organisation</a>|*|||
-|Location|Location where the awarding activity takes place (country/region where the qualification is awarded).|location|`Association`<br><a href="#location">Location</a>|0. .1|||
+|Location|Location where the awarding activity takes place (country/region where the qualification is awarded).|hasLocation|`Association`<br><a href="#location">Location</a>|0. .1|||
 |Start Date|The date since when the awarding activities take place. If not specified it is undefined ("not known")|startedAtTime|`Property`<br>DateTime|0. .1|||
 |End Date|The date until when the awarding activities take/took place|endedAtTime|`Property`<br>DateTime|0. .1|||
 
