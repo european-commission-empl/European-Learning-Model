@@ -135,7 +135,7 @@ A Europass credential is a set of one or more claims which may be used to demons
 |Start Date|The date the learner started the activity|startedAtTime|`Property`<br>DateTime|0. .1|||
 |End Date|The date the learner ended the activity|endedAtTime|`Property`<br>DateTime|0. .1|||
 |Directed by|The organisation, or part of an organisation such as department, faculty, which directed the learning activity.|directedBy|`Association`<br><a href="#agent">Agent</a>|*|||
-|Location|The location where the activity took place.|location|`Association`<br><a href="#location">Location</a>|*|||
+|Location|The location where the activity took place.|hasLocation|`Association`<br><a href="#location">Location</a>|*|||
 |Specified by|The specification of this learning activity.|specifiedBy|`Association`<br><a href="#learningactivityspecification">LearningActivitySpecification</a>|0. .1|||
 |Linked to Learning Opportunity|The used or taken opportunity to do this learning activity.|usedLearningOpportunity|`Association`<br><a href="#learningopportunity">LearningOpportunity</a>|0. .1|||
 |Achievements Influenced|Performing this activity contributed to the acquisition of these related learning achievements.|influenced|`Association`<br><a href="#learningachievement">LearningAchievement</a>|*|||
