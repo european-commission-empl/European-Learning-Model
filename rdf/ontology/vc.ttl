@@ -1,0 +1,216 @@
+@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc#>.
+@prefix cc:     <http://creativecommons.org/ns#>.
+@prefix dc:     <http://purl.org/dc/terms/>.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix vcdm:   <https://www.w3.org/TR/vc-data-model/#>.
+
+<http://data.europa.eu/snb/model/w3c/vc>
+  a owl:Ontology;
+  owl:imports rdf: ; 
+  owl:imports vcdm:;
+  owl:imports dc:;
+  rdfs:label "Verifiable Credential"@en;
+  dc:created "2021-09-09"^^xsd:date;
+  dc:modified "2022-07-12"^^xsd:date;
+  dc:title "Verifiable Credential"@en;
+  dc:abstract '''A verifiable credential can represent all of the same information that a physical credential represents. 
+  The addition of technologies, such as digital signatures, makes verifiable credentials more tamper-evident and more trustworthy 
+  than their physical counterparts.'''@en;
+  rdfs:comment "This document specifies the set of RDF/OWL classes and properties used in Verifiable Credential Model."@en;
+  owl:versionInfo "1.0.0";
+  cc:attributionURL <https://www.w3.org/> ;
+  dc:license <https://creativecommons.org/licenses/by/4.0/>;
+  dc:creator [foaf:mbox ""; foaf:name ""];   # to be added 
+  dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added 
+  .
+
+vc:VerifiableCredential  
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "vc:VerifiableCredential";
+  rdfs:comment "A set of one or more claims made by an issuer. A credential is a set of one or more claims made by the same entity. A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified."@en;
+  rdfs:label "Verifiable Credential"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+
+vc:CredentialSchema
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "vc:CredentialSchema";
+  rdfs:comment "The credential schema. Contains information about the credential schema (template) on which the Verifiable Credential is based (via the Trusted Schemas Registry, TSR)."@en;
+  rdfs:label "Credential Schema"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+vc:CredentialStatus
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "vc:CredentialStatus";
+  rdfs:comment "The credential status. It defines discovery information about the current status of a Verifiable Credential."@en;
+  rdfs:label "Credential Status"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+vc:Evidence
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "vc:Evidence";
+  rdfs:comment "The evidence of the verifiable credential. It contains information about the process which resulted in the issuance of the verifiable credential."@en;
+  rdfs:label "Evidence"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+
+vc:Proof
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "vc:Proof";
+  rdfs:comment "The proof of the verifiable credential."@en;
+  rdfs:label "Proof"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+vc:TermsOfUse
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "vc:TermsOfUse";
+  rdfs:comment "The terms of use. It defines the terms under which the verifiable credential was issued."@en;
+  rdfs:label "Terms Of Use"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+
+# Properties
+
+# Reused properties: dc:issued, dc:type
+
+vc:issuanceDate
+  a rdf:Property; 
+  a owl:DatatypeProperty;
+  dc:identifier "vc:issuanceDate";
+  rdfs:comment "Defines the date and time, when the Verifiable Credential becomes valid."@en;
+  rdfs:label "issuance date"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  rdfs:range xsd:dateTime;
+  rdfs:subPropertyOf dc:date;
+.
+
+vc:validFrom
+  a rdf:Property; 
+  a owl:DatatypeProperty;
+  dc:identifier "vc:validFrom";
+  rdfs:comment "The earliest date when the information associated with the credentialSubject property became valid."@en;
+  rdfs:label "valid from"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  rdfs:range xsd:dateTime;
+  rdfs:subPropertyOf dc:date;
+.
+
+vc:validUntil
+  a rdf:Property; 
+  a owl:DatatypeProperty;
+  dc:identifier "vc:validUntil";
+  rdfs:comment "The date and time, when the credential expires (automatic invalidation)."@en;
+  rdfs:label "valid until"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  rdfs:range xsd:dateTime;
+  rdfs:subPropertyOf dc:date;
+.
+
+vc:expirationDate
+  a rdf:Property; 
+  a owl:DatatypeProperty;
+  dc:identifier "vc:expirationDate";
+  rdfs:comment "The date when the credential expires."@en;
+  rdfs:label "expiration date "@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  rdfs:range xsd:dateTime;
+  rdfs:subPropertyOf dc:date;
+  .
+
+vc:credentialSubject
+  a rdf:Property; 
+  a owl:ObjectProperty;
+  dc:identifier "vc:credentialSubject";
+  rdfs:comment "The person about which claims are made and who owns the credential."@en;
+  rdfs:label "owner/credential subject"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  rdfs:domain vc:VerifiableCredential;
+.
+
+vc:issuer 
+  a rdf:Property; 
+  a owl:ObjectProperty;
+  dc:identifier "vc:issuer";
+  rdfs:comment "The organisation that issued the credential and sealed it with their digital e-seal."@en;
+  rdfs:label "issuer"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+.
+vc:proof
+  a rdf:Property;
+  a owl:ObjectProperty;
+  dc:identifier "vc:proof";
+  rdfs:comment "The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation."@en;
+  rdfs:label "proof"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+vc:credentialSchema
+  a rdf:Property;
+  a owl:ObjectProperty;
+  dc:identifier "vc:credentialSchema";
+  rdfs:comment "The information about the credential schema (template) on which the Verifiable Credential is based (via the Trusted Schemas Registry, TSR)."@en;
+  rdfs:label "credential schema"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+vc:credentialStatus
+  a rdf:Property;
+  a owl:ObjectProperty;
+  dc:identifier "vc:credentialStatus";
+  rdfs:comment "Information about the current status of the credential."@en;
+  rdfs:label "credential status"@en;
+  rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+
+  vc:termsOfUse
+   a rdf:Property;
+   a owl:ObjectProperty;
+   dc:identifier "vc:termsOfUse";
+   rdfs:comment "The terms under which the credential was issued."@en;
+   rdfs:label "terms of use"@en;
+   rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+
+vc:evidence
+   a rdf:Property;
+   a owl:ObjectProperty;
+   dc:identifier "vc:evidence";
+   rdfs:comment "The  evidence of the verifiable credential."@en;
+   rdfs:label "evidence"@en;
+   rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+
+vc:proofPurpose
+   a rdf:Property;
+   a owl:DatatypeProperty;
+   dc:identifier "vc:proofPurpose";
+   rdfs:comment "The purpose of the proof."@en;
+   rdfs:label "proof purpose"@en;
+   rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .
+
+ vc:verificationMethod
+   a rdf:Property;
+   a owl:DatatypeProperty;
+   dc:identifier "vc:verificationMethod";
+   rdfs:comment "It contains information about the verification method/proof mechanisms."@en;
+   rdfs:label "verification method"@en;
+   rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  . 
+
+  vc:jws
+   a rdf:Property;
+   a owl:DatatypeProperty;
+   dc:identifier "vc:jws";
+   rdfs:comment "It defines the proof value in JWS signature format."@en;
+   rdfs:label "jws"@en;
+   rdfs:isDefinedBy <http://data.europa.eu/snb/model/w3c/vc>;
+  .  

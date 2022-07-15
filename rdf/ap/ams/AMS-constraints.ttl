@@ -1,0 +1,1052 @@
+@prefix dc:     <http://purl.org/dc/terms/>.
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
+@prefix esco:   <http://data.europa.eu/esco/model#>.
+@prefix prov:   <http://www.w3.org/ns/prov#>.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix org:    <http://www.w3.org/ns/org#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix gr:     <http://purl.org/goodrelations/v1#>.
+@prefix dcat:   <http://www.w3.org/ns/dcat#>.
+@prefix elm:    <https://data.europa.eu/snb/model#>.
+@prefix ams:    <https://data.europa.eu/snb/model/ams-constraints#>.
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix cc:     <http://creativecommons.org/ns#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc#>.
+@prefix vp:     <http://data.europa.eu/snb/model/w3c/vp#>.
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+
+<https://data.europa.eu/snb/model/ams-constraints>
+  a owl:Ontology;
+  owl:imports rdf:;
+  owl:imports skos:;
+  owl:imports dc:;
+  owl:imports org:;
+  owl:imports adms:;
+  owl:imports foaf:;
+  owl:imports elm:;
+  owl:imports sh:;
+  rdfs:label "SHACL constraints for AMS Application Profile"@en;
+  dc:created "2021-09-10"^^xsd:date;
+  dc:modified "2022-07-12"^^xsd:date;
+  dc:title "SHACL constraints for Accreditation Metadata Schema application profile"@en;
+  dc:description "SHACL constraints for the Accreditation Metadata Schema application Profile provides the classes with their attributes and relationships, and the constraints on occurrences and values used."@en;
+  rdfs:comment "This document specifies the set  classes and properties used in the Accreditation Metadata Schema application profile, and the constraints on occurrences and values used."@en;
+  owl:versionInfo "1.0.0";
+  dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
+  cc:attributionURL <http://ec.europa.eu/> ;
+  dc:license <https://creativecommons.org/licenses/by/4.0/>;
+  # dc:creator [foaf:mbox ""; foaf:name ""]; # to be added
+  # dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added
+  .
+
+#----------------------------------------------------
+#------      Accreditation class shapes       ------
+#----------------------------------------------------
+ams:AccreditationShape
+  a sh:NodeShape;
+  sh:targetClass elm:Accreditation;
+  rdfs:comment "The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about: (1) the quality assurance and/or licensing of an organisation, (2) the quality assurance and/or licensing of an organisation with respect to a specific qualification."@en;
+  rdfs:label "Accreditation Shape"@en;
+  #REFERENCES OBJECT
+  sh:property [
+    sh:path adms:identifier;
+    sh:class elm:Identifier;
+    sh:description "An identifier of the accreditation, as assigned to it by the accrediting agent."@en;
+    sh:name "identifier"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path dc:type;
+    sh:class skos:Concept;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The type of accreditation. It should be provided using the EDC Controlled List of Accreditation Types controlled vocabulary."@en;
+    sh:name "type"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path dc:title;
+    sh:nodeKind sh:Literal;
+    sh:minCount 1;
+    sh:description "The title of the accreditation. One value per language is permitted."@en;
+    sh:name "title"@en;
+    sh:uniqueLang true ;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path dc:description;
+    sh:class elm:Note;
+    sh:description "A free text description of the accreditation."@en;
+    sh:name "description"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ];
+  sh:property [
+    sh:path elm:decision;
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+    sh:description "The Quality Decision issued by the Quality Assuring Authority."@en;
+    sh:name "decision"@en;
+    sh:severity sh:Violation;
+    #sh:order 4;
+  ];
+  sh:property [
+    sh:path elm:report;
+    sh:class elm:WebResource;
+    sh:maxCount 1;
+    sh:description "A publicly accessible report of the quality assurance decision."@en;
+    sh:name "report"@en;
+    sh:severity sh:Violation;
+    #sh:order 5;
+  ];
+  sh:property [
+    sh:path elm:organisation;
+    sh:class elm:Organisation;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The organisation whose activities are being accredited."@en;
+    sh:name "organisation"@en;
+    sh:severity sh:Violation;
+    #sh:order 6;
+  ];
+  sh:property [
+    sh:path elm:limitField;
+    sh:class skos:Concept;
+    sh:description "The field of education for which the accreditation is valid. It should be provided using the ISCED-F controlled vocabulary."@en;
+    sh:name "accredited for thematic area"@en;
+    sh:severity sh:Violation;
+    #sh:order 7;
+  ];
+  sh:property [
+    sh:path elm:limitEQFLevel;
+    sh:class skos:Concept;
+    sh:description "The European Qualification Framework level for which the accreditation is valid. It should be provided using the EQF controlled vocabulary."@en;
+    sh:name "accredited for EQF level"@en;
+    sh:severity sh:Violation;
+    #sh:order 8;
+  ];
+  #  sh:property[
+  #       sh:path elm:limitQualification;
+  #       sh:class elm:Qualification;
+  #       sh:maxCount 1;
+  #       sh:description "The qualification that was accredited."@en;
+  #       sh:name "qualification accredited"@en;
+  #       sh:severity sh:Violation;
+  #        sh:order 7;
+  #    ];
+  sh:property [
+    sh:path elm:limitJurisdiction;
+    sh:class skos:Concept;
+    sh:description "The jurisdiction for which the accreditation is valid. It should be provided using the Administrative territorial unit Authority Table (ATU) controlled vocabulary."@en;
+    sh:name "accredited in jurisdiction"@en;
+    sh:severity sh:Violation;
+    #sh:order 10;
+  ];
+  sh:property [
+    sh:path elm:accreditingAgent;
+    sh:class elm:Organisation;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The Quality Assuring Authority. (i.e., assurer)"@en;
+    sh:name "accrediting agent"@en;
+    sh:severity sh:Violation;
+    #sh:order 11;
+  ];
+  sh:property [
+    sh:path dc:issued;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date when the accreditation was formally approved/issued."@en;
+    sh:name "accreditation date issued"@en;
+    sh:severity sh:Violation;
+    #sh:order 12;
+  ];
+  sh:property [
+    sh:path elm:reviewDate;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date when the accreditation has to be re-viewed."@en;
+    sh:name "review date"@en;
+    sh:severity sh:Violation;
+    #sh:order 13;
+  ];
+  sh:property [
+    sh:path elm:expiryDate;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date when the accreditation expires or was expired."@en;
+    sh:name "expiry date"@en;
+    sh:severity sh:Violation;
+    #sh:order 14;
+  ];
+  sh:property [
+    sh:path elm:additionalNote;
+    sh:class elm:Note;
+    sh:description "An additional free text note about the accreditation."@en;
+    sh:name "more information"@en;
+    sh:severity sh:Violation;
+    #sh:order 15;
+  ];
+  sh:property [
+    sh:path foaf:homepage;
+    sh:class elm:WebResource;
+    sh:description "The homepage of the accreditation."@en;
+    sh:name "homepage"@en;
+    sh:severity sh:Violation;
+    #sh:order 16;
+  ];
+  sh:property [
+    sh:path elm:landingPage;
+    sh:class elm:WebResource;
+    sh:description "The landing page of the accreditation."@en;
+    sh:name "landing page"@en;
+    sh:severity sh:Violation;
+    #sh:order 17;
+  ];
+  sh:property [
+    sh:path elm:supplementaryDocument;
+    sh:class elm:WebResource;
+    sh:description "A web resource containing additional documentation describing the Accreditation Procedures and Standards."@en;
+    sh:name "other documents"@en;
+    sh:severity sh:Violation;
+    #sh:order 18;
+  ];
+  sh:property [
+    sh:path elm:status;
+    sh:class skos:Concept;
+    sh:maxCount 1;
+    sh:description "The publication status of an accreditation."@en;
+    sh:name "status"@en;
+    sh:severity sh:Violation;
+    #sh:order 19;
+  ];
+  sh:property [
+    sh:path elm:lastModificationDate;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date when the accreditation was last updated since it was published."@en;
+    sh:name "last modification date"@en;
+    sh:severity sh:Violation;
+    #sh:order 20;
+  ]
+.
+
+#------ Agent class shapes --------
+ams:AgentShape
+  a sh:NodeShape;
+  sh:targetClass elm:Agent;
+  rdfs:comment "An entity that is able to carry out actions."@en;
+  rdfs:label "Agent Shape"@en;
+  sh:property [
+    sh:path adms:identifier;
+    sh:class elm:Identifier;
+    sh:description "An identifier of the agent."@en;
+    sh:name "identifier"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path skos:prefLabel;
+    sh:nodeKind sh:Literal;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:uniqueLang true ;
+    sh:description "The preferred name of the agent."@en;
+    sh:name "preferred name"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path skos:altLabel;
+    sh:nodeKind sh:Literal;
+    sh:description "The alternative name of the agent."@en;
+    sh:name "alternative name"@en;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path elm:additionalNote;
+    sh:class elm:Note;
+    sh:description "An additional free text note about the agent."@en;
+    sh:name "more information"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ];
+  sh:property [
+    sh:path elm:location;
+    sh:class dc:Location;
+    sh:description "The location of the agent."@en;
+    sh:name "location"@en;
+    #sh:order 4;
+  ];
+  sh:property [
+    sh:path elm:contactPoint;
+    sh:class elm:ContactPoint;
+    sh:description "The contact information of the agent."@en;
+    sh:name "contact information"@en;
+    sh:severity sh:Violation;
+    #sh:order 5;
+  ];
+  sh:property[
+      sh:path elm:groupMemberOf;
+      sh:class elm:Group;
+      sh:description "The group the agent is a member of."@en;
+      sh:name "group member of"@en;
+      sh:severity sh:Violation;
+      #sh:order 6;
+  ];
+    sh:property [
+    sh:path elm:lastModificationDate;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date when the agent was last modified."@en;
+    sh:name "last modification date"@en;
+    sh:severity sh:Violation;
+    #sh:order 7;
+  ]
+  .
+
+#----- Group Shape (skos:Concept) --------------
+
+ams:GroupShape
+  a sh:NodeShape ;
+  sh:targetClass elm:Group;
+  rdfs:comment "An entity that represents collection of Agents."@en; 
+  rdfs:label "Group Shape"@en;
+  sh:property [
+        sh:minCount 1 ;
+        sh:maxCount 1;
+        sh:nodeKind sh:Literal ;
+        sh:path skos:prefLabel ;
+        sh:name "name"@en;
+        sh:description "The name of the group."@en;
+        sh:severity sh:Violation;
+        #sh:order 0;
+  ];
+  sh:property [
+        sh:nodeKind sh:Literal ;
+        sh:path skos:altLabel ;
+        sh:name "alternative name"@en;
+        sh:description "The alternative name of the group."@en;
+        sh:severity sh:Violation;
+        #sh:order 1;
+  ];
+  sh:property [
+        sh:class skos:Concept;
+        sh:path dc:type ;
+        sh:name "type"@en;
+        sh:description "The type of the group. It should be provided using a controlled vocabulary."@en;
+        sh:severity sh:Violation;
+        #sh:order 2;
+  ];
+  sh:property[
+     sh:path elm:additionalNote;
+     sh:class elm:Note;
+     sh:description "An additional free text note about the group."@en;
+     sh:name "more information"@en;
+     sh:severity sh:Violation;
+     #sh:order 3; 
+  ];
+  sh:property[
+    sh:path elm:location;
+    sh:class dc:Location;
+    sh:description "The location of the group."@en;
+    sh:name "location"@en;
+    sh:severity sh:Violation;
+    #sh:order 4;
+  ];
+  sh:property[
+      sh:path elm:contactPoint;
+      sh:class elm:ContactPoint;
+      sh:description "The contact information of the group."@en;
+      sh:name "contact information"@en;
+      sh:severity sh:Violation;
+      #sh:order 5;
+  ];
+  sh:property[
+    sh:path foaf:member;
+    sh:class elm:Agent;
+    sh:description "An agent being a member of the group."@en;
+    sh:name "has member"@en;
+    sh:severity sh:Violation;
+    #sh:order 6;
+  ]
+  .
+#------ Organisation class and property  shapes --------
+ams:OrganisationShape
+  a sh:NodeShape;
+  sh:targetClass elm:Organisation;
+  rdfs:comment "A registered organisation. Organisation is a subclass of Agent."@en;
+  rdfs:label "Organisation Shape"@en;
+  #REFERENCES OBJECT
+  sh:property [
+    sh:path skos:altLabel;
+    sh:nodeKind sh:Literal;
+    sh:description "The alternative name of the organisation."@en;
+    sh:name "alternative name"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path rov:legalName;
+    sh:nodeKind sh:Literal;
+    sh:minCount 1;
+    sh:description "The legal name of the organisation."@en;
+    sh:name "legal name"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path adms:identifier;
+    sh:class elm:Identifier;
+    sh:description "An alternative identifier of the organisation."@en;
+    sh:name "identifier"@en;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path elm:eidasLegalIdentifier;
+    sh:class elm:LegalIdentifier;
+    sh:maxCount 1;
+    sh:description "The official identification number of the organisation, as awarded by the relevant national authority."@en;
+    sh:name "eIDAS identifier"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ];
+  sh:property [
+    sh:path rov:registration;
+    sh:class elm:LegalIdentifier;
+    sh:maxCount 1;
+    sh:description "The legal identifier of an organisation. The identifier given to a registered organisation by the authority with which it is registered. The legal status of a registered organisation is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organisation and the authority with which it is registered."@en;
+    sh:name "registration"@en;
+    sh:severity sh:Violation;
+    #sh:order 4;
+  ];
+  sh:property [
+    sh:path elm:vatIdentifier;
+    sh:class elm:LegalIdentifier;
+    sh:description "The Value-Added Tax ID."@en;
+    sh:name "VAT number"@en;
+    sh:severity sh:Violation;
+    #sh:order 5;
+  ];
+  sh:property [
+    sh:path elm:taxIdentifier;
+    sh:class elm:LegalIdentifier;
+    sh:description "Fiscal ID of the organisation."@en;
+    sh:name "tax/fiscal identifier"@en;
+    sh:severity sh:Violation;
+    #sh:order 6;
+  ];
+  sh:property [
+    sh:path foaf:homepage;
+    sh:class elm:WebResource;
+    sh:description "The homepage of the organisation."@en;
+    sh:name "homepage"@en;
+    sh:severity sh:Violation;
+    #sh:order 7;
+  ];
+  sh:property [
+    sh:path elm:additionalNote;
+    sh:class elm:Note;
+    sh:description "An additional free text note about the organisation."@en;
+    sh:name "more information"@en;
+    sh:severity sh:Violation;
+    #sh:order 8;
+  ];
+  sh:property [
+    sh:path elm:accreditation;
+    sh:class elm:Accreditation;
+    sh:description "Accreditation records associated with the organisation. More information about the accreditation database is available here."@en;
+    sh:name "accreditation"@en;
+    sh:severity sh:Violation;
+    #sh:order 9;
+  ];
+  sh:property [
+    sh:path elm:location;
+    sh:class dc:Location;
+    sh:minCount 1;
+    sh:description "The legally registered site of the organisation."@en;
+    sh:name "location"@en;
+    sh:severity sh:Violation;
+    #sh:order 10;
+  ];
+  sh:property [
+    sh:path elm:contactPoint;
+    sh:class elm:ContactPoint;
+    sh:description "The contact information of an organisation."@en;
+    sh:name "contact information"@en;
+    sh:severity sh:Violation;
+    #sh:order 11;
+  ];
+  sh:property [
+    sh:path org:hasSubOrganization;
+    sh:class elm:Organisation;
+    sh:description "A smaller organisation of which forms part of this organisation, e.g., a department within a larger organisation."@en;
+    sh:name "child organisation"@en;
+    sh:severity sh:Violation;
+    #sh:order 12;
+  ];
+  sh:property [
+    sh:path org:subOrganizationOf;
+    sh:class elm:Organisation;
+    sh:maxCount 1;
+    sh:description "Indicates a larger organisation of which this organisation is a part of, e.g., the organisation within which a department operates."@en;
+    sh:name "parent organisation"@en;
+    sh:severity sh:Violation;
+    #sh:order 13;
+  ];
+  sh:property [
+    sh:path elm:groupMemberOf;
+    sh:class elm:Group;
+    sh:description "The group the organisation is a member of."@en;
+    sh:name "group member of"@en;
+    sh:severity sh:Violation;
+    #sh:order 14;
+  ];
+  sh:property [
+    sh:path elm:logo;
+    sh:maxCount 1;
+    sh:class elm:MediaObject;
+    sh:description "The logo of the organisation."@en;
+    sh:name "logo"@en;
+    sh:severity sh:Violation;
+    #sh:order 15;
+  ];
+  sh:property [
+    sh:path elm:lastModificationDate;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date when the organisation was last updated since it was published."@en;
+    sh:name "last modification date"@en;
+    sh:severity sh:Violation;
+    #sh:order 16;
+  ]
+  .
+
+# ------------ Location  Shapes -----------
+ams:LocationShape
+  a sh:NodeShape;
+  sh:targetClass dc:Location;
+  rdfs:comment "An identifiable geographic place."@en;
+  rdfs:label "Location Shape"@en;
+  #REFERENCES OBJECT
+  sh:property [
+    sh:path adms:identifier;
+    sh:class elm:Identifier;
+    sh:description "A location identifier."@en;
+    sh:name "identifier"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path elm:geographicName;
+    sh:nodeKind sh:Literal;
+    sh:maxCount 1;
+    sh:description "A proper noun applied to a spatial object."@en;
+    sh:name "geographic name"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path elm:spatialCode;
+    sh:class skos:Concept;
+    sh:description "A code identifying a spatial scope in which this physical location is located. It should be provided using the Administrative territorial unit Authority Table (ATU)."@en;
+    sh:name "spatial code"@en;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path dc:description;
+    sh:class elm:Note;
+    sh:description "A free text description of the location."@en;
+    sh:name "description"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ];
+  sh:property [
+    sh:path elm:address;
+    sh:class elm:Address;
+    sh:minCount 1;
+    sh:name"address"@en;
+    sh:description "An address associated with the location."@en;
+    sh:severity sh:Violation;
+    #sh:order 4;
+  ];
+  .
+
+#------ Address class shapes --------
+ams:AddressShape
+  a sh:NodeShape;
+  sh:targetClass elm:Address;
+  rdfs:comment "An address."@en;
+  rdfs:label "Address Shape"@en;
+  sh:property [
+    sh:path adms:identifier;
+    sh:class elm:Identifier;
+    sh:description "An address identifier."@en;
+    sh:name "identifier"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path elm:fullAddress;
+    sh:class elm:Note;
+    sh:maxCount 1;
+    sh:description "The complete address with or without formatting."@en;
+    sh:name "full address"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path elm:countryCode;
+    sh:class skos:Concept ;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The address’ country code. It should be provided using the Country Named Authority List."@en;
+    sh:name "country"@en;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  .
+#------ ContactPoint class and property shapes --------
+ams:ContactPointShape
+  a sh:NodeShape;
+  sh:targetClass elm:ContactPoint;
+  rdfs:comment "A contact point for an agent."@en;
+  rdfs:label "Contact Point Shape"@en;
+  sh:property [
+    sh:path elm:additionalNote;
+    sh:class elm:Note;
+    sh:description "An additional free text note about the contact point."@en;
+    sh:name "more information"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path dc:description;
+    sh:class elm:Note;
+    sh:description "A free text description of the contact details."@en;
+    sh:name "description"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path elm:address;
+    sh:class elm:Address;
+    sh:description "A postal address used for contacting the agent."@en;
+    sh:name "address"@en;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path elm:phone;
+    sh:class elm:Phone;
+    sh:description "A phone number used for contacting the agent."@en;
+    sh:name "phone"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ];
+  sh:property [
+    sh:path elm:mailbox;
+    sh:class elm:Mailbox;
+    sh:minCount 1;
+    sh:description "An e-mail address used for contacting the agent."@en;
+    sh:name "mailbox"@en;
+    sh:severity sh:Violation;
+    #sh:order 4;
+  ];
+  sh:property [
+    sh:path elm:contactForm;
+    sh:class elm:WebResource;
+    sh:description "A contact form used for contacting the agent."@en;
+    sh:name "contact form"@en;
+    sh:severity sh:Violation;
+    #sh:order 5;
+  ];
+  .
+
+#------ Identifier class and property  shapes --------
+ams:IdentifierShape
+  a sh:NodeShape;
+  sh:targetClass elm:Identifier;
+  rdfs:comment "A character string used to identify a resource. An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency. The Identifier class is a critical aspect of the ELM. It is used to identify persons and organisations. In these cases and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised."@en;
+  rdfs:label "Identifier Shape"@en;
+  sh:property [
+    sh:path skos:notation;
+    sh:nodeKind sh:Literal;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "Content string which is the identifier."@en;
+    sh:name "identifier content"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path dc:creator;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1;
+    sh:description "Identification of the agent that manages the identifier scheme. The agent that issued the identifier. (e.g., a URI)."@en;
+    sh:name "scheme agency"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path adms:schemeAgency;
+    sh:nodeKind sh:Literal ;
+    sh:maxCount 1;
+    sh:description "The name of the agent that manages the identifier scheme."@en;
+    sh:name "scheme agency name"@en;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path dc:issued;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date on which the identifier was issued."@en;
+    sh:name "date issued"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ];
+  sh:property [
+    sh:path elm:schemeName;
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+    sh:description "The name of the identifier scheme."@en;
+    sh:name "scheme name"@en;
+    sh:severity sh:Violation;
+    #sh:order 4;
+  ];
+  sh:property [
+    sh:path elm:schemeVersion;
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+    sh:description "Identification of the version of the identifier scheme."@en;
+    sh:name "scheme version"@en;
+    sh:severity sh:Violation;
+    #sh:order 5;
+  ];
+  sh:property [
+    sh:path dc:type;
+    sh:class skos:Concept;
+    sh:description "The type of identifier."@en;
+    sh:name "type"@en;
+    sh:severity sh:Violation;
+    #sh:order 6;
+  ];
+  .
+
+#------ Legal Identifier class and property  shapes --------
+ams:LegalIdentifierShape
+  a sh:NodeShape;
+  sh:targetClass elm:LegalIdentifier;
+  rdfs:comment "A Legal Identifier. Legal Identifier is a subclass of Identifier."@en;
+  rdfs:label "Legal Identifier Shape"@en;
+  sh:property [
+    sh:path skos:notation;
+    sh:nodeKind sh:Literal;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "Content string which is the identifier."@en;
+    sh:name "identifier content"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path dc:creator;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1;
+    sh:description "Identification of the agent that manages the identifier scheme. The agent that issued the identifier. (e.g., a URI)."@en;
+    sh:name "scheme agency"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path adms:schemeAgency;
+    sh:nodeKind sh:Literal ;
+    sh:maxCount 1;
+    sh:description "The name of the agent that manages the identifier scheme."@en;
+    sh:name "scheme agency name"@en;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path dc:issued;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date on which the identifier was issued."@en;
+    sh:name "date issued"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ];
+  sh:property [
+    sh:path elm:schemeName;
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+    sh:description "The name of the identifier scheme."@en;
+    sh:name "scheme name"@en;
+    sh:severity sh:Violation;
+    #sh:order 4;
+  ];
+  sh:property [
+    sh:path elm:schemeVersion;
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+    sh:description "Identification of the version of the identifier scheme."@en;
+    sh:name "scheme version"@en;
+    sh:severity sh:Violation;
+    #sh:order 5;
+  ];
+  sh:property [
+    sh:path dc:type;
+    sh:class skos:Concept;
+    sh:description "The type of identifier."@en;
+    sh:name "type"@en;
+    sh:severity sh:Violation;
+    #sh:order 6;
+  ];
+  sh:property [
+    sh:path dc:spatial;
+    sh:class skos:Concept;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "A spatial identifier. The identifier of the country and/or jurisdiction. It should be provided using the Country Named Authority List."@en;
+    sh:name "spatial"@en;
+    sh:severity sh:Violation;
+    #sh:order 7;
+  ];
+  .
+
+#------ Mailbox class and property  shapes --------
+ams:MailboxShape
+  a sh:NodeShape;
+  sh:targetClass elm:Mailbox;
+  rdfs:comment "A mailbox."@en;
+  rdfs:label "Mailbox Shape"@en;
+  .
+
+#------ Media Object class and property  shapes --------
+ams:MediaObjectShape
+  a sh:NodeShape;
+  sh:targetClass elm:MediaObject;
+  rdfs:comment "A media object."@en;
+  rdfs:label "Media Object Shape"@en;
+  sh:property [
+    sh:path dc:type;
+    sh:class skos:Concept;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The type of the media object. It should be provided using the Filetype Named Authority List."@en;
+    sh:name "type"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path elm:contentEncoding;
+    sh:class skos:Concept;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The encoding used to encode the binary data. It should be provided using the EDC Controlled List of Content Encoding Types."@en;
+    sh:name "content encoding"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path elm:contentSize;
+    sh:datatype xsd:integer;
+    sh:maxCount 1;
+    sh:description "The content size of the media object."@en;
+    sh:name "content size"@en;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path elm:content;
+    sh:datatype xsd:string;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The binary data of the media object."@en;
+    sh:name "content"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ];
+  sh:property [
+    sh:path elm:contentUrl;
+    sh:datatype xsd:anyURI;
+    sh:maxCount 1;
+    sh:description "The public access URL."@en;
+    sh:name "content URL"@en;
+    sh:severity sh:Violation;
+    #sh:order 4;
+  ];
+  .
+
+#------ Phone class and property shapes --------
+ams:PhoneShape
+  a sh:NodeShape;
+  sh:targetClass elm:Phone;
+  rdfs:comment "A phone."@en;
+  rdfs:label "Phone Shape"@en;
+  sh:property [
+    sh:path elm:phoneNumber;
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+    sh:description "The full phone number as a string."@en;
+    sh:name "full phone number"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path elm:countryDialing;
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+    sh:description "The country dialling code for a contact number."@en;
+    sh:name "country dialling code"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property [
+    sh:path elm:areaDialing;
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+    sh:description "The area dialling code for a contact number."@en;
+    sh:name "area dialling code"@en;
+    sh:severity sh:Violation;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path elm:dialNumber;
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+    sh:description "The contact number, not including country dialling or area dialling codes. (e.g., '3445654', '1234567', etc.)."@en;
+    sh:name "phone number"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ];
+  .
+
+  #------ Web Resource class and property  shapes --------
+ams:WebResourceShape
+  a sh:NodeShape;
+  sh:targetClass elm:WebResource;
+  rdfs:comment "A public web resource."@en;
+  rdfs:label "Web Resource Shape"@en;
+  
+  sh:property [
+    sh:path dc:title;
+    sh:nodeKind sh:Literal;
+    sh:description " The title of the web resource. One value per language is permitted."@en;
+    sh:name "title"@en;
+    sh:uniqueLang true ;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property [
+    sh:path dc:language;
+    sh:class skos:Concept;
+    sh:maxCount 1;
+    sh:description "The language of the web resource."@en;
+    sh:name "language"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+  sh:property[
+     sh:path elm:contentUrl;
+     sh:datatype xsd:anyURI;
+     sh:minCount 1;
+     sh:maxCount 1;
+     sh:description "The public access URL."@en;
+     sh:name "URL"@en;
+     sh:severity sh:Violation;
+    #sh:order 2; 
+  ]
+.
+
+# ------------------ Note  Shape ---------------------------------
+ams:NoteShape
+  a sh:NodeShape;
+  sh:targetClass elm:Note;
+  rdfs:comment "Free text metadata fields, such as the description, a historical or additional note of a qualification can contain a plain text or a XHTML fragment as literal value. By using a Note both the datatype of the literal and the language can be specified."@en;
+  rdfs:label "Note Shape"@en;
+  sh:property[
+      sh:path elm:noteLiteral;
+      sh:nodeKind sh:Literal;
+      sh:minCount 1;
+      sh:maxCount 1;
+      sh:description"The textual content."@en;
+      sh:name"note literal"@en;
+      sh:severity sh:Violation;
+      #sh:order 0;
+    ];
+  sh:property[
+      a sh:PropertyShape;
+      sh:path dc:language;
+      sh:class skos:Concept;
+      sh:maxCount 1;
+      sh:description"The language of the note. It should be provided using Language Named Authority List."@en;
+      sh:name"language"@en;
+      sh:severity sh:Violation;
+      #sh:order 1;
+    ];
+  sh:property[
+      sh:path dc:subject;
+      sh:class skos:Concept;
+      sh:maxCount 1;
+      sh:description"The subject of the note. It should be provided using a controlled vocabulary."@en;
+      sh:name"subject"@en;
+      sh:severity sh:Violation;
+      #sh:order 2; 
+   ];
+.
+
+#-----Code Shape (skos:Concept) --------------
+ams:ConceptShape
+  a sh:NodeShape ;
+  sh:targetClass skos:Concept;
+  rdfs:comment "A term from a controlled vocabulary modelled as a skos:Concept."@en; 
+  rdfs:label "Concept Shape"@en; 
+  sh:property [
+        sh:nodeKind sh:Literal ;
+        sh:path skos:prefLabel ;
+        sh:name "name"@en;
+        sh:description "The text equivalent of the code content component. One value per language is permitted."@en;
+        sh:uniqueLang true ;
+        sh:severity sh:Violation;
+        #sh:order 0;
+    ];
+    sh:property [
+      sh:path skos:notation ;
+      sh:nodeKind sh:Literal ;  
+      sh:name "notation"@en;
+      sh:maxCount 1;
+      sh:description "A notation, also known as classification code, is a string of characters used to uniquely identify a concept within the scope of a given concept scheme."@en;
+      sh:severity sh:Violation;
+      #sh:order 1;
+    ];
+     sh:property [
+      sh:path skos:inScheme ;
+      sh:class skos:ConceptScheme ;  
+      sh:name "in scheme"@en;
+      sh:maxCount 1;
+      sh:description "The concept scheme this concept belongs to. The identification of the controlled vocabulary."@en;
+      sh:severity sh:Violation;
+      #sh:order 2;
+    ];
+.
+
+ams:ConceptScheme
+  a sh:NodeShape ;
+  sh:targetClass skos:ConceptScheme;
+  rdfs:comment "A controlled vocabulary modelled as a Concept Scheme."@en; 
+  rdfs:label "Concept  Scheme Shape"@en; 
+  .
