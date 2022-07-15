@@ -5,9 +5,9 @@ Data Model for Interoperability of Learning Opportunities, Qualifications and Cr
 The current version of the data model provides:
 * an rdf ontology for the model
 * application profiles for
-** credentials
-** learning opportunities and qualificaitons
-** accreditations
+  * credentials
+  * learning opportunities and qualificaitons
+  * accreditations
 * html documentaiton of each application profile.
 
 ## Providing Feedback
