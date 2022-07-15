@@ -8,7 +8,7 @@ The current version of the data model provides:
 ** credentials
 ** learning opportunities and qualificaitons
 ** accreditations
-* html documentaiton of each applciation profile.
+* html documentaiton of each application profile.
 
 ## Providing Feedback
 Feedback on the data model is welcome by submitting issues here in Github.
