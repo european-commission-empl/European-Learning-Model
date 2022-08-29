@@ -20,7 +20,7 @@ The current version of the data model provides description of concepts including
 * definition of a Europass learning opportunity
 
 ## Further Information
-Additional documentation, explanations and walkthroughs are available from our [JoinUp solution page](https://joinup.ec.europa.eu/solution/europass-learning-model/release/050).
+Additional documentation, explanations and walkthroughs are available from our [Interoperability Pages](https://europa.eu/europass/en/interoperability-european-digital-credentials-learning).
 
 ## Providing Feedback
 Feedback on the data model is welcome by submitting issues here in Github.
