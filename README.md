@@ -1,4 +1,4 @@
-# Europass Learning Model
+# European Learning Model
 Data Model for Interoperability of Learning Opportunities, Qualifications and Credentials in Europe. This data model is in use by:
 
 
@@ -24,6 +24,9 @@ Additional documentation, explanations and walkthroughs are available from our [
 
 ## Providing Feedback
 Feedback on the data model is welcome by submitting issues here in Github.
+
+## Product Owner
+This GitHub Repository is managed by EMPL.B.2 - Skills Agenda. Queries can be  made to EMPL-ELM-SUPPORT@ec.europa.eu
 
 ## Credits
 This model is informed by research from the [MicroHE](https://microcredentials.eu) and [OEPASS](https://oepass.eu) projects, funded by the Erasmus+ Programme of the European Commission.  
