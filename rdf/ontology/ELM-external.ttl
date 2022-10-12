@@ -20,6 +20,9 @@
 @prefix person: <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix locn:   <http://www.w3.org/ns/locn#>.
+@prefix clv:    <http://data.europa.eu/m8g/>.
+
 
 # classes directly reused in elm (not via subClassOf)
 rdfs:Resource
@@ -47,6 +50,10 @@ dc:PeriodOfTime
   skos:definition "An interval of time that is named or defined by its start and end."@en ;
   skos:scopeNote "the start and end of the interval may be given by using properties elm:startDate and elm:endDate respectively. The interval can also be open - i.e., it can have just a start or just an end. A prefLabel can be assigned to the class, to five a name to the time interval, e.g semester"@en ;
 .
+locn:Geometry
+  skos:definition "A shape or form of a Location."@en;
+  skos:scopeNote "This class defines the notion of geometry at the conceptual level, and it shall be encoded by using different formats (see usage note of the locn:geometry property). Can be a point, line or polygon, expressed using coordinates in some coordinate reference system. We also refer to the Examples section of this specification for a number of different geometry examples expressed in different formats."@en;
+.
   #----- properties
 dc:type #-> type of media object
     skos:definition "The nature or genre of the resource."@en ;
@@ -61,6 +68,9 @@ dc:title
 dc:created
   skos:definition "Date of creation of the resource."@en;
 .
+dc:modified
+  skos:definition "Date on which the resource was changed."@en;
+  .
 dc:subject 
   skos:definition "The subject of the resource."@en ;  
 .
@@ -144,3 +154,12 @@ foaf:topic
 
 foaf:member
   skos:definition "Indicates a member of a Group."@en;
+.
+
+clv:longitute
+  skos:definition "The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface."@en;
+.
+
+clv:latitude
+   skos:definition "The geographic coordinate that specifies the north / south position of the Geomerty on the Earth's surface."@en;
+.   
