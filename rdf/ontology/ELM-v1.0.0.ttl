@@ -1,24 +1,17 @@
 @prefix dc:     <http://purl.org/dc/terms/>.
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
-@prefix esco:   <http://data.europa.eu/esco/model#>.
-@prefix prov:   <http://www.w3.org/ns/prov#>.
+@prefix cred:   <https://www.w3.org/2018/credentials#>.
 @prefix foaf:   <http://xmlns.com/foaf/0.1/>.
 @prefix adms:   <http://www.w3.org/ns/adms#>.
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix org:    <http://www.w3.org/ns/org#>.
-@prefix rov:    <http://www.w3.org/ns/regorg#>.
-@prefix gr:     <http://purl.org/goodrelations/v1#>.
-@prefix dcat:   <http://www.w3.org/ns/dcat#>.
-@prefix elm:    <https://data.europa.eu/snb/model#>.
+@prefix elm:    <https://data.europa.eu/snb/model/>.
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
 @prefix person: <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
-@prefix adms:   <http://www.w3.org/ns/adms#>.
-@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc#>.
-@prefix vp:     <http://data.europa.eu/snb/model/w3c/vp#>.
 
 
 <https://data.europa.eu/snb/model/>
@@ -31,8 +24,7 @@
   owl:imports person:;
   owl:imports adms:;
   owl:imports foaf:;
-  owl:imports vc:;
-  owl:imports vp:;
+  owl:imports cred:;
   rdfs:label "Europass Learning Model"@en;
   dc:created "2021-08-01"^^xsd:date;
   dc:modified "2022-07-12"^^xsd:date;
@@ -98,6 +90,15 @@ elm:Amount
   rdfs:label "Amount"@en;
   rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
 .
+elm:AwardingBody  
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "elm:AwardingBody";
+  rdfs:comment "An awarding body."@en; 
+  rdfs:label "Awarding Body"@en;
+  rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:subClassOf elm:Agent;
+.
 
 elm:AwardingOpportunity  
   a rdfs:Class;
@@ -153,6 +154,22 @@ elm:DisplayParameter
   rdfs:label "Display Parameter"@en;
   rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
 .
+elm:DisplayDetails
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "elm:DisplayDetails ";
+  rdfs:comment "The display details."@en;
+  rdfs:label "Display Details"@en;
+  rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+.
+elm:Evidence
+   a rdfs:Class;
+   a owl:Class;
+   dc:identifier "elm:Evidence";
+   rdfs:comment "The evidence."@en;
+   rdfs:label "Evidence"@en;
+   rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+.
 
 elm:EuropeanDigitalCredential
    a rdfs:Class;
@@ -171,7 +188,7 @@ elm:EuropeanDigitalPresentation
   rdfs:comment "A verifiable presentation of a set of European Digital Credentials for Learning."@en;
   rdfs:label "European Digital Credential Presentation"@en;
   rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
-  rdfs:subClassOf vp:VerifiablePresentation;
+  rdfs:subClassOf cred:VerifiablePresentation;
 .
 
 elm:Grant
@@ -210,6 +227,14 @@ elm:Identifier
   rdfs:label "Identifier"@en;
   rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:subClassOf adms:Identifier;
+.
+elm:IndividualDisplay
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "elm:IndividualDisplay";
+  rdfs:comment "An individual display."@en;
+  rdfs:label "Individual displau"@en;
+  rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
 .
 
 elm:LearningAchievement
@@ -467,11 +492,19 @@ elm:WebResource
   a owl:Class;
   dc:identifier "elm:WebResource";
   rdfs:comment "A web resource."@en;
-  rdfs:label "web resource"@en;
+  rdfs:label "Web Resource"@en;
   rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:subClassOf foaf:Document;
   .
 
+elm:ShaclValidator
+  a rdfs:Class;
+  a owl:Class;
+  dc:identifier "elm:ShaclValidator";
+  rdfs:comment "This class defines the shacl validators."@en;
+  rdfs:label "Shacl Validator"@en;
+  rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  .
 # -----------------------------------------------------------------------
 # ----------------   Definition of properties   -------------------------
 # -----------------------------------------------------------------------
@@ -523,7 +556,7 @@ elm:status
 	a owl:ObjectProperty;
   dc:identifier "elm:status";
 	rdfs:comment "The status. It can be the status of the verification check, Entitlement specification etc"@en;
-  rdfs:label "status."@en;
+  rdfs:label "status"@en;
   skos:usageNote"It is recommended to be used with a controlled vocabulary. For the status of an entitlement the Europass Standard List of Entitlement Status Controlled vocabulary is recommended. Dor the status of the verification check the Europass Standard List of Verification Statuses is recommended. "@en;
 	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:range  skos:Concept;
@@ -533,17 +566,26 @@ elm:hasPart
   a rdf:Property;
 	a owl:ObjectProperty, owl:SymmetricProperty;
   dc:identifier "elm:hasPart";
-	rdfs:comment "An association property, that defines a part/whole relatonship between sinstances of the same class"@en;
-  rdfs:label "has part."@en;
+	rdfs:comment "An association property, that defines a part/whole relatonship between instances of the same class. A related resource that is included either physically or logically in the described resource."@en;
+  rdfs:label "has part"@en;
 	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:subPropertyOf dc:hasPart;
 .
 
+elm:isPartOf
+  a rdf:Property;
+	a owl:ObjectProperty, owl:SymmetricProperty;
+  dc:identifier "elm:isPartOf";
+	rdfs:comment "An association property, that defines a part/whole relatonship between instances of the same class. A related resource in which the described resource is physically or logically included."@en;
+  rdfs:label "is part of"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:subPropertyOf dc:isPartOf;
+.
 #-----------   Accreditation properties    -------------
 
 ## Re-used properties
 ### adms:identifier, dc:type, dc:title, dc:description, dc:issued, elm:additionalNote, elm:supplementaryDocument
-### foaf:homepage, elm:status
+### foaf:homepage, elm:status, dc:modified, dc:valid
 
 elm:decision
   a rdf:Property;
@@ -622,6 +664,18 @@ elm:limitJurisdiction
   rdfs:range  skos:Concept;
 .
 
+elm:limitCredentialType
+  a rdf:Property;
+	a owl:ObjectProperty;
+  dc:identifier "elm:limitCredentialType";
+	rdfs:comment "The credential type for which the accreditation is valid. It MUST be provided using the Credential Type controlled vocabulary."@en;
+  rdfs:label "limit credential type"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:domain elm:Accreditation;
+  rdfs:range  skos:Concept;
+.
+
+
 elm:accreditingAgent
   a rdf:Property;
 	a owl:ObjectProperty;
@@ -651,17 +705,6 @@ elm:accreditingAgent
   dc:identifier "elm:expiryDate";
 	rdfs:comment "The date when the accreditation expires or was expired."@en;
   rdfs:label "expiry date"@en;
-	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
-  rdfs:range  xsd:dateTime;
-  rdfs:subPropertyOf dc:date;
-.
-
- elm:lastModificationDate
-  a rdf:Property;
-	a owl:DatatypeProperty;
-  dc:identifier "elm:lastModificationDate";
-	rdfs:comment "The date when the accreditation was last modified."@en;
-  rdfs:label "last modification date"@en;
 	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:range  xsd:dateTime;
   rdfs:subPropertyOf dc:date;
@@ -727,7 +770,6 @@ elm:contactPoint
 # ----------    Amount Class properties   ----------
 
 # content should be provided by rdf:value
-
 elm:unit
   a rdf:Property;
 	a owl:ObjectProperty;
@@ -738,7 +780,14 @@ elm:unit
   rdfs:domain elm:Amount;
   rdfs:range skos:Concept;
   .
-
+elm:value
+  a rdf:Property;
+	a owl:DatatypeProperty;
+  dc:identifier "elm:value";
+	rdfs:comment "The value (content) of the amount."@en;
+  rdfs:label "value"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  .
 #------------- Awarding Opportunity properties ------------
 
 ## Re-used properties
@@ -793,12 +842,12 @@ elm:awardingDate
   rdfs:subPropertyOf dc:date;
   .
 
-elm:nationalSystemNote
+elm:educationalSystemNote
   a rdf:Property;
 	a owl:ObjectProperty;
-  dc:identifier "elm:nationalSystemNote";
-	rdfs:comment "Additional information about the national system of this awarding process."@en;
-  rdfs:label "national system note"@en;
+  dc:identifier "elm:educationalSystemNote";
+	rdfs:comment "Additional information about the educational system of this awarding process."@en;
+  rdfs:label "educational system note"@en;
 	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:range skos:Concept;
   .
@@ -914,22 +963,33 @@ elm:summaryDisplay
   rdfs:range xsd:string;
   .
 
-elm:background
+# elm:background
+#   a rdf:Property; 
+# 	a owl:ObjectProperty;
+#   dc:identifier "elm:background";
+# 	rdfs:comment "The background image of the credential."@en;
+#   rdfs:label "background image "@en;
+# 	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+#   rdfs:domain elm:DisplayParameter;
+#   rdfs:range elm:MediaObject;
+#   .
+
+elm:individualDisplay
   a rdf:Property; 
-	a owl:DatatypeProperty;
-  dc:identifier "elm:background";
-	rdfs:comment "The background image of the credential."@en;
-  rdfs:label "background image "@en;
+	a owl:ObjectProperty;
+  dc:identifier "elm:individualDisplay";
+	rdfs:comment "The individual display of the display parameter."@en;
+  rdfs:label "individual display "@en;
 	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:domain elm:DisplayParameter;
-  rdfs:range elm:MediaObject;
+  rdfs:range elm:IndividualDisplay;
   .
 
 #----------    European Digital Credential Properties   ---------------------
 
 ## Re-used properties
-### adms:identifier, dc:type, dc:issued,  vc:issuer, vc:credentialSubject, vc:proof
-### vc:validFrom, vc:validUntil, vc:issuanceDate,vc:expirationDate, vc:evidence, vc:termsOfUse, vc:vc:credentialStatus, vc:credentialSchema
+### adms:identifier, dc:issued,  cred:issuer, cred:credentialSubject, cred:proof
+### cred:validFrom, cred:validUntil, cred:issuanceDate,cred:expirationDate, cred:evidence, cred:termsOfUse, cred:credentialStatus, cred:credentialSchema
 
 elm:displayParameter
   a rdf:Property; 
@@ -952,6 +1012,18 @@ elm:attachment
   rdfs:domain elm:EuropeanDigitalCredential;
   rdfs:range elm:MediaObject;
   . 
+
+elm:credentialLabel
+  a rdf:Property; 
+	a owl:ObjectProperty;
+  dc:identifier "elm:credentialLabel";
+	rdfs:comment "A label associated to the european digital credential. It should be provided using the EDC Controlled List of Credential Types."@en;
+  rdfs:label "credential label"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:domain elm:EuropeanDigitalCredential;
+  rdfs:range skos:Concept;
+  . 
+
 
 #----------   European Digital Presentation properties    -------------
 
@@ -987,6 +1059,35 @@ elm:verificationCheck
 ## Re-used properties
 ### adms:identifier, dc:title, dc:description, elm:supplementaryDocument;
 
+#-------------      Individual Display  properties     -------------------------
+#dc:language
+
+elm:displayDetails
+  a owl:ObjectProperty;
+  dc:identifier "elm:displayDetails";
+	rdfs:comment "The details of the display"@en;
+  rdfs:label "display details"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:domain elm:IndividualDisplay;
+  rdfs:range elm:DisplayDetails;
+  . 
+#------------- Display  Details properties     -------------------------
+elm:image
+  a owl:ObjectProperty;
+  dc:identifier "elm:image";
+	rdfs:comment "An image associated with the display"@en;
+  rdfs:label "image"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:range elm:mediaObject;
+  .
+elm:page
+  a owl:DatatypeProperty;
+  dc:identifier "elm:image";
+	rdfs:comment "The page number of the display"@en;
+  rdfs:label "page"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:range xsd:positiveInteger;
+  . 
 #-------------      Identifier properties     -------------------------
 
 ## Re-used properties
@@ -1017,6 +1118,16 @@ elm:schemeVersion
 ## Re-used properties
 ### adms:identifier, dc:title, dc:description, elm:additionalNote, elm:supplementaryDocument, elm:hasPart, elm:specifiedBy
 ### elm:awardedBy
+
+elm:creditReceived
+  a rdf:Property;
+	a owl:ObjectProperty;
+  dc:identifier "elm:creditReceived";
+  rdfs:comment "The credit points received for this learning achievement."@en;
+  rdfs:label "credit received"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  owl:inverseOf elm:creditReceived;
+  .
 
 elm:provenBy
   a rdf:Property;
@@ -1654,7 +1765,8 @@ elm:spatialCode
 # ---------  Media Object properties ----------
 
 ## Re-used properties
-### dc:type
+# dc:title, dc:description
+
 
 elm:contentEncoding
   a rdf:Property;
@@ -1689,17 +1801,27 @@ elm:content
   rdfs:range xsd:string;
   .
 
-elm:contentUrl
+elm:contentType
   a rdf:Property;
-	a owl:DatatypeProperty;
-  dc:identifier "elm:contentUrl";
-	rdfs:comment "The public access URL."@en;
-  rdfs:label "contentURL"@en;
+	a owl:ObjectProperty;
+  dc:identifier "elm:contentType";
+	rdfs:comment "The content type of the media object. It should be provided using the Filetype Named Authority List."@en;
+  rdfs:label "content type"@en;
 	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:domain elm:MediaObject;
-  rdfs:range xsd:anyURI;
+  rdfs:range skos:Concept;
   .
 
+ elm:attachmentType
+  a rdf:Property;
+	a owl:ObjectProperty;
+  dc:identifier "elm:attachmentType";
+	rdfs:comment "The type of the attachment of the media object. It should be provided using a controlled list, with values: Transcript of Records, EMREX transcript, Letter of Nomination,  Diploma Supplement, Certificate of Training, Learning Agreement, Other."@en;
+  rdfs:label "attachment type"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:domain elm:MediaObject;
+  rdfs:range skos:Concept;
+  . 
 # --------    Note properties   --------------------------
 
 ## Re-used properties
@@ -1713,8 +1835,18 @@ elm:noteLiteral
   rdfs:label "note literal"@en;
 	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:domain elm:Note;
-  rdfs:range rdfs:Literal;
   .
+
+elm:noteFormat
+  a rdf:Property;
+	a owl:ObjectProperty;
+  dc:identifier "elm:noteFormat";
+	rdfs:comment "The format of the note."@en;
+  rdfs:label "note format"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:domain elm:Note;
+  .
+
 
 #---------- Organisation properties ---------------------
 
@@ -1990,8 +2122,8 @@ elm:NQFLevel
   a rdf:Property; 
 	a owl:ObjectProperty;
   dc:identifier "elm:NQFLevel";
-	rdfs:comment "The qualification level as specified by the National Qualification Framework."@en;
-  rdfs:label " NQFLevel"@en;
+	rdfs:comment "The qualification level as specified by a Qualification Framework."@en;
+  rdfs:label " QFLevel"@en;
   rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:domain elm:Qualification;
   rdfs:range skos:Concept;
@@ -2001,7 +2133,7 @@ elm:qualificationCode
   a rdf:Property; 
 	a owl:ObjectProperty;
   dc:identifier "elm:qualificationCode";
-	rdfs:comment "An identifying code from a qualification based reference semantic asset. This property is used to classify the qualification information with a qualification from a known qualification framework. (e.g., the link to the accredited NQF qualification)."@en;
+	rdfs:comment "An identifying code from a qualification based reference semantic asset. This property is used to classify the qualification information with a qualification from a known qualification framework. (e.g., the link to the accredited QF qualification)."@en;
   rdfs:label " qualification code"@en;
   rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:domain elm:Qualification;
@@ -2168,7 +2300,7 @@ elm:subject
 	a owl:ObjectProperty;
   dc:identifier "elm:subject";
 	rdfs:comment "The credential subject of this verification check."@en;
-  rdfs:label "subject"@en;
+  rdfs:label "credential subject"@en;
 	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
   rdfs:domain elm:VerificationCheck;
   rdfs:range elm:EuropeanDigitalCredential;
@@ -2177,6 +2309,51 @@ elm:subject
 # -----------   Web Resource properties     -----------------
 
 ## Re-used properties
-### dc:title, dc:language, foaf:topic, elm:contentUrl
+### dc:title, dc:language, foaf:topic,
 
+elm:contentUrl
+  a rdf:Property;
+	a owl:DatatypeProperty;
+  dc:identifier "elm:contentUrl";
+	rdfs:comment "The public access URL."@en;
+  rdfs:label "contentURL"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:range xsd:anyURI;
+  .
 
+# -----------   Evidence properties  ----
+#dc:type
+
+elm:evidenceStatement
+  a rdf:Property;
+	a owl:DatatypeProperty;
+  dc:identifier "elm:evidenceStatement";
+	rdfs:comment "The statement of the evidence."@en;
+  rdfs:label "evidence statement"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:range xsd:string;
+  .
+
+elm:evidenceTarget
+  a rdf:Property;
+	a owl:ObjectProperty;
+  dc:identifier "elm:evidenceTarget";
+	rdfs:comment "The target of the evidence."@en;
+  rdfs:label "evidence target"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:range elm:Agent;
+  .
+elm:embeddedEvidence
+  a rdf:Property;
+	a owl:ObjectProperty;
+  dc:identifier "elm:embeddedEvidence";
+	rdfs:comment "The embedded evidence."@en;
+  rdfs:label "embedded evidence"@en;
+	rdfs:isDefinedBy <https://data.europa.eu/snb/model>;
+  rdfs:range elm:MediaObject;
+  .  
+
+  #------- Individuals -------------------
+  <http://data.europa.eu/snb/model/edc-constraints.tll> a elm:ShaclValidator.
+  <http://data.europa.eu/snb/model/ams-constraints.tll> a elm:ShaclValidator.
+  <http://data.europa.eu/snb/model/loq-constraints.tll> a elm:ShaclValidator.

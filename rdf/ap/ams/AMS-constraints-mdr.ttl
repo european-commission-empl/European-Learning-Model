@@ -1,4 +1,4 @@
-@prefix :    <https://data.europa.eu/snb/model/ams-constraints-mdr#>.
+@prefix :    <http://data.europa.eu/snb/model/ams-constraints-mdr/>.
 @prefix dc:     <http://purl.org/dc/terms/>.
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
 @prefix esco:   <http://data.europa.eu/esco/model#>.
@@ -11,25 +11,22 @@
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix gr:     <http://purl.org/goodrelations/v1#>.
 @prefix dcat:   <http://www.w3.org/ns/dcat#>.
-@prefix elm:    <https://data.europa.eu/snb/model#>.
-@prefix ams:    <https://data.europa.eu/snb/model/ams-constraints#>.
-@prefix cpv:    <https://www.w3.org/ns/person#>.
+@prefix elm:    <http://data.europa.eu/snb/model/>.
+@prefix ams:    <http://data.europa.eu/snb/model/ams-constraints/>.
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
-@prefix person: <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix adms:   <http://www.w3.org/ns/adms#>.
-@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc#>.
-@prefix vp:     <http://data.europa.eu/snb/model/w3c/vp#>.
+@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc/>.
+@prefix vp:     <http://data.europa.eu/snb/model/w3c/vp/>.
 @prefix sh:     <http://www.w3.org/ns/shacl#> .
 
-<https://data.europa.eu/snb/model/ams-constraints-mdr>
+<http://data.europa.eu/snb/model/ams-constraints-mdr>
   a owl:Ontology;
   owl:imports rdf:;
   owl:import dc:;
   owl:imports org:;
-  owl:imports person:;
   owl:imports adms:;
   owl:imports foaf:;
   owl:imports skos:;

@@ -1,7 +1,6 @@
-@prefix :    <https://data.europa.eu/snb/model/edc-constraints-mdr#>.
+@prefix :    <http://data.europa.eu/snb/model/edc-constraints-mdr/>.
 @prefix dc:     <http://purl.org/dc/terms/>.
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
-@prefix esco:   <http://data.europa.eu/esco/model#>.
 @prefix foaf:   <http://xmlns.com/foaf/0.1/>.
 @prefix adms:   <http://www.w3.org/ns/adms#>.
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
@@ -9,8 +8,8 @@
 @prefix org:    <http://www.w3.org/ns/org#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix dcat:   <http://www.w3.org/ns/dcat#>.
-@prefix elm:    <https://data.europa.eu/snb/model#>.
-@prefix edc:    <https://data.europa.eu/snb/model/edc-constraints#>.
+@prefix elm:    <http://data.europa.eu/snb/model/>.
+@prefix edc:    <http://data.europa.eu/snb/model/edc-constraints/>.
 @prefix cpv:    <https://www.w3.org/ns/person#>.
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
@@ -18,25 +17,27 @@
 @prefix person: <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix adms:   <http://www.w3.org/ns/adms#>.
-@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc#>.
-@prefix vp:     <http://data.europa.eu/snb/model/w3c/vp#>.
+@prefix cred:   <https://www.w3.org/2018/credentials#>.
 @prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix locn:   <http://www.w3.org/ns/locn#>.
+@prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
 
-<https://data.europa.eu/snb/model/edc-constraints-mdr>
+<http://data.europa.eu/snb/model/edc-constraints-mdr>
   a owl:Ontology;
   owl:imports rdf:;
-  owl:import dc:;
+  owl:imports dc:;
   owl:imports org:;
   owl:imports elm:;
   owl:imports person:;
   owl:imports adms:;
   owl:imports foaf:;
-  owl:imports vc:;
-  owl:imports vp:;
   owl:imports elm:;
   owl:imports edc:;
   owl:imports skos:;
   owl:imports sh:;
+  owl:imports cred:;
+  owl:imports locn:;
+  owl:imports clv:;
   rdfs:label "Controlled Vocabularies SHACL constraints for EDC Application Profile"@en;
   dc:created "2021-09-25"^^xsd:date;
   dc:modified "2022-07-12"^^xsd:date;
@@ -120,10 +121,10 @@
         sh:path skos:inScheme
     ] . 
 
-:EuropassCredentialTypeRestriction
+:EuropeanDigitalCredentialTypeRestriction
     a sh:NodeShape ;
-    rdfs:comment "Europass Credential Type restriction";
-    rdfs:label "Europass Credential Type restriction";
+    rdfs:comment "European Digital Credential Type restriction";
+    rdfs:label "European Digital Credential Type restriction";
     sh:property [
         sh:hasValue <http://data.europa.eu/snb/credential/25831c2> ;
         sh:nodeKind sh:IRI ;
@@ -220,6 +221,15 @@
         sh:path skos:inScheme
     ] .
 
+:LimitCredentialTypeRestriction
+   a sh:NodeShape ;
+    rdfs:comment "Limit Credential Type Restriction";
+    rdfs:label "Limit Credential Type Restriction";
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/credential/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .
 :VerificationCheckStatusRestriction
     a sh:NodeShape ;
     rdfs:comment "Verification Check Status restriction" ;
@@ -292,6 +302,13 @@
         sh:path elm:limitJurisdiction;
         sh:severity sh:Violation;
     ];
+     sh:property[
+        sh:node  :LimitCredentialTypeRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:name "limit credential type"@en;
+        sh:path elm:limitCredentialType;
+        sh:severity sh:Violation;
+    ];
     sh:property[
         sh:node :AccreditationStatusRestriction;
         sh:path elm:status;
@@ -343,12 +360,12 @@
 #         sh:severity sh:Violation;
 #     ].    
 #-------------------------------------------
-:EuropassCredentialShapeCV
+:EuropeanDigitalCredentialShapeCV
     a sh:NodeShape;  
-    sh:targetClass elm:EuropassCredential;
-    #rdfs:label "CV Restrictions for Europass Credential Shape"@en;
+    sh:targetClass elm:EuropeanDigitalCredential;
+    #rdfs:label "CV Restrictions for European Credential Shape"@en;
     sh:property [
-        sh:node :EuropassCredentialTypeRestriction;
+        sh:node :EuropeanDigitalCredentialTypeRestriction;
         sh:nodeKind sh:IRI ;
         sh:name"type"@en;
         sh:path dc:type;

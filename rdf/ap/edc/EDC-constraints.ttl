@@ -1,46 +1,44 @@
+@prefix edc:    <http://data.europa.eu/snb/model/edc-constraints/>.
+@prefix elm:    <http://data.europa.eu/snb/model/>.
 @prefix dc:     <http://purl.org/dc/terms/>.
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
-@prefix esco:   <http://data.europa.eu/esco/model#>.
-@prefix prov:   <http://www.w3.org/ns/prov#>.
 @prefix foaf:   <http://xmlns.com/foaf/0.1/>.
 @prefix adms:   <http://www.w3.org/ns/adms#>.
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix org:    <http://www.w3.org/ns/org#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
-@prefix gr:     <http://purl.org/goodrelations/v1#>.
-@prefix dcat:   <http://www.w3.org/ns/dcat#>.
-@prefix elm:    <https://data.europa.eu/snb/model#>.
-@prefix edc:    <https://data.europa.eu/snb/model/edc-constraints#>.
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
 @prefix person: <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
-@prefix adms:   <http://www.w3.org/ns/adms#>.
-@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc#>.
-@prefix vp:     <http://data.europa.eu/snb/model/w3c/vp#>.
 @prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix cred:   <https://www.w3.org/2018/credentials#>.
+@prefix locn:   <http://www.w3.org/ns/locn#>.
+@prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
 
-<https://data.europa.eu/snb/model/edc-constraints>
+<http://data.europa.eu/snb/model/edc-constraints>
   a owl:Ontology;
   owl:imports rdf:;
   owl:imports dc:;
   owl:imports org:;
   owl:imports person:;
+  owl:imports locn:;
   owl:imports adms:;
   owl:imports foaf:;
-  owl:imports vc:;
-  owl:imports vp:;
+  owl:imports cred:;
   owl:imports elm:;
   owl:imports skos:;
   owl:imports sh:;
+  owl:imports cred:;
+  owl:imports locn:;
+  owl:imports clv:;
   rdfs:label "SHACL constraints for EDC Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
-  dc:modified "2022-07-12"^^xsd:date;
+  dc:modified "2022-10-07"^^xsd:date;
   dc:title "SHACL constraints for European Digital Credentials  application profile"@en;
-  dc:description '''SHACL constraints for EDCI application Profile. The ECI application provides the classes with their attributes and relationships, 
-  and the constraints on occurrences and values used. '''@en;
+  dc:description "SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used."@en;
   rdfs:comment "This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used."@en;
   owl:versionInfo "1.0.0";
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
@@ -58,7 +56,7 @@ edc:AccreditationShape
   a sh:NodeShape; 
   sh:targetClass elm:Accreditation; 
   rdfs:comment "The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about: (1) the quality assurance and/or licensing of an organisation, (2) the quality assurance and/or licensing of an organisation with respect to a specific qualification."@en;
-  rdfs:label "Accreditation Shape"@en; 
+  rdfs:label "Accreditation"@en; 
   sh:property edc:Accreditation-adms_identifier;
   sh:property edc:Accreditation-dc_type;
   sh:property edc:Accreditation-dc_title;
@@ -74,17 +72,19 @@ edc:AccreditationShape
   sh:property edc:Accreditation-elm_limitField;
   sh:property edc:Accreditation-elm_limitEQFLevel;
   sh:property edc:Accreditation-elm_limitJurisdiction;
+  sh:property edc:Accreditation-elm_limitCredentialType;
   sh:property edc:Accreditation-elm_accreditingAgent;
   sh:property edc:Accreditation-elm_reviewDate;
   sh:property edc:Accreditation-elm_expiryDate;
   sh:property edc:Accreditation-elm_landingPage;
   sh:property edc:Accreditation-elm_status; 
-  sh:property edc:Accreditation-elm_lastModificationDate;
+  sh:property edc:Accreditation-dc_modified;
+  sh:property edc:Accreditation-dc_valid;
   .
   
 edc:Accreditation-dc_title  
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the accreditation. One value per language is permitted. "@en;
   sh:name "title"@en;
@@ -96,9 +96,10 @@ edc:Accreditation-dc_title
 edc:Accreditation-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the accreditation."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -164,9 +165,9 @@ edc:Accreditation-dc_issued
 edc:Accreditation-elm_decision
   a sh:PropertyShape; 
   sh:path elm:decision;
-  sh:datatype xsd:string;
+  sh:class skos:Concept;
   sh:maxCount 1;
-  sh:description "The quality decision issued by the quality assuring authority."@en;
+  sh:description "The quality decision issued by the quality assuring authority. It shoul dbe provided using the DEQAR controlled list."@en;
   sh:name "decision"@en;
   sh:severity sh:Violation;
   #sh:order 8;
@@ -235,7 +236,15 @@ edc:Accreditation-elm_limitJurisdiction
   sh:severity sh:Violation;
   #sh:order 14;
   .
-
+edc:Accreditation-elm_limitCredentialType
+  a sh:PropertyShape; 
+  sh:path elm:limitCredentialType;
+  sh:class skos:Concept;
+  sh:description "The credential type for which the accreditation is valid. It MUST be provided using the Credential Type controlled vocabulary."@en;
+  sh:name "limit credential type"@en;
+  sh:severity sh:Violation;
+  #sh:order 15;
+  .
 edc:Accreditation-elm_accreditingAgent
   a sh:PropertyShape; 
   sh:path elm:accreditingAgent;
@@ -245,7 +254,7 @@ edc:Accreditation-elm_accreditingAgent
   sh:description "The Quality Assuring Authority (i.e., assurer)."@en;
   sh:name "accrediting agent"@en;
   sh:severity sh:Violation;
-  #sh:order 15;
+  #sh:order 16;
   .
 
 edc:Accreditation-elm_reviewDate
@@ -256,7 +265,7 @@ edc:Accreditation-elm_reviewDate
   sh:description "The date when the accreditation has to be reviewed."@en;
   sh:name "review date"@en;
   sh:severity sh:Violation;
-  #sh:order 16;
+  #sh:order 17;
   .
 
 edc:Accreditation-elm_expiryDate
@@ -267,7 +276,7 @@ edc:Accreditation-elm_expiryDate
   sh:description "The date when the accreditation expires or was expired."@en;
   sh:name "expiry date"@en;
    sh:severity sh:Violation;
-   #sh:order 17;
+   #sh:order 18;
   .
 
 edc:Accreditation-elm_landingPage
@@ -277,7 +286,7 @@ edc:Accreditation-elm_landingPage
   sh:description "The landing page of the accreditation."@en;
   sh:name "landing page"@en;
   sh:severity sh:Violation;
-  #sh:order 18;
+  #sh:order 19;
   .
 edc:Accreditation-elm_status 
     a sh:PropertyShape; 
@@ -287,24 +296,34 @@ edc:Accreditation-elm_status
     sh:description "The publication status of an accreditation."@en;
     sh:name "status"@en;
     sh:severity sh:Violation;
-    #sh:order 19;
+    #sh:order 20;
   . 
-edc:Accreditation-elm_lastModificationDate
+edc:Accreditation-dc_modified
     a sh:PropertyShape; 
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the accreditation was last updated since it was published."@en;
     sh:name "last modification date"@en;
     sh:severity sh:Violation;
-    #sh:order 20;
+    #sh:order 21;
+  .
+  edc:Accreditation-dc_valid
+    a sh:PropertyShape; 
+    sh:path dc:valid;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date when the accreditation became valid."@en;
+    sh:name "validation  date"@en;
+    sh:severity sh:Violation;
+    #sh:order 22;
   .
 #------ Address class and properties shapes --------
 edc:AddressShape 
   a sh:NodeShape; 
   sh:targetClass elm:Address; 
   rdfs:comment "An Address."@en; 
-  rdfs:label "Address Shape"@en; 
+  rdfs:label "Address "@en; 
   sh:property edc:Address-adms_identifier;
   sh:property edc:Address-elm_fullAddress;
   sh:property edc:Address-elm_countryCode;
@@ -346,7 +365,7 @@ edc:AgentShape
   a sh:NodeShape; 
   sh:targetClass elm:Agent; 
   rdfs:comment "An entity that is able to carry out actions."@en; 
-  rdfs:label "Agent Shape"@en; 
+  rdfs:label "Agent "@en; 
   sh:property edc:Agent-adms_identifier;
   sh:property edc:Agent-skos_altLabel;
   sh:property edc:Agent-skos_prefLabel;
@@ -354,7 +373,7 @@ edc:AgentShape
   sh:property edc:Agent-elm_additionalNote;
   sh:property edc:Agent-elm_contactPoint;
   sh:property edc:Agent-elm_groupMemberOf;
-  sh:property edc:Agent-elm_lastModificationDate;
+  sh:property edc:Agent-dc_modified;
   . 
 
 edc:Agent-adms_identifier
@@ -369,7 +388,7 @@ edc:Agent-adms_identifier
 edc:Agent-skos_altLabel
   a sh:PropertyShape; 
   sh:path skos:altLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The alternative name of the agent."@en;
   sh:name "alternative name"@en;
   sh:severity sh:Violation;
@@ -378,11 +397,9 @@ edc:Agent-skos_altLabel
 edc:Agent-skos_prefLabel
   a sh:PropertyShape; 
   sh:path skos:prefLabel;
-  sh:nodeKind sh:Literal;
-  sh:minCount 1;
-  sh:maxCount 1;
+  sh:datatype rdf:langString;
   sh:description "The preferred name of the agent."@en;
-  sh:name "preferred name"@en;
+  sh:name "name"@en;
   sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 2;
@@ -424,9 +441,9 @@ edc:Agent-elm_groupMemberOf
   sh:severity sh:Violation;
   #sh:order 6;
   .
-edc:Agent-elm_lastModificationDate
+edc:Agent-dc_modified
     a sh:PropertyShape;
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the agent was last modified."@en;
@@ -439,9 +456,9 @@ edc:AmountShape
   a sh:NodeShape; 
   sh:targetClass elm:Amount; 
   rdfs:comment "An amount."@en; 
-  rdfs:label "Amount Shape"@en; 
+  rdfs:label "Amount "@en; 
   sh:property edc:Amount-elm_unit;
-  sh:property edc:Amount-rdf_value;
+  sh:property edc:Amount-elm_value;
   .
 
 edc:Amount-elm_unit
@@ -457,9 +474,9 @@ edc:Amount-elm_unit
   #sh:order 0;
 .
 
-edc:Amount-rdf_value
+edc:Amount-elm_value
   a sh:PropertyShape; 
-  sh:path rdf:value;
+  sh:path elm:value;
   sh:datatype xsd:decimal;
   sh:minCount 1;
   sh:maxCount 1;
@@ -475,7 +492,7 @@ edc:AwardingOpportunityShape
   a sh:NodeShape; 
   sh:targetClass elm:AwardingOpportunity; 
   rdfs:comment "An awarding opportunity describes how, where, from whom and when a claim may be obtained."@en; 
-  rdfs:label "Awarding Opportunity Shape"@en; 
+  rdfs:label "Awarding Opportunity"@en; 
   sh:property edc:AwardingOpportunity-adms_identifier;
   sh:property edc:AwardingOpportunity-elm_location;
   sh:property edc:AwardingOpportunity-dc_temporal;
@@ -514,7 +531,8 @@ edc:AwardingOpportunity-dc_temporal
 edc:AwardingOpportunity-elm_awardingBody
   a sh:PropertyShape;  
   sh:path elm:awardingBody;
-  sh:class elm:Organisation;
+  sh:class elm:Agent;
+  sh:minCount 1;
   sh:description "The awarding body related to this awarding activity (i.e., the organisation that issues the qualification). Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations, the cardinality is greater than 1."@en;
   sh:name "awarding body"@en;
   sh:severity sh:Violation;
@@ -537,7 +555,7 @@ edc:AwardingProcessShape
   a sh:NodeShape; 
   sh:targetClass elm:AwardingProcess; 
   rdfs:comment "The process of an organisation making a Claim to person based on a Specification. It is used to specify the organisation that awarded the Claim to the individual, or the country or region where the Claim was made, and optionally the date."@en; 
-  rdfs:label "Awarding Process Shape"@en; 
+  rdfs:label "Awarding Process "@en; 
   sh:property edc:AwardingProcess-adms_identifier;
   sh:property edc:AwardingProcess-dc_description;
   sh:property edc:AwardingProcess-elm_location;
@@ -546,14 +564,15 @@ edc:AwardingProcessShape
   sh:property edc:AwardingProcess-elm_awards;
   sh:property edc:AwardingProcess-elm_awardingBody;
   sh:property edc:AwardingProcess-elm_awardingDate;
-  sh:property edc:AwardingProcess-elm_nationalSystemNote;
+  sh:property edc:AwardingProcess-elm_educationalSystemNote;
 .
 edc:AwardingProcess-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the awarding process."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 0;
   .
@@ -609,7 +628,7 @@ edc:AwardingProcess-elm_awards
 edc:AwardingProcess-elm_awardingBody
   a sh:PropertyShape;  
   sh:path elm:awardingBody;
-  sh:class elm:Organisation;
+  sh:class elm:Agent;
   sh:minCount 1;
   sh:description "The awarding body related to this awarding activity (i.e., the organisation that issues the qualification). Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations, the cardinality is greater than 1."@en;
   sh:name "awarding body"@en;
@@ -617,13 +636,13 @@ edc:AwardingProcess-elm_awardingBody
   #sh:order 6;
 .
 
-edc:AwardingProcess-elm_nationalSystemNote
+edc:AwardingProcess-elm_educationalSystemNote
   a sh:PropertyShape;  
-  sh:path elm:nationalSystemNote;
-  sh:class skos:Concept;
+  sh:path elm:educationalSystemNote;
+  sh:class elm:Note;
   sh:maxCount 1;
   sh:description "Additional information about the national system of this awarding process."@en;
-  sh:name "national system note"@en;
+  sh:name "educational system note"@en;
   sh:severity sh:Violation;
   #sh:order 7;
 .
@@ -631,7 +650,7 @@ edc:AwardingProcess-elm_nationalSystemNote
 edc:AwardingProcess-elm_awardingDate
   a sh:PropertyShape;  
   sh:path elm:awardingDate;
-  sh:datatype xsd:decimal;
+  sh:datatype xsd:dateTime;
   sh:maxCount 1;
   sh:description "The date when the learning specification was awarded. If not specified it is undefined ('not known')."@en;
   sh:name "awarding date"@en;
@@ -644,7 +663,7 @@ edc:ClaimShape
   a sh:NodeShape; 
   sh:targetClass elm:Claim; 
   rdfs:comment "A claim made by an issuer. This class carries properties common to all claims, including Learning Achievement, Learning Activity, Learning Assessment and Learning Entitlement. It serves as an extension point that enables the definition of additional subclasses."@en; 
-  rdfs:label "Claim Shape"@en; 
+  rdfs:label "Claim "@en; 
   sh:property edc:Claim-dc_title;
   sh:property edc:Claim-dc_description;
   sh:property edc:Claim-adms_identifier;
@@ -656,7 +675,7 @@ edc:ClaimShape
 edc:Claim-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the claim. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -667,9 +686,10 @@ edc:Claim-dc_title
 edc:Claim-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the claim."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -686,7 +706,7 @@ edc:Claim-dc_type
   a sh:PropertyShape; 
   sh:path dc:type;
   sh:class skos:Concept;
-  sh:description "The type of the claim. It should be provided using a controlled vocabulary. The users can also use their own cotrolled list(s) to specify subtypes of the Learning Achievement, Learning Activity, Learning Assessment and Learning Entitlement. Multiple types are allowed, but they should all fall under the same upper type (Learning Achievement, Learning Activity, Learning Assessment and Learning Entitlement), since the subclasses of Claim superclass are disjoint."@en;
+  sh:description "The type of the claim. It should be provided using a controlled vocabulary. The users can also use their own controlled list(s) to specify subtypes of the Learning Achievement, Learning Activity, Learning Assessment and Learning Entitlement. Multiple types are allowed, but they should all fall under the same upper type (Learning Achievement, Learning Activity, Learning Assessment and Learning Entitlement), since the subclasses of Claim superclass are disjoint."@en;
   sh:name "type"@en;
   sh:severity sh:Violation;
   #sh:order 3;
@@ -713,6 +733,7 @@ edc:Claim-elm_additionalNote
   a sh:PropertyShape;
   sh:path elm:awardedBy;
   sh:class elm:AwardingProcess;
+  sh:minCount 1;
   sh:maxCount 1;
   sh:description "The awarding details of the claim."@en;
   sh:name "awarded by"@en;
@@ -724,7 +745,7 @@ edc:ContactPointShape
   a sh:NodeShape; 
   sh:targetClass elm:ContactPoint; 
   rdfs:comment "A contact point for an agent."@en; 
-  rdfs:label "Contact Point Shape"@en; 
+  rdfs:label "Contact Point "@en; 
   sh:property edc:ContactPoint-elm_additionalNote;
   sh:property edc:ContactPoint-dc_description;
   sh:property edc:ContactPoint-elm_address;
@@ -735,9 +756,10 @@ edc:ContactPointShape
 edc:ContactPoint-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the contact point."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -795,18 +817,18 @@ edc:DisplayParameterShape
   a sh:NodeShape; 
   sh:targetClass elm:DisplayParameter; 
   rdfs:comment "The display parameters."@en; 
-  rdfs:label "Display Parameter Shape"@en; 
+  rdfs:label "Display Parameter "@en; 
   sh:property edc:DisplayParameter-dc_title;
   sh:property edc:DisplayParameter-dc_description;
   sh:property edc:DisplayParameter-dc_language;
   sh:property edc:DisplayParameter-elm_primaryLanguage;
   sh:property edc:DisplayParameter-elm_summaryDisplay;
-  sh:property edc:DisplayParameter-elm_background;
+  sh:property edc:DisplayParameter-elm_individualDisplay;
   .
 edc:DisplayParameter-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the European Digital Credential. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -817,9 +839,10 @@ edc:DisplayParameter-dc_title
  edc:DisplayParameter-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the European Digital Credential."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -855,42 +878,103 @@ edc:DisplayParameter-elm_summaryDisplay
   #sh:order 4;
   .  
 
-edc:DisplayParameter-elm_background
+edc:DisplayParameter-elm_individualDisplay
   a sh:PropertyShape; 
-  sh:path elm:background;
-  sh:class elm:MediaObject;
-  sh:maxCount 1;
-  sh:description "The background image of the credential."@en;
-  sh:name "background image"@en;
+  sh:path elm:individualDisplay;
+  sh:class elm:IndividualDisplay;
+  sh:description "The individual display of the credential."@en;
+  sh:name "individual display"@en;
   sh:severity sh:Violation;
   #sh:order 5;
   .  
+#------ Individual Display class and properties shapes --------
 
+edc:IndividualDisplayShape 
+  a sh:NodeShape; 
+  sh:targetClass elm:IndividualDisplay; 
+  rdfs:comment "An individual display of a display parameter."@en; 
+  rdfs:label "Individual Display "@en; 
+  sh:property edc:IndividualDisplay-dc_language;
+  sh:property edc:IndividualDisplay-elm_displayDetail;
+  .
+  edc:IndividualDisplay-dc_language
+    a sh:PropertyShape; 
+    sh:path dc:language;
+    sh:class skos:Concept;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The language of the individual display"@en;
+    sh:name "language"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  .
+  edc:IndividualDisplay-elm_displayDetail
+    a sh:PropertyShape; 
+    sh:path elm:displayDetail;
+    sh:class elm:DisplayDetail;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The detail(s) of the individual display."@en;
+    sh:name "display detail(s)"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  .
+#------ Display Details class and properties shapes --------  
+edc:DisplayDetailShape 
+  a sh:NodeShape; 
+  sh:targetClass elm:DisplayDetail; 
+  rdfs:comment "The detail(s) of the individual display."@en; 
+  rdfs:label "Display Detail "@en; 
+  sh:property edc:DisplayDetail-elm_image;
+  sh:property edc:DisplayDetail-elm_page;
+  .
+edc:DisplayDetail-elm_image
+    a sh:PropertyShape; 
+    sh:path elm:image;
+    sh:class elm:MediaObject;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The image of the display detail(s)."@en;
+    sh:name "image"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  .
+ edc:DisplayDetail-elm_page
+    a sh:PropertyShape; 
+    sh:path elm:page;
+    sh:datatype xsd:positiveInteger;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The page of the display detail(s)."@en;
+    sh:name "page"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  .
 #------ European Digital Credential class and properties shapes --------
-#vc:issuer, vc:credentialSubject, vc:proof, vc:validFrom, vc:expirationDate 
+#cred:issuer, cred:credentialSubject, cred:validFrom, cred:expirationDate 
 edc:EuropeanDigitalCredentialShape 
   a sh:NodeShape; 
   sh:targetClass elm:EuropeanDigitalCredential; 
   rdfs:comment "A set of claims made by an issuer in Europe, using the EDC Standards. A European Digital Credential for Learning is a set of one or more claims which may be used to demonstrate that the owner has certain skills or has achieved certain learning outcomes through formal, non-formal or informal learning. European Digital Credential class is a subclass of Verifiable Credential."@en; 
-  rdfs:label "European Digital Credential Shape"@en; 
+  rdfs:label "European Digital Credential "@en; 
   sh:property edc:EuropeanDigitalCredential-adms_identifier;
-  sh:property edc:EuropeanDigitalCredential-dc_type;
+  sh:property edc:EuropeanDigitalCredential-elm_credentialLabel;
   sh:property edc:EuropeanDigitalCredential-elm_attachment;
   sh:property edc:EuropeanDigitalCredential-elm_displayParameter;
-  sh:property edc:EuropeanDigitalCredential-vc_issuer;
-  sh:property edc:EuropeanDigitalCredential-vc_credentialSubject;
-  sh:property edc:EuropeanDigitalCredential-vc_proof;
-  sh:property edc:EuropeanDigitalCredential-vc_issuanceDate;
-  sh:property edc:EuropeanDigitalCredential-dc_issued;
-  sh:property edc:EuropeanDigitalCredential-vc_validFrom;
-  sh:property edc:EuropeanDigitalCredential-vc_expirationDate;
-  sh:property edc:EuropeanDigitalCredential-vc_validUntil;
-  sh:property edc:EuropeanDigitalCredential-vc_evidence;
-  sh:property edc:EuropeanDigitalCredential-vc_termsOfUse;
-  sh:property edc:EuropeanDigitalCredential-vc_credentialSchema;
-  sh:property edc:EuropeanDigitalCredential-vc_credentialStatus;
-  
-  .
+  sh:property edc:EuropeanDigitalCredential-cred_issuer;
+  sh:property edc:EuropeanDigitalCredential-cred_credentialSubject;
+  sh:property edc:EuropeanDigitalCredential-cred_issuanceDate;
+  sh:property edc:EuropeanDigitalCredential-cred_issued;
+  sh:property edc:EuropeanDigitalCredential-cred_validFrom;
+  sh:property edc:EuropeanDigitalCredential-cred_expirationDate;
+  sh:property edc:EuropeanDigitalCredential-cred_validUntil;
+  sh:property edc:EuropeanDigitalCredential-cred_proof;
+  sh:property edc:EuropeanDigitalCredential-cred_evidence;
+  sh:property edc:EuropeanDigitalCredential-cred_termsOfUse;
+  sh:property edc:EuropeanDigitalCredential-cred_credentialSchema;
+  sh:property edc:EuropeanDigitalCredential-cred_credentialStatus;
+  sh:property edc:EuropeanDigitalCredential-cred_holder;
+   .
 
  edc:EuropeanDigitalCredential-adms_identifier
   a sh:PropertyShape; 
@@ -901,14 +985,12 @@ edc:EuropeanDigitalCredentialShape
   sh:severity sh:Violation;
   #sh:order 0;
   . 
-edc:EuropeanDigitalCredential-dc_type
+edc:EuropeanDigitalCredential-elm_credentialLabel
   a sh:PropertyShape; 
-  sh:path dc:type;
+  sh:path elm:credentialLabel;
   sh:class skos:Concept;
-  sh:minCount 1;
-  sh:maxCount 1;
-  sh:description "The type of the European Digital Credential. It should be provided using the EDC Controlled List of Credential Types."@en;
-  sh:name "type"@en;
+  sh:description "A label associated with  the European Digital Credential. It should be provided using the EDC Controlled List of Credential Types."@en;
+  sh:name "credential label"@en;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -927,6 +1009,7 @@ edc:EuropeanDigitalCredential-elm_displayParameter
   a sh:PropertyShape; 
   sh:path elm:displayParameter;
   sh:class elm:DisplayParameter;
+  sh:minCount 1;
   sh:maxCount 1;
   sh:description "The display details of the credential."@en;
   sh:name "display"@en;
@@ -934,11 +1017,11 @@ edc:EuropeanDigitalCredential-elm_displayParameter
   #sh:order 3;
   . 
 
-edc:EuropeanDigitalCredential-vc_issuer
+edc:EuropeanDigitalCredential-cred_issuer
   a sh:PropertyShape; 
-  sh:path vc:issuer;
-  sh:class elm:Organisation;
-  sh:description "The organisation that issued the credential and sealed it with its digital e-seal. This property is inherited from Verifiable Credential."@en;
+  sh:path cred:issuer;
+  sh:class elm:Agent;
+  sh:description "The agent that issued the credential and sealed it with its digital e-seal. This property is inherited from Verifiable Credential."@en;
   sh:name "issuer"@en;
   sh:minCount 1;
   sh:maxCount 1;
@@ -947,10 +1030,10 @@ edc:EuropeanDigitalCredential-vc_issuer
   #sh:order 4;
   . 
 
-edc:EuropeanDigitalCredential-vc_credentialSubject
+edc:EuropeanDigitalCredential-cred_credentialSubject
   a sh:PropertyShape; 
-  sh:path vc:credentialSubject;
-  sh:class elm:Person;
+  sh:path cred:credentialSubject;
+  sh:class elm:Agent;
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The person (subject) about which claims are made and who owns the credential. This property is inherited from Verifiable Credential."@en;
@@ -958,43 +1041,30 @@ edc:EuropeanDigitalCredential-vc_credentialSubject
   sh:severity sh:Violation;
   #sh:order 5;
   . 
-
-edc:EuropeanDigitalCredential-vc_proof
+edc:EuropeanDigitalCredential-cred_issuanceDate
   a sh:PropertyShape; 
-  sh:path vc:proof;
-  sh:class vc:Proof;
-  sh:minCount 1;
-  sh:maxCount 1;
-  sh:description "The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation. This property is inherited from Verifiable Credential."@en;
-  sh:name "proof"@en;
-  sh:severity sh:Violation;
-  #sh:order 6;
-  . 
-edc:EuropeanDigitalCredential-vc_issuanceDate
-  a sh:PropertyShape; 
-  sh:path vc:validFrom;
+  sh:path cred:issuanceDate;
   sh:datatype xsd:dateTime;
-  sh:minCount 1;
   sh:maxCount 1;
   sh:description "Defines the date and time, when the European Digital Credential becomes valid. This property is inherited from Verifiable Credential."@en;
   sh:name "issuance date"@en;
   sh:severity sh:Violation;
   #sh:order 7;
   .
- edc:EuropeanDigitalCredential-dc_issued
+ edc:EuropeanDigitalCredential-cred_issued
   a sh:PropertyShape; 
-  sh:path dc:issued;
+  sh:path cred:issued;
   sh:datatype xsd:dateTime;
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The date when the credential was issued. This property is inherited from Verifiable Credential."@en;
-  sh:name "date issued"@en;
+  sh:name "issued"@en;
   sh:severity sh:Violation;
   #sh:order 8;
   . 
-edc:EuropeanDigitalCredential-vc_validFrom
+edc:EuropeanDigitalCredential-cred_validFrom
   a sh:PropertyShape; 
-  sh:path vc:validFrom;
+  sh:path cred:validFrom;
   sh:datatype xsd:dateTime;
   sh:minCount 1;
   sh:maxCount 1;
@@ -1004,9 +1074,9 @@ edc:EuropeanDigitalCredential-vc_validFrom
   #sh:order 9;
   .
 
-edc:EuropeanDigitalCredential-vc_expirationDate
+edc:EuropeanDigitalCredential-cred_expirationDate
   a sh:PropertyShape; 
-  sh:path vc:expirationDate;
+  sh:path cred:expirationDate;
   sh:datatype xsd:dateTime;
   sh:maxCount 1;
   sh:description "The date when the credential expires. This property is inherited from Verifiable Credential."@en;
@@ -1015,9 +1085,9 @@ edc:EuropeanDigitalCredential-vc_expirationDate
   #sh:order 10;
   . 
 
-edc:EuropeanDigitalCredential-vc_validUntil
+edc:EuropeanDigitalCredential-cred_validUntil
   a sh:PropertyShape; 
-  sh:path vc:validUntil;
+  sh:path cred:validUntil;
   sh:datatype xsd:dateTime;
   sh:maxCount 1;
   sh:description "The date and time, when the credential expires (automatic invalidation). This property is inherited from Verifiable Credential."@en;
@@ -1025,61 +1095,78 @@ edc:EuropeanDigitalCredential-vc_validUntil
   sh:severity sh:Violation;
   #sh:order 11;
 .
-edc:EuropeanDigitalCredential-vc_evidence
+edc:EuropeanDigitalCredential-cred_proof
   a sh:PropertyShape; 
-  sh:path vc:evidence;
-  sh:class vc:Evidence;
-  sh:maxCount 1;
+  sh:path cred:proof;
+  sh:datatype xsd:anyURI;
+  sh:description "The proof of the european digital credential."@en;
+  sh:name "proof"@en;
+  sh:severity sh:Violation;
+  #sh:order 7;
+  .
+edc:EuropeanDigitalCredential-cred_evidence
+  a sh:PropertyShape; 
+  sh:path cred:evidence;
+  sh:datatype elm:evidence;
   sh:description "The evidence of the european digital credential."@en;
   sh:name "evidence"@en;
   sh:severity sh:Violation;
   #sh:order 9;
   .
- edc:EuropeanDigitalCredential-vc_credentialStatus
+ edc:EuropeanDigitalCredential-cred_credentialStatus
   a sh:PropertyShape; 
-  sh:path vc:credentialStatus;
-  sh:class vc:CredentialStatus;
+  sh:path cred:credentialStatus;
+  sh:datatype xsd:anyURI;
   sh:maxCount 1;
   sh:description "The status of the european digital credential."@en;
   sh:name "credential status"@en;
   sh:severity sh:Violation;
   #sh:order 10;
   . 
- edc:EuropeanDigitalCredential-vc_credentialSchema
+ edc:EuropeanDigitalCredential-cred_credentialSchema
   a sh:PropertyShape; 
-  sh:path vc:credentialSchema;
-  sh:class vc:CredentialSchema;
-  sh:maxCount 1;
+  sh:path cred:credentialSchema;
+  sh:class elm:ShaclValidator; # or sh:datatype xsd:anyURI;
+  sh:minCount 1;
   sh:description "The schema of the european digital credential."@en;
   sh:name "credential schema"@en;
   sh:severity sh:Violation;
   #sh:order 11;
   . 
- edc:EuropeanDigitalCredential-vc_termsOfUse
+ edc:EuropeanDigitalCredential-cred_termsOfUse
   a sh:PropertyShape; 
-  sh:path vc:termsOfUse;
-  sh:class vc:TermsOfUse;
-  sh:maxCount 1;
+  sh:path cred:termsOfUse;
+  sh:datatype xsd:anyURI;
   sh:description "The terms of use of european digital credential."@en;
   sh:name "terms of use"@en;
   sh:severity sh:Violation;
   #sh:order 11;
   .   
+
+edc:EuropeanDigitalCredential-cred_holder
+  a sh:PropertyShape; 
+  sh:path cred:holder;
+  sh:class elm:Agent;
+  sh:description "The entity that is holding the verifiable credential."@en;
+  sh:name "holder"@en;
+  sh:severity sh:Violation;
+  #sh:order 12;
+  .
 #------ European Digital Presentation class and properties shapes -------- 
 edc:EuropeanDigitalPresentationShape 
   a sh:NodeShape; 
   sh:targetClass elm:EuropeanDigitalPresentation; 
   rdfs:comment "A verifiable presentation of a set of European Digital Credentials. European Digital Presentation is a subclass of Verifiable Presentation."@en; 
-  rdfs:label "European Digital Presentation Shape"@en; 
-  sh:property edc:EuropeanDigitalPresentation-elm_verifiableCredential;
+  rdfs:label "European Digital Presentation "@en; 
+  sh:property edc:EuropeanDigitalPresentation-cred_verifiableCredential;
   sh:property edc:EuropeanDigitalPresentation-elm_verificationCheck;
-  sh:property edc:EuropeanDigitalPresentation-vc_proof;
-  sh:severity sh:Violation;
-  .
+  sh:property edc:EuropeanDigitalPresentation-cred_holder;
+  sh:property edc:EuropeanDigitalPresentation-cred_proof;
+.
 
-edc:EuropeanDigitalPresentation-elm_verifiableCredential
+edc:EuropeanDigitalPresentation-cred_verifiableCredential
   a sh:PropertyShape; 
-  sh:path elm:verifiableCredential;
+  sh:path cred:verifiableCredential;
   sh:class elm:EuropeanDigitalCredential;
   sh:description "A verifiable European Digital Credential."@en;
   sh:name "verifiable credential"@en;
@@ -1089,30 +1176,39 @@ edc:EuropeanDigitalPresentation-elm_verifiableCredential
 
 edc:EuropeanDigitalPresentation-elm_verificationCheck
   a sh:PropertyShape; 
-  sh:path elm:verifiacationCheck;
+  sh:path elm:verificationCheck;
   sh:class elm:VerificationCheck;
   sh:description "A verification check."@en;
   sh:name "verification check"@en;
   sh:severity sh:Violation;
   #sh:order 1;
   . 
+ edc:EuropeanDigitalPresentation-cred_proof 
+     a sh:propertyShape;
+     sh:path cred:proof;
+     sh:datatype xsd:anyURI;
+     sh:description "The proof of the european digital presentaion."@en;
+     sh:name "proof"@en;
+     sh:severity sh:Violation;
+     #sh:order 2;
+  .
 
-edc:EuropeanDigitalPresentation-vc_proof
+edc:EuropeanDigitalPresentation-cred_holder
   a sh:PropertyShape; 
-  sh:path vc:proof;
-  sh:class vc:Proof;
-  sh:description "The cryptographic proofs that can be used to detect tampering and verify the authorship of presentation."@en;
-  sh:name "proof"@en;
+  sh:path cred:holder;
+  sh:class elm:Agent;
+  sh:description "The entity that is generating the presenttion."@en;
+  sh:name "holder"@en;
   sh:severity sh:Violation;
-  #sh:order 2;
-  . 
+  #sh:order 3;
+  .
 
 #------ Credit Point class and properties shapes --------   
 edc:CreditPointShape
   a sh:NodeShape; 
   sh:targetClass elm:CreditPoint; 
   rdfs:comment "The credit points."@en; 
-  rdfs:label "Credit Point Shape"@en;
+  rdfs:label "Credit Point "@en;
   sh:property edc:CrediPoint-elm_framework;
   sh:property edc:CrediPoint-elm_point;
 .
@@ -1138,13 +1234,12 @@ edc:CrediPoint-elm_point
   #sh:order 2;
   .
 
-
 #------ Grading Scheme class and properties shapes -------- 
 edc:GradingSchemeShape 
   a sh:NodeShape; 
   sh:targetClass elm:GradingScheme; 
   rdfs:comment "A set of criteria that measures varying levels of achievement."@en; 
-  rdfs:label "Grading Scheme Shape"@en; 
+  rdfs:label "Grading Scheme "@en; 
   sh:property edc:GradingScheme-adms_identifier;
   sh:property edc:GradingScheme-dc_title;
   sh:property edc:GradingScheme-dc_description;
@@ -1154,7 +1249,7 @@ edc:GradingSchemeShape
 edc:GradingScheme-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the grading scheme. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -1165,9 +1260,10 @@ edc:GradingScheme-dc_title
  edc:GradingScheme-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the grading scheme."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   . 
@@ -1194,7 +1290,7 @@ edc:GrantShape
   a sh:NodeShape; 
   sh:targetClass elm:Grant; 
   rdfs:comment "A Grant."@en; 
-  rdfs:label "Grant Shape"@en; 
+  rdfs:label "Grant "@en; 
   sh:property edc:Grant-dc_title;
   sh:property edc:Grant-dc_description;
   sh:property edc:Grant-elm_supplementaryDocument;
@@ -1205,7 +1301,7 @@ edc:GrantShape
 edc:Grant-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the grant. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -1216,9 +1312,10 @@ edc:Grant-dc_title
 edc:Grant-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the grant."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -1253,12 +1350,11 @@ edc:Grant-elm_contentUrl
   #sh:order 4;
   .
 #------ Identifier class and properties shapes -------- 
-#dc:type, dc:issued, adms:schemeAgency, content->skos:notation,dc:creator
 edc:IdentifierShape 
   a sh:NodeShape; 
   sh:targetClass elm:Identifier; 
   rdfs:comment "A character string used to identify a resource. An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency. The Identifier class is a critical aspect of the ELM. It is used to identify persons and organisations. In these cases, and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised."@en; 
-  rdfs:label "Identifier Shape"@en; 
+  rdfs:label "Identifier "@en; 
   sh:property edc:Identifier-skos_notation;
   sh:property edc:Identifier-adms_schemeAgency;
   sh:property edc:Identifier-dc_creator;
@@ -1271,7 +1367,7 @@ edc:IdentifierShape
 edc:Identifier-skos_notation 
       a sh:PropertyShape; 
       sh:path skos:notation;
-      sh:nodeKind sh:Literal;
+      sh:datatype xsd:string;
       sh:minCount 1;
       sh:maxCount 1;
       sh:description "The content string which is the identifier."@en;
@@ -1283,7 +1379,7 @@ edc:Identifier-skos_notation
 edc:Identifier-adms_schemeAgency
   a sh:PropertyShape; 
   sh:path adms:schemeAgency;
-  sh:nodeKind sh:Literal ;
+ sh:datatype rdf:langString;
   sh:maxCount 1;
   sh:description "The name of the agent that manages the identifier scheme."@en;
   sh:name "scheme agency name"@en;
@@ -1346,8 +1442,8 @@ edc:Identifier-dc_type
 #----------------- Issuer Node Shape ---------------------------
 edc:IssuerNodeShape 
   a sh:NodeShape;
-  rdfs:comment "This shape does not apply on a class. This shape is for checking the instances of the node Issuer of the European Digital Credential."@en; 
-  rdfs:label "Issuer Node Shape"@en; 
+  rdfs:comment "This shape  adds an extra constraint on  the issuer of the European Digital Credential."@en; 
+  rdfs:label "Issuer Node"@en; 
   sh:property [
      sh:description "An issuer must have one and only one legal identifier."@en;
      sh:name "mandatory legal identifier";
@@ -1364,7 +1460,7 @@ edc:LearningAchievementShape
   a sh:NodeShape;
   sh:targetClass elm:LearningAchievement;
   rdfs:comment "The acquisition of knowledge, skills or responsibility and autonomy. A recognised and/or awarded set of learning outcomes of an individual. Learning Achievement is a subclass of Claim."@en;
-  rdfs:label "Learning Achievement Shape"@en;
+  rdfs:label "Learning Achievement "@en;
   sh:property edc:LearningAchievement-dc_title;
   sh:property edc:LearningAchievement-dc_description;
   sh:property edc:LearningAchievement-adms_identifier;
@@ -1372,18 +1468,20 @@ edc:LearningAchievementShape
   sh:property edc:LearningAchievement-elm_additionalNote;
   sh:property edc:LearningAchievement-elm_supplementaryDocument;
   sh:property edc:LearningAchievement-elm_learningOpportunity;
+  sh:property edc:LearningAchievement-elm_creditReceived;
   sh:property edc:LearningAchievement-elm_provenBy;
   sh:property edc:LearningAchievement-elm_influencedBy;
   sh:property edc:LearningAchievement-elm_awardedBy;
   sh:property edc:LearningAchievement-elm_entitlesTo;
   sh:property edc:LearningAchievement-elm_specifiedBy;
   sh:property edc:LearningAchievement-elm_hasPart;
+  sh:property edc:LearningAchievement-elm_isPartOf;
   .
 
 edc:LearningAchievement-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning achievement. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -1394,9 +1492,10 @@ edc:LearningAchievement-dc_title
 edc:LearningAchievement-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the learning achievement."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -1413,7 +1512,7 @@ edc:LearningAchievement-dc_type
   a sh:PropertyShape; 
   sh:path dc:type;
   sh:class skos:Concept;
-  sh:description "The type of the learning achievement. It should be provided using a controlled vocabulary. The users can also use their own cotrolled list(s) to specify subtypes of the Learning Achievement. Multiple types are allowed, but they should all fall under the same upper type  'Learning Achievement', since the subclasses of Claim superclass are disjoint."@en;
+  sh:description "The type of the learning achievement. It should be provided using a controlled vocabulary. The users can also use their own controlled list(s) to specify subtypes of the Learning Achievement. Multiple types are allowed, but they should all fall under the same upper type  'Learning Achievement', since the subclasses of Claim superclass are disjoint."@en;
   sh:name "type"@en;
   sh:severity sh:Violation;
   #sh:order 3;
@@ -1507,13 +1606,31 @@ edc:LearningAchievement-elm_hasPart
   sh:severity sh:Violation;
   #sh:order 12;
   .
+ edc:LearningAchievement-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:LearningAchievement;
+  sh:description "A learning achievement,which this learning achievement is part of."@en;
+  sh:name "is part of "@en;
+  sh:severity sh:Violation;
+  #sh:order 13;
+  . 
+edc:LearningAchievement-elm_creditReceived
+a sh:PropertyShape;
+  sh:path elm:creditReceived;
+  sh:class elm:CreditPoint;
+  sh:description "The credit points received for this learning achievement."@en;
+  sh:name "credit received"@en;
+  sh:severity sh:Violation;
+  #sh:order 14;
+  .
 
 #------ Learning Achievement Specification class and properties shapes --------
 edc:LearningAchievementSpecificationShape
   a sh:NodeShape;
   sh:targetClass elm:LearningAchievementSpecification;
   rdfs:comment "A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning achievement. Learning Achievement Specification is a subclass of Specification."@en;
-  rdfs:label "Learning Achievement Specification Shape"@en;
+  rdfs:label "Learning Achievement Specification "@en;
     sh:property edc:LearningAchievementSpecification-adms_identifier;
     sh:property edc:LearningAchievementSpecification-dc_title;
     sh:property edc:LearningAchievementSpecification-dc_description;
@@ -1523,7 +1640,7 @@ edc:LearningAchievementSpecificationShape
     sh:property edc:LearningAchievementSpecification-skos_altLabel;
     sh:property edc:LearningAchievementSpecification-elm_category;
     sh:property edc:LearningAchievementSpecification-dc_type;
-    sh:property edc:LearningAchievementSpecification-elm_lastModificationDate;
+    sh:property edc:LearningAchievementSpecification-dc_modified;
     sh:property edc:LearningAchievementSpecification-dc_language;
     sh:property edc:LearningAchievementSpecification-elm_volumeOfLearning;
     sh:property edc:LearningAchievementSpecification-elm_mode;
@@ -1542,12 +1659,14 @@ edc:LearningAchievementSpecificationShape
     sh:property edc:LearningAchievementSpecification-elm_entitlesTo;
     sh:property edc:LearningAchievementSpecification-elm_awardingOpportunity;
     sh:property edc:LearningAchievementSpecification-elm_hasPart;
+    sh:property edc:LearningAchievementSpecification-elm_isPartOf;
     sh:property edc:LearningAchievementSpecification-elm_specialisationOf;
+    sh:property edc:LearningAchievementSpecification-elm_generalisationOf;
   .
 edc:LearningAchievementSpecification-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning achievement specification. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -1567,7 +1686,7 @@ edc:LearningAchievementSpecification-dc_title
   edc:LearningAchievementSpecification-skos_altLabel
   a sh:PropertyShape; 
   sh:path skos:altLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The alternative name of the learning achievement specification."@en;
   sh:name "alternative name"@en;
   sh:severity sh:Violation;
@@ -1576,9 +1695,10 @@ edc:LearningAchievementSpecification-dc_title
  edc:LearningAchievementSpecification-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the learning achievement specification."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 3;
   . 
@@ -1613,7 +1733,7 @@ edc:LearningAchievementSpecification-elm_supplementaryDocument
 edc:LearningAchievementSpecification-elm_category
   a sh:PropertyShape;  
   sh:path elm:category;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The category of the  learning achievement specification as a string."@en;
   sh:name "category"@en;
   sh:severity sh:Violation;
@@ -1629,9 +1749,9 @@ edc:LearningAchievementSpecification-dc_type
   sh:severity sh:Violation;
   #sh:order 8;
 .
-edc:LearningAchievementSpecification-elm_lastModificationDate
+edc:LearningAchievementSpecification-dc_modified
    a sh:PropertyShape;
-   sh:path elm:lastModificationDate;
+   sh:path dc:modified;
    sh:datatype xsd:dateTime;
    sh:maxCount 1;
    sh:description "The date when the learning achievement specification was last modified."@en;
@@ -1821,7 +1941,15 @@ edc:LearningAchievementSpecification-elm_hasPart
   sh:severity sh:Violation;
   #sh:order 27;
   .
-
+ edc:LearningAchievementSpecification-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:LearningAchievementSpecification;
+  sh:description "A learning achievement specification, which this learning achievement specification is part of."@en;
+  sh:name "is part of "@en;
+  sh:severity sh:Violation;
+  #sh:order 28;
+  . 
 edc:LearningAchievementSpecification-elm_specialisationOf
  a sh:PropertyShape;
   sh:path elm:specialisationOf;
@@ -1829,15 +1957,24 @@ edc:LearningAchievementSpecification-elm_specialisationOf
   sh:description "A learning achievement specification (e.g., a standard) of which this specification is a specialisation."@en;
   sh:name "specialisation of"@en;
   sh:severity sh:Violation;
-  #sh:order 28;
+  #sh:order 29;
   .
-
+edc:LearningAchievementSpecification-elm_generalisationOf
+  a sh:PropertyShape;
+  sh:path elm:generalisationOf;
+  sh:class elm:LearningAchievementSpecification;
+  sh:description "A learning achievement specification (e.g., a standard) of which this specification is a generalisation."@en;
+  sh:name "generalisation of"@en;
+  sh:severity sh:Violation;
+  #sh:order 30;
+  .
+   
 #------ Learning Activity class and properties shapes --------
 edc:LearningActivityShape
   a sh:NodeShape;
   sh:targetClass elm:LearningActivity;
   rdfs:comment "Any process which leads to the acquisition of knowledge, skills or responsibility and autonomy. Learning Activity is a subclass of Claim."@en;
-  rdfs:label "Learning Activity Shape"@en;
+  rdfs:label "Learning Activity "@en;
   sh:property edc:LearningActivity-dc_title;
   sh:property edc:LearningActivity-dc_description;
   sh:property edc:LearningActivity-adms_identifier;
@@ -1853,12 +1990,13 @@ edc:LearningActivityShape
   sh:property edc:LearningActivity-elm_influences;
   sh:property edc:LearningActivity-elm_specifiedBy;
   sh:property edc:LearningActivity-elm_hasPart;
+  sh:property edc:LearningActivity-elm_isPartOf;
   sh:property edc:LearningActivity-elm_levelOfCompletion;
   .
 edc:LearningActivity-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning activity. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -1869,9 +2007,10 @@ edc:LearningActivity-dc_title
 edc:LearningActivity-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the learning activity."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -1888,7 +2027,7 @@ edc:LearningActivity-dc_type
   a sh:PropertyShape; 
   sh:path dc:type;
   sh:class skos:Concept;
-  sh:description "The type of the learning activity. It should be provided using a controlled vocabulary. The users can also use their own cotrolled list to specify subtypes of the Learning Activity. Multiple types are allowed, but they should all fall under the same upper type  'Learning Activity', since the subclasses of Claim superclass are disjoint."@en;
+  sh:description "The type of the learning activity. It should be provided using a controlled vocabulary. The users can also use their own controlled list to specify subtypes of the Learning Activity. Multiple types are allowed, but they should all fall under the same upper type  'Learning Activity', since the subclasses of Claim superclass are disjoint."@en;
   sh:name "type"@en;
   sh:severity sh:Violation;
   #sh:order 3;
@@ -1999,6 +2138,15 @@ edc:LearningActivity-elm_hasPart
   sh:severity sh:Violation;
   #sh:order 14;
   .
+edc:LearningActivity-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:LearningActivity;
+  sh:description "A learning activity, which this learning activity is part of."@en;
+  sh:name "is part of"@en;
+  sh:severity sh:Violation;
+  #sh:order 15;
+  .
 
 edc:LearningActivity-elm_levelOfCompletion
   a sh:PropertyShape;
@@ -2009,17 +2157,15 @@ edc:LearningActivity-elm_levelOfCompletion
   sh:description "The level until which the learning activity has been completed. It is measured in %."@en;
   sh:name "level of completion"@en;
   sh:severity sh:Violation;
-  #sh:order 15;
+  #sh:order 16;
   .
-
-
 
 #------ Learning Activity Specification class and properties shapes --------
 edc:LearningActivitySpecificationShape
   a sh:NodeShape;
   sh:targetClass elm:LearningActivitySpecification;
   rdfs:comment "The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy. Learning Activity Specification is a subclass of Specification."@en;
-  rdfs:label "Learning Activity Specification Shape"@en;
+  rdfs:label "Learning Activity Specification "@en;
   sh:property edc:LearningActivitySpecification-adms_identifier;
   sh:property edc:LearningActivitySpecification-dc_title;
   sh:property edc:LearningActivitySpecification-dc_description;
@@ -2028,7 +2174,7 @@ edc:LearningActivitySpecificationShape
   sh:property edc:LearningActivitySpecification-foaf_homepage;
   sh:property edc:LearningActivitySpecification-skos_altLabel;
   sh:property edc:LearningActivitySpecification-elm_category;
-  sh:property edc:LearningActivitySpecification-elm_lastModificationDate;
+  sh:property edc:LearningActivitySpecification-dc_modified;
   sh:property edc:LearningActivitySpecification-dc_type;
   sh:property edc:LearningActivitySpecification-dc_language;
   sh:property edc:LearningActivitySpecification-elm_volumeOfLearning;
@@ -2036,12 +2182,14 @@ edc:LearningActivitySpecificationShape
   sh:property edc:LearningActivitySpecification-elm_mode;
   sh:property edc:LearningActivitySpecification-elm_influences;
   sh:property edc:LearningActivitySpecification-elm_hasPart;
+  sh:property edc:LearningActivitySpecification-elm_isPartOf;
   sh:property edc:LearningActivitySpecification-elm_specialisationOf;
+  sh:property edc:LearningActivitySpecification-elm_generalisationOf;
   .
 edc:LearningActivitySpecification-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning activity specification. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -2052,9 +2200,10 @@ edc:LearningActivitySpecification-dc_title
  edc:LearningActivitySpecification-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the learning activity specification."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   . 
@@ -2088,7 +2237,7 @@ edc:LearningActivitySpecification-elm_supplementaryDocument
  edc:LearningActivitySpecification-skos_altLabel
   a sh:PropertyShape; 
   sh:path skos:altLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The alternative name of the learning activity specification."@en;
   sh:name "alternative name"@en;
   sh:severity sh:Violation;
@@ -2107,7 +2256,7 @@ edc:LearningActivitySpecification-elm_supplementaryDocument
 edc:LearningActivitySpecification-elm_category
   a sh:PropertyShape;  
   sh:path elm:category;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The category of the learning activity specification as a string."@en;
   sh:name "category"@en;
   sh:severity sh:Violation;
@@ -2123,9 +2272,9 @@ edc:LearningActivitySpecification-elm_category
   sh:severity sh:Violation;
   #sh:order 8;
 . 
-edc:LearningActivitySpecification-elm_lastModificationDate
+edc:LearningActivitySpecification-dc_modified
   a sh:PropertyShape;
-   sh:path elm:lastModificationDate;
+   sh:path dc:modified;
    sh:datatype xsd:dateTime;
    sh:maxCount 1;
    sh:description "The date when the learning activity specification was last modified."@en;
@@ -2191,6 +2340,15 @@ edc:LearningActivitySpecification-elm_specialisationOf
   sh:severity sh:Violation;
   #sh:order 15;
   .
+edc:LearningActivitySpecification-elm_generalisationOf
+  a sh:PropertyShape;
+  sh:path elm:generalisationOf;
+  sh:class elm:LearningActivitySpecification;
+  sh:description "An activity specification (e.g., a standard) of which this specification is a generalisation."@en;
+  sh:name "generalisation of"@en;
+  sh:severity sh:Violation;
+  #sh:order 16;
+  .
 
 edc:LearningActivitySpecification-elm_hasPart
   a sh:PropertyShape;
@@ -2199,15 +2357,24 @@ edc:LearningActivitySpecification-elm_hasPart
   sh:description "A learning activity specification can be composed of smaller learning activity specifications, which when combined make up this learning activity specification."@en;
   sh:name "has part"@en;
   sh:severity sh:Violation;
-  #sh:order 15;
+  #sh:order 17;
   .
+ edc:LearningActivitySpecification-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:LearningActivitySpecification;
+  sh:description "A learning activity specification, which this learning activity specification is part of."@en;
+  sh:name "is part of"@en;
+  sh:severity sh:Violation;
+  #sh:order 18;
+  . 
 
 #------ Learning Assessment class and properties shapes --------
 edc:LearningAssessmentShape
   a sh:NodeShape;
   sh:targetClass elm:LearningAssessment;
   rdfs:comment "The result of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence. Learning Assessment is a subclass of Claim."@en;
-  rdfs:label "Learning Assessment Shape"@en;
+  rdfs:label "Learning Assessment "@en;
   sh:property edc:LearningAssessment-dc_title;
   sh:property edc:LearningAssessment-dc_description;
   sh:property edc:LearningAssessment-adms_identifier;
@@ -2215,6 +2382,7 @@ edc:LearningAssessmentShape
   sh:property edc:LearningAssessment-elm_additionalNote;
   sh:property edc:LearningAssessment-elm_supplementaryDocument;
   sh:property edc:LearningAssessment-dc_issued;
+  sh:property edc:LearningAssessment-elm_location;
   sh:property edc:LearningAssessment-elm_grade;
   sh:property edc:LearningAssessment-elm_gradeStatus;
   sh:property edc:LearningAssessment-elm_shortenedGrading;
@@ -2224,12 +2392,13 @@ edc:LearningAssessmentShape
   sh:property edc:LearningAssessment-elm_assessedBy;
   sh:property edc:LearningAssessment-elm_proves;
   sh:property edc:LearningAssessment-elm_hasPart;
+  sh:property edc:LearningAssessment-elm_isPartOf;
   sh:property edc:LearningAssessment-elm_specifiedBy;
   .
 edc:LearningAssessment-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning assessment. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -2240,9 +2409,10 @@ edc:LearningAssessment-dc_title
 edc:LearningAssessment-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the learning assessment."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -2259,7 +2429,7 @@ edc:LearningAssessment-dc_type
   a sh:PropertyShape; 
   sh:path dc:type;
   sh:class skos:Concept;
-  sh:description "The type of the learning assessment. It should be provided using a controlled vocabulary. The users can also use their own cotrolled list(s) to specify subtypes of the Learning Assessment. Multiple types are allowed, but they should all fall under the same upper type  'Learning Assessment', since the subclasses of Claim superclass are disjoint."@en;
+  sh:description "The type of the learning assessment. It should be provided using a controlled vocabulary. The users can also use their own controlled list(s) to specify subtypes of the Learning Assessment. Multiple types are allowed, but they should all fall under the same upper type  'Learning Assessment', since the subclasses of Claim superclass are disjoint."@en;
   sh:name "type"@en;
   sh:severity sh:Violation;
   #sh:order 3;
@@ -2292,6 +2462,16 @@ edc:LearningAssessment-dc_issued
   sh:severity sh:Violation;
   #sh:order 6;
   . 
+ edc:LearningAssessment-elm_location
+  a sh:PropertyShape;  
+  sh:path elm:location;
+  sh:class dc:Location;
+  sh:maxCount 1;
+  sh:description "The location where the learning assessment was completed (country/region where the qualification is awarded)."@en;
+  sh:name "location"@en;
+  sh:severity sh:Violation;
+  #sh:order 7;
+.   
 edc:LearningAssessment-elm_grade
   a sh:PropertyShape;
   sh:path elm:grade;
@@ -2301,7 +2481,7 @@ edc:LearningAssessment-elm_grade
   sh:description "A resulting grade of the assessment."@en;
   sh:name "grade"@en;
   sh:severity sh:Violation;
-   #sh:order 7;
+   #sh:order 8;
   .
 edc:LearningAssessment-elm_gradeStatus
   a sh:PropertyShape;
@@ -2311,7 +2491,7 @@ edc:LearningAssessment-elm_gradeStatus
   sh:description "The status of the grade, which can be i) pass, ii) fail or iii) other. It should be provided using a controlled vocabulary."@en;
   sh:name "grade status"@en;
   sh:severity sh:Violation;
-   #sh:order 8;
+   #sh:order 9;
   .  
 edc:LearningAssessment-elm_shortenedGrading
   a sh:PropertyShape;
@@ -2321,7 +2501,7 @@ edc:LearningAssessment-elm_shortenedGrading
   sh:description "Indicator of how well the student was graded when compared to other students."@en;
   sh:name "shortened grading"@en;
   sh:severity sh:Violation;
-  #sh:order 8;
+  #sh:order 10;
   .
 edc:LearningAssessment-elm_resultDistribution
   a sh:PropertyShape;
@@ -2331,7 +2511,7 @@ edc:LearningAssessment-elm_resultDistribution
   sh:description "Describes a histogram of results achieved by all the students of a particular learning assessment."@en;
   sh:name "result distribution"@en;
   sh:severity sh:Violation;
-  #sh:order 9;
+  #sh:order 11;
   .
 
 edc:LearningAssessment-elm_idVerification
@@ -2342,7 +2522,7 @@ edc:LearningAssessment-elm_idVerification
   sh:description "Method of assessment supervision and ID verification. It should be provided using the EDC Controlled List of Methods Of Supervision And Verification."@en;
   sh:name "method of assessment supervision and ID verification"@en;
   sh:severity sh:Violation;
-  #sh:order 10;
+  #sh:order 12;
   .
 
 edc:LearningAssessment-elm_assessedBy
@@ -2352,7 +2532,7 @@ edc:LearningAssessment-elm_assessedBy
   sh:description "The competent body that awarded the grade."@en;
   sh:name "assessed by"@en;
   sh:severity sh:Violation;
-  #sh:order 11;
+  #sh:order 13;
   .
  edc:LearningAssessment-elm_awardedBy
   a sh:PropertyShape;
@@ -2362,7 +2542,7 @@ edc:LearningAssessment-elm_assessedBy
   sh:description "The awarding details of the learning assessment."@en;
   sh:name "awarded by"@en;
   sh:severity sh:Violation;
-  #sh:order 12;
+  #sh:order 14;
   .
 edc:LearningAssessment-elm_proves
   a sh:PropertyShape;
@@ -2372,7 +2552,7 @@ edc:LearningAssessment-elm_proves
   sh:description "The learning achievement (and related learning outcomes) which were acquired by successfully passing the assessment."@en;
   sh:name "proves"@en;
   sh:severity sh:Violation;
-  #sh:order 13;
+  #sh:order 15;
   .
 
  edc:LearningAssessment-elm_hasPart
@@ -2382,7 +2562,17 @@ edc:LearningAssessment-elm_proves
   sh:description "Smaller assessments, which when combined make up and can influence this assessment."@en;
   sh:name "has part"@en;
   sh:severity sh:Violation;
-  #sh:order 14;
+  #sh:order 16;
+  .
+
+ edc:LearningAssessment-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:LearningAssessment;
+  sh:description "A learning assessment, which this learning assessment is part of."@en;
+  sh:name "is part of"@en;
+  sh:severity sh:Violation;
+  #sh:order 17;
   .
 
  edc:LearningAssessment-elm_specifiedBy
@@ -2393,7 +2583,7 @@ edc:LearningAssessment-elm_proves
   sh:description "The specification of this assessment."@en;
   sh:name "specified by"@en;
   sh:severity sh:Violation;
-  #sh:order 15;
+  #sh:order 18;
   .
 
 #------ Learning Assessment Specification class and properties shapes --------
@@ -2401,7 +2591,7 @@ edc:LearningAssessmentSpecificationShape
   a sh:NodeShape;
   sh:targetClass elm:LearningAssessmentSpecification;
   rdfs:comment "A Learning Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence. Learning Assessment Specification is a subclass of Specification."@en;
-  rdfs:label "Learning Assessment Specification Shape"@en;
+  rdfs:label "Learning Assessment Specification "@en;
    sh:property edc:LearningAssessmentSpecification-adms_identifier;
   sh:property edc:LearningAssessmentSpecification-dc_title;
   sh:property edc:LearningAssessmentSpecification-dc_description;
@@ -2410,19 +2600,21 @@ edc:LearningAssessmentSpecificationShape
   sh:property edc:LearningAssessmentSpecification-foaf_homepage;
   sh:property edc:LearningAssessmentSpecification-skos_altLabel;
   sh:property edc:LearningAssessmentSpecification-elm_category;
-  sh:property edc:LearningAssessmentSpecification-elm_lastModificationDate;
+  sh:property edc:LearningAssessmentSpecification-dc_modified;
   sh:property edc:LearningAssessmentSpecification-dc_type;
   sh:property edc:LearningAssessmentSpecification-dc_language;
   sh:property edc:LearningAssessmentSpecification-elm_mode;
   sh:property edc:LearningAssessmentSpecification-elm_gradingScheme;
   sh:property edc:LearningAssessmentSpecification-elm_proves;
   sh:property edc:LearningAssessmentSpecification-elm_hasPart;
+  sh:property edc:LearningAssessmentSpecification-elm_isPartOf;
   sh:property edc:LearningAssessmentSpecification-elm_specialisationOf;
+  sh:property edc:LearningAssessmentSpecification-elm_generalisationOf;
   .
 edc:LearningAssessmentSpecification-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning assessment specification. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -2433,9 +2625,10 @@ edc:LearningAssessmentSpecification-dc_title
  edc:LearningAssessmentSpecification-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the learning assessment specification."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   . 
@@ -2469,7 +2662,7 @@ edc:LearningAssessmentSpecification-elm_supplementaryDocument
  edc:LearningAssessmentSpecification-skos_altLabel
   a sh:PropertyShape; 
   sh:path skos:altLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The alternative name of the learning assessment specification."@en;
   sh:name "alternative name"@en;
   sh:severity sh:Violation;
@@ -2487,7 +2680,7 @@ edc:LearningAssessmentSpecification-elm_supplementaryDocument
 edc:LearningAssessmentSpecification-elm_category
   a sh:PropertyShape;  
   sh:path elm:category;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The category of the learning assessment specification as a string."@en;
   sh:name "category"@en;
   sh:severity sh:Violation;
@@ -2503,9 +2696,9 @@ edc:LearningAssessmentSpecification-dc_type
   sh:severity sh:Violation;
   #sh:order 8;
   . 
-edc:LearningAssessmentSpecification-elm_lastModificationDate
+edc:LearningAssessmentSpecification-dc_modified
   a sh:PropertyShape;
-   sh:path elm:lastModificationDate;
+   sh:path dc:modified;
    sh:datatype xsd:dateTime;
    sh:maxCount 1;
    sh:description "The date when the learning assessment specification was last modified."@en;
@@ -2559,6 +2752,15 @@ edc:LearningAssessmentSpecification-elm_hasPart
   sh:severity sh:Violation;
   #sh:order 14;
   .
+  edc:LearningAssessmentSpecification-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:LearningAssessmentSpecification;
+  sh:description "A learning assessment specification, which this learning assessment specification is part of."@en;
+  sh:name "is part of"@en;
+  sh:severity sh:Violation;
+  #sh:order 15;
+  .
 edc:LearningAssessmentSpecification-elm_specialisationOf
   a sh:PropertyShape;
   sh:path elm:specialisationOf;
@@ -2566,15 +2768,24 @@ edc:LearningAssessmentSpecification-elm_specialisationOf
   sh:description "A learning assessment specification (e.g., a standard) of which this specification is a specialisation."@en;
   sh:name "specialisation of"@en;
   sh:severity sh:Violation;
-  #sh:order 15;
+  #sh:order 16;
   .
+edc:LearningAssessmentSpecification-elm_generalisationOf
+  a sh:PropertyShape;
+  sh:path elm:generalisationOf;
+  sh:class elm:LearningAssessmentSpecification;
+  sh:description "A learning assessment specification (e.g., a standard) of which this specification is a generalisation."@en;
+  sh:name "generalisation of"@en;
+  sh:severity sh:Violation;
+  #sh:order 17;
+  . 
 
 #------ Learning Entitlement class and properties shapes --------
 edc:LearningEntitlementShape
   a sh:NodeShape;
   sh:targetClass elm:LearningEntitlement;
   rdfs:comment "A right, e.g., to practice a profession, take advantage of a learning opportunity or join an organisation, as a result of the acquisition of knowledge, skills, responsibility and/or autonomy. Learning Entitlement is a subclass of Claim."@en;
-  rdfs:label "Learning Entitlement Shape"@en;
+  rdfs:label "Learning Entitlement "@en;
   sh:property edc:LearningEntitlement-dc_title;
   sh:property edc:LearningEntitlement-dc_description;
   sh:property edc:LearningEntitlement-adms_identifier;
@@ -2586,12 +2797,13 @@ edc:LearningEntitlementShape
   sh:property edc:LearningEntitlement-elm_awardedBy;
   sh:property edc:LearningEntitlement-elm_entitledBy;
   sh:property edc:LearningEntitlement-elm_hasPart;
+  sh:property edc:LearningEntitlement-elm_isPartOf;
   sh:property edc:LearningEntitlement-elm_specifiedBy;
   .
  edc:LearningEntitlement-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning entitlement. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -2602,9 +2814,10 @@ edc:LearningEntitlementShape
 edc:LearningEntitlement-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the learning entitlement."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -2620,8 +2833,9 @@ edc:LearningEntitlement-adms_identifier
 edc:LearningEntitlement-dc_type
   a sh:PropertyShape; 
   sh:path dc:type;
+  sh:maxCount 1;
   sh:class skos:Concept;
-  sh:description "The type of the learning entitlement. It should be provided using a controlled vocabulary. The users can also use their own cotrolled list(s) to specify subtypes of the Learning Entitlement. Multiple types are allowed, but they should all fall under the same upper type  'Learning Entitlement', since the subclasses of Claim superclass are disjoint."@en;
+  sh:description "The type of the learning entitlement. It should be provided using a controlled vocabulary. The users can also use their own controlled list(s) to specify subtypes of the Learning Entitlement. Multiple types are allowed, but they should all fall under the same upper type  'Learning Entitlement', since the subclasses of Claim superclass are disjoint."@en;
   sh:name "type"@en;
   sh:severity sh:Violation;
   #sh:order 3;
@@ -2693,7 +2907,15 @@ edc:LearningEntitlement-elm_hasPart
   sh:severity sh:Violation;
   #sh:order 10;
   .
-
+edc:LearningEntitlement-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:LearningEntitlement;
+  sh:description "A learning entitlement, which this learning entitlement is part of."@en;
+  sh:name "is part of"@en;
+  sh:severity sh:Violation;
+  #sh:order 11;
+  .
  edc:LearningEntitlement-elm_specifiedBy
   a sh:PropertyShape;
   sh:path elm:specifiedBy;
@@ -2702,7 +2924,7 @@ edc:LearningEntitlement-elm_hasPart
   sh:description "The learning entitlement specification that specifies this learning entitlement."@en;
   sh:name "specified by"@en;
   sh:severity sh:Violation;
-  #sh:order 11;
+  #sh:order 12;
   .
 
 #------ Learning Entitlement Specification class and properties shapes --------
@@ -2710,7 +2932,7 @@ edc:LearningEntitlementSpecificationShape
   a sh:NodeShape;
   sh:targetClass elm:LearningEntitlementSpecification;
   rdfs:comment "The specification of a right a person has access to, typically as a result of a learning achievement. It may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career. Learning Entitlement Specification is a subclass of Specification."@en;
-  rdfs:label "Learning Entitlement Specification Shape"@en;
+  rdfs:label "Learning Entitlement Specification "@en;
   sh:property edc:LearningEntitlementSpecification-adms_identifier;
   sh:property edc:LearningEntitlementSpecification-dc_title;
   sh:property edc:LearningEntitlementSpecification-dc_description;
@@ -2719,7 +2941,7 @@ edc:LearningEntitlementSpecificationShape
   sh:property edc:LearningEntitlementSpecification-foaf_homepage;
   sh:property edc:LearningEntitlementSpecification-skos_altLabel;
   sh:property edc:LearningEntitlementSpecification-elm_category;
-  sh:property edc:LearningEntitlementSpecification-elm_lastModificationDate;
+  sh:property edc:LearningEntitlementSpecification-dc_modified;
   sh:property edc:LearningEntitlementSpecification-dc_type;
   sh:property edc:LearningEntitlementSpecification-elm_status;
   sh:property edc:LearningEntitlementSpecification-elm_limitOrganisation;
@@ -2728,12 +2950,14 @@ edc:LearningEntitlementSpecificationShape
   sh:property edc:LearningEntitlementSpecification-elm_limitNationalOccupation;
   sh:property edc:LearningEntitlementSpecification-elm_entitledBy;
   sh:property edc:LearningEntitlementSpecification-elm_hasPart;
+  sh:property edc:LearningEntitlementSpecification-elm_isPartOf;
   sh:property edc:LearningEntitlementSpecification-elm_specialisationOf;
+  sh:property edc:LearningEntitlementSpecification-elm_generalisationOf;
   .
 edc:LearningEntitlementSpecification-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning entitlement specification. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -2744,9 +2968,10 @@ edc:LearningEntitlementSpecification-dc_title
  edc:LearningEntitlementSpecification-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the learning entitlement  specification."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   . 
@@ -2780,7 +3005,7 @@ edc:LearningEntitlementSpecification-elm_supplementaryDocument
  edc:LearningEntitlementSpecification-skos_altLabel
   a sh:PropertyShape; 
   sh:path skos:altLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The alternative name of the learning entitlement specification."@en;
   sh:name "alternative name"@en;
   sh:severity sh:Violation;
@@ -2799,7 +3024,7 @@ edc:LearningEntitlementSpecification-elm_supplementaryDocument
 edc:LearningEntitlementSpecification-elm_category
   a sh:PropertyShape;  
   sh:path elm:category;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The category of the learning entitlement specification as a string."@en;
   sh:name "category"@en;
   sh:severity sh:Violation;
@@ -2817,9 +3042,9 @@ edc:LearningEntitlementSpecification-dc_type
   sh:severity sh:Violation;
   #sh:order 9;
 .
-edc:LearningEntitlementSpecification-elm_lastModificationDate
+edc:LearningEntitlementSpecification-dc_modified
   a sh:PropertyShape;
-   sh:path elm:lastModificationDate;
+   sh:path dc:modified;
    sh:datatype xsd:dateTime;
    sh:maxCount 1;
    sh:description "The date when the learning entitlement specification was last modified."@en;
@@ -2898,7 +3123,15 @@ edc:LearningEntitlementSpecification-elm_hasPart
   sh:severity sh:Violation;
   #sh:order 17;
   .
-
+edc:LearningEntitlementSpecification-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:LearningEntitlementSpecification;
+  sh:description "A learning  entitlement specification, which this learning entitlement specification is part of."@en;
+  sh:name "is part of"@en;
+  sh:severity sh:Violation;
+  #sh:order 18;
+  .
 edc:LearningEntitlementSpecification-elm_specialisationOf
   a sh:PropertyShape;
   sh:path elm:specialisationOf;
@@ -2906,15 +3139,23 @@ edc:LearningEntitlementSpecification-elm_specialisationOf
   sh:description "A learning entitlement specification (e.g., a standard) of which this specification is a specialisation."@en;
   sh:name "specialisation of"@en;
   sh:severity sh:Violation;
-  #sh:order 18;
+  #sh:order 19;
   .
-
+edc:LearningEntitlementSpecification-elm_generalisationOf
+  a sh:PropertyShape;
+  sh:path elm:generalisationOf;
+  sh:class elm:LearningEntitlementSpecification;
+  sh:description "A learning entitlement specification (e.g., a standard) of which this specification is a generalisation."@en;
+  sh:name "generalisation of"@en;
+  sh:severity sh:Violation;
+  #sh:order 20;
+  .
 #------ Learning Opportunity class and properties shapes --------
 edc:LearningOpportunityShape
   a sh:NodeShape;
   sh:targetClass elm:LearningOpportunity;
   rdfs:comment "An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment."@en;
-  rdfs:label "Learning Opportunity Shape"@en;
+  rdfs:label "Learning Opportunity "@en;
   sh:property edc:LearningOpportunity-adms_identifier;
   sh:property edc:LearningOpportunity-dc_title;
   sh:property edc:LearningOpportunity-dc_description;
@@ -2935,14 +3176,16 @@ edc:LearningOpportunityShape
   sh:property edc:LearningOpportunity-elm_learningAchievementSpecification;
   sh:property edc:LearningOpportunity-elm_learningActivitySpecification;
   sh:property edc:LearningOpportunity-elm_hasPart;
+  sh:property edc:LearningOpportunity-elm_isPartOf;
   sh:property edc:LearningOpportunity-elm_bannerImage;
   sh:property edc:LearningOpportunity-elm_applicationDeadline;
   sh:property edc:LearningOpportunity-elm_defaultLanguage;
+  sh:property edc:LearningOpportunity-elm_descriptionHtml;
   .
  edc:LearningOpportunity-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning opportunity. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -2953,9 +3196,10 @@ edc:LearningOpportunityShape
  edc:LearningOpportunity-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the learning opportunity."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   #sh:order 1;
   sh:severity sh:Violation;
   . 
@@ -3136,6 +3380,15 @@ edc:LearningOpportunity-elm_hasPart
   #sh:order 19;
   sh:severity sh:Violation;
   .
+edc:LearningOpportunity-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:LearningOpportunity;
+  sh:description "A learning opportunity, which this learning opportunity is part of."@en;
+  sh:name "is part of"@en;
+  #sh:order 20;
+  sh:severity sh:Violation;
+  .  
 edc:LearningOpportunity-elm_bannerImage
   a sh:PropertyShape;
   sh:path elm:bannerImage;
@@ -3143,7 +3396,7 @@ edc:LearningOpportunity-elm_bannerImage
   sh:maxCount 1;
   sh:description "An image which is displayed alongside the learning opportunity."@en;
   sh:name "banner image"@en;
-  #sh:order 20;
+  #sh:order 21;
   sh:severity sh:Violation;
   .
 
@@ -3158,22 +3411,31 @@ edc:LearningOpportunity-elm_applicationDeadline
   .
 
 edc:LearningOpportunity-elm_defaultLanguage
-      a sh:PropertyShape;
-      sh:path elm:defaultLanguage;
-      sh:class skos:Concept;
-      sh:maxCount 1;
-      sh:description "The base language of the learning opportunity, to be considered authoritative."@en;
-      sh:name "default language"@en;
-       #sh:order 22;
-      sh:severity sh:Violation;
+  a sh:PropertyShape;
+  sh:path elm:defaultLanguage;
+  sh:class skos:Concept;
+  sh:maxCount 1;
+  sh:description "The base language of the learning opportunity, to be considered authoritative."@en;
+  sh:name "default language"@en;
+  #sh:order 22;
+  sh:severity sh:Violation;
     .
+edc:LearningOpportunity-elm_descriptionHtml
+  a sh:PropertyShape;
+  sh:path elm:descriptionHtml;
+  sh:datatype rdf:HTML;
+  sh:description "An HTML description of the Learning Opportunity."@en;
+  sh:name "HTML description"@en;
+  #sh:order 23;
+  sh:severity sh:Violation;
+  .
 
 #------ Learning Outcome class and properties shapes --------
 edc:LearningOutcomeShape
   a sh:NodeShape;
   sh:targetClass elm:LearningOutcome;
   rdfs:comment "A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy."@en;
-  rdfs:label "Learning Outcome Shape"@en;
+  rdfs:label "Learning Outcome "@en;
   sh:property edc:LearningOutcome-adms_identifier;
   sh:property edc:LearningOutcome-dc_title;
   sh:property edc:LearningOutcome-dc_type;
@@ -3185,7 +3447,7 @@ edc:LearningOutcomeShape
 edc:LearningOutcome-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the learning outcome. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -3255,7 +3517,7 @@ edc:LegalIdentifierShape
   a sh:NodeShape;
   sh:targetClass elm:LegalIdentifier;
   rdfs:comment "A legal identifier. A legal identifier is a formally issued identifier by a given authority within a given jurisdiction. The identifier has a spatial context. Legal Identifier is a subclass of Identifier."@en;
-  rdfs:label "Legal Identifier Shape"@en;
+  rdfs:label "Legal Identifier "@en;
   sh:property edc:Identifier-skos_notation;
   sh:property edc:Identifier-adms_schemeAgency;
   sh:property edc:Identifier-dc_creator;
@@ -3282,7 +3544,7 @@ edc:MailboxShape
   a sh:NodeShape;
   sh:targetClass elm:Mailbox;
   rdfs:comment "A mailbox."@en;
-  rdfs:label "Mailbox Shape"@en;
+  rdfs:label "Mailbox"@en;
   .
 
 #------ Media Object class and properties shapes --------
@@ -3290,23 +3552,54 @@ edc:MediaObjectShape
   a sh:NodeShape;
   sh:targetClass elm:MediaObject;
   rdfs:comment "A media object."@en;
-  rdfs:label "Media Object Shape"@en;
-  sh:property edc:MediaObject-dc_type;
+  rdfs:label "Media Object "@en;
+  sh:property edc:MediaObject-dc_title;
+  sh:property edc:MediaObject-dc_description;
+  sh:property edc:MediaObject-elm_contentType;
+  sh:property edc:MediaObject-elm_attachmentType;
   sh:property edc:MediaObject-elm_contentEncoding;
   sh:property edc:MediaObject-elm_contentSize;
   sh:property edc:MediaObject-elm_content;
-  sh:property edc:MediaObject-elm_contentUrl;
   .
-
-edc:MediaObject-dc_type
+edc:MediaObject-dc_title
   a sh:PropertyShape; 
-  sh:path dc:type;
+  sh:path dc:title;
+  sh:datatype rdf:langString;
+  sh:description "The title of the media object. One value per language is permitted."@en;
+  sh:name "title"@en;
+  sh:uniqueLang true ;
+  sh:severity sh:Violation;
+  #sh:order 0;
+  .
+ edc:MediaObject-dc_description
+  a sh:PropertyShape; 
+  sh:path dc:description;
+  sh:datatype rdf:langString;
+  sh:description "A free text description of the media object."@en;
+  sh:name "description"@en;
+  sh:uniqueLang true ;
+  sh:severity sh:Violation;
+  #sh:order 1;
+  . 
+edc:MediaObject-elm_contentType
+  a sh:PropertyShape; 
+  sh:path elm:contentType;
   sh:class skos:Concept;
   sh:minCount 1;
   sh:maxCount 1;
-  sh:description "The type of the media object. It should be provided using the Filetype Named Authority List."@en;
-  sh:name "type"@en;
-  #sh:order 0;
+  sh:description "The type of the content of the media object. It should be provided using the Filetype Named Authority List."@en;
+  sh:name "content type"@en;
+  sh:severity sh:Violation;
+  #sh:order 2;
+  . 
+edc:MediaObject-elm_attachmentType
+  a sh:PropertyShape; 
+  sh:path elm:attachmentType;
+  sh:class skos:Concept;
+  sh:maxCount 1;
+  sh:description "The type of the attachment of the media object. It should be provided using a controlled list, with values: Transcript of Records, EMREX transcript, Letter of Nomination,  Diploma Supplement, Certificate of Training, Learning Agreement, Other."@en;
+  sh:name "attachement type"@en;
+  #sh:order 3;
   sh:severity sh:Violation
   . 
 
@@ -3318,18 +3611,18 @@ edc:MediaObject-elm_contentEncoding
   sh:maxCount 1;
   sh:description "The encoding used to encode the binary data. It should be provided using the EDC Controlled List of Content Encoding Types."@en;
   sh:name "content encoding"@en;
-  #sh:order 2;
+  #sh:order 4;
   sh:severity sh:Violation;
   .
 
 edc:MediaObject-elm_contentSize
   a sh:PropertyShape;
   sh:path elm:contentSize;
-  sh:datatype xsd:Integer;
+  sh:datatype xsd:integer;
   sh:maxCount 1;
   sh:description "The content size."@en;
   sh:name "content size"@en;
-  #sh:order 3;
+  #sh:order 5;
   sh:severity sh:Violation;
   .
 
@@ -3341,17 +3634,7 @@ edc:MediaObject-elm_content
   sh:maxCount 1;
   sh:description "The binary data."@en;
   sh:name "content"@en;
-  #sh:order 4;
-  sh:severity sh:Violation;
-  .
-edc:MediaObject-elm_contentUrl
-  a sh:PropertyShape;
-  sh:path elm:contentUrl;
-  sh:datatype xsd:anyURI;
-  sh:maxCount 1;
-  sh:description "The public access URL of the media object."@en;
-  sh:name "content URL"@en;
-  #sh:order 5;
+  #sh:order 6;
   sh:severity sh:Violation;
   .
 
@@ -3360,9 +3643,10 @@ edc:OrganisationShape
   a sh:NodeShape;
   sh:targetClass elm:Organisation;
   rdfs:comment "A legal person / registered organisation. Organisation is a subclass of Agent."@en;
-  rdfs:label "Organisation Shape"@en;
+  rdfs:label "Organisation "@en;
   sh:property edc:Organisation-adms_identifier;
   sh:property edc:Organisation-skos_altLabel;
+  sh:property edc:Organisation-dc_type;
   sh:property edc:Organisation-foaf_homepage;
   sh:property edc:Organisation-elm_additionalNote;
   sh:property edc:Organisation-elm_location;
@@ -3378,13 +3662,13 @@ edc:OrganisationShape
   sh:property edc:Organisation-org_hasMember;
   sh:property edc:Organisation-eml_groupMemberOf;
   sh:property edc:Organisation-elm_contactPoint;
-  sh:property edc:Organisation-elm_lastModificationDate;
+  sh:property edc:Organisation-dc_modified;
   .
 
 edc:Organisation-skos_altLabel
   a sh:PropertyShape; 
   sh:path skos:altLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The alternative name of the organisation."@en;
   sh:name "alternative name"@en;
   #sh:order 0;
@@ -3393,10 +3677,11 @@ edc:Organisation-skos_altLabel
 edc:Organisation-rov_legalName
   a sh:PropertyShape;
   sh:path rov:legalName;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The legal name of the organisation."@en;
   sh:name "legal name"@en;
+  sh:uniqueLang true ;
   #sh:order 1;
   sh:severity sh:Violation;
   .
@@ -3409,6 +3694,15 @@ edc:Organisation-adms_identifier
   #sh:order 2;
   sh:severity sh:Violation;
   .
+edc:Organisation-dc_type
+  a sh:PropertyShape; 
+  sh:path dc:type;
+  sh:class skos:Concept;
+  sh:description "The type of the organisation."@en;
+  sh:name "type"@en;
+  #sh:order 3;
+  sh:severity sh:Violation;
+  . 
  edc:Organisation-elm_eidasLegalIdentifier
   a sh:PropertyShape;
   sh:path elm:eidasLegalIdentifier;
@@ -3416,7 +3710,7 @@ edc:Organisation-adms_identifier
   sh:maxCount 1;
   sh:description "The official identification number of the organisation, as awarded by the relevant national authority."@en;
   sh:name "eIDAS identifier"@en;
-  #sh:order 3;
+  #sh:order 4;
   sh:severity sh:Violation;
   . 
 edc:Organisation-rov_registration
@@ -3426,7 +3720,7 @@ edc:Organisation-rov_registration
   sh:maxCount 1;
   sh:description "The legal identifier of an organisation. The identifier given to a registered organisation by the authority with which it is registered. The legal status of a registered organisation is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organisation and the authority with which it is registered."@en;
   sh:name "registration"@en;
-  #sh:order 4;
+  #sh:order 5;
   sh:severity sh:Violation;
   .  
 edc:Organisation-elm_vatIdentifier
@@ -3435,7 +3729,7 @@ edc:Organisation-elm_vatIdentifier
   sh:class elm:LegalIdentifier;
   sh:description "The Value-Added Tax ID."@en;
   sh:name "VAT number"@en;
-  #sh:order 5;
+  #sh:order 6;
   sh:severity sh:Violation;
   .
 edc:Organisation-elm_taxIdentifier
@@ -3444,7 +3738,7 @@ edc:Organisation-elm_taxIdentifier
   sh:class elm:LegalIdentifier;
   sh:description "Fiscal ID of the organisation."@en;
   sh:name "tax/fiscal identifier"@en;
-  #sh:order 6;
+  #sh:order 7;
   sh:severity sh:Violation;
   .
  edc:Organisation-foaf_homepage
@@ -3453,7 +3747,7 @@ edc:Organisation-elm_taxIdentifier
   sh:class elm:WebResource;
   sh:description "The homepage of the organisation."@en;
   sh:name "homepage"@en;
-  #sh:order 7;
+  #sh:order 8;
   sh:severity sh:Violation
   .  
  edc:Organisation-elm_additionalNote
@@ -3462,7 +3756,7 @@ edc:Organisation-elm_taxIdentifier
   sh:class elm:Note;
   sh:description "An additional free text note about the organisation."@en;
   sh:name "more information"@en;
-  #sh:order 8;
+  #sh:order 9;
   sh:severity sh:Violation;
   . 
 edc:Organisation-elm_location
@@ -3472,7 +3766,7 @@ edc:Organisation-elm_location
   sh:minCount 1;
   sh:description "The location of the organisation."@en;
   sh:name "location"@en;
-  #sh:order 9;
+  #sh:order 10;
   sh:severity sh:Violation;
 .  
 
@@ -3482,7 +3776,7 @@ edc:Organisation-elm_accreditation
   sh:class elm:Accreditation;
   sh:description "An associated accreditation."@en;
   sh:name "accreditation"@en;
-  #sh:order 10;
+  #sh:order 11;
   sh:severity sh:Violation;
   .
  edc:Organisation-elm_contactPoint
@@ -3491,7 +3785,7 @@ edc:Organisation-elm_accreditation
   sh:class elm:ContactPoint;
   sh:description "The contact information of the organisation."@en;
   sh:name "contact information"@en;
-  #sh:order 11;
+  #sh:order 12;
   sh:severity sh:Violation;
   .
 edc:Organisation-org_hasSubOrganization
@@ -3501,7 +3795,7 @@ edc:Organisation-org_hasSubOrganization
   sh:description "A smaller organisation which forms part of this organisation, e.g., a department within a larger organisation."@en;
   sh:name "child organisation"@en;
   sh:severity sh:Violation;
-  #sh:order 12;
+  #sh:order 13;
   .
 edc:Organisation-org_subOrganizationOf
   a sh:PropertyShape;
@@ -3511,7 +3805,7 @@ edc:Organisation-org_subOrganizationOf
   sh:description "Indicates a larger organisation of which this organisation is a part of, e.g., the organisation within which a department operates."@en;
   sh:name "parent organisation"@en;
   sh:severity sh:Violation;
-  #sh:order 13;
+  #sh:order 14;
   .
 edc:Organisation-org_hasMember
   a sh:PropertyShape;
@@ -3520,7 +3814,7 @@ edc:Organisation-org_hasMember
   sh:description "Indicates a person being member of the organisation."@en;
   sh:name "has member"@en;
   sh:severity sh:Violation;
-  #sh:order 14;
+  #sh:order 15;
   .
 
 edc:Organisation-eml_groupMemberOf
@@ -3530,7 +3824,7 @@ edc:Organisation-eml_groupMemberOf
   sh:description "The group the organisation is a member of."@en;
   sh:name "group member of"@en;
   sh:severity sh:Violation;
-  #sh:order 15;
+  #sh:order 16;
   .  
 
 edc:Organisation-elm_logo
@@ -3541,17 +3835,17 @@ edc:Organisation-elm_logo
   sh:description "The logo of the organisation."@en;
   sh:name "logo"@en;
   sh:severity sh:Violation;
-  #sh:order 16;
+  #sh:order 17;
   .
-edc:Organisation-elm_lastModificationDate
+edc:Organisation-dc_modified
     a sh:PropertyShape;
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the organisation was last modified."@en;
     sh:name "last modification date"@en;
     sh:severity sh:Violation;
-    #sh:order 17; 
+    #sh:order 18; 
   .  
 
 #------ Person class and properties shapes --------
@@ -3559,7 +3853,7 @@ edc:PersonShape
   a sh:NodeShape;
   sh:targetClass elm:Person;
   rdfs:comment "A human being. Person is a subclass of Agent."@en;
-  rdfs:label "Person Shape"@en;
+  rdfs:label "Person "@en;
   sh:property edc:Person_adms_identifier;
   sh:property edc:Person_elm_location;
   sh:property edc:Person-elm_nationalId;
@@ -3575,7 +3869,7 @@ edc:PersonShape
   sh:property edc:Person-elm_gender;
   sh:property edc:Person-elm_contactPoint;
   sh:property edc:Person-elm_groupMemberOf;
-  sh:property edc:Person-elm_lastModificationDate;
+  sh:property edc:Person-dc_modified;
   sh:property edc:Person-elm_hasCredential;
   sh:property edc:Person-elm_hasClaim;
   .
@@ -3614,7 +3908,7 @@ edc:Person-elm_nationalId
 edc:Person-foaf_fullName
   a sh:PropertyShape;
   sh:path foaf:fullName;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:maxCount 1;
   sh:description "The complete name of the person as one string."@en;
   sh:name "full name"@en;
@@ -3625,7 +3919,8 @@ edc:Person-foaf_fullName
 edc:Person-foaf_givenName
   a sh:PropertyShape;
   sh:path foaf:givenName;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  sh:maxCount 1;
   sh:description "The given name of the person."@en;
   sh:name "given name"@en;
   sh:severity sh:Violation;
@@ -3635,7 +3930,8 @@ edc:Person-foaf_givenName
 edc:Person-foaf_familyName
   a sh:PropertyShape;
   sh:path foaf:familyName;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  sh:maxCount 1;
   sh:description "The family name of the person."@en;
   sh:name "family name"@en;
   sh:severity sh:Violation;
@@ -3645,7 +3941,7 @@ edc:Person-foaf_familyName
 edc:Person-person_birthName
   a sh:PropertyShape;
   sh:path person:birthName;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The name of the person at birth. Birth names tend to be persistent and for this reason they are recorded by some public sector information systems. There is no granularity for birth name - the full name should be recorded in a single field."@en;
   sh:name "birth name"@en;
   sh:severity sh:Violation;
@@ -3654,8 +3950,8 @@ edc:Person-person_birthName
 
 edc:Person-person_patronymicName
   a sh:PropertyShape;
-  sh:path person:patronimycName;
-  sh:nodeKind sh:Literal;
+  sh:path person:patronymicName;
+  sh:datatype rdf:langString;
   sh:description "Patronymic names are important in some countries. Iceland does not have a concept of 'family name' in the way that many other European countries do, for example, Erik Magnusson and Erika Magnusdottir are siblings, both offspring of Mangnus, irrespective of his patronymic name. In Bulgaria and Russia, patronymic names are in everyday usage, for example, the Sergeyevich in 'Mikhail Sergeyevich Gorbachev."@en;
   sh:name "patronymic name"@en;
   sh:severity sh:Violation;
@@ -3732,9 +4028,9 @@ edc:Person-elm_groupMemberOf
   sh:severity sh:Violation;
   #sh:order 14;
   .  
-edc:Person-elm_lastModificationDate
+edc:Person-dc_modified
     a sh:PropertyShape;
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the person (information) was last modified."@en;
@@ -3766,7 +4062,7 @@ edc:PhoneShape
   a sh:NodeShape;
   sh:targetClass elm:Phone;
   rdfs:comment "A phone."@en;
-  rdfs:label "Phone Shape"@en;
+  rdfs:label "Phone "@en;
   sh:property edc:Phone-elm_phoneNumber;
   sh:property edc:Phone-elm_countryDialing;
   sh:property edc:Phone-elm_areaDialing;
@@ -3820,7 +4116,7 @@ edc:Phone-elm_dialNumber
   a sh:NodeShape; 
   sh:targetClass elm:PriceDetail; 
   rdfs:comment "The price details. The details about a price or price category."@en; 
-  rdfs:label "Price Detail Shape"@en; 
+  rdfs:label "Price Detail "@en; 
   sh:property edc:PriceDetail-adms_identifier;
   sh:property edc:PriceDetail-skos_prefLabel;
   sh:property edc:PriceDetail-dc_description;
@@ -3830,9 +4126,9 @@ edc:Phone-elm_dialNumber
 edc:PriceDetail-skos_prefLabel
   a sh:PropertyShape; 
   sh:path skos:prefLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The preferred name of the price details."@en;
-  sh:name "preferred name"@en;
+  sh:name "name"@en;
   sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 0;
@@ -3840,9 +4136,10 @@ edc:PriceDetail-skos_prefLabel
  edc:PriceDetail-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the price details."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   . 
@@ -3855,7 +4152,6 @@ edc:PriceDetail-adms_identifier
   sh:severity sh:Violation;
   #sh:order 2;
   .
-
 edc:PriceDetail-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
@@ -3871,64 +4167,10 @@ edc:PriceDetail_amount
   sh:class elm:Amount;
   sh:maxCount 1;
   sh:description "The full (sticker) price of the learning opportunity."@en;
-  sh:name "fee"@en;
+  sh:name "fee amount"@en;
   sh:severity sh:Violation;
   #sh:order 4;
 .
-#-------------------------------------------------
-#------ Proof class and properties shapes -------- 
-#-------------------------------------------------
-edc:ProofShape 
-  a sh:NodeShape; 
-  sh:targetClass vc:Proof; 
-  rdfs:comment "The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation."@en; 
-  rdfs:label "Proof Shape"@en; 
-  sh:property[
-     sh:path dc:type;
-     sh:class skos:Concept;
-     sh:minCount 1;
-     sh:maxCount 1;
-     sh:description "The type of the proof."@en;
-     sh:name "type"@en;
-     sh:severity sh:Violation;
-  ];
-  sh:property[
-     sh:path dc:created;
-     sh:datatype xsd:dateTime;
-     sh:minCount 1;
-     sh:maxCount 1;
-     sh:description "The date the proof was created."@en;
-     sh:name "date created"@en;
-     sh:severity sh:Violation;
-  ];
-  sh:property[
-     sh:path vc:proofPuprose;
-     sh:nodeKind sh:Literal;
-     sh:minCount 1;
-     sh:maxCount 1;
-     sh:description "the puprose of the proof";
-     sh:name "proof purpose";
-     sh:severity sh:Violation;
-  ];
-  sh:property[
-     sh:path vc:verificationMethod;
-     sh:datatype xsd:anyURI;
-     sh:minCount 1;
-     sh:maxCount 1;
-     sh:description "It contains information about the verification method/proof mechanisms.";
-     sh:name "verification method";
-     sh:severity sh:Violation;
-  ];
-  sh:property[
-     sh:path vc:jws;
-     sh:datatype xsd:string;
-     sh:minCount 1;
-     sh:maxCount 1;
-     sh:description "Defines the proof value in JWS signature format..";
-     sh:name "jws";
-     sh:severity sh:Violation;
-  ]
-  . 
 #---------------------------------------------------------
 #------ Qualification class and properties shapes -------- 
 #---------------------------------------------------------
@@ -3936,7 +4178,7 @@ edc:QualificationShape
   a sh:NodeShape; 
     sh:targetClass elm:Qualification; 
     rdfs:comment "A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards. Qualification is a subclass of Learning Achievement Specification."@en; 
-    rdfs:label "Qualification Shape"@en; 
+    rdfs:label "Qualification "@en; 
     sh:property edc:Qualification-adms_identifier;
     sh:property edc:Qualification-dc_title;
     sh:property edc:Qualification-dc_description;
@@ -3946,7 +4188,7 @@ edc:QualificationShape
     sh:property edc:Qualification-skos_altLabel;
     sh:property edc:Qualification-elm_category;
     sh:property edc:Qualification-dc_type;
-    sh:property edc:Qualification-elm_lastModificationDate;
+    sh:property edc:Qualification-dc_modified;
     sh:property edc:Qualification-dc_language;
     sh:property edc:Qualification-elm_volumeOfLearning;
     sh:property edc:Qualification-elm_mode;
@@ -3965,7 +4207,9 @@ edc:QualificationShape
     sh:property edc:Qualification-elm_entitlesTo;
     sh:property edc:Qualification-elm_awardingOpportunity;
     sh:property edc:Qualification-elm_hasPart;
+    sh:property edc:Qualification-elm_isPartOf;
     sh:property edc:Qualification-elm_specialisationOf;
+    sh:property edc:Qualification-elm_generalisationOf;
     sh:property edc:Qualification-elm_isPartialQualification;
     sh:property edc:Qualification-elm_EQFLevel;
     sh:property edc:Qualification-elm_NQFLevel;
@@ -3975,7 +4219,7 @@ edc:QualificationShape
 edc:Qualification-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the qualification. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -3995,7 +4239,7 @@ edc:Qualification-dc_title
   edc:Qualification-skos_altLabel
   a sh:PropertyShape; 
   sh:path skos:altLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The alternative name of the qualification."@en;
   sh:name "alternative name"@en;
   sh:severity sh:Violation;
@@ -4004,9 +4248,10 @@ edc:Qualification-dc_title
  edc:Qualification-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the qualification."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 3;
   . 
@@ -4041,7 +4286,7 @@ edc:Qualification-elm_supplementaryDocument
 edc:Qualification-elm_category
   a sh:PropertyShape;  
   sh:path elm:category;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The category of the qualification as a string."@en;
   sh:name "category"@en;
   sh:severity sh:Violation;
@@ -4057,9 +4302,9 @@ edc:Qualification-dc_type
   sh:severity sh:Violation;
   #sh:order 8;
 .
-edc:Qualification-elm_lastModificationDate
+edc:Qualification-dc_modified
    a sh:PropertyShape;
-   sh:path elm:lastModificationDate;
+   sh:path dc:modified;
    sh:datatype xsd:dateTime;
    sh:maxCount 1;
    sh:description "The date when the qualification was last modified."@en;
@@ -4249,7 +4494,15 @@ edc:Qualification-elm_hasPart
   sh:severity sh:Violation;
   #sh:order 27;
   .
-
+edc:Qualification-elm_isPartOf
+  a sh:PropertyShape;
+  sh:path elm:isPartOf;
+  sh:class elm:Qualification;
+  sh:description "A qualification, which this qualificationis part of."@en;
+  sh:name "is part of"@en;
+  sh:severity sh:Violation;
+  #sh:order 28;
+  .
 edc:Qualification-elm_specialisationOf
  a sh:PropertyShape;
   sh:path elm:specialisationOf;
@@ -4257,7 +4510,16 @@ edc:Qualification-elm_specialisationOf
   sh:description "A qualification (e.g., a standard) of which this qualification is a specialisation."@en;
   sh:name "specialisation of"@en;
   sh:severity sh:Violation;
-  #sh:order 28;
+  #sh:order 29;
+  .  
+edc:Qualification-elm_generalisationOf
+ a sh:PropertyShape;
+  sh:path elm:generalisationOf;
+  sh:class elm:Qualification;
+  sh:description "A qualification (e.g., a standard) of which this qualification is a generalisation."@en;
+  sh:name "generalisation of"@en;
+  sh:severity sh:Violation;
+  #sh:order 30;
   .
 
 edc:Qualification-elm_isPartialQualification
@@ -4268,7 +4530,7 @@ edc:Qualification-elm_isPartialQualification
   sh:description "Indicates whether a qualification is a full qualification or part of another qualification."@en;
   sh:name "partial qualification"@en;
   sh:severity sh:Violation;
-  #sh:order 29;
+  #sh:order 31;
   .
 
 edc:Qualification-elm_EQFLevel
@@ -4279,17 +4541,17 @@ edc:Qualification-elm_EQFLevel
   sh:description "The qualification level as specified by a European Qualification Framework. It should be provided using the EQF QDR List of qualification frameworks."@en;
   sh:name "EQF level"@en;
   sh:severity sh:Violation;
-  #sh:order 30;
+  #sh:order 32;
 .
 
 edc:Qualification-elm_NQFLevel
   a sh:PropertyShape;  
   sh:path elm:NQFLevel;
   sh:class skos:Concept;
-  sh:description "The qualification level as specified by a National Qualification Framework. It should be provided using a controlled vocabulary."@en;
-  sh:name "NQF level"@en;
+  sh:description "The qualification level as specified by a Qualification Framework. It should be provided using a controlled vocabulary."@en;
+  sh:name "QF level"@en;
   sh:severity sh:Violation;
-  #sh:order 31;
+  #sh:order 33;
   .
 edc:Qualification-elm_accreditation
   a sh:PropertyShape; 
@@ -4298,19 +4560,18 @@ edc:Qualification-elm_accreditation
   sh:description "The associated accreditation."@en;
   sh:name "accreditation"@en;
   sh:severity sh:Violation;
-  #sh:order 32;
+  #sh:order 34;
   .
 
 edc:Qualification-elm_qualificationCode
   a sh:PropertyShape; 
   sh:path elm:qualificationCode;
   sh:class skos:Concept;
-  sh:description "An identifying code from a qualification-based reference semantic asset. This property is used to classify the qualification information with a qualification from a known qualification framework. (e.g., the link to the accredited NQF qualification)."@en;
+  sh:description "An identifying code from a qualification-based reference semantic asset. This property is used to classify the qualification information with a qualification from a known qualification framework. (e.g., the link to the accredited QF qualification)."@en;
   sh:name "qualification code"@en;
   sh:severity sh:Violation;
-  #sh:order 4;
+  #sh:order 35;
   .
-
 #-----------------------------------------------------------
 #------ Result Category class and properties shapes -------- 
 #-----------------------------------------------------------
@@ -4318,7 +4579,7 @@ edc:ResultCategoryShape
   a sh:NodeShape; 
   sh:targetClass elm:ResultCategory; 
   rdfs:comment "Description of a single score or score range within a histogram of results."@en; 
-  rdfs:label "Result Category Shape"@en; 
+  rdfs:label "Result Category "@en; 
   sh:property edc:ResultCategory-elm_label;
   sh:property edc:ResultCategory-elm_score;
   sh:property edc:ResultCategory-elm_maxScore;
@@ -4329,7 +4590,7 @@ edc:ResultCategoryShape
 edc:ResultCategory-elm_label
   a sh:PropertyShape;  
   sh:path elm:label;
-  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
   sh:maxCount 1;
   sh:minCount 1;
   sh:description "The label of the histogram score or score range. Should correspond to the grading scheme which has been used, e.g., 'C', or '20-30'."@en;
@@ -4389,16 +4650,17 @@ edc:ResultDistributionShape
   a sh:NodeShape; 
   sh:targetClass elm:ResultDistribution;
   rdfs:comment "It describes a histogram of results achieved by all the students of this course instance."@en; 
-  rdfs:label "Result Distribution Shape"@en; 
+  rdfs:label "Result Distribution "@en; 
   sh:property edc:ResultDistribution-dc_description;
   sh:property edc:ResultDistribution-elm_resultCategory;
   . 
 edc:ResultDistribution-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the results' distribution."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 0;
   .
@@ -4419,7 +4681,7 @@ edc:ShortenedGradingShape
   a sh:NodeShape; 
   sh:targetClass elm:ShortenedGrading; 
   rdfs:comment "Indicator of how well the student was graded when compared to other students."@en; 
-  rdfs:label "Shortened Grading Shape"@en; 
+  rdfs:label "Shortened Grading "@en; 
   sh:property edc:ShortenedGrading-elm_percentageLower;
   sh:property edc:ShortenedGrading-elm_percentageEqual;
   sh:property edc:ShortenedGrading-elm_percentageHigher;
@@ -4427,7 +4689,7 @@ edc:ShortenedGradingShape
 edc:ShortenedGrading-elm_percentageLower
   a sh:PropertyShape;  
   sh:path elm:percentageLower;
-  sh:datatype xsd:Integer;
+  sh:datatype xsd:integer;
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The percentage of students of the same course who got a lower grade."@en;
@@ -4439,7 +4701,7 @@ edc:ShortenedGrading-elm_percentageLower
 edc:ShortenedGrading-elm_percentageEqual
   a sh:PropertyShape;  
   sh:path elm:percentageEqual;
-  sh:datatype xsd:Integer;
+  sh:datatype xsd:integer;
   sh:minCount 1;
   sh:maxCount 1;
   sh:name "percentage equal"@en;
@@ -4451,7 +4713,7 @@ edc:ShortenedGrading-elm_percentageEqual
 edc:ShortenedGrading-elm_percentageHigher
   a sh:PropertyShape;  
   sh:path elm:percentageHigher;
-  sh:datatype xsd:Integer;
+  sh:datatype xsd:integer;
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The percentage of students of the same course who got a higher grade."@en;
@@ -4464,7 +4726,7 @@ edc:SpecificationShape
   a sh:NodeShape; 
   sh:targetClass elm:Specification; 
   rdfs:comment "A specification. The superclass of all learning specifications. This class carries properties common to all specifications, including Learning Achievement Specification, Learning Activity Specification, Learning Assessment Specification and Learning Entitlement Specification. It serves as an extension point that enables the definition of additional subclasses."@en; 
-  rdfs:label "Specification Shape"@en; 
+  rdfs:label "Specification "@en; 
   sh:property edc:Specification-adms_identifier;
   sh:property edc:Specification-dc_title;
   sh:property edc:Specification-dc_description;
@@ -4474,13 +4736,13 @@ edc:SpecificationShape
   sh:property edc:Specification-skos_altLabel;
   sh:property edc:Specification-elm_category;
   sh:property edc:Specification-dc_type;
-  sh:property edc:Specification-elm_lastModificationDate;
+  sh:property edc:Specification-dc_modified;
   .
 
 edc:Specification-dc_title
   a sh:PropertyShape;
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the specification. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -4491,9 +4753,10 @@ edc:Specification-dc_title
  edc:Specification-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the specification."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   . 
@@ -4527,7 +4790,7 @@ edc:Specification-elm_supplementaryDocument
  edc:Specification-skos_altLabel
   a sh:PropertyShape; 
   sh:path skos:altLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The alternative name of the specification."@en;
   sh:name "alternative name"@en;
   sh:severity sh:Violation;
@@ -4555,15 +4818,15 @@ edc:Specification-dc_type
 edc:Specification-elm_category
   a sh:PropertyShape;  
   sh:path elm:category;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The category of the specification as a string."@en;
   sh:name "category"@en;
   sh:severity sh:Violation;
   #sh:order 8;
   .
-edc:Specification-elm_lastModificationDate
+edc:Specification-dc_modified
     a sh:PropertyShape;
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the specification was last modified."@en;
@@ -4578,7 +4841,7 @@ edc:VerificationCheckShape
   a sh:NodeShape; 
   sh:targetClass elm:VerificationCheck; 
   rdfs:comment "A verification check."@en; 
-  rdfs:label "Verification Check Shape"@en; 
+  rdfs:label "Verification Check "@en; 
   sh:property edc:VerificationCheck-dc_type;
   sh:property edc:VerificationCheck-dc_description;
   sh:property edc:VerificationCheck-elm_status;
@@ -4587,9 +4850,10 @@ edc:VerificationCheckShape
 edc:VerificationCheck-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the verification check."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 0;
   .
@@ -4622,7 +4886,7 @@ edc:VerificationCheck-elm_subject
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The credential subject of this verification check."@en;
-  sh:name "subject"@en;
+  sh:name "credential subject"@en;
   sh:severity sh:Violation;
   #sh:order 3;
   .
@@ -4633,7 +4897,7 @@ edc:WebResourceShape
   a sh:NodeShape; 
   sh:targetClass elm:WebResource; 
   rdfs:comment "A web resource."@en; 
-  rdfs:label "Web Resource Shape"@en; 
+  rdfs:label "Web Resource "@en; 
   sh:property edc:WebResource-dc_title;
   sh:property edc:WebResource-dc_language;
   sh:property edc:WebResource-elm_contentUrl;
@@ -4642,7 +4906,7 @@ edc:WebResourceShape
 edc:WebResource-dc_title
   a sh:PropertyShape; 
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The title of the web resource. One value per language is permitted."@en;
   sh:name "title"@en;
   sh:uniqueLang true ;
@@ -4679,22 +4943,22 @@ edc:PeriodOfTimeShape
   a sh:NodeShape; 
   sh:targetClass dc:PeriodOfTime; 
   rdfs:comment "A period of time."@en; 
-  rdfs:label "Period Of Time Shape"@en; 
+  rdfs:label "Period Of Time "@en; 
   sh:property edc:PeriodOfTime-skos_prefLabel;
-  sh:property edc:PeriodOfTime-elm-startDate;
-  sh:property edc:PeriodOfTime-elm-endDate;
+  sh:property edc:PeriodOfTime-elm_startDate;
+  sh:property edc:PeriodOfTime-elm_endDate;
   .     
 edc:PeriodOfTime-skos_prefLabel
   a sh:PropertyShape; 
   sh:path skos:prefLabel;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:description "The name of the period of time,  e.g., semester. One value per language is permitted."@en;
-  sh:name "preferred name"@en;
+  sh:name "name"@en;
   sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 0;
   . 
-edc:PeriodOfTime-elm-startDate
+edc:PeriodOfTime-elm_startDate
   a sh:PropertyShape;  
   sh:path elm:startDate;
   sh:datatype xsd:dateTime;
@@ -4705,7 +4969,7 @@ edc:PeriodOfTime-elm-startDate
   #sh:order 1;
  .
 
-edc:PeriodOfTime-elm-endDate
+edc:PeriodOfTime-elm_endDate
   a sh:PropertyShape;  
   sh:path elm:endDate;
   sh:datatype xsd:dateTime;
@@ -4722,19 +4986,21 @@ edc:LocationShape
   a sh:NodeShape; 
   sh:targetClass dc:Location; 
   rdfs:comment "An identifiable geographic place."@en; 
-  rdfs:label "Location Shape"@en; 
+  rdfs:label "Location "@en; 
   sh:property edc:Location-adms_identifier;
   sh:property edc:Location-dc_description;
   sh:property edc:Location_elm_address;
   sh:property edc:Location-elm_geographicName;
   sh:property edc:Location-elm_spatialCode;
+  sh:property edc:Location-locn_geometry;
   .
  edc:Location-dc_description
   a sh:PropertyShape; 
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the location."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 0;
   . 
@@ -4767,13 +5033,21 @@ edc:Location-elm_geographicName
   sh:severity sh:Violation;
   #sh:order 3;
   . 
-
 edc:Location-elm_spatialCode
   a sh:PropertyShape;  
   sh:path elm:spatialCode;
   sh:class skos:Concept;
   sh:description "A code identifying a spatial scope in which this physical location is located. It should be provided using the Administrative territorial unit Authority Table (ATU)."@en;
   sh:name "spatial code"@en;
+  sh:severity sh:Violation;
+  #sh:order 4;
+  .
+edc:Location-locn_geometry
+  a sh:PropertyShape;  
+  sh:path locn:geometry;
+  sh:class locn:Geometry;
+  sh:description "Associates the Location with the corresponding Geometry."@en;
+  sh:name "geometry"@en;
   sh:severity sh:Violation;
   #sh:order 4;
   .
@@ -4784,10 +5058,11 @@ edc:NoteShape
   a sh:NodeShape; 
   sh:targetClass elm:Note; 
   rdfs:comment "Free text metadata fields, such as the description, a historical or additional note of a qualification can contain a plain text or a XHTML fragment as literal value. By using a Note both the datatype of the literal and the language can be specified."@en; 
-  rdfs:label "Note Shape"@en; 
+  rdfs:label "Note "@en; 
   sh:property edc:Note-dc_language;
   sh:property edc:Note-elm_noteLiteral;
   sh:property edc:Note-dc_subject;
+  sh:property edc:Note-elm_noteFormat;
   .
 edc:Note-dc_language
   a sh:PropertyShape;  
@@ -4799,11 +5074,10 @@ edc:Note-dc_language
   sh:severity sh:Violation;
   #sh:order 0;
   .
-
 edc:Note-elm_noteLiteral
   a sh:PropertyShape;  
   sh:path elm:noteLiteral;
-  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
   sh:minCount 1;
   sh:maxCount 1;
   sh:name "note literal"@en;
@@ -4811,7 +5085,6 @@ edc:Note-elm_noteLiteral
   sh:severity sh:Violation;
   #sh:order 1;
   .
-
 edc:Note-dc_subject
   a sh:PropertyShape;  
   sh:path dc:subject;
@@ -4822,17 +5095,28 @@ edc:Note-dc_subject
   sh:severity sh:Violation;
   #sh:order 2;
   .
+edc:Note-elm_noteFormat
+  a sh:PropertyShape;  
+  sh:path elm:noteFormat;
+  sh:class skos:Concept;
+  sh:maxCount 1;
+  sh:name "note format"@en;
+  sh:description "The format of the note. It should be provided using the IANA  types for text, text/plain, text/html etc."@en;
+  sh:severity sh:Violation;
+  #sh:order 3;
+ .
+
 #---------------------------------------------------------------
 #-----Concept Shape (skos:Concept) --------------
 #---------------------------------------------------------------
-edc::ConceptShape
-  a sh:NodeShape ;
+edc:ConceptShape
+  a sh:NodeShape;
   sh:targetClass skos:Concept;
   rdfs:comment "A term from a controlled vocabulary modelled as a skos:Concept."@en; 
-  rdfs:label "Concept Shape"@en; 
+  rdfs:label "Concept "@en; 
   sh:property [
-        sh:nodeKind sh:Literal ;
-        sh:path skos:prefLabel ;
+        sh:datatype rdf:langString;
+        sh:path skos:prefLabel;
         sh:name "name"@en;
         sh:description "The text equivalent of the code content component. One value per language is permitted."@en;
         sh:uniqueLang true ;
@@ -4840,8 +5124,8 @@ edc::ConceptShape
         #sh:order 0;
     ];
     sh:property [
-      sh:path skos:notation ;
-      sh:nodeKind sh:Literal ;  
+      sh:path skos:notation;
+      sh:datatype xsd:string; 
       sh:name "notation"@en;
       sh:maxCount 1;
       sh:description "A notation, also known as classification code, is a string of characters used to uniquely identify a concept within the scope of a given concept scheme."@en;
@@ -4850,7 +5134,7 @@ edc::ConceptShape
     ];
      sh:property [
       sh:path skos:inScheme ;
-      sh:class skos:ConceptScheme ;  
+      sh:class skos:ConceptScheme;  
       sh:name "in scheme"@en;
       sh:maxCount 1;
       sh:description "The concept scheme this concept belongs to. The identification of the controlled vocabulary."@en;
@@ -4861,13 +5145,37 @@ edc::ConceptShape
 #---------------------------------------------------------------
 #---------- Concept  Scheme Shape (skos:Concept) ---------------
 #---------------------------------------------------------------
-edc:ConceptScheme
-  a sh:NodeShape ;
+edc:ConceptSchemeShape
+  a sh:NodeShape;
   sh:targetClass skos:ConceptScheme;
   rdfs:comment "A controlled vocabulary modelled as a Concept Scheme."@en; 
-  rdfs:label "Concept  Scheme Shape"@en; 
+  rdfs:label "Concept  Scheme "@en; 
   .
-
+#---------------------------------------------------------------  
+#---------------------- Geometry Shape ----------------------------
+#---------------------------------------------------------------
+edc:GeometryShape
+  a sh:NodeShape;
+  sh:targetClass locn:Geometry;
+  rdfs:comment "This class defines the geometry at the conceptual level, and it can be encoded by using different formats."@en; 
+  rdfs:label "Geometry "@en; 
+  sh:property[
+    sh:path clv:longitude;
+    sh:datatype xsd:string;
+    sh:description "The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface."@en;
+    sh:name "longitude"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property[
+    sh:path clv:latitude;
+    sh:datatype xsd:string;
+    sh:description "The geographic coordinate that specifies the north / south position of the Geomerty on the Earth's surface."@en;
+    sh:name "latitude"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+.
 #---------------------------------------------------------------  
 #---------------------- Group Shape ----------------------------
 #---------------------------------------------------------------  
@@ -4875,19 +5183,19 @@ edc:GroupShape
   a sh:NodeShape ;
   sh:targetClass elm:Group;
   rdfs:comment "An entity that represents collection of Agents."@en; 
-  rdfs:label "Group Shape"@en;
+  rdfs:label "Group "@en;
   sh:property [
+        sh:path skos:prefLabel;
+        sh:datatype rdf:langString;
         sh:minCount 1 ;
-        sh:maxCount 1;
-        sh:nodeKind sh:Literal ;
-        sh:path skos:prefLabel ;
-        sh:name "name"@en;
-        sh:description "The name of the group."@en;
+        sh:name "preferred name"@en;
+        sh:description "The preferred name of the group."@en;
+        sh:uniqueLang true ;
         sh:severity sh:Violation;
         #sh:order 0;
   ];
   sh:property [
-        sh:nodeKind sh:Literal ;
+       sh:datatype rdf:langString;
         sh:path skos:altLabel ;
         sh:name "alternative name"@en;
         sh:description "The alternative name of the group."@en;
@@ -4941,172 +5249,167 @@ edc:GroupShape
  #---------------------------------------------------------------
  edc:VerifiableCredentialShape
   a sh:NodeShape ;
-  sh:targetClass vc:VerifiableCredential;
+  sh:targetClass cred:VerifiableCredential;
   rdfs:comment "A Verifiable Credential. This is the superclass of European Digital credential for Learning."@en; 
-  rdfs:label "Verifiable Credential Shape"@en;
-  sh:property edc:VerifiableCredential-dc_type;
-  sh:property edc:VerifiableCredential-vc_issuer;
-  sh:property edc:VerifiableCredential-vc_credentialSubject;
-  sh:property edc:VerifiableCredential-vc_proof;
-  sh:property edc:VerifiableCredential-vc_issuanceDate;
-  sh:property edc:VerifiableCredential-dc_issued;
-  sh:property edc:VerifiableCredential-vc_validFrom;
-  sh:property edc:VerifiableCredential-vc_validUntil;
-  sh:property edc:VerifiableCredential-vc_expirationDate;
-  sh:property edc:VerifiableCredential-vc_evidence;
-  sh:property edc:VerifiableCredential-vc_termsOfUse;
-  sh:property edc:VerifiableCredential-vc_credentialSchema;
-  sh:property edc:VerifiableCredential-vc_credentialStatus;
-  .
-edc:VerifiableCredential-dc_type
-  a sh:PropertyShape; 
-  sh:path dc:type;
-  sh:class skos:Concept;
-  sh:minCount 1;
-  sh:maxCount 1;
-  sh:description "The type of the  credential. It should be provided using a controlled vocabulary."@en;
-  sh:name "type"@en;
-  sh:severity sh:Violation;
-  #sh:order 0;
+  rdfs:label "Verifiable Credential "@en;
+  sh:property edc:VerifiableCredential-cred_issuer;
+  sh:property edc:VerifiableCredential-cred_credentialSubject;
+  sh:property edc:VerifiableCredential-cred_issued;
+  sh:property edc:VerifiableCredential-cred_issuanceDate;
+  sh:property edc:VerifiableCredential-cred_validFrom;
+  sh:property edc:VerifiableCredential-cred_validUntil;
+  sh:property edc:VerifiableCredential-cred_expirationDate;
+  sh:property edc:VerifiableCredential-cred_proof;
+  sh:property edc:VerifiableCredential-cred_evidence;
+  sh:property edc:VerifiableCredential-cred_termsOfUse;
+  sh:property edc:VerifiableCredential-cred_credentialSchema;
+  sh:property edc:VerifiableCredential-cred_credentialStatus;
+  sh:property edc:VerifiableCredential-cred_holder;
   .
 
-edc:VerifiableCredential-vc_issuer
+edc:VerifiableCredential-cred_issuer
   a sh:PropertyShape; 
-  sh:path vc:issuer;
-  sh:class elm:Organisation;
+  sh:path cred:issuer;
+  sh:class elm:Agent;
   sh:description "The organisation that issued the credential and sealed it with its digital e-seal."@en;
   sh:name "issuer"@en;
   sh:minCount 1;
   sh:maxCount 1;
   sh:severity sh:Violation;
   sh:node edc:IssuerNodeShape;
+  #sh:order 0;
+  . 
+
+edc:VerifiableCredential-cred_credentialSubject
+  a sh:PropertyShape; 
+  sh:path cred:credentialSubject;
+  sh:class elm:Agent;
+  sh:minCount 1;
+  sh:maxCount 1;
+  sh:description "The subject (agent, person etc) about which claims are made and who owns the credential."@en;
+  sh:name "credential subject (owner)"@en;
+  sh:severity sh:Violation;
   #sh:order 1;
   . 
-
-edc:VerifiableCredential-vc_credentialSubject
+edc:VerifiableCredential-cred_issuanceDate
   a sh:PropertyShape; 
-  sh:path vc:credentialSubject;
-  sh:class elm:Person;
-  sh:minCount 1;
-  sh:maxCount 1;
-  sh:description "The person (subject) about which claims are made and who owns the credential."@en;
-  sh:name "owner"@en;
-  sh:severity sh:Violation;
-  #sh:order 2;
-  . 
-
-edc:VerifiableCredential-vc_proof
-  a sh:PropertyShape; 
-  sh:path vc:proof;
-  sh:class vc:Proof;
-  sh:minCount 1;
-  sh:maxCount 1;
-  sh:description "The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation."@en;
-  sh:name "proof"@en;
-  sh:severity sh:Violation;
-  #sh:order 3;
-  . 
-edc:VerifiableCredential-vc_issuanceDate
-  a sh:PropertyShape; 
-  sh:path vc:issuanceDate;
+  sh:path cred:issuanceDate;
   sh:datatype xsd:dateTime;
-  sh:minCount 1;
   sh:maxCount 1;
-  sh:description "The date and time, when the credential becomes valid."@en;
+  sh:description "Defines the date and time, when the credential becomes valid."@en;
   sh:name "issuance date"@en;
   sh:severity sh:Violation;
-  #sh:order 4;
+  #sh:order 2;
   .
- edc:VerifiableCredential-dc_issued
+ edc:VerifiableCredential-cred_issued
   a sh:PropertyShape; 
-  sh:path dc:issued;
+  sh:path cred:issued;
   sh:datatype xsd:dateTime;
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The date when the credential was issued."@en;
-  sh:name "date issued"@en;
+  sh:name "issued"@en;
   sh:severity sh:Violation;
-  #sh:order 5;
-  . 
-edc:VerifiableCredential-vc_validFrom
+  #sh:order 3;
+  .
+
+edc:VerifiableCredential-cred_validFrom
   a sh:PropertyShape; 
-  sh:path vc:validFrom;
+  sh:path cred:validFrom;
   sh:datatype xsd:dateTime;
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The earliest date when the information associated with the credential subject property became valid."@en;
   sh:name "valid from"@en;
   sh:severity sh:Violation;
-  #sh:order 6;
+  #sh:order 4;
   .
 
-edc:VerifiableCredential-vc_expirationDate
+edc:VerifiableCredential-cred_expirationDate
   a sh:PropertyShape; 
-  sh:path vc:expirationDate;
+  sh:path cred:expirationDate;
   sh:datatype xsd:dateTime;
   sh:maxCount 1;
   sh:description "The date and time when the credential expires."@en;
   sh:name "expiration date"@en;
   sh:severity sh:Violation;
-  #sh:order 7;
+  #sh:order 5;
   . 
 
-  edc:VerifiableCredential-vc_validUntil
+  edc:VerifiableCredential-cred_validUntil
   a sh:PropertyShape; 
-  sh:path vc:validUntil;
+  sh:path cred:validUntil;
   sh:datatype xsd:dateTime;
   sh:maxCount 1;
   sh:description "The date and time, when the credential expires (automatic invalidation)."@en;
   sh:name "valid until"@en;
   sh:severity sh:Violation;
-  #sh:order 8;
+  #sh:order 6;
   .
-edc:VerifiableCredential-vc_evidence
+edc:VerifiableCredential-cred_proof
   a sh:PropertyShape; 
-  sh:path vc:evidence;
-  sh:class vc:Evidence;
-  sh:maxCount 1;
+  sh:path cred:proof;
+  sh:datatype xsd:anyURI;
+  sh:description "The proof of the verifiable credential."@en;
+  sh:name "proof"@en;
+  sh:severity sh:Violation;
+  #sh:order 7;
+  .
+edc:VerifiableCredential-cred_evidence
+  a sh:PropertyShape; 
+  sh:path cred:evidence;
+  sh:datatype elm:Evidence;
+  sh:minCount 1;
   sh:description "The evidence of the verifiable credential."@en;
   sh:name "evidence"@en;
   sh:severity sh:Violation;
-  #sh:order 9;
+  #sh:order 8;
   .
- edc:VerifiableCredential-vc_credentialStatus
+ edc:VerifiableCredential-cred_credentialStatus
   a sh:PropertyShape; 
-  sh:path vc:credentialStatus;
-  sh:class vc:CredentialStatus;
+  sh:path cred:credentialStatus;
+  sh:datatype xsd:anyURI;
   sh:maxCount 1;
   sh:description "The status of the verifiable credential."@en;
   sh:name "credential status"@en;
   sh:severity sh:Violation;
-  #sh:order 10;
+  #sh:order 9;
   . 
- edc:VerifiableCredential-vc_credentialSchema
+ edc:VerifiableCredential-cred_credentialSchema
   a sh:PropertyShape; 
-  sh:path vc:credentialSchema;
-  sh:class vc:CredentialSchema;
-  sh:maxCount 1;
-  sh:description "The schema of the verifiable credential."@en;
+  sh:path cred:credentialSchema;
+  sh:datatype xsd:anyURI;
+  sh:minCount 1;
+  sh:description "The schema the verifiable credential should be validated against."@en;
   sh:name "credential schema"@en;
   sh:severity sh:Violation;
-  #sh:order 11;
+  #sh:order 10;
   . 
- edc:VerifiableCredential-vc_termsOfUse
+ edc:VerifiableCredential-cred_termsOfUse
   a sh:PropertyShape; 
-  sh:path vc:termsOfUse;
-  sh:class vc:TermsOfUse;
-  sh:maxCount 1;
+  sh:path cred:termsOfUse;
+  sh:datatype xsd:anyURI;
   sh:description "The terms of use of verifiable credential."@en;
   sh:name "terms of use"@en;
   sh:severity sh:Violation;
   #sh:order 11;
   .   
+ edc:VerifiableCredential-cred_holder
+  a sh:PropertyShape; 
+  sh:path cred:holder;
+  sh:class elm:Agent;
+  sh:maxCount 1;
+  sh:description "The holder of verifiable credential."@en;
+  sh:name "holder"@en;
+  sh:severity sh:Violation;
+  #sh:order 12;
+  .    
 #---------------------------------------------------------------  
 #--------------------- Claim Node Shape -----------------------
 #---------------------------------------------------------------  
 edc:ClaimNodeShape
    a sh:NodeShape ;
-   rdfs:label "Claim Node Shape" ;
+   rdfs:label "Claim Node " ;
    rdfs:comment "This shape is used for validation purposes, in case the range of a property is a Claim (superclass). A Claim Node is either a Learning Achievement Shape, a Learning Activity Shape, a Learning Assessment Shape, a Learning Entitlement Shape, and rarely it can be a Claim Type Node Shape, that is a Claim where the extra restriction of type property being mandatory is imposed. It is strongly recommended to use the subclasses of the Claim (e.g Learning Achievement, Learning Activity, Learning Assessment, Learning Entitlement) and only use the Claim superclass in the rare occasion when the claim provided is not covered by the existing subclasses. In such case, the node shape used for validation of the Claim is the Claim Type Node Shape, where it is mandatory to provide type of the claim using a controlled list."@en;
    sh:message "The node is a Claim, which is either a Learning Achievement, or a  Learning Activity, or a Learning Assessment or a Learning Entitlement and rarely a Claim with type property being mandatory." ;
    sh:or ([
@@ -5133,7 +5436,7 @@ edc:ClaimNodeShape
 edc:SpecificationNodeShape
    a sh:NodeShape ;
    rdfs:comment "A Specification Node is either a Learning Achievement Specification Shape, or a Learning Activity Specification Shape, or a Learning Assessment Specification Shape or a Learning Entitlement Specification  Shape. This shape is used for validation purposes, in case the range of a property is a Specification (superclass)." ;
-   rdfs:label "Specification Node Shape" ;
+   rdfs:label "Specification Node " ;
    sh:message "The node is a Specification, which is either a Learning Achievement Specification , or a  Learning Activity Specification , or a Learning Assessment Specification  or a Learning Entitlement Specification." ;
    sh:or ([
            sh:class elm:LearningAchievementSpecification
@@ -5155,10 +5458,10 @@ edc:SpecificationNodeShape
 edc:ClaimTypeNodeShape 
   a sh:NodeShape;
   rdfs:comment "This shape does not apply on a class. This shape checks if a node is a Claim (when used directly and not via one of its subclasses),  having type as a mandatory property."@en; 
-  rdfs:label "Claim Type Node Shape"@en; 
+  rdfs:label "Claim Type Node "@en; 
   sh:property[
   sh:path dc:title;
-  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
   sh:minCount 1;
   sh:description "The title of the claim. One value per language is permitted."@en;
   sh:name "title"@en;
@@ -5168,9 +5471,10 @@ edc:ClaimTypeNodeShape
   ];
   sh:property[
   sh:path dc:description;
-  sh:class elm:Note;
+  sh:datatype rdf:langString;
   sh:description "A free text description of the claim."@en;
   sh:name "description"@en;
+  sh:uniqueLang true ;
   sh:severity sh:Violation;
   #sh:order 1;
   ]; 
@@ -5220,79 +5524,75 @@ edc:ClaimTypeNodeShape
 #---------------------------------------------------------------  
 edc:EvidenceShape 
   a sh:NodeShape; 
-  sh:targetClass vc:Evidence; 
+  sh:targetClass elm:Evidence; 
   rdfs:comment "The evidence of the verifiable credential. It contains information about the process which resulted in the issuance of the verifiable credential."@en; 
-  rdfs:label "Evidence Shape"@en; 
-  sh:property[
-     sh:path dc:type;
-     sh:class skos:Concept;
-     sh:minCount 1;
+  rdfs:label "Evidence "@en; 
+   sh:property[
+     sh:path elm:evidenceStatement;
+     sh:datatype xsd:string;
      sh:maxCount 1;
-     sh:description "The type of the evidence."@en;
-     sh:name "type"@en;
+     sh:description "The statement of the evidence."@en;
+     sh:name "evidence statement"@en;
      sh:severity sh:Violation;
-  ]
-  .  
-#---------------------------------------------------------------     
-#--------- Terms Of Use shape ---------------------------------
-#---------------------------------------------------------------  
-edc:TermsOfUseShape 
-  a sh:NodeShape; 
-  sh:targetClass vc:TermsOfUse; 
-  rdfs:comment "The tems of use. It defines the terms under which the verifiable credential was issued."@en; 
-  rdfs:label "Terms Of Use Shape"@en; 
-  sh:property[
-     sh:path dc:type;
-     sh:class skos:Concept;
-     sh:minCount 1;
+  ];
+   sh:property[
+     sh:path elm:evidenceTarget;
+     sh:class elm:Agent;
      sh:maxCount 1;
-     sh:description "The type of the terms of use."@en;
-     sh:name "type"@en;
+     sh:description "The target of the evidence."@en;
+     sh:name "evidence target"@en;
      sh:severity sh:Violation;
-  ]
-  .   
-#---------------------------------------------------------------  
-#--------- Credential Shema shape -------------------
-#---------------------------------------------------------------  
-edc:CredentialSchemaShape 
-  a sh:NodeShape; 
-  sh:targetClass vc:CredentialSchema; 
-  rdfs:comment "The credential schema.It contains information about the credential schema (template) on which the Verifiable Credential is based (via the Trusted Schemas Registry, TSR)."@en; 
-  rdfs:label "Credential Schema Shape"@en; 
+  ];
+   sh:property[
+     sh:path elm:embeddedEvidence;
+     sh:class elm:MediaObject;
+     sh:description "The embeded evidence."@en;
+     sh:name "embedded evidence"@en;
+     sh:severity sh:Violation;
+  ];
   sh:property[
-     sh:path dc:type;
-     sh:class skos:Concept;
-     sh:minCount 1;
+     sh:path elm:accreditation;
+     sh:class elm:Accreditation;
      sh:maxCount 1;
-     sh:description "The type of the credential schema."@en;
-     sh:name "type"@en;
+     sh:description "The accreditation of the evidence."@en;
+     sh:name "evidence accreditation"@en;
      sh:severity sh:Violation;
-  ]
-  . 
-#---------------------------------------------------------------        
-#--------- Credential Status shape -------------------
-#---------------------------------------------------------------  
-edc:CredentialStatusShape 
-  a sh:NodeShape; 
-  sh:targetClass vc:CredentialStatus; 
-  rdfs:comment "The credential status. It defines discovery information about the current status of a Verifiable Credential."@en; 
-  rdfs:label "Credential Status Shape"@en; 
-  sh:property[
-     sh:path dc:type;
-     sh:class skos:Concept;
-     sh:minCount 1;
-     sh:maxCount 1;
-     sh:description "The type of the credential status."@en;
-     sh:name "type"@en;
-     sh:severity sh:Violation;
-  ]
+  ];
   .     
 #---------------------------------------------------------------        
 #--------- Verifiable Presentation shape -------------------
 #---------------------------------------------------------------  
 edc:VerifiablePresentationShape 
   a sh:NodeShape; 
-  sh:targetClass vp:VerifiablePresentation; 
+  sh:targetClass cred:VerifiablePresentation; 
   rdfs:comment "A verifiable presentation of a set of credentials. A composition of a set of credentials that can be presented to and verified by a verifier."@en; 
-  rdfs:label "Verifiable Presentation Shape"@en; 
+  rdfs:label "Verifiable Presentation "@en; 
+  sh:property[
+     sh:path cred:verifiableCredential;
+     sh:class cred:VerifiableCredential;
+     sh:description "The verifiable credential."@en;
+     sh:name "verifiable credential"@en;
+     sh:severity sh:Violation;
+  ];
+ sh:property[
+     sh:path cred:proof;
+     sh:datatype xsd:anyURI;
+     sh:description "The proof of the verifiable presentaion."@en;
+     sh:name "proof"@en;
+     sh:severity sh:Violation;
+  ];
+  sh:property[
+     sh:path cred:holder;
+     sh:class elm:Agent;
+     sh:description "The entity that is generating the presentation."@en;
+     sh:name "holder"@en;
+     sh:severity sh:Violation;
+  ].
+ 
+#-------------- Shacl Validator Shape --------------
+ edc:ShaclValidatorShape 
+  a sh:NodeShape; 
+  sh:targetClass elm:ShaclValidator; 
+  rdfs:comment "A shacl schema for credential validation."@en; 
+  rdfs:label "Shacl Validator "@en
   .

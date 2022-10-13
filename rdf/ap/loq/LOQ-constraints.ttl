@@ -1,4 +1,4 @@
-@prefix :       <https://data.europa.eu/snb/model/loq-constraints#>.
+@prefix :       <http://data.europa.eu/snb/model/loq-constraints/>.
 @prefix dc:     <http://purl.org/dc/terms/>.
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
 @prefix prov:   <http://www.w3.org/ns/prov#>.
@@ -8,20 +8,17 @@
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix org:    <http://www.w3.org/ns/org#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
-@prefix gr:     <http://purl.org/goodrelations/v1#>.
-@prefix dcat:   <http://www.w3.org/ns/dcat#>.
-@prefix elm:    <https://data.europa.eu/snb/model#>.
-@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix elm:    <http://data.europa.eu/snb/model/>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
-@prefix person: <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix adms:   <http://www.w3.org/ns/adms#>.
-@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc#>.
-@prefix vp:     <http://data.europa.eu/snb/model/w3c/vp#>.
 @prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix locn:   <http://www.w3.org/ns/locn#>.
+@prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
 
-<https://data.europa.eu/snb/model/loq-constraints>
+<http://data.europa.eu/snb/model/loq-constraints>
 a owl:Ontology;
   owl:imports rdf:;
   owl:imports dc:;
@@ -30,11 +27,12 @@ a owl:Ontology;
   owl:imports foaf:;
   owl:imports elm:;
   owl:imports skos:;
-  owl:imports person:;
+  owl:imports clv:;
+  owl:imports locn:;
   owl:imports sh:;
   rdfs:label "SHACL constraints for LOQ Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
-  dc:modified "2022-07-13"^^xsd:date;
+  dc:modified "2022-09-14"^^xsd:date;
   dc:title "SHACL constraints for the Learning Opportunity and Qualification Schema application profile"@en;
   rdfs:comment '''This document specifies the set of classes and properties used in the LOMS application profile,
   and the constraints on occurrences and values used.'''@en;
@@ -52,6 +50,8 @@ a owl:Ontology;
   rdfs:comment "The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about: (1) the quality assurance and/or licensing of an organisation, (2) the quality assurance and/or licensing of an organisation with respect to a specific qualification."@en;
   rdfs:label "Accreditation Shape"@en;
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:Accreditation;
   #sh:order 0;
   sh:property [
@@ -74,7 +74,7 @@ a owl:Ontology;
   ];
   sh:property[
      sh:path dc:title;
-     sh:nodeKind sh:Literal;
+     sh:datatype rdf:langString;
      sh:minCount 1;
      sh:description " The title of the accreditation. One value per language is permitted."@en;
      sh:name "title"@en;
@@ -84,9 +84,10 @@ a owl:Ontology;
   ];
   sh:property[
      sh:path dc:description;
-     sh:class elm:Note;
-     sh:description "A free text description of the accreditation."@en;
+     sh:datatype rdf:langString;
+     sh:description "A free text description of the accreditation. One value per language is permitted."@en;
      sh:name "description"@en;
+     sh:uniqueLang true ;
      sh:severity sh:Violation;
      #sh:order 3;
   ];
@@ -202,6 +203,7 @@ a owl:Ontology;
       sh:description "The homepage of the accreditation."@en;
       sh:name "homepage"@en;
       sh:severity sh:Violation;
+      sh:node :URLRegexRestriction;
       #sh:order 16;
   ];
     sh:property[
@@ -210,6 +212,7 @@ a owl:Ontology;
          sh:description "The landing page of the accreditation."@en;
          sh:name "landing page"@en;
          sh:severity sh:Violation;
+         sh:node :URLRegexRestriction ;
          #sh:order 17;
         ];
     sh:property [
@@ -218,6 +221,7 @@ a owl:Ontology;
        sh:description "A web resource containing additional documentation describing the Accreditation Procedures and Standards."@en;
        sh:name "other documents"@en;
        sh:severity sh:Violation;
+       sh:node :URLRegexRestriction ;
        #sh:order 18;
   ];
     sh:property[
@@ -230,7 +234,7 @@ a owl:Ontology;
          #sh:order 19;
     ];
     sh:property[
-         sh:path elm:lastModificationDate;
+         sh:path dc:modified;
          sh:datatype xsd:dateTime;
          sh:maxCount 1;
          sh:description "The date when the accreditation was last updated since it was published."@en;
@@ -238,12 +242,22 @@ a owl:Ontology;
          sh:severity sh:Violation;
          #sh:order 20;
     ];
+    sh:property[
+      sh:path dc:publisher;
+      sh:class elm:Agent;
+      sh:description "The publisher of the Learning Opportunity."@en;
+      sh:name "publisher"@en;
+      #sh:order 21;
+      sh:severity sh:Violation; 
+  ]
 .
 #-------------------------------------------------------------------------
 #----------------------- Address class shapes ----------------------------
 #-------------------------------------------------------------------------
 :AddressShape
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:Address;
   rdfs:comment "An address."@en;
   rdfs:label "Address Shape"@en;
@@ -281,6 +295,8 @@ a owl:Ontology;
 #-------------------------------------------------------------------------
 :AgentShape
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:Agent;
   rdfs:comment "An entity that is able to carry out actions."@en;
   rdfs:label "Agent Shape"@en;
@@ -295,21 +311,22 @@ a owl:Ontology;
   ];
   sh:property [
     sh:path skos:prefLabel;
-    sh:nodeKind sh:Literal;
+    sh:datatype rdf:langString;
     sh:minCount 1;
     sh:maxCount 1;
-    sh:description "The preferred name of the agent."@en;
-    sh:name "preferred name"@en;
+    sh:description "The preferred name of the agent. One value per language is permitted."@en;
+    sh:name "name"@en;
     sh:uniqueLang true ;
     sh:severity sh:Violation;
     #sh:order 1;
   ];
   sh:property [
     sh:path skos:altLabel;
-    sh:nodeKind sh:Literal;
-    sh:description "The alternative name of the agent."@en;
+    sh:datatype rdf:langString;
+    sh:description "The alternative name of the agent. It must be disjoint with name (skos:prefLabel) of the Agent."@en;
     sh:name "alternative name"@en;
     sh:severity sh:Violation;
+    sh:disjoint skos:prefLabel;
     #sh:order 2;
   ];
   sh:property [
@@ -336,7 +353,7 @@ a owl:Ontology;
     #sh:order 4;
   ];
     sh:property [
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the agent was last modified."@en;
@@ -359,6 +376,8 @@ a owl:Ontology;
 #-------------------------------------------------------------------------
 :MailboxShape
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:Mailbox;
   rdfs:comment "A mailbox."@en;
   rdfs:label "Mailbox Shape"@en;
@@ -367,11 +386,13 @@ a owl:Ontology;
 #-------------------------------------------------------------------------
 #-------------------------   Amount Class Shape --------------------------
 #-------------------------------------------------------------------------
-:AmountShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:Amount; 
-  rdfs:comment "An amount."@en; 
-  rdfs:label "Amount Shape"@en; 
+:AmountShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:Amount;
+  rdfs:comment "An amount."@en;
+  rdfs:label "Amount Shape"@en;
   #sh:order 3;
   sh:property[
       sh:path elm:unit;
@@ -397,14 +418,17 @@ a owl:Ontology;
 # --------------------------------------------------------
 # ------------ Awarding Opportunity  class shapes --------
 # --------------------------------------------------------
-:AwardingOpportunityShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:AwardingOpportunity; 
-  rdfs:comment "An awarding opportunity describes how, where, from whom and when a claim may be obtained."@en; 
-  rdfs:label "Awarding Opportunity Shape"@en; 
+:AwardingOpportunityShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:AwardingOpportunity;
+  rdfs:comment "An awarding opportunity describes how, where, from whom and when a claim may be obtained."@en;
+  rdfs:label "Awarding Opportunity Shape"@en;
   sh:property[
       sh:path elm:awardingBody;
-      sh:class elm:Organisation;
+      sh:class elm:Agent;
+      sh:minCount 1;
       sh:description"The awarding body related to this awarding activity (i.e., the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1."@en;
       sh:name "awarding body"@en;
       sh:severity sh:Violation;
@@ -436,7 +460,7 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 3;
   ];
-  sh:property[ 
+  sh:property[
      sh:path elm:learningAchievementSpecification;
      sh:class elm:LearningAchievementSpecification;
      sh:minCount 1;
@@ -446,14 +470,16 @@ a owl:Ontology;
      sh:severity sh:Violation;
      #sh:order 4;
   ];
-.  
+.
 #---------------------------------------------------------------
-#---------- Credit Point class and properties shapes -----------  
-#--------------------------------------------------------------- 
+#---------- Credit Point class and properties shapes -----------
+#---------------------------------------------------------------
 :CreditPointShape
-  a sh:NodeShape; 
-  sh:targetClass elm:CreditPoint; 
-  rdfs:comment "The credit Points"@en; 
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:CreditPoint;
+  rdfs:comment "The credit Points"@en;
   rdfs:label "Credit Points Shape"@en;
   sh:property[
      a sh:PropertyShape;
@@ -480,10 +506,10 @@ a owl:Ontology;
 :ConceptShape
   a sh:NodeShape ;
   sh:targetClass skos:Concept;
-  rdfs:comment "A term from a controlled vocabulary modelled as a skos:Concept."@en; 
-  rdfs:label "Concept Shape"@en; 
+  rdfs:comment "A term from a controlled vocabulary modelled as a skos:Concept."@en;
+  rdfs:label "Concept Shape"@en;
   sh:property [
-        sh:nodeKind sh:Literal ;
+        sh:datatype rdf:langString; ;
         sh:path skos:prefLabel ;
         sh:name "name"@en;
         sh:description "The text equivalent of the code content component. One value per language is permitted."@en;
@@ -492,8 +518,17 @@ a owl:Ontology;
         #sh:order 0;
     ];
     sh:property [
+        sh:datatype rdf:langString; ;
+        sh:path skos:altLabel ;
+        sh:name "alternative name"@en;
+        sh:description "The alternative name. It must be disjoint with name (skos:prefLabel) of the Concept."@en;
+        sh:severity sh:Violation;
+        sh:disjoint skos:prefLabel;
+        #sh:order 0;
+    ];
+    sh:property [
       sh:path skos:notation ;
-      sh:nodeKind sh:Literal ;  
+      sh:datatype xsd:string;
       sh:name "notation"@en;
       sh:maxCount 1;
       sh:description "A notation, also known as classification code, is a string of characters used to uniquely identify a concept within the scope of a given concept scheme."@en;
@@ -502,7 +537,7 @@ a owl:Ontology;
     ];
      sh:property [
       sh:path skos:inScheme ;
-      sh:class skos:ConceptScheme ;  
+      sh:class skos:ConceptScheme ;
       sh:name "in scheme"@en;
       sh:maxCount 1;
       sh:description "The concept scheme this concept belongs to. The identification of the controlled vocabulary."@en;
@@ -516,8 +551,8 @@ a owl:Ontology;
 :ConceptScheme
   a sh:NodeShape ;
   sh:targetClass skos:ConceptScheme;
-  rdfs:comment "A controlled vocabulary modelled as a Concept Scheme."@en; 
-  rdfs:label "Concept  Scheme Shape"@en; 
+  rdfs:comment "A controlled vocabulary modelled as a Concept Scheme."@en;
+  rdfs:label "Concept  Scheme Shape"@en;
   .
 
 
@@ -526,6 +561,8 @@ a owl:Ontology;
 #-------------------------------------------------------------------------
 :ContactPointShape
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:ContactPoint;
   rdfs:comment "A contact point for an agent."@en;
   rdfs:label "Contact Point Shape"@en;
@@ -539,9 +576,10 @@ a owl:Ontology;
   ];
   sh:property [
     sh:path dc:description;
-    sh:class elm:Note;
+    sh:datatype rdf:langString;
     sh:description "A free text description of the contact details."@en;
     sh:name "description"@en;
+    sh:uniqueLang true ;
     sh:severity sh:Violation;
     #sh:order 1;
   ];
@@ -568,6 +606,16 @@ a owl:Ontology;
     sh:description "An e-mail address used for contacting the agent."@en;
     sh:name "mailbox"@en;
     sh:severity sh:Violation;
+    sh:and (
+      [
+        ## QDR specific URI regex
+        sh:pattern "^(([^:/?#]+):)?(//(([^@\\[/?#]*)@)?(\\[[[A-Fa-f0-9]\\:\\.]*[%[\\p{L}\\p{Nl}\\p{Nd}]]*\\]|[^\\[/?#:]*)(:(\\d*(?:\\{[^/]+?\\})?))?)?([^?#]*)(\\?([^#]*))?(#(.*))?" ;
+      ]
+      [
+        ## rfc3986 specific regex
+        sh:pattern "^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?" ;
+      ]
+    ) ;
     #sh:order 4;
   ];
   sh:property [
@@ -576,6 +624,7 @@ a owl:Ontology;
     sh:description "A contact form used for contacting the agent."@en;
     sh:name "contact form"@en;
     sh:severity sh:Violation;
+    sh:node :URIRegexRestriction
     #sh:order 5;
   ];
 .
@@ -584,10 +633,12 @@ a owl:Ontology;
 # --------- Grading Scheme Class and property shapes ---------------------------------------
 #-------------------------------------------------------------------------------------------
 :GradingSchemeShape
-  a sh:NodeShape; 
-  sh:targetClass elm:GradingScheme; 
-  rdfs:comment "A set of criteria that measures varying levels of achievement."@en; 
-  rdfs:label "Grading Scheme Shape"@en; 
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:GradingScheme;
+  rdfs:comment "A set of criteria that measures varying levels of achievement."@en;
+  rdfs:label "Grading Scheme Shape"@en;
   sh:property[
       sh:path adms:identifier;
       sh:class elm:Identifier;
@@ -598,7 +649,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:title;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description " The title of the grading scheme. One value per language is permitted."@en;
       sh:name "title"@en;
@@ -608,9 +659,10 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:description;
-      sh:class elm:Note;
+      sh:datatype rdf:langString;
       sh:description "A free text description of the grading scheme."@en;
       sh:name "description"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 2;
   ];
@@ -622,32 +674,35 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 3;
    ];
-. 
+.
 
 
 #-------------------------------------------------------------------------
 #--------------- Grant class and property  shapes ----------------------
 #-------------------------------------------------------------------------
-:GrantShape 
-   a sh:NodeShape; 
-   sh:targetClass elm:Grant; 
-   rdfs:comment "The Grant."@en; 
-   rdfs:label "Grant Shape"@en; 
+:GrantShape
+   a sh:NodeShape;
+   sh:closed true ;
+   sh:ignoredProperties (rdf:type) ;
+   sh:targetClass elm:Grant;
+   rdfs:comment "The Grant."@en;
+   rdfs:label "Grant Shape"@en;
    sh:property [
          sh:path dc:title;
-         sh:nodeKind sh:Literal;
+         sh:datatype rdf:langString;
          sh:minCount 1;
          sh:description " The title of the grant. One value per language is permitted."@en;
          sh:name "title"@en;
          sh:uniqueLang true ;
          sh:severity sh:Violation;
          #sh:order 0;
-    ]; 
+    ];
     sh:property[
       sh:path dc:description;
-      sh:class elm:Note;
+      sh:datatype rdf:langString;
       sh:description " A free text description of the grant."@en;
       sh:name "description"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 1;
   ];
@@ -684,12 +739,12 @@ a owl:Ontology;
 :GroupShape
   a sh:NodeShape ;
   sh:targetClass elm:Group;
-  rdfs:comment "An entity that represents collection of Agents."@en; 
+  rdfs:comment "An entity that represents collection of Agents."@en;
   rdfs:label "Group Shape"@en;
   sh:property [
         sh:minCount 1 ;
         sh:maxCount 1;
-        sh:nodeKind sh:Literal ;
+        sh:datatype rdf:langString; ;
         sh:path skos:prefLabel ;
         sh:name "name"@en;
         sh:description "The name of the group."@en;
@@ -697,7 +752,7 @@ a owl:Ontology;
         #sh:order 0;
   ];
   sh:property [
-        sh:nodeKind sh:Literal ;
+        sh:datatype rdf:langString; ;
         sh:path skos:altLabel ;
         sh:name "alternative name"@en;
         sh:description "The alternative name of the group."@en;
@@ -718,7 +773,7 @@ a owl:Ontology;
      sh:description "An additional free text note about the group."@en;
      sh:name "more information"@en;
      sh:severity sh:Violation;
-     #sh:order 3; 
+     #sh:order 3;
   ];
   sh:property[
     sh:path elm:location;
@@ -748,14 +803,16 @@ a owl:Ontology;
 #-------------------------------------------------------------------------
 #------------------- Identifier Class and property shapes ----------------
 #-------------------------------------------------------------------------
-:IdentifierShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:Identifier; 
-  rdfs:comment "A character string used to identify a resource. An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency. The Identifier class is a critical aspect of the ELM. It is used to identify persons and organisations. In these cases, and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised."@en; 
-  rdfs:label "Identifier Shape"@en; 
-  sh:property[ 
+:IdentifierShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:Identifier;
+  rdfs:comment "A character string used to identify a resource. An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency. The Identifier class is a critical aspect of the ELM. It is used to identify persons and organisations. In these cases, and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised."@en;
+  rdfs:label "Identifier Shape"@en;
+  sh:property[
       sh:path skos:notation;
-      sh:nodeKind sh:Literal;
+      sh:datatype xsd:string;
       sh:minCount 1;
       sh:maxCount 1;
       sh:description "Content string which is the identifier."@en;
@@ -763,16 +820,16 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 0;
   ];
-  sh:property[     
+  sh:property[
       sh:path adms:schemeAgency;
-      sh:nodeKind sh:Literal ;
+      sh:datatype rdf:langString; ;
       sh:maxCount 1;
       sh:description "The name of the agent that manages the identifier scheme."@en;
       sh:name "scheme agency name"@en;
       sh:severity sh:Violation;
       #sh:order 1;
   ];
-  sh:property[    
+  sh:property[
       sh:path dc:creator;
       sh:nodeKind sh:IRI ;
       sh:maxCount 1;
@@ -781,7 +838,7 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 2;
   ];
-  sh:property[    
+  sh:property[
       sh:path dc:issued;
       sh:datatype xsd:dateTime;
       sh:maxCount 1;
@@ -790,7 +847,7 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 3;
   ];
-  sh:property[    
+  sh:property[
       sh:path elm:schemeName;
       sh:datatype xsd:string;
       sh:maxCount 1;
@@ -799,7 +856,7 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 4;
   ];
-  sh:property[    
+  sh:property[
       sh:path elm:schemeVersion;
       sh:datatype xsd:string;
       sh:maxCount 1;
@@ -820,14 +877,16 @@ a owl:Ontology;
 #-------------------------------------------------------------------------
 #------------- Legal Identifier Class and property shapes ----------------
 #-------------------------------------------------------------------------
-:LegalIdentifierShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:LegalIdentifier; 
-  rdfs:comment "A legal identifier. A legal identifier is a formally issued identifier by a given authority within a given jurisdiction. The identifier has a spatial context. Legal Identifier is a subclass of Identifier."@en; 
-  rdfs:label "Legal Identifier Shape"@en; 
-  sh:property[ 
+:LegalIdentifierShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:LegalIdentifier;
+  rdfs:comment "A legal identifier. A legal identifier is a formally issued identifier by a given authority within a given jurisdiction. The identifier has a spatial context. Legal Identifier is a subclass of Identifier."@en;
+  rdfs:label "Legal Identifier Shape"@en;
+  sh:property[
       sh:path skos:notation;
-      sh:nodeKind sh:Literal;
+      sh:datatype xsd:string;
       sh:minCount 1;
       sh:maxCount 1;
       sh:description "Content string which is the identifier."@en;
@@ -835,16 +894,16 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 0;
   ];
-  sh:property[     
+  sh:property[
       sh:path adms:schemeAgency;
-      sh:nodeKind sh:Literal ;
+      sh:datatype rdf:langString; ;
       sh:maxCount 1;
       sh:description "The name of the agent that manages the identifier scheme."@en;
       sh:name "scheme agency name"@en;
       sh:severity sh:Violation;
       #sh:order 1;
   ];
-  sh:property[    
+  sh:property[
       sh:path dc:creator;
       sh:nodeKind sh:IRI ;
       sh:maxCount 1;
@@ -853,7 +912,7 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 2;
   ];
-  sh:property[    
+  sh:property[
       sh:path dc:issued;
       sh:datatype xsd:dateTime;
       sh:maxCount 1;
@@ -862,7 +921,7 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 3;
   ];
-  sh:property[    
+  sh:property[
       sh:path elm:schemeName;
       sh:datatype xsd:string;
       sh:maxCount 1;
@@ -871,7 +930,7 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 4;
   ];
-  sh:property[    
+  sh:property[
       sh:path elm:schemeVersion;
       sh:datatype xsd:string;
       sh:maxCount 1;
@@ -899,15 +958,17 @@ a owl:Ontology;
       #sh:order 7;
   ];
 .
- 
-#-----------------------------------------------------------------------------  
-#------ Learning Achievement Specification class and property  shapes -------- 
-#-----------------------------------------------------------------------------  
-:LearningAchievementSpecificationShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:LearningAchievementSpecification; 
-  rdfs:comment "A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning achievement. Learning Achievement Specification is a subclass of Specification."@en; 
-  rdfs:label "Learning Achievement Specification Shape"@en; 
+
+#-----------------------------------------------------------------------------
+#------ Learning Achievement Specification class and property  shapes --------
+#-----------------------------------------------------------------------------
+:LearningAchievementSpecificationShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:LearningAchievementSpecification;
+  rdfs:comment "A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning achievement. Learning Achievement Specification is a subclass of Specification."@en;
+  rdfs:label "Learning Achievement Specification Shape"@en;
   sh:property[
       sh:path adms:identifier;
       sh:class elm:Identifier;
@@ -918,7 +979,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:title;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description " The title of the learning achievement specification. One value per language is permitted."@en;
       sh:name "title"@en;
@@ -928,7 +989,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path skos:altLabel;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:description "The alternative name of the learning achievement specification."@en;
       sh:name "alternative name"@en;
       sh:severity sh:Violation;
@@ -936,13 +997,14 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:description;
-      sh:class elm:Note;
-      sh:description " A free text description of the learning achievement specification."@en;
+      sh:datatype rdf:langString;
+      sh:description " A free text description of the learning achievement specification. One value per language is permitted."@en;
       sh:name "description"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 3;
   ];
-  sh:property[ 
+  sh:property[
       sh:path elm:additionalNote;
       sh:class elm:Note;
       sh:description " An additional free text note about the learning achievement specification."@en;
@@ -955,7 +1017,7 @@ a owl:Ontology;
       sh:class elm:WebResource;
       sh:description "The homepage of the learning achievement specification."@en;
       sh:name "homepage"@en;
-      sh:severity sh:Violation; 
+      sh:severity sh:Violation;
       #sh:order 5;
   ];
   sh:property[
@@ -964,18 +1026,19 @@ a owl:Ontology;
       sh:description "A public web resource containing additional documentation about the learning achievement specification."@en;
       sh:name "other documents"@en;
       sh:severity sh:Violation;
+      sh:node :URLRegexRestriction ;
       #sh:order 6;
    ];
    sh:property[
      sh:path elm:category;
-     sh:nodeKind sh:Literal;
+     sh:datatype rdf:langString;
      sh:description "The category of the learning achievement specification provided as a string."@en;
      sh:name "category"@en;
      sh:severity sh:Violation;
      #sh:order 7;
    ];
      sh:property [
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the learning achievement specification was last modified."@en;
@@ -1045,6 +1108,7 @@ a owl:Ontology;
   sh:property[
       sh:path dc:language;
       sh:class skos:Concept;
+      sh:minCount 1;
       sh:description "The language of the learning achievement specification. It should be provided using the Language Named Authority List."@en;
       sh:name "language"@en;
       sh:severity sh:Violation;
@@ -1135,12 +1199,29 @@ a owl:Ontology;
       #sh:order 26;
   ];
   sh:property[
+    sh:path elm:isPartOf;
+    sh:class elm:LearningAchievementSpecification;
+    sh:description "A learning achievement specification, which this learning achievement specification is part of."@en;
+    sh:name "is part of "@en;
+    sh:severity sh:Violation;
+    #sh:order 27;
+
+  ];
+  sh:property[
       sh:path elm:specialisationOf;
       sh:class elm:LearningAchievementSpecification;
       sh:description "A learning  achievement specification (e.g., a standard) of which this specification is a specialisation."@en;
       sh:name "specialisation of"@en;
       sh:severity sh:Violation;
-      #sh:order 27;
+      #sh:order 28;
+  ];
+  sh:property[
+      sh:path elm:generalisationOf;
+      sh:class elm:LearningAchievementSpecification;
+      sh:description "A learning achievement specification (e.g., a standard) of which this specification is a generalisation."@en;
+      sh:name "generalisation of"@en;
+      sh:severity sh:Violation;
+      #sh:order 29;
   ];
   sh:property[
       sh:path elm:awardingOpportunity;
@@ -1148,18 +1229,28 @@ a owl:Ontology;
       sh:description "Refers to an activity related to the awarding of the learning specification, such as the country or region where the qualification is awarded, the awarding body and optionally the awarding period now or in the past."@en;
       sh:name "awarding information"@en;
       sh:severity sh:Violation;
-      #sh:order 28;
+      #sh:order 30;
   ];
-. 
+  sh:property[
+    sh:path dc:publisher;
+    sh:class elm:Agent;
+    sh:description "The publisher of the Learning Achievement Specification."@en;
+    sh:name "publisher"@en;
+    #sh:order 31;
+    sh:severity sh:Violation; 
+  ]
+.
 
 #-------------------------------------------------------------------------------------
 # --------- Learning Activity Specification Class and property shapes ----------------
 #-------------------------------------------------------------------------------------
-:LearningActivitySpecificationShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:LearningActivitySpecification; 
-  rdfs:comment "The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy. Learning Activity Specification is a subclass of Specification."@en; 
-  rdfs:label "Learning Activity Specification Shape"@en; 
+:LearningActivitySpecificationShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:LearningActivitySpecification;
+  rdfs:comment "The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy. Learning Activity Specification is a subclass of Specification."@en;
+  rdfs:label "Learning Activity Specification Shape"@en;
   sh:property[
       sh:path adms:identifier;
       sh:class elm:Identifier;
@@ -1170,7 +1261,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:title;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description " The title of the learning activity specification. One value per language is permitted."@en;
       sh:name "title"@en;
@@ -1180,7 +1271,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path skos:altLabel;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:description "The alternative name of the learning activity specification."@en;
       sh:name "alternative label"@en;
       sh:severity sh:Violation;
@@ -1188,13 +1279,14 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:description;
-      sh:class elm:Note;
-      sh:description " A free text description of the learning activity specification."@en;
+      sh:datatype rdf:langString;
+      sh:description " A free text description of the learning activity specification. One value per language is permitted."@en;
       sh:name "description"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 3;
   ];
-  sh:property[ 
+  sh:property[
       sh:path elm:additionalNote;
       sh:class elm:Note;
       sh:description " An additional free text note about the learning activity specification."@en;
@@ -1207,7 +1299,7 @@ a owl:Ontology;
       sh:class elm:WebResource;
       sh:description "The homepage of the learning activity specification."@en;
       sh:name "homepage"@en;
-      sh:severity sh:Violation; 
+      sh:severity sh:Violation;
       #sh:order 5;
   ];
   sh:property[
@@ -1216,18 +1308,19 @@ a owl:Ontology;
       sh:description "A public web resource containing additional documentation about the learning activity specification."@en;
       sh:name "other documents"@en;
       sh:severity sh:Violation;
+      sh:node :URLRegexRestriction ;
       #sh:order 6;
    ];
    sh:property[
      sh:path elm:category;
-     sh:nodeKind sh:Literal;
+     sh:datatype rdf:langString;
      sh:description "The category of the learning activity specification provided as a string."@en;
      sh:name "category"@en;
      sh:severity sh:Violation;
      #sh:order 7;
    ];
    sh:property [
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the learning activity specification was last modified."@en;
@@ -1260,20 +1353,28 @@ a owl:Ontology;
       sh:severity sh:Violation;
       #sh:order 11;
    ];
+   sh:property[
+    sh:path elm:contactHour;
+    sh:datatype xsd:string;
+    sh:description "The contact hours."@en;
+    sh:name "contact hours"@en;
+    sh:severity sh:Violation;
+    #sh:order 12;
+  ];
   sh:property[
       sh:path elm:mode;
       sh:class skos:Concept;
       sh:description "The mode of learning and or assessment (i.e., online, blended, presential, work based.  It should be provided using the EDC Controlled List of Modes Of Learning and Assessment."@en;
       sh:name "mode"@en;
       sh:severity sh:Violation;
-      #sh:order 12;
+      #sh:order 13;
    ];
   sh:property[
       sh:path elm:influences;
         sh:or (
           [
             sh:class elm:LearningAchievementSpecification
-          ] 
+          ]
           [
             sh:class elm:QualificationReference
           ]
@@ -1282,7 +1383,7 @@ a owl:Ontology;
       sh:description "What may be learned by undertaking the activity described by this learning activity specification. The expected learning outcomes to which this learning activity specification contributes to. This is given by a Learning Achievement Specification. A learning activity can lead to or contribute to the acquisition of a set of skills, knowledge, autonomy and or responsibility."@en;
       sh:name "influences"@en;
       sh:severity sh:Violation;
-      #sh:order 13;
+      #sh:order 14;
   ];
   sh:property[
       sh:path elm:hasPart;
@@ -1290,7 +1391,16 @@ a owl:Ontology;
       sh:description "A learning activity specification can be composed of smaller learning specifications, which when combined make up this learning specification."@en;
       sh:name "has part"@en;
       sh:severity sh:Violation;
-      #sh:order 14;
+      #sh:order 15;
+  ];
+  sh:property[
+     sh:path elm:isPartOf;
+     sh:class elm:LearningActivitySpecification;
+     sh:description "A learning activity specification, which this learning activity specification is part of."@en;
+     sh:name "is part of"@en;
+     sh:severity sh:Violation;
+     #sh:order 16;
+
   ];
   sh:property[
       sh:path elm:specialisationOf;
@@ -1298,17 +1408,27 @@ a owl:Ontology;
       sh:description "An activity specification (e.g., a standard) of which this specification is a specialisation."@en;
       sh:name "specialisation of"@en;
       sh:severity sh:Violation;
-      #sh:order 15;
+      #sh:order 17;
    ];
+   sh:property[
+    sh:path elm:generalisationOf;
+    sh:class elm:LearningActivitySpecification;
+    sh:description "A learning asctivity specification (e.g., a standard) of which this specification is a generalisation."@en;
+    sh:name "generalisation of"@en;
+    sh:severity sh:Violation;
+    #sh:order 18;
+   ]
 .
 #----------------------------------------------------------------------------------------------
 # --------- Learning Assessment Specification Class and property shapes -----------------------
 #----------------------------------------------------------------------------------------------
-:LearningAssessmentSpecificationShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:LearningAssessmentSpecification; 
-  rdfs:comment "A Learning  Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence. Learning Assessment Specification is a subclass of Specification."@en; 
-  rdfs:label "Learning Assessment Specification Shape"@en; 
+:LearningAssessmentSpecificationShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:LearningAssessmentSpecification;
+  rdfs:comment "A Learning  Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence. Learning Assessment Specification is a subclass of Specification."@en;
+  rdfs:label "Learning Assessment Specification Shape"@en;
   sh:property[
       sh:path adms:identifier;
       sh:class elm:Identifier;
@@ -1319,7 +1439,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:title;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description " The title of the learning assessment specification. One value per language is permitted."@en;
       sh:name "title"@en;
@@ -1329,7 +1449,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path skos:altLabel;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:description "The alternative name of the learning assessment specification."@en;
       sh:name "alternative label"@en;
       sh:severity sh:Violation;
@@ -1337,13 +1457,14 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:description;
-      sh:class elm:Note;
-      sh:description " A free text description of the learning assessment specification."@en;
+      sh:datatype rdf:langString;
+      sh:description " A free text description of the learning assessment specification. One value per language is permitted."@en;
       sh:name "description"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 3;
   ];
-  sh:property[ 
+  sh:property[
       sh:path elm:additionalNote;
       sh:class elm:Note;
       sh:description " An additional free text note about the learning assessment specification."@en;
@@ -1356,7 +1477,7 @@ a owl:Ontology;
       sh:class elm:WebResource;
       sh:description "The homepage of the learning assessment specification."@en;
       sh:name "homepage"@en;
-      sh:severity sh:Violation; 
+      sh:severity sh:Violation;
       #sh:order 5;
   ];
   sh:property[
@@ -1365,18 +1486,19 @@ a owl:Ontology;
       sh:description "A public web resource containing additional documentation about the learning assessment specification."@en;
       sh:name "other documents"@en;
       sh:severity sh:Violation;
+      sh:node :URLRegexRestriction ;
       #sh:order 6;
    ];
    sh:property[
      sh:path elm:category;
-     sh:nodeKind sh:Literal;
+     sh:datatype rdf:langString;
      sh:description "The category of the learning assessment specification provided as a string."@en;
      sh:name "category"@en;
      sh:severity sh:Violation;
      #sh:order 7;
    ];
      sh:property [
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the learning assessment specification was last modified."@en;
@@ -1420,7 +1542,7 @@ a owl:Ontology;
  sh:property[
      sh:path elm:proves;
      sh:or (
-          [sh:class elm:LearningAchievementSpecification;] 
+          [sh:class elm:LearningAchievementSpecification;]
           [sh:class elm:QualificationReference;]);
      sh:description "The learning achievement (and related learning outcomes) this assessment is designed to test."@en;
      sh:name "proves"@en;
@@ -1436,19 +1558,38 @@ a owl:Ontology;
      #sh:order 14;
  ];
  sh:property[
+    sh:path elm:isPartOf;
+    sh:class elm:LearningAssessmentSpecification;
+    sh:description "A learning assessment specification, which this learning assessment specification is part of."@en;
+    sh:name "is part of"@en;
+    sh:severity sh:Violation;
+    #sh:order 15;
+ ];
+ sh:property[
      sh:path elm:specialisationOf;
      sh:class elm:LearningAssessmentSpecification;
      sh:description "An assessment specification (e.g., a standard) of which this specification is a specialisation."@en;
      sh:name "specialisation of"@en;
-     sh:severity sh:Violation; 
-     #sh:order 15;
+     sh:severity sh:Violation;
+     #sh:order 16;
  ];
+ sh:property[
+     sh:path elm:generalisationOf;
+     sh:class elm:LearningAssessmentSpecification;
+     sh:description "A learning assessment specification (e.g., a standard) of which this specification is a generalisation."@en;
+     sh:name "generalisation of"@en;
+    sh:severity sh:Violation;
+    #sh:order 17;
+
+ ]
 .
 #-------------------------------------------------------------------------------------------
 # --------- Learning Entitlement Specification Class and property shapes -------------------
 #-------------------------------------------------------------------------------------------
-:LearningEntitlementSpecificationShape 
-  a sh:NodeShape; 
+:LearningEntitlementSpecificationShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:LearningEntitlementSpecification;
   rdfs:comment "The specification of a right a person has access to, typically as a result of a learning achievement. It may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career. Learning Entitletment Specifications is a subclass of Specification."@en;
   rdfs:label "Learning Entitlement Specification Shape"@en;
@@ -1462,7 +1603,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:title;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description " The title of the learning entitlement specification. One value per language is permitted."@en;
       sh:name "title"@en;
@@ -1472,7 +1613,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path skos:altLabel;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:description "The alternative name of the learning entitlement specification."@en;
       sh:name "alternative label"@en;
       sh:severity sh:Violation;
@@ -1480,13 +1621,14 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:description;
-      sh:class elm:Note;
-      sh:description " A free text description of the learning entitlement specification."@en;
+      sh:datatype rdf:langString;
+      sh:description " A free text description of the learning entitlement specification. One value per language is permitted."@en;
       sh:name "description"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 3;
   ];
-  sh:property[ 
+  sh:property[
       sh:path elm:additionalNote;
       sh:class elm:Note;
       sh:description " An additional free text note about the learning entitlement specification."@en;
@@ -1499,7 +1641,7 @@ a owl:Ontology;
       sh:class elm:WebResource;
       sh:description "The homepage of the learning entitlement specification."@en;
       sh:name "homepage"@en;
-      sh:severity sh:Violation; 
+      sh:severity sh:Violation;
       #sh:order 5;
   ];
   sh:property[
@@ -1508,18 +1650,19 @@ a owl:Ontology;
       sh:description "A public web resource containing additional documentation about the learning entitlement specification."@en;
       sh:name "other documents"@en;
       sh:severity sh:Violation;
+      sh:node :URLRegexRestriction ;
       #sh:order 6;
    ];
    sh:property[
      sh:path elm:category;
-     sh:nodeKind sh:Literal;
+     sh:datatype rdf:langString;
      sh:description "The category of the learning entitlement specification provided as a string."@en;
      sh:name "category"@en;
      sh:severity sh:Violation;
      #sh:order 7;
    ];
      sh:property [
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the learning entitlement specification was last modified."@en;
@@ -1598,23 +1741,41 @@ a owl:Ontology;
       #sh:order 16;
   ];
   sh:property[
+    sh:path elm:isPartOf;
+    sh:class elm:LearningEntitlementSpecification;
+    sh:description "A learning  entitlement specification, which this learning entitlement specification is part of."@en;
+    sh:name "is part of"@en;
+    sh:severity sh:Violation;
+    #sh:order 17;
+  ];
+  sh:property[
       sh:path elm:specialisationOf;
       sh:class elm:LearningEntitlementSpecification;
       sh:description "An entitlement specification (e.g., a standard) of which this specification is a specialisation."@en;
       sh:name "specialisation of"@en;
       sh:severity sh:Violation;
-      #sh:order 17;
+      #sh:order 18;
+  ];
+  sh:property[
+     sh:path elm:generalisationOf;
+     sh:class elm:LearningEntitlementSpecification;
+     sh:description "A learning entitlement specification (e.g., a standard) of which this specification is a generalisation."@en;
+     sh:name "generalisation of"@en;
+     sh:severity sh:Violation;
+     #sh:order 19;
   ];
 .
 
 #---------------------------------------------------------------
-#------ Learning Opportunity class and property  shapes -------- 
+#------ Learning Opportunity class and property  shapes --------
 #---------------------------------------------------------------
-:LearningOpportunityShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:LearningOpportunity; 
-  rdfs:comment "An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment."@en; 
-  rdfs:label "Learning Opportunity Shape"@en; 
+:LearningOpportunityShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:LearningOpportunity;
+  rdfs:comment "An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment."@en;
+  rdfs:label "Learning Opportunity Shape"@en;
   sh:property[
       sh:path adms:identifier;
       sh:class elm:Identifier;
@@ -1625,7 +1786,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path dc:title;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description " The title of Learning Opportunity. One value per language is permitted."@en;
       sh:name "title"@en;
@@ -1635,9 +1796,10 @@ a owl:Ontology;
   ];
   sh:property [
       sh:path dc:description;
-      sh:class elm:Note;
-      sh:description " A free text description of the learning opportunity."@en;
+      sh:datatype rdf:langString;
+      sh:description " A free text description of the learning opportunity. One value per language is permitted."@en;
       sh:name "description"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 2;
   ];
@@ -1664,6 +1826,7 @@ a owl:Ontology;
       sh:description "The homepage."@en;
       sh:name "homepage"@en;
       sh:severity sh:Violation;
+      sh:node :URLRegexRestriction ;
       #sh:order 5;
   ];
   sh:property[
@@ -1672,6 +1835,7 @@ a owl:Ontology;
       sh:description "A public web document containing additional documentation about the Learning Opportunity."@en;
       sh:name "other documents"@en;
       sh:severity sh:Violation;
+      sh:node :URLRegexRestriction ;
       #sh:order 6;
   ];
   sh:property [
@@ -1701,16 +1865,16 @@ a owl:Ontology;
       #sh:order 9;
   ];
   sh:property[
-      sh:path elm:learningSchedule; 
+      sh:path elm:learningSchedule;
       sh:class skos:Concept;
       sh:maxCount 1;
       sh:description "The learning schedule. It should be provided using the EDC Controlled List of Learning Schedule Types."@en;
       sh:name "learning schedule"@en;
       sh:severity sh:Violation;
       #sh:order 10;
-  ]; 
+  ];
   sh:property[
-      sh:path elm:scheduleInformation; 
+      sh:path elm:scheduleInformation;
       sh:class elm:Note;
       sh:maxCount 1;
       sh:description "Detailed information about the timetable or schedule. This may include weekly schedules (e.g., 'Every Monday, 4pm', but may also include the overall schedule for the course, (e.g., October: lectures, November: group-work, December: break, January: assessment)."@en;
@@ -1764,9 +1928,12 @@ a owl:Ontology;
        sh:or (
          [
              sh:class elm:LearningAchievementSpecification;
-          ] 
+          ]
           [
               sh:class elm:QualificationReference;
+          ]
+          [
+              sh:class elm:Qualification;
           ]
       );
       sh:description " The learning achievement specification, including the curricula, of this learning opportunity."@en;
@@ -1792,13 +1959,21 @@ a owl:Ontology;
       #sh:order 19;
   ];
   sh:property[
+    sh:path elm:hasPart;
+    sh:class elm:LearningOpportunity;
+    sh:description "A learning opportunity can be composed of other learning opportunities, which when combined make up this larger learning opportunity."@en;
+    sh:name "has part"@en;
+    #sh:order 20;
+    sh:severity sh:Violation;
+  ];
+  sh:property[
       sh:path elm:bannerImage;
       sh:class elm:MediaObject;
       sh:maxCount 1;
       sh:description "An image which is displayed alongside the learning opportunity."@en;
       sh:name "banner image"@en;
       sh:severity sh:Violation;
-      #sh:order 20;
+      #sh:order 21;
   ];
  sh:property[
       sh:path elm:defaultLanguage;
@@ -1808,7 +1983,7 @@ a owl:Ontology;
       sh:description "The base language of the learning opportunity, to be considered authoritative."@en;
       sh:name "default language"@en;
       sh:severity sh:Violation;
-      #sh:order 21;
+      #sh:order 22;
   ];
 sh:property[
       sh:path elm:grant;
@@ -1816,17 +1991,27 @@ sh:property[
       sh:description "The grant related to the learning opportunity."@en;
       sh:name "grant"@en;
       sh:severity sh:Violation;
-      #sh:order 22;
+      #sh:order 23;
+  ];
+  sh:property[
+    sh:path dc:publisher;
+    sh:class elm:Agent;
+    sh:description "The publisher of the Learning Opportunity."@en;
+    sh:name "publisher"@en;
+    #sh:order 24;
+    sh:severity sh:Violation; 
   ].
 
-#-----------------------------------------------------------------------------  
+#-----------------------------------------------------------------------------
 #-------------- Learning Outcome class and property shapes -------------------
-#-----------------------------------------------------------------------------  
-:LearningOutcomeShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:LearningOutcome; 
-  rdfs:comment "A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy."@en; 
-  rdfs:label "Learning Outcome Shape"@en; 
+#-----------------------------------------------------------------------------
+:LearningOutcomeShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:LearningOutcome;
+  rdfs:comment "A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy."@en;
+  rdfs:label "Learning Outcome Shape"@en;
   sh:property[
       sh:path adms:identifier;
       sh:class elm:Identifier;
@@ -1837,7 +2022,7 @@ sh:property[
   ];
   sh:property[
       sh:path dc:title;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description "A legible, descriptive title for the learning outcome. One value per language is permitted."@en;
       sh:name "title"@en;
@@ -1855,19 +2040,11 @@ sh:property[
       #sh:order 2;
   ];
   sh:property[
-      sh:path dc:description;
-      sh:class elm:Note;
-      sh:description "A free text description of the learning outcome."@en;
-      sh:name "description"@en;
-      sh:severity sh:Violation;
-      #sh:order 3;
-  ];
-  sh:property[
      sh:path elm:additionalNote;
      sh:class elm:Note;
      sh:description "An additional free text note about the learning outcome."@en;
      sh:name "more information"@en;
-     #sh:order 4;
+     #sh:order 3;
      sh:severity sh:Violation;
   ];
   sh:property[
@@ -1877,7 +2054,7 @@ sh:property[
      sh:description "The reusability level. It should be provided using the ESCO Skill Pillar concept reusability levels."@en;
      sh:name "reusability level"@en;
      sh:severity sh:Violation;
-     #sh:order 5;
+     #sh:order 4;
 ];
 sh:property[
      sh:path elm:relatedSkill;
@@ -1885,15 +2062,15 @@ sh:property[
      sh:description "A link to a related skill or the level of a related skill on a skill framework (except ESCO). It should be provided using a controlled vocabulary."@en;
      sh:name "related skill(s)"@en;
      sh:severity sh:Violation;
-     #sh:order 6;
+     #sh:order 5;
 ];
 sh:property[
      sh:path elm:relatedESCOSkill;
      sh:class skos:Concept;
      sh:description "A link to an ESCO  skill. It should be provided using the ESCO skills controlled vocabulary."@en;
      sh:name "related ESCO skill(s)"@en;
-     sh:severity sh:Violation; 
-     #sh:order 7;
+     sh:severity sh:Violation;
+     #sh:order 6;
 ];
 .
 #--------------------------------------------------------------
@@ -1901,6 +2078,8 @@ sh:property[
 #--------------------------------------------------------------
 :LocationShape
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass dc:Location;
   rdfs:comment "An identifiable geographic place."@en;
   rdfs:label "Location Shape"@en;
@@ -1914,9 +2093,9 @@ sh:property[
   ];
   sh:property [
     sh:path elm:geographicName;
-    sh:nodeKind sh:Literal;
-    sh:maxCount 1;
-    sh:description "A proper noun applied to a spatial object."@en;
+    sh:datatype rdf:langString;
+    sh:maxCount 1; # Do we need this?
+    sh:description "A proper noun applied to a spatial object. One value per language is permitted."@en;
     sh:name "geographic name"@en;
     sh:uniqueLang true ;
     sh:severity sh:Violation;
@@ -1932,9 +2111,10 @@ sh:property[
   ];
   sh:property [
     sh:path dc:description;
-    sh:class elm:Note;
+    sh:datatype rdf:langString;
     sh:description "A free text description of the location."@en;
     sh:name "description"@en;
+    sh:uniqueLang true ;
     sh:severity sh:Violation;
     #sh:order 3;
   ];
@@ -1947,24 +2127,62 @@ sh:property[
     sh:severity sh:Violation;
     #sh:order 4;
   ];
+  sh:property[
+    sh:path locn:geometry;
+    sh:class locn:Geometry;
+    sh:description "Associates the Location with the corresponding Geometry."@en;
+    sh:name "geometry"@en;
+    sh:severity sh:Violation;
+    #sh:order 4;
+  ];
   .
 #-------------------------------------------------------------------------
 #------------- Media Object class and property  shapes -------------------
 #-------------------------------------------------------------------------
 :MediaObjectShape
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:MediaObject;
   rdfs:comment "A media object."@en;
   rdfs:label "Media Object Shape"@en;
+  sh:property[
+    sh:path dc:title;
+    sh:datatype rdf:langString;
+    sh:description "The title of the media object. One value per language is permitted."@en;
+    sh:name "title"@en;
+    sh:uniqueLang true ;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property[
+    sh:path dc:description;
+    sh:datatype rdf:langString;
+    sh:description "A free text description of the media object."@en;
+    sh:name "description"@en;
+    sh:uniqueLang true ;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
   sh:property [
-    sh:path dc:type;
+    sh:path elm:contentType;
     sh:class skos:Concept;
     sh:minCount 1;
     sh:maxCount 1;
     sh:description "The type of the media object. It should be provided using the Filetype Named Authority List."@en;
-    sh:name "type"@en;
+    sh:name "content type"@en;
     sh:severity sh:Violation;
-    #sh:order 0;
+    #sh:order 2;
+  ];
+  sh:property [
+    sh:path elm:attachmentType;
+    sh:class skos:Concept;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:description "The type of the attachment of the media object. It should be provided using a controlled list, with values: Transcript of Records, EMREX transcript, Letter of Nomination,  Diploma Supplement, Certificate of Training, Learning Agreement, Other."@en;
+    sh:name "attachment type"@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
   ];
   sh:property [
     sh:path elm:contentEncoding;
@@ -1974,7 +2192,7 @@ sh:property[
     sh:description "The encoding used to encode the binary data. It should be provided using the EDC Controlled List of Content Encoding Types."@en;
     sh:name "content encoding"@en;
     sh:severity sh:Violation;
-    #sh:order 1;
+    #sh:order 4;
   ];
   sh:property [
     sh:path elm:contentSize;
@@ -1983,7 +2201,7 @@ sh:property[
     sh:description "The content size of the media object."@en;
     sh:name "content size"@en;
     sh:severity sh:Violation;
-    #sh:order 2;
+    #sh:order 5;
   ];
   sh:property [
     sh:path elm:content;
@@ -1993,29 +2211,22 @@ sh:property[
     sh:description "The binary data of the media object."@en;
     sh:name "content"@en;
     sh:severity sh:Violation;
-    #sh:order 3;
-  ];
-  sh:property [
-    sh:path elm:contentUrl;
-    sh:datatype xsd:anyURI;
-    sh:maxCount 1;
-    sh:description "The public access URL."@en;
-    sh:name "content URL"@en;
-    sh:severity sh:Violation;
-    #sh:order 4;
-  ];
+    #sh:order 6;
+  ]
   .
 #-------------------------------------------------------------------------
 # ------------------ Note  Shape ---------------------------------
 #-------------------------------------------------------------------------
 :NoteShape
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:Note;
   rdfs:comment "Free text metadata fields, such as the description, a historical or additional note of a qualification can contain a plain text or a XHTML fragment as literal value. By using a Note both the datatype of the literal and the language can be specified."@en;
   rdfs:label "Note Shape"@en;
   sh:property[
       sh:path elm:noteLiteral;
-      sh:nodeKind sh:Literal;
+      sh:datatype xsd:string;
       sh:minCount 1;
       sh:maxCount 1;
       sh:description"The textual content of the note."@en;
@@ -2040,8 +2251,17 @@ sh:property[
       sh:description"The subject of the note. It should be provided using a controlled vocabulary."@en;
       sh:name"subject"@en;
       sh:severity sh:Violation;
-      #sh:order 2; 
+      #sh:order 2;
    ];
+  sh:property[
+    sh:path elm:noteFormat;
+    sh:class skos:Concept;
+    sh:maxCount 1;
+    sh:name "note format"@en;
+    sh:description "The format of the note. It should be provided using the IANA  types for text, text/plain, text/html etc."@en;
+    sh:severity sh:Violation;
+    #sh:order 3;
+  ]
 .
 
 #----------------------------------------------------------------------------------------
@@ -2049,23 +2269,27 @@ sh:property[
 #----------------------------------------------------------------------------------------
 :OrganisationShape
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:Organisation;
   rdfs:comment "A legal person / registered organisation. Organisation is a subclass of Agent."@en;
   rdfs:label "Organisation Shape"@en;
   sh:property [
     sh:path skos:altLabel;
-    sh:nodeKind sh:Literal;
-    sh:description "The alternative name of the organisation."@en;
+    sh:datatype rdf:langString;
+    sh:description "The alternative name of the organisation. It must be disjoint with legalName (rov:legalName) of the Organisation."@en;
     sh:name "alternative name"@en;
     sh:severity sh:Violation;
+    sh:disjoint rov:legalName;
     #sh:order 0;
   ];
   sh:property[
       sh:path rov:legalName;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description "The legal name of the organisation."@en;
       sh:name "legal name"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 1;
   ];
@@ -2077,6 +2301,14 @@ sh:property[
     sh:severity sh:Violation;
     #sh:order 2;
   ];
+  sh:property [
+    sh:path dc:type;
+    sh:class skos:Concept;
+    sh:description "The type of the organisation."@en;
+    sh:name "type"@en;
+    #sh:order 3;
+    sh:severity sh:Violation;
+  ];
   sh:property[
       sh:path elm:eidasLegalIdentifier;
       sh:class elm:LegalIdentifier;
@@ -2084,7 +2316,7 @@ sh:property[
       sh:description "The official identification number of the organisation, as awarded by the relevant national authority."@en;
       sh:name "eIDAS identifier"@en;
       sh:severity sh:Violation;
-      #sh:order 3;
+      #sh:order 4;
   ];
   sh:property[
        sh:path rov:registration;
@@ -2093,7 +2325,7 @@ sh:property[
        sh:description "The legal identifier of an organisation. The identifier given to a registered organisation by the authority with which it is registered. The legal status of a registered organisation is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organisation and the authority with which it is registered."@en;
        sh:name "registration"@en;
        sh:severity sh:Violation;
-       #sh:order 4;
+       #sh:order 5;
   ];
   sh:property[
       sh:path elm:vatIdentifier;
@@ -2101,7 +2333,7 @@ sh:property[
       sh:description "The Value-Added Tax ID."@en;
       sh:name "VAT number"@en;
       sh:severity sh:Violation;
-      #sh:order 5;
+      #sh:order 6;
   ];
   sh:property[
       sh:path elm:taxIdentifier;
@@ -2109,7 +2341,7 @@ sh:property[
       sh:description "Fiscal ID of the organisation."@en;
       sh:name "tax/fiscal identifier"@en;
       sh:severity sh:Violation;
-      #sh:order 6;
+      #sh:order 7;
   ];
   sh:property[
       sh:path foaf:homepage;
@@ -2117,7 +2349,8 @@ sh:property[
       sh:description "The homepage of the organisation."@en;
       sh:name "homepage"@en;
       sh:severity sh:Violation;
-      #sh:order 7;
+      sh:node :URLRegexRestriction ;
+      #sh:order 8;
   ];
    sh:property [
     sh:path elm:additionalNote;
@@ -2125,24 +2358,24 @@ sh:property[
     sh:description "An additional free text note about the organisation."@en;
     sh:name "more information"@en;
     sh:severity sh:Violation;
-    #sh:order 8;
+    #sh:order 9;
   ];
-  sh:property[ 
+  sh:property[
     sh:path elm:location;
     sh:class dc:Location;
     sh:minCount 1;
     sh:description "The location of the organisation."@en;
     sh:name "location"@en;
     sh:severity sh:Violation;
-    #sh:order 9;
+    #sh:order 10;
   ];
   sh:property[
    sh:path elm:accreditation;
    sh:class elm:Accreditation;
    sh:description "An associated accreditation."@en;
    sh:name "accreditation"@en;
-   sh:severity sh:Violation; 
-   #sh:order 10;
+   sh:severity sh:Violation;
+   #sh:order 11;
   ];
   sh:property[
     sh:path elm:contactPoint;
@@ -2150,15 +2383,15 @@ sh:property[
     sh:description "The contact information of an organisation."@en;
     sh:name "contact information"@en;
     sh:severity sh:Violation;
-    #sh:order 11;
+    #sh:order 12;
   ];
   sh:property[
       sh:path org:hasSubOrganization;
       sh:class elm:Organisation;
       sh:description "A smaller organisation of which forms part of this organisation, e.g., a department within a larger organisation."@en;
       sh:name "child organisation"@en;
-      sh:severity sh:Violation; 
-      #sh:order 12;
+      sh:severity sh:Violation;
+      #sh:order 13;
   ];
   sh:property[
       sh:path org:subOrganizationOf;
@@ -2167,7 +2400,7 @@ sh:property[
       sh:description "Indicates a larger organisation of which this organisation is a part of, e.g., the organisation within which a department operates."@en;
       sh:name "parent organisation"@en;
       sh:severity sh:Violation;
-      #sh:order 13;
+      #sh:order 14;
   ];
   sh:property[
     sh:path elm:groupMemberOf;
@@ -2175,7 +2408,7 @@ sh:property[
     sh:description "The group the organisation  is a member of."@en;
     sh:name "group member of"@en;
     sh:severity sh:Violation;
-    #sh:order 14;
+    #sh:order 15;
   ];
   sh:property[
       sh:path elm:logo;
@@ -2184,31 +2417,41 @@ sh:property[
       sh:description "The logo of the organisation."@en;
       sh:name "logo"@en;
       sh:severity sh:Violation;
-      #sh:order 15;
+      #sh:order 16;
   ];
  sh:property [
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the organisation was last modified."@en;
     sh:name "last modification date"@en;
     sh:severity sh:Violation;
-    #sh:order 16;
+    #sh:order 17;
+  ];
+  sh:property[
+    sh:path dc:publisher;
+    sh:class elm:Agent;
+    sh:description "The publisher of the Organisation."@en;
+    sh:name "publisher"@en;
+    #sh:order 18;
+    sh:severity sh:Violation; 
   ]
-  .  
+  .
 #-------------------------------------------------------------------------
 #--------------- Period Of Time Class and property shapes ----------------
 #-------------------------------------------------------------------------
-:PeriodOfTimeShape 
-  a sh:NodeShape; 
-  sh:targetClass dc:PeriodOfTime; 
-  rdfs:comment "An interval of time that is named or defined by its start and end dates."@en; 
-  rdfs:label "Period Of Time Shape"@en; 
+:PeriodOfTimeShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass dc:PeriodOfTime;
+  rdfs:comment "An interval of time that is named or defined by its start and end dates."@en;
+  rdfs:label "Period Of Time Shape"@en;
   sh:property[
       sh:path skos:prefLabel;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:description "The name of the time period, e.g., semester. One value per language is permitted."@en;
-      sh:name "preferred label"@en;
+      sh:name "name"@en;
       sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 0;
@@ -2231,12 +2474,14 @@ sh:property[
       sh:severity sh:Violation;
       #sh:order 2;
   ];
-. 
+.
 #-------------------------------------------------------------------------
 #---------------- Phone class and property  shapes -----------------------
 #-------------------------------------------------------------------------
 :PhoneShape
   a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
   sh:targetClass elm:Phone;
   rdfs:comment "A phone."@en;
   rdfs:label "Phone Shape"@en;
@@ -2281,11 +2526,13 @@ sh:property[
 #-------------------------------------------------------------------------
 #----------------- Price Detail Class and property shapes ----------------
 #-------------------------------------------------------------------------
-:PriceDetailShape 
-   a sh:NodeShape; 
-   sh:targetClass elm:PriceDetail; 
-   rdfs:comment "The price details. The details about a price or price category."@en; 
-   rdfs:label "Price Detail Shape"@en; 
+:PriceDetailShape
+   a sh:NodeShape;
+   sh:closed true ;
+   sh:ignoredProperties (rdf:type) ;
+   sh:targetClass elm:PriceDetail;
+   rdfs:comment "The price details. The details about a price or price category."@en;
+   rdfs:label "Price Detail Shape"@en;
    sh:property [
        sh:path adms:identifier;
        sh:class elm:Identifier;
@@ -2293,33 +2540,34 @@ sh:property[
        sh:name "identifier"@en;
        sh:severity sh:Violation;
        #sh:order 0;
-   ]; 
+   ];
    sh:property[
       sh:path elm:amount;
       sh:class elm:Amount;
       sh:maxCount 1;
       sh:description "The full (sticker) price of the learning opportunity."@en;
-      sh:name "fee"@en;
+      sh:name "fee amount"@en;
       sh:severity sh:Violation;
       #sh:order 1;
-  ]; 
+  ];
    sh:property[
        sh:path skos:prefLabel;
-       sh:nodeKind sh:Literal;
-       sh:description "The title of price/price category."@en;
-       sh:name "preferred label"@en;
+       sh:datatype rdf:langString;
+       sh:description "The title of price/price category. One value per language is permitted."@en;
+       sh:name "name"@en;
        sh:uniqueLang true ;
        sh:severity sh:Violation;
        #sh:order 2;
-   ]; 
+   ];
    sh:property[
        sh:path dc:description;
-       sh:class elm:Note;
+       sh:datatype rdf:langString;
        sh:description " A free text description of the price."@en;
        sh:name "description"@en;
+       sh:uniqueLang true ;
        sh:severity sh:Violation;
        #sh:order 3;
-   ]; 
+   ];
    sh:property[
        sh:path elm:additionalNote;
        sh:class elm:Note;
@@ -2330,14 +2578,16 @@ sh:property[
    ];
 .
 
-#-----------------------------------------------------------------------------  
+#-----------------------------------------------------------------------------
 #-------------- Qualification class and property shapes -------------------
-#-----------------------------------------------------------------------------  
+#-----------------------------------------------------------------------------
 :QualificationShape
-  rdfs:comment "A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards. Qualification is a subclass of Learning Achievement Specification."@en; 
-  rdfs:label "Qualification Shape"@en; 
-  a sh:NodeShape; 
-  sh:targetClass elm:Qualification; 
+  rdfs:comment "A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards. Qualification is a subclass of Learning Achievement Specification."@en;
+  rdfs:label "Qualification Shape"@en;
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:Qualification;
   sh:property[
       sh:path adms:identifier;
       sh:class elm:Identifier;
@@ -2348,7 +2598,7 @@ sh:property[
   ];
   sh:property[
       sh:path dc:title;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description " The title of the qualification. One value per language is permitted."@en;
       sh:name "title"@en;
@@ -2358,21 +2608,23 @@ sh:property[
   ];
   sh:property[
       sh:path skos:altLabel;
-      sh:nodeKind sh:Literal;
-      sh:description "The alternative name of the qualification."@en;
+      sh:datatype rdf:langString;
+      sh:description "The alternative name of the qualification. It must be disjoint with title (dc:title) of the Qualification."@en;
       sh:name "alternative name"@en;
       sh:severity sh:Violation;
+      sh:disjoint dc:title;
       #sh:order 2;
   ];
   sh:property[
       sh:path dc:description;
-      sh:class elm:Note;
-      sh:description " A free text description of the qualification."@en;
+      sh:datatype rdf:langString;
+      sh:description " A free text description of the qualification. One value per language is permitted."@en;
       sh:name "description"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 3;
   ];
-  sh:property[ 
+  sh:property[
       sh:path elm:additionalNote;
       sh:class elm:Note;
       sh:description " An additional free text note about the qualification."@en;
@@ -2385,7 +2637,8 @@ sh:property[
       sh:class elm:WebResource;
       sh:description "The homepage of the qualification."@en;
       sh:name "homepage"@en;
-      sh:severity sh:Violation; 
+      sh:severity sh:Violation;
+      sh:node :URLRegexRestriction ;
       #sh:order 5;
   ];
   sh:property[
@@ -2394,18 +2647,19 @@ sh:property[
       sh:description "A public web resource containing additional documentation about the qualification."@en;
       sh:name "other documents"@en;
       sh:severity sh:Violation;
+      sh:node :URLRegexRestriction ;
       #sh:order 6;
    ];
    sh:property[
      sh:path elm:category;
-     sh:nodeKind sh:Literal;
+     sh:datatype rdf:langString;
      sh:description "The category of the qualification provided as a string."@en;
      sh:name "category"@en;
      sh:severity sh:Violation;
      #sh:order 7;
    ];
      sh:property [
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the qualification was last modified."@en;
@@ -2565,12 +2819,28 @@ sh:property[
       #sh:order 26;
   ];
   sh:property[
+     sh:path elm:isPartOf;
+     sh:class elm:Qualification;
+     sh:description "A qualification, which this qualificationis part of."@en;
+     sh:name "is part of"@en;
+     sh:severity sh:Violation;
+     #sh:order 27;
+  ];
+  sh:property[
       sh:path elm:specialisationOf;
       sh:class elm:Qualification;
       sh:description "A qualification (e.g., a standard) of which this qualification is a specialisation."@en;
       sh:name "specialisation of"@en;
       sh:severity sh:Violation;
-      #sh:order 27;
+      #sh:order 28;
+  ];
+  sh:property[
+      sh:path elm:generalisationOf;
+      sh:class elm:Qualification;
+      sh:description "A qualification (e.g., a standard) of which this qualification is a generalisation."@en;
+      sh:name "generalisation of"@en;
+      sh:severity sh:Violation;
+      #sh:order 29;
   ];
   sh:property[
       sh:path elm:awardingOpportunity;
@@ -2578,7 +2848,7 @@ sh:property[
       sh:description "Refers to an activity related to the awarding of the qualification, such as the country or region where the qualification is awarded, the awarding body and optionally the awarding period now or in the past."@en;
       sh:name "awarding information"@en;
       sh:severity sh:Violation;
-      #sh:order 28;
+      #sh:order 29;
   ];
   sh:property[
       sh:path elm:isPartialQualification;
@@ -2624,15 +2894,25 @@ sh:property[
       sh:severity sh:Violation;
       #sh:order 33;
   ];
+  sh:property[
+    sh:path dc:publisher;
+    sh:class elm:Agent;
+    sh:description "The publisher of the Qualification."@en;
+    sh:name "publisher"@en;
+    #sh:order 34;
+    sh:severity sh:Violation; 
+  ]
   .
-#-----------------------------------------------------------------------------  
+#-----------------------------------------------------------------------------
 #-------------- Qualification Reference class and property shapes -------------------
 #-----------------------------------------------------------------------------
-:QualificationReferenceShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:QualificationReference; 
-  rdfs:comment "Reference for a qualification from another dataset that can or has been awarded such as the (expected) learning outcomes."@en; 
-  rdfs:label "Qualification Reference Shape"@en; 
+:QualificationReferenceShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:QualificationReference;
+  rdfs:comment "Reference for a qualification from another dataset that can or has been awarded such as the (expected) learning outcomes."@en;
+  rdfs:label "Qualification Reference Shape"@en;
   sh:property[
       sh:path adms:identifier;
       sh:class elm:Identifier;
@@ -2646,24 +2926,26 @@ sh:property[
 .
 
 #---------------------------------------------------------------
-#--------- Specification class and property  shapes ------------ 
+#--------- Specification class and property  shapes ------------
 #---------------------------------------------------------------
-:SpecificationShape 
-  a sh:NodeShape; 
-  sh:targetClass elm:Specification; 
-  rdfs:comment "A specification. The superclass of all learning specifications. This class carries properties common to all specifications, including Learning Achievement Specification, Learning Activity Specification, Learning Assessment Specification and Learning Entitlement Specification. It serves as an extension point that enables the definition of additional subclasses."@en; 
-  rdfs:label "Specification Shape"@en; 
+:SpecificationShape
+  a sh:NodeShape;
+  sh:closed true ;
+  sh:ignoredProperties (rdf:type) ;
+  sh:targetClass elm:Specification;
+  rdfs:comment "A specification. The superclass of all learning specifications. This class carries properties common to all specifications, including Learning Achievement Specification, Learning Activity Specification, Learning Assessment Specification and Learning Entitlement Specification. It serves as an extension point that enables the definition of additional subclasses."@en;
+  rdfs:label "Specification Shape"@en;
     sh:property[
       sh:path adms:identifier;
       sh:class elm:Identifier;
       sh:description "An alternative identifier of the specification."@en;
-      sh:name "identifier"@en;  
+      sh:name "identifier"@en;
       sh:severity sh:Violation;
       #sh:order 0;
   ];
   sh:property[
       sh:path dc:title;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:minCount 1;
       sh:description " The title of the specification. One value per language is permitted."@en;
       sh:name "title"@en;
@@ -2673,7 +2955,7 @@ sh:property[
   ];
   sh:property[
       sh:path skos:altLabel;
-      sh:nodeKind sh:Literal;
+      sh:datatype rdf:langString;
       sh:description "The alternative name of the specification."@en;
       sh:name "alternative label"@en;
       sh:severity sh:Violation;
@@ -2681,9 +2963,10 @@ sh:property[
   ];
   sh:property[
       sh:path dc:description;
-      sh:class elm:Note;
+      sh:datatype rdf:langString;
       sh:description " A free text description of the specification."@en;
       sh:name "description"@en;
+      sh:uniqueLang true ;
       sh:severity sh:Violation;
       #sh:order 3;
   ];
@@ -2695,7 +2978,7 @@ sh:property[
       sh:severity sh:Violation;
       #sh:order 4;
   ];
-  sh:property[ 
+  sh:property[
       sh:path elm:additionalNote;
       sh:class elm:Note;
       sh:description " An additional free text note about the specification."@en;
@@ -2708,7 +2991,7 @@ sh:property[
       sh:class elm:WebResource;
       sh:description "The homepage of the specification."@en;
       sh:name "homepage"@en;
-      sh:severity sh:Violation; 
+      sh:severity sh:Violation;
       #sh:order 6;
   ];
   sh:property[
@@ -2721,14 +3004,14 @@ sh:property[
    ];
    sh:property[
      sh:path elm:category;
-     sh:nodeKind sh:Literal;
+     sh:datatype rdf:langString;
      sh:description "The category of the specification provided as a string."@en;
      sh:name "category"@en;
      sh:severity sh:Violation;
      #sh:order 8;
    ];
   sh:property [
-    sh:path elm:lastModificationDate;
+    sh:path dc:modified;
     sh:datatype xsd:dateTime;
     sh:maxCount 1;
     sh:description "The date when the specification was last modified."@en;
@@ -2737,20 +3020,22 @@ sh:property[
     #sh:order 9;
   ]
   .
-  
+
 #---------------------------------------------------------------------
 #---------- Web Resource Shapes --------------------------------------
 #---------------------------------------------------------------------
 
-:WebResourceShape  
+:WebResourceShape
      a sh:NodeShape;
+     sh:closed true ;
+     sh:ignoredProperties (rdf:type) ;
      sh:targetClass elm:WebResource;
      rdfs:comment "A public web resource."@en;
      rdfs:label "Web Resource Shape"@en;
 
     sh:property [
          sh:path dc:title;
-         sh:nodeKind sh:Literal;
+         sh:datatype rdf:langString;
          sh:description " The title of the web resource. One value per language is permitted."@en;
          sh:name "title"@en;
          sh:uniqueLang true ;
@@ -2777,6 +3062,31 @@ sh:property[
        #sh:order 2;
   ]
 .
+#---------------------------------------------------------------------
+#---------- Geometry Shape --------------------------------------
+#---------------------------------------------------------------------
+:GeometryShape
+  a sh:NodeShape;
+  sh:targetClass locn:Geometry;
+  rdfs:comment "This class defines the geometry at the conceptual level, and it can be encoded by using different formats."@en; 
+  rdfs:label "Geometry Shape"@en; 
+  sh:property[
+    sh:path clv:longitude;
+    sh:datatype xsd:string;
+    sh:description "The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface."@en;
+    sh:name "longitude"@en;
+    sh:severity sh:Violation;
+    #sh:order 0;
+  ];
+  sh:property[
+    sh:path clv:latitude;
+    sh:datatype xsd:string;
+    sh:description "The geographic coordinate that specifies the north / south position of the Geomerty on the Earth's surface."@en;
+    sh:name "latitude"@en;
+    sh:severity sh:Violation;
+    #sh:order 1;
+  ];
+.
 #-----Temp Node Shape --------------
 #:TempResourceShape
 #    a sh:NodeShape ;
@@ -2785,7 +3095,7 @@ sh:property[
 #    sh:message "The node is either a Learning Achievement Specification and Qualification Reference." ;
 #    sh:or ([
 #            sh:class elm:LearningAchievementSpecification
-#          ] 
+#          ]
 #          [
 #            sh:class elm:QualificationReference
 #          ]
@@ -2798,7 +3108,7 @@ sh:property[
    sh:message "The node is a Specification, which is either a Learning Achievement Specification , or a  Learning Activity Specification , or a Learning Assessment Specification  or a Learning Entitlement Specification." ;
    sh:or ([
            sh:class elm:LearningAchievementSpecification
-         ] 
+         ]
          [
            sh:class elm:LearningActivitySpecification
          ]
@@ -2807,6 +3117,45 @@ sh:property[
          ]
          [
            sh:class elm:LearningEntitlementSpecification
-         ] 
+         ]
        ).
 
+  #------ Restricted URL --------
+:URLRegexRestriction
+  a sh:NodeShape;
+  rdfs:comment "This shape does not apply on a class. This shape is for checking if the value of contentUrl is well formed."@en;
+  sh:property [
+     sh:path elm:contentUrl;
+     sh:and (
+       [
+         ## QDR specific HTTP URL regex
+         sh:pattern "^(?i)(http|https):(//(([^@\\[/?#]*)@)?(\\[[[A-Fa-f0-9]\\:\\.]*[%[\\p{L}\\p{Nl}\\p{Nd}]]*\\]|[^\\[/?#:]*)(:(\\d*(?:\\{[^/]+?\\})?))?)?([^?#]*)(\\?([^#]*))?(#(.*))?" ;
+       ]
+       [
+         ## rfc3986 specific regex
+         sh:pattern "^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?" ;
+       ]
+     ) ;
+    sh:severity sh:Violation;
+  ]
+.
+
+  #------ Restricted URI --------
+:URIRegexRestriction
+  a sh:NodeShape;
+  rdfs:comment "This shape does not apply on a class. This shape is for checking if the value of contentUrl is well formed."@en;
+  sh:property [
+     sh:path elm:contentUrl;
+     sh:and (
+       [
+         ## QDR specific URI regex
+         sh:pattern "^(([^:/?#]+):)?(//(([^@\\[/?#]*)@)?(\\[[[A-Fa-f0-9]\\:\\.]*[%[\\p{L}\\p{Nl}\\p{Nd}]]*\\]|[^\\[/?#:]*)(:(\\d*(?:\\{[^/]+?\\})?))?)?([^?#]*)(\\?([^#]*))?(#(.*))?" ;
+       ]
+       [
+         ## rfc3986 specific regex
+         sh:pattern "^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?" ;
+       ]
+     ) ;
+    sh:severity sh:Violation;
+  ]
+.

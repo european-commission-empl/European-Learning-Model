@@ -1,0 +1,718 @@
+{
+    "@context": {
+        "Accreditation": "http://data.europa.eu/snb/model#Accreditation",
+        "Agent": "http://data.europa.eu/snb/model#Agent",
+        "Amount": "http://data.europa.eu/snb/model#Amount",
+        "Address": "http://data.europa.eu/snb/model#Address",
+        "AwardingOpportunity": "http://data.europa.eu/snb/model#AwardingOpportunity",
+        "AwardingProcess": "http://data.europa.eu/snb/model#AwardingProcess",
+        "Claim": "http://data.europa.eu/snb/model#Claim",
+        "Concept": "http://www.w3.org/2004/02/skos/core#Concept",
+        "ContactPoint": "http://data.europa.eu/snb/model#ContactPoint",
+        "CreditPoint": "http://data.europa.eu/snb/model#CreditPoint",
+        "CredentialSchema": "https://www.w3.org/2018/credentials#CredentialSchema",
+        "CredentialStatus": "https://www.w3.org/2018/credentials#CredentialStatus",
+        "DisplayParameter": "http://data.europa.eu/snb/model#DisplayParameter",
+        "EuropeanDigitalCredential": "http://data.europa.eu/snb/model#EuropeanDigitalCredential",
+        "EuropeanDigitalPresentation": "http://data.europa.eu/snb/model#uropeanDigitalPresentation",
+        "Evidence": "https://www.w3.org/2018/credentials#Evidence",
+        "GradingScheme": "http://data.europa.eu/snb/model#radingScheme",
+        "Grant": "http://data.europa.eu/snb/model#Grant",
+        "Group": "http://data.europa.eu/snb/model#Group",
+        "Identifier": "http://data.europa.eu/snb/model#Identifier",
+        "LearningAchievement": "http://data.europa.eu/snb/model#LearningAchievement",
+        "LearningAchievementSpecification": "http://data.europa.eu/snb/model#earningAchievementSpecification",
+        "LearningActivity": "http://data.europa.eu/snb/model#LearningActivity",
+        "LearningActivitySpecification": "http://data.europa.eu/snb/model#LearningActivitySpecification",
+        "LearningAssessment": "http://data.europa.eu/snb/model#LearningAssessment",
+        "LearningAssessmentSpecification": "http://data.europa.eu/snb/model#LearningAssessmentSpecification",
+        "LearningEntitlement": "http://data.europa.eu/snb/model#LearningEntitlement",
+        "LearningEntitlementSpecification": "http://data.europa.eu/snb/model#LearningEntitlementSpecification",
+        "LearningOpportunity": "http://data.europa.eu/snb/model#earningOpportunity",
+        "LearningOutcome": "http://data.europa.eu/snb/model#LearningOutcome",
+        "LegalIdentifier": "http://data.europa.eu/snb/model#LegalIdentifier",
+        "Location": "http://purl.org/dc/terms/Location",
+        "Mailbox": "http://data.europa.eu/snb/model#Mailbox",
+        "MediaObject": "http://data.europa.eu/snb/model#MediaObject",
+        "Note": "http://data.europa.eu/snb/model#Note",
+        "Organisation": "http://data.europa.eu/snb/model#Organisation",
+        "PeriodOfTime": "http://purl.org/dc/terms/PeriodOfTime",
+        "Person": "http://data.europa.eu/snb/model#Person",
+        "Phone": "http://data.europa.eu/snb/model#Phone",
+        "PriceDetail": "http://data.europa.eu/snb/model#PriceDetail",
+        "Proof": "https://www.w3.org/2018/credentials#Proof",
+        "Qualification": "http://data.europa.eu/snb/model#Qualification",
+        "ResultCategory": "http://data.europa.eu/snb/model#ResultCategory",
+        "ResultDistribution": "http://data.europa.eu/snb/model#ResultDistribution",
+        "ShortenedGrading": "http://data.europa.eu/snb/model#ShortenedGrading",
+        "Specification": "http://data.europa.eu/snb/model#Specification",
+        "TermsOfUse": "https://www.w3.org/2018/credentials#TermsOfUse",
+        "VerifiableCredential": "https://www.w3.org/2018/credentials#VerifiableCredential",
+        "VerifiablePresentation": "https://www.w3.org/2018/credentials#VerifiablePresentation",
+        "VerificationCheck": "http://data.europa.eu/snb/model#VerificationCheck",
+        "WebResource": "http://data.europa.eu/snb/model#WebResource",
+        "accreditation": {
+            "@id": "http://data.europa.eu/snb/model#accreditation",
+            "@type": "@id"
+        },
+        "accreditationDateIssued": {
+            "@id": "http://purl.org/dc/terms/issued",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "accreditedInJurisdiction": {
+            "@id": "http://data.europa.eu/snb/model#limitJurisdiction",
+            "@type": "@id"
+        },
+        "accreditedForEQFLevel": {
+            "@id": "http://data.europa.eu/snb/model#limitEQFLevel",
+            "@type": "@id"
+        },
+        "accreditedForThematicArea": {
+            "@id": "http://data.europa.eu/snb/model#limitField",
+            "@type": "@id"
+        },
+        "accreditingAgent": {
+            "@id": "http://data.europa.eu/snb/model#accreditingAgent",
+            "@type": "@id"
+        },
+        "admissionsProcedure": {
+            "@id": "http://data.europa.eu/snb/model#admissionProcedure",
+            "@type": "@id"
+        },
+        "address": {
+            "@id": "http://data.europa.eu/snb/model#address",
+            "@type": "@id"
+        },
+        "amountContent": {
+            "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value",
+            "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+        },
+        "applicationDeadline": {
+            "@id": "http://data.europa.eu/snb/model#applicationDeadline",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "areaDialingCode": {
+            "@id": "http://data.europa.eu/snb/model#areaDialingCode",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "assessedBy": {
+            "@id": "http://data.europa.eu/snb/model#assessedBy",
+            "@type": "@id"
+        },
+        "attachment": {
+            "@id": "http://data.europa.eu/snb/model#attachment",
+            "@type": "@id"
+        },
+        "availableLanguage": {
+            "@id": "http://purl.org/dc/terms/language",
+            "@type": "@id"
+        },
+        "awardedlearningAchievementSpecification": {
+            "@id": "http://data.europa.eu/snb/model#learningAchievementSpecification",
+            "@type": "@id"
+        },
+        "awardingBody": {
+            "@id": "http://data.europa.eu/snb/model#awardingBody",
+            "@type": "@id"
+        },
+        "awardingDate": {
+            "@id": "http://data.europa.eu/snb/model#awardingDate"
+        },
+        "awardingInformation": {
+            "@id": "http://data.europa.eu/snb/model#awardingOpportunity"
+        },
+        "awardedBy": {
+            "@id": "http://data.europa.eu/snb/model#awardedBy",
+            "@type": "@id"
+        },
+        "awards": {
+            "@id": "http://data.europa.eu/snb/model#awards",
+            "@type": "@id"
+        },
+        "additionalNote": {
+            "@id": "http://data.europa.eu/snb/model#additionalNote",
+            "@type": "@id"
+        },
+        "alternativeName": {
+            "@id": "http://www.w3.org/2004/02/skos/core#altLabel",
+            "@container": ["@set", "@language"]
+        },
+        "assessmentUtilised": {
+            "@id": "http://data.europa.eu/snb/model#used",
+            "@type": "@id"
+        },
+        "backroungImage": {
+            "@id": "http://data.europa.eu/snb/model#background",
+            "@type": "@id"
+        },
+        "bannerImage": {
+            "@id": "http://data.europa.eu/snb/model#background",
+            "@type": "@id"
+        },
+        "birthName": {
+            "@id": "ttp://www.w3.org/ns/person#birthName"
+        },
+        "category": {
+            "@id": "http://data.europa.eu/snb/model#category",
+            "@container": ["@set", "@language"]
+        },
+        "citizenship": {
+            "@id": "http://data.europa.eu/snb/model#citizenshipCountry",
+            "@type": "@id"
+        },
+        "childOrganisation": {
+            "@id": " <http://www.w3.org/ns/org#hasSubOrganization",
+            "@type": "@id"
+        },
+        "credentialSchema": {
+            "@id": "https://www.w3.org/2018/credentials#credentialSchema ",
+            "@type": "@id"
+        },
+        "credentialStatus": {
+            "@id": "https://www.w3.org/2018/credentials#credentialStatus ",
+            "@type": "@id"
+        },
+        "credentialSubject": {
+            "@id": "http://data.europa.eu/snb/model#subject",
+            "@type": "@id"
+        },
+        "contactForm": {
+            "@id": "http://data.europa.eu/snb/model#contactForm",
+            "@type": "@id"
+        },
+        "contactInformation": {
+            "@id": "http://data.europa.eu/snb/model#contactPoint",
+            "@type": "@id"
+        },
+        "content": {
+            "@id": "http://data.europa.eu/snb/model#content",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "contentEncoding": {
+            "@id": "http://data.europa.eu/snb/model#contentEncoding",
+            "@type": "@id"
+        },
+        "contentSize": {
+            "@id": "http://data.europa.eu/snb/model#contentSize",
+            "@type": "http://www.w3.org/2001/XMLSchema#integer"
+        },
+        "contentURL": {
+            "@id": "http://data.europa.eu/snb/model#contentUrl",
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+        },
+        "count": {
+            "@id": "http://data.europa.eu/snb/model#count",
+            "@type": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+        },
+        "country": {
+            "@id": "http://data.europa.eu/snb/model#countryCode",
+            "@type": "@id"
+        },
+        "countryDialingCode": {
+            "@id": "http://data.europa.eu/snb/model#countryDialing",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "dateIssued": {
+            "@id": "http://purl.org/dc/terms/issued",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "dateCreated": {
+            "@id": "http://purl.org/dc/terms/created",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "dateOfBirth": {
+            "@id": "http://data.europa.eu/snb/model#dateOfBirth",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "decision": {
+            "@id": "http://data.europa.eu/snb/model#decision"
+        },
+        "description": {
+            "@id": "http://purl.org/dc/terms/description",
+            "@type": "@id"
+        },
+        "displayCode": {
+            "@id": "http://data.europa.eu/snb/model#summaryDisplay",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "display": {
+            "@id": "http://data.europa.eu/snb/model#displayParameter",
+            "@type": "@id"
+        },
+        "educationLevel": {
+            "@id": "http://data.europa.eu/snb/model#educationLevel",
+            "@type": "@id"
+        },
+        "eIDASΙdentifier": {
+            "@id": "http://data.europa.eu/snb/model#eidasLegalIdentifier",
+            "@type": "@id"
+        },
+        "educationSubject": {
+            "@id": "http://data.europa.eu/snb/model#educationSubject",
+            "@type": "@id"
+        },
+        "endDate": {
+            "@id": "http://data.europa.eu/snb/model#endDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "entitlesTo": {
+            "@id": "http://data.europa.eu/snb/model#entitlesTo",
+            "@type": "@id"
+        },
+        "entitledBy": {
+            "@id": "http://data.europa.eu/snb/model#entitledBy",
+            "@type": "@id"
+        },
+        "entryRequirement": {
+            "@id": "http://data.europa.eu/snb/model#entryRequirement",
+            "@type": "@id"
+        },
+        "expiryDate": {
+            "@id": "http://data.europa.eu/snb/model#expiryDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "expirationDate": {
+            "@id": "https://www.w3.org/2018/credentials#expirationDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "evidence": {
+            "@id": " https://www.w3.org/2018/credentials#evidence",
+            "@type": "@id"
+        },
+        "familyName": {
+            "@id": "http://xmlns.com/foaf/0.1/familyName",
+            "@container": ["@set", "@language"]
+        },
+        "fullName": {
+            "@id": "http://xmlns.com/foaf/0.1/fullName",
+            "@container": ["@set", "@language"]
+        },
+        "fees": {
+            "@id": "http://data.europa.eu/snb/model#priceDetail",
+            "@type": "@id"
+        },
+        "feeAmount": {
+            "@id": "http://data.europa.eu/snb/model#amount",
+            "@type": "@id"
+        },
+        "framework": {
+            "@id": "http://data.europa.eu/snb/model#framework",
+            "@type": "@id"
+        },
+        "fullAddress": {
+            "@id": "http://data.europa.eu/snb/model#fullAddress",
+            "@type": "@id"
+        },
+        "fullPhoneNumber": {
+            "@id": "http://data.europa.eu/snb/model#phoneNumber",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "geographicName": {
+            "@id": "http://data.europa.eu/snb/model#geographicName",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "gender": {
+            "@id": "http://data.europa.eu/snb/model#gender",
+            "@type": "@id"
+        },
+        "givenName": {
+            "@id": "http://xmlns.com/foaf/0.1/givenName",
+            "@container": ["@set", "@language"]
+        },
+        "grade": {
+            "@id": "http://data.europa.eu/snb/model#grade",
+            "@type": "@id"
+        },
+        "gradingScheme": {
+            "@id": "http://data.europa.eu/snb/model#gradingScheme",
+            "@type": "@id"
+        },
+        "groupMemberOf": {
+            "@id": "http://data.europa.eu/snb/model#groupMemberOf",
+            "@type": "@id"
+        },
+        "hasClaim": {
+            "@id": "http://data.europa.eu/snb/model#hasClaim",
+            "@type": "@id"
+        },
+        "hasCredential": {
+            "@id": "http://data.europa.eu/snb/model#hasCredential",
+            "@type": "@id"
+        },
+        "hasMember": {
+            "@id": "http://xmlns.com/foaf/0.1/member",
+            "@type": "@id"
+        },
+        "hasPart": {
+            "@id": "http://data.europa.eu/snb/model#hasPart",
+            "@type": "@id"
+        },
+        "homepage": {
+            "@id": "http://xmlns.com/foaf/0.1/homepage",
+            "@type": "@id"
+        },
+        "identifier": {
+            "@id": "http://purl.org/dc/terms/identifier",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "identifierContent": {
+            "@id": "http://www.w3.org/2004/02/skos/core#notation",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "influencedBy": {
+            "@id": "http://data.europa.eu/snb/model#influencedBy",
+            "@type": "@id"
+        },
+        "influences": {
+            "@id": "http://data.europa.eu/snb/model#influences",
+            "@type": "@id"
+        },
+        "inScheme": {
+            "@id": "http://www.w3.org/2004/02/skos/core#inScheme",
+            "@type": "@id"
+        },
+        "issuanceDate": {
+            "@id": "https://www.w3.org/2018/credentials#issuanceDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "issuer": {
+            "@id": "https://www.w3.org/2018/credentials#issuer",
+            "@type": "@id"
+        },
+        "jws": {
+            "@id": "https://www.w3.org/2018/credentials#jws",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "label": {
+            "@id": "http://data.europa.eu/snb/model#label"
+        },
+        "language": {
+            "@id": "http://purl.org/dc/terms/language",
+            "@type": "@id"
+        },
+        "landingPage": {
+            "@id": "http://data.europa.eu/snb/model#landingPage",
+            "@type": "@id"
+        },
+        "lastModificationDate": {
+            "@id": "http://data.europa.eu/snb/model#lastModificationDate",
+            "@type": "@id"
+        },
+        "legalName": {
+            "@id": "http://www.w3.org/ns/regorg#legalName"
+        },
+        "learningOpportunity": {
+            "@id": "http://data.europa.eu/snb/model#learningOpportunity",
+            "@type": "@id"
+        },
+        "learningOutcome": {
+            "@id": "http://data.europa.eu/snb/model#learningOutcome",
+            "@type": "@id"
+        },
+        "learningOutcomeSummary": {
+            "@id": "http://data.europa.eu/snb/model#learningOutcomeSummary",
+            "@type": "@id"
+        },
+        "learningSetting": {
+            "@id": "http://data.europa.eu/snb/model#learningSetting",
+            "@type": "@id"
+        },
+        "limitNationalOccupation": {
+            "@id": "http://data.europa.eu/snb/model#limitNationalOccupation",
+            "@type": "@id"
+        },
+        "location": {
+            "@id": "http://data.europa.eu/snb/model#location",
+            "@type": "@id"
+        },
+        "logo": {
+            "@id": "http://data.europa.eu/snb/model#logo",
+            "@type": "@id"
+        },
+        "mailbox": {
+            "@id": "http://data.europa.eu/snb/model#emailAddress",
+            "@type": "@id"
+        },
+        "maximumDuration": {
+            "@id": "http://data.europa.eu/snb/model#maximumDuration",
+            "@type": "@http://www.w3.org/2001/XMLSchema#duration"
+        },
+        "maximumScore": {
+            "@id": "http://data.europa.eu/snb/model#maxScore",
+            "@type": "@http://www.w3.org/2001/XMLSchema#string"
+        },
+        "minimumScore": {
+            "@id": "http://data.europa.eu/snb/model#minScore",
+            "@type": "@http://www.w3.org/2001/XMLSchema#string"
+        },
+        "memberOf": {
+            "@id": " <http://www.w3.org/ns/org#memberOf",
+            "@type": "@id"
+        },
+        "methodOfAssessmentSupervisionAndIdVerification": {
+            "@id": "http://data.europa.eu/snb/model#idVerification",
+            "@type": "@id"
+        },
+        "mode": {
+            "@id": "http://data.europa.eu/snb/model#mode",
+            "@type": "@id"
+        },
+        "moreInformation": {
+            "@id": "http://data.europa.eu/snb/model#additionalNote",
+            "@type": "@id"
+        },
+        "nationalSystemInformation": {
+            "@id": "http://data.europa.eu/snb/model#nationalSystemNote",
+            "@type": "@id"
+        },
+        "nationalIDNumber": {
+            "@id": "http://data.europa.eu/snb/model#nationalID",
+            "@type": "@id"
+        },
+        "notation": {
+            "@id": "http://www.w3.org/2004/02/skos/core#notation",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "organisation": {
+            "@id": "http://data.europa.eu/snb/model#organisation",
+            "@type": "@id"
+        },
+        "otherDocuments": {
+            "@id": "http://data.europa.eu/snb/model#supplementaryDocument",
+            "@type": "@id"
+        },
+        "otherIdentifier": {
+            "@id": "http://www.w3.org/ns/adms#identifier",
+            "@type": "@id"
+        },
+        "partialQualification": {
+            "@id": "http://data.europa.eu/snb/model#partialQualification",
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+        },
+        "patronymicName": {
+            "@id": "ttp://www.w3.org/ns/person#patronymicName"
+        },
+        "percentageEqual": {
+            "@id": "http://data.europa.eu/snb/model#percentageEqual",
+            "@type": "@http://www.w3.org/2001/XMLSchema#integer"
+        },
+        "percentageHigher": {
+            "@id": "http://data.europa.eu/snb/model#percentageHigher",
+            "@type": "@http://www.w3.org/2001/XMLSchema#integer"
+        },
+        "percentageLower": {
+            "@id": "http://data.europa.eu/snb/model#percentageLower",
+            "@type": "@http://www.w3.org/2001/XMLSchema#integer"
+        },
+        "placeOfBirth": {
+            "primaryLanguage": {
+                "@id": "http://data.europa.eu/snb/model#primaryLanguage",
+                "@type": "@id"
+            },
+            "@id": "http://data.europa.eu/snb/model#placeOfBirth",
+            "@type": "@id"
+        },
+        "points": {
+            "@id": "http://data.europa.eu/snb/model#point",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "phone": {
+            "@id": "http://data.europa.eu/snb/model#phone",
+            "@type": "@id"
+        },
+        "phoneNumber": {
+            "@id": "http://data.europa.eu/snb/model#dialNumber",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "proof": {
+            "@id": "https://www.w3.org/2018/credentials#proof",
+            "@type": "@id"
+        },
+        "proofPurpose": {
+            "@id": "https://www.w3.org/2018/credentials#proofPurpose",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+
+        },
+        "provenBy": {
+            "@id": "http://data.europa.eu/snb/model#provenBy",
+            "@type": "@id"
+        },
+        "proves": {
+            "@id": "http://data.europa.eu/snb/model#proves",
+            "@type": "@id"
+        },
+        "name": {
+            "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+            "@container": ["@set", "@language"]
+        },
+        "noteLiteral": {
+            "@id": "http://data.europa.eu/snb/model#noteLiteral"
+        },
+        "owner ": {
+            "@id": "https://www.w3.org/2018/credentials#credentialSubject",
+            "@type": "@id"
+        },
+        "parentOrganisation": {
+            "@id": "http://www.w3.org/ns/org#subOrganizationOf",
+            "@type": "@id"
+        },
+        "qualificationAccredited": {
+            "@id": "http://data.europa.eu/snb/model#limitQualification",
+            "@type": "@id"
+        },
+        "qualificationCode": {
+            "@id": "http://data.europa.eu/snb/model#qualificationCode",
+            "@type": "@id"
+        },
+        "registration": {
+            "@id": "ttp://www.w3.org/ns/regorg#registration",
+            "@type": "@id"
+        },
+        "relatedOccupation": {
+            "@id": "http://data.europa.eu/snb/model#limitOccupation",
+            "@type": "@id"
+        },
+        "relatedESCOSkill(s)": {
+            "@id": "http://data.europa.eu/snb/model#relatedESCOSkill",
+            "@type": "@id"
+        },
+        "relatedSkill(s)": {
+            "@id": "http://data.europa.eu/snb/model#relatedSkill",
+            "@type": "@id"
+        },
+        "report": {
+            "@id": "http://data.europa.eu/snb/model#report",
+            "@type": "@id"
+        },
+        "reviewDate": {
+            "@id": "http://data.europa.eu/snb/model#reviewDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "resultDestribution": {
+            "@id": "http://data.europa.eu/snb/model#resultDestribution",
+            "@type": "@id"
+        },
+        "resultCategory": {
+            "@id": "http://data.europa.eu/snb/model#resultCategory",
+            "@type": "@id"
+        },
+        "scheduleInformation": {
+            "@id": "http://data.europa.eu/snb/model#scheduleInformation",
+            "@type": "@id"
+        },
+        "schemeAgency": {
+            "@id": "http://purl.org/dc/terms/creator",
+            "@type": "@id"
+        },
+        "schemeAgencyName": {
+            "@id": "http://www.w3.org/ns/adms#schemeAgency"
+        },
+        "schemeName": {
+            "@id": "http://data.europa.eu/snb/model#schemeName",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "schemeVersion": {
+            "@id": "http://data.europa.eu/snb/model#schemeVersion",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "score": {
+            "@id": "http://data.europa.eu/snb/model#score",
+            "@type": "@http://www.w3.org/2001/XMLSchema#string"
+        },
+        "shortenedGrading": {
+            "@id": "http://data.europa.eu/snb/model#",
+            "@type": "@id"
+        },
+        "spatial": {
+            "@id": "http://purl.org/dc/terms/spatial",
+            "@type": "@id"
+        },
+        "spatialCode": {
+            "@id": "http://data.europa.eu/snb/model#spatialCode",
+            "@type": "@id"
+        },
+        "specifiedBy": {
+            "@id": "http://data.europa.eu/snb/model#specifiedBy",
+            "@type": "@id"
+        },
+        "specialisationOf": {
+            "@id": "http://data.europa.eu/snb/model#specialisationOf",
+            "@type": "@id"
+        },
+        "startDate": {
+            "@id": "http://data.europa.eu/snb/model#startDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "status": {
+            "@id": "http://data.europa.eu/snb/model#status",
+            "@type": "@id"
+        },
+        "subject": {
+            "@id": "http://purl.org/dc/terms/subject"
+        },
+        "targetGroup": {
+            "@id": "http://data.europa.eu/snb/model#targetGroup",
+            "@type": "@id"
+        },
+        "taxΙdentifier": {
+            "@id": "http://data.europa.eu/snb/model#taxIdentifier",
+            "@type": "@id"
+        },
+        "title": {
+            "@id": "http://purl.org/dc/terms/title",
+            "@container": ["@set", "@language"]
+        },
+        "dcType": {
+            "@id": "http://purl.org/dc/terms/type",
+            "@type": "@id"
+        },
+        "temporal": {
+            "@id": "http://purl.org/dc/terms/temporal",
+            "@type": "@id"
+        },
+        "termsOfUse": {
+            "@id": "https://www.w3.org/2018/credentials#termsOfUse",
+            "@type": "@id"
+        },
+        "thematicArea": {
+            "@id": "http://data.europa.eu/snb/model#ISCEDFCode",
+            "@type": "@id"
+        },
+        "unit": {
+            "@id": "http://data.europa.eu/snb/model#unit",
+            "@type": "@id"
+        },
+        "validWith": {
+            "@id": "http://data.europa.eu/snb/model#limitOrganisation",
+            "@type": "@id"
+        },
+        "validWithin": {
+            "@id": "http://data.europa.eu/snb/model#limitJurisdiction",
+            "@type": "@id"
+        },
+        "validFrom": {
+            "@id": "https://www.w3.org/2018/credentials#validFrom",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "validUntil": {
+            "@id": "https://www.w3.org/2018/credentials#validUntil",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "VATNumber": {
+            "@id": "http://data.europa.eu/snb/model#vatIdentifier",
+            "@type": "@id"
+        },
+        "verificationMode": {
+            "@id": "https://www.w3.org/2018/credentials#verificationMode",
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+        },
+        "volumeOfLearning": {
+            "@id": "http://data.europa.eu/snb/model#volumeOfLearning",
+            "@type": "http://www.w3.org/2001/XMLSchema#duration"
+        },
+        "workloadInHours": {
+            "@id": "http://data.europa.eu/snb/model#workload",
+            "@type": "http://www.w3.org/2001/XMLSchema#duration"
+        }
+    }
+}
