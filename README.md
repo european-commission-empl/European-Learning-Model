@@ -1,3 +1,6 @@
+# European Learning Model v3
+If you wish to see the beta version of ELM v3, go to the ELM v3 branch in this repository.
+
 # European Learning Model
 Data Model for Interoperability of Learning Opportunities, Qualifications and Credentials in Europe. This data model is in use by:
 
