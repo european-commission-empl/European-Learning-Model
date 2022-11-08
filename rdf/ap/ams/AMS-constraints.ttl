@@ -92,9 +92,9 @@ ams:AccreditationShape
   ];
   sh:property [
     sh:path elm:decision;
-    sh:datatype xsd:string;
+    sh:datatype skos:Concept;
     sh:maxCount 1;
-    sh:description "The Quality Decision issued by the Quality Assuring Authority."@en;
+    sh:description "The Quality Decision issued by the Quality Assuring Authority. It should be provided using a controlled list."@en;
     sh:name "decision"@en;
     sh:severity sh:Violation;
     #sh:order 4;
@@ -234,7 +234,7 @@ ams:AccreditationShape
     sh:path elm:status;
     sh:class skos:Concept;
     sh:maxCount 1;
-    sh:description "The publication status of an accreditation."@en;
+    sh:description "The publication status of the accreditation."@en;
     sh:name "status"@en;
     sh:severity sh:Violation;
     #sh:order 20;
@@ -255,6 +255,15 @@ ams:AccreditationShape
     sh:name "publisher"@en;
     #sh:order 22;
     sh:severity sh:Violation; 
+  ];
+  sh:property[
+    sh:path dc:valid;
+    sh:datatype xsd:dateTime;
+    sh:maxCount 1;
+    sh:description "The date when the accreditation became valid."@en;
+    sh:name "validation  date"@en;
+    sh:severity sh:Violation;
+    #sh:order 23;
   ]
 .
 
@@ -277,8 +286,6 @@ ams:AgentShape
   sh:property [
     sh:path skos:prefLabel;
     sh:datatype rdf:langString;
-    sh:minCount 1;
-    sh:maxCount 1;
     sh:uniqueLang true ;
     sh:description "The preferred name of the agent."@en;
     sh:name "name"@en;
@@ -333,7 +340,24 @@ ams:AgentShape
     sh:name "last modification date"@en;
     sh:severity sh:Violation;
     #sh:order 7;
-  ]
+  ];
+  sh:property[
+    sh:path elm:status;
+    sh:class skos:Concept;
+    sh:maxCount 1;
+    sh:description "The publication status of the agent."@en;
+    sh:name "status"@en;
+    sh:severity sh:Violation;
+    #sh:order 8;
+    ];
+   sh:property[
+    sh:path dc:publisher;
+    sh:class elm:Agent;
+    sh:description "The publisher of the agent."@en;
+    sh:name "publisher"@en;
+    #sh:order 22;
+    sh:severity sh:Violation; 
+  ];  
   .
 
 #----- Group Shape (skos:Concept) --------------
@@ -345,10 +369,9 @@ ams:GroupShape
   rdfs:label "Group Shape"@en;
   sh:property [
         sh:minCount 1 ;
-        sh:maxCount 1;
         sh:datatype rdf:langString; ;
         sh:path skos:prefLabel ;
-        sh:name "name"@en;
+        sh:name "preferred name"@en;
         sh:description "The name of the group."@en;
         sh:uniqueLang true ;
         sh:severity sh:Violation;
@@ -569,11 +592,20 @@ ams:OrganisationShape
   sh:property[
     sh:path dc:publisher;
     sh:class elm:Agent;
-    sh:description "The publisher of the Organisation."@en;
+    sh:description "The publisher of the organisation."@en;
     sh:name "publisher"@en;
     #sh:order 24;
     sh:severity sh:Violation; 
-  ]
+  ];
+  sh:property[
+    sh:path elm:status;
+    sh:class skos:Concept;
+    sh:maxCount 1;
+    sh:description "The publication status of the organisation."@en;
+    sh:name "status"@en;
+    sh:severity sh:Violation;
+    #sh:order 25;
+    ];
   .
 
 # ------------ Location  Shapes -----------
@@ -596,7 +628,6 @@ ams:LocationShape
   sh:property [
     sh:path elm:geographicName;
     sh:datatype rdf:langString;
-    sh:maxCount 1;
     sh:description "A proper noun applied to a spatial object."@en;
     sh:name "geographic name"@en;
     sh:severity sh:Violation;
@@ -779,10 +810,10 @@ ams:IdentifierShape
   rdfs:label "Identifier Shape"@en;
   sh:property [
     sh:path skos:notation;
-    sh:datatype xsd:string;
+    sh:nodeKind sh:Literal;
     sh:minCount 1;
     sh:maxCount 1;
-    sh:description "Content string which is the identifier."@en;
+    sh:description "Content string which is the identifier.This property is used to assign a notation as a typed literal."@en;
     sh:name "identifier content"@en;
     sh:severity sh:Violation;
     #sh:order 0;
@@ -841,6 +872,15 @@ ams:IdentifierShape
     sh:severity sh:Violation;
     #sh:order 6;
   ];
+  sh:property[
+     sh:path elm:schemeId;
+     sh:datatype xsd:anyURI;
+     sh:maxCount 1;
+     sh:description "Identification of the scheme."@en;
+     sh:name "scheme ID "@en;
+     sh:severity sh:Violation;
+     #sh:order 7;
+  ]
   .
 
 #------ Legal Identifier class and property  shapes --------
@@ -853,10 +893,10 @@ ams:LegalIdentifierShape
   rdfs:label "Legal Identifier Shape"@en;
   sh:property [
     sh:path skos:notation;
-    sh:datatype xsd:string;
+    sh:nodeKind sh:Literal;
     sh:minCount 1;
     sh:maxCount 1;
-    sh:description "Content string which is the identifier."@en;
+    sh:description "Content string which is the identifier. This property is used to assign a notation as a typed literal."@en;
     sh:name "identifier content"@en;
     sh:severity sh:Violation;
     #sh:order 0;
@@ -915,6 +955,15 @@ ams:LegalIdentifierShape
     sh:severity sh:Violation;
     #sh:order 6;
   ];
+   sh:property[
+     sh:path elm:schemeId;
+     sh:datatype xsd:anyURI;
+     sh:maxCount 1;
+     sh:description "Identification of the scheme."@en;
+     sh:name "scheme ID "@en;
+     sh:severity sh:Violation;
+     #sh:order 7;
+  ];
   sh:property [
     sh:path dc:spatial;
     sh:class skos:Concept;
@@ -923,7 +972,7 @@ ams:LegalIdentifierShape
     sh:description "A spatial identifier. The identifier of the country and/or jurisdiction. It should be provided using the Country Named Authority List."@en;
     sh:name "spatial"@en;
     sh:severity sh:Violation;
-    #sh:order 7;
+    #sh:order 8;
   ];
   .
 
@@ -976,7 +1025,6 @@ ams:MediaObjectShape
   sh:property [
     sh:path elm:attachmentType;
     sh:class skos:Concept;
-    sh:minCount 1;
     sh:maxCount 1;
     sh:description "The type of the attachment of the media object. It should be provided using a controlled list, with values: Transcript of Records, EMREX transcript, Letter of Nomination,  Diploma Supplement, Certificate of Training, Learning Agreement, Other."@en;
     sh:name "attachment type"@en;
@@ -1108,23 +1156,12 @@ ams:NoteShape
   rdfs:label "Note Shape"@en;
   sh:property[
       sh:path elm:noteLiteral;
-      sh:datatype xsd:string;
+      sh:datatype rdf:langString;
       sh:minCount 1;
-      sh:maxCount 1;
       sh:description"The textual content."@en;
       sh:name"note literal"@en;
       sh:severity sh:Violation;
       #sh:order 0;
-    ];
-  sh:property[
-      a sh:PropertyShape;
-      sh:path dc:language;
-      sh:class skos:Concept;
-      sh:maxCount 1;
-      sh:description"The language of the note. It should be provided using Language Named Authority List."@en;
-      sh:name"language"@en;
-      sh:severity sh:Violation;
-      #sh:order 1;
     ];
   sh:property[
       sh:path dc:subject;
@@ -1133,7 +1170,7 @@ ams:NoteShape
       sh:description"The subject of the note. It should be provided using a controlled vocabulary."@en;
       sh:name"subject"@en;
       sh:severity sh:Violation;
-      #sh:order 2;
+      #sh:order 1;
    ];
     sh:property[
     sh:path elm:noteFormat;
@@ -1142,7 +1179,7 @@ ams:NoteShape
     sh:name "note format"@en;
     sh:description "The format of the note. It should be provided using the IANA  types for text, text/plain, text/html etc."@en;
     sh:severity sh:Violation;
-    #sh:order 3;
+    #sh:order 2;
   ]
 .
 
@@ -1172,10 +1209,10 @@ ams:ConceptShape
     ];
     sh:property [
       sh:path skos:notation ;
-      sh:datatype xsd:string;
+      sh:nodeKind sh:Literal;
       sh:name "notation"@en;
       sh:maxCount 1;
-      sh:description "A notation, also known as classification code, is a string of characters used to uniquely identify a concept within the scope of a given concept scheme."@en;
+      sh:description "A notation, also known as classification code, is a string of characters used to uniquely identify a concept within the scope of a given concept scheme. This property is used to assign a notation as a typed literal."@en;
       sh:severity sh:Violation;
       #sh:order 1;
     ];

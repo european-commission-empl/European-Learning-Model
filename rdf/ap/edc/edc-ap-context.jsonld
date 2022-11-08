@@ -66,37 +66,29 @@
             "@id": "elm:accreditation",
             "@type": "@id"
         },
-        "accreditationDateIssued": {
-            "@id": "dc:issued",
-            "@type": "xsd:dateTime"
-        },
-        "accreditedInJurisdiction": {
-            "@id": "elm:limitJurisdiction",
-            "@type": "@id"
-        },
-        "accreditedForEQFLevel": {
-            "@id": "elm:limitEQFLevel",
-            "@type": "@id"
-        },
-        "accreditedForThematicArea": {
-            "@id": "elm:limitField",
-            "@type": "@id"
-        },
         "accreditingAgent": {
             "@id": "elm:accreditingAgent",
             "@type": "@id"
         },
-        "admissionsProcedure": {
+        "admissionProcedure": {
             "@id": "elm:admissionProcedure",
+            "@type": "@id"
+        },
+        "admsIdentifier": {
+            "@id": "adms:identifier",
+            "@type": "@id"
+        },
+        "additionalNote": {
+            "@id": "elm:additionalNote",
             "@type": "@id"
         },
         "address": {
             "@id": "elm:address",
             "@type": "@id"
         },
-        "amountContent": {
-            "@id": "elm:value",
-            "@type": "xsd:decimal"
+        "altLabel": {
+            "@id": "skos:altLabel",
+            "@container": "@language"
         },
         "applicationDeadline": {
             "@id": "elm:applicationDeadline",
@@ -118,14 +110,6 @@
             "@id": "elm:attachmentType",
             "@type": "@id"
         },
-        "availableLanguage": {
-            "@id": "dc:language",
-            "@type": "@id"
-        },
-        "awardedLearningAchievementSpecification": {
-            "@id": "elm:learningAchievementSpecification",
-            "@type": "@id"
-        },
         "awardingBody": {
             "@id": "elm:awardingBody",
             "@type": "@id"
@@ -134,7 +118,7 @@
             "@id": "elm:awardingDate",
             "@type": "xsd:dateTime"
         },
-        "awardingInformation": {
+        "awardingOpportunity": {
             "@id": "elm:awardingOpportunity",
             "@type": "@id"
         },
@@ -144,22 +128,6 @@
         },
         "awards": {
             "@id": "elm:awards",
-            "@type": "@id"
-        },
-        "additionalNote": {
-            "@id": "elm:additionalNote",
-            "@type": "@id"
-        },
-        "alternativeName": {
-            "@id": "skos:altLabel",
-            "@container": "@language"
-        },
-        "assessmentUtilised": {
-            "@id": "elm:used",
-            "@type": "@id"
-        },
-        "backroungImage": {
-            "@id": "elm:background",
             "@type": "@id"
         },
         "bannerImage": {
@@ -174,11 +142,11 @@
             "@id": "elm:category",
              "@container": "@language"
         },
-        "citizenship": {
+        "citizenshipCountry": {
             "@id": "elm:citizenshipCountry",
             "@type": "@id"
         },
-        "childOrganisation": {
+        "hasSubOrganization": {
             "@id": "org:hasSubOrganization",
             "@type": "@id"
         },
@@ -190,7 +158,7 @@
             "@id": "elm:contactHour",
             "@type": "xsd:string"
         },
-        "contactInformation": {
+        "contactPoint": {
             "@id": "elm:contactPoint",
             "@type": "@id"
         },
@@ -218,13 +186,17 @@
             "@id": "elm:count",
             "@type": "xsd:positiveInteger"
         },
-        "country": {
+        "countryCode": {
             "@id": "elm:countryCode",
             "@type": "@id"
         },
-        "countryDialingCode": {
+        "countryDialing": {
             "@id": "elm:countryDialing",
             "@type": "xsd:string"
+        },
+        "creator": {
+            "@id": "dc:creator",
+            "@type": "@id"
         },
         "credentialLabel":{
           "@id": "elm:credentialLabel",
@@ -234,17 +206,25 @@
             "@id": "elm:creditReceived",
             "@type": "@id"
         },
-        "dateIssued": {
-            "@id": "dc:issued",
-            "@type": "xsd:dateTime"
-        },
         "dateCreated": {
             "@id": "dc:created",
             "@type": "xsd:dateTime"
         },
+        "dateIssued": {
+            "@id": "dc:issued",
+            "@type": "xsd:dateTime"
+        },
+        "dateModified": {
+            "@id": "dc:modified",
+            "@type": "@id"
+        },
         "dateOfBirth": {
             "@id": "elm:dateOfBirth",
             "@type": "xsd:dateTime"
+        },
+        "dcType": {
+            "@id": "dc:type",
+            "@type": "@id"
         },
         "decision": {
             "@id": "elm:decision",
@@ -258,15 +238,15 @@
             "@id": "elm:descriptionHtml",
             "@type": "@id"
         },
+        "dialNumber": {
+            "@id": "elm:dialNumber",
+            "@type": "xsd:string"
+          },
         "directedBy":{
           "@id": "elm:directedBy",
           "@type": "@id"
         },
-        "displayCode": {
-            "@id": "elm:summaryDisplay",
-            "@type": "xsd:string"
-        },
-        "display": {
+        "displayParameter": {
             "@id": "elm:displayParameter",
             "@type": "@id"
         },
@@ -282,16 +262,24 @@
             "@id": "elm:educationLevel",
             "@type": "@id"
         },
-        "eIDASΙdentifier": {
-            "@id": "elm:eidasLegalIdentifier",
-            "@type": "@id"
-        },
         "educationSubject": {
             "@id": "elm:educationSubject",
             "@type": "@id"
         },
+        "eIDASΙdentifier": {
+            "@id": "elm:eidasLegalIdentifier",
+            "@type": "@id"
+        },
         "elmSubject":{
-            "@id": "elm:elmSubject",
+            "@id": "elm:subject",
+            "@type": "@id"
+        },
+        "emailAddress": {
+            "@id": "elm:emailAddress",
+            "@type": "@id"
+        },
+        "embeddedEvidence": {
+            "@id": "elm:embeddedEvidence",
             "@type": "@id"
         },
         "endDate": {
@@ -306,16 +294,17 @@
             "@id": "elm:entitledBy",
             "@type": "@id"
         },
+        "entitlementStatus": {
+            "@id": "elm:entitlementStatus",
+            "@type": "@id"
+        },
+
         "entryRequirement": {
             "@id": "elm:entryRequirement",
             "@type": "@id"
         },
         "EQFLevel": {
             "@id": "elm:EQFLevel",
-            "@type": "@id"
-        },
-        "embeddedEvidence": {
-            "@id": "elm:embeddedEvidence",
             "@type": "@id"
         },
         "evidenceStatement": {
@@ -338,11 +327,11 @@
             "@id": "foaf:fullName",
             "@container": "@language"
         },
-        "fees": {
+        "priceDetail": {
             "@id": "elm:priceDetail",
             "@type": "@id"
         },
-        "feeAmount": {
+        "amount": {
             "@id": "elm:amount",
             "@type": "@id"
         },
@@ -353,10 +342,6 @@
         "fullAddress": {
             "@id": "elm:fullAddress",
             "@type": "@id"
-        },
-        "fullPhoneNumber": {
-            "@id": "elm:phoneNumber",
-            "@type": "xsd:string"
         },
         "geographicName": {
             "@id": "elm:geographicName",
@@ -402,10 +387,6 @@
             "@id": "elm:hasCredential",
             "@type": "@id"
         },
-        "hasMember": {
-            "@id": "foaf:member",
-            "@type": "@id"
-        },
         "hasPart": {
             "@id": "elm:hasPart",
             "@type": "@id"
@@ -418,9 +399,9 @@
             "@id": "dc:identifier",
             "@type": "xsd:string"
         },
-        "identifierContent": {
-            "@id": "skos:notation",
-            "@type": "xsd:string"
+        "idVerification": {
+            "@id": "elm:idVerification",
+            "@type": "@id"
         },
         "influencedBy": {
             "@id": "elm:influencedBy",
@@ -442,33 +423,37 @@
             "@id": "elm:isPartOf",
             "@type": "@id"
         },
+        "isPartialQualification": {
+            "@id": "elm:isPartialQualification",
+            "@type": "xsd:boolean"
+        },
         "label": {
             "@id": "elm:label",
             "@type":"xsd:string"
-        },
-        "language": {
-            "@id": "dc:language",
-            "@type": "@id"
         },
         "landingPage": {
             "@id": "elm:landingPage",
             "@type": "@id"
         },
-        "lastModificationDate": {
-            "@id": "dc:modified",
+        "language": {
+            "@id": "dc:language",
             "@type": "@id"
         },
         "latitude": {
           "@id": "clv:latitude",
           "@type": "xsd:string"
         },
-        "longitude": {
-          "@id": "clv:longitude",
-          "@type": "xsd:string"
+        "learningAchievementSpecification": {
+            "@id": "elm:learningAchievementSpecification",
+            "@type": "@id"
         },
         "legalName": {
             "@id": "rov:legalName",
              "@container": "@language"
+        },
+        "longitude": {
+          "@id": "clv:longitude",
+          "@type": "xsd:string"
         },
         "learningActivitySpecification": {
             "@id": "elm:learningActivitySpecification",
@@ -498,8 +483,32 @@
             "@id": "elm:limitCredentialType",
             "@type": "@id"
         },
+        "limitEQFLevel": {
+            "@id": "elm:limitEQFLevel",
+            "@type": "@id"
+        },
+        "limitField": {
+            "@id": "elm:limitField",
+            "@type": "@id"
+        },
+        "limitJurisdiction": {
+            "@id": "elm:limitJurisdiction",
+            "@type": "@id"
+        },
         "limitNationalOccupation": {
             "@id": "elm:limitNationalOccupation",
+            "@type": "@id"
+        },
+        "limitOccupation": {
+            "@id": "elm:limitOccupation",
+            "@type": "@id"
+        },
+        "limitOrganisation": {
+            "@id": "elm:limitOrganisation",
+            "@type": "@id"
+        },
+        "limitQualification": {
+            "@id": "elm:limitQualification",
             "@type": "@id"
         },
         "location": {
@@ -508,10 +517,6 @@
         },
         "logo": {
             "@id": "elm:logo",
-            "@type": "@id"
-        },
-        "mailbox": {
-            "@id": "elm:emailAddress",
             "@type": "@id"
         },
         "maximumDuration": {
@@ -526,32 +531,36 @@
             "@id": "elm:minScore",
             "@type": "xsd:string"
         },
-        "memberOf": {
-            "@id": "org:memberOf",
+        "member": {
+            "@id": "foaf:member",
             "@type": "@id"
         },
-        "methodOfAssessmentSupervisionAndIdVerification": {
-            "@id": "elm:idVerification",
+        "memberOf": {
+            "@id": "org:memberOf",
             "@type": "@id"
         },
         "mode": {
             "@id": "elm:mode",
             "@type": "@id"
         },
-        "moreInformation": {
-            "@id": "elm:additionalNote",
-            "@type": "@id"
-        },
-        "nationalSystemInformation": {
+        "nationalSystemNote": {
             "@id": "elm:nationalSystemNote",
             "@type": "@id"
         },
-        "nationalIDNumber": {
+        "nationalID": {
             "@id": "elm:nationalID",
             "@type": "@id"
         },
         "notation": {
             "@id": "skos:notation",
+            "@type": "xsd:string"
+        },
+        "noteFormat": {
+            "@id": "elm:noteFormat",
+            "@type": "@id"
+        },
+        "noteLiteral": {
+            "@id": "elm:noteLiteral",
             "@type": "xsd:string"
         },
         "NQFLevel": {
@@ -562,22 +571,9 @@
             "@id": "elm:organisation",
             "@type": "@id"
         },
-        "otherDocuments": {
-            "@id": "elm:supplementaryDocument",
-            "@type": "@id"
-        },
-        "otherIdentifier": {
-            "@id": "adms:identifier",
-            "@type": "@id"
-        },
-        "isPartialQualification": {
-            "@id": "elm:isPartialQualification",
-            "@type": "xsd:boolean"
-        },
         "patronymicName": {
             "@id": "person:patronymicName",
             "@container": "@language"
-
         },
         "percentageEqual": {
             "@id": "elm:percentageEqual",
@@ -599,17 +595,13 @@
             "@id": "elm:primaryLanguage",
             "@type": "@id"
         },
-        "points": {
+        "point": {
             "@id": "elm:point",
             "@type": "xsd:string"
         },
         "phone": {
             "@id": "elm:phone",
             "@type": "@id"
-        },
-        "phoneNumber": {
-            "@id": "elm:dialNumber",
-            "@type": "xsd:string"
         },
         "provenBy": {
             "@id": "elm:provenBy",
@@ -624,27 +616,15 @@
           "@id": "dc:publisher",
           "@type": "@id"
         },
-        "name": {
+        "prefLabel": {
             "@id": "skos:prefLabel"
         },
-        "noteFormat": {
-            "@id": "elm:noteFormat",
-            "@type": "@id"
-        },
-        "noteLiteral": {
-            "@id": "elm:noteLiteral",
+        "phoneNumber": {
+            "@id": "elm:phoneNumber",
             "@type": "xsd:string"
-        },
-        "parentOrganisation": {
-            "@id": "org:subOrganizationOf",
-            "@type": "@id"
         },
         "providedBy": {
             "@id": "elm:providedBy",
-            "@type": "@id"
-        },
-        "qualificationAccredited": {
-            "@id": "elm:limitQualification",
             "@type": "@id"
         },
         "qualificationCode": {
@@ -653,10 +633,6 @@
         },
         "registration": {
             "@id": "rov:registration",
-            "@type": "@id"
-        },
-        "relatedOccupation": {
-            "@id": "elm:limitOccupation",
             "@type": "@id"
         },
         "relatedESCOSkill": {
@@ -692,10 +668,6 @@
             "@type": "@id"
         },
         "schemeAgency": {
-            "@id": "dc:creator",
-            "@type": "@id"
-        },
-        "schemeAgencyName": {
             "@id": "adms:schemeAgency",
             "@container": "@language"
         },
@@ -723,12 +695,12 @@
             "@id": "elm:spatialCode",
             "@type": "@id"
         },
-        "specifiedBy": {
-            "@id": "elm:specifiedBy",
-            "@type": "@id"
-        },
         "specialisationOf": {
             "@id": "elm:specialisationOf",
+            "@type": "@id"
+        },
+        "specifiedBy": {
+            "@id": "elm:specifiedBy",
             "@type": "@id"
         },
         "startDate": {
@@ -743,20 +715,24 @@
             "@id": "dc:subject",
             "@type": "@id"
         },
+        "subOrganizationOf": {
+            "@id": "org:subOrganizationOf",
+            "@type": "@id"
+        },
+        "summaryDisplay": {
+            "@id": "elm:summaryDisplay",
+            "@type": "xsd:string"
+        },
+        "supplementaryDocument": {
+            "@id": "elm:supplementaryDocument",
+            "@type": "@id"
+        },
         "targetGroup": {
             "@id": "elm:targetGroup",
             "@type": "@id"
         },
         "taxΙdentifier": {
             "@id": "elm:taxIdentifier",
-            "@type": "@id"
-        },
-        "title": {
-            "@id": "dc:title",
-            "@container": "@language"
-        },
-        "dcType": {
-            "@id": "dc:type",
             "@type": "@id"
         },
         "temporal": {
@@ -767,23 +743,27 @@
             "@id": "elm:ISCEDFCode",
             "@type": "@id"
         },
+        "title": {
+            "@id": "dc:title",
+            "@container": "@language"
+        },
         "unit": {
             "@id": "elm:unit",
+            "@type": "@id"
+        },
+        "used": {
+            "@id": "elm:used",
             "@type": "@id"
         },
         "valid":{
           "@id": "dc:valid",
           "@type": "xsd:dateTime"
         },
-        "validWith": {
-            "@id": "elm:limitOrganisation",
-            "@type": "@id"
+        "value": {
+            "@id": "elm:value",
+            "@type": "xsd:decimal"
         },
-        "validWithin": {
-            "@id": "elm:limitJurisdiction",
-            "@type": "@id"
-        },
-        "VATNumber": {
+        "vatIdentifier": {
             "@id": "elm:vatIdentifier",
             "@type": "@id"
         },
@@ -791,11 +771,15 @@
           "@id": "elm:verificationCheck",
           "@type": "@id"
         },
+        "verificationStatus":{
+          "@id": "elm:verificationStatus",
+          "@type": "@id"
+        },
         "volumeOfLearning": {
             "@id": "elm:volumeOfLearning",
             "@type": "xsd:duration"
         },
-        "workloadInHours": {
+        "workload": {
             "@id": "elm:workload",
             "@type": "xsd:duration"
         }
