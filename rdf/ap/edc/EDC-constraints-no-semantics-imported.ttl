@@ -116,8 +116,8 @@ edc:Accreditation-adms_identifier
  edc:Accreditation-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
-  sh:maxCount 1;
   sh:class elm:Note;
+  sh:maxCount 1;
   sh:description "An additional free text note about the accreditation."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -533,7 +533,12 @@ edc:AwardingOpportunity-dc_temporal
 edc:AwardingOpportunity-elm_awardingBody
   a sh:PropertyShape;  
   sh:path elm:awardingBody;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
   sh:minCount 1;
   sh:description "The awarding body related to this awarding activity (i.e., the organisation that issues the qualification). Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations, the cardinality is greater than 1."@en;
   sh:name "awarding body"@en;
@@ -543,7 +548,11 @@ edc:AwardingOpportunity-elm_awardingBody
 edc:AwardingOpportunity-elm_learningAchievementSpecification
   a sh:PropertyShape;  
   sh:path elm:learningAchievementSpecification;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The awarded learning achievement specification."@en;
@@ -631,7 +640,12 @@ edc:AwardingProcess-elm_awards
 edc:AwardingProcess-elm_awardingBody
   a sh:PropertyShape;  
   sh:path elm:awardingBody;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
   sh:minCount 1;
   sh:description "The awarding body related to this awarding activity (i.e., the organisation that issues the qualification). Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations, the cardinality is greater than 1."@en;
   sh:name "awarding body"@en;
@@ -1026,7 +1040,12 @@ edc:EuropeanDigitalCredential-elm_displayParameter
 edc:EuropeanDigitalCredential-cred_issuer
   a sh:PropertyShape; 
   sh:path cred:issuer;
-  sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
+  #sh:class elm:Agent;
   sh:description "The agent that issued the credential and sealed it with its digital e-seal. This property is inherited from Verifiable Credential."@en;
   sh:name "issuer"@en;
   sh:minCount 1;
@@ -1039,7 +1058,11 @@ edc:EuropeanDigitalCredential-cred_issuer
 edc:EuropeanDigitalCredential-cred_credentialSubject
   a sh:PropertyShape; 
   sh:path cred:credentialSubject;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]);
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The person (subject) about which claims are made and who owns the credential. This property is inherited from Verifiable Credential."@en;
@@ -1152,7 +1175,12 @@ edc:EuropeanDigitalCredential-cred_evidence
 edc:EuropeanDigitalCredential-cred_holder
   a sh:PropertyShape; 
   sh:path cred:holder;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
   sh:description "The entity that is holding the verifiable credential."@en;
   sh:name "holder"@en;
   sh:severity sh:Violation;
@@ -1202,7 +1230,12 @@ edc:EuropeanDigitalPresentation-elm_verificationCheck
 edc:EuropeanDigitalPresentation-cred_holder
   a sh:PropertyShape; 
   sh:path cred:holder;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
   sh:description "The entity that is generating the presenttion."@en;
   sh:name "holder"@en;
   sh:severity sh:Violation;
@@ -1608,7 +1641,11 @@ edc:LearningAchievement-elm_entitlesTo
 edc:LearningAchievement-elm_specifiedBy
   a sh:PropertyShape;
   sh:path elm:specifiedBy;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:maxCount 1;
   sh:description "The Learning Achievement Specification that specifies the Learning Achievement."@en;
   sh:name "specified by"@en;
@@ -1957,7 +1994,11 @@ edc:LearningAchievementSpecification-elm_entitlesTo
 edc:LearningAchievementSpecification-elm_hasPart
   a sh:PropertyShape;
   sh:path elm:hasPart;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:description "A learning achievement specification can be composed of other partial learning achievement specifications which when combined make up this learning specification."@en;
   sh:name "has part"@en;
   sh:severity sh:Violation;
@@ -1966,7 +2007,11 @@ edc:LearningAchievementSpecification-elm_hasPart
  edc:LearningAchievementSpecification-elm_isPartOf
   a sh:PropertyShape;
   sh:path elm:isPartOf;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:description "A learning achievement specification, which this learning achievement specification is part of."@en;
   sh:name "is part of "@en;
   sh:severity sh:Violation;
@@ -1975,7 +2020,11 @@ edc:LearningAchievementSpecification-elm_hasPart
 edc:LearningAchievementSpecification-elm_specialisationOf
  a sh:PropertyShape;
   sh:path elm:specialisationOf;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:description "A learning achievement specification (e.g., a standard) of which this specification is a specialisation."@en;
   sh:name "specialisation of"@en;
   sh:severity sh:Violation;
@@ -1984,7 +2033,11 @@ edc:LearningAchievementSpecification-elm_specialisationOf
 edc:LearningAchievementSpecification-elm_generalisationOf
   a sh:PropertyShape;
   sh:path elm:generalisationOf;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:description "A learning achievement specification (e.g., a standard) of which this specification is a generalisation."@en;
   sh:name "generalisation of"@en;
   sh:severity sh:Violation;
@@ -2124,7 +2177,12 @@ edc:LearningActivity-elm_workload
 edc:LearningActivity-elm_directedBy
   a sh:PropertyShape;
   sh:path elm:directedBy;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
   sh:description "The organisation, or part of an organisation such as department, faculty, which directed the learning activity."@en;
   sh:name "directed by"@en;
   sh:severity sh:Violation;
@@ -2358,7 +2416,11 @@ edc:LearningActivitySpecification-elm_mode
 edc:LearningActivitySpecification-elm_influences
   a sh:PropertyShape;
   sh:path elm:influences;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:description "What may be learned by undertaking the activity described by this learning activity specification."@en;
   sh:name "influences"@en;
   sh:severity sh:Violation;
@@ -2573,7 +2635,12 @@ edc:LearningAssessment-elm_idVerification
 edc:LearningAssessment-elm_assessedBy
   a sh:PropertyShape;
   sh:path elm:assessedBy;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
   sh:description "The competent body that awarded the grade."@en;
   sh:name "assessed by"@en;
   sh:severity sh:Violation;
@@ -2785,7 +2852,11 @@ edc:LearningAssessmentSpecification-elm_gradingScheme
 edc:LearningAssessmentSpecification-elm_proves
   a sh:PropertyShape;
   sh:path elm:proves;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:description "The learning achievement (and related learning outcomes) this assessment is designed to test."@en;
   sh:name "proves"@en;
   sh:severity sh:Violation;
@@ -3170,7 +3241,11 @@ edc:LearningEntitlementSpecification-elm_limitNationalOccupation
 edc:LearningEntitlementSpecification-elm_entitledBy
   a sh:PropertyShape;
   sh:path elm:entitledBy;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:description "The learning achievement specification which gave rise to this learning entitlement specification."@en;
   sh:name "entitled by"@en;
   sh:severity sh:Violation;
@@ -3429,7 +3504,11 @@ edc:LearningOpportunity-elm_location
 edc:LearningOpportunity-elm_learningAchievementSpecification
   a sh:PropertyShape;
   sh:path elm:learningAchievementSpecification;
-  sh:class elm:LearningAchievementSpecification;
+  #sh:class elm:LearningAchievementSpecification;
+  sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
   sh:maxCount 1;
   sh:description "The learning achievement specification, including the curricula, of this learning opportunity."@en;
   sh:name "learning achievement specification"@en;
@@ -5359,7 +5438,12 @@ edc:GroupShape
   ];
   sh:property[
     sh:path foaf:member;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+    sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
     sh:description "An agent being a member of the group."@en;
     sh:name "has member"@en;
     sh:severity sh:Violation;
@@ -5393,7 +5477,12 @@ edc:GroupShape
 edc:VerifiableCredential-cred_issuer
   a sh:PropertyShape; 
   sh:path cred:issuer;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
   sh:description "The organisation that issued the credential and sealed it with its digital e-seal."@en;
   sh:name "issuer"@en;
   sh:minCount 1;
@@ -5406,7 +5495,12 @@ edc:VerifiableCredential-cred_issuer
 edc:VerifiableCredential-cred_credentialSubject
   a sh:PropertyShape; 
   sh:path cred:credentialSubject;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
   sh:minCount 1;
   sh:maxCount 1;
   sh:description "The subject (agent, person etc) about which claims are made and who owns the credential."@en;
@@ -5520,7 +5614,12 @@ edc:VerifiableCredential-cred_evidence
  edc:VerifiableCredential-cred_holder
   a sh:PropertyShape; 
   sh:path cred:holder;
-  sh:class elm:Agent;
+  #sh:class elm:Agent;
+  sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
   sh:maxCount 1;
   sh:description "The holder of verifiable credential."@en;
   sh:name "holder"@en;
@@ -5572,6 +5671,9 @@ edc:SpecificationNodeShape
          ]
          [
            sh:class elm:LearningEntitlementSpecification
+         ] 
+         [
+           sh:class elm:Qualification
          ] 
        ).
 
@@ -5661,7 +5763,12 @@ edc:EvidenceShape
   ];
    sh:property[
      sh:path elm:evidenceTarget;
-     sh:class elm:Agent;
+     #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
      sh:maxCount 1;
      sh:description "The target of the evidence."@en;
      sh:name "evidence target"@en;
@@ -5707,7 +5814,12 @@ edc:VerifiablePresentationShape
   ];
   sh:property[
      sh:path cred:holder;
-     sh:class elm:Agent;
+     #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Person;]
+          [sh:class elm:Organisation;]
+          );
      sh:description "The entity that is generating the presentation."@en;
      sh:name "holder"@en;
      sh:severity sh:Violation;

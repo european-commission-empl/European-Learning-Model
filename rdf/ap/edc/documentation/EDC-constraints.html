@@ -285,7 +285,7 @@
                 <li><a href="#edc:QualificationShape">Qualification </a></li>
                 <li><a href="#edc:ResultCategoryShape">Result Category </a></li>
                 <li><a href="#edc:ResultDistributionShape">Result Distribution </a></li>
-                <li><a href="#edc:ShaclValidatorShape">Shacl Validator </a></li>
+                <li><a href="#edc:ShaclValidator2017Shape">Shacl Validator 2017 </a></li>
                 <li><a href="#edc:ShortenedGradingShape">Shortened Grading </a></li>
                 <li><a href="#edc:SpecificationShape">Specification </a></li>
                 <li><a href="#edc:SpecificationNodeShape">Specification Node </a></li>
@@ -507,7 +507,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the accreditation.</td>
                             </tr>
@@ -563,7 +563,7 @@
                                 <td>
                                     <div style="width:30px">0..1</div>
                                 </td>
-                                <td class="sp_table_propertyshapes_col_description">The publication status of an accreditation.</td>
+                                <td class="sp_table_propertyshapes_col_description">The publication status of the accreditation.</td>
                             </tr>
                             <tr>
                                 <td>title</td>
@@ -727,7 +727,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the agent.</td>
                             </tr>
@@ -954,7 +954,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the awarding process.</td>
                             </tr>
@@ -1014,7 +1014,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the claim.</td>
                             </tr>
@@ -1108,7 +1108,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the claim.</td>
                             </tr>
@@ -1184,11 +1184,11 @@
                             <tr>
                                 <td>notation</td>
                                 <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                                <td><code>xsd:string</code><br></td>
+                                <td><code>Literal</code><br></td>
                                 <td>
                                     <div style="width:30px">0..1</div>
                                 </td>
-                                <td class="sp_table_propertyshapes_col_description">A notation, also known as classification code, is a string of characters used to uniquely identify a concept within the scope of a given concept scheme.</td>
+                                <td class="sp_table_propertyshapes_col_description">A notation, also known as classification code, is a string of characters used to uniquely identify a concept within the scope of a given concept scheme. This property is used to assign a notation as a typed literal</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1266,7 +1266,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the contact point.</td>
                             </tr>
@@ -1487,7 +1487,7 @@
                             <tr>
                                 <td>credential schema</td>
                                 <td><code><a href="https://www.w3.org/2018/credentials#credentialSchema">cred:credentialSchema</a></code></td>
-                                <td><code><a href="#edc:ShaclValidatorShape">Shacl Validator </a></code><br></td>
+                                <td><code>elm:ShaclValidator</code><br></td>
                                 <td>
                                     <div style="width:30px">1..*</div>
                                 </td>
@@ -1976,7 +1976,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the group.</td>
                             </tr>
@@ -2034,11 +2034,20 @@
                             <tr>
                                 <td>identifier content</td>
                                 <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                                <td><code>xsd:string</code><br></td>
+                                <td><code>Literal</code><br></td>
                                 <td>
                                     <div style="width:30px">1..1</div>
                                 </td>
-                                <td class="sp_table_propertyshapes_col_description">The content string which is the identifier.</td>
+                                <td class="sp_table_propertyshapes_col_description">The content string which is the identifier. This property is used to assign a notation as a typed literal</td>
+                            </tr>
+                            <tr>
+                                <td>scheme ID </td>
+                                <td><code><a href="http://data.europa.eu/snb/model/schemeId">elm:schemeId</a></code></td>
+                                <td><code>xsd:anyURI</code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">Identification of the scheme.</td>
                             </tr>
                             <tr>
                                 <td>scheme agency</td>
@@ -2267,7 +2276,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning achievement.</td>
                             </tr>
@@ -2549,7 +2558,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning achievement specification.</td>
                             </tr>
@@ -2580,6 +2589,15 @@
                                     <div style="width:30px">0..*</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">A learning achievement specification (e.g., a standard) of which this specification is a specialisation.</td>
+                            </tr>
+                            <tr>
+                                <td>status</td>
+                                <td><code><a href="http://data.europa.eu/snb/model/status">elm:status</a></code></td>
+                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The publication status of the learning achievement specification.</td>
                             </tr>
                             <tr>
                                 <td>target group</td>
@@ -2749,7 +2767,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning activity.</td>
                             </tr>
@@ -2956,7 +2974,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning activity specification.</td>
                             </tr>
@@ -2978,6 +2996,15 @@
                                     <div style="width:30px">0..*</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An activity specification (e.g., a standard) of which this specification is a specialisation.</td>
+                            </tr>
+                            <tr>
+                                <td>status</td>
+                                <td><code><a href="http://data.europa.eu/snb/model/status">elm:status</a></code></td>
+                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The publication status of the learning activity specification.</td>
                             </tr>
                             <tr>
                                 <td>title</td>
@@ -3136,7 +3163,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning assessment.</td>
                             </tr>
@@ -3343,7 +3370,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning assessment specification.</td>
                             </tr>
@@ -3374,6 +3401,15 @@
                                     <div style="width:30px">0..*</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">A learning assessment specification (e.g., a standard) of which this specification is a specialisation.</td>
+                            </tr>
+                            <tr>
+                                <td>status</td>
+                                <td><code><a href="http://data.europa.eu/snb/model/status">elm:status</a></code></td>
+                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The publication status of the learning assessment specification.</td>
                             </tr>
                             <tr>
                                 <td>title</td>
@@ -3494,7 +3530,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning entitlement.</td>
                             </tr>
@@ -3664,7 +3700,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning entitlement specification.</td>
                             </tr>
@@ -3698,12 +3734,21 @@
                             </tr>
                             <tr>
                                 <td>status</td>
-                                <td><code><a href="http://data.europa.eu/snb/model/status">elm:status</a></code></td>
+                                <td><code><a href="http://data.europa.eu/snb/model/entitlementStatus">elm:entitlementStatus</a></code></td>
                                 <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
                                 <td>
                                     <div style="width:30px">1..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">The status of the learning entitlement specification. It should be provided using the EDC Controlled List of Entitlement Status.</td>
+                            </tr>
+                            <tr>
+                                <td>status</td>
+                                <td><code><a href="http://data.europa.eu/snb/model/status">elm:status</a></code></td>
+                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The publication status of the learning entitlement specification.</td>
                             </tr>
                             <tr>
                                 <td>title</td>
@@ -3772,7 +3817,7 @@
                                 <td>
                                     <div style="width:30px">0..*</div>
                                 </td>
-                                <td class="sp_table_propertyshapes_col_description">An HTML description of the Learning Opportunity.</td>
+                                <td class="sp_table_propertyshapes_col_description">An HTML description of the learning opportunity.</td>
                             </tr>
                             <tr>
                                 <td>admissions procedure</td>
@@ -3884,6 +3929,15 @@
                                 <td class="sp_table_propertyshapes_col_description">A learning opportunity, which this learning opportunity is part of.</td>
                             </tr>
                             <tr>
+                                <td>last modification date</td>
+                                <td><code><a href="http://purl.org/dc/terms/modified">dc:modified</a></code></td>
+                                <td><code>xsd:dateTime</code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The date when the learning opportunity was last modified.</td>
+                            </tr>
+                            <tr>
                                 <td>learning achievement specification</td>
                                 <td><code><a href="http://data.europa.eu/snb/model/learningAchievementSpecification">elm:learningAchievementSpecification</a></code></td>
                                 <td><code><a href="#edc:LearningAchievementSpecificationShape">Learning Achievement Specification </a></code><br></td>
@@ -3934,7 +3988,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning opportunity.</td>
                             </tr>
@@ -3966,6 +4020,15 @@
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">Detailed information about the timetable or schedule. This may include weekly schedules (e.g., 'Every Monday, 4pm'), but may also include the overall schedule for the course, (e.g., October: lectures, November: group-work,
                                     December: break, January: assessment).</td>
+                            </tr>
+                            <tr>
+                                <td>status</td>
+                                <td><code><a href="http://data.europa.eu/snb/model/status">elm:status</a></code></td>
+                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The publication status of the learning opportunity.</td>
                             </tr>
                             <tr>
                                 <td>temporal </td>
@@ -4032,7 +4095,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the learning outcome.</td>
                             </tr>
@@ -4117,11 +4180,20 @@
                             <tr>
                                 <td>identifier content</td>
                                 <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                                <td><code>xsd:string</code><br></td>
+                                <td><code>Literal</code><br></td>
                                 <td>
                                     <div style="width:30px">1..1</div>
                                 </td>
-                                <td class="sp_table_propertyshapes_col_description">The content string which is the identifier.</td>
+                                <td class="sp_table_propertyshapes_col_description">The content string which is the identifier. This property is used to assign a notation as a typed literal</td>
+                            </tr>
+                            <tr>
+                                <td>scheme ID </td>
+                                <td><code><a href="http://data.europa.eu/snb/model/schemeId">elm:schemeId</a></code></td>
+                                <td><code>xsd:anyURI</code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">Identification of the scheme.</td>
                             </tr>
                             <tr>
                                 <td>scheme agency</td>
@@ -4222,9 +4294,9 @@
                             <tr>
                                 <td>geographic name</td>
                                 <td><code><a href="http://data.europa.eu/snb/model/geographicName">elm:geographicName</a></code></td>
-                                <td><code>xsd:string</code><br></td>
+                                <td><code>rdf:langString</code><br></td>
                                 <td>
-                                    <div style="width:30px">0..1</div>
+                                    <div style="width:30px">0..*</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">A proper noun applied to a spatial object.</td>
                             </tr>
@@ -4310,6 +4382,15 @@
                                 <td class="sp_table_propertyshapes_col_description">The binary data.</td>
                             </tr>
                             <tr>
+                                <td>content URL</td>
+                                <td><code><a href="http://data.europa.eu/snb/model/contentUrl">elm:contentUrl</a></code></td>
+                                <td><code>xsd:anyURI</code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The public access URL of the media object.</td>
+                            </tr>
+                            <tr>
                                 <td>content encoding</td>
                                 <td><code><a href="http://data.europa.eu/snb/model/contentEncoding">elm:contentEncoding</a></code></td>
                                 <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
@@ -4379,15 +4460,6 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>language</td>
-                                <td><code><a href="http://purl.org/dc/terms/language">dc:language</a></code></td>
-                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
-                                <td>
-                                    <div style="width:30px">0..1</div>
-                                </td>
-                                <td class="sp_table_propertyshapes_col_description">The language of the note. It should be provided using Language Named Authority List.</td>
-                            </tr>
-                            <tr>
                                 <td>note format</td>
                                 <td><code><a href="http://data.europa.eu/snb/model/noteFormat">elm:noteFormat</a></code></td>
                                 <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
@@ -4399,9 +4471,9 @@
                             <tr>
                                 <td>note literal</td>
                                 <td><code><a href="http://data.europa.eu/snb/model/noteLiteral">elm:noteLiteral</a></code></td>
-                                <td><code>xsd:string</code><br></td>
+                                <td><code>rdf:langString</code><br></td>
                                 <td>
-                                    <div style="width:30px">1..1</div>
+                                    <div style="width:30px">1..*</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">The textual content of the note.</td>
                             </tr>
@@ -4569,7 +4641,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the organisation.</td>
                             </tr>
@@ -4968,7 +5040,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the price details.</td>
                             </tr>
@@ -5238,7 +5310,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the qualification.</td>
                             </tr>
@@ -5287,6 +5359,15 @@
                                     <div style="width:30px">0..*</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">A qualification (e.g., a standard) of which this qualification is a specialisation.</td>
+                            </tr>
+                            <tr>
+                                <td>status</td>
+                                <td><code><a href="http://data.europa.eu/snb/model/status">elm:status</a></code></td>
+                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The publication status of the qualification.</td>
                             </tr>
                             <tr>
                                 <td>target group</td>
@@ -5453,11 +5534,11 @@
         </div><br>
         <div class="row mt-3">
             <div class="col">
-                <section id="edc:ShaclValidatorShape">
-                    <h2 class="sp_section_title_table">Shacl Validator </h2>
+                <section id="edc:ShaclValidator2017Shape">
+                    <h2 class="sp_section_title_table">Shacl Validator 2017 </h2>
                     <p><em>A shacl schema for credential validation.</em></p>
                     <ul class="sp_list_description_properties sp_ul">
-                        <li>Target Class: <a href="http://data.europa.eu/snb/model/ShaclValidator">elm:ShaclValidator</a></li>
+                        <li>Target Class: <a href="http://data.europa.eu/snb/model/ShaclValidator2017">elm:ShaclValidator2017</a></li>
                     </ul>
                 </section>
             </div>
@@ -5591,7 +5672,7 @@
                                 <td><code><a href="http://data.europa.eu/snb/model/additionalNote">elm:additionalNote</a></code></td>
                                 <td><code><a href="#edc:NoteShape">Note </a></code><br></td>
                                 <td>
-                                    <div style="width:30px">0..*</div>
+                                    <div style="width:30px">0..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">An additional free text note about the specification.</td>
                             </tr>
@@ -5603,6 +5684,15 @@
                                     <div style="width:30px">0..*</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">A public web document containing additional documentation about the specification.</td>
+                            </tr>
+                            <tr>
+                                <td>status</td>
+                                <td><code><a href="http://data.europa.eu/snb/model/status">elm:status</a></code></td>
+                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
+                                <td>
+                                    <div style="width:30px">0..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The publication status of the specification.</td>
                             </tr>
                             <tr>
                                 <td>title</td>
@@ -5865,15 +5955,6 @@
                                 <td class="sp_table_propertyshapes_col_description">A free text description of the verification check.</td>
                             </tr>
                             <tr>
-                                <td>status</td>
-                                <td><code><a href="http://data.europa.eu/snb/model/status">elm:status</a></code></td>
-                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
-                                <td>
-                                    <div style="width:30px">1..1</div>
-                                </td>
-                                <td class="sp_table_propertyshapes_col_description">The status of the verification check. It should be provided using EDC Controlled List of Verification Statuses.</td>
-                            </tr>
-                            <tr>
                                 <td>type</td>
                                 <td><code><a href="http://purl.org/dc/terms/type">dc:type</a></code></td>
                                 <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
@@ -5881,6 +5962,15 @@
                                     <div style="width:30px">1..1</div>
                                 </td>
                                 <td class="sp_table_propertyshapes_col_description">The type of the verification check. It should be provided using the EDC Controlled List of Verification Types.</td>
+                            </tr>
+                            <tr>
+                                <td>verification status</td>
+                                <td><code><a href="http://data.europa.eu/snb/model/verificationStatus">elm:verificationStatus</a></code></td>
+                                <td><code><a href="#edc:ConceptShape">Concept </a></code><br></td>
+                                <td>
+                                    <div style="width:30px">1..1</div>
+                                </td>
+                                <td class="sp_table_propertyshapes_col_description">The status of the verification check. It should be provided using EDC Controlled List of Verification Statuses.</td>
                             </tr>
                         </tbody>
                     </table>

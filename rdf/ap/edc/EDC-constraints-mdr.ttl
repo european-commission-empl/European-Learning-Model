@@ -27,7 +27,6 @@
   owl:imports rdf:;
   owl:imports dc:;
   owl:imports org:;
-  owl:imports elm:;
   owl:imports person:;
   owl:imports adms:;
   owl:imports foaf:;
@@ -586,19 +585,6 @@ a sh:NodeShape;
         sh:severity sh:Violation;
     ].
 
-#-------------------------------------------
-:NoteShapeCV
-    a sh:NodeShape;  
-    sh:targetClass elm:Note;
-    #rdfs:label "CV Restrictions for Note Shape"@en;
-    sh:property [
-        sh:node :LanguageRestriction;
-        sh:nodeKind sh:IRI ;
-        sh:maxCount 1;
-        sh:name"language"@en;
-        sh:path dc:language;
-        sh:severity sh:Violation;
-    ].
 #-------------------------------------------    
 :WebResourceShapeCV
     a sh:NodeShape;

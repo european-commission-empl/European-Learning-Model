@@ -430,18 +430,6 @@
         sh:maxCount 1;
         sh:severity sh:Violation;
     ].
-# ----------------------------------------------
-:NoteShapeCV
-a sh:NodeShape;
-    sh:targetClass elm:Note;
-    sh:property [
-        sh:node :LanguageRestriction;
-        sh:nodeKind sh:IRI;
-        sh:maxCount 1;
-        sh:name"language"@en;
-        sh:path dc:language;
-        sh:severity sh:Violation;
-    ].
 #----------------------------------------------
 :QualificationShapeCV
     a sh:NodeShape;
