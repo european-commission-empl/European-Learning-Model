@@ -5258,7 +5258,6 @@ edc:ConceptShape
       sh:path skos:inScheme ;
       sh:class skos:ConceptScheme;  
       sh:name "in scheme"@en;
-      sh:maxCount 1;
       sh:description "The concept scheme this concept belongs to. The identification of the controlled vocabulary."@en;
       sh:severity sh:Violation;
       #sh:order 2;

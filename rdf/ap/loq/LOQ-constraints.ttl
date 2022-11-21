@@ -56,7 +56,11 @@ a owl:Ontology;
   #sh:order 0;
   sh:property [
      sh:path adms:identifier;
-     sh:class elm:Identifier;
+     #sh:class elm:Identifier;
+     sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
      sh:description "An Identifier of the Accreditation, as assigned to it by the accrediting agent."@en;
      sh:name "identifier"@en;
      sh:severity sh:Violation;
@@ -93,7 +97,7 @@ a owl:Ontology;
   ];
    sh:property[
        sh:path elm:decision;
-       sh:datatype skos:Concept;
+       sh:class skos:Concept;
        sh:maxCount 1;
        sh:description "The Quality Decision issued by the Quality Assuring Authority. It should be provided using a controlled list."@en;
        sh:name "decision"@en;
@@ -244,7 +248,11 @@ a owl:Ontology;
     ];
     sh:property[
       sh:path dc:publisher;
-      sh:class elm:Agent;
+      #sh:class elm:Agent;
+       sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
       sh:maxCount 1;
       sh:description "The publisher of the Accreditation."@en;
       sh:name "publisher"@en;
@@ -274,7 +282,11 @@ a owl:Ontology;
   #sh:order 1;
   sh:property [
     sh:path adms:identifier;
-    sh:class elm:Identifier;
+    #sh:class elm:Identifier;
+    sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
     sh:description "An address identifier."@en;
     sh:name "identifier"@en;
     sh:severity sh:Violation;
@@ -313,7 +325,11 @@ a owl:Ontology;
   #sh:order 2;
   sh:property [
     sh:path adms:identifier;
-    sh:class elm:Identifier;
+    #sh:class elm:Identifier;
+    sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
     sh:description "An identifier of the agent."@en;
     sh:name "identifier"@en;
     sh:severity sh:Violation;
@@ -388,7 +404,11 @@ a owl:Ontology;
     ];
      sh:property[
       sh:path dc:publisher;
-      sh:class elm:Agent;
+      #sh:class elm:Agent;
+       sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
       sh:maxCount 1;
       sh:description "The publisher of the information related to the organisation."@en;
       sh:name "publisher"@en;
@@ -453,7 +473,11 @@ a owl:Ontology;
   rdfs:label "Awarding Opportunity Shape"@en;
   sh:property[
       sh:path elm:awardingBody;
-      sh:class elm:Agent;
+      #sh:class elm:Agent;
+       sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
       sh:minCount 1;
       sh:description"The awarding body related to this awarding activity (i.e., the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1."@en;
       sh:name "awarding body"@en;
@@ -462,7 +486,11 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative identifier of the awarding opportunity."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -488,7 +516,11 @@ a owl:Ontology;
   ];
   sh:property[
      sh:path elm:learningAchievementSpecification;
-     sh:class elm:LearningAchievementSpecification;
+     #sh:class elm:LearningAchievementSpecification;
+     sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
      sh:minCount 1;
      sh:maxCount 1;
      sh:description "The awarded Learning Achievement Specification."@en;
@@ -565,7 +597,6 @@ a owl:Ontology;
       sh:path skos:inScheme ;
       sh:class skos:ConceptScheme ;
       sh:name "in scheme"@en;
-      sh:maxCount 1;
       sh:description "The concept scheme this concept belongs to. The identification of the controlled vocabulary."@en;
       sh:severity sh:Violation;
       #sh:order 2;
@@ -667,7 +698,11 @@ a owl:Ontology;
   rdfs:label "Grading Scheme Shape"@en;
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative identifier of the grading scheme."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -819,7 +854,11 @@ a owl:Ontology;
   ];
   sh:property[
     sh:path foaf:member;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:description "An agent being a member of the group."@en;
     sh:name "has member"@en;
     sh:severity sh:Violation;
@@ -1013,9 +1052,14 @@ a owl:Ontology;
   sh:targetClass elm:LearningAchievementSpecification;
   rdfs:comment "A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning achievement. Learning Achievement Specification is a subclass of Specification."@en;
   rdfs:label "Learning Achievement Specification Shape"@en;
+  sh:deactivated true ;
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative identifier of the learning achievement specification."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -1236,7 +1280,11 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path elm:hasPart;
-      sh:class elm:LearningAchievementSpecification;
+      #sh:class elm:LearningAchievementSpecification;
+      sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
       sh:description "A learning achievement specification can be composed of other partial learning specifications which when combined make up this learning specification."@en;
       sh:name "has part"@en;
       sh:severity sh:Violation;
@@ -1244,7 +1292,11 @@ a owl:Ontology;
   ];
   sh:property[
     sh:path elm:isPartOf;
-    sh:class elm:LearningAchievementSpecification;
+    #sh:class elm:LearningAchievementSpecification;
+    sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
     sh:description "A learning achievement specification, which this learning achievement specification is part of."@en;
     sh:name "is part of "@en;
     sh:severity sh:Violation;
@@ -1253,7 +1305,11 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path elm:specialisationOf;
-      sh:class elm:LearningAchievementSpecification;
+      #sh:class elm:LearningAchievementSpecification;
+      sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
       sh:description "A learning  achievement specification (e.g., a standard) of which this specification is a specialisation."@en;
       sh:name "specialisation of"@en;
       sh:severity sh:Violation;
@@ -1261,7 +1317,11 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path elm:generalisationOf;
-      sh:class elm:LearningAchievementSpecification;
+      #sh:class elm:LearningAchievementSpecification;
+      sh:or (
+          [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
+          );
       sh:description "A learning achievement specification (e.g., a standard) of which this specification is a generalisation."@en;
       sh:name "generalisation of"@en;
       sh:severity sh:Violation;
@@ -1277,7 +1337,11 @@ a owl:Ontology;
   ];
   sh:property[
     sh:path dc:publisher;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:maxCount 1;
     sh:description "The publisher of the Learning Achievement Specification."@en;
     sh:name "publisher"@en;
@@ -1307,7 +1371,11 @@ a owl:Ontology;
   rdfs:label "Learning Activity Specification Shape"@en;
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative identifier of the learning activity specification."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -1429,6 +1497,7 @@ a owl:Ontology;
           [
             sh:class elm:LearningAchievementSpecification
           ]
+          [sh:class elm:Qualification]
           [
             sh:class elm:QualificationReference
           ]
@@ -1483,7 +1552,11 @@ a owl:Ontology;
     ];
   sh:property[
     sh:path dc:publisher;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:maxCount 1;
     sh:description "The publisher of the learning activity specification."@en;
     sh:name "publisher"@en;
@@ -1503,7 +1576,11 @@ a owl:Ontology;
   rdfs:label "Learning Assessment Specification Shape"@en;
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative identifier of the learning assessment specification."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -1615,6 +1692,7 @@ a owl:Ontology;
      sh:path elm:proves;
      sh:or (
           [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
           [sh:class elm:QualificationReference;]);
      sh:description "The learning achievement (and related learning outcomes) this assessment is designed to test."@en;
      sh:name "proves"@en;
@@ -1664,7 +1742,11 @@ a owl:Ontology;
     ];
  sh:property[
     sh:path dc:publisher;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:maxCount 1;
     sh:description "The publisher of the learning assessment specification."@en;
     sh:name "publisher"@en;
@@ -1683,7 +1765,11 @@ a owl:Ontology;
   rdfs:label "Learning Entitlement Specification Shape"@en;
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative identifier of the learning entitlement specification."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -1814,6 +1900,7 @@ a owl:Ontology;
       sh:path elm:entitledBy;
       sh:or (
           [sh:class elm:LearningAchievementSpecification;]
+          [sh:class elm:Qualification;]
           [sh:class elm:QualificationReference;]);
       sh:description "The learning achievement specification which gave rise to this learning entitlement specification."@en;
       sh:name "entitled by"@en;
@@ -1863,7 +1950,11 @@ a owl:Ontology;
     ];
  sh:property[
     sh:path dc:publisher;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:maxCount 1;
     sh:description "The publisher of the learning entitlement specification."@en;
     sh:name "publisher"@en;
@@ -1884,7 +1975,11 @@ a owl:Ontology;
   rdfs:label "Learning Opportunity Shape"@en;
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative Identifier of the Learning Opportunity."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -2111,7 +2206,11 @@ sh:property[
   ];
   sh:property[
     sh:path dc:publisher;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:maxCount 1;
     sh:description "The publisher of the Learning Opportunity."@en;
     sh:name "publisher"@en;
@@ -2149,7 +2248,11 @@ sh:property[
   rdfs:label "Learning Outcome Shape"@en;
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative identifier of the learning outcome."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -2220,7 +2323,11 @@ sh:property[
   rdfs:label "Location Shape"@en;
   sh:property [
     sh:path adms:identifier;
-    sh:class elm:Identifier;
+    #sh:class elm:Identifier;
+    sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
     sh:description "A location identifier."@en;
     sh:name "identifier"@en;
     sh:severity sh:Violation;
@@ -2417,7 +2524,11 @@ sh:property[
   ];
   sh:property [
     sh:path adms:identifier;
-    sh:class elm:Identifier;
+    #sh:class elm:Identifier;
+    sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
     sh:description "An alternative identifier of the organisation."@en;
     sh:name "identifier"@en;
     sh:severity sh:Violation;
@@ -2552,7 +2663,11 @@ sh:property[
   ];
   sh:property[
     sh:path dc:publisher;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:maxCount 1;
     sh:description "The publisher of the organisation."@en;
     sh:name "publisher"@en;
@@ -2667,7 +2782,11 @@ sh:property[
    rdfs:label "Price Detail Shape"@en;
    sh:property [
        sh:path adms:identifier;
-       sh:class elm:Identifier;
+       #sh:class elm:Identifier;
+       sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
        sh:description "The identifier of the price category, allocated by the organisation charging the fee."@en;
        sh:name "identifier"@en;
        sh:severity sh:Violation;
@@ -2722,7 +2841,11 @@ sh:property[
   sh:targetClass elm:Qualification;
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative identifier of the qualification."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -3029,7 +3152,11 @@ sh:property[
   sh:property[
     sh:path dc:publisher;
     sh:maxCount 1;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:description "The publisher of the Qualification."@en;
     sh:name "publisher"@en;
     #sh:order 34;
@@ -3057,7 +3184,11 @@ sh:property[
   rdfs:label "Qualification Reference Shape"@en;
   sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:minCount 1;
       sh:maxCount 1;
       sh:description "An identifier of the qualification reference."@en;
@@ -3079,7 +3210,11 @@ sh:property[
   rdfs:label "Specification Shape"@en;
     sh:property[
       sh:path adms:identifier;
-      sh:class elm:Identifier;
+      #sh:class elm:Identifier;
+      sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
       sh:description "An alternative identifier of the specification."@en;
       sh:name "identifier"@en;
       sh:severity sh:Violation;
@@ -3172,7 +3307,11 @@ sh:property[
     ];
  sh:property[
       sh:path dc:publisher;
-      sh:class elm:Agent;
+      #sh:class elm:Agent;
+       sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
       sh:maxCount 1;
       sh:description "The publisher of the specification."@en;
       sh:name "publisher"@en;
@@ -3277,6 +3416,9 @@ sh:property[
          [
            sh:class elm:LearningEntitlementSpecification
          ]
+         [ 
+          sh:class elm:Qualification
+          ]
        ).
 
   #------ Restricted URL --------
