@@ -8,7 +8,7 @@
 @prefix org:    <http://www.w3.org/ns/org#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix gr:     <http://purl.org/goodrelations/v1#>.
-@prefix elm:    <http://data.europa.eu/snb/model#>.
+@prefix elm:    <http://data.europa.eu/snb/model>.
 @prefix ams:    <http://data.europa.eu/snb/model/ams-constraints/>.
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
@@ -55,7 +55,11 @@ ams:AccreditationShape
   #REFERENCES OBJECT
   sh:property [
     sh:path adms:identifier;
-    sh:class elm:Identifier;
+    #sh:class elm:Identifier;
+    sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
     sh:description "An identifier of the accreditation, as assigned to it by the accrediting agent."@en;
     sh:name "identifier"@en;
     sh:severity sh:Violation;
@@ -92,7 +96,7 @@ ams:AccreditationShape
   ];
   sh:property [
     sh:path elm:decision;
-    sh:datatype skos:Concept;
+    sh:class skos:Concept;
     sh:maxCount 1;
     sh:description "The Quality Decision issued by the Quality Assuring Authority. It should be provided using a controlled list."@en;
     sh:name "decision"@en;
@@ -250,7 +254,11 @@ ams:AccreditationShape
   ];
   sh:property[
     sh:path dc:publisher;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:description "The publisher of the Accreditation."@en;
     sh:name "publisher"@en;
     #sh:order 22;
@@ -277,7 +285,11 @@ ams:AgentShape
   rdfs:label "Agent Shape"@en;
   sh:property [
     sh:path adms:identifier;
-    sh:class elm:Identifier;
+    #sh:class elm:Identifier;
+     sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
     sh:description "An identifier of the agent."@en;
     sh:name "identifier"@en;
     sh:severity sh:Violation;
@@ -352,7 +364,11 @@ ams:AgentShape
     ];
    sh:property[
     sh:path dc:publisher;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:description "The publisher of the agent."@en;
     sh:name "publisher"@en;
     #sh:order 22;
@@ -419,7 +435,11 @@ ams:GroupShape
   ];
   sh:property[
     sh:path foaf:member;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:description "An agent being a member of the group."@en;
     sh:name "has member"@en;
     sh:severity sh:Violation;
@@ -456,7 +476,11 @@ ams:OrganisationShape
   ];
   sh:property [
     sh:path adms:identifier;
-    sh:class elm:Identifier;
+    #sh:class elm:Identifier;
+    sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
     sh:description "An alternative identifier of the organisation."@en;
     sh:name "identifier"@en;
     sh:severity sh:Violation;
@@ -591,7 +615,11 @@ ams:OrganisationShape
   ];
   sh:property[
     sh:path dc:publisher;
-    sh:class elm:Agent;
+    #sh:class elm:Agent;
+     sh:or (
+          [sh:class elm:Agent;]
+          [sh:class elm:Organisation;]
+          );
     sh:description "The publisher of the organisation."@en;
     sh:name "publisher"@en;
     #sh:order 24;
@@ -619,7 +647,11 @@ ams:LocationShape
   #REFERENCES OBJECT
   sh:property [
     sh:path adms:identifier;
-    sh:class elm:Identifier;
+    #sh:class elm:Identifier;
+    sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
     sh:description "A location identifier."@en;
     sh:name "identifier"@en;
     sh:severity sh:Violation;
@@ -703,7 +735,11 @@ ams:AddressShape
   rdfs:label "Address Shape"@en;
   sh:property [
     sh:path adms:identifier;
-    sh:class elm:Identifier;
+    #sh:class elm:Identifier;
+    sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
     sh:description "An address identifier."@en;
     sh:name "identifier"@en;
     sh:severity sh:Violation;
@@ -1220,7 +1256,6 @@ ams:ConceptShape
       sh:path skos:inScheme ;
       sh:class skos:ConceptScheme ;
       sh:name "in scheme"@en;
-      sh:maxCount 1;
       sh:description "The concept scheme this concept belongs to. The identification of the controlled vocabulary."@en;
       sh:severity sh:Violation;
       #sh:order 2;
