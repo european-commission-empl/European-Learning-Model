@@ -1,4 +1,4 @@
-@prefix edc:    <http://data.europa.eu/snb/model/edc-constraints/>.
+@prefix edc:    <http://data.europa.eu/snb/model/edc-constraints-no-semantics/>.
 @prefix elm:    <http://data.europa.eu/snb/model/>.
 @prefix dc:     <http://purl.org/dc/terms/>.
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
@@ -11,29 +11,28 @@
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
-@prefix person: <http://www.w3.org/ns/person#>.
+@prefix cpv: <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix sh:     <http://www.w3.org/ns/shacl#> .
 @prefix cred:   <https://www.w3.org/2018/credentials#>.
 @prefix locn:   <http://www.w3.org/ns/locn#>.
-@prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
+@prefix clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
 
-<http://data.europa.eu/snb/model/edc-constraints>
+<http://data.europa.eu/snb/model/edc-constraints-no-semantics>
   a owl:Ontology;
-  owl:imports rdf:;
-  owl:imports dc:;
-  owl:imports org:;
-  owl:imports person:;
-  owl:imports locn:;
-  owl:imports adms:;
-  owl:imports foaf:;
-  owl:imports cred:;
-  owl:imports elm:;
-  owl:imports skos:;
-  owl:imports sh:;
-  owl:imports cred:;
-  owl:imports locn:;
-  owl:imports clv:;
+  # owl:imports rdf:;
+  # owl:imports dc:;
+  # owl:imports org:;
+  # owl:imports cpv:;
+  # owl:imports locn:;
+  # owl:imports adms:;
+  # owl:imports foaf:;
+  # owl:imports elm:;
+  # owl:imports skos:;
+  # owl:imports sh:;
+  # owl:imports cred:;
+  # owl:imports locn:;
+  # owl:imports clv:;
   rdfs:label "SHACL constraints for EDC Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
   dc:modified "2022-10-07"^^xsd:date;
@@ -107,7 +106,11 @@ edc:Accreditation-dc_description
 edc:Accreditation-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the accreditation."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -332,7 +335,11 @@ edc:AddressShape
 edc:Address-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the address."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -380,7 +387,11 @@ edc:AgentShape
 edc:Agent-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the agent."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -504,7 +515,11 @@ edc:AwardingOpportunityShape
 edc:AwardingOpportunity-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the awarding opportunity."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -590,7 +605,11 @@ edc:AwardingProcess-dc_description
 edc:AwardingProcess-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the awarding process."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -714,7 +733,11 @@ edc:Claim-dc_description
 edc:Claim-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the claim."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -999,7 +1022,11 @@ edc:EuropeanDigitalCredentialShape
  edc:EuropeanDigitalCredential-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An alternative identifier of the European Digital Credential for Learning typically assigned to the credential by the issuing organisation."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -1136,7 +1163,7 @@ edc:EuropeanDigitalCredential-cred_proof
 edc:EuropeanDigitalCredential-cred_evidence
   a sh:PropertyShape; 
   sh:path cred:evidence;
-  sh:datatype elm:evidence;
+  sh:datatype cred:Evidence;
   sh:description "The evidence of the european digital credential."@en;
   sh:name "evidence"@en;
   sh:severity sh:Violation;
@@ -1155,7 +1182,7 @@ edc:EuropeanDigitalCredential-cred_evidence
  edc:EuropeanDigitalCredential-cred_credentialSchema
   a sh:PropertyShape; 
   sh:path cred:credentialSchema;
-  sh:class elm:ShaclValidator; # or sh:datatype xsd:anyURI;
+  sh:class elm:ShaclValidator2017; # or sh:datatype xsd:anyURI;
   sh:minCount 1;
   sh:description "The schema of the european digital credential."@en;
   sh:name "credential schema"@en;
@@ -1309,7 +1336,11 @@ edc:GradingScheme-dc_title
  edc:GradingScheme-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the grading scheme."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -1553,7 +1584,11 @@ edc:LearningAchievement-dc_description
 edc:LearningAchievement-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning achievement."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -1735,7 +1770,11 @@ edc:LearningAchievementSpecification-dc_title
   edc:LearningAchievementSpecification-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning achievement specification."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -2101,7 +2140,11 @@ edc:LearningActivity-dc_description
 edc:LearningActivity-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning activity."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -2311,7 +2354,11 @@ edc:LearningActivitySpecification-dc_title
  edc:LearningActivitySpecification-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning activity specification."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -2525,7 +2572,11 @@ edc:LearningAssessment-dc_description
 edc:LearningAssessment-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning assessment."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -2759,7 +2810,11 @@ edc:LearningAssessmentSpecification-dc_title
  edc:LearningAssessmentSpecification-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning assessment specification."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -2954,7 +3009,11 @@ edc:LearningEntitlement-dc_description
 edc:LearningEntitlement-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning entitlement."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -3121,7 +3180,11 @@ edc:LearningEntitlementSpecification-dc_title
  edc:LearningEntitlementSpecification-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning entitlement  specification."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -3365,7 +3428,11 @@ edc:LearningOpportunity-dc_type
 edc:LearningOpportunity-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning opportunity."@en;
   sh:name "identifier"@en;
   #sh:order 3;
@@ -3638,12 +3705,16 @@ edc:LearningOutcome-dc_type
   sh:description "The learning outcome type. It should be provided using ESCO Skill Pillar concept types."@en;
   sh:name "type"@en;
   #sh:order 2;
-  sh:severity sh:Violation
+  sh:severity sh:Violation;
 .
 edc:LearningOutcome-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the learning outcome."@en;
   sh:name "identifier"@en;
   #sh:order 3;
@@ -3668,7 +3739,7 @@ edc:LearningOutcome-elm_reusabilityLevel
   sh:name "reusability level"@en;
   #sh:order 5;
   sh:severity sh:Violation;
-  .
+ .
 edc:LearningOutcome-elm_relatedSkill
   a sh:PropertyShape;
   sh:path elm:relatedSkill;
@@ -3875,7 +3946,11 @@ edc:Organisation-rov_legalName
 edc:Organisation-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the organisation."@en;
   sh:name "identifier"@en;
   #sh:order 2;
@@ -4063,7 +4138,11 @@ edc:PersonShape
 edc:Person_adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the person."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -4127,7 +4206,7 @@ edc:Person-foaf_familyName
 
 edc:Person-person_birthName
   a sh:PropertyShape;
-  sh:path person:birthName;
+  sh:path cpv:birthName;
   sh:datatype rdf:langString;
   sh:description "The name of the person at birth. Birth names tend to be persistent and for this reason they are recorded by some public sector information systems. There is no granularity for birth name - the full name should be recorded in a single field."@en;
   sh:name "birth name"@en;
@@ -4137,7 +4216,7 @@ edc:Person-person_birthName
 
 edc:Person-person_patronymicName
   a sh:PropertyShape;
-  sh:path person:patronymicName;
+  sh:path cpv:patronymicName;
   sh:datatype rdf:langString;
   sh:description "Patronymic names are important in some countries. Iceland does not have a concept of 'family name' in the way that many other European countries do, for example, Erik Magnusson and Erika Magnusdottir are siblings, both offspring of Mangnus, irrespective of his patronymic name. In Bulgaria and Russia, patronymic names are in everyday usage, for example, the Sergeyevich in 'Mikhail Sergeyevich Gorbachev."@en;
   sh:name "patronymic name"@en;
@@ -4192,6 +4271,7 @@ edc:Person-elm_citizenshipCountry
   a sh:PropertyShape;
   sh:path elm:citizenshipCountry;
   sh:class skos:Concept;
+  sh:nodekind sh:IRI;
   sh:description "The country (or countries) that conferred citizenship rights on the person. It should be provided using the Country Named Authority List."@en;
   sh:name "citizenship"@en;
   sh:severity sh:Violation;
@@ -4334,7 +4414,11 @@ edc:PriceDetail-skos_prefLabel
 edc:PriceDetail-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the price details."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -4421,7 +4505,11 @@ edc:Qualification-dc_title
   edc:Qualification-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the qualification."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -4974,7 +5062,11 @@ edc:Specification-dc_title
  edc:Specification-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the specification."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -5220,7 +5312,11 @@ edc:LocationShape
 edc:Location-adms_identifier
   a sh:PropertyShape; 
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the location."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;
@@ -5337,7 +5433,6 @@ edc:ConceptShape
       sh:path skos:inScheme ;
       sh:class skos:ConceptScheme;  
       sh:name "in scheme"@en;
-      sh:maxCount 1;
       sh:description "The concept scheme this concept belongs to. The identification of the controlled vocabulary."@en;
       sh:severity sh:Violation;
       #sh:order 2;
@@ -5457,6 +5552,7 @@ edc:GroupShape
  edc:VerifiableCredentialShape
   a sh:NodeShape ;
   sh:targetClass cred:VerifiableCredential;
+  sh:deactivated true;
   rdfs:comment "A Verifiable Credential. This is the superclass of European Digital credential for Learning."@en; 
   rdfs:label "Verifiable Credential "@en;
   sh:property edc:VerifiableCredential-cred_issuer;
@@ -5489,6 +5585,7 @@ edc:VerifiableCredential-cred_issuer
   sh:maxCount 1;
   sh:severity sh:Violation;
   sh:node edc:IssuerNodeShape;
+  sh:deactivated true ;
   #sh:order 0;
   . 
 
@@ -5506,6 +5603,7 @@ edc:VerifiableCredential-cred_credentialSubject
   sh:description "The subject (agent, person etc) about which claims are made and who owns the credential."@en;
   sh:name "credential subject (owner)"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 1;
   . 
 edc:VerifiableCredential-cred_issuanceDate
@@ -5516,6 +5614,7 @@ edc:VerifiableCredential-cred_issuanceDate
   sh:description "Defines the date and time, when the credential becomes valid."@en;
   sh:name "issuance date"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 2;
   .
  edc:VerifiableCredential-cred_issued
@@ -5527,6 +5626,7 @@ edc:VerifiableCredential-cred_issuanceDate
   sh:description "The date when the credential was issued."@en;
   sh:name "issued"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 3;
   .
 
@@ -5539,6 +5639,7 @@ edc:VerifiableCredential-cred_validFrom
   sh:description "The earliest date when the information associated with the credential subject property became valid."@en;
   sh:name "valid from"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 4;
   .
 
@@ -5550,6 +5651,7 @@ edc:VerifiableCredential-cred_expirationDate
   sh:description "The date and time when the credential expires."@en;
   sh:name "expiration date"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 5;
   . 
 
@@ -5561,6 +5663,7 @@ edc:VerifiableCredential-cred_expirationDate
   sh:description "The date and time, when the credential expires (automatic invalidation)."@en;
   sh:name "valid until"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 6;
   .
 edc:VerifiableCredential-cred_proof
@@ -5570,16 +5673,17 @@ edc:VerifiableCredential-cred_proof
   sh:description "The proof of the verifiable credential."@en;
   sh:name "proof"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 7;
   .
 edc:VerifiableCredential-cred_evidence
   a sh:PropertyShape; 
   sh:path cred:evidence;
   sh:datatype elm:Evidence;
-  sh:minCount 1;
   sh:description "The evidence of the verifiable credential."@en;
   sh:name "evidence"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 8;
   .
  edc:VerifiableCredential-cred_credentialStatus
@@ -5590,16 +5694,18 @@ edc:VerifiableCredential-cred_evidence
   sh:description "The status of the verifiable credential."@en;
   sh:name "credential status"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 9;
   . 
  edc:VerifiableCredential-cred_credentialSchema
   a sh:PropertyShape; 
   sh:path cred:credentialSchema;
-  sh:datatype xsd:anyURI;
+  sh:nodeKind sh:IRI ;
   sh:minCount 1;
   sh:description "The schema the verifiable credential should be validated against."@en;
   sh:name "credential schema"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 10;
   . 
  edc:VerifiableCredential-cred_termsOfUse
@@ -5609,6 +5715,7 @@ edc:VerifiableCredential-cred_evidence
   sh:description "The terms of use of verifiable credential."@en;
   sh:name "terms of use"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 11;
   .   
  edc:VerifiableCredential-cred_holder
@@ -5624,6 +5731,7 @@ edc:VerifiableCredential-cred_evidence
   sh:description "The holder of verifiable credential."@en;
   sh:name "holder"@en;
   sh:severity sh:Violation;
+  sh:deactivated true ;
   #sh:order 12;
   .    
 #---------------------------------------------------------------  
@@ -5705,7 +5813,11 @@ edc:ClaimTypeNodeShape
   ]; 
   sh:property[
   sh:path adms:identifier;
-  sh:class elm:Identifier;
+  #sh:class elm:Identifier;
+  sh:or (
+          [sh:class elm:Identifier;]
+          [sh:class elm:LegalIdentifier;]
+          );
   sh:description "An identifier of the claim."@en;
   sh:name "identifier"@en;
   sh:severity sh:Violation;

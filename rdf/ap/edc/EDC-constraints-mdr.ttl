@@ -1,42 +1,40 @@
 @prefix :    <http://data.europa.eu/snb/model/edc-constraints-mdr/>.
-@prefix dc:     <http://purl.org/dc/terms/>.
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
-@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
-@prefix adms:   <http://www.w3.org/ns/adms#>.
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix org:    <http://www.w3.org/ns/org#>.
-@prefix rov:    <http://www.w3.org/ns/regorg#>.
-@prefix dcat:   <http://www.w3.org/ns/dcat#>.
-@prefix elm:    <http://data.europa.eu/snb/model/>.
-@prefix edc:    <http://data.europa.eu/snb/model/edc-constraints/>.
-@prefix cpv:    <https://www.w3.org/ns/person#>.
-@prefix owl:    <http://www.w3.org/2002/07/owl#>.
-@prefix cc:     <http://creativecommons.org/ns#>.
-@prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
-@prefix person: <http://www.w3.org/ns/person#>.
-@prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix adms:   <http://www.w3.org/ns/adms#>.
 @prefix cred:   <https://www.w3.org/2018/credentials#>.
-@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix dc:     <http://purl.org/dc/terms/>.
+@prefix edc:    <http://data.europa.eu/snb/model/edc-constraints-no-semantics/>.
+@prefix edca:   <http://data.europa.eu/snb/model/edc-all-constraints-no-semantics/>.
+@prefix elm:    <http://data.europa.eu/snb/model/>.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix dcat:   <http://www.w3.org/ns/dcat#>.
+@prefix cpv:    <https://www.w3.org/ns/person#>.
+@prefix clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
 @prefix locn:   <http://www.w3.org/ns/locn#>.
-@prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
+@prefix cc:     <http://creativecommons.org/ns#>.
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix org:    <http://www.w3.org/ns/org#>.
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
 
 <http://data.europa.eu/snb/model/edc-constraints-mdr>
   a owl:Ontology;
-  owl:imports rdf:;
-  owl:imports dc:;
-  owl:imports org:;
-  owl:imports person:;
-  owl:imports adms:;
-  owl:imports foaf:;
-  owl:imports elm:;
-  owl:imports edc:;
-  owl:imports skos:;
-  owl:imports sh:;
-  owl:imports cred:;
-  owl:imports locn:;
-  owl:imports clv:;
+  owl:imports <http://data.europa.eu/snb/model/edc-all-constraints-no-semantics/>;
+#   owl:imports rdf:;
+#   owl:imports dc:;
+#   owl:imports org:;
+#   owl:imports cpv:;
+#   owl:imports adms:;
+#   owl:imports foaf:;
+#   owl:imports elm:;
+#   owl:imports skos:;
+#   owl:imports sh:;
+#   owl:imports cred:;
+#   owl:imports locn:;
+#   owl:imports clv:;
   rdfs:label "Controlled Vocabularies SHACL constraints for EDC Application Profile"@en;
   dc:created "2021-09-25"^^xsd:date;
   dc:modified "2022-07-12"^^xsd:date;
@@ -69,6 +67,7 @@
     rdfs:comment "Thematic Area restriction";
     rdfs:label "Thematic Area restriction";
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/isced-f/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -79,6 +78,7 @@
     rdfs:comment "EQF Level restriction" ;
     rdfs:label "EQF Level restriction" ;
     sh:property [
+         sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/eqf/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -88,6 +88,7 @@
     rdfs:comment "Jurisdiction restriction" ;
     rdfs:label "Jurisdiction restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://publications.europa.eu/resource/authority/atu> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -97,6 +98,7 @@
     rdfs:comment "Country restriction" ;
     rdfs:label "Country restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://publications.europa.eu/resource/authority/country> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -106,6 +108,7 @@
 #     rdfs:comment "Credit System restriction" ;
 #     rdfs:label "Credit System restriction" ;
 #     sh:property [
+#     sh:class skos:ConceptScheme ;
 #         sh:hasValue <http://data.europa.eu/snb/education-credit/25831c2> ;
 #         sh:nodeKind sh:IRI ;
 #         sh:path skos:inScheme
@@ -115,6 +118,7 @@
     rdfs:comment "Amount Unit restriction" ;
     rdfs:label "Amount Unit restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://publications.europa.eu/resource/authority/currency> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -125,6 +129,7 @@
     rdfs:comment "European Digital Credential Type restriction";
     rdfs:label "European Digital Credential Type restriction";
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/credential/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -135,6 +140,7 @@
     rdfs:comment "ESCO Occupation restriction" ;
     rdfs:label "ESCO Occupation restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:pattern "^http://data.europa.eu/esco/occupation" ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -145,6 +151,7 @@
     rdfs:comment "Language restriction";
     rdfs:label "Language restriction";
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://publications.europa.eu/resource/authority/language> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -155,6 +162,7 @@
     rdfs:comment "Learning Setting restriction";
     rdfs:label "Learning Setting restriction";
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/learning-setting/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -165,6 +173,7 @@
     rdfs:comment "Learning Entitlement Status restriction" ;
     rdfs:label "Learning Entitlement Status restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/entitlement-status/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -175,6 +184,7 @@
     rdfs:comment "NQF Level restriction" ;
     rdfs:label "NQF Level restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/qdr/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -185,6 +195,7 @@
     rdfs:comment "Learning Outcome Type restriction" ;
     rdfs:label "Learning Outcome Type restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/skill-type/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -195,6 +206,7 @@
     rdfs:comment "Reusability Level restriction" ;
     rdfs:label "Reusability Level restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/skill-reuse-level/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -205,6 +217,7 @@
     rdfs:comment "ESCO Skill restriction" ;
     rdfs:label "ESCO Skill restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:pattern "^https://ec.europa.eu/esco/skill/" ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -215,6 +228,7 @@
     rdfs:comment "Learning Opportunity Type Restriction";
     rdfs:label "Learning Opportunity Type Restriction";
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/learning-opportunity/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -225,6 +239,7 @@
     rdfs:comment "Limit Credential Type Restriction";
     rdfs:label "Limit Credential Type Restriction";
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/credential/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -234,6 +249,7 @@
     rdfs:comment "Verification Check Status restriction" ;
     rdfs:label "Verification Check Status restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/verification-status/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -244,6 +260,7 @@
     rdfs:comment "Verification Check Type restriction" ;
     rdfs:label "Verification Check Type restriction" ;
     sh:property [
+        sh:class skos:ConceptScheme ;
         sh:hasValue <http://data.europa.eu/snb/verification/25831c2> ;
         sh:nodeKind sh:IRI ;
         sh:path skos:inScheme
@@ -254,7 +271,7 @@
     rdfs:comment "Accreditation Status restriction" ;
     rdfs:label "Accreditation Status restriction" ;
     sh:property [  
-         sh:nodeKind sh:IRI ;
+         sh:class skos:ConceptScheme ;
          sh:hasValue <https://publications.europa.eu/resource/authority/snb/status/25831c2>;
          sh:nodeKind sh:IRI ;
          sh:path skos:inScheme;
@@ -366,10 +383,16 @@
     sh:property [
         sh:node :EuropeanDigitalCredentialTypeRestriction;
         sh:nodeKind sh:IRI ;
-        sh:name"type"@en;
-        sh:path dc:type;
+        sh:name"credential label"@en;
+        sh:path elm:credentialLabel;
         sh:severity sh:Violation
-    ];
+    ]
+    .
+#-------------------------------------------
+:DisplayParameterCV
+    a sh:NodeShape;  
+    sh:targetClass elm:DisplayParameter;
+    #rdfs:label "CV Restrictions for European Presentation Shape"@en;
     sh:property[
         sh:node :LanguageRestriction;
         sh:nodeKind sh:IRI ;
@@ -387,8 +410,8 @@
         sh:name "available language";
         sh:severity sh:Violation; 
         ];
-    .
-#-------------------------------------------
+.
+#-------------------------------------------        
 :LearningAchievementSpecificationShapeCV
     a sh:NodeShape;  
     sh:targetClass elm:LearningAchievementSpecification;
@@ -616,7 +639,7 @@ a sh:NodeShape;
         sh:node :VerificationCheckStatusRestriction;
         sh:nodeKind sh:IRI ;
         sh:name"status"@en;
-        sh:path elm:status;
+        sh:path elm:verificationStatus;
         sh:minCount 1;
         sh:maxCount 1;
         sh:severity sh:Violation;

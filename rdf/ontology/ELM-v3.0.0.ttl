@@ -10,7 +10,7 @@
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
-@prefix person: <http://www.w3.org/ns/person#>.
+@prefix cpv: <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix locn:   <http://www.w3.org/ns/locn#>.
 @prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
@@ -23,7 +23,7 @@
   owl:imports dc:;
   owl:imports rov:;
   owl:imports elm:;
-  owl:imports person:;
+  owl:imports cpv:;
   owl:imports adms:;
   owl:imports foaf:;
   owl:imports cred:;
@@ -403,7 +403,7 @@ elm:Person
   rdfs:label "Person"@en;
   rdfs:isDefinedBy <http://data.europa.eu/snb/model>;
   rdfs:subClassOf elm:Agent;
-  rdfs:subClassOf person:Person;
+  rdfs:subClassOf cpv:Person;
 .
 
 elm:Phone
@@ -1959,7 +1959,7 @@ elm:endDate
 #----------------       Person properties      -------------
 
 ## Re-used properties
-### fullname->foaf:name, foaf:givenName, foaf:familyName, person:birthName, person:patronymicName, adms:identifier, elm:location
+### fullname->foaf:name, foaf:givenName, foaf:familyName, cpv:birthName, cpv:patronymicName, adms:identifier, elm:location
 ### elm:contactPoint, elm:additionalNote, org:memberOf (with range rov:registeredOrganisation), elm:lastModificationDate
 
 elm:dateOfBirth

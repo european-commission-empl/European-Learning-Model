@@ -23,6 +23,7 @@
         "AwardingProcess": "elm:AwardingProcess",
         "Claim": "elm:Claim",
         "Concept": "skos:Concept",
+        "ConceptScheme":"skos:ConceptScheme",
         "ContactPoint": "elm:ContactPoint",
         "CreditPoint": "elm:CreditPoint",
         "DisplayParameter": "elm:DisplayParameter",
@@ -57,7 +58,7 @@
         "Qualification": "elm:Qualification",
         "ResultCategory": "elm:ResultCategory",
         "ResultDistribution": "elm:ResultDistribution",
-        "ShaclValidator":"elm:ShaclValidator",
+        "ShaclValidator2017":"elm:ShaclValidator2017",
         "ShortenedGrading": "elm:ShortenedGrading",
         "Specification": "elm:Specification",
         "VerificationCheck": "elm:VerificationCheck",
@@ -678,6 +679,10 @@
         "schemeVersion": {
             "@id": "elm:schemeVersion",
             "@type": "xsd:string"
+        },
+        "schemeId": {
+            "@id": "elm:schemeId",
+            "@type": "xsd:anyURI"
         },
         "score": {
             "@id": "elm:score",
