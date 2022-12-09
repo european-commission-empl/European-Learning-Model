@@ -23,7 +23,7 @@
         "AwardingProcess": "elm:AwardingProcess",
         "Claim": "elm:Claim",
         "Concept": "skos:Concept",
-        "ConceptScheme":"skos:ConceptScheme",
+        "ConceptScheme":"skos:conceptScheme",
         "ContactPoint": "elm:ContactPoint",
         "CreditPoint": "elm:CreditPoint",
         "DisplayParameter": "elm:DisplayParameter",
@@ -34,6 +34,7 @@
         "GradingScheme": "elm:radingScheme",
         "Grant": "elm:Grant",
         "Group": "elm:Group",
+        "Evidence":"elm:Evidence",
         "Identifier": "elm:Identifier",
         "LearningAchievement": "elm:LearningAchievement",
         "LearningAchievementSpecification": "elm:LearningAchievementSpecification",
@@ -199,8 +200,8 @@
             "@id": "dc:creator",
             "@type": "@id"
         },
-        "credentialLabel":{
-          "@id": "elm:credentialLabel",
+        "credentialProfile":{
+          "@id": "elm:credentialProfile",
           "@type": "@id"
         },
         "creditReceived": {
@@ -238,6 +239,10 @@
         "descriptionHtml": {
             "@id": "elm:descriptionHtml",
             "@type": "@id"
+        },
+        "definition": {
+            "@id": "skos:definition",
+            "@container": "@language"
         },
         "dialNumber": {
             "@id": "elm:dialNumber",
@@ -304,7 +309,7 @@
             "@id": "elm:entryRequirement",
             "@type": "@id"
         },
-        "EQFLevel": {
+        "eqfLevel": {
             "@id": "elm:EQFLevel",
             "@type": "@id"
         },
@@ -564,7 +569,7 @@
             "@id": "elm:noteLiteral",
             "@type": "xsd:string"
         },
-        "NQFLevel": {
+        "nqfLevel": {
             "@id": "elm:NQFLevel",
             "@type": "@id"
         },
@@ -618,7 +623,8 @@
           "@type": "@id"
         },
         "prefLabel": {
-            "@id": "skos:prefLabel"
+            "@id": "skos:prefLabel",
+            "@container": "@language"
         },
         "phoneNumber": {
             "@id": "elm:phoneNumber",
@@ -714,7 +720,7 @@
         },
         "status": {
             "@id": "elm:status",
-            "@type": "@id"
+            "@type": "xsd:string"
         },
         "subject": {
             "@id": "dc:subject",

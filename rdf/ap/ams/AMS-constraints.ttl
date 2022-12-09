@@ -236,7 +236,7 @@ ams:AccreditationShape
   ];
   sh:property [
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the accreditation."@en;
     sh:name "status"@en;
@@ -355,7 +355,7 @@ ams:AgentShape
   ];
   sh:property[
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the agent."@en;
     sh:name "status"@en;
@@ -627,7 +627,7 @@ ams:OrganisationShape
   ];
   sh:property[
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the organisation."@en;
     sh:name "status"@en;
