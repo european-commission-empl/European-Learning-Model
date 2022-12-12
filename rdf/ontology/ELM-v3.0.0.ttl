@@ -563,7 +563,6 @@ elm:status
   rdfs:label "status"@en;
   skos:usageNote"It is recommended to be used with a controlled vocabulary. For the status of an entitlement the Europass Standard List of Entitlement Status Controlled vocabulary is recommended. Dor the status of the verification check the Europass Standard List of Verification Statuses is recommended. "@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model>;
-  rdfs:range  skos:Concept;
 .
 
 elm:hasPart
@@ -699,7 +698,7 @@ elm:accreditingAgent
   rdfs:label "review date"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model>;
   rdfs:domain elm:Accreditation;
-  rdfs:range  xsd:dateTIme;
+  rdfs:range  xsd:dateTime;
   rdfs:subPropertyOf dc:date;
 .
 
@@ -1017,12 +1016,12 @@ elm:attachment
   rdfs:range elm:MediaObject;
   . 
 
-elm:credentialLabel
+elm:credentialProfile
   a rdf:Property; 
 	a owl:ObjectProperty;
-  dc:identifier "elm:credentialLabel";
+  dc:identifier "elm:credentialProfile";
 	rdfs:comment "A label associated to the european digital credential. It should be provided using the EDC Controlled List of Credential Types."@en;
-  rdfs:label "credential label"@en;
+  rdfs:label "credential profile"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model>;
   rdfs:domain elm:EuropeanDigitalCredential;
   rdfs:range skos:Concept;
@@ -2193,7 +2192,7 @@ elm:score
   rdfs:range xsd:string;
   .
 
-elm:minSore
+elm:minScore
   a rdf:Property; 
 	a owl:ObjectProperty;
   dc:identifier "elm:minScore";

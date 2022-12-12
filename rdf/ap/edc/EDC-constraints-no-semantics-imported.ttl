@@ -120,7 +120,6 @@ edc:Accreditation-adms_identifier
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the accreditation."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -295,7 +294,7 @@ edc:Accreditation-elm_landingPage
 edc:Accreditation-elm_status 
     a sh:PropertyShape; 
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the accreditation."@en;
     sh:name "status"@en;
@@ -438,7 +437,6 @@ edc:Agent-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the agent."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -568,7 +566,6 @@ edc:AwardingOpportunity-elm_learningAchievementSpecification
           [sh:class elm:LearningAchievementSpecification;]
           [sh:class elm:Qualification;]
           );
-  sh:minCount 1;
   sh:maxCount 1;
   sh:description "The awarded learning achievement specification."@en;
   sh:name "awarded learning achievement specification"@en;
@@ -629,7 +626,6 @@ edc:AwardingProcess-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the awarding process."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -650,7 +646,6 @@ edc:AwardingProcess-elm_awards
   sh:path elm:awards;
   #sh:class elm:Claim;
   sh:node edc:ClaimNodeShape;
-  sh:minCount 1;
   sh:description "The resulting claim."@en;
   sh:name "awards"@en;
   sh:severity sh:Violation;
@@ -675,7 +670,7 @@ edc:AwardingProcess-elm_awardingBody
 edc:AwardingProcess-elm_educationalSystemNote
   a sh:PropertyShape;  
   sh:path elm:educationalSystemNote;
-  sh:class elm:Note;
+  sh:class skos:Concept;
   sh:maxCount 1;
   sh:maxCount 1;
   sh:description "Additional information about the national system of this awarding process."@en;
@@ -756,7 +751,6 @@ edc:Claim-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the claim."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -809,7 +803,6 @@ edc:ContactPoint-dc_description
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the contact point."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -1001,7 +994,7 @@ edc:EuropeanDigitalCredentialShape
   rdfs:comment "A set of claims made by an issuer in Europe, using the EDC Standards. A European Digital Credential for Learning is a set of one or more claims which may be used to demonstrate that the owner has certain skills or has achieved certain learning outcomes through formal, non-formal or informal learning. European Digital Credential class is a subclass of Verifiable Credential."@en; 
   rdfs:label "European Digital Credential "@en; 
   sh:property edc:EuropeanDigitalCredential-adms_identifier;
-  sh:property edc:EuropeanDigitalCredential-elm_credentialLabel;
+  sh:property edc:EuropeanDigitalCredential-elm_credentialProfile;
   sh:property edc:EuropeanDigitalCredential-elm_attachment;
   sh:property edc:EuropeanDigitalCredential-elm_displayParameter;
   sh:property edc:EuropeanDigitalCredential-cred_issuer;
@@ -1032,12 +1025,13 @@ edc:EuropeanDigitalCredentialShape
   sh:severity sh:Violation;
   #sh:order 0;
   . 
-edc:EuropeanDigitalCredential-elm_credentialLabel
+edc:EuropeanDigitalCredential-elm_credentialProfile
   a sh:PropertyShape; 
-  sh:path elm:credentialLabel;
+  sh:path elm:credentialProfile;
   sh:class skos:Concept;
-  sh:description "A label associated with  the European Digital Credential. It should be provided using the EDC Controlled List of Credential Types."@en;
-  sh:name "credential label"@en;
+  sh:minCount 1;
+  sh:description "A profile of the European Digital Credential. It should be provided using the EDC Controlled List of Credential Types."@en;
+  sh:name "credential profile"@en;
   sh:severity sh:Violation;
   #sh:order 1;
   .
@@ -1163,7 +1157,7 @@ edc:EuropeanDigitalCredential-cred_proof
 edc:EuropeanDigitalCredential-cred_evidence
   a sh:PropertyShape; 
   sh:path cred:evidence;
-  sh:datatype cred:Evidence;
+  sh:class elm:Evidence;
   sh:description "The evidence of the european digital credential."@en;
   sh:name "evidence"@en;
   sh:severity sh:Violation;
@@ -1607,7 +1601,6 @@ edc:LearningAchievement-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning achievement."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -1656,6 +1649,7 @@ edc:LearningAchievement-elm_awardedBy
   a sh:PropertyShape;
   sh:path elm:awardedBy;
   sh:class elm:AwardingProcess;
+  sh:minCount 1;
   sh:maxCount 1;
   sh:description "The awarding details of this achievement."@en;
   sh:name "awarded by"@en;
@@ -1803,7 +1797,6 @@ edc:LearningAchievementSpecification-dc_title
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning achievement specification."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -2085,7 +2078,7 @@ edc:LearningAchievementSpecification-elm_generalisationOf
 edc:LearningAchievementSpecification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning achievement specification."@en;
     sh:name "status"@en;
@@ -2163,7 +2156,6 @@ edc:LearningActivity-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning activity."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -2235,6 +2227,7 @@ edc:LearningActivity-elm_directedBy
   a sh:PropertyShape;
   sh:path elm:awardedBy;
   sh:class elm:AwardingProcess;
+  sh:minCount 1;
   sh:maxCount 1;
   sh:description "The awarding details of the learning activity."@en;
   sh:name "awarded by"@en;
@@ -2345,7 +2338,6 @@ edc:LearningActivitySpecification-dc_title
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning activity specification."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -2515,7 +2507,7 @@ edc:LearningActivitySpecification-elm_hasPart
 edc:LearningActivitySpecification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning activity specification."@en;
     sh:name "status"@en;
@@ -2595,7 +2587,6 @@ edc:LearningAssessment-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning assessment."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -2701,6 +2692,7 @@ edc:LearningAssessment-elm_assessedBy
   a sh:PropertyShape;
   sh:path elm:awardedBy;
   sh:class elm:AwardingProcess;
+  sh:minCount 1;
   sh:maxCount 1;
   sh:description "The awarding details of the learning assessment."@en;
   sh:name "awarded by"@en;
@@ -2801,7 +2793,6 @@ edc:LearningAssessmentSpecification-dc_title
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning assessment specification."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -2957,7 +2948,7 @@ edc:LearningAssessmentSpecification-elm_generalisationOf
  edc:LearningAssessmentSpecification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning assessment specification."@en;
     sh:name "status"@en;
@@ -3033,7 +3024,6 @@ edc:LearningEntitlement-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning entitlement."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -3072,6 +3062,7 @@ edc:LearningEntitlement-elm_expiryDate
   a sh:PropertyShape;
   sh:path elm:awardedBy;
   sh:class elm:AwardingProcess;
+  sh:minCount 1;
   sh:maxCount 1;
   sh:description "The awarding details of the learning entitlement."@en;
   sh:name "awarded by"@en;
@@ -3171,7 +3162,6 @@ edc:LearningEntitlementSpecification-dc_title
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning entitlement  specification."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -3354,7 +3344,7 @@ edc:LearningEntitlementSpecification-elm_generalisationOf
   edc:LearningEntitlementSpecification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning entitlement specification."@en;
     sh:name "status"@en;
@@ -3442,7 +3432,6 @@ edc:LearningOpportunity-adms_identifier
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning opportunity."@en;
   sh:name "more information"@en;
   #sh:order 4;
@@ -3664,7 +3653,7 @@ edc:LearningOpportunity-dc_modified
   edc:LearningOpportunity-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning opportunity."@en;
     sh:name "status"@en;
@@ -3724,7 +3713,6 @@ edc:LearningOutcome-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the learning outcome."@en;
   sh:name "more information"@en;
   #sh:order 4;
@@ -4016,7 +4004,6 @@ edc:Organisation-elm_taxIdentifier
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the organisation."@en;
   sh:name "more information"@en;
   #sh:order 9;
@@ -4428,7 +4415,6 @@ edc:PriceDetail-elm_additionalNote
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the price details."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -4538,7 +4524,6 @@ edc:Qualification-dc_title
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the qualification."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -4853,7 +4838,7 @@ edc:Qualification-elm_qualificationCode
 edc:Qualification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the qualification."@en;
     sh:name "status"@en;
@@ -5053,7 +5038,6 @@ edc:Specification-dc_title
   a sh:PropertyShape; 
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the specification."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -5132,7 +5116,7 @@ edc:Specification-dc_modified
  edc:Specification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class skos:Concept;
+    sh:class xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the specification."@en;
     sh:name "status"@en;
@@ -5437,6 +5421,14 @@ edc:ConceptShape
       sh:severity sh:Violation;
       #sh:order 2;
     ];
+     sh:property [
+      sh:path skos:definition ;
+      sh:datatype rdf:langString; 
+      sh:name "definition"@en;
+      sh:description "The definition of the concept."@en;
+      sh:severity sh:Violation;
+      #sh:order 3;
+    ];
 .
 #---------------------------------------------------------------
 #---------- Concept  Scheme Shape (skos:Concept) ---------------
@@ -5509,7 +5501,6 @@ edc:GroupShape
   sh:property[
      sh:path elm:additionalNote;
      sh:class elm:Note;
-     sh:maxCount 1;
      sh:description "An additional free text note about the group."@en;
      sh:name "more information"@en;
      sh:severity sh:Violation;
@@ -5826,7 +5817,6 @@ edc:ClaimTypeNodeShape
   sh:property[
   sh:path elm:additionalNote;
   sh:class elm:Note;
-  sh:maxCount 1;
   sh:description "An additional free text note about the claim."@en;
   sh:name "more information"@en;
   sh:severity sh:Violation;
@@ -5843,6 +5833,7 @@ edc:ClaimTypeNodeShape
   sh:property[
   sh:path elm:awardedBy;
   sh:class elm:AwardingProcess;
+  sh:minCount 1;
   sh:maxCount 1;
   sh:description "The awarding details of the claim."@en;
   sh:name "awarded by"@en;
