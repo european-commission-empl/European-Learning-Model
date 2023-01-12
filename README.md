@@ -1,5 +1,5 @@
 # European Learning Model v3
-![license: EUPL](licence-EUPL%201.2-brightgreen.svg)](https://github.com/teamdigitale/licenses/blob/master/EUPL-1.2)
+[![license: EUPL](licence-EUPL%201.2-brightgreen.svg)](https://github.com/teamdigitale/licenses/blob/master/EUPL-1.2)
 If you wish to see the beta version of ELM v3, go to the ELM v3 branch in this repository.
 
 # European Learning Model
