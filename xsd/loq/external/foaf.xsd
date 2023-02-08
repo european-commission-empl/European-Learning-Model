@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://xmlns.com/foaf/0.1/"
+           targetNamespace="http://xmlns.com/foaf/0.1/"
+           elementFormDefault="qualified">
+     
+    <xs:element name="Agent" type="AgentType"/>
+ 
+    <xs:complexType name="AgentType">
+        <xs:annotation>
+            <xs:documentation>An agent (eg. person, group, software or physical artifact).</xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+
+</xs:schema>

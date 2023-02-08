@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.w3.org/2004/02/skos/core#"
+           targetNamespace="http://www.w3.org/2004/02/skos/core#"
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           elementFormDefault="qualified">
+    
+    <xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="rdf.xsd"/>
+    
+    <xs:element name="Concept" type="ConceptType"/>
+    
+    <xs:element name="notation" type="NotationType"/>
+    <xs:element name="prefLabel" type="rdf:LangStringType"/>
+    <xs:element name="altLabel" type="rdf:LangStringType"/>
+    <xs:element name="inScheme" type="xs:anyURI"/>
+    <xs:element name="definition" type="rdf:LangStringType"/>
+    
+    <xs:complexType name="ConceptType">
+        <xs:annotation>
+            <xs:documentation>A concept.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="prefLabel"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="altLabel"/>
+            <xs:element minOccurs="0" ref="notation"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="inScheme"/>
+        </xs:sequence>
+        <xs:attribute name="uri" type="xs:anyURI" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="NotationType">
+        <xs:annotation>
+            <xs:documentation></xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="type" type="xs:anyURI"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>

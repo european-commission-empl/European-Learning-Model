@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://data.europa.eu/snb/model/loq-constraints/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://data.europa.eu/snb/model/loq-constraints/">
+
+    <xs:simpleType name="SubjectTypeCodeEnumType">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+        <xs:restriction base="xs:anyURI">
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#accreditation-and-quality-assurance"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#assessment"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#awarding-activity"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#regulations-and-certificates"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#learning-outcomes"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#entry-requirements"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#labour-market-and-employment"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#contact-info"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#ways-to-acquire"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#history-and-lifecycle"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#labour-market-and-employment"/>
+            <xs:enumeration value="http://data.europa.eu/snb/qualification-topics#pathways"/>
+            <xs:enumeration value="http://data.europa.eu/snb/learningOpportunity-topics#duration-information"/>
+            <xs:enumeration value="http://data.europa.eu/snb/learningOpportunity-topics#provider-type"/>
+            <xs:enumeration value="http://data.europa.eu/snb/learningOpportunity-topics#grants"/>
+            <xs:enumeration value="http://data.europa.eu/snb/learningOpportunity-topics#costs"/>
+            <xs:enumeration value="http://data.europa.eu/snb/learningOpportunity-topics#start-date"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="AccreditationStatusEnumType">
+        <xs:restriction base="xs:anyURI">
+            <xs:enumeration value="http://data.europa.eu/snb/status/released">
+                <xs:annotation>
+                    <xs:documentation>Released</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://data.europa.eu/snb/status/obsolete">
+                <xs:annotation>
+                    <xs:documentation>Obsolete</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://data.europa.eu/snb/status/to-be-reviewed">
+                <xs:annotation>
+                    <xs:documentation>To Be Reviewed</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://data.europa.eu/snb/status/not-published-anymore">
+                <xs:annotation>
+                    <xs:documentation>Not Published Anymore</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

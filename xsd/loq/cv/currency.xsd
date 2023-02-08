@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:at="http://publications.europa.eu/ontology/authority/"
+    xmlns="http://publications.europa.eu/resource/authority/currency"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://publications.europa.eu/resource/authority/currency">
+    <xs:simpleType name="CurrencyEnumType">
+        <xs:restriction base="xs:anyURI">
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/AED">
+                <xs:annotation>
+                    <xs:documentation>UAE dirham</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/AFN">
+                <xs:annotation>
+                    <xs:documentation>Afghani</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ALL">
+                <xs:annotation>
+                    <xs:documentation>Lek</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/AMD">
+                <xs:annotation>
+                    <xs:documentation>Dram</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ANG">
+                <xs:annotation>
+                    <xs:documentation>Netherlands Antillean guilder</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/AOA">
+                <xs:annotation>
+                    <xs:documentation>Kwanza</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ARS">
+                <xs:annotation>
+                    <xs:documentation>Argentine peso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/AUD">
+                <xs:annotation>
+                    <xs:documentation>Australian dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/AWG">
+                <xs:annotation>
+                    <xs:documentation>Aruban guilder</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/AZN">
+                <xs:annotation>
+                    <xs:documentation>Azerbaijan manat</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BAM">
+                <xs:annotation>
+                    <xs:documentation>Convertible mark</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BBD">
+                <xs:annotation>
+                    <xs:documentation>Barbados dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BDT">
+                <xs:annotation>
+                    <xs:documentation>Taka</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BGN">
+                <xs:annotation>
+                    <xs:documentation>Lev</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BHD">
+                <xs:annotation>
+                    <xs:documentation>Bahraini dinar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BIF">
+                <xs:annotation>
+                    <xs:documentation>Burundi franc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BMD">
+                <xs:annotation>
+                    <xs:documentation>Bermuda dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BND">
+                <xs:annotation>
+                    <xs:documentation>Brunei dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BOB">
+                <xs:annotation>
+                    <xs:documentation>Boliviano</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BRL">
+                <xs:annotation>
+                    <xs:documentation>Real</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BSD">
+                <xs:annotation>
+                    <xs:documentation>Bahamian dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BTN">
+                <xs:annotation>
+                    <xs:documentation>Ngultrum</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BWP">
+                <xs:annotation>
+                    <xs:documentation>Pula</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BZD">
+                <xs:annotation>
+                    <xs:documentation>Belize dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CAD">
+                <xs:annotation>
+                    <xs:documentation>Canadian dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CDF">
+                <xs:annotation>
+                    <xs:documentation>Congolese franc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CHF">
+                <xs:annotation>
+                    <xs:documentation>Swiss franc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CLP">
+                <xs:annotation>
+                    <xs:documentation>Chilean peso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CNY">
+                <xs:annotation>
+                    <xs:documentation>Renminbi-yuan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/COP">
+                <xs:annotation>
+                    <xs:documentation>Colombian peso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CRC">
+                <xs:annotation>
+                    <xs:documentation>Costa Rican colon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CUC">
+                <xs:annotation>
+                    <xs:documentation>Convertible peso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CUP">
+                <xs:annotation>
+                    <xs:documentation>Cuban peso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CVE">
+                <xs:annotation>
+                    <xs:documentation>Cabo Verde escudo</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CZK">
+                <xs:annotation>
+                    <xs:documentation>Czech koruna</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/DJF">
+                <xs:annotation>
+                    <xs:documentation>Djibouti franc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/DKK">
+                <xs:annotation>
+                    <xs:documentation>Danish krone</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/DOP">
+                <xs:annotation>
+                    <xs:documentation>Dominican peso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/DZD">
+                <xs:annotation>
+                    <xs:documentation>Algerian dinar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/EGP">
+                <xs:annotation>
+                    <xs:documentation>Egyptian pound</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ERN">
+                <xs:annotation>
+                    <xs:documentation>Nakfa</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ETB">
+                <xs:annotation>
+                    <xs:documentation>Birr</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/EUR">
+                <xs:annotation>
+                    <xs:documentation>Euro</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/FJD">
+                <xs:annotation>
+                    <xs:documentation>Fiji dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/FKP">
+                <xs:annotation>
+                    <xs:documentation>Falkland Islands pound</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/GBP">
+                <xs:annotation>
+                    <xs:documentation>Pound sterling</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/GEL">
+                <xs:annotation>
+                    <xs:documentation>Lari</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/GHS">
+                <xs:annotation>
+                    <xs:documentation>Ghana cedi</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/GIP">
+                <xs:annotation>
+                    <xs:documentation>Gibraltar pound</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/GMD">
+                <xs:annotation>
+                    <xs:documentation>Dalasi</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/GNF">
+                <xs:annotation>
+                    <xs:documentation>Guinean franc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/GTQ">
+                <xs:annotation>
+                    <xs:documentation>Quetzal</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/GYD">
+                <xs:annotation>
+                    <xs:documentation>Guyana dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/HKD">
+                <xs:annotation>
+                    <xs:documentation>Hong Kong dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/HNL">
+                <xs:annotation>
+                    <xs:documentation>Lempira</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/HRK">
+                <xs:annotation>
+                    <xs:documentation>Kuna</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/HTG">
+                <xs:annotation>
+                    <xs:documentation>Gourde</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/HUF">
+                <xs:annotation>
+                    <xs:documentation>Forint</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/IDR">
+                <xs:annotation>
+                    <xs:documentation>Rupiah</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ILS">
+                <xs:annotation>
+                    <xs:documentation>Shekel</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/INR">
+                <xs:annotation>
+                    <xs:documentation>Indian rupee</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/IQD">
+                <xs:annotation>
+                    <xs:documentation>Iraqi dinar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/IRR">
+                <xs:annotation>
+                    <xs:documentation>Iranian rial</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ISK">
+                <xs:annotation>
+                    <xs:documentation>Iceland króna</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/JMD">
+                <xs:annotation>
+                    <xs:documentation>Jamaica dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/JOD">
+                <xs:annotation>
+                    <xs:documentation>Jordanian dinar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/JPY">
+                <xs:annotation>
+                    <xs:documentation>Yen</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/KES">
+                <xs:annotation>
+                    <xs:documentation>Kenyan shilling</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/KGS">
+                <xs:annotation>
+                    <xs:documentation>Som</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/KHR">
+                <xs:annotation>
+                    <xs:documentation>Riel</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/KMF">
+                <xs:annotation>
+                    <xs:documentation>Comorian franc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/KPW">
+                <xs:annotation>
+                    <xs:documentation>North Korean won</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/KRW">
+                <xs:annotation>
+                    <xs:documentation>South Korean won</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/KWD">
+                <xs:annotation>
+                    <xs:documentation>Kuwaiti dinar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/KYD">
+                <xs:annotation>
+                    <xs:documentation>Cayman Islands dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/KZT">
+                <xs:annotation>
+                    <xs:documentation>Tenge</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/LAK">
+                <xs:annotation>
+                    <xs:documentation>Kip</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/LBP">
+                <xs:annotation>
+                    <xs:documentation>Lebanese pound</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/LKR">
+                <xs:annotation>
+                    <xs:documentation>Sri Lankan rupee</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/LRD">
+                <xs:annotation>
+                    <xs:documentation>Liberian dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/LSL">
+                <xs:annotation>
+                    <xs:documentation>Loti</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/LYD">
+                <xs:annotation>
+                    <xs:documentation>Libyan dinar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MAD">
+                <xs:annotation>
+                    <xs:documentation>Moroccan dirham</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MDL">
+                <xs:annotation>
+                    <xs:documentation>Moldovan leu</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MGA">
+                <xs:annotation>
+                    <xs:documentation>Ariary</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MKD">
+                <xs:annotation>
+                    <xs:documentation>Denar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MMK">
+                <xs:annotation>
+                    <xs:documentation>Kyat</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MNT">
+                <xs:annotation>
+                    <xs:documentation>Tugrik</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MOP">
+                <xs:annotation>
+                    <xs:documentation>Pataca</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MUR">
+                <xs:annotation>
+                    <xs:documentation>Mauritian rupee</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MVR">
+                <xs:annotation>
+                    <xs:documentation>Rufiyaa</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MWK">
+                <xs:annotation>
+                    <xs:documentation>Malawian kwacha</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MXN">
+                <xs:annotation>
+                    <xs:documentation>Mexican peso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MYR">
+                <xs:annotation>
+                    <xs:documentation>Ringgit</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MZN">
+                <xs:annotation>
+                    <xs:documentation>Metical</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/NAD">
+                <xs:annotation>
+                    <xs:documentation>Namibian dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/NGN">
+                <xs:annotation>
+                    <xs:documentation>Naira</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/NIO">
+                <xs:annotation>
+                    <xs:documentation>Córdoba oro</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/NOK">
+                <xs:annotation>
+                    <xs:documentation>Norwegian krone</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/NPR">
+                <xs:annotation>
+                    <xs:documentation>Nepalese rupee</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/NZD">
+                <xs:annotation>
+                    <xs:documentation>New Zealand dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/OMR">
+                <xs:annotation>
+                    <xs:documentation>Omani rial</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/PAB">
+                <xs:annotation>
+                    <xs:documentation>Balboa</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/PGK">
+                <xs:annotation>
+                    <xs:documentation>Kina</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/PHP">
+                <xs:annotation>
+                    <xs:documentation>Philippine peso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/PKR">
+                <xs:annotation>
+                    <xs:documentation>Pakistani rupee</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/PLN">
+                <xs:annotation>
+                    <xs:documentation>Zloty</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/PYG">
+                <xs:annotation>
+                    <xs:documentation>Guaraní</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/QAR">
+                <xs:annotation>
+                    <xs:documentation>Qatari rial</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/RON">
+                <xs:annotation>
+                    <xs:documentation>Romanian leu</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/RSD">
+                <xs:annotation>
+                    <xs:documentation>Serbian dinar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/RUB">
+                <xs:annotation>
+                    <xs:documentation>Russian rouble</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/RWF">
+                <xs:annotation>
+                    <xs:documentation>Rwandese franc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SAR">
+                <xs:annotation>
+                    <xs:documentation>Saudi riyal</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SBD">
+                <xs:annotation>
+                    <xs:documentation>Solomon Islands dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SCR">
+                <xs:annotation>
+                    <xs:documentation>Seychelles rupee</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SDG">
+                <xs:annotation>
+                    <xs:documentation>Sudanese pound</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SEK">
+                <xs:annotation>
+                    <xs:documentation>Swedish krona</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SGD">
+                <xs:annotation>
+                    <xs:documentation>Singapore dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SHP">
+                <xs:annotation>
+                    <xs:documentation>Saint Helena pound</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SLL">
+                <xs:annotation>
+                    <xs:documentation>Leone</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SOS">
+                <xs:annotation>
+                    <xs:documentation>Somali shilling</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SRD">
+                <xs:annotation>
+                    <xs:documentation>Surinamese dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SYP">
+                <xs:annotation>
+                    <xs:documentation>Syrian pound</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SZL">
+                <xs:annotation>
+                    <xs:documentation>Lilangeni</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/THB">
+                <xs:annotation>
+                    <xs:documentation>Baht</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/TJS">
+                <xs:annotation>
+                    <xs:documentation>Somoni</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/TMT">
+                <xs:annotation>
+                    <xs:documentation>Turkmen manat</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/TND">
+                <xs:annotation>
+                    <xs:documentation>Tunisian dinar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/TOP">
+                <xs:annotation>
+                    <xs:documentation>Pa’anga</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/TRY">
+                <xs:annotation>
+                    <xs:documentation>Turkish lira</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/TTD">
+                <xs:annotation>
+                    <xs:documentation>Trinidad and Tobago dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/TWD">
+                <xs:annotation>
+                    <xs:documentation>New Taiwan dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/TZS">
+                <xs:annotation>
+                    <xs:documentation>Tanzanian shilling</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/UAH">
+                <xs:annotation>
+                    <xs:documentation>Hryvnia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/UGX">
+                <xs:annotation>
+                    <xs:documentation>Uganda shilling</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/USD">
+                <xs:annotation>
+                    <xs:documentation>US dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/USN">
+                <xs:annotation>
+                    <xs:documentation>US dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/UYU">
+                <xs:annotation>
+                    <xs:documentation>Uruguayan peso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/UZS">
+                <xs:annotation>
+                    <xs:documentation>Sum</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/VND">
+                <xs:annotation>
+                    <xs:documentation>Dong</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/VUV">
+                <xs:annotation>
+                    <xs:documentation>Vatu</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/WST">
+                <xs:annotation>
+                    <xs:documentation>Tala</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XAF">
+                <xs:annotation>
+                    <xs:documentation>CFA franc (BEAC)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XCD">
+                <xs:annotation>
+                    <xs:documentation>East Caribbean dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XOF">
+                <xs:annotation>
+                    <xs:documentation>CFA Franc (BCEAO)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XPF">
+                <xs:annotation>
+                    <xs:documentation>CFP franc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XTS">
+                <xs:annotation>
+                    <xs:documentation>Code reserved for testing purposes</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XXX">
+                <xs:annotation>
+                    <xs:documentation>No currency</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/YER">
+                <xs:annotation>
+                    <xs:documentation>Yemeni rial</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ZAR">
+                <xs:annotation>
+                    <xs:documentation>Rand</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SVC">
+                <xs:annotation>
+                    <xs:documentation>Salvadorian colón</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/SSP">
+                <xs:annotation>
+                    <xs:documentation>South Sudanese pound</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ZMW">
+                <xs:annotation>
+                    <xs:documentation>Zambian kwacha</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/PEN">
+                <xs:annotation>
+                    <xs:documentation>Sol</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BYN">
+                <xs:annotation>
+                    <xs:documentation>Belarusian rouble</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MRU">
+                <xs:annotation>
+                    <xs:documentation>Ouguiya</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/STN">
+                <xs:annotation>
+                    <xs:documentation>Dobra</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/VES">
+                <xs:annotation>
+                    <xs:documentation>Bolívar soberano</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/ZWL">
+                <xs:annotation>
+                    <xs:documentation>Zimbabwe dollar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/BOV">
+                <xs:annotation>
+                    <xs:documentation>Mvdol</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CHE">
+                <xs:annotation>
+                    <xs:documentation>WIR Euro</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CHW">
+                <xs:annotation>
+                    <xs:documentation>WIR Franc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/CLF">
+                <xs:annotation>
+                    <xs:documentation>Unidad de Fomento</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/COU">
+                <xs:annotation>
+                    <xs:documentation>Unidad de Valor Real</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/MXV">
+                <xs:annotation>
+                    <xs:documentation>Mexican Unidad de Inversion</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/UYI">
+                <xs:annotation>
+                    <xs:documentation>Uruguay Peso en Unidades Indexadas</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/UYW">
+                <xs:annotation>
+                    <xs:documentation>Unidad Previsional</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XAG">
+                <xs:annotation>
+                    <xs:documentation>Silver</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XAU">
+                <xs:annotation>
+                    <xs:documentation>Gold</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XBA">
+                <xs:annotation>
+                    <xs:documentation>Bond Markets Unit European Composite Unit
+                        (EURCO)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XBB">
+                <xs:annotation>
+                    <xs:documentation>Bond Markets Unit European Monetary Unit
+                        (E.M.U.-6)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XBC">
+                <xs:annotation>
+                    <xs:documentation>Bond Markets Unit European Unit of Account 9
+                        (E.U.A.-9)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XBD">
+                <xs:annotation>
+                    <xs:documentation>Bond Markets Unit European Unit of Account 17
+                        (E.U.A.-17)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XDR">
+                <xs:annotation>
+                    <xs:documentation>SDR (Special Drawing Right)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XPD">
+                <xs:annotation>
+                    <xs:documentation>Palladium</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XPT">
+                <xs:annotation>
+                    <xs:documentation>Platinum</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XSU">
+                <xs:annotation>
+                    <xs:documentation>Sucre</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/currency/XUA">
+                <xs:annotation>
+                    <xs:documentation>ADB Unit of Account</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
