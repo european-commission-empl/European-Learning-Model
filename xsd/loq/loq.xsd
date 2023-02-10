@@ -77,7 +77,13 @@
       <xs:annotation>
          <xs:documentation>This is the root element of the document.</xs:documentation>
       </xs:annotation>
-      
+      <xs:unique name="UniqueNotationCheck">
+         <xs:annotation>
+            <xs:documentation>The value of identifier notation should be unique across the document.</xs:documentation>
+         </xs:annotation>
+         <xs:selector xpath=".//skos:notation"/>
+         <xs:field xpath="."/>
+      </xs:unique>
 
       <!-- KEYS -->
       <xs:key name="accreditationKey">
@@ -380,8 +386,8 @@
    <xs:element name="additionalNote" type="NoteType"/>
    <xs:element name="supplementaryDocument" type="WebResourceType"/>
    <xs:element name="isPartialQualification" type="xs:boolean"/>
-   <xs:element name="EQFLevel" type="EQFLevelType"/>
-   <xs:element name="NQFLevel" type="NQFLevelType"/>
+   <xs:element name="EQFLevel" type="EQFLevelRestrictionType"/>
+   <xs:element name="NQFLevel" type="NQFLevelRestrictionType"/>
    <xs:element name="qualificationCode" type="skos:ConceptType"/>
    <xs:element name="phoneNumber" type="xs:string"/>
    <xs:element name="countryDialing" type="xs:string"/>
@@ -399,18 +405,18 @@
    <xs:element name="contentSize" type="xs:integer"/>
    <xs:element name="content" type="xs:string"/>
    <xs:element name="contentUrl" type="xs:anyURI"/>
-   <xs:element name="reusabilityLevel" type="ReusabilityLevelsType"/>
+   <xs:element name="reusabilityLevel" type="ReusabilityLevelsRestrictionType"/>
    <xs:element name="relatedSkill" type="skos:ConceptType"/>
    <xs:element name="relatedESCOSkill" type="skos:ConceptType"/>
    <xs:element name="duration" type="xs:duration"/>
-   <xs:element name="mode" type="ModesOfLearningandAssessmentType"/>
-   <xs:element name="learningSchedule" type="LearningScheduleTypesType"/>
+   <xs:element name="mode" type="ModesOfLearningandAssessmentRestrictionType"/>
+   <xs:element name="learningSchedule" type="LearningScheduleTypesRestrictionType"/>
    <xs:element name="scheduleInformation" type="NoteType"/>
    <xs:element name="admissionProcedure" type="NoteType"/>
    <xs:element name="applicationDeadline" type="xs:dateTime"/>
    <xs:element name="providedBy" type="IdReferenceType"/>
    <xs:element name="bannerImage" type="MediaObjectType"/>
-   <xs:element name="entitlementStatus" type="LearningEntitlementStatusesType"/>
+   <xs:element name="entitlementStatus" type="LearningEntitlementStatusesRestrictionType"/>
    <xs:element name="limitOrganisation" type="IdReferenceType"/>
    <xs:element name="limitJurisdiction" type="JurisdictionRestrictionType"/>
    <xs:element name="limitOccupation" type="skos:ConceptType"/>
@@ -419,12 +425,12 @@
    <xs:element name="proves" type="IdReferenceType"/>
    <xs:element name="volumeOfLearning" type="xs:duration"/>
    <xs:element name="influences" type="IdReferenceType"/>
-   <xs:element name="ISCEDFCode" type="ISCED-FCodeType"/>
+   <xs:element name="ISCEDFCode" type="ISCED-FCodeRestrictionType"/>
    <xs:element name="educationSubject" type="skos:ConceptType"/>
    <xs:element name="educationLevel" type="skos:ConceptType"/>
-   <xs:element name="learningSetting" type="LearningSettingTypesType"/>
+   <xs:element name="learningSetting" type="LearningSettingTypesRestrictionType"/>
    <xs:element name="maximumDuration" type="xs:duration"/>
-   <xs:element name="targetGroup" type="TargetGroupsType"/>
+   <xs:element name="targetGroup" type="TargetGroupsRestrictionType"/>
    <xs:element name="entryRequirement" type="NoteType"/>
    <xs:element name="influencedBy" type="IdReferenceType"/>
    <xs:element name="provenBy" type="IdReferenceType"/>
@@ -433,7 +439,7 @@
    <xs:element name="schemeVersion" type="xs:string"/>
    <xs:element name="contactForm" type="WebResourceType"/>
    <xs:element name="awardingBody" type="IdReferenceType"/>
-   <xs:element name="unit" type="CurrencyType"/>
+   <xs:element name="unit" type="CurrencyRestrictionType"/>
    <xs:element name="value" type="xs:decimal"/>
    <xs:element name="fullAddress" type="NoteType"/>
    <xs:element name="countryCode" type="CountryRestrictionType"/>
@@ -1098,7 +1104,7 @@
          <xs:extension base="RestrictedSpecificationType">
             <xs:sequence>
                <xs:element maxOccurs="unbounded" minOccurs="0" name="type"
-                  type="LearningActivityTypesType">
+                  type="LearningActivityTypesRestrictionType">
                   <xs:annotation>
                      <xs:documentation>The type of the learning activity. A concept indicating the type of the learning activity.</xs:documentation>
                   </xs:annotation>
@@ -1166,7 +1172,7 @@
          <xs:extension base="RestrictedSpecificationType">
             <xs:sequence>
                <xs:element maxOccurs="unbounded" minOccurs="0" name="type"
-                  type="LearningAssessmentTypesType">
+                  type="LearningAssessmentTypesRestrictionType">
                   <xs:annotation>
                      <xs:documentation>The type of the learning assessment. A concept indicating the type of the learning assessment.</xs:documentation>
                   </xs:annotation>
@@ -1224,7 +1230,7 @@
          <xs:extension base="RestrictedSpecificationType">
             <xs:sequence>
                <xs:element maxOccurs="1" minOccurs="1" name="type"
-                  type="LearningEntitlementTypesType">
+                  type="LearningEntitlementTypesRestrictionType">
                   <xs:annotation>
                      <xs:documentation>The type of the learning entitlement. A concept indicating the type of the learning entitlement.</xs:documentation>
                   </xs:annotation>
@@ -1304,7 +1310,7 @@
                <xs:documentation> A free text description. One value per lanuage permitted.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="type" type="LearningOpportunityTypesType" minOccurs="0"
+         <xs:element name="type" type="LearningOpportunityTypesRestrictionType" minOccurs="0"
             maxOccurs="unbounded">
             <xs:annotation>
                <xs:documentation>The type of the learning opportunity.</xs:documentation>
@@ -1444,7 +1450,7 @@
                <xs:documentation>A legible, descriptive name for the learning outcome. One value per language permitted.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element maxOccurs="1" minOccurs="0" name="type" type="LearningOutcomeTypesType">
+         <xs:element maxOccurs="1" minOccurs="0" name="type" type="LearningOutcomeTypesRestrictionType">
             <xs:annotation>
                <xs:documentation> The learning outcome type.</xs:documentation>
             </xs:annotation>
@@ -1930,17 +1936,83 @@
          <xs:documentation>Class representation for root element of the document</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element maxOccurs="1" minOccurs="0" ref="learningOpportunityReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="learningAchievementSpecificationReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="learningOutcomeReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="learningActivitySpecificationReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="learningAssessmentSpecificationReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="learningEntitlementSpecificationReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="agentReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="groupReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="accreditationReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="gradingSchemeReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="locationReferences"/>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningOpportunityReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningOpportunity entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningAchievementSpecificationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningAchievementSpecification entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningOutcomeReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningOutcome entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningActivitySpecificationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningActivitySpecification entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningAssessmentSpecificationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningAssessmentSepcification entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningEntitlementSpecificationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningEntitlementSpecification entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="agentReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Agent entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="groupReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Group entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="accreditationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Accreditation entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="gradingSchemeReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all GradingScheme entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="locationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Location entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
       <xs:attribute name="xsdVersion" use="optional" default="3.0.0">
          <xs:annotation>
@@ -2020,26 +2092,33 @@
    
    <!-- CONTAINER ELEMENTS -->
    <xs:element name="accreditationReferences" type="AccreditationReferencesType"/>
+   
    <xs:element name="agentReferences" type="AgentReferencesType"/>
+   
    <xs:element name="gradingSchemeReferences" type="GradingSchemeReferencesType"/>
+   
    <xs:element name="groupReferences" type="GroupReferencesType"/>
-   <xs:element name="learningAchievementSpecificationReferences"
-      type="LearningAchievementSpecificationReferencesType"/>
-   <xs:element name="learningActivitySpecificationReferences"
-      type="LearningActivitySpecificationReferencesType"/>
-   <xs:element name="learningAssessmentSpecificationReferences"
-      type="LearningAssessmentSpecificationReferencesType"/>
-   <xs:element name="learningEntitlementSpecificationReferences"
-      type="LearningEntitlementSpecificationReferencesType"/>
+   
+   <xs:element name="learningAchievementSpecificationReferences" type="LearningAchievementSpecificationReferencesType"/>
+   
+   <xs:element name="learningActivitySpecificationReferences" type="LearningActivitySpecificationReferencesType"/>
+   
+   <xs:element name="learningAssessmentSpecificationReferences" type="LearningAssessmentSpecificationReferencesType"/>
+      
+   <xs:element name="learningEntitlementSpecificationReferences" type="LearningEntitlementSpecificationReferencesType"/>
+   
    <xs:element name="learningOpportunityReferences" type="LearningOpportunityReferencesType"/>
+   
    <xs:element name="learningOutcomeReferences" type="LearningOutcomeReferencesType"/>
+   
    <xs:element name="locationReferences" type="LocationReferencesType"/>
+   
    
    <xs:complexType name="AccreditationReferencesType">
       <xs:sequence>
          <xs:element maxOccurs="unbounded" minOccurs="0" name="accreditation" type="AccreditationType">
             <xs:annotation>
-               <xs:documentation>An accreditation.</xs:documentation>
+               <xs:documentation>The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about: (1) the quality assurance and/or licensing of an organisation, (2) the quality assurance and/or licensing of an organisation with respect to a specific qualification.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -2048,65 +2127,125 @@
       <xs:choice minOccurs="0" maxOccurs="unbounded">
          <xs:element ref="agent" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-               <xs:documentation>An agent.</xs:documentation>
+               <xs:documentation>An entity that is able to carry out actions.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element maxOccurs="unbounded" minOccurs="0" name="organisation" type="OrganisationType">
             <xs:annotation>
-               <xs:documentation>A legal organisation.</xs:documentation>
+               <xs:documentation>A registered organisation.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:choice>
    </xs:complexType>
    <xs:complexType name="GradingSchemeReferencesType">
       <xs:sequence>
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="gradingScheme" type="GradingSchemeType"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="gradingScheme" type="GradingSchemeType">
+            <xs:annotation>
+               <xs:documentation>
+                  A set of criteria that measures varying levels of achievement.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="GroupReferencesType">
       <xs:choice minOccurs="0" maxOccurs="unbounded">
          <xs:element ref="group">
             <xs:annotation>
-               <xs:documentation>A group.</xs:documentation>
+               <xs:documentation>An entity that represents collection of Agents.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:choice>
    </xs:complexType>
    <xs:complexType name="LearningAchievementSpecificationReferencesType">
       <xs:choice maxOccurs="unbounded" minOccurs="0">
-         <xs:element name="learningAchievementSpecification" type="LearningAchievementSpecificationType"/>
-         <xs:element ref="qualification"/>
-         <xs:element ref="qualificationReference"/>
+         <xs:element name="learningAchievementSpecification" type="LearningAchievementSpecificationType">
+            <xs:annotation>
+               <xs:documentation>
+                  A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning achievement.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="qualification">
+            <xs:annotation>
+               <xs:documentation>
+                  A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="qualificationReference">
+            <xs:annotation>
+               <xs:documentation>
+                  Reference for a qualification from another dataset that can or has been awarded such as the (expected) learning outcomes.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:choice>
    </xs:complexType>
    <xs:complexType name="LearningActivitySpecificationReferencesType">
       <xs:sequence>
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="learningActivitySpecification" type="LearningActivitySpecificationType"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="learningActivitySpecification" type="LearningActivitySpecificationType">
+            <xs:annotation>
+               <xs:documentation>
+                  The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="LearningAssessmentSpecificationReferencesType">
       <xs:sequence>
-         <xs:element maxOccurs="unbounded" minOccurs="0" ref="learningAssessmentSpecification"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="learningAssessmentSpecification">
+            <xs:annotation>
+               <xs:documentation>
+                  A Learning  Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="LearningEntitlementSpecificationReferencesType">
       <xs:sequence>
-         <xs:element maxOccurs="unbounded" minOccurs="0" ref="learningEntitlementSpecification"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="learningEntitlementSpecification">
+            <xs:annotation>
+               <xs:documentation>
+                  The specification of a right a person has access to, typically as a result of a learning achievement. It may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="LearningOpportunityReferencesType">
       <xs:sequence>
-         <xs:element maxOccurs="unbounded" minOccurs="0" ref="learningOpportunity"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="learningOpportunity">
+            <xs:annotation>
+               <xs:documentation>
+                  An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="LearningOutcomeReferencesType">
       <xs:sequence>
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="learningOutcome" type="LearningOutcomeType"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="learningOutcome" type="LearningOutcomeType">
+            <xs:annotation>
+               <xs:documentation>
+                  A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="LocationReferencesType">
       <xs:sequence>
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="location" type="LocationType"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="location" type="LocationType">
+            <xs:annotation>
+               <xs:documentation>
+                  An identifiable geographic place.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
 
@@ -2139,35 +2278,35 @@
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="LearningOpportunityTypesType">
+   <xs:complexType name="LearningOpportunityTypesRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="elot:LearningOpportunityTypesEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="LearningActivityTypesType">
+   <xs:complexType name="LearningActivityTypesRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="act:LearningActivityTypesEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="LearningAssessmentTypesType">
+   <xs:complexType name="LearningAssessmentTypesRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="ass:LearningAssessmentTypesEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="LearningEntitlementTypesType">
+   <xs:complexType name="LearningEntitlementTypesRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="ent:LearningEntitlementTypesEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="LearningEntitlementStatusesType">
+   <xs:complexType name="LearningEntitlementStatusesRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="ents:LearningEntitlementStatusesEnumType" use="required"
@@ -2188,21 +2327,21 @@
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="ISCED-FCodeType">
+   <xs:complexType name="ISCED-FCodeRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="isced:ISCED-FEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="EQFLevelType">
+   <xs:complexType name="EQFLevelRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="eqf:EQFLevelEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="NQFLevelType">
+   <xs:complexType name="NQFLevelRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="nqf:NQFLevelEnumType" use="required"/>
@@ -2217,49 +2356,49 @@
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="LearningScheduleTypesType">
+   <xs:complexType name="LearningScheduleTypesRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="sched:LearningScheduleTypesEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="ReusabilityLevelsType">
+   <xs:complexType name="ReusabilityLevelsRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="srl:SkillReuseLevelEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="LearningOutcomeTypesType">
+   <xs:complexType name="LearningOutcomeTypesRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="st:SkillTypesEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="ModesOfLearningandAssessmentType">
+   <xs:complexType name="ModesOfLearningandAssessmentRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="em:ModesOfLearningandAssessmentEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="LearningSettingTypesType">
+   <xs:complexType name="LearningSettingTypesRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="sett:LearningSettingTypesEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="TargetGroupsType">
+   <xs:complexType name="TargetGroupsRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="etg:TargetGroupsEnumType" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="CurrencyType">
+   <xs:complexType name="CurrencyRestrictionType">
       <xs:complexContent>
          <xs:restriction base="skos:ConceptType">
             <xs:attribute name="uri" type="curr:CurrencyEnumType" use="required"/>

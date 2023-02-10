@@ -45,6 +45,13 @@
       <xs:annotation>
          <xs:documentation>This is the root element of the document.</xs:documentation>
       </xs:annotation>
+      <xs:unique name="UniqueNotationCheck">
+         <xs:annotation>
+            <xs:documentation>The value of identifier notation should be unique across the document.</xs:documentation>
+         </xs:annotation>
+         <xs:selector xpath=".//skos:notation"/>
+         <xs:field xpath="."/>
+      </xs:unique>
             
       <xs:key name="accreditationKey">
          <xs:selector xpath="ams:accreditationReferences/ams:accreditation"/>
@@ -858,10 +865,34 @@
          <xs:documentation>This is the root element of the document.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element maxOccurs="1" minOccurs="0" ref="accreditationReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="agentReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="groupReferences"/>
-         <xs:element maxOccurs="1" minOccurs="0" ref="locationReferences"/>
+         <xs:element maxOccurs="1" minOccurs="0" ref="accreditationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Accreditation entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="agentReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Agent entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="groupReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Group entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="locationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Location entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
       <xs:attribute name="xsdVersion" use="optional" default="3.0.0">
          <xs:annotation>
@@ -908,14 +939,26 @@
    
    <xs:complexType name="AccreditationReferencesType">
       <xs:sequence>
-         <xs:element name="accreditation" type="AccreditationType" maxOccurs="unbounded" minOccurs="0"/>
+         <xs:element name="accreditation" type="AccreditationType" maxOccurs="unbounded" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about: (1) the quality assurance and/or licensing of an organisation, (2) the quality assurance and/or licensing of an organisation with respect to a specific qualification.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    
    <xs:complexType name="AgentReferencesType">
       <xs:sequence>
-         <xs:element name="agent" type="AgentType" maxOccurs="unbounded" minOccurs="0"/>
-         <xs:element name="organisation" type="OrganisationType" maxOccurs="unbounded" minOccurs="0"/>
+         <xs:element name="agent" type="AgentType" maxOccurs="unbounded" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>An entity that is able to carry out actions.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="organisation" type="OrganisationType" maxOccurs="unbounded" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>A registered organisation.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    
@@ -923,7 +966,7 @@
       <xs:choice minOccurs="0" maxOccurs="unbounded">
          <xs:element ref="group">
             <xs:annotation>
-               <xs:documentation>A group.</xs:documentation>
+               <xs:documentation>An entity that represents collection of Agents.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:choice>
@@ -931,7 +974,13 @@
    
    <xs:complexType name="LocationReferencesType">
       <xs:sequence>
-         <xs:element name="location" type="LocationType" maxOccurs="unbounded" minOccurs="0"/>
+         <xs:element name="location" type="LocationType" maxOccurs="unbounded" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>
+                  An identifiable geographic place.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
    </xs:complexType>
    
