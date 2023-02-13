@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:at="http://publications.europa.eu/ontology/authority/"
+    xmlns="http://publications.europa.eu/resource/authority/file-type"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://publications.europa.eu/resource/authority/file-type">
+    <xs:simpleType name="FileTypeEnumType">
+        <xs:restriction base="xs:anyURI">
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TAR">
+                <xs:annotation>
+                    <xs:documentation>TAR</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GZIP">
+                <xs:annotation>
+                    <xs:documentation>GNU zip</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ZIP">
+                <xs:annotation>
+                    <xs:documentation>ZIP</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/AZW">
+                <xs:annotation>
+                    <xs:documentation>Amazon Kindle eBook</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/EPUB">
+                <xs:annotation>
+                    <xs:documentation>EPUB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MOBI">
+                <xs:annotation>
+                    <xs:documentation>Mobipocket eBook</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GIF">
+                <xs:annotation>
+                    <xs:documentation>GIF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JPEG">
+                <xs:annotation>
+                    <xs:documentation>JPEG</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TIFF">
+                <xs:annotation>
+                    <xs:documentation>TIFF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PNG">
+                <xs:annotation>
+                    <xs:documentation>PNG</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/EPS">
+                <xs:annotation>
+                    <xs:documentation>Encapsulated Postscript</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/CSS">
+                <xs:annotation>
+                    <xs:documentation>CSS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDF">
+                <xs:annotation>
+                    <xs:documentation>PDF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/PDFA1A">
+                <xs:annotation>
+                    <xs:documentation>PDF/A-1a</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/PDFA1B">
+                <xs:annotation>
+                    <xs:documentation>PDF/A-1b</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFX">
+                <xs:annotation>
+                    <xs:documentation>PDF/X</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/METS">
+                <xs:annotation>
+                    <xs:documentation>METS XML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/METS_ZIP">
+                <xs:annotation>
+                    <xs:documentation>METS package</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PPSX">
+                <xs:annotation>
+                    <xs:documentation>PowerPoint PPSX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PPS">
+                <xs:annotation>
+                    <xs:documentation>PowerPoint Slide Show</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PPT">
+                <xs:annotation>
+                    <xs:documentation>PowerPoint PPT</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PPTX">
+                <xs:annotation>
+                    <xs:documentation>PowerPoint PPTX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLS">
+                <xs:annotation>
+                    <xs:documentation>Excel XLS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLSX">
+                <xs:annotation>
+                    <xs:documentation>Excel XLSX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XSLFO">
+                <xs:annotation>
+                    <xs:documentation>XSL-FO</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XSLT">
+                <xs:annotation>
+                    <xs:documentation>XSLT</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/DTD_SGML">
+                <xs:annotation>
+                    <xs:documentation>SGML DTD</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/DTD_XML">
+                <xs:annotation>
+                    <xs:documentation>XML DTD</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/SCHEMA_XML">
+                <xs:annotation>
+                    <xs:documentation>XML schema</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/FMX4">
+                <xs:annotation>
+                    <xs:documentation>Formex 4</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/RDF_XML">
+                <xs:annotation>
+                    <xs:documentation>RDF XML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE">
+                <xs:annotation>
+                    <xs:documentation>RDF Turtle</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SGML">
+                <xs:annotation>
+                    <xs:documentation>SGML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/SKOS_XML">
+                <xs:annotation>
+                    <xs:documentation>SKOS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/OWL">
+                <xs:annotation>
+                    <xs:documentation>OWL</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XML">
+                <xs:annotation>
+                    <xs:documentation>XML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/SPARQLQ">
+                <xs:annotation>
+                    <xs:documentation>SPARQL</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/SPARQLQRES">
+                <xs:annotation>
+                    <xs:documentation>SPARQL results</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DOC">
+                <xs:annotation>
+                    <xs:documentation>Word DOC</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DOCX">
+                <xs:annotation>
+                    <xs:documentation>Word DOCX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODT">
+                <xs:annotation>
+                    <xs:documentation>ODT</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TXT">
+                <xs:annotation>
+                    <xs:documentation>Plain text</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RTF">
+                <xs:annotation>
+                    <xs:documentation>RTF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/HTML">
+                <xs:annotation>
+                    <xs:documentation>HTML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XHTML">
+                <xs:annotation>
+                    <xs:documentation>XHTML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/CSV">
+                <xs:annotation>
+                    <xs:documentation>CSV</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MDB">
+                <xs:annotation>
+                    <xs:documentation>MDB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DBF">
+                <xs:annotation>
+                    <xs:documentation>DBF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MOP">
+                <xs:annotation>
+                    <xs:documentation>MOP</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/E00">
+                <xs:annotation>
+                    <xs:documentation>E00</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MXD">
+                <xs:annotation>
+                    <xs:documentation>MXD</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/KML">
+                <xs:annotation>
+                    <xs:documentation>KML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TSV">
+                <xs:annotation>
+                    <xs:documentation>TSV</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JSON">
+                <xs:annotation>
+                    <xs:documentation>JSON</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/KMZ">
+                <xs:annotation>
+                    <xs:documentation>KMZ</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GML">
+                <xs:annotation>
+                    <xs:documentation>GML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RSS">
+                <xs:annotation>
+                    <xs:documentation>RSS feed</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODS">
+                <xs:annotation>
+                    <xs:documentation>ODS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/INDD">
+                <xs:annotation>
+                    <xs:documentation>INDD</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PSD">
+                <xs:annotation>
+                    <xs:documentation>PSD</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PS">
+                <xs:annotation>
+                    <xs:documentation>PS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODF">
+                <xs:annotation>
+                    <xs:documentation>ODF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/TAR_XZ">
+                <xs:annotation>
+                    <xs:documentation>TAR XZ</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/TAR_GZ">
+                <xs:annotation>
+                    <xs:documentation>TAR GZ</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDF">
+                <xs:annotation>
+                    <xs:documentation>RDF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLIFF">
+                <xs:annotation>
+                    <xs:documentation>XLIFF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/OVF">
+                <xs:annotation>
+                    <xs:documentation>OVF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/JSON_LD">
+                <xs:annotation>
+                    <xs:documentation>JSON-LD</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/RDF_N_TRIPLES">
+                <xs:annotation>
+                    <xs:documentation>RDF N-Triples</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/HDF">
+                <xs:annotation>
+                    <xs:documentation>HDF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/NETCDF">
+                <xs:annotation>
+                    <xs:documentation>NetCDF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SDMX">
+                <xs:annotation>
+                    <xs:documentation>SDMX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/JPEG2000">
+                <xs:annotation>
+                    <xs:documentation>JPEG 2000</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SHP">
+                <xs:annotation>
+                    <xs:documentation>Esri Shape</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GDB">
+                <xs:annotation>
+                    <xs:documentation>Esri File Geodatabase</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GMZ">
+                <xs:annotation>
+                    <xs:documentation>Zipped GML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ECW">
+                <xs:annotation>
+                    <xs:documentation>ECW</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/GRID_ASCII">
+                <xs:annotation>
+                    <xs:documentation>Esri ASCII grid</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DMP">
+                <xs:annotation>
+                    <xs:documentation>Oracle Dump</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LAS">
+                <xs:annotation>
+                    <xs:documentation>LASer file</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LAZ">
+                <xs:annotation>
+                    <xs:documentation>Compressed LAS file</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TAB">
+                <xs:annotation>
+                    <xs:documentation>MapInfo TAB file</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/TAB_RSTR">
+                <xs:annotation>
+                    <xs:documentation>MapInfo TAB raster file</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WORLD">
+                <xs:annotation>
+                    <xs:documentation>World file</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/TMX">
+                <xs:annotation>
+                    <xs:documentation>TMX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ATOM">
+                <xs:annotation>
+                    <xs:documentation>Atom Feed</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/OCTET">
+                <xs:annotation>
+                    <xs:documentation>Octet Stream</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BIN">
+                <xs:annotation>
+                    <xs:documentation>Binary Data</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODC">
+                <xs:annotation>
+                    <xs:documentation>OpenDocument Chart</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODB">
+                <xs:annotation>
+                    <xs:documentation>OpenDocument Database</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODG">
+                <xs:annotation>
+                    <xs:documentation>OpenDocument Image</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BMP">
+                <xs:annotation>
+                    <xs:documentation>Bitmap Image File</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DCR">
+                <xs:annotation>
+                    <xs:documentation>DCR File</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XYZ">
+                <xs:annotation>
+                    <xs:documentation>XYZ Chemical File</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/MAP_PRVW">
+                <xs:annotation>
+                    <xs:documentation>ArcGIS Map Preview</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/MAP_SRVC">
+                <xs:annotation>
+                    <xs:documentation>ArcGIS Map Service</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/REST">
+                <xs:annotation>
+                    <xs:documentation>Esri REST</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/MSG_HTTP">
+                <xs:annotation>
+                    <xs:documentation>HTTP Message</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/TIFF_FX">
+                <xs:annotation>
+                    <xs:documentation>TIFF FX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDF1X">
+                <xs:annotation>
+                    <xs:documentation>PDF1X</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/WARC_GZ">
+                <xs:annotation>
+                    <xs:documentation>WARC GZ</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/RDF_N_QUADS">
+                <xs:annotation>
+                    <xs:documentation>RDF N-Quads</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/RDF_TRIG">
+                <xs:annotation>
+                    <xs:documentation>RDF TriG</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RDFA">
+                <xs:annotation>
+                    <xs:documentation>RDFa</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ARC">
+                <xs:annotation>
+                    <xs:documentation>ARC</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/HTML_SIMPL">
+                <xs:annotation>
+                    <xs:documentation>HTML simplified</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/XHTML_SIMPL">
+                <xs:annotation>
+                    <xs:documentation>XHTML simplified</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SQL">
+                <xs:annotation>
+                    <xs:documentation>SQL</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/PDFA2A">
+                <xs:annotation>
+                    <xs:documentation>PDF/A-2a</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/PDFA2B">
+                <xs:annotation>
+                    <xs:documentation>PDF/A-2b</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFA3">
+                <xs:annotation>
+                    <xs:documentation>PDFA-3</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MBOX">
+                <xs:annotation>
+                    <xs:documentation>MBOX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MPEG2">
+                <xs:annotation>
+                    <xs:documentation>MPEG-2</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MPEG4">
+                <xs:annotation>
+                    <xs:documentation>MPEG-4</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/MPEG4_AVC">
+                <xs:annotation>
+                    <xs:documentation>MPEG-4 AVC</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BWF">
+                <xs:annotation>
+                    <xs:documentation>BWF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MHTML">
+                <xs:annotation>
+                    <xs:documentation>MHTML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/ARC_GZ">
+                <xs:annotation>
+                    <xs:documentation>ARC GZ</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WARC">
+                <xs:annotation>
+                    <xs:documentation>WARC</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/PDFX1A">
+                <xs:annotation>
+                    <xs:documentation>PDF/X-1a</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/PDFX2A">
+                <xs:annotation>
+                    <xs:documentation>PDF/X-2a</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFX4">
+                <xs:annotation>
+                    <xs:documentation>PDF/X-4</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/GEOJSON">
+                <xs:annotation>
+                    <xs:documentation>GeoJSON</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GRID">
+                <xs:annotation>
+                    <xs:documentation>Esri binary grid</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JATS">
+                <xs:annotation>
+                    <xs:documentation>JATS XML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BITS">
+                <xs:annotation>
+                    <xs:documentation>BITS XML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PWP">
+                <xs:annotation>
+                    <xs:documentation>PWP</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ISO">
+                <xs:annotation>
+                    <xs:documentation>ISO image</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/ISO_ZIP">
+                <xs:annotation>
+                    <xs:documentation>Zipped ISO image</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RAR">
+                <xs:annotation>
+                    <xs:documentation>RAR</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SVG">
+                <xs:annotation>
+                    <xs:documentation>SVG</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/QGS">
+                <xs:annotation>
+                    <xs:documentation>QGS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/N3">
+                <xs:annotation>
+                    <xs:documentation>N3</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MRSID">
+                <xs:annotation>
+                    <xs:documentation>MrSID</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/EXE">
+                <xs:annotation>
+                    <xs:documentation>EXE</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JS">
+                <xs:annotation>
+                    <xs:documentation>JavaScript</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ICS">
+                <xs:annotation>
+                    <xs:documentation>ICalendar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PL">
+                <xs:annotation>
+                    <xs:documentation>Perl script</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/WFS_SRVC">
+                <xs:annotation>
+                    <xs:documentation>WFS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/WMS_SRVC">
+                <xs:annotation>
+                    <xs:documentation>WMS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/HDT">
+                <xs:annotation>
+                    <xs:documentation>HDT</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/IMMC_XML">
+                <xs:annotation>
+                    <xs:documentation>IMMC XML message</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLSB">
+                <xs:annotation>
+                    <xs:documentation>XLSB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XLSM">
+                <xs:annotation>
+                    <xs:documentation>XLSM</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ODP">
+                <xs:annotation>
+                    <xs:documentation>ODP</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/RDF_TRIX">
+                <xs:annotation>
+                    <xs:documentation>RDF TriX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/7Z">
+                <xs:annotation>
+                    <xs:documentation>7z</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/AAC">
+                <xs:annotation>
+                    <xs:documentation>AAC</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/APK">
+                <xs:annotation>
+                    <xs:documentation>APK</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/APPX">
+                <xs:annotation>
+                    <xs:documentation>AppX</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/ARJ">
+                <xs:annotation>
+                    <xs:documentation>ARJ</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/BZIP2">
+                <xs:annotation>
+                    <xs:documentation>bzip2</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DEB">
+                <xs:annotation>
+                    <xs:documentation>deb</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DMG">
+                <xs:annotation>
+                    <xs:documentation>DMG</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/JAR">
+                <xs:annotation>
+                    <xs:documentation>JAR</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LHA">
+                <xs:annotation>
+                    <xs:documentation>LHA</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LZIP">
+                <xs:annotation>
+                    <xs:documentation>lzip</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LZO">
+                <xs:annotation>
+                    <xs:documentation>lzo</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LZMA">
+                <xs:annotation>
+                    <xs:documentation>lzma</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/RPM">
+                <xs:annotation>
+                    <xs:documentation>RPM</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SB3">
+                <xs:annotation>
+                    <xs:documentation>sb3</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/SWM">
+                <xs:annotation>
+                    <xs:documentation>SWM</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WIM">
+                <xs:annotation>
+                    <xs:documentation>WIM</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/XZ">
+                <xs:annotation>
+                    <xs:documentation>xz</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/Z">
+                <xs:annotation>
+                    <xs:documentation>Z</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MSI">
+                <xs:annotation>
+                    <xs:documentation>MSI</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WAR">
+                <xs:annotation>
+                    <xs:documentation>WAR</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/EAR">
+                <xs:annotation>
+                    <xs:documentation>EAR</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/FMX4_ZIP">
+                <xs:annotation>
+                    <xs:documentation>FMX4 ZIP</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/AKN4EU">
+                <xs:annotation>
+                    <xs:documentation>AKN4EU file</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/AKN4EU_ZIP">
+                <xs:annotation>
+                    <xs:documentation>AKN4EU ZIP</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/ETSI_XML">
+                <xs:annotation>
+                    <xs:documentation>ETSI signature validation report</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GPKG">
+                <xs:annotation>
+                    <xs:documentation>GeoPackage</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DGN">
+                <xs:annotation>
+                    <xs:documentation>DGN</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DXF">
+                <xs:annotation>
+                    <xs:documentation>DXF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DWG">
+                <xs:annotation>
+                    <xs:documentation>DWG</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/IPA">
+                <xs:annotation>
+                    <xs:documentation>IPA</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/WCS_SRVC">
+                <xs:annotation>
+                    <xs:documentation>WCS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/PDFUA">
+                <xs:annotation>
+                    <xs:documentation>PDF/UA</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/HTML5">
+                <xs:annotation>
+                    <xs:documentation>HTML5</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/STL">
+                <xs:annotation>
+                    <xs:documentation>StL</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/AAB">
+                <xs:annotation>
+                    <xs:documentation>AAB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/ARCINFO_COV">
+                <xs:annotation>
+                    <xs:documentation>ArcInfo coverage</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/GEOTIFF">
+                <xs:annotation>
+                    <xs:documentation>GeoTIFF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/LPK">
+                <xs:annotation>
+                    <xs:documentation>Layer package</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/MIF_MID">
+                <xs:annotation>
+                    <xs:documentation>MIF/MID</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/UNGEN">
+                <xs:annotation>
+                    <xs:documentation>Ungen</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/OAPK">
+                <xs:annotation>
+                    <xs:documentation>OAPK</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/DAPK">
+                <xs:annotation>
+                    <xs:documentation>DAPK</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/MP3">
+                <xs:annotation>
+                    <xs:documentation>MP3</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/WAV">
+                <xs:annotation>
+                    <xs:documentation>WAV</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/RDF_THRIFT">
+                <xs:annotation>
+                    <xs:documentation>RDF Thrift</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+                value="http://publications.europa.eu/resource/authority/file-type/XHTML5">
+                <xs:annotation>
+                    <xs:documentation>XHTML5</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/GTFS">
+                <xs:annotation>
+                    <xs:documentation>GTFS</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/file-type/YAML">
+                <xs:annotation>
+                    <xs:documentation>YAML</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

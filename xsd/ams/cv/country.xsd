@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns="http://publications.europa.eu/resource/authority/country"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://publications.europa.eu/resource/authority/country">
+    <xs:simpleType name="CountryEnumType">
+        <xs:restriction base="xs:anyURI">
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/AND">
+                <xs:annotation>
+                    <xs:documentation>Andorra</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ALB">
+                <xs:annotation>
+                    <xs:documentation>Albania</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/AUT">
+                <xs:annotation>
+                    <xs:documentation>Austria</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BIH">
+                <xs:annotation>
+                    <xs:documentation>Bosnia and Herzegovina</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BEL">
+                <xs:annotation>
+                    <xs:documentation>Belgium</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BLR">
+                <xs:annotation>
+                    <xs:documentation>Belarus</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CHE">
+                <xs:annotation>
+                    <xs:documentation>Switzerland</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CYP">
+                <xs:annotation>
+                    <xs:documentation>Cyprus</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/DNK">
+                <xs:annotation>
+                    <xs:documentation>Denmark</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/EST">
+                <xs:annotation>
+                    <xs:documentation>Estonia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GRC">
+                <xs:annotation>
+                    <xs:documentation>Greece</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ESP">
+                <xs:annotation>
+                    <xs:documentation>Spain</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/FIN">
+                <xs:annotation>
+                    <xs:documentation>Finland</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/FRO">
+                <xs:annotation>
+                    <xs:documentation>Faroes</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/FRA">
+                <xs:annotation>
+                    <xs:documentation>France</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GGY">
+                <xs:annotation>
+                    <xs:documentation>Guernsey</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GIB">
+                <xs:annotation>
+                    <xs:documentation>Gibraltar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GRL">
+                <xs:annotation>
+                    <xs:documentation>Greenland</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/HRV">
+                <xs:annotation>
+                    <xs:documentation>Croatia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/IRL">
+                <xs:annotation>
+                    <xs:documentation>Ireland</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/IMN">
+                <xs:annotation>
+                    <xs:documentation>Isle of Man</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ISL">
+                <xs:annotation>
+                    <xs:documentation>Iceland</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ITA">
+                <xs:annotation>
+                    <xs:documentation>Italy</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/JEY">
+                <xs:annotation>
+                    <xs:documentation>Jersey</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LIE">
+                <xs:annotation>
+                    <xs:documentation>Liechtenstein</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LTU">
+                <xs:annotation>
+                    <xs:documentation>Lithuania</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LUX">
+                <xs:annotation>
+                    <xs:documentation>Luxembourg</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LVA">
+                <xs:annotation>
+                    <xs:documentation>Latvia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MCO">
+                <xs:annotation>
+                    <xs:documentation>Monaco</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MDA">
+                <xs:annotation>
+                    <xs:documentation>Moldova</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MNE">
+                <xs:annotation>
+                    <xs:documentation>Montenegro</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MLT">
+                <xs:annotation>
+                    <xs:documentation>Malta</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NLD">
+                <xs:annotation>
+                    <xs:documentation>Netherlands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NOR">
+                <xs:annotation>
+                    <xs:documentation>Norway</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/POL">
+                <xs:annotation>
+                    <xs:documentation>Poland</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PRT">
+                <xs:annotation>
+                    <xs:documentation>Portugal</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ROU">
+                <xs:annotation>
+                    <xs:documentation>Romania</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SRB">
+                <xs:annotation>
+                    <xs:documentation>Serbia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/RUS">
+                <xs:annotation>
+                    <xs:documentation>Russia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SWE">
+                <xs:annotation>
+                    <xs:documentation>Sweden</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SVN">
+                <xs:annotation>
+                    <xs:documentation>Slovenia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SVK">
+                <xs:annotation>
+                    <xs:documentation>Slovakia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SMR">
+                <xs:annotation>
+                    <xs:documentation>San Marino</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TUR">
+                <xs:annotation>
+                    <xs:documentation>Turkey</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/UKR">
+                <xs:annotation>
+                    <xs:documentation>Ukraine</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GBR">
+                <xs:annotation>
+                    <xs:documentation>United Kingdom</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/VAT">
+                <xs:annotation>
+                    <xs:documentation>Vatican City State</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BGR">
+                <xs:annotation>
+                    <xs:documentation>Bulgaria</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/DEU">
+                <xs:annotation>
+                    <xs:documentation>Germany</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ALA">
+                <xs:annotation>
+                    <xs:documentation>Åland Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/DZA">
+                <xs:annotation>
+                    <xs:documentation>Algeria</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ASM">
+                <xs:annotation>
+                    <xs:documentation>American Samoa</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/AGO">
+                <xs:annotation>
+                    <xs:documentation>Angola</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/AIA">
+                <xs:annotation>
+                    <xs:documentation>Anguilla</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ATA">
+                <xs:annotation>
+                    <xs:documentation>Antarctica</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ATG">
+                <xs:annotation>
+                    <xs:documentation>Antigua and Barbuda</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ARG">
+                <xs:annotation>
+                    <xs:documentation>Argentina</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ARM">
+                <xs:annotation>
+                    <xs:documentation>Armenia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ABW">
+                <xs:annotation>
+                    <xs:documentation>Aruba</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/AUS">
+                <xs:annotation>
+                    <xs:documentation>Australia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/AZE">
+                <xs:annotation>
+                    <xs:documentation>Azerbaijan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BHS">
+                <xs:annotation>
+                    <xs:documentation>Bahamas</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BHR">
+                <xs:annotation>
+                    <xs:documentation>Bahrain</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BGD">
+                <xs:annotation>
+                    <xs:documentation>Bangladesh</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BRB">
+                <xs:annotation>
+                    <xs:documentation>Barbados</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BLZ">
+                <xs:annotation>
+                    <xs:documentation>Belize</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BEN">
+                <xs:annotation>
+                    <xs:documentation>Benin</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BMU">
+                <xs:annotation>
+                    <xs:documentation>Bermuda</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BTN">
+                <xs:annotation>
+                    <xs:documentation>Bhutan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BOL">
+                <xs:annotation>
+                    <xs:documentation>Bolivia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BWA">
+                <xs:annotation>
+                    <xs:documentation>Botswana</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BVT">
+                <xs:annotation>
+                    <xs:documentation>Bouvet Island</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BRA">
+                <xs:annotation>
+                    <xs:documentation>Brazil</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/IOT">
+                <xs:annotation>
+                    <xs:documentation>British Indian Ocean Territory</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/VGB">
+                <xs:annotation>
+                    <xs:documentation>British Virgin Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BRN">
+                <xs:annotation>
+                    <xs:documentation>Brunei</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BFA">
+                <xs:annotation>
+                    <xs:documentation>Burkina Faso</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BDI">
+                <xs:annotation>
+                    <xs:documentation>Burundi</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/KHM">
+                <xs:annotation>
+                    <xs:documentation>Cambodia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CMR">
+                <xs:annotation>
+                    <xs:documentation>Cameroon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CAN">
+                <xs:annotation>
+                    <xs:documentation>Canada</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CPV">
+                <xs:annotation>
+                    <xs:documentation>Cabo Verde</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CYM">
+                <xs:annotation>
+                    <xs:documentation>Cayman Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CAF">
+                <xs:annotation>
+                    <xs:documentation>Central African Republic</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TCD">
+                <xs:annotation>
+                    <xs:documentation>Chad</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CHL">
+                <xs:annotation>
+                    <xs:documentation>Chile</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CHN">
+                <xs:annotation>
+                    <xs:documentation>China</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CXR">
+                <xs:annotation>
+                    <xs:documentation>Christmas Island</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CPT">
+                <xs:annotation>
+                    <xs:documentation>Clipperton</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CCK">
+                <xs:annotation>
+                    <xs:documentation>Cocos (Keeling) Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/COL">
+                <xs:annotation>
+                    <xs:documentation>Colombia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/COM">
+                <xs:annotation>
+                    <xs:documentation>Comoros</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/COG">
+                <xs:annotation>
+                    <xs:documentation>Congo</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/COK">
+                <xs:annotation>
+                    <xs:documentation>Cook Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CRI">
+                <xs:annotation>
+                    <xs:documentation>Costa Rica</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CIV">
+                <xs:annotation>
+                    <xs:documentation>Côte d’Ivoire</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CUB">
+                <xs:annotation>
+                    <xs:documentation>Cuba</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/COD">
+                <xs:annotation>
+                    <xs:documentation>Democratic Republic of the Congo</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/DJI">
+                <xs:annotation>
+                    <xs:documentation>Djibouti</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/DMA">
+                <xs:annotation>
+                    <xs:documentation>Dominica</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/DOM">
+                <xs:annotation>
+                    <xs:documentation>Dominican Republic</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TLS">
+                <xs:annotation>
+                    <xs:documentation>Timor-Leste</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ECU">
+                <xs:annotation>
+                    <xs:documentation>Ecuador</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/EGY">
+                <xs:annotation>
+                    <xs:documentation>Egypt</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SLV">
+                <xs:annotation>
+                    <xs:documentation>El Salvador</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GNQ">
+                <xs:annotation>
+                    <xs:documentation>Equatorial Guinea</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ERI">
+                <xs:annotation>
+                    <xs:documentation>Eritrea</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ETH">
+                <xs:annotation>
+                    <xs:documentation>Ethiopia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/FLK">
+                <xs:annotation>
+                    <xs:documentation>Falkland Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/FJI">
+                <xs:annotation>
+                    <xs:documentation>Fiji</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GUF">
+                <xs:annotation>
+                    <xs:documentation>French Guiana</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PYF">
+                <xs:annotation>
+                    <xs:documentation>French Polynesia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GAB">
+                <xs:annotation>
+                    <xs:documentation>Gabon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GMB">
+                <xs:annotation>
+                    <xs:documentation>The Gambia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GEO">
+                <xs:annotation>
+                    <xs:documentation>Georgia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GHA">
+                <xs:annotation>
+                    <xs:documentation>Ghana</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GRD">
+                <xs:annotation>
+                    <xs:documentation>Grenada</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GLP">
+                <xs:annotation>
+                    <xs:documentation>Guadeloupe</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GUM">
+                <xs:annotation>
+                    <xs:documentation>Guam</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GTM">
+                <xs:annotation>
+                    <xs:documentation>Guatemala</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GIN">
+                <xs:annotation>
+                    <xs:documentation>Guinea</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GNB">
+                <xs:annotation>
+                    <xs:documentation>Guinea-Bissau</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/GUY">
+                <xs:annotation>
+                    <xs:documentation>Guyana</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/HTI">
+                <xs:annotation>
+                    <xs:documentation>Haiti</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/HMD">
+                <xs:annotation>
+                    <xs:documentation>Heard Island and McDonald Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/HND">
+                <xs:annotation>
+                    <xs:documentation>Honduras</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/HKG">
+                <xs:annotation>
+                    <xs:documentation>Hong Kong</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/IND">
+                <xs:annotation>
+                    <xs:documentation>India</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/IDN">
+                <xs:annotation>
+                    <xs:documentation>Indonesia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/IRN">
+                <xs:annotation>
+                    <xs:documentation>Iran</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/IRQ">
+                <xs:annotation>
+                    <xs:documentation>Iraq</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ISR">
+                <xs:annotation>
+                    <xs:documentation>Israel</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/JAM">
+                <xs:annotation>
+                    <xs:documentation>Jamaica</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/JPN">
+                <xs:annotation>
+                    <xs:documentation>Japan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/JOR">
+                <xs:annotation>
+                    <xs:documentation>Jordan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/KAZ">
+                <xs:annotation>
+                    <xs:documentation>Kazakhstan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/KEN">
+                <xs:annotation>
+                    <xs:documentation>Kenya</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/KIR">
+                <xs:annotation>
+                    <xs:documentation>Kiribati</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/KWT">
+                <xs:annotation>
+                    <xs:documentation>Kuwait</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/KGZ">
+                <xs:annotation>
+                    <xs:documentation>Kyrgyzstan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LAO">
+                <xs:annotation>
+                    <xs:documentation>Laos</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LBN">
+                <xs:annotation>
+                    <xs:documentation>Lebanon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LSO">
+                <xs:annotation>
+                    <xs:documentation>Lesotho</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LBR">
+                <xs:annotation>
+                    <xs:documentation>Liberia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MAC">
+                <xs:annotation>
+                    <xs:documentation>Macau</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MDG">
+                <xs:annotation>
+                    <xs:documentation>Madagascar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MWI">
+                <xs:annotation>
+                    <xs:documentation>Malawi</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MYS">
+                <xs:annotation>
+                    <xs:documentation>Malaysia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MDV">
+                <xs:annotation>
+                    <xs:documentation>Maldives</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MLI">
+                <xs:annotation>
+                    <xs:documentation>Mali</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MHL">
+                <xs:annotation>
+                    <xs:documentation>Marshall Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MTQ">
+                <xs:annotation>
+                    <xs:documentation>Martinique</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MRT">
+                <xs:annotation>
+                    <xs:documentation>Mauritania</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MUS">
+                <xs:annotation>
+                    <xs:documentation>Mauritius</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MEX">
+                <xs:annotation>
+                    <xs:documentation>Mexico</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/FSM">
+                <xs:annotation>
+                    <xs:documentation>Micronesia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MNG">
+                <xs:annotation>
+                    <xs:documentation>Mongolia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MSR">
+                <xs:annotation>
+                    <xs:documentation>Montserrat</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MAR">
+                <xs:annotation>
+                    <xs:documentation>Morocco</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MOZ">
+                <xs:annotation>
+                    <xs:documentation>Mozambique</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NAM">
+                <xs:annotation>
+                    <xs:documentation>Namibia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NRU">
+                <xs:annotation>
+                    <xs:documentation>Nauru</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NZL">
+                <xs:annotation>
+                    <xs:documentation>New Zealand</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NIC">
+                <xs:annotation>
+                    <xs:documentation>Nicaragua</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NER">
+                <xs:annotation>
+                    <xs:documentation>Niger</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NGA">
+                <xs:annotation>
+                    <xs:documentation>Nigeria</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NIU">
+                <xs:annotation>
+                    <xs:documentation>Niue</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NFK">
+                <xs:annotation>
+                    <xs:documentation>Norfolk Island</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PRK">
+                <xs:annotation>
+                    <xs:documentation>North Korea</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MNP">
+                <xs:annotation>
+                    <xs:documentation>Northern Mariana Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/OMN">
+                <xs:annotation>
+                    <xs:documentation>Oman</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PAK">
+                <xs:annotation>
+                    <xs:documentation>Pakistan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PLW">
+                <xs:annotation>
+                    <xs:documentation>Palau</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PSE">
+                <xs:annotation>
+                    <xs:documentation>Palestine</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PAN">
+                <xs:annotation>
+                    <xs:documentation>Panama</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PNG">
+                <xs:annotation>
+                    <xs:documentation>Papua New Guinea</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PRY">
+                <xs:annotation>
+                    <xs:documentation>Paraguay</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PER">
+                <xs:annotation>
+                    <xs:documentation>Peru</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PHL">
+                <xs:annotation>
+                    <xs:documentation>Philippines</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PCN">
+                <xs:annotation>
+                    <xs:documentation>Pitcairn Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/PRI">
+                <xs:annotation>
+                    <xs:documentation>Puerto Rico</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/QAT">
+                <xs:annotation>
+                    <xs:documentation>Qatar</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/REU">
+                <xs:annotation>
+                    <xs:documentation>Réunion</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/RWA">
+                <xs:annotation>
+                    <xs:documentation>Rwanda</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BLM">
+                <xs:annotation>
+                    <xs:documentation>Saint Barthélemy</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/KNA">
+                <xs:annotation>
+                    <xs:documentation>Saint Kitts and Nevis</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LCA">
+                <xs:annotation>
+                    <xs:documentation>Saint Lucia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MAF">
+                <xs:annotation>
+                    <xs:documentation>Saint Martin</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SPM">
+                <xs:annotation>
+                    <xs:documentation>Saint Pierre and Miquelon</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/VCT">
+                <xs:annotation>
+                    <xs:documentation>Saint Vincent and the Grenadines</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/WSM">
+                <xs:annotation>
+                    <xs:documentation>Samoa</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/STP">
+                <xs:annotation>
+                    <xs:documentation>São Tomé and Príncipe</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SAU">
+                <xs:annotation>
+                    <xs:documentation>Saudi Arabia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SEN">
+                <xs:annotation>
+                    <xs:documentation>Senegal</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SYC">
+                <xs:annotation>
+                    <xs:documentation>Seychelles</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SLE">
+                <xs:annotation>
+                    <xs:documentation>Sierra Leone</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SGP">
+                <xs:annotation>
+                    <xs:documentation>Singapore</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SLB">
+                <xs:annotation>
+                    <xs:documentation>Solomon Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ZAF">
+                <xs:annotation>
+                    <xs:documentation>South Africa</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SGS">
+                <xs:annotation>
+                    <xs:documentation>South Georgia and the South Sandwich
+                        Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/KOR">
+                <xs:annotation>
+                    <xs:documentation>South Korea</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LKA">
+                <xs:annotation>
+                    <xs:documentation>Sri Lanka</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SDN">
+                <xs:annotation>
+                    <xs:documentation>Sudan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SUR">
+                <xs:annotation>
+                    <xs:documentation>Suriname</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SJM">
+                <xs:annotation>
+                    <xs:documentation>Svalbard and Jan Mayen</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SYR">
+                <xs:annotation>
+                    <xs:documentation>Syria</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TWN">
+                <xs:annotation>
+                    <xs:documentation>Taiwan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TJK">
+                <xs:annotation>
+                    <xs:documentation>Tajikistan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TZA">
+                <xs:annotation>
+                    <xs:documentation>Tanzania</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/THA">
+                <xs:annotation>
+                    <xs:documentation>Thailand</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TGO">
+                <xs:annotation>
+                    <xs:documentation>Togo</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TKL">
+                <xs:annotation>
+                    <xs:documentation>Tokelau</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TON">
+                <xs:annotation>
+                    <xs:documentation>Tonga</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TTO">
+                <xs:annotation>
+                    <xs:documentation>Trinidad and Tobago</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TUN">
+                <xs:annotation>
+                    <xs:documentation>Tunisia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TKM">
+                <xs:annotation>
+                    <xs:documentation>Turkmenistan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TCA">
+                <xs:annotation>
+                    <xs:documentation>Turks and Caicos Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/TUV">
+                <xs:annotation>
+                    <xs:documentation>Tuvalu</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/UGA">
+                <xs:annotation>
+                    <xs:documentation>Uganda</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ARE">
+                <xs:annotation>
+                    <xs:documentation>United Arab Emirates</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/USA">
+                <xs:annotation>
+                    <xs:documentation>United States</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/UMI">
+                <xs:annotation>
+                    <xs:documentation>United States Minor Outlying Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/URY">
+                <xs:annotation>
+                    <xs:documentation>Uruguay</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/VIR">
+                <xs:annotation>
+                    <xs:documentation>US Virgin Islands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/UZB">
+                <xs:annotation>
+                    <xs:documentation>Uzbekistan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/VUT">
+                <xs:annotation>
+                    <xs:documentation>Vanuatu</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/VEN">
+                <xs:annotation>
+                    <xs:documentation>Venezuela</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/VNM">
+                <xs:annotation>
+                    <xs:documentation>Vietnam</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ESH">
+                <xs:annotation>
+                    <xs:documentation>Western Sahara</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/YEM">
+                <xs:annotation>
+                    <xs:documentation>Yemen</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ZMB">
+                <xs:annotation>
+                    <xs:documentation>Zambia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/ZWE">
+                <xs:annotation>
+                    <xs:documentation>Zimbabwe</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/AFG">
+                <xs:annotation>
+                    <xs:documentation>Afghanistan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/1A0">
+                <xs:annotation>
+                    <xs:documentation>Kosovo</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/FQ0">
+                <xs:annotation>
+                    <xs:documentation>French Southern and Antarctic Lands</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NPL">
+                <xs:annotation>
+                    <xs:documentation>Nepal</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SHN">
+                <xs:annotation>
+                    <xs:documentation>Saint Helena, Ascension and Tristan da
+                        Cunha</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/BES">
+                <xs:annotation>
+                    <xs:documentation>Bonaire, Sint Eustatius and Saba</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CUW">
+                <xs:annotation>
+                    <xs:documentation>Curaçao</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SXM">
+                <xs:annotation>
+                    <xs:documentation>Sint Maarten</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/HUN">
+                <xs:annotation>
+                    <xs:documentation>Hungary</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SSD">
+                <xs:annotation>
+                    <xs:documentation>South Sudan</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/NCL">
+                <xs:annotation>
+                    <xs:documentation>New Caledonia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MYT">
+                <xs:annotation>
+                    <xs:documentation>Mayotte</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MMR">
+                <xs:annotation>
+                    <xs:documentation>Myanmar/Burma</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SOM">
+                <xs:annotation>
+                    <xs:documentation>Somalia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/EUR">
+                <xs:annotation>
+                    <xs:documentation>European Union</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/LBY">
+                <xs:annotation>
+                    <xs:documentation>Libya</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/WLF">
+                <xs:annotation>
+                    <xs:documentation>Wallis and Futuna</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/CZE">
+                <xs:annotation>
+                    <xs:documentation>Czechia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/SWZ">
+                <xs:annotation>
+                    <xs:documentation>Eswatini</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/MKD">
+                <xs:annotation>
+                    <xs:documentation>North Macedonia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http://publications.europa.eu/resource/authority/country/OP_DATPRO">
+                <xs:annotation>
+                    <xs:documentation>Provisional data</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

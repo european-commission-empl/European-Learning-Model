@@ -1,0 +1,2286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Accreditations xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+ xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ xmlns:org="http://www.w3.org/ns/org#"
+ xmlns:adms="http://www.w3.org/ns/adms#"
+ xmlns:at="http://publications.europa.eu/ontology/authority/"
+ xmlns:dc="http://purl.org/dc/terms/"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:clv="http://data.europa.eu/m8g/"
+ xmlns:elm="http://data.europa.eu/snb/model#"
+ xmlns:locn="http://www.w3.org/ns/locn#"
+ xmlns:rov="http://www.w3.org/ns/regorg#"
+ xmlns:lng="http://publications.europa.eu/resource/authority/language"
+ xmlns:cou="http://publications.europa.eu/resource/authority/country"
+ xmlns:for="http://publications.europa.eu/resource/authority/file-type"
+ xmlns:nuts="http://data.europa.eu/nuts/scheme/2016"
+ xmlns:atu="http://publications.europa.eu/resource/authority/atu"
+ xmlns:isced="http://data.europa.eu/snb/isced-f/25831c2"
+ xmlns:eqf="http://data.europa.eu/snb/eqf/25831c2"
+ xmlns:nqf="http://data.europa.eu/snb/qdr/25831c2"
+ xmlns:eat="http://data.europa.eu/snb/accreditation/25831c2"
+ xmlns:ecet="http://data.europa.eu/snb/encoding/25831c2"
+ xmlns:elot="http://data.europa.eu/snb/learning-opportunity/25831c2"
+ xmlns:act="http://data.europa.eu/snb/learning-activity/25831c2"
+ xmlns:ass="http://data.europa.eu/snb/assessment/25831c2"
+ xmlns:ent="http://data.europa.eu/snb/entitlement/25831c2"
+ xmlns:ents="http://data.europa.eu/snb/entitlement-status/25831c2"
+ xmlns:em="http://data.europa.eu/snb/learning-assessment/25831c2"
+ xmlns:sett="http://data.europa.eu/snb/learning-setting/25831c2"
+ xmlns:etg="http://data.europa.eu/snb/target-group/25831c2"
+ xmlns:st="http://data.europa.eu/snb/skill-type/25831c2"
+ xmlns:srl="http://data.europa.eu/snb/skill-reuse-level/25831c2"
+ xmlns:sched="http://data.europa.eu/snb/learning-schedule/25831c2"
+ xmlns:cp="http://data.europa.eu/snb/education-credit/25831c2"
+ xmlns:curr="http://publications.europa.eu/resource/authority/currency"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://data.europa.eu/snb/model/ams-constraints/"
+ xsi:schemaLocation="http://data.europa.eu/snb/model/ams-constraints/ ams.xsd" xsdVersion="3.0.0">
+    
+    <accreditationReferences>
+        <accreditation id="http://ACCRED-01">
+            <identifier>
+                <skos:notation type="http://FxTCwoFb/">H1</skos:notation>
+                <dc:creator>http://LCtlIlpn/</dc:creator>
+                <schemeAgency language="en">elpkJ9d3pQnLl7zW_K</schemeAgency>
+                <issued>2023-11-03T10:51:20Z</issued>
+                <schemeName>GPX_fIHC7Zsr</schemeName>
+                <schemeVersion>aPWi_Iykm</schemeVersion>
+                <schemeId>http://EpLacrJh/</schemeId>
+                <dc:type uri="http://ObgqTBBr/">
+                    <skos:prefLabel language="en">DEqOj</skos:prefLabel>
+                    <skos:prefLabel language="nl">XVkr</skos:prefLabel>
+                    <skos:altLabel language="en">od9KgeURUCKX</skos:altLabel>
+                    <skos:altLabel language="nl">Jiz3k2nsW-FpOxV42tELT8er</skos:altLabel>
+                    <skos:notation type="http://ypYXOPuY/">hSIxab3</skos:notation>
+                    <skos:inScheme>http://VRzaJrDf/</skos:inScheme>
+                    <skos:inScheme>http://oheXkioF/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://eMKIDPHh/">
+                    <skos:prefLabel language="en">V3LEp8IDk6AeGptpokJfnx3H</skos:prefLabel>
+                    <skos:prefLabel language="nl">YHb47PqGkhP3Hfvo31l-QaXOHrN</skos:prefLabel>
+                    <skos:altLabel language="en">Zl</skos:altLabel>
+                    <skos:altLabel language="nl">Zfpdl18k</skos:altLabel>
+                    <skos:notation type="http://GYpLrsOE/">tCDKCOCVMBm.5NFLy</skos:notation>
+                    <skos:inScheme>http://KggeOvqK/</skos:inScheme>
+                    <skos:inScheme>http://DYSwXDpT/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <identifier>
+                <skos:notation type="http://uDMjRsBG/">OVTrsN1JimJQG8UhVCT1IOov</skos:notation>
+                <dc:creator>http://JRyMOoeq/</dc:creator>
+                <schemeAgency language="en">R1E5MCqr_uFa_8UDwP</schemeAgency>
+                <issued>2022-12-12T10:51:20Z</issued>
+                <schemeName>V</schemeName>
+                <schemeVersion>ZBJR3guo2fJw8Xk</schemeVersion>
+                <schemeId>http://jrivKiDy/</schemeId>
+                <dc:type uri="http://qreIdiXu/">
+                    <skos:prefLabel language="en">s</skos:prefLabel>
+                    <skos:prefLabel language="nl">c3S8OHJR4k0</skos:prefLabel>
+                    <skos:altLabel language="en">fU</skos:altLabel>
+                    <skos:altLabel language="nl">y9b7fBZ3mw</skos:altLabel>
+                    <skos:notation type="http://eSFsReoJ/">_cxTxSvq</skos:notation>
+                    <skos:inScheme>http://xnuqsZfn/</skos:inScheme>
+                    <skos:inScheme>http://zsaTwdlG/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://AwcjCuLM/">
+                    <skos:prefLabel language="en">owWKA_U</skos:prefLabel>
+                    <skos:prefLabel language="nl">q_-yI9E1CssXqCA.71elkmhz</skos:prefLabel>
+                    <skos:altLabel language="en">MQW2BFgKk</skos:altLabel>
+                    <skos:altLabel language="nl">sfJhLAMj_gr-xSwfftDInuMvYLFR</skos:altLabel>
+                    <skos:notation type="http://upcBHBRj/">aJE0-TAx3VxR9b1Anf</skos:notation>
+                    <skos:inScheme>http://QuCrUFVu/</skos:inScheme>
+                    <skos:inScheme>http://FPfDCzgI/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <type uri="http://data.europa.eu/snb/accreditation/820101cba6"/>
+            <title language="en">N-rNT8taWuWTNpYI</title>
+            <title language="nl">quFzD9wgYzZOBhlwUzvA5UQOVhhQHY</title>
+            <description language="en">lEuzC</description>
+            <description language="nl">gDQcyarrqY_IvFbd8SYC</description>
+            <decision uri="http://NykIQYlP/">
+                <skos:prefLabel language="en">X1jV-KO6J0</skos:prefLabel>
+                <skos:prefLabel language="nl">hfAfizFj</skos:prefLabel>
+                <skos:altLabel language="en">cgpDa7</skos:altLabel>
+                <skos:altLabel language="nl">oCsdaSnku</skos:altLabel>
+                <skos:notation type="http://lNQiluTv/">WT45qg_mQM</skos:notation>
+                <skos:inScheme>http://iCxdIpwe/</skos:inScheme>
+                <skos:inScheme>http://VhegYPqJ/</skos:inScheme>
+            </decision>
+            <report>
+                <title language="en">U7qgCYY_PKCmu-9RU0</title>
+                <title language="nl">lJb5uQaU8I71</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/BIR"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </report>
+            <organisation idref="http://ORG-01"/>
+            <limitField uri="http://data.europa.eu/snb/isced-f/0542"/>
+            <limitField uri="http://data.europa.eu/snb/isced-f/0921"/>
+            <limitEQFLevel uri="http://data.europa.eu/snb/eqf/7"/>
+            <limitEQFLevel uri="http://data.europa.eu/snb/eqf/7"/>
+            <limitJurisdiction uri="http://publications.europa.eu/resource/authority/atu/LTU_RSV_KUN"/>
+            <limitJurisdiction uri="http://publications.europa.eu/resource/authority/atu/DEU_KRFS_BWE"/>
+            <limitCredentialType uri="http://oKDSiZET/">
+                <skos:prefLabel language="en">vzT</skos:prefLabel>
+                <skos:prefLabel language="nl">K</skos:prefLabel>
+                <skos:altLabel language="en">ifNuM.Fc23_L</skos:altLabel>
+                <skos:altLabel language="nl">c7.3</skos:altLabel>
+                <skos:notation type="http://jhbEMslR/">B5Utgfcn6.</skos:notation>
+                <skos:inScheme>http://SvxskbEM/</skos:inScheme>
+                <skos:inScheme>http://becPRSBX/</skos:inScheme>
+            </limitCredentialType>
+            <accreditingAgent idref="http://ORG-02"/>
+            <issued>2023-05-20T10:51:20Z</issued>
+            <reviewDate>2023-08-23T10:51:20</reviewDate>
+            <expiryDate>2023-08-19T10:51:20</expiryDate>
+            <valid>2023-08-17T10:51:20Z</valid>
+            <additionalNote>
+                <dc:subject uri="http://VJlcMUzj/">
+                    <skos:prefLabel language="en">P4LaiN0dxtwen5QZhzX3dnu3</skos:prefLabel>
+                    <skos:prefLabel language="nl">F4XuS-BT0J6iypmy8zLkcHTuE8zt</skos:prefLabel>
+                    <skos:altLabel language="en">e5OCdLOjHzGnjgk8LgTa</skos:altLabel>
+                    <skos:altLabel language="nl">kLvcnPq</skos:altLabel>
+                    <skos:notation type="http://LTEYSzBY/">ULI</skos:notation>
+                    <skos:inScheme>http://dHjOntNy/</skos:inScheme>
+                    <skos:inScheme>http://iIiWDudC/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://DBStfccW/">
+                    <skos:prefLabel language="en">h</skos:prefLabel>
+                    <skos:prefLabel language="nl">TXOOAUQhupK_nhB4</skos:prefLabel>
+                    <skos:altLabel language="en">x1JPwVTyjs</skos:altLabel>
+                    <skos:altLabel language="nl">aanvKNr9iV3Otu8t7cMvgud.zB.ay</skos:altLabel>
+                    <skos:notation type="http://GrKncKpn/">ZtYgrUAWzbOw6pfeq</skos:notation>
+                    <skos:inScheme>http://sXRhCciT/</skos:inScheme>
+                    <skos:inScheme>http://SodVmrVy/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">Hz1_le2Rn6tUoVoWdGpk973</noteLiteral>
+            </additionalNote>
+            <additionalNote>
+                <dc:subject uri="http://uahAGKcn/">
+                    <skos:prefLabel language="en">V57X6Lhb0P5iocOWt</skos:prefLabel>
+                    <skos:prefLabel language="nl">cQSgWSdPFhJaY5</skos:prefLabel>
+                    <skos:altLabel language="en">CSHtPnFxYeM86yu1vk4zyWe3quvaS</skos:altLabel>
+                    <skos:altLabel language="nl">ynKa-n5HHo6t-1</skos:altLabel>
+                    <skos:notation type="http://WFbDnYoq/">tYG3GgG</skos:notation>
+                    <skos:inScheme>http://tGiUVrAY/</skos:inScheme>
+                    <skos:inScheme>http://hcHKmDSw/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://ActSUHKG/">
+                    <skos:prefLabel language="en">lfztWfKHveocjEZGRO.</skos:prefLabel>
+                    <skos:prefLabel language="nl">YoCwDe4Ogn6bJLzkk_sbG</skos:prefLabel>
+                    <skos:altLabel language="en">d5ovGLLr0iDgbpC0eUgNrQy7hCSee</skos:altLabel>
+                    <skos:altLabel language="nl">Ef.7</skos:altLabel>
+                    <skos:notation type="http://sSzhhdSd/">Pi7</skos:notation>
+                    <skos:inScheme>http://QBtiXrIT/</skos:inScheme>
+                    <skos:inScheme>http://SmWUGeDm/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">aYxCSBpCc.S16ZdXXm</noteLiteral>
+            </additionalNote>
+            <homepage>
+                <title language="en">wdSmU.vqxdR72SuMjJSoV</title>
+                <title language="nl">JjUEYqLHuiG9gG0xhuV</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/SZV"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </homepage>
+            <homepage>
+                <title language="en">mLj.mw</title>
+                <title language="nl">_5s7NbzWUt</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/GNG"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </homepage>
+            <landingPage>
+                <title language="en">inNJMjVU2jpjmCtGcBIVOrBTbMf</title>
+                <title language="nl">YYW3mBYpNa6-VRT_4pQ_uw</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/PGL"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </landingPage>
+            <landingPage>
+                <title language="en">fIRWvYO</title>
+                <title language="nl">nyi545JTn</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/COW"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </landingPage>
+            <supplementaryDocument>
+                <title language="en">o_4w.AtucW</title>
+                <title language="nl">QPTvTJ8de7AhCVIvKjLYs-A6OMLXC</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/AYU"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </supplementaryDocument>
+            <supplementaryDocument>
+                <title language="en">zQkdtxG6qjf1tT.m</title>
+                <title language="nl">mVL6hTLG</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/NEG"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </supplementaryDocument>
+            <status>tP1Jp5qITZbHZ.WYaX-Za</status>
+            <modified>2024-02-09T10:51:20Z</modified>
+            <publisher idref="http://gqWTPkYx/"/>
+        </accreditation>
+        <accreditation id="http://ACCRED-02">
+            <identifier>
+                <skos:notation type="http://aOLhvlvx/">Vb4y7-xhZqy</skos:notation>
+                <dc:creator>http://DBmEvyBX/</dc:creator>
+                <schemeAgency language="en">xMqKrmG4Lhk_UNUHwn94</schemeAgency>
+                <issued>2023-05-17T10:51:20</issued>
+                <schemeName>jdx</schemeName>
+                <schemeVersion>ylaBLhlJ2Qb0VNNJH</schemeVersion>
+                <schemeId>http://egUEwKCy/</schemeId>
+                <dc:type uri="http://GcICIzsW/">
+                    <skos:prefLabel language="en">Q7BtvcSELyPX8.g1v</skos:prefLabel>
+                    <skos:prefLabel language="nl">ydU.kS-iNFXhikzqeUjNsVdpzokv0k</skos:prefLabel>
+                    <skos:altLabel language="en">pYiEBO</skos:altLabel>
+                    <skos:altLabel language="nl">Uvo.hUiHCeChsi</skos:altLabel>
+                    <skos:notation type="http://yJXdXGeV/">Q9mfZp_AB1.TSs0Yvu0df</skos:notation>
+                    <skos:inScheme>http://tEzDtoFd/</skos:inScheme>
+                    <skos:inScheme>http://XPVaTWgL/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://gAZPSMFc/">
+                    <skos:prefLabel language="en">gN2</skos:prefLabel>
+                    <skos:prefLabel language="nl">wELXF-WT_v7hHkYDX9JaECMxsu</skos:prefLabel>
+                    <skos:altLabel language="en">NIDyc8LZ</skos:altLabel>
+                    <skos:altLabel language="nl">X4BNs1Ql-ZtCHhSY77H</skos:altLabel>
+                    <skos:notation type="http://iPBiWuQn/">uC</skos:notation>
+                    <skos:inScheme>http://lNBLJJRB/</skos:inScheme>
+                    <skos:inScheme>http://qTYVQLrL/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <identifier>
+                <skos:notation type="http://kBJnuRVU/">JmFJRh2TT2LPC9Tzw4KA</skos:notation>
+                <dc:creator>http://rNqtZTvk/</dc:creator>
+                <schemeAgency language="en">ArHunBxK</schemeAgency>
+                <issued>2023-05-18T10:51:20Z</issued>
+                <schemeName>_MtcOrS_7KRIdY-</schemeName>
+                <schemeVersion>QTEf7.v01kxQg3bXQK-S6a8qg</schemeVersion>
+                <schemeId>http://KDSYWUFY/</schemeId>
+                <dc:type uri="http://EZGsdWZj/">
+                    <skos:prefLabel language="en">LcBIvYNrkCvAM_tcH</skos:prefLabel>
+                    <skos:prefLabel language="nl">iiCwYI-V9UpGDnCl.4</skos:prefLabel>
+                    <skos:altLabel language="en">lVve9Kt2IZT</skos:altLabel>
+                    <skos:altLabel language="nl">hOymw-6mUIWGwYP</skos:altLabel>
+                    <skos:notation type="http://pNBNaNzQ/">nsUUCHXtv</skos:notation>
+                    <skos:inScheme>http://ThQuhpbl/</skos:inScheme>
+                    <skos:inScheme>http://QDkVXjeA/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://TvpIwsXT/">
+                    <skos:prefLabel language="en">ocqmhFHmQYHQjCE2w4Ks</skos:prefLabel>
+                    <skos:prefLabel language="nl">mAuLLZnbPZbZ1.KarnZfDB9E8P</skos:prefLabel>
+                    <skos:altLabel language="en">aX8.zWHgW</skos:altLabel>
+                    <skos:altLabel language="nl">w7kMIqC</skos:altLabel>
+                    <skos:notation type="http://DlpoeLiQ/">ibWtoSV2VVjFSWfq6bfJNIZO9S6vcp</skos:notation>
+                    <skos:inScheme>http://PFfslElk/</skos:inScheme>
+                    <skos:inScheme>http://nPNOMmIi/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <type uri="http://data.europa.eu/snb/accreditation/003293d2ce"/>
+            <title language="en">TeZpn4Y89Gv5W</title>
+            <title language="nl">rpcEEIAYiyqBjdMxy_BSPRUc5</title>
+            <description language="en">fj</description>
+            <description language="nl">PRI5GqL.sM3Ih0m1Nt7z</description>
+            <decision uri="http://RtbKypnM/">
+                <skos:prefLabel language="en">KXMiniOSJ</skos:prefLabel>
+                <skos:prefLabel language="nl">Vj4KG</skos:prefLabel>
+                <skos:altLabel language="en">YE</skos:altLabel>
+                <skos:altLabel language="nl">QgLEXxM-</skos:altLabel>
+                <skos:notation type="http://voTMAwKk/">S3RX47Qm-00aKd0LJHzbLEa5O8iCd</skos:notation>
+                <skos:inScheme>http://FrDrWLSw/</skos:inScheme>
+                <skos:inScheme>http://oQlzrtgd/</skos:inScheme>
+            </decision>
+            <report>
+                <title language="en">_fEgvu1rnwMftiekmC0CCl.</title>
+                <title language="nl">yEo1w1.Dd6S6ME6Ha1X.hkFfr</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/BFF"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </report>
+            <organisation idref="http://ORG-01"/>
+            <limitField uri="http://data.europa.eu/snb/isced-f/0922"/>
+            <limitField uri="http://data.europa.eu/snb/isced-f/0540"/>
+            <limitEQFLevel uri="http://data.europa.eu/snb/eqf/1"/>
+            <limitEQFLevel uri="http://data.europa.eu/snb/eqf/7"/>
+            <limitJurisdiction uri="http://publications.europa.eu/resource/authority/atu/LUX_CT_ECH"/>
+            <limitJurisdiction uri="http://publications.europa.eu/resource/authority/atu/LUX_CT_DIE"/>
+            <limitCredentialType uri="http://toXBtYpK/">
+                <skos:prefLabel language="en">iFMOa9hqrxqhOP</skos:prefLabel>
+                <skos:prefLabel language="nl">mO9BB_KYp</skos:prefLabel>
+                <skos:altLabel language="en">GqlO6FCqPX</skos:altLabel>
+                <skos:altLabel language="nl">Z.N1e</skos:altLabel>
+                <skos:notation type="http://ogYWKMhu/">kULCpjoUkzdPDpQeuE1buVAy</skos:notation>
+                <skos:inScheme>http://NGZfnncL/</skos:inScheme>
+                <skos:inScheme>http://ftNzueap/</skos:inScheme>
+            </limitCredentialType>
+            <accreditingAgent idref="http://ORG-02"/>
+            <issued>2023-01-02T10:51:20</issued>
+            <reviewDate>2024-11-05T10:51:20</reviewDate>
+            <expiryDate>2024-01-31T10:51:20Z</expiryDate>
+            <valid>2023-12-05T10:51:20Z</valid>
+            <additionalNote>
+                <dc:subject uri="http://cMFyRkZz/">
+                    <skos:prefLabel language="en">adVW</skos:prefLabel>
+                    <skos:prefLabel language="nl">bWAGwEAQqpYV7fK.br9NPOhNu</skos:prefLabel>
+                    <skos:altLabel language="en">oX-nQ2Av</skos:altLabel>
+                    <skos:altLabel language="nl">GYDZid.MJSIJAfUxRu37iC</skos:altLabel>
+                    <skos:notation type="http://eUReadSt/">kQZUQ1tWEAUyuqse3jvD</skos:notation>
+                    <skos:inScheme>http://iEkXPmKE/</skos:inScheme>
+                    <skos:inScheme>http://iMPNoJMV/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://ouPNiJHP/">
+                    <skos:prefLabel language="en">rafrP</skos:prefLabel>
+                    <skos:prefLabel language="nl">nc8DuRYKE1Hw1ye_T</skos:prefLabel>
+                    <skos:altLabel language="en">Dg_rwKDBI</skos:altLabel>
+                    <skos:altLabel language="nl">T8Py0a4Zf2lJ</skos:altLabel>
+                    <skos:notation type="http://SKSLlhKz/">H2</skos:notation>
+                    <skos:inScheme>http://EHMBYCeX/</skos:inScheme>
+                    <skos:inScheme>http://VRttqVLw/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">q.Ts8MrbRA61agmURexZ5</noteLiteral>
+            </additionalNote>
+            <additionalNote>
+                <dc:subject uri="http://zdyghBph/">
+                    <skos:prefLabel language="en">Q5lV2ax7FNI</skos:prefLabel>
+                    <skos:prefLabel language="nl">RHJ619MXvy</skos:prefLabel>
+                    <skos:altLabel language="en">CAGDL.ohGmt0uy7kdz3WQVMFOi2Z</skos:altLabel>
+                    <skos:altLabel language="nl">D</skos:altLabel>
+                    <skos:notation type="http://EimygDWu/">BChglSyGAqwXSMnD-o6JCcdKgAb0w</skos:notation>
+                    <skos:inScheme>http://PmPQqTIv/</skos:inScheme>
+                    <skos:inScheme>http://GQhfuwQc/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://cJPntBpv/">
+                    <skos:prefLabel language="en">rMAuPCskH</skos:prefLabel>
+                    <skos:prefLabel language="nl">KityWbPAZitc6zcNE-tQb3t</skos:prefLabel>
+                    <skos:altLabel language="en">AFWs4ZbCzOCt6GJ</skos:altLabel>
+                    <skos:altLabel language="nl">sXfd.re_cABros8Zo</skos:altLabel>
+                    <skos:notation type="http://JvbXoAvq/">CAOaF7cY29it1_hShr168MHWfIOiDB</skos:notation>
+                    <skos:inScheme>http://MIUTdGqL/</skos:inScheme>
+                    <skos:inScheme>http://fIIEQtBf/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">gFiZR9kNyd1CLCuLEaokYA</noteLiteral>
+            </additionalNote>
+            <homepage>
+                <title language="en">omrKz7oEf5a5O</title>
+                <title language="nl">yQC6-RTyIjJv9iQ</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/TMD"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </homepage>
+            <homepage>
+                <title language="en">KCDGqWL11x382lp6cJPmLive2</title>
+                <title language="nl">nVOBfMkD5vpVh1jgRQ4Y</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/DSI"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </homepage>
+            <landingPage>
+                <title language="en">RANE1kjeGKEgkdQ9</title>
+                <title language="nl">jI0KskMm3-H2VbyiluP</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/KSY"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </landingPage>
+            <landingPage>
+                <title language="en">EilR0aOue4SePb3yd0gU6zNHxh5F7S</title>
+                <title language="nl">HhUSvNf6UJ9AiXdOoQT.6-aQhry</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/SXU"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </landingPage>
+            <supplementaryDocument>
+                <title language="en">Bf</title>
+                <title language="nl">zM</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/TTF"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </supplementaryDocument>
+            <supplementaryDocument>
+                <title language="en">ba70GXTZIcrlRCFfBatXGQ</title>
+                <title language="nl">bkAdf4kUku07H_M</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/YMT"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </supplementaryDocument>
+            <status>lxtz8LmA</status>
+            <modified>2023-11-19T10:51:20</modified>
+            <publisher idref="http://TSnbXlTq/"/>
+        </accreditation>
+    </accreditationReferences>
+    <agentReferences>
+        <agent id="http://AGENT-01">
+            <identifier>
+                <skos:notation type="http://MQnTiXCs/">TLwaEJT.11kxo6wJ2</skos:notation>
+                <dc:creator>http://eQfzEAlM/</dc:creator>
+                <schemeAgency language="en">wLdIlEKcIRZI-sg_FEpm9OgBeUAGM</schemeAgency>
+                <issued>2024-04-29T10:51:20Z</issued>
+                <schemeName>fj57gE</schemeName>
+                <schemeVersion>Nqk9rFWE1PfpI</schemeVersion>
+                <schemeId>http://crlCmPlv/</schemeId>
+                <dc:type uri="http://fIgFwPFp/">
+                    <skos:prefLabel language="en">sZvTXQOJWwpI0vH09e9c_2qx</skos:prefLabel>
+                    <skos:prefLabel language="nl">PSE9hlK</skos:prefLabel>
+                    <skos:altLabel language="en">eC8lW1RuhR7PfncYJZwxhxnX9cfKc</skos:altLabel>
+                    <skos:altLabel language="nl">Kd.A2ANXUEl3omA-qFq1Syoma3</skos:altLabel>
+                    <skos:notation type="http://SyXsXXQA/">f_zphXgKy1H0ai</skos:notation>
+                    <skos:inScheme>http://JLQgAdXG/</skos:inScheme>
+                    <skos:inScheme>http://xPymoRHn/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://NgZWvwQK/">
+                    <skos:prefLabel language="en">T50jqIoWh</skos:prefLabel>
+                    <skos:prefLabel language="nl">N9oC</skos:prefLabel>
+                    <skos:altLabel language="en">Qus</skos:altLabel>
+                    <skos:altLabel language="nl">f4AK_IELiq5zeN8_zU2yEF9</skos:altLabel>
+                    <skos:notation type="http://mTIzHxxs/">b</skos:notation>
+                    <skos:inScheme>http://IZsgaMHX/</skos:inScheme>
+                    <skos:inScheme>http://PnDtEvvX/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <identifier>
+                <skos:notation type="http://dLXXmIjA/">BjdjcPxcFRCO4c0y</skos:notation>
+                <dc:creator>http://DKTxFAWl/</dc:creator>
+                <schemeAgency language="en">I0jCl</schemeAgency>
+                <issued>2023-07-18T10:51:20Z</issued>
+                <schemeName>la</schemeName>
+                <schemeVersion>kbO-8G.BBb</schemeVersion>
+                <schemeId>http://oWAlHSTF/</schemeId>
+                <dc:type uri="http://IhJbEksj/">
+                    <skos:prefLabel language="en">QstK68-KgSv2e3CeJBWSGHsxeB</skos:prefLabel>
+                    <skos:prefLabel language="nl">rPBdpV78</skos:prefLabel>
+                    <skos:altLabel language="en">cKbejC2l3XKNGG</skos:altLabel>
+                    <skos:altLabel language="nl">a</skos:altLabel>
+                    <skos:notation type="http://KahwKZQu/">tPXkfr-7xwn0VPuFh_</skos:notation>
+                    <skos:inScheme>http://geRVfrCC/</skos:inScheme>
+                    <skos:inScheme>http://WqvGMlSH/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://aPopbTrz/">
+                    <skos:prefLabel language="en">M1zyes</skos:prefLabel>
+                    <skos:prefLabel language="nl">mZxzj4enykTA0ZMaKAT</skos:prefLabel>
+                    <skos:altLabel language="en">PPy0Hw6hy5H</skos:altLabel>
+                    <skos:altLabel language="nl">GqFG7fFwbNzs5bZOYhJoHBS_8e.LC</skos:altLabel>
+                    <skos:notation type="http://lqnFOdzI/">lAvHovcYbdlbsE</skos:notation>
+                    <skos:inScheme>http://UCCjzFGZ/</skos:inScheme>
+                    <skos:inScheme>http://ehaoEtkd/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <skos:prefLabel language="en">a2-bHVxdTqEogoGXjTb0</skos:prefLabel>
+            <skos:prefLabel language="nl">XDlRHAacb</skos:prefLabel>
+            <skos:altLabel language="en">BJjzv6x</skos:altLabel>
+            <skos:altLabel language="nl">vplS5EpScNye32_v.N1sV4</skos:altLabel>
+            <additionalNote>
+                <dc:subject uri="http://OzWhGYCB/">
+                    <skos:prefLabel language="en">aVXFHFvg1Wm</skos:prefLabel>
+                    <skos:prefLabel language="nl">GYwurzy5y</skos:prefLabel>
+                    <skos:altLabel language="en">Au.</skos:altLabel>
+                    <skos:altLabel language="nl">sUP6auw95jO</skos:altLabel>
+                    <skos:notation type="http://lRbnHspW/">PNyx8rleOua</skos:notation>
+                    <skos:inScheme>http://woJlKlGB/</skos:inScheme>
+                    <skos:inScheme>http://KPORXHnw/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://pransgCz/">
+                    <skos:prefLabel language="en">JJ</skos:prefLabel>
+                    <skos:prefLabel language="nl">xs</skos:prefLabel>
+                    <skos:altLabel language="en">NpfgV1ZPQIppPVRw</skos:altLabel>
+                    <skos:altLabel language="nl">nYUFsgghqAZA2iuhoPkzP1F1RfUWxr</skos:altLabel>
+                    <skos:notation type="http://iksiNyxg/">rb03GuaBX3M4D9wYKGQKKV2smU</skos:notation>
+                    <skos:inScheme>http://roaCzcEI/</skos:inScheme>
+                    <skos:inScheme>http://cWiywdnm/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">oR.oSu</noteLiteral>
+            </additionalNote>
+            <additionalNote>
+                <dc:subject uri="http://cgiEGGKI/">
+                    <skos:prefLabel language="en">yIXzGobgazp.3Ke1</skos:prefLabel>
+                    <skos:prefLabel language="nl">wsphPm-Bdx5l</skos:prefLabel>
+                    <skos:altLabel language="en">R61aUvpHc9ti7QgD_nOlZmTo</skos:altLabel>
+                    <skos:altLabel language="nl">uPhqTlsocheLZbwG.MiS</skos:altLabel>
+                    <skos:notation type="http://QgfDOahu/">sIY8H8jBrogH3fF-PK4ipvcnK</skos:notation>
+                    <skos:inScheme>http://BiTCYhlA/</skos:inScheme>
+                    <skos:inScheme>http://KALTyyRz/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://bDLGCHSL/">
+                    <skos:prefLabel language="en">xz5Hw6Tr.mHMVmDXd.fP9Jz08mlNgm</skos:prefLabel>
+                    <skos:prefLabel language="nl">EOInVU9qYTHAL4.CS9hYAL9cc</skos:prefLabel>
+                    <skos:altLabel language="en">h</skos:altLabel>
+                    <skos:altLabel language="nl">A5HD9tpkvgwzJO5Ie</skos:altLabel>
+                    <skos:notation type="http://yuEdTuXH/">YQd591WtzxRGtqV</skos:notation>
+                    <skos:inScheme>http://pFAfBkkp/</skos:inScheme>
+                    <skos:inScheme>http://wQnyUKMm/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">MiPDrgKZszDJ8o9lakiKnG</noteLiteral>
+            </additionalNote>
+            <location idref="http://LOC-01"/>
+            <location idref="http://LOC-02"/>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://UJJuWGqp/">
+                    </dc:subject>
+                    <noteFormat uri="http://TuvIjdQa/">
+                    </noteFormat>
+                    <noteLiteral language="en">NhBMZ.pkYDKQo80</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://GgLoqBHw/">
+                    </dc:subject>
+                    <noteFormat uri="http://HQVobgMi/">
+                    </noteFormat>
+                    <noteLiteral language="en">jib0-Q5K3xw9</noteLiteral>
+                </additionalNote>
+                <description language="en">B</description>
+                <description language="nl">cZi0TP_s5WGF0vdALYaLt6gUBA-</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://GeRHYleX/">Ue5hnEIsW-FFgvPbptb</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://GwOHqzZj/">H</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">EoVD6MWHe</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/CAF"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://dfklmpwt/">zFZ</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://pEncBtkG/">BC5n7Bxj.jbQfPCiwc9</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">C6kPT5wtdtEue</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/IRL"/>
+                </address>
+                <phone>
+                    <phoneNumber>hkV</phoneNumber>
+                    <countryDialing>HbwP8.bVplreSR00CyNa2q</countryDialing>
+                    <areaDialing>UECAdtCeM</areaDialing>
+                    <dialNumber>be0-Z56x6e1-Ni3o</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>SXSk0ZiTjiU8W7Bx</phoneNumber>
+                    <countryDialing>p6mFxHEMge</countryDialing>
+                    <areaDialing>YfX</areaDialing>
+                    <dialNumber>o7WlH</dialNumber>
+                </phone>
+                <mailbox>http://GrhDoBedxy/</mailbox>
+                <mailbox>http://GrhDoBed/</mailbox>
+                <contactForm>
+                    <title language="en">XeBB26_sU.FdpuLS9</title>
+                    <title language="nl">UfKVm.5M4twu4XBBBKzgH1fq0287</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/OTT"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">oI</title>
+                    <title language="nl">TpZqDOavi5sq5wmguZuOKRHT</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/ZAJ"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://hyTCzOTY/">
+                    </dc:subject>
+                    <noteFormat uri="http://Ipilrmwr/">
+                    </noteFormat>
+                    <noteLiteral language="en">tjD5oz5SaI</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://xbAnYsKN/">
+                    </dc:subject>
+                    <noteFormat uri="http://aNdzQGWO/">
+                    </noteFormat>
+                    <noteLiteral language="en">yqr7RCZC</noteLiteral>
+                </additionalNote>
+                <description language="en">F9hAkSqU1fSM9w_NjLjzTAhuw48v.</description>
+                <description language="nl">YD5rcj-gLOzFB</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://oBFTsYgc/">DtTWo.QqCfgWfltYRsnFof7jeNK</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://VbdtBymv/">vVz.AIWWXPsN5Xl3nuxPm</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">n0</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/NIU"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://AESUKxxf/">GM6F5hmK.Klusyo9IEgfIwI7Gj</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://ZtlIUhnm/">rY6O.lD</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">SRe1odV-XWRP</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/QAT"/>
+                </address>
+                <phone>
+                    <phoneNumber>NTc0b1X5_vRnHHeBagRfvPK1r5iN</phoneNumber>
+                    <countryDialing>Fb6.o_5tyq</countryDialing>
+                    <areaDialing>suLhaa5x8_goYGcr.Tg-X</areaDialing>
+                    <dialNumber>hOchtdU1rucUyJl</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>B</phoneNumber>
+                    <countryDialing>fEmLRxryD.</countryDialing>
+                    <areaDialing>QmCG_surd-r2zMihfrnGcG9q4</areaDialing>
+                    <dialNumber>ZHLA4wlf6</dialNumber>
+                </phone>
+                <mailbox>http://JFNExhWb/</mailbox>
+                <mailbox>http://BWgZAoCR/</mailbox>
+                <contactForm>
+                    <title language="en">HUtDA2WvrJ-hY2</title>
+                    <title language="nl">d82JBQoJx</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/ESH"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">tfX</title>
+                    <title language="nl">Txo97_PuENpPyq_</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/KVE"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <groupMemberOf idref="http://GROUP-01"/>
+            <groupMemberOf idref="http://GROUP-02"/>
+            <status>k1NN2aNs0</status>
+            <modified>2024-09-04T10:51:20Z</modified>
+            <publisher idref="http://KgxToOha/"/>
+        </agent>
+        <organisation id="http://ORG-01">
+            <skos:altLabel language="en">iEZSSEXhTPSMaaG.yHKfBH2UmZSS</skos:altLabel>
+            <skos:altLabel language="nl">fJeuvmZjKtjx4ErE</skos:altLabel>
+            <legalName language="en">HB-QzqZddn66D_SBl3gVv20WiJ</legalName>
+            <legalName language="nl">eymWDqcrNu7xxywGbts1fZRHK</legalName>
+            <type uri="http://wiCEPYnG/">
+                <skos:prefLabel language="en">jQYGGJMVnK2ux_rl_spP3</skos:prefLabel>
+                <skos:prefLabel language="nl">I9iMGrG5</skos:prefLabel>
+                <skos:altLabel language="en">con.rg3HITLjI5g.3csplls</skos:altLabel>
+                <skos:altLabel language="nl">XFIwBF8CWVO1RZXOaru7seSqq</skos:altLabel>
+                <skos:notation type="http://LqkRKwol/">vQEQsmH</skos:notation>
+                <skos:inScheme>http://hiRAmcTz/</skos:inScheme>
+                <skos:inScheme>http://ksnBbXVm/</skos:inScheme>
+            </type>
+            <type uri="http://vtXvxmex/">
+                <skos:prefLabel language="en">o1-qtBnTmTbMrwAlE_FDp.lzgV-8</skos:prefLabel>
+                <skos:prefLabel language="nl">pYOsgalYk3oYGnyNmaSahcZiH5vc7</skos:prefLabel>
+                <skos:altLabel language="en">U6YOSKr0OYNRcyC2oBz-0EAcSod</skos:altLabel>
+                <skos:altLabel language="nl">b9JhaMA9TpwxTUJ61LU1</skos:altLabel>
+                <skos:notation type="http://zUPKklsM/">TR.hAM</skos:notation>
+                <skos:inScheme>http://VWgpuEbq/</skos:inScheme>
+                <skos:inScheme>http://mPJDkwgt/</skos:inScheme>
+            </type>
+            <identifier>
+                <skos:notation type="http://mnuYaOjb/">WZuIg</skos:notation>
+                <dc:creator>http://fsTfVKPv/</dc:creator>
+                <schemeAgency language="en">sBM6zMykQwo8nOgH4hxcVD..Mfm</schemeAgency>
+                <issued>2024-02-01T10:51:20Z</issued>
+                <schemeName>M3000</schemeName>
+                <schemeVersion>j36pevRYuT</schemeVersion>
+                <schemeId>http://EKCGPiFZ/</schemeId>
+                <dc:type uri="http://LzbKhFUa/">
+                    <skos:prefLabel language="en">Oe-rASVumgDJpiACA3LJZg3APiS7Y</skos:prefLabel>
+                    <skos:prefLabel language="nl">o</skos:prefLabel>
+                    <skos:altLabel language="en">Bs2cQSxp</skos:altLabel>
+                    <skos:altLabel language="nl">dsrpqY_fimSZU</skos:altLabel>
+                    <skos:notation type="http://gjwCkTVf/">UqCTm9</skos:notation>
+                    <skos:inScheme>http://vgEGnASN/</skos:inScheme>
+                    <skos:inScheme>http://rwVJnYXO/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://AjQeGufh/">
+                    <skos:prefLabel language="en">q3fbQkuK._0n.n7iXAaKvQALwc.NY</skos:prefLabel>
+                    <skos:prefLabel language="nl">ck_rRo9bQO1JlvOI6</skos:prefLabel>
+                    <skos:altLabel language="en">OcRzamoPhKIOb5Xi1FKO</skos:altLabel>
+                    <skos:altLabel language="nl">JY-U8URatf</skos:altLabel>
+                    <skos:notation type="http://wXmNEgjX/">mdeLBTv4aqG</skos:notation>
+                    <skos:inScheme>http://uvRkPvXG/</skos:inScheme>
+                    <skos:inScheme>http://CrQukzBu/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <identifier>
+                <skos:notation type="http://JfVBiPiN/">J6eTvDDvyPt8dwGpqiSuyV48</skos:notation>
+                <dc:creator>http://NqHHMZCC/</dc:creator>
+                <schemeAgency language="en">XBXf9kRaPeCzRFLWg_TF8ErYxl</schemeAgency>
+                <issued>2023-03-02T10:51:20Z</issued>
+                <schemeName>ysKcW9hJT_</schemeName>
+                <schemeVersion>U</schemeVersion>
+                <schemeId>http://sdXhkMdL/</schemeId>
+                <dc:type uri="http://QQQEshSI/">
+                    <skos:prefLabel language="en">xlEFC.sG1esstpIZ9hjSyLlx6</skos:prefLabel>
+                    <skos:prefLabel language="nl">u8VsC3G</skos:prefLabel>
+                    <skos:altLabel language="en">QaNZ2Pa7X8EB7AzJfDd</skos:altLabel>
+                    <skos:altLabel language="nl">OoenW_</skos:altLabel>
+                    <skos:notation type="http://vYXpQKPB/">kgeIIYHYnk4O_6-7qDiLOJ.uVnl.</skos:notation>
+                    <skos:inScheme>http://nHAzwRWZ/</skos:inScheme>
+                    <skos:inScheme>http://qbBjwMeC/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://daGMRAmi/">
+                    <skos:prefLabel language="en">nEn8w</skos:prefLabel>
+                    <skos:prefLabel language="nl">mzrGy_2L</skos:prefLabel>
+                    <skos:altLabel language="en">ty42uEq</skos:altLabel>
+                    <skos:altLabel language="nl">MW</skos:altLabel>
+                    <skos:notation type="http://KDseRlFU/">QXYGF_ttJvz1Iu</skos:notation>
+                    <skos:inScheme>http://JwdTaopr/</skos:inScheme>
+                    <skos:inScheme>http://TrhGYkya/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <eidasLegalIdentifier>
+                <skos:notation type="http://XlWNitJR/">QrEiawXZus9hXwgnV3cZ3cfVE</skos:notation>
+                <dc:creator>http://kZnrxbZO/</dc:creator>
+                <schemeAgency language="en">RuaYeYa</schemeAgency>
+                <issued>2024-10-15T10:51:20</issued>
+                <schemeName>FpuRRv85ql1dqv-vp.v86xzjRC9</schemeName>
+                <schemeVersion>Hoz6f253FyWr6KQqpiS9vChIz_Qq</schemeVersion>
+                <schemeId>http://BUkeLvlR/</schemeId>
+                <dc:type uri="http://EOGfyRTU/">
+                    <skos:prefLabel language="en">cOFAQRAQjTCV83I2Nb1fTTHf3v</skos:prefLabel>
+                    <skos:prefLabel language="nl">tfA.3</skos:prefLabel>
+                    <skos:altLabel language="en">VZD-L8HlFcFM90Ttee</skos:altLabel>
+                    <skos:altLabel language="nl">ybeybHQhs56</skos:altLabel>
+                    <skos:notation type="http://VyuIBErP/">JVOR1id.cTRPpHFZJjv</skos:notation>
+                    <skos:inScheme>http://QHTsQIoz/</skos:inScheme>
+                    <skos:inScheme>http://ifIrQYyM/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://DjFwMEHP/">
+                    <skos:prefLabel language="en">NeCsk0sMJE7ja3G3HWiC.Jh08aW</skos:prefLabel>
+                    <skos:prefLabel language="nl">lNLcoHrvob</skos:prefLabel>
+                    <skos:altLabel language="en">flTL6FILQjX6ED-</skos:altLabel>
+                    <skos:altLabel language="nl">BLKBMrzH0A</skos:altLabel>
+                    <skos:notation type="http://jBOAFHsr/">dFv</skos:notation>
+                    <skos:inScheme>http://imyuDOnm/</skos:inScheme>
+                    <skos:inScheme>http://TLIdlTKZ/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://data.europa.eu/nuts/code/PTZ"/>
+            </eidasLegalIdentifier>
+            <registration>
+                <skos:notation type="http://xUBtbABj/">bno</skos:notation>
+                <dc:creator>http://ATELzEnj/</dc:creator>
+                <schemeAgency language="en">IR401rkmRciisoQxkcs0</schemeAgency>
+                <issued>2024-03-02T10:51:20</issued>
+                <schemeName>gPxGAbPrZnmM9y5IMg</schemeName>
+                <schemeVersion>DPT17</schemeVersion>
+                <schemeId>http://vzNcqoCe/</schemeId>
+                <dc:type uri="http://oVmtZbjr/">
+                    <skos:prefLabel language="en">vlb0Pw3YL</skos:prefLabel>
+                    <skos:prefLabel language="nl">DsAg5DfE.0S8KjMkLwAYCYcXILi</skos:prefLabel>
+                    <skos:altLabel language="en">Tl5O</skos:altLabel>
+                    <skos:altLabel language="nl">vuMPKLC</skos:altLabel>
+                    <skos:notation type="http://GMLqXkoo/">x6ZenFdXtzKfQJ3UIB5UA9LS</skos:notation>
+                    <skos:inScheme>http://MIQbTuWT/</skos:inScheme>
+                    <skos:inScheme>http://gOCicRjv/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://xjkDeRzg/">
+                    <skos:prefLabel language="en">WOsYs39q28U5LOgig4</skos:prefLabel>
+                    <skos:prefLabel language="nl">Mx</skos:prefLabel>
+                    <skos:altLabel language="en">VSCBqTMcf3jB-Z__76fzs4itW</skos:altLabel>
+                    <skos:altLabel language="nl">a1c1gN</skos:altLabel>
+                    <skos:notation type="http://SzZIUoPR/">fN0t6elJOasjgKTzV</skos:notation>
+                    <skos:inScheme>http://fIriBIKC/</skos:inScheme>
+                    <skos:inScheme>http://NfsyQJMT/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://publications.europa.eu/resource/authority/country/UZB"/>
+            </registration>
+            <vatIdentifier>
+                <skos:notation type="http://sPNiTBQM/">eDMoMhzOrR3Q</skos:notation>
+                <dc:creator>http://hGvXKaFb/</dc:creator>
+                <schemeAgency language="en">kxAjxT</schemeAgency>
+                <issued>2024-01-31T10:51:20Z</issued>
+                <schemeName>zd92kGtVFWRpM8IE_pJsvBnsMONsRb</schemeName>
+                <schemeVersion>usIlvT4</schemeVersion>
+                <schemeId>http://ussOnuqK/</schemeId>
+                <dc:type uri="http://gUHZVWRe/">
+                    <skos:prefLabel language="en">Txl4</skos:prefLabel>
+                    <skos:prefLabel language="nl">gDywx6uCtRiKWhLvJ5g4ehW2ls</skos:prefLabel>
+                    <skos:altLabel language="en">kgLMFii0JPBArWaJyRIbZMEWLB</skos:altLabel>
+                    <skos:altLabel language="nl">DxZKSRWGcnAXzSRzJTBnVNTXqRz</skos:altLabel>
+                    <skos:notation type="http://CfGYAtha/">W6DC4.v</skos:notation>
+                    <skos:inScheme>http://JAERvDVd/</skos:inScheme>
+                    <skos:inScheme>http://FovHqeYY/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://QXNAJUUu/">
+                    <skos:prefLabel language="en">auaUP-2tg5AoPQO2RM_htBABHpR</skos:prefLabel>
+                    <skos:prefLabel language="nl">wmO</skos:prefLabel>
+                    <skos:altLabel language="en">lpOT9ch6A9aLT2GpW_</skos:altLabel>
+                    <skos:altLabel language="nl">PEHEvXKTkHGrJ8iURL</skos:altLabel>
+                    <skos:notation type="http://wWzvtYRF/">jciwZPmX</skos:notation>
+                    <skos:inScheme>http://sgTlueRa/</skos:inScheme>
+                    <skos:inScheme>http://YfLWZICa/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://data.europa.eu/nuts/code/FRE12"/>
+            </vatIdentifier>
+            <vatIdentifier>
+                <skos:notation type="http://qrBhrdew/">yi97c1PH0_8V8W6n6k5IruC</skos:notation>
+                <dc:creator>http://YrZlyuxt/</dc:creator>
+                <schemeAgency language="en">n_fZY3AJAahrcYPR</schemeAgency>
+                <issued>2023-04-08T10:51:20</issued>
+                <schemeName>oePH2fcB</schemeName>
+                <schemeVersion>ISJ1mYyHWKxohErNsT_HoZEWuz</schemeVersion>
+                <schemeId>http://vqHgLfNs/</schemeId>
+                <dc:type uri="http://jPKyRWPG/">
+                    <skos:prefLabel language="en">Hig8esH1nGLq-rd9nMsmb2idUs1o</skos:prefLabel>
+                    <skos:prefLabel language="nl">m6ES7IY3pXY3Msg</skos:prefLabel>
+                    <skos:altLabel language="en">CebOgCUFKKQ9KxWBOAa</skos:altLabel>
+                    <skos:altLabel language="nl">awfWpxkszJa</skos:altLabel>
+                    <skos:notation type="http://OogcKUum/">d1j.05N-</skos:notation>
+                    <skos:inScheme>http://igGqDllb/</skos:inScheme>
+                    <skos:inScheme>http://AbTKrcqg/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://nvFrkfLi/">
+                    <skos:prefLabel language="en">TyuLILighoFFaMOoRHEcFjdi.9g-z4</skos:prefLabel>
+                    <skos:prefLabel language="nl">zLpWHd2F06.F</skos:prefLabel>
+                    <skos:altLabel language="en">aMMNf5Y6z_0YIH.YyP7T2VDFeIXOF</skos:altLabel>
+                    <skos:altLabel language="nl">egYc5rt5h5PoK1</skos:altLabel>
+                    <skos:notation type="http://cqOSpnyp/">Kyi</skos:notation>
+                    <skos:inScheme>http://nWvhcWCM/</skos:inScheme>
+                    <skos:inScheme>http://WyLmoufK/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://data.europa.eu/nuts/code/UKH37"/>
+            </vatIdentifier>
+            <taxIdentifier>
+                <skos:notation type="http://iBmepZfp/">kVclMjIQwE6ZurK-yO-ilCM4cWH26v</skos:notation>
+                <dc:creator>http://ffLeLdDM/</dc:creator>
+                <schemeAgency language="en">OLDKfLW_cLbIhJ_xFHWlRTF</schemeAgency>
+                <issued>2022-12-31T10:51:20Z</issued>
+                <schemeName>XemisztcN3z</schemeName>
+                <schemeVersion>e8n1vUGUq7aM</schemeVersion>
+                <schemeId>http://gFAbuwAm/</schemeId>
+                <dc:type uri="http://fAtOUlep/">
+                    <skos:prefLabel language="en">bWb9iFnDIm</skos:prefLabel>
+                    <skos:prefLabel language="nl">qToklt</skos:prefLabel>
+                    <skos:altLabel language="en">tfE7PjWWZVec_HH0FZy1s6S.HUGfd</skos:altLabel>
+                    <skos:altLabel language="nl">a5R3915aj</skos:altLabel>
+                    <skos:notation type="http://uHtRLxPk/">adAj_zPH36wH</skos:notation>
+                    <skos:inScheme>http://XhHbtJcS/</skos:inScheme>
+                    <skos:inScheme>http://oqxqohXS/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://gzafwkLu/">
+                    <skos:prefLabel language="en">I..mcTAguOMwzJ</skos:prefLabel>
+                    <skos:prefLabel language="nl">CnrQ8ng_yI8qtU0A</skos:prefLabel>
+                    <skos:altLabel language="en">_</skos:altLabel>
+                    <skos:altLabel language="nl">FoGRRPmtaGaR.8ew18S56gB4y</skos:altLabel>
+                    <skos:notation type="http://iVawwoaj/">oHgy7bf3UdB7</skos:notation>
+                    <skos:inScheme>http://dHOtgTtd/</skos:inScheme>
+                    <skos:inScheme>http://ANhOjIui/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://data.europa.eu/nuts/code/DE925"/>
+            </taxIdentifier>
+            <taxIdentifier>
+                <skos:notation type="http://owdhgliP/">a.FMdJVbuEEDt0GhXNBUglR</skos:notation>
+                <dc:creator>http://xeHWtfUd/</dc:creator>
+                <schemeAgency language="en">i0ikDNQJ4-poV1sfAIi2eYh</schemeAgency>
+                <issued>2024-03-21T10:51:20Z</issued>
+                <schemeName>jLxOTP</schemeName>
+                <schemeVersion>IFw</schemeVersion>
+                <schemeId>http://ivcwLvex/</schemeId>
+                <dc:type uri="http://hLjPZmOd/">
+                    <skos:prefLabel language="en">viC.YMaTtgAXagzVPjI0tk2Zj8SaQ1</skos:prefLabel>
+                    <skos:prefLabel language="nl">RdJf</skos:prefLabel>
+                    <skos:altLabel language="en">G</skos:altLabel>
+                    <skos:altLabel language="nl">RthzzlpUjIJ5CaicmBHlW</skos:altLabel>
+                    <skos:notation type="http://kWjeiSpK/">KFiZLPWNCD99TKNd</skos:notation>
+                    <skos:inScheme>http://AwYzaaqo/</skos:inScheme>
+                    <skos:inScheme>http://fKtYfqvr/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://dTJryUOl/">
+                    <skos:prefLabel language="en">o4nCe7n94KHw6r__g3</skos:prefLabel>
+                    <skos:prefLabel language="nl">nU2lEtnY2RN75atdNs7LdIUokvX36Z</skos:prefLabel>
+                    <skos:altLabel language="en">tvvvWrx.sDtsdd-zSJOFBIlx</skos:altLabel>
+                    <skos:altLabel language="nl">dtcc.7K</skos:altLabel>
+                    <skos:notation type="http://wJvBINgL/">fikbHq3ed.</skos:notation>
+                    <skos:inScheme>http://pjMrvaya/</skos:inScheme>
+                    <skos:inScheme>http://HlOGsYfz/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://publications.europa.eu/resource/authority/country/SHN"/>
+            </taxIdentifier>
+            <homepage>
+                <title language="en">t5AesH-OTmW4IYzw</title>
+                <title language="nl">hisiFIAoO</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/TCS"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </homepage>
+            <homepage>
+                <title language="en">HD_-AYauV8tLp2erjwvtSn</title>
+                <title language="nl">V0IMh4uDq3Lz3MzSXyFg..8</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/WBL"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </homepage>
+            <additionalNote>
+                <dc:subject uri="http://vBlrJNPf/">
+                    <skos:prefLabel language="en">LiKV</skos:prefLabel>
+                    <skos:prefLabel language="nl">Rh8</skos:prefLabel>
+                    <skos:altLabel language="en">mtKh2Ak2MH</skos:altLabel>
+                    <skos:altLabel language="nl">f0MsEOaoHTmnQm3wnv</skos:altLabel>
+                    <skos:notation type="http://TZauotkt/">b-8sYwlbFCVc2rX5XjHu.yFLfDF</skos:notation>
+                    <skos:inScheme>http://DvxTPrBY/</skos:inScheme>
+                    <skos:inScheme>http://DGZodNtU/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://GIEKvOam/">
+                    <skos:prefLabel language="en">CsTG64wLTqze7GS761O8uJ</skos:prefLabel>
+                    <skos:prefLabel language="nl">LID</skos:prefLabel>
+                    <skos:altLabel language="en">u.qlH7ckdpp7HcpRDZh8LNiSY-</skos:altLabel>
+                    <skos:altLabel language="nl">ZkTlOue.XbN9P95kWUYzs5V</skos:altLabel>
+                    <skos:notation type="http://xMVSaiZI/">DILQJwXK</skos:notation>
+                    <skos:inScheme>http://ziiwXeJA/</skos:inScheme>
+                    <skos:inScheme>http://TVenHlxn/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">O2kwvJ</noteLiteral>
+            </additionalNote>
+            <additionalNote>
+                <dc:subject uri="http://BCgbXtsD/">
+                    <skos:prefLabel language="en">asuJPawECTocBHxRX8L51YEUbqNEij</skos:prefLabel>
+                    <skos:prefLabel language="nl">bKNotO.8mG3MvDdpc63Okb35lQqvYy</skos:prefLabel>
+                    <skos:altLabel language="en">INh0mW0q2_DV1</skos:altLabel>
+                    <skos:altLabel language="nl">A5wQSnek</skos:altLabel>
+                    <skos:notation type="http://uIZZvVMQ/">GchywOQPiRnIpJou0</skos:notation>
+                    <skos:inScheme>http://LGnBjTou/</skos:inScheme>
+                    <skos:inScheme>http://UItJAMmv/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://YCbMnTYi/">
+                    <skos:prefLabel language="en">FV7LoWVd9</skos:prefLabel>
+                    <skos:prefLabel language="nl">YCPRvVn.sxyjo4</skos:prefLabel>
+                    <skos:altLabel language="en">iRuiWu</skos:altLabel>
+                    <skos:altLabel language="nl">oM2.yCO64J9uGPz98lB-DHUVZ</skos:altLabel>
+                    <skos:notation type="http://DDFsbJLZ/">DZwZh8sHjVD_eWg1jQqy-3D</skos:notation>
+                    <skos:inScheme>http://MiMvHNxL/</skos:inScheme>
+                    <skos:inScheme>http://DPpNdQli/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">t</noteLiteral>
+            </additionalNote>
+            <accreditation idref="http://ACCRED-01"/>
+            <accreditation idref="http://ACCRED-02"/>
+            <location idref="http://LOC-01"/>
+            <location idref="http://LOC-02"/>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://yGQCGGSq/">
+                    </dc:subject>
+                    <noteFormat uri="http://VIDKamdT/">
+                    </noteFormat>
+                    <noteLiteral language="en">JnqWx</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://tuUOKPdw/">
+                    </dc:subject>
+                    <noteFormat uri="http://OcqQnIbp/">
+                    </noteFormat>
+                    <noteLiteral language="en">R3AyJlnnXKesKzgjF9fkEaLO_0ZOj</noteLiteral>
+                </additionalNote>
+                <description language="en">FcqIzlr8</description>
+                <description language="nl">eflvPFa4A6iVIt8UGF</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://EJeUNGpY/">XQhXDGLrhlM9BipUms5el</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://IizThUqM/">HHtGJVJZ</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">ldU6oVsrRtgIJnMI5FMn</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/VUT"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://cvtmNvEI/">XNzFAP5bXU6S</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://FALanIaX/">m36h6</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">_li</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/GRC"/>
+                </address>
+                <phone>
+                    <phoneNumber>EsYKwSqUxrv8</phoneNumber>
+                    <countryDialing>l88r..tCLA2tHE7DAHq-olQ18yx</countryDialing>
+                    <areaDialing>AcBWeg.sc_svE4Jckz0MmqCwW6u</areaDialing>
+                    <dialNumber>LShqns4pSk2</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>HBzh</phoneNumber>
+                    <countryDialing>xGlMF-O6</countryDialing>
+                    <areaDialing>aJMo6m77E2ol1FcCj1yL1</areaDialing>
+                    <dialNumber>OcQia6TXwvLCdEcdjaArvBCL3ZY</dialNumber>
+                </phone>
+                <mailbox>http://AInOiOFd/</mailbox>
+                <mailbox>http://UTScdlDw/</mailbox>
+                <contactForm>
+                    <title language="en">DClYPCNz9p-bHC_u8eyEHyx2nfGd</title>
+                    <title language="nl">Xa7mCNSxUAUiAFI0yz1LuT</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/SSU"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">J4</title>
+                    <title language="nl">WQkBW1u.DB-I-urqhGoecmyU</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/DHO"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://PXeYjpmC/">
+                    </dc:subject>
+                    <noteFormat uri="http://VKVrouja/">
+                    </noteFormat>
+                    <noteLiteral language="en">G4</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://OkNaoEWx/">
+                    </dc:subject>
+                    <noteFormat uri="http://HkJDCUAt/">
+                    </noteFormat>
+                    <noteLiteral language="en">x7hu</noteLiteral>
+                </additionalNote>
+                <description language="en">fpwZ1A5GKPydZAQ9Ldxi</description>
+                <description language="nl">hD</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://ZJxjCRBH/">zibEtYqTdPF</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://cgdEQiWE/">NgA1Qlhz_MEa_E</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">ttD_jS4Ha-PE0R1_Ubn</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/COK"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://SAKwanxw/">pl_s8vmA</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://qdqvsCXK/">AMg0OT2vm3aH5RkmO</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">EF5</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/MNG"/>
+                </address>
+                <phone>
+                    <phoneNumber>RcQh</phoneNumber>
+                    <countryDialing>HDCQ9fQ.xxYZRmd7h_TIa5Y</countryDialing>
+                    <areaDialing>e6Uk8rd3E6gn</areaDialing>
+                    <dialNumber>aTS7-</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>Hj-wtOx2s8NOrCXWUUjMk</phoneNumber>
+                    <countryDialing>bkXyGMu1LSjFbNarcTd1ScOQ</countryDialing>
+                    <areaDialing>IvOkIIDr</areaDialing>
+                    <dialNumber>UyGo9hEEEWH</dialNumber>
+                </phone>
+                <mailbox>http://jcTRvKra/</mailbox>
+                <mailbox>http://WRnScGwn/</mailbox>
+                <contactForm>
+                    <title language="en">kWseqKb7S1uvZSF95srx</title>
+                    <title language="nl">slCw5V7jM2Afiyf</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/PCE"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">GMWtPuKyPo-6</title>
+                    <title language="nl">Q5pgP6BQO6kI_o6NX</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/CAD"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <hasSubOrganization idref="http://ORG-02"/>
+            <logo>
+                <title language="en">xWxEabbYzwoPPddR</title>
+                <title language="nl">Nl9sSL47MZ</title>
+                <description language="en">uo53xqpp1ilP5</description>
+                <description language="nl">T72Ggiv4UHJNU.Y9QQFT</description>
+                <contentType uri="http://publications.europa.eu/resource/authority/file-type/LZO"/>
+                <attachmentType uri="http://FhZWreIG/">
+                    <skos:prefLabel language="en">z498paIar9qFMhcPafO3E1R.KsJ</skos:prefLabel>
+                    <skos:prefLabel language="nl">gUM4sioqecZUstK3L8tJIKdTTVGIz0</skos:prefLabel>
+                    <skos:altLabel language="en">yHz3HxE</skos:altLabel>
+                    <skos:altLabel language="nl">Gq2lFXsWn3XvPPWGOdo7</skos:altLabel>
+                    <skos:notation type="http://oYWyXkEu/">FDLU2tPIO2EA2IkYwW</skos:notation>
+                    <skos:inScheme>http://BJdYRdYZ/</skos:inScheme>
+                    <skos:inScheme>http://jHlyqJvS/</skos:inScheme>
+                </attachmentType>
+                <contentEncoding uri="http://data.europa.eu/snb/encoding/6146cde7dd"/>
+                <contentSize>-415480870</contentSize>
+                <content>u2MG4_7U-CsIDM6h-</content>
+            </logo>
+            <groupMemberOf idref="http://GROUP-01"/>
+            <groupMemberOf idref="http://GROUP-02"/>
+            <status>OD49NGcHsV4Z</status>
+            <modified>2023-08-16T10:51:20Z</modified>
+            <publisher idref="http://RbNSJyzU/"/>
+        </organisation>
+        <organisation id="http://ORG-02">
+            <skos:altLabel language="en">W</skos:altLabel>
+            <skos:altLabel language="nl">O-V2</skos:altLabel>
+            <legalName language="en">up</legalName>
+            <legalName language="nl">b</legalName>
+            <type uri="http://YJOSsGuA/">
+                <skos:prefLabel language="en">y</skos:prefLabel>
+                <skos:prefLabel language="nl">uWH_fo-s</skos:prefLabel>
+                <skos:altLabel language="en">J5iPD06</skos:altLabel>
+                <skos:altLabel language="nl">mvhRwkoJPDUFSTmZnO2</skos:altLabel>
+                <skos:notation type="http://OfjGqjDY/">vzetTCcCS2</skos:notation>
+                <skos:inScheme>http://sQVWIysh/</skos:inScheme>
+                <skos:inScheme>http://RpiJuOZj/</skos:inScheme>
+            </type>
+            <type uri="http://mxEHKVBc/">
+                <skos:prefLabel language="en">kPW1q.LYvOX2BIhm.yyF4tnWAx7xLF</skos:prefLabel>
+                <skos:prefLabel language="nl">qx41u7uKx</skos:prefLabel>
+                <skos:altLabel language="en">hU2m10hc</skos:altLabel>
+                <skos:altLabel language="nl">tzRXf-p2.KexKxbHl</skos:altLabel>
+                <skos:notation type="http://lGFhDwnI/">dr_f2lKv10mCMMjK8TksC</skos:notation>
+                <skos:inScheme>http://hPunfXoc/</skos:inScheme>
+                <skos:inScheme>http://vmnYLXUn/</skos:inScheme>
+            </type>
+            <identifier>
+                <skos:notation type="http://aXjOQhhR/">pERUZ</skos:notation>
+                <dc:creator>http://rcjrmQIV/</dc:creator>
+                <schemeAgency language="en">J4TVK83dCHD6xNB4kIcP5.tM02ax</schemeAgency>
+                <issued>2024-10-11T10:51:20Z</issued>
+                <schemeName>kQl0XOSMe</schemeName>
+                <schemeVersion>ZlQhbi4S81g_tUOsmnbPSkTX</schemeVersion>
+                <schemeId>http://GVSXAuyz/</schemeId>
+                <dc:type uri="http://aEmyObHO/">
+                    <skos:prefLabel language="en">WeYoJDlN8.ydiZ</skos:prefLabel>
+                    <skos:prefLabel language="nl">M</skos:prefLabel>
+                    <skos:altLabel language="en">gdM99tzFHovTtPU-XBCnum0oqOSk</skos:altLabel>
+                    <skos:altLabel language="nl">qd4aYha-O9ElU</skos:altLabel>
+                    <skos:notation type="http://XBVPMXaw/">eZspBDPiJq60dltWCia</skos:notation>
+                    <skos:inScheme>http://GdOmNYWl/</skos:inScheme>
+                    <skos:inScheme>http://PNRbqzPC/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://ZFlhBcPU/">
+                    <skos:prefLabel language="en">t</skos:prefLabel>
+                    <skos:prefLabel language="nl">hgcLlUrStJ4SiJlYnsp</skos:prefLabel>
+                    <skos:altLabel language="en">M5Pus</skos:altLabel>
+                    <skos:altLabel language="nl">iHErUlt3k6GY1EeD</skos:altLabel>
+                    <skos:notation type="http://OFwDyzlm/">H65r</skos:notation>
+                    <skos:inScheme>http://xzwrOUjM/</skos:inScheme>
+                    <skos:inScheme>http://TtvShSAM/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <identifier>
+                <skos:notation type="http://vJymtGyp/">neNXSSbGfijsA7xvGs9kTo</skos:notation>
+                <dc:creator>http://gibLZHAz/</dc:creator>
+                <schemeAgency language="en">fgg4-QJ4kzs6PSugye</schemeAgency>
+                <issued>2023-09-25T10:51:20Z</issued>
+                <schemeName>EUSrZ</schemeName>
+                <schemeVersion>tOypwK40tq3ONKyb1</schemeVersion>
+                <schemeId>http://yHzMtJRO/</schemeId>
+                <dc:type uri="http://hjNkzJWt/">
+                    <skos:prefLabel language="en">F1IzgQoI5L613-dBb4KplwWduPnL</skos:prefLabel>
+                    <skos:prefLabel language="nl">HgJO.QHe</skos:prefLabel>
+                    <skos:altLabel language="en">O75uaQ18foXNMwm9VMAYYIjga</skos:altLabel>
+                    <skos:altLabel language="nl">Yht0lQ-vUbfQn</skos:altLabel>
+                    <skos:notation type="http://hSgvwdAT/">TvnNXBe4LDBEbm8Zucdmz</skos:notation>
+                    <skos:inScheme>http://SZALlqKT/</skos:inScheme>
+                    <skos:inScheme>http://fIENFnTo/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://BMtIGbhi/">
+                    <skos:prefLabel language="en">oHkYTH4Dd</skos:prefLabel>
+                    <skos:prefLabel language="nl">dbCOk0f6hPT4pxcv3j-14Df</skos:prefLabel>
+                    <skos:altLabel language="en">MWt4rJfTtxGmFINc</skos:altLabel>
+                    <skos:altLabel language="nl">Qn05tV6uYeBpPfFDXV</skos:altLabel>
+                    <skos:notation type="http://yxdFxsKj/">FSSW7XmqFd-XFUMtkNbJe4T</skos:notation>
+                    <skos:inScheme>http://rrhMCasc/</skos:inScheme>
+                    <skos:inScheme>http://XGayULVD/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <eidasLegalIdentifier>
+                <skos:notation type="http://yHPQLyma/">scH8sDMMya5diwdoOB8</skos:notation>
+                <dc:creator>http://DSSUuUVc/</dc:creator>
+                <schemeAgency language="en">GJSdEe</schemeAgency>
+                <issued>2022-11-15T10:51:20Z</issued>
+                <schemeName>mf</schemeName>
+                <schemeVersion>VLOx.72OmQA</schemeVersion>
+                <schemeId>http://lPfysFBD/</schemeId>
+                <dc:type uri="http://zpMnzCLV/">
+                    <skos:prefLabel language="en">Dkzt-TaU</skos:prefLabel>
+                    <skos:prefLabel language="nl">DSRo27ZPbWcnotvqYXXBu8en</skos:prefLabel>
+                    <skos:altLabel language="en">jzFKzCo.DzgxMBL8GEP9Y9Vni2NVv</skos:altLabel>
+                    <skos:altLabel language="nl">AX</skos:altLabel>
+                    <skos:notation type="http://jieMMeiX/">ITuoOGm-tAWS2NuizfCzm</skos:notation>
+                    <skos:inScheme>http://uXrslHJB/</skos:inScheme>
+                    <skos:inScheme>http://yWvEtKxA/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://xSKwGRRj/">
+                    <skos:prefLabel language="en">dJN7dair0cB</skos:prefLabel>
+                    <skos:prefLabel language="nl">a1t4xK-</skos:prefLabel>
+                    <skos:altLabel language="en">sZFieJNBe-z_et.95D</skos:altLabel>
+                    <skos:altLabel language="nl">QMc5lxXggpf4K08g</skos:altLabel>
+                    <skos:notation type="http://cAJNNlFS/">R0VKMTFGH_Vq5WY</skos:notation>
+                    <skos:inScheme>http://hDaoUebq/</skos:inScheme>
+                    <skos:inScheme>http://THzEgnss/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://data.europa.eu/nuts/code/IE051"/>
+            </eidasLegalIdentifier>
+            <registration>
+                <skos:notation type="http://DqvvIovg/">G60TKwvNC8NnaqR9sWwi_</skos:notation>
+                <dc:creator>http://muXjIFTV/</dc:creator>
+                <schemeAgency language="en">Hk3CVNNQkLu8treGnO_HvlO</schemeAgency>
+                <issued>2024-08-31T10:51:20Z</issued>
+                <schemeName>fOdzCARRhfEfG4KS6__Y83s64F0n4u</schemeName>
+                <schemeVersion>Mb.GWO0sRLFW2Fj-jBDEaqV-k.cg</schemeVersion>
+                <schemeId>http://vahhWHoI/</schemeId>
+                <dc:type uri="http://ISsNbdnA/">
+                    <skos:prefLabel language="en">b2aO</skos:prefLabel>
+                    <skos:prefLabel language="nl">byGbvwWkFks</skos:prefLabel>
+                    <skos:altLabel language="en">dC3.</skos:altLabel>
+                    <skos:altLabel language="nl">op.wC5kV9FIXX25V_S.6qnuPNvMfe</skos:altLabel>
+                    <skos:notation type="http://fuViPXmd/">YFfVxzSvFHMjc</skos:notation>
+                    <skos:inScheme>http://HBuyXiYJ/</skos:inScheme>
+                    <skos:inScheme>http://VGjYcdQT/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://faxMWFfK/">
+                    <skos:prefLabel language="en">Mvzu4K</skos:prefLabel>
+                    <skos:prefLabel language="nl">Q2-095.x4n</skos:prefLabel>
+                    <skos:altLabel language="en">a4lUFoSLPW</skos:altLabel>
+                    <skos:altLabel language="nl">Od1F</skos:altLabel>
+                    <skos:notation type="http://tvuscUtD/">ONFvUgNPViBHlZDFx</skos:notation>
+                    <skos:inScheme>http://JquxFOqo/</skos:inScheme>
+                    <skos:inScheme>http://VJSrdbjS/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://publications.europa.eu/resource/authority/country/IRQ"/>
+            </registration>
+            <vatIdentifier>
+                <skos:notation type="http://EvWqaPmT/">XmJWveVQpK9jpAEUS</skos:notation>
+                <dc:creator>http://gBAxUpqD/</dc:creator>
+                <schemeAgency language="en">LR8ShQ6NNi4mAC63mH</schemeAgency>
+                <issued>2024-08-30T10:51:20</issued>
+                <schemeName>W5fOAdc..oQ1</schemeName>
+                <schemeVersion>sl-Fk0o3q5c-6LFBZ0RJDOzEV.484</schemeVersion>
+                <schemeId>http://BFErucqS/</schemeId>
+                <dc:type uri="http://NnEanFhh/">
+                    <skos:prefLabel language="en">Opme-WTsUNxCjoKz9</skos:prefLabel>
+                    <skos:prefLabel language="nl">drML</skos:prefLabel>
+                    <skos:altLabel language="en">tl2N4C_hL-XdJcVzyhnAa2</skos:altLabel>
+                    <skos:altLabel language="nl">NWTlTy5b84vieB-r-Rf_b</skos:altLabel>
+                    <skos:notation type="http://rGWlOiBD/">m3T2j</skos:notation>
+                    <skos:inScheme>http://ckoQVDQG/</skos:inScheme>
+                    <skos:inScheme>http://uRAAiyDV/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://nSNjBhbB/">
+                    <skos:prefLabel language="en">dihWAa64DhHMBt</skos:prefLabel>
+                    <skos:prefLabel language="nl">nob5wbz</skos:prefLabel>
+                    <skos:altLabel language="en">KJrAyx7IGwfNDbUlhk</skos:altLabel>
+                    <skos:altLabel language="nl">HimrQnEXRU7J</skos:altLabel>
+                    <skos:notation type="http://fxPFXmSh/">qgdBnJJs</skos:notation>
+                    <skos:inScheme>http://qgEPabHR/</skos:inScheme>
+                    <skos:inScheme>http://KmsogXYh/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://data.europa.eu/nuts/code/ITH32"/>
+            </vatIdentifier>
+            <vatIdentifier>
+                <skos:notation type="http://KVtkNuua/">IvUHcQygMX9B</skos:notation>
+                <dc:creator>http://IEIWxgym/</dc:creator>
+                <schemeAgency language="en">hxXUytjdh</schemeAgency>
+                <issued>2023-02-21T10:51:20Z</issued>
+                <schemeName>aB3dzpPlDLXacSzfI</schemeName>
+                <schemeVersion>zvrqr2FmYfLNx2</schemeVersion>
+                <schemeId>http://DHEMLdsq/</schemeId>
+                <dc:type uri="http://dRzwpUdp/">
+                    <skos:prefLabel language="en">QIL9eT4E8L1M</skos:prefLabel>
+                    <skos:prefLabel language="nl">wtvw-5PSSQDf5kEV1_dAIjkMo</skos:prefLabel>
+                    <skos:altLabel language="en">jZ6UhbFvV5ZCm_E4d_T7iQSW8</skos:altLabel>
+                    <skos:altLabel language="nl">qqO-oH2X9PMepSN0kPw9bko</skos:altLabel>
+                    <skos:notation type="http://gJrbynfl/">MJFEk-y</skos:notation>
+                    <skos:inScheme>http://LyTQVYue/</skos:inScheme>
+                    <skos:inScheme>http://GrRoBZha/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://eVOXaHEn/">
+                    <skos:prefLabel language="en">RJzHT1yPe-Il</skos:prefLabel>
+                    <skos:prefLabel language="nl">R4ThfHMI-Ngz</skos:prefLabel>
+                    <skos:altLabel language="en">CHYE</skos:altLabel>
+                    <skos:altLabel language="nl">Sez3</skos:altLabel>
+                    <skos:notation type="http://azIHapvh/">qOIQxpb9zygbcxYDyiuE07</skos:notation>
+                    <skos:inScheme>http://OlEMLIVI/</skos:inScheme>
+                    <skos:inScheme>http://pdemCuWX/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://data.europa.eu/nuts/code/SK041"/>
+            </vatIdentifier>
+            <taxIdentifier>
+                <skos:notation type="http://ycZFhDpC/">jXKK42VXIUrwrfnZh8P</skos:notation>
+                <dc:creator>http://vMmGuZZd/</dc:creator>
+                <schemeAgency language="en">x</schemeAgency>
+                <issued>2023-09-15T10:51:20</issued>
+                <schemeName>tAXAHbnC_LAWztnDzBuoQwQeT</schemeName>
+                <schemeVersion>qBeHirKDNezJDP6BSuzRppXiW0X</schemeVersion>
+                <schemeId>http://RKPqYjHI/</schemeId>
+                <dc:type uri="http://TRRWuJsK/">
+                    <skos:prefLabel language="en">Ks8</skos:prefLabel>
+                    <skos:prefLabel language="nl">A09PdRRpt3pR</skos:prefLabel>
+                    <skos:altLabel language="en">wR1-EUcNVr7MzGB5u-RKD</skos:altLabel>
+                    <skos:altLabel language="nl">DCP</skos:altLabel>
+                    <skos:notation type="http://suLSoCLJ/">l5g3qV1l</skos:notation>
+                    <skos:inScheme>http://wtFLHzGO/</skos:inScheme>
+                    <skos:inScheme>http://YAtdnZUO/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://KOtKPZVH/">
+                    <skos:prefLabel language="en">Zt70KAwTxmYb</skos:prefLabel>
+                    <skos:prefLabel language="nl">WbRihA0M0IUQkrk5wINtNYGICFqPDB</skos:prefLabel>
+                    <skos:altLabel language="en">AIpo6K8cOjZvGT4Na6-QiNFLGHxZSI</skos:altLabel>
+                    <skos:altLabel language="nl">A9</skos:altLabel>
+                    <skos:notation type="http://mQpvxakj/">kd6GZOYgpyN32TSjQIe</skos:notation>
+                    <skos:inScheme>http://YHdaXbAl/</skos:inScheme>
+                    <skos:inScheme>http://VbMaNHGm/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://data.europa.eu/nuts/code/FRG"/>
+            </taxIdentifier>
+            <taxIdentifier>
+                <skos:notation type="http://baJYjXlx/">iBlVG_b7Si_mAO7OlhO</skos:notation>
+                <dc:creator>http://VzqNVhaC/</dc:creator>
+                <schemeAgency language="en">PmKngBHz5lRFDd7du.uPQTi-2_6_</schemeAgency>
+                <issued>2024-03-14T10:51:20</issued>
+                <schemeName>HZ</schemeName>
+                <schemeVersion>FsyBb7aQ1SfNC</schemeVersion>
+                <schemeId>http://ORHXAVMN/</schemeId>
+                <dc:type uri="http://ILRTvqbn/">
+                    <skos:prefLabel language="en">yWKZtDhB86XK8wxGLDsNZz1tAiSZ</skos:prefLabel>
+                    <skos:prefLabel language="nl">g-UdwluAk0s09OtTq5A-</skos:prefLabel>
+                    <skos:altLabel language="en">ZLyNJWFaS2</skos:altLabel>
+                    <skos:altLabel language="nl">wXVBvkNFK6gA9_ffVGr0vzaYTl</skos:altLabel>
+                    <skos:notation type="http://eEIDdJjv/">o.vJY7D.cEkhuOg</skos:notation>
+                    <skos:inScheme>http://uPxIXcmf/</skos:inScheme>
+                    <skos:inScheme>http://gtwppdhc/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://IccsUaXb/">
+                    <skos:prefLabel language="en">a9tyECs6tn1_PSD5H</skos:prefLabel>
+                    <skos:prefLabel language="nl">MWJZx</skos:prefLabel>
+                    <skos:altLabel language="en">k4</skos:altLabel>
+                    <skos:altLabel language="nl">gwHnHDKA056-Hi5raRM</skos:altLabel>
+                    <skos:notation type="http://BjKlyxwF/">lLHSoyCR9T3ll9qs_zI6</skos:notation>
+                    <skos:inScheme>http://junxXLdT/</skos:inScheme>
+                    <skos:inScheme>http://vQqQmwMM/</skos:inScheme>
+                </dc:type>
+                <spatial uri="http://data.europa.eu/nuts/code/FRH03"/>
+            </taxIdentifier>
+            <homepage>
+                <title language="en">to38y2obfHlF8nTOs</title>
+                <title language="nl">YwGde</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/KLR"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </homepage>
+            <homepage>
+                <title language="en">J_nxmaWZOzw1AnFNBhejCISKP</title>
+                <title language="nl">eTdNDzs-IHtxX0ptksgILQI</title>
+                <language uri="http://publications.europa.eu/resource/authority/language/UBR"/>
+                <contentUrl>http://www.example.com</contentUrl>
+            </homepage>
+            <additionalNote>
+                <dc:subject uri="http://IQIMcGZR/">
+                    <skos:prefLabel language="en">rP1SfQzOh1T7QqxIFd-mpPs</skos:prefLabel>
+                    <skos:prefLabel language="nl">P5N99Us5b-GepGvAFR.</skos:prefLabel>
+                    <skos:altLabel language="en">lkfTVV4z47</skos:altLabel>
+                    <skos:altLabel language="nl">dxpgV_cDk</skos:altLabel>
+                    <skos:notation type="http://VhXFWllb/">k1hQSeJ9a7f</skos:notation>
+                    <skos:inScheme>http://qmXvZiao/</skos:inScheme>
+                    <skos:inScheme>http://PeEMQZKJ/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://obDZQegE/">
+                    <skos:prefLabel language="en">oRIeF_QcFU.Uu94iWe9Jpp</skos:prefLabel>
+                    <skos:prefLabel language="nl">rYb_st-w4IWq8HH</skos:prefLabel>
+                    <skos:altLabel language="en">bmZotI</skos:altLabel>
+                    <skos:altLabel language="nl">wCGV_xCueGPVV1_50f3KqUZ9</skos:altLabel>
+                    <skos:notation type="http://bSEvqmXH/">nhRzl8_4KLI10eyac21</skos:notation>
+                    <skos:inScheme>http://TGiwbYyh/</skos:inScheme>
+                    <skos:inScheme>http://BErmyGGT/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">W7pOyxqEstx-fGDgnnY9.k</noteLiteral>
+            </additionalNote>
+            <additionalNote>
+                <dc:subject uri="http://TsDNPqyQ/">
+                    <skos:prefLabel language="en">XaGdNbuTM</skos:prefLabel>
+                    <skos:prefLabel language="nl">tZ62zFiXC5lgwN2o.N.d8ei</skos:prefLabel>
+                    <skos:altLabel language="en">j8cg9htTJ9Ogk-uwyV9sKiI1U</skos:altLabel>
+                    <skos:altLabel language="nl">xSdcHpX1</skos:altLabel>
+                    <skos:notation type="http://XPNSXOFu/">cFsc-1e4wLbE-bX-HdmBlQ</skos:notation>
+                    <skos:inScheme>http://qzrBqBNZ/</skos:inScheme>
+                    <skos:inScheme>http://meBgJeWz/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://FLbKbzgs/">
+                    <skos:prefLabel language="en">PiNnVZe7OkyS</skos:prefLabel>
+                    <skos:prefLabel language="nl">hKcVKSY97_rAOz2s8lsLBF</skos:prefLabel>
+                    <skos:altLabel language="en">pwxuPLs.dnHPUZlmWpr</skos:altLabel>
+                    <skos:altLabel language="nl">RT3SqSnb_hkdjO0fQIyXTach</skos:altLabel>
+                    <skos:notation type="http://ihgdBero/">Lpha</skos:notation>
+                    <skos:inScheme>http://SdvfmwYf/</skos:inScheme>
+                    <skos:inScheme>http://nueIWtrA/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">_d6QZc3fUHhqUf9B5YiCEO48q7f1cc</noteLiteral>
+            </additionalNote>
+            <accreditation idref="http://ACCRED-01"/>
+            <accreditation idref="http://ACCRED-02"/>
+            <location idref="http://LOC-01"/>
+            <location idref="http://LOC-02"/>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://mQOMgAHX/">
+                    </dc:subject>
+                    <noteFormat uri="http://ZNSBFdUi/">
+                    </noteFormat>
+                    <noteLiteral language="en">T5uAv5Z</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://UQgeRFIx/">
+                    </dc:subject>
+                    <noteFormat uri="http://NyzoKDSa/">
+                    </noteFormat>
+                    <noteLiteral language="en">R6ycNrKrU4n3tyfsOfemxjS_hs</noteLiteral>
+                </additionalNote>
+                <description language="en">Bo.QY.G</description>
+                <description language="nl">oTBV</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://LNXXvCod/">_Dvx71rsVmCk1EUcXJ4-rxNSlZ</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://NzAosAHt/">x1RotMQxxG</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">hin9NG.79H6yXcMNW25</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/NOR"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://ZNZwlgRx/">LXZkER1EV9eVszbjAdSKGGycFt9xz</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://IlAkEJnG/">Gy4llE5dkYiNr</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">IuTa6nO3Lr9UVSM</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/IDN"/>
+                </address>
+                <phone>
+                    <phoneNumber>G3ijtFXGBDGmH6</phoneNumber>
+                    <countryDialing>Rv.</countryDialing>
+                    <areaDialing>f.WsMIngnPhfOwglAhH8aUqivKg</areaDialing>
+                    <dialNumber>ClJFXY-CKf</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>l3Ff3yDtxRk</phoneNumber>
+                    <countryDialing>aktdHxiWlZA.qjQV3x5iN0eTm4</countryDialing>
+                    <areaDialing>Nv0UOXdU8E</areaDialing>
+                    <dialNumber>Pm7PI7ARpTlgMo4</dialNumber>
+                </phone>
+                <mailbox>http://ndYKVIwO/</mailbox>
+                <mailbox>http://DZzNGORW/</mailbox>
+                <contactForm>
+                    <title language="en">Ae</title>
+                    <title language="nl">zL-XSI9_AOGA1KkEykmSq3p89U</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/AKK"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">RPuZC4n</title>
+                    <title language="nl">dYOOeSH5K</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/PUZ"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://HTMTHDBv/">
+                    </dc:subject>
+                    <noteFormat uri="http://AmkgLtxF/">
+                    </noteFormat>
+                    <noteLiteral language="en">SoSwFHMWLI</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://VHtHDilm/">
+                    </dc:subject>
+                    <noteFormat uri="http://eyUvrHyU/">
+                    </noteFormat>
+                    <noteLiteral language="en">LDM-RqBg0r573nedjONuVC</noteLiteral>
+                </additionalNote>
+                <description language="en">O_R1GmzHrZoPz</description>
+                <description language="nl">Gi4nCOnmZDW4x5vJz2VVc</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://YUQMflWL/">UQgMnv</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://XHylgAJB/">z1OD9fO2Ej0lQH4</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">dkfhrV7ZQvYwogBca6yY5zl</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/MDV"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://qbKwRaZI/">ln7iL</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://fBtlhDPo/">AuhwJnie4jCWY57BOYtaO-FM3-y</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">UifKhtz</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/NER"/>
+                </address>
+                <phone>
+                    <phoneNumber>XgzTKnP.6R5CFk5Dr8pG</phoneNumber>
+                    <countryDialing>Dm-Q</countryDialing>
+                    <areaDialing>z</areaDialing>
+                    <dialNumber>vR</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>PunUOADAnECuMpoz2YvOrQ</phoneNumber>
+                    <countryDialing>shfcjs.by7n1GcF3slzqpgp9LM_TOV</countryDialing>
+                    <areaDialing>i1if0K1</areaDialing>
+                    <dialNumber>N.9ecCe55mFNfG47</dialNumber>
+                </phone>
+                <mailbox>http://yayjToAR/</mailbox>
+                <mailbox>http://LZdrtjpH/</mailbox>
+                <contactForm>
+                    <title language="en">AhaURr44FbOZ-yL</title>
+                    <title language="nl">eGfS9g5Bk7QEgLoWtTpbbGuaGpjh</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/ALY"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">WiJcWp97qfILs.HQUynzuH8u0tfyG0</title>
+                    <title language="nl">zB2_f1GnRXIrgXAEVjG</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/ZMJ"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <subOrganizationOf idref="http://ORG-01"/>
+            <logo>
+                <title language="en">p6lb4up-Go_KLh4pFaswFCFSkZ</title>
+                <title language="nl">TbZo38DQRM3mqL</title>
+                <description language="en">bfN0ac7KvGLJRWWoGzkhMLwOFxt</description>
+                <description language="nl">uh4BvFS07EEQg</description>
+                <contentType uri="http://publications.europa.eu/resource/authority/file-type/AZW"/>
+                <attachmentType uri="http://bHMCLfDF/">
+                    <skos:prefLabel language="en">cOKZY2G23sB1gpH0bNcEyc2jNNsolF</skos:prefLabel>
+                    <skos:prefLabel language="nl">TFeyN0XBtiDG</skos:prefLabel>
+                    <skos:altLabel language="en">gZfuFPokRFsAFTNt-WA-Ivs</skos:altLabel>
+                    <skos:altLabel language="nl">XbUuACtHUUhqP2Va2pkNcziL.5.-t</skos:altLabel>
+                    <skos:notation type="http://bUypZfuX/">Tqca</skos:notation>
+                    <skos:inScheme>http://UQaHbNam/</skos:inScheme>
+                    <skos:inScheme>http://eiQCVxre/</skos:inScheme>
+                </attachmentType>
+                <contentEncoding uri="http://data.europa.eu/snb/encoding/6146cde7dd"/>
+                <contentSize>-796524154</contentSize>
+                <content>C5BcPDlb</content>
+            </logo>
+            <groupMemberOf idref="http://GROUP-01"/>
+            <groupMemberOf idref="http://GROUP-02"/>
+            <status>IokD48aRfsQsd6</status>
+            <modified>2024-02-24T10:51:20</modified>
+            <publisher idref="http://pFHjmqvE/"/>
+        </organisation>
+    </agentReferences>
+    <groupReferences>
+        <group id="http://GROUP-01">
+            <skos:prefLabel language="en">aKUZvKkyXNTqC</skos:prefLabel>
+            <skos:prefLabel language="nl">eTdSF</skos:prefLabel>
+            <skos:altLabel language="en">nLE</skos:altLabel>
+            <skos:altLabel language="nl">CFWVbM</skos:altLabel>
+            <dc:type uri="http://xdewojAC/">
+                <skos:prefLabel language="en">H9g6pQVWif2PfRrFaUbxaZiXL</skos:prefLabel>
+                <skos:prefLabel language="nl">TPbjA</skos:prefLabel>
+                <skos:altLabel language="en">_0L6LErs</skos:altLabel>
+                <skos:altLabel language="nl">MEcb1WaQxH_0nDeK7c0Yxe</skos:altLabel>
+                <skos:notation type="http://AOdozaZq/">lx3VFta8LiWCCFHGTJHw</skos:notation>
+                <skos:inScheme>http://TCKLrzzw/</skos:inScheme>
+                <skos:inScheme>http://YFHUfznc/</skos:inScheme>
+            </dc:type>
+            <dc:type uri="http://IuqBfMMg/">
+                <skos:prefLabel language="en">iShg.zxotowwNp</skos:prefLabel>
+                <skos:prefLabel language="nl">aaEqHkxv_m7g6iAkZi_GWRB</skos:prefLabel>
+                <skos:altLabel language="en">_7</skos:altLabel>
+                <skos:altLabel language="nl">_oKFO3.RMJJ5KACOE3XQC-zB47qC</skos:altLabel>
+                <skos:notation type="http://zpIBQfha/">Bol8G.O2oduhycvpLoE8DsUeJSTM0j</skos:notation>
+                <skos:inScheme>http://gGtmHtfM/</skos:inScheme>
+                <skos:inScheme>http://YepTCiNJ/</skos:inScheme>
+            </dc:type>
+            <additionalNote>
+                <dc:subject uri="http://yKQYWBVj/">
+                    <skos:prefLabel language="en">M1qHy08zsCtv01BmBJiG-t3</skos:prefLabel>
+                    <skos:prefLabel language="nl">qL8twQyH9Ko7YC4J7D</skos:prefLabel>
+                    <skos:altLabel language="en">rFZyJaaYEhCXy4g6vY</skos:altLabel>
+                    <skos:altLabel language="nl">aD</skos:altLabel>
+                    <skos:notation type="http://YAaqGlzW/">iB21r</skos:notation>
+                    <skos:inScheme>http://NQMEELNW/</skos:inScheme>
+                    <skos:inScheme>http://LubTjdxX/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://PGqczqxz/">
+                    <skos:prefLabel language="en">b6bC101ZbEolO.GKsgCq1v0DpJ-r</skos:prefLabel>
+                    <skos:prefLabel language="nl">JZawAT7QRFIlDB-H52-NUGd6Z</skos:prefLabel>
+                    <skos:altLabel language="en">sPqWsNO8</skos:altLabel>
+                    <skos:altLabel language="nl">BKtELdeJJHquSDnoz-</skos:altLabel>
+                    <skos:notation type="http://qsREFGpH/">zBlfFJB0Zf3jBCQ-BpzW_5qdZFY</skos:notation>
+                    <skos:inScheme>http://OFSgQZyZ/</skos:inScheme>
+                    <skos:inScheme>http://ujruuvuG/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">OZSIYRmpo</noteLiteral>
+            </additionalNote>
+            <additionalNote>
+                <dc:subject uri="http://VSjwhwjc/">
+                    <skos:prefLabel language="en">hS4nOf0k6UHOO_Ls-u7FpntM07pP58</skos:prefLabel>
+                    <skos:prefLabel language="nl">wmYw.7E_04L</skos:prefLabel>
+                    <skos:altLabel language="en">X3UykJytfW7tM5_</skos:altLabel>
+                    <skos:altLabel language="nl">bVR</skos:altLabel>
+                    <skos:notation type="http://PMeTFfPj/">BZoGVvGRU</skos:notation>
+                    <skos:inScheme>http://hZgGQnnx/</skos:inScheme>
+                    <skos:inScheme>http://pOBbeHVy/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://NdEWtaSa/">
+                    <skos:prefLabel language="en">_fd690BNhXjmfYA0GK</skos:prefLabel>
+                    <skos:prefLabel language="nl">BId8pDaC1moxUF4DdyFC3</skos:prefLabel>
+                    <skos:altLabel language="en">_C58QrLpaZXaHKYeCCjDqUZt-i</skos:altLabel>
+                    <skos:altLabel language="nl">O6mlb</skos:altLabel>
+                    <skos:notation type="http://cliBxmoK/">_mcy8mT3Hpp</skos:notation>
+                    <skos:inScheme>http://daEnwKjI/</skos:inScheme>
+                    <skos:inScheme>http://BbeHeGuj/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">vBsEkTlNtemyqK9yC5kS3</noteLiteral>
+            </additionalNote>
+            <location idref="http://LOC-01"/>
+            <location idref="http://LOC-02"/>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://LudyzoHz/">
+                    </dc:subject>
+                    <noteFormat uri="http://kOgByWwV/">
+                    </noteFormat>
+                    <noteLiteral language="en">Aw3b</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://iOVgJgUB/">
+                    </dc:subject>
+                    <noteFormat uri="http://oBkBcnmf/">
+                    </noteFormat>
+                    <noteLiteral language="en">I775JLQoT-DGlSfWYZ5</noteLiteral>
+                </additionalNote>
+                <description language="en">UGRm.u.</description>
+                <description language="nl">bT_i5wb25Haofw</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://GpKWSJdJ/">P.kTS</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://eqZcBlMT/">pzNH-1YZd</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">SMYQ0bcpuBa6J05mbiY</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/UZB"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://PaxfAPqP/">xOxrvZ42V8</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://QzoRltQc/">sfDY4CvhqP1.GxFkxYT</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">whEIQscRQKHFr</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/IND"/>
+                </address>
+                <phone>
+                    <phoneNumber>zK5DWmq5GoD</phoneNumber>
+                    <countryDialing>x2cHuqz9izB</countryDialing>
+                    <areaDialing>u45G</areaDialing>
+                    <dialNumber>ymtVW_RWvaSnpP3us0</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>d3n</phoneNumber>
+                    <countryDialing>VJ</countryDialing>
+                    <areaDialing>YlTpHCc0pMTSLkrcc3oFCp</areaDialing>
+                    <dialNumber>MRaQAaGIQp0bk</dialNumber>
+                </phone>
+                <mailbox>http://hEnWgftf/</mailbox>
+                <mailbox>http://jefFTiNP/</mailbox>
+                <contactForm>
+                    <title language="en">ulaUKlgcD7t_C7-Ck1mKokw</title>
+                    <title language="nl">PFtwnSRKIBTKYIdN4nI2eUe3tuL8QJ</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/THZ"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">IJXk6</title>
+                    <title language="nl">vgm</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/JRT"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://LWmyAgHc/">
+                    </dc:subject>
+                    <noteFormat uri="http://ZuvOpjyL/">
+                    </noteFormat>
+                    <noteLiteral language="en">ZVF</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://XsrOooTf/">
+                    </dc:subject>
+                    <noteFormat uri="http://uTWWqUYp/">
+                    </noteFormat>
+                    <noteLiteral language="en">gPc7.JO.pzfX6PdnsR-OTcZFitd</noteLiteral>
+                </additionalNote>
+                <description language="en">dT</description>
+                <description language="nl">bWJ_zBoZtrN</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://ZCHsLxfr/">XJfZlYY</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://XORqoGLm/">ud8MnT</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">XFsJDs_f3</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/CYP"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://ZRlxtJyV/">PgGecwNboTNxrbGf5DYdl7IJO5</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://ekZpzqll/">LbUhiInGjb</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">fGLp</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/IRL"/>
+                </address>
+                <phone>
+                    <phoneNumber>mwkq_XKykfPAk_f3T</phoneNumber>
+                    <countryDialing>FFaA6Qx8b-8HFQf0YpfqZ7</countryDialing>
+                    <areaDialing>B</areaDialing>
+                    <dialNumber>kcz84TKLfWhA4F2FNag2wr3Ykf.</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>a_XU_pPHqlaR93ibCjw3Y</phoneNumber>
+                    <countryDialing>sp6WnQil73qQ</countryDialing>
+                    <areaDialing>KHGK2z-s_ref3UP7lGw-ldH21WuDoL</areaDialing>
+                    <dialNumber>Y24MMIFg74KQJsIHB8</dialNumber>
+                </phone>
+                <mailbox>http://CCVAAWTr/</mailbox>
+                <mailbox>http://WNvRAESS/</mailbox>
+                <contactForm>
+                    <title language="en">dUgNKI09X54yAxFTZCYwXETF</title>
+                    <title language="nl">C5ZvMCkqgmFrm-M_Ar_KOEKX5gd8</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/PAL"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">GYtQNBPusuWaZFejaT5Ed38zy</title>
+                    <title language="nl">_1LOX-xPP</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/XGM"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <member idref="http://AGENT-01"/>
+            <member idref="http://ORG-01"/>
+            <member idref="http://ORG-02"/>
+        </group>
+        <group id="http://GROUP-02">
+            <skos:prefLabel language="en">uy7wNmz9LQfqOBynv2t6u7fqjZ8St</skos:prefLabel>
+            <skos:prefLabel language="nl">czU</skos:prefLabel>
+            <skos:altLabel language="en">dfiZ50</skos:altLabel>
+            <skos:altLabel language="nl">e-zQb2Yq.EJKsuKVouJt9qUE04XH</skos:altLabel>
+            <dc:type uri="http://EuSUvydG/">
+                <skos:prefLabel language="en">p</skos:prefLabel>
+                <skos:prefLabel language="nl">R0794mfF</skos:prefLabel>
+                <skos:altLabel language="en">U7qTV</skos:altLabel>
+                <skos:altLabel language="nl">LNiYF.h9OMOc_Ia</skos:altLabel>
+                <skos:notation type="http://RBxoDXSx/">Gyfi</skos:notation>
+                <skos:inScheme>http://BmfpYlUd/</skos:inScheme>
+                <skos:inScheme>http://wMegOeMH/</skos:inScheme>
+            </dc:type>
+            <dc:type uri="http://GvMyZOyH/">
+                <skos:prefLabel language="en">hnKcsGPWF_K</skos:prefLabel>
+                <skos:prefLabel language="nl">XwFJtVO</skos:prefLabel>
+                <skos:altLabel language="en">jdLyc</skos:altLabel>
+                <skos:altLabel language="nl">rKy.F</skos:altLabel>
+                <skos:notation type="http://qGRTmYuX/">mMIRclUVJfKZNxa2Kn</skos:notation>
+                <skos:inScheme>http://EjrIVMOV/</skos:inScheme>
+                <skos:inScheme>http://dhQHNAjk/</skos:inScheme>
+            </dc:type>
+            <additionalNote>
+                <dc:subject uri="http://wrpqbXWo/">
+                    <skos:prefLabel language="en">sU5wjguhC4URtB-teRczn</skos:prefLabel>
+                    <skos:prefLabel language="nl">DGJ2iLJmk70erRUc4p5qlG_</skos:prefLabel>
+                    <skos:altLabel language="en">FU7-y3.DViR-BuM</skos:altLabel>
+                    <skos:altLabel language="nl">Z7</skos:altLabel>
+                    <skos:notation type="http://kzgyTHmI/">zZS0M</skos:notation>
+                    <skos:inScheme>http://HmMJgMKw/</skos:inScheme>
+                    <skos:inScheme>http://nzcDYZbI/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://pAYjIHJR/">
+                    <skos:prefLabel language="en">XS4PnF-Xfn-C2R_d.g8exTQ</skos:prefLabel>
+                    <skos:prefLabel language="nl">RGHdGmqDOtM6t9tkL</skos:prefLabel>
+                    <skos:altLabel language="en">Z5d1P4</skos:altLabel>
+                    <skos:altLabel language="nl">xPQ</skos:altLabel>
+                    <skos:notation type="http://QYuLgcKz/">pDxFSQEbq4Um1lOdvN</skos:notation>
+                    <skos:inScheme>http://lzCKLPZM/</skos:inScheme>
+                    <skos:inScheme>http://IXSCWkKu/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">ZFT3-WnXz2v8Jcx4oilcH5oqMiO</noteLiteral>
+            </additionalNote>
+            <additionalNote>
+                <dc:subject uri="http://xbqraMWs/">
+                    <skos:prefLabel language="en">DWqi9</skos:prefLabel>
+                    <skos:prefLabel language="nl">iYqD8d-</skos:prefLabel>
+                    <skos:altLabel language="en">CB</skos:altLabel>
+                    <skos:altLabel language="nl">i0BMmioi5J6</skos:altLabel>
+                    <skos:notation type="http://VlnETHkk/">vBoXh_2.WLoUiU8azA</skos:notation>
+                    <skos:inScheme>http://eEILGTvv/</skos:inScheme>
+                    <skos:inScheme>http://kTSZIwHO/</skos:inScheme>
+                </dc:subject>
+                <noteFormat uri="http://AMGCbryc/">
+                    <skos:prefLabel language="en">Kzy</skos:prefLabel>
+                    <skos:prefLabel language="nl">Oo87mLD5Bo7ZXpH8</skos:prefLabel>
+                    <skos:altLabel language="en">ffzkJZI08vE0jKuONx</skos:altLabel>
+                    <skos:altLabel language="nl">ABFfi4OsQ1CJ1bFSb</skos:altLabel>
+                    <skos:notation type="http://mAbzRZYv/">wJFscgjoWsNSQJZ</skos:notation>
+                    <skos:inScheme>http://hSsZqGsM/</skos:inScheme>
+                    <skos:inScheme>http://mTvEWklN/</skos:inScheme>
+                </noteFormat>
+                <noteLiteral language="en">RVzZ52I5AAwFjvtM42kN89M4Z7R</noteLiteral>
+            </additionalNote>
+            <location idref="http://LOC-01"/>
+            <location idref="http://LOC-02"/>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://jUaMIiVj/">
+                    </dc:subject>
+                    <noteFormat uri="http://qRIuvsrG/">
+                    </noteFormat>
+                    <noteLiteral language="en">ikRvGj8gwnTSC4SN23B.ImFd7P</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://zbuKWGGp/">
+                    </dc:subject>
+                    <noteFormat uri="http://tDmdQIfM/">
+                    </noteFormat>
+                    <noteLiteral language="en">sso763hcfi9fpXxyvsM3kZc</noteLiteral>
+                </additionalNote>
+                <description language="en">l.h6hLnyOEs6JZfzjIvjz</description>
+                <description language="nl">o</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://RtgAnBpf/">D3oVKi9BGYsecr</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://arfOMWSt/">rT9je2oWWMuFkapjuA5Dgf8_AYr</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">wH</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/MAC"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://ELuPzjOv/">SX1</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://RlpwUmCU/">CrKgpzN</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">rpxX7-ViQt7</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/DMA"/>
+                </address>
+                <phone>
+                    <phoneNumber>F2CHGbsOEx8b0CUi8PfTj.yI4Y</phoneNumber>
+                    <countryDialing>LX8CdcezEhMln1zOLxzdF8aK</countryDialing>
+                    <areaDialing>HXa6oUfE81l9DOWIeHu7mkaQ2L</areaDialing>
+                    <dialNumber>YhA</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>UWo2m_W._1Ce</phoneNumber>
+                    <countryDialing>eU9b3</countryDialing>
+                    <areaDialing>ru9O</areaDialing>
+                    <dialNumber>a5</dialNumber>
+                </phone>
+                <mailbox>http://JQXemlwC/</mailbox>
+                <mailbox>http://vzlQYrJk/</mailbox>
+                <contactForm>
+                    <title language="en">v2FM</title>
+                    <title language="nl">IhV5oXjTp5sbL</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/MNH"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">esKcBYlJikcGp6wHGjS69_Ts-7RsDY</title>
+                    <title language="nl">a</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/KRB"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <contactPoint>
+                <additionalNote>
+                    <dc:subject uri="http://dOpPFwEJ/">
+                    </dc:subject>
+                    <noteFormat uri="http://jfbarhRb/">
+                    </noteFormat>
+                    <noteLiteral language="en">SQ0uA3bNkFuu</noteLiteral>
+                </additionalNote>
+                <additionalNote>
+                    <dc:subject uri="http://SQVJGiMZ/">
+                    </dc:subject>
+                    <noteFormat uri="http://NfBhgkqD/">
+                    </noteFormat>
+                    <noteLiteral language="en">R0rIBUd5TE9iYXrASt5Bf</noteLiteral>
+                </additionalNote>
+                <description language="en">caMxlc7</description>
+                <description language="nl">_vh0qSMgX4_D4A31ikie2gk</description>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://sAqwywsw/">JGIZ3</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://BckQkduw/">WZCVOvNcT5IlphQ</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">GuizEvTj</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/ALA"/>
+                </address>
+                <address>
+                    <identifier>
+                        <skos:notation type="http://GccHpCIV/">EQ</skos:notation>
+                    </identifier>
+                    <identifier>
+                        <skos:notation type="http://dVOZkBFV/">GJ99ThdxTqDLI</skos:notation>
+                    </identifier>
+                    <fullAddress>
+                        <noteLiteral language="en">EgLw_xM43mj8bG9g-cqV</noteLiteral>
+                    </fullAddress>
+                    <countryCode uri="http://publications.europa.eu/resource/authority/country/CAF"/>
+                </address>
+                <phone>
+                    <phoneNumber>uTa5</phoneNumber>
+                    <countryDialing>MY</countryDialing>
+                    <areaDialing>w3YDTVzYnMB</areaDialing>
+                    <dialNumber>_svmmZkO4qLPrfb2DBGb</dialNumber>
+                </phone>
+                <phone>
+                    <phoneNumber>t24au5HHw4iEJyw444FC7</phoneNumber>
+                    <countryDialing>i6dzq</countryDialing>
+                    <areaDialing>YefuCcy</areaDialing>
+                    <dialNumber>T8</dialNumber>
+                </phone>
+                <mailbox>http://EYBMlNun/</mailbox>
+                <mailbox>http://WoOOOaBM/</mailbox>
+                <contactForm>
+                    <title language="en">QPkBxbg</title>
+                    <title language="nl">OPUkxkzz6aTSHGY6qG0xX</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/HMF"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+                <contactForm>
+                    <title language="en">ikzGvN.qNZTGel</title>
+                    <title language="nl">MNTPu9vZn6TypG3tpx3Lpm-YJ</title>
+                    <language uri="http://publications.europa.eu/resource/authority/language/SQA"/>
+                    <contentUrl>http://www.example.com</contentUrl>
+                </contactForm>
+            </contactPoint>
+            <member idref="http://AGENT-01"/>
+            <member idref="http://ORG-01"/>
+            <member idref="http://ORG-02"/>
+        </group>
+    </groupReferences> 
+    <locationReferences>
+        <location id="http://LOC-01">
+            <identifier>
+                <skos:notation type="http://SOBWcjxS/">IX8vgjDhJsKtaFKfU</skos:notation>
+                <dc:creator>http://AoGuqCJY/</dc:creator>
+                <schemeAgency language="en">G3cfASOxC7-v</schemeAgency>
+                <issued>2024-02-29T10:51:20Z</issued>
+                <schemeName>Wnkezlua.7zYNdRgy2OZrPWQXk0Rj</schemeName>
+                <schemeVersion>mEpm9zZdSq.GrRSBwFPcQ-v5mpF</schemeVersion>
+                <schemeId>http://oBDNgnQJ/</schemeId>
+                <dc:type uri="http://HnrrnuLt/">
+                    <skos:prefLabel language="en">rYhgMzVmgsiO_PVS1TPvz9q9</skos:prefLabel>
+                    <skos:prefLabel language="nl">MzCPaVPcDRy1zsG6NOEV</skos:prefLabel>
+                    <skos:altLabel language="en">SEGq8B</skos:altLabel>
+                    <skos:altLabel language="nl">fJRiRBkttv8MIX8qzYJ9OCrx</skos:altLabel>
+                    <skos:notation type="http://GIYgolsd/">J0bfJ5dWt</skos:notation>
+                    <skos:inScheme>http://TDVZHUXr/</skos:inScheme>
+                    <skos:inScheme>http://LhWRbNqP/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://AghKIxna/">
+                    <skos:prefLabel language="en">AG2dL.q8GBW</skos:prefLabel>
+                    <skos:prefLabel language="nl">AHqIgEH-9jgY3qRVXDpai3VA</skos:prefLabel>
+                    <skos:altLabel language="en">f1Lp-XsCC</skos:altLabel>
+                    <skos:altLabel language="nl">yXxkN</skos:altLabel>
+                    <skos:notation type="http://mpeARzoj/">EsXfOEtgE</skos:notation>
+                    <skos:inScheme>http://qUvIkZml/</skos:inScheme>
+                    <skos:inScheme>http://qRjjxbIR/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <identifier>
+                <skos:notation type="http://AyxIEbRM/">vc3</skos:notation>
+                <dc:creator>http://hBHojoqQ/</dc:creator>
+                <schemeAgency language="en">UQXN4tj_R9OCZzBZJ</schemeAgency>
+                <issued>2023-04-01T10:51:20</issued>
+                <schemeName>KWy8ZfW9d</schemeName>
+                <schemeVersion>FGDFX.LDyj.Vnvnr6YWz06</schemeVersion>
+                <schemeId>http://YwpKLCyB/</schemeId>
+                <dc:type uri="http://nbNUyYjD/">
+                    <skos:prefLabel language="en">DnZqY48AUbK.a.Q-</skos:prefLabel>
+                    <skos:prefLabel language="nl">_lkXy</skos:prefLabel>
+                    <skos:altLabel language="en">QEFZsPW7n7Va4o</skos:altLabel>
+                    <skos:altLabel language="nl">W_QL0O3HSg</skos:altLabel>
+                    <skos:notation type="http://hBdjFHbl/">NDGfgFxV8</skos:notation>
+                    <skos:inScheme>http://fTohXcdN/</skos:inScheme>
+                    <skos:inScheme>http://ekFmWatW/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://uoiylzDt/">
+                    <skos:prefLabel language="en">efylv3OyQRyU4HYwUKrhIKI</skos:prefLabel>
+                    <skos:prefLabel language="nl">nsHUsD0r3XBuKcpiRA</skos:prefLabel>
+                    <skos:altLabel language="en">PUa2qEVi4xYI2bekTb1hBNekvTJVO</skos:altLabel>
+                    <skos:altLabel language="nl">I0XRq3H9Ampaa_Uw7EC20hejEO</skos:altLabel>
+                    <skos:notation type="http://WhzGBKvt/">pevE1qY</skos:notation>
+                    <skos:inScheme>http://XLgdnkfj/</skos:inScheme>
+                    <skos:inScheme>http://fARCOXhd/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <geographicName language="en">S</geographicName>
+            <geographicName language="nl">JbqqmYthPQ0oWtHEsTQSw6obbHs</geographicName>
+            <spatialCode uri="http://data.europa.eu/nuts/code/DEA42"/>
+            <spatialCode uri="http://data.europa.eu/nuts/code/DEC0"/>
+            <description language="en">p-ihebJaVpPoW_JsY392eNQabVEXc</description>
+            <description language="nl">U3Tw0</description>
+            <address>
+                <identifier>
+                    <skos:notation type="http://axuJdjTv/">V</skos:notation>
+                    <dc:creator>http://rEUqWkpk/</dc:creator>
+                    <schemeAgency language="en">osOQ8Tlh2vkSzkgDh.xT8jTBq</schemeAgency>
+                    <issued>2024-01-28T10:51:20Z</issued>
+                    <schemeName>wk0DistxLSgU5PMfe_</schemeName>
+                    <schemeVersion>nqxpTx0Xl30vB.teJvjzgDEjTY</schemeVersion>
+                    <schemeId>http://iuwZjHkv/</schemeId>
+                    <dc:type uri="http://FYFqwfEw/">
+                    </dc:type>
+                    <dc:type uri="http://VhtqxnNa/">
+                    </dc:type>
+                </identifier>
+                <identifier>
+                    <skos:notation type="http://KVOsOlnx/">YDqPwXatzVErQ</skos:notation>
+                    <dc:creator>http://vXPjhRcU/</dc:creator>
+                    <schemeAgency language="en">L</schemeAgency>
+                    <issued>2022-11-09T10:51:20Z</issued>
+                    <schemeName>W-csecm2nMn9IycYsTvM</schemeName>
+                    <schemeVersion>ksc4jM</schemeVersion>
+                    <schemeId>http://BXyyKuzC/</schemeId>
+                    <dc:type uri="http://lclsNYEJ/">
+                    </dc:type>
+                    <dc:type uri="http://FGnWnhqY/">
+                    </dc:type>
+                </identifier>
+                <fullAddress>
+                    <dc:subject uri="http://yBvbEJHj/">
+                    </dc:subject>
+                    <noteFormat uri="http://VeJunZwF/">
+                    </noteFormat>
+                    <noteLiteral language="en">lz3V..HJaohgb9XcxxGP1T</noteLiteral>
+                </fullAddress>
+                <countryCode uri="http://publications.europa.eu/resource/authority/country/SGS"/>
+            </address>
+            <address>
+                <identifier>
+                    <skos:notation type="http://SPLrRRaK/">XSeXE-sEinWfqptWTz</skos:notation>
+                    <dc:creator>http://opxGxXvT/</dc:creator>
+                    <schemeAgency language="en">FHUjrg</schemeAgency>
+                    <issued>2023-05-27T10:51:20</issued>
+                    <schemeName>cS_vjbCt6E</schemeName>
+                    <schemeVersion>l26Rg</schemeVersion>
+                    <schemeId>http://FIObTjKW/</schemeId>
+                    <dc:type uri="http://EWEXGMnR/">
+                    </dc:type>
+                    <dc:type uri="http://SvqNUeVo/">
+                    </dc:type>
+                </identifier>
+                <identifier>
+                    <skos:notation type="http://CAyDFZti/">jK2Bkqw_PuEh4CPQI4c0HzbM</skos:notation>
+                    <dc:creator>http://jCgbYSyz/</dc:creator>
+                    <schemeAgency language="en">ox0uJW2Jr</schemeAgency>
+                    <issued>2024-07-24T10:51:20</issued>
+                    <schemeName>YXar6B2YE1TuNvFXhc</schemeName>
+                    <schemeVersion>keVGJWHkoDaUgaT6AN</schemeVersion>
+                    <schemeId>http://uvOGMxdt/</schemeId>
+                    <dc:type uri="http://mxODPUaS/">
+                    </dc:type>
+                    <dc:type uri="http://VmVcfkJk/">
+                    </dc:type>
+                </identifier>
+                <fullAddress>
+                    <dc:subject uri="http://MPLqFlZp/">
+                    </dc:subject>
+                    <noteFormat uri="http://PTiTSELX/">
+                    </noteFormat>
+                    <noteLiteral language="en">Az</noteLiteral>
+                </fullAddress>
+                <countryCode uri="http://publications.europa.eu/resource/authority/country/MDA"/>
+            </address>
+            <locn:geometry>
+                <clv:longitude>W9_fI1HFIxbGL.rW</clv:longitude>
+                <clv:longitude>OaheqmvEzBu</clv:longitude>
+                <clv:latitude>zLwHeWG_</clv:latitude>
+                <clv:latitude>QlkKBucX_</clv:latitude>
+            </locn:geometry>
+            <locn:geometry>
+                <clv:longitude>iSkSPunCL</clv:longitude>
+                <clv:longitude>lY-ILWz</clv:longitude>
+                <clv:latitude>pS-mh2HggUqd.oCZ0mzGSKDJVYG2</clv:latitude>
+                <clv:latitude>DX0aGj_-aK</clv:latitude>
+            </locn:geometry>
+        </location>
+        <location id="http://LOC-02">
+            <identifier>
+                <skos:notation type="http://hYMisptn/">VaL_I3e3Vi2EW6cJ7bis</skos:notation>
+                <dc:creator>http://UBHsDAty/</dc:creator>
+                <schemeAgency language="en">lkBTy5wRFLAZn-N.CozVx</schemeAgency>
+                <issued>2023-04-06T10:51:20</issued>
+                <schemeName>F1YuDR-1sOL</schemeName>
+                <schemeVersion>d0X</schemeVersion>
+                <schemeId>http://lkelXGwN/</schemeId>
+                <dc:type uri="http://aImlKtkq/">
+                    <skos:prefLabel language="en">E599CrC1MRNZHGKheK6</skos:prefLabel>
+                    <skos:prefLabel language="nl">uqHBP3aQ-dnY</skos:prefLabel>
+                    <skos:altLabel language="en">He.z80qyPklqR</skos:altLabel>
+                    <skos:altLabel language="nl">RlB49i29</skos:altLabel>
+                    <skos:notation type="http://NHoCNliT/">LBC_iYI7HP</skos:notation>
+                    <skos:inScheme>http://yXYCVmKL/</skos:inScheme>
+                    <skos:inScheme>http://RYkCBSbj/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://uXgHtiIu/">
+                    <skos:prefLabel language="en">OdaXx5hvdIn</skos:prefLabel>
+                    <skos:prefLabel language="nl">laYtZjZwFz1858FxbNdBXFWkEbd</skos:prefLabel>
+                    <skos:altLabel language="en">ow6P</skos:altLabel>
+                    <skos:altLabel language="nl">c_asEx3U54wGEQPRKK</skos:altLabel>
+                    <skos:notation type="http://VinJIzaz/">Zz</skos:notation>
+                    <skos:inScheme>http://nhutPRXR/</skos:inScheme>
+                    <skos:inScheme>http://krmdPMdq/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <identifier>
+                <skos:notation type="http://HuTqxuCZ/">IUT4GL_1nir3Vd</skos:notation>
+                <dc:creator>http://jqNYrldG/</dc:creator>
+                <schemeAgency language="en">iSsHIU6G7EqTZUf</schemeAgency>
+                <issued>2023-12-16T10:51:20</issued>
+                <schemeName>eQGZxn9ycU.bX8Xmm</schemeName>
+                <schemeVersion>QqlL.3xmjhzAHz7Rxbi</schemeVersion>
+                <schemeId>http://DAQBRWVj/</schemeId>
+                <dc:type uri="http://AlZtjUvR/">
+                    <skos:prefLabel language="en">sFvG</skos:prefLabel>
+                    <skos:prefLabel language="nl">zifBHcal</skos:prefLabel>
+                    <skos:altLabel language="en">nV.ltQ5tm6SDtco8j-EmOnM</skos:altLabel>
+                    <skos:altLabel language="nl">czno2l3MxN_zEcxuz4EDwUvp5</skos:altLabel>
+                    <skos:notation type="http://ekApJrio/">VYzGF_66BSw</skos:notation>
+                    <skos:inScheme>http://nPLgbNpH/</skos:inScheme>
+                    <skos:inScheme>http://eDCfkalg/</skos:inScheme>
+                </dc:type>
+                <dc:type uri="http://DFqCItyH/">
+                    <skos:prefLabel language="en">mYkB8w4g2J6Q0KBdJHanMy._</skos:prefLabel>
+                    <skos:prefLabel language="nl">xKFYW_LfdGAUfNF2piY1WV</skos:prefLabel>
+                    <skos:altLabel language="en">LJAsr9_B1aa2JLuh-dVYm9ySkljA</skos:altLabel>
+                    <skos:altLabel language="nl">OaL7hREsYX</skos:altLabel>
+                    <skos:notation type="http://wPSVDpkP/">rOJn7dh9FVrgkooSr</skos:notation>
+                    <skos:inScheme>http://mpbMRjzn/</skos:inScheme>
+                    <skos:inScheme>http://QhvxJSFz/</skos:inScheme>
+                </dc:type>
+            </identifier>
+            <geographicName language="en">ito5Wpd</geographicName>
+            <geographicName language="nl">zRjL414BlowxfSK1</geographicName>
+            <spatialCode uri="http://data.europa.eu/nuts/code/DEE02"/>
+            <spatialCode uri="http://data.europa.eu/nuts/code/FRB02"/>
+            <description language="en">Cb9.Kccu0TH77Z3GK9_.CH</description>
+            <description language="nl">MUQur-AbPULIb</description>
+            <address>
+                <identifier>
+                    <skos:notation type="http://MsiBNJlw/">y-8gECqP.hWz2ybP1Xd</skos:notation>
+                    <dc:creator>http://NbvKxEts/</dc:creator>
+                    <schemeAgency language="en">oEl</schemeAgency>
+                    <issued>2023-12-13T10:51:20</issued>
+                    <schemeName>GwAqEe</schemeName>
+                    <schemeVersion>xWX.uUtcsxNeXS8D_n4ot2fmM</schemeVersion>
+                    <schemeId>http://xokQNEbZ/</schemeId>
+                    <dc:type uri="http://jCwBtTCd/">
+                    </dc:type>
+                    <dc:type uri="http://hOtDFogk/">
+                    </dc:type>
+                </identifier>
+                <identifier>
+                    <skos:notation type="http://NjOgAhhn/">Kj6wHQxh9FvJyc19UM7v7AGD37S</skos:notation>
+                    <dc:creator>http://ViJpSoTt/</dc:creator>
+                    <schemeAgency language="en">hNjsdtc1Uf.2dYU85bK3pGCdeSn</schemeAgency>
+                    <issued>2024-06-18T10:51:20</issued>
+                    <schemeName>vx5fGNZXPbRv-x</schemeName>
+                    <schemeVersion>A0nO</schemeVersion>
+                    <schemeId>http://BMTugtjL/</schemeId>
+                    <dc:type uri="http://bAMtfMfT/">
+                    </dc:type>
+                    <dc:type uri="http://OCDXUlur/">
+                    </dc:type>
+                </identifier>
+                <fullAddress>
+                    <dc:subject uri="http://UgCYglxU/">
+                    </dc:subject>
+                    <noteFormat uri="http://SrKNXBMg/">
+                    </noteFormat>
+                    <noteLiteral language="en">OnTU9Gz7QQXWMFoS</noteLiteral>
+                </fullAddress>
+                <countryCode uri="http://publications.europa.eu/resource/authority/country/WLF"/>
+            </address>
+            <address>
+                <identifier>
+                    <skos:notation type="http://gywCaKlI/">YlZb-0RE6YKsGSZ</skos:notation>
+                    <dc:creator>http://naXJsdDj/</dc:creator>
+                    <schemeAgency language="en">ZWkZb00mBK</schemeAgency>
+                    <issued>2023-09-20T10:51:20</issued>
+                    <schemeName>X0hAdV-vRWb0IC</schemeName>
+                    <schemeVersion>kYM5HhGHgY9RUlW5</schemeVersion>
+                    <schemeId>http://gWweUeFH/</schemeId>
+                    <dc:type uri="http://fVPMRGNI/">
+                    </dc:type>
+                    <dc:type uri="http://apdoByia/">
+                    </dc:type>
+                </identifier>
+                <identifier>
+                    <skos:notation type="http://QbuOIqkX/">iGNr.KRuLwOpOzCVRvDTKl5J5ah</skos:notation>
+                    <dc:creator>http://MrfemmLT/</dc:creator>
+                    <schemeAgency language="en">C_q-63KzD0JufHaLkA7o</schemeAgency>
+                    <issued>2023-02-09T10:51:20Z</issued>
+                    <schemeName>LDjYgs8xrtx0s4O7</schemeName>
+                    <schemeVersion>ABNgHHvs</schemeVersion>
+                    <schemeId>http://xTwTbJEJ/</schemeId>
+                    <dc:type uri="http://vyyIRDZL/">
+                    </dc:type>
+                    <dc:type uri="http://LawZyHhq/">
+                    </dc:type>
+                </identifier>
+                <fullAddress>
+                    <dc:subject uri="http://ynQxuegP/">
+                    </dc:subject>
+                    <noteFormat uri="http://BxUjbYAb/">
+                    </noteFormat>
+                    <noteLiteral language="en">E3FfkVG.</noteLiteral>
+                </fullAddress>
+                <countryCode uri="http://publications.europa.eu/resource/authority/country/SLB"/>
+            </address>
+            <locn:geometry>
+                <clv:longitude>jxzCAHkC5-9LVBN2</clv:longitude>
+                <clv:longitude>y2kqGNN_O</clv:longitude>
+                <clv:latitude>YhT_vzGP-ctOFIk_</clv:latitude>
+                <clv:latitude>LNhGKgOJjk9ST6NKFzCZ0Ohj8MVF</clv:latitude>
+            </locn:geometry>
+            <locn:geometry>
+                <clv:longitude>R0Oda_7qXKE7zRxqFD.</clv:longitude>
+                <clv:longitude>hpbPwSIg04DyX4cnxxh.TicRJFR7</clv:longitude>
+                <clv:latitude>plFFN37Xs8mVtuGs2TqG5fg1JMHwL4</clv:latitude>
+                <clv:latitude>pAHE0Ty8bdH</clv:latitude>
+            </locn:geometry>
+        </location>
+    </locationReferences>
+</Accreditations>
