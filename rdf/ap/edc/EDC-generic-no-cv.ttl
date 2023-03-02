@@ -1,4 +1,4 @@
-@prefix edc:    <http://data.europa.eu/snb/model/edc-constraints-no-semantics/>.
+@prefix edc:    <http://data.europa.eu/snb/model/edc-generic-no-cv/>.
 @prefix elm:    <http://data.europa.eu/snb/model/>.
 @prefix dc:     <http://purl.org/dc/terms/>.
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
@@ -18,21 +18,8 @@
 @prefix locn:   <http://www.w3.org/ns/locn#>.
 @prefix clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
 
-<http://data.europa.eu/snb/model/edc-constraints-no-semantics>
+<http://data.europa.eu/snb/model/edc-generic-no-cv>
   a owl:Ontology;
-  # owl:imports rdf:;
-  # owl:imports dc:;
-  # owl:imports org:;
-  # owl:imports cpv:;
-  # owl:imports locn:;
-  # owl:imports adms:;
-  # owl:imports foaf:;
-  # owl:imports elm:;
-  # owl:imports skos:;
-  # owl:imports sh:;
-  # owl:imports cred:;
-  # owl:imports locn:;
-  # owl:imports clv:;
   rdfs:label "SHACL constraints for EDC Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
   dc:modified "2022-10-07"^^xsd:date;
@@ -361,7 +348,7 @@ edc:Address-elm_countryCode
   sh:class skos:Concept ;
   sh:minCount 1;
   sh:maxCount 1;
-  sh:description "The address’ country code. It should be provided using the Country Named Authority List."@en;
+  sh:description "The address' country code. It should be provided using the Country Named Authority List."@en;
   sh:name "country"@en;
   sh:severity sh:Violation;
   #sh:order 2;
@@ -538,11 +525,12 @@ edc:AwardingOpportunity-dc_temporal
   sh:path dc:temporal;
   sh:class dc:PeriodOfTime;
   sh:maxCount 1;
-  sh:description "The temporal duration, associated with a period of time when the awarding activities take place. If not specified it is undefined (“not known”)."@en;
+  sh:description "The temporal duration, associated with a period of time when the awarding activities take place. If not specified it is undefined (not known)."@en;
   sh:name "temporal "@en;
   sh:severity sh:Violation;
   #sh:order 2;
   . 
+
 edc:AwardingOpportunity-elm_awardingBody
   a sh:PropertyShape;  
   sh:path elm:awardingBody;
@@ -918,6 +906,7 @@ edc:DisplayParameter-elm_individualDisplay
   a sh:PropertyShape; 
   sh:path elm:individualDisplay;
   sh:class elm:IndividualDisplay;
+  sh:minCount 1;
   sh:description "The individual display of the credential."@en;
   sh:name "individual display"@en;
   sh:severity sh:Violation;
@@ -949,7 +938,6 @@ edc:IndividualDisplayShape
     sh:path elm:displayDetail;
     sh:class elm:DisplayDetail;
     sh:minCount 1;
-    sh:maxCount 1;
     sh:description "The detail(s) of the individual display."@en;
     sh:name "display detail(s)"@en;
     sh:severity sh:Violation;
@@ -994,7 +982,7 @@ edc:EuropeanDigitalCredentialShape
   rdfs:comment "A set of claims made by an issuer in Europe, using the EDC Standards. A European Digital Credential for Learning is a set of one or more claims which may be used to demonstrate that the owner has certain skills or has achieved certain learning outcomes through formal, non-formal or informal learning. European Digital Credential class is a subclass of Verifiable Credential."@en; 
   rdfs:label "European Digital Credential "@en; 
   sh:property edc:EuropeanDigitalCredential-adms_identifier;
-  sh:property edc:EuropeanDigitalCredential-elm_credentialProfile;
+  sh:property edc:EuropeanDigitalCredential-elm_credentialProfiles;
   sh:property edc:EuropeanDigitalCredential-elm_attachment;
   sh:property edc:EuropeanDigitalCredential-elm_displayParameter;
   sh:property edc:EuropeanDigitalCredential-cred_issuer;
@@ -1024,10 +1012,11 @@ edc:EuropeanDigitalCredentialShape
   sh:name "identifier"@en;
   sh:severity sh:Violation;
   #sh:order 0;
-  . 
-edc:EuropeanDigitalCredential-elm_credentialProfile
+  .
+
+edc:EuropeanDigitalCredential-elm_credentialProfiles
   a sh:PropertyShape; 
-  sh:path elm:credentialProfile;
+  sh:path elm:credentialProfiles;
   sh:class skos:Concept;
   sh:minCount 1;
   sh:description "A profile of the European Digital Credential. It should be provided using the EDC Controlled List of Credential Types."@en;
@@ -1207,6 +1196,7 @@ edc:EuropeanDigitalCredential-cred_holder
   sh:severity sh:Violation;
   #sh:order 12;
   .
+
 #------ European Digital Presentation class and properties shapes -------- 
 edc:EuropeanDigitalPresentationShape 
   a sh:NodeShape; 
@@ -5543,7 +5533,7 @@ edc:GroupShape
  edc:VerifiableCredentialShape
   a sh:NodeShape ;
   sh:targetClass cred:VerifiableCredential;
-  sh:deactivated true;
+  sh:deactivated true ;
   rdfs:comment "A Verifiable Credential. This is the superclass of European Digital credential for Learning."@en; 
   rdfs:label "Verifiable Credential "@en;
   sh:property edc:VerifiableCredential-cred_issuer;
@@ -5670,7 +5660,7 @@ edc:VerifiableCredential-cred_proof
 edc:VerifiableCredential-cred_evidence
   a sh:PropertyShape; 
   sh:path cred:evidence;
-  sh:datatype elm:Evidence;
+  sh:class elm:Evidence;
   sh:description "The evidence of the verifiable credential."@en;
   sh:name "evidence"@en;
   sh:severity sh:Violation;
@@ -5855,8 +5845,17 @@ edc:EvidenceShape
   a sh:NodeShape; 
   sh:targetClass elm:Evidence; 
   rdfs:comment "The evidence of the verifiable credential. It contains information about the process which resulted in the issuance of the verifiable credential."@en; 
-  rdfs:label "Evidence "@en; 
-   sh:property[
+  rdfs:label "Evidence "@en;
+  sh:property[
+     sh:path dc:type;
+     sh:class skos:Concept;
+     sh:name "type";
+     sh:description "The type of the evidence."@en;
+     sh:minCount 1;
+     sh:maxCount 1;
+     sh:severity sh:Violation;
+  ];
+  sh:property[
      sh:path elm:evidenceStatement;
      sh:datatype xsd:string;
      sh:maxCount 1;
@@ -5864,7 +5863,7 @@ edc:EvidenceShape
      sh:name "evidence statement"@en;
      sh:severity sh:Violation;
   ];
-   sh:property[
+  sh:property[
      sh:path elm:evidenceTarget;
      #sh:class elm:Agent;
      sh:or (
@@ -5877,7 +5876,7 @@ edc:EvidenceShape
      sh:name "evidence target"@en;
      sh:severity sh:Violation;
   ];
-   sh:property[
+  sh:property[
      sh:path elm:embeddedEvidence;
      sh:class elm:MediaObject;
      sh:description "The embeded evidence."@en;

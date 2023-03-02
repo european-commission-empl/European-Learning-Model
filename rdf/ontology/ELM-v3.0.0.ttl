@@ -1016,10 +1016,10 @@ elm:attachment
   rdfs:range elm:MediaObject;
   . 
 
-elm:credentialProfile
+elm:credentialProfiles
   a rdf:Property; 
 	a owl:ObjectProperty;
-  dc:identifier "elm:credentialProfile";
+  dc:identifier "elm:credentialProfiles";
 	rdfs:comment "A label associated to the european digital credential. It should be provided using the EDC Controlled List of Credential Types."@en;
   rdfs:label "credential profile"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model>;
