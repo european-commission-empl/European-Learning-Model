@@ -1,0 +1,118 @@
+@prefix edc:    <http://data.europa.eu/snb/model/edc-generic-no-cv/>.
+@prefix elm:    <http://data.europa.eu/snb/model/>.
+@prefix dc:     <http://purl.org/dc/terms/>.
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix org:    <http://www.w3.org/ns/org#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix cc:     <http://creativecommons.org/ns#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
+@prefix person: <http://www.w3.org/ns/person#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix cred:   <https://www.w3.org/2018/credentials#>.
+@prefix locn:   <http://www.w3.org/ns/locn#>.
+@prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
+
+<http://data.europa.eu/snb/model/edc-diploma-supplement>
+  a owl:Ontology;
+  owl:imports <http://data.europa.eu/snb/model/edc-accredited>;
+  rdfs:label "SHACL constraints for EDC Converted Application Profile"@en;
+  dc:created "2021-09-10"^^xsd:date;
+  dc:modified "2022-10-07"^^xsd:date;
+  dc:title "SHACL constraints for European Digital Credentials  application profile"@en;
+  dc:description "SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used."@en;
+  rdfs:comment "This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used."@en;
+  owl:versionInfo "1.0.0";
+  dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
+  cc:attributionURL <http://ec.europa.eu/> ;
+  dc:license <https://creativecommons.org/licenses/by/4.0/>;
+  # dc:creator [foaf:mbox "EMPL-ELM-SUPPORT@ec.europa.eu"; foaf:name "NTT Data"];  
+  # dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added 
+  .
+
+edc:Person-foaf_fullName
+  a sh:PropertyShape;
+  sh:minCount 1;
+  sh:maxCount 1;
+  #sh:order 3; 
+  .
+
+edc:Person-elm_dateOfBirth
+  a sh:PropertyShape;
+  sh:minCount 1;
+  sh:maxCount 1;
+  #sh:order 9; 
+  .
+  
+edc:LearningAchievement-elm_creditReceived
+  a sh:PropertyShape;
+  sh:minCount 1;
+  sh:maxCount 1;
+  #sh:order 14;
+  .
+
+edc:LearningAchievement-elm_provenBy
+  a sh:PropertyShape;
+  sh:minCount 1;
+  sh:maxCount 1;
+  #sh:order 7;
+  .
+  
+edc:Qualification-elm_ISCEDFCode
+  a sh:PropertyShape;
+  sh:minCount 1;
+  #sh:order 14;
+  .
+  
+edc:Qualification-elm_awardingOpportunity
+  a sh:PropertyShape;
+  sh:minCount 1;
+  #sh:order 26;
+  .
+  
+edc:Qualification-dc_language
+  a sh:PropertyShape; 
+  sh:minCount 1;
+  #sh:order 10;
+  .  
+  
+edc:Qualification-elm_NQFLevel
+  a sh:PropertyShape;  
+  sh:minCount 1;
+  #sh:order 33;
+  .
+  
+  
+edc:Qualification-elm_maximumDuration
+  a sh:PropertyShape;
+  sh:maxCount 1;
+  sh:minCount 1;
+  #sh:order 19;
+  .
+  
+  
+edc:Qualification-elm_mode
+  a sh:PropertyShape; 
+  sh:minCount 1;
+  #sh:order 12;
+  .
+  
+edc:Qualification-elm_learningOutcome
+  a sh:PropertyShape;
+  sh:minCount 1;
+  #sh:order 22;
+  .
+  
+edc:Qualification-elm_hasPart
+  a sh:PropertyShape;
+  sh:minCount 1;
+  #sh:order 27;
+  .
+  
+
+
