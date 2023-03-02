@@ -44,8 +44,8 @@
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
   dc:license <https://creativecommons.org/licenses/by/4.0/>;
-  dc:creator [foaf:mbox ""; foaf:name ""];   # to be added 
-  dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added 
+  # dc:creator [foaf:mbox ""; foaf:name ""]; # to be added
+  # dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added
   .
 
 <https://creativecommons.org/licenses/by/4.0/>

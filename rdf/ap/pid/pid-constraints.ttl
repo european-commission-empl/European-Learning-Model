@@ -38,7 +38,8 @@ a owl:Ontology;
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
   dc:license <https://creativecommons.org/licenses/by/4.0/>;
-  # dc:creator [foaf:mbox "natasa.sofou@gmail.com"; foaf:name "Natasa Sofou"];  
+    # dc:creator [foaf:mbox ""; foaf:name ""]; # to be added
+  # dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added
   .
 #-------------------------------------------------------------------------
 #------------- Group Class and property shapes ---------------------------
