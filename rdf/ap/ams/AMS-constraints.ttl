@@ -8,7 +8,7 @@
 @prefix org:    <http://www.w3.org/ns/org#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix gr:     <http://purl.org/goodrelations/v1#>.
-@prefix elm:    <http://data.europa.eu/snb/model>.
+@prefix elm:    <http://data.europa.eu/snb/model/>.
 @prefix ams:    <http://data.europa.eu/snb/model/ams-constraints/>.
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
@@ -662,6 +662,7 @@ ams:LocationShape
     sh:datatype rdf:langString;
     sh:description "A proper noun applied to a spatial object."@en;
     sh:name "geographic name"@en;
+    sh:uniqueLang true ;
     sh:severity sh:Violation;
     #sh:order 1;
   ];

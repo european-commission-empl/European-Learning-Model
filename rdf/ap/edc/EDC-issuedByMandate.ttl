@@ -1,0 +1,65 @@
+@prefix edc:    <http://data.europa.eu/snb/model/edc-generic-no-cv/>.
+@prefix elm:    <http://data.europa.eu/snb/model/>.
+@prefix dc:     <http://purl.org/dc/terms/>.
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix org:    <http://www.w3.org/ns/org#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix cc:     <http://creativecommons.org/ns#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
+@prefix person: <http://www.w3.org/ns/person#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix cred:   <https://www.w3.org/2018/credentials#>.
+@prefix locn:   <http://www.w3.org/ns/locn#>.
+@prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
+
+<http://data.europa.eu/snb/model/edc-issued-by-mandate>
+  a owl:Ontology;
+  owl:imports <http://data.europa.eu/snb/model/edc-generic-full>;
+  rdfs:label "SHACL constraints for EDC Converted Application Profile"@en;
+  dc:created "2021-09-10"^^xsd:date;
+  dc:modified "2022-10-07"^^xsd:date;
+  dc:title "SHACL constraints for European Digital Credentials  application profile"@en;
+  dc:description "SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used."@en;
+  rdfs:comment "This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used."@en;
+  owl:versionInfo "1.0.0";
+  dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
+  cc:attributionURL <http://ec.europa.eu/> ;
+  dc:license <https://creativecommons.org/licenses/by/4.0/>;
+  # dc:creator [foaf:mbox ""; foaf:name ""]; # to be added
+  # dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added
+  .
+  
+edc:EuropeanDigitalCredential-cred_evidence
+  sh:minCount 1;
+  sh:severity sh:Violation;
+  #sh:order 9;
+  .
+edc:VerifiableCredential-cred_evidence
+  a sh:PropertyShape; 
+  sh:severity sh:Violation;
+  sh:minCount 1;
+  sh:deactivated true ;
+  #sh:order 8;
+  .
+  
+edc:EvidenceShape 
+  a sh:NodeShape; 
+  sh:targetClass elm:Evidence; 
+  rdfs:comment "The evidence of the verifiable credential. It contains information about the process which resulted in the issuance of the verifiable credential."@en; 
+  rdfs:label "Evidence "@en;   
+  sh:property[
+     sh:path elm:evidenceStatement;
+     sh:datatype xsd:string;
+	   sh:minCount 1;
+     sh:maxCount 1;
+     sh:description "The statement of the evidence."@en;
+     sh:name "evidence statement"@en;
+     sh:severity sh:Violation;
+  ];
+  .     

@@ -23,19 +23,20 @@
         "AwardingProcess": "elm:AwardingProcess",
         "Claim": "elm:Claim",
         "Concept": "skos:Concept",
-        "ConceptScheme":"skos:conceptScheme",
+        "ConceptScheme":"skos:ConceptScheme",
         "ContactPoint": "elm:ContactPoint",
         "CreditPoint": "elm:CreditPoint",
         "DisplayParameter": "elm:DisplayParameter",
         "DisplayDetail": "elm:DisplayDetail",
         "EuropeanDigitalCredential": "elm:EuropeanDigitalCredential",
         "EuropeanDigitalPresentation": "elm:EuropeanDigitalPresentation",
+        "Evidence" : "elm:Evidence",
         "Geometry":"locn:Geometry",
-        "GradingScheme": "elm:radingScheme",
+        "GradingScheme": "elm:GradingScheme",
         "Grant": "elm:Grant",
         "Group": "elm:Group",
-        "Evidence":"elm:Evidence",
         "Identifier": "elm:Identifier",
+        "IndividualDisplay" : "elm:IndividualDisplay",
         "LearningAchievement": "elm:LearningAchievement",
         "LearningAchievementSpecification": "elm:LearningAchievementSpecification",
         "LearningActivity": "elm:LearningActivity",
@@ -74,10 +75,6 @@
         },
         "admissionProcedure": {
             "@id": "elm:admissionProcedure",
-            "@type": "@id"
-        },
-        "admsIdentifier": {
-            "@id": "adms:identifier",
             "@type": "@id"
         },
         "additionalNote": {
@@ -200,9 +197,9 @@
             "@id": "dc:creator",
             "@type": "@id"
         },
-        "credentialProfile":{
-          "@id": "elm:credentialProfile",
-          "@type": "@id"
+        "creditPoint": {
+          "@id": "elm:creditPoint",
+          "@type" : "@id"
         },
         "creditReceived": {
             "@id": "elm:creditReceived",
@@ -224,8 +221,8 @@
             "@id": "elm:dateOfBirth",
             "@type": "xsd:dateTime"
         },
-        "dcType": {
-            "@id": "dc:type",
+        "credentialProfiles": {
+            "@id": "elm:credentialProfiles",
             "@type": "@id"
         },
         "decision": {
@@ -252,6 +249,10 @@
           "@id": "elm:directedBy",
           "@type": "@id"
         },
+        "dcType" : {
+          "@id" : "dc:type",
+          "@type" : "@id"
+        },
         "displayParameter": {
             "@id": "elm:displayParameter",
             "@type": "@id"
@@ -272,7 +273,7 @@
             "@id": "elm:educationSubject",
             "@type": "@id"
         },
-        "eIDASΙdentifier": {
+        "eIDASIdentifier": {
             "@id": "elm:eidasLegalIdentifier",
             "@type": "@id"
         },
@@ -351,7 +352,7 @@
         },
         "geographicName": {
             "@id": "elm:geographicName",
-            "@type": "xsd:string"
+            "@container": "@language"
         },
         "gender": {
             "@id": "elm:gender",
@@ -401,9 +402,13 @@
             "@id": "foaf:homepage",
             "@type": "@id"
         },
+	      "image": {
+	          "@id": "elm:image",
+            "@type": "@id"
+	      },
         "identifier": {
-            "@id": "dc:identifier",
-            "@type": "xsd:string"
+            "@id": "adms:identifier",
+            "@type": "@id"
         },
         "idVerification": {
             "@id": "elm:idVerification",
@@ -485,6 +490,10 @@
             "@id": "elm:learningSchedule",
             "@type": "@id"
         },
+        "levelOfCompletion" : {
+	          "@id": "elm:levelOfCompletion",
+            "@type": "xsd:positiveInteger"
+	      },
         "limitCredentialType": {
             "@id": "elm:limitCredentialType",
             "@type": "@id"
@@ -549,8 +558,8 @@
             "@id": "elm:mode",
             "@type": "@id"
         },
-        "nationalSystemNote": {
-            "@id": "elm:nationalSystemNote",
+        "educationalSystemNote": {
+            "@id": "elm:educationalSystemNote",
             "@type": "@id"
         },
         "nationalID": {
@@ -567,7 +576,7 @@
         },
         "noteLiteral": {
             "@id": "elm:noteLiteral",
-            "@type": "xsd:string"
+            "@container": "@language"
         },
         "nqfLevel": {
             "@id": "elm:NQFLevel",
@@ -577,6 +586,10 @@
             "@id": "elm:organisation",
             "@type": "@id"
         },
+        "page": {
+	          "@id": "elm:page",
+            "@type": "xsd:positiveInteger"
+	      },
         "patronymicName": {
             "@id": "person:patronymicName",
             "@container": "@language"
@@ -742,7 +755,7 @@
             "@id": "elm:targetGroup",
             "@type": "@id"
         },
-        "taxΙdentifier": {
+        "taxIdentifier": {
             "@id": "elm:taxIdentifier",
             "@type": "@id"
         },

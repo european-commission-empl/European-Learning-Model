@@ -44,8 +44,8 @@
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
   dc:license <https://creativecommons.org/licenses/by/4.0/>;
-  dc:creator [foaf:mbox ""; foaf:name ""];   # to be added 
-  dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added 
+  # dc:creator [foaf:mbox ""; foaf:name ""]; # to be added
+  # dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added
   .
 
 <https://creativecommons.org/licenses/by/4.0/>
@@ -1016,10 +1016,10 @@ elm:attachment
   rdfs:range elm:MediaObject;
   . 
 
-elm:credentialProfile
+elm:credentialProfiles
   a rdf:Property; 
 	a owl:ObjectProperty;
-  dc:identifier "elm:credentialProfile";
+  dc:identifier "elm:credentialProfiles";
 	rdfs:comment "A label associated to the european digital credential. It should be provided using the EDC Controlled List of Credential Types."@en;
   rdfs:label "credential profile"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model>;
