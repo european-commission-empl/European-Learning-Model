@@ -81,8 +81,8 @@
          <xs:annotation>
             <xs:documentation>The value of identifier notation should be unique across the document.</xs:documentation>
          </xs:annotation>
-         <xs:selector xpath=".//skos:notation"/>
-         <xs:field xpath="."/>
+         <xs:selector xpath=".//loq:identifier"/>
+         <xs:field xpath="skos:notation"/>
       </xs:unique>
 
       <!-- KEYS -->
@@ -104,22 +104,22 @@
       </xs:key>
       <xs:key name="learningAchievementSpecificationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification"/>
          <xs:field xpath="@id"/>
       </xs:key>
       <xs:key name="learningActivitySpecificationKey">
          <xs:selector
-            xpath="loq:learningActivitySpecificationReferences/loq:learningActivitySpecification"/>
+                 xpath="loq:learningActivitySpecificationReferences/loq:learningActivitySpecification"/>
          <xs:field xpath="@id"/>
       </xs:key>
       <xs:key name="learningAssessmentSpecificationKey">
          <xs:selector
-            xpath="loq:learningAssessmentSpecificationReferences/loq:learningAssessmentSpecification"/>
+                 xpath="loq:learningAssessmentSpecificationReferences/loq:learningAssessmentSpecification"/>
          <xs:field xpath="@id"/>
       </xs:key>
       <xs:key name="learningEntitlementSpecificationKey">
          <xs:selector
-            xpath="loq:learningEntitlementSpecificationReferences/loq:learningEntitlementSpecification"/>
+                 xpath="loq:learningEntitlementSpecificationReferences/loq:learningEntitlementSpecification"/>
          <xs:field xpath="@id"/>
       </xs:key>
       <xs:key name="learningOpportunityKey">
@@ -148,11 +148,11 @@
       </xs:key>
       <xs:key name="allLearningAchievementSpecificationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification|loq:learningAchievementSpecificationReferences/loq:qualification|loq:learningAchievementSpecificationReferences/loq:qualificationReference"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification|loq:learningAchievementSpecificationReferences/loq:qualification|loq:learningAchievementSpecificationReferences/loq:qualificationReference"/>
          <xs:field xpath="@id"/>
       </xs:key>
-      
-      
+
+
       <!-- KEYREFs -->
       <xs:keyref name="accreditationOrganisationKeyref" refer="organisationKey">
          <xs:selector xpath="loq:accreditationReferences/loq:*/loq:organisation"/>
@@ -166,7 +166,7 @@
          <xs:selector xpath="loq:accreditationReferences/loq:*/loq:accreditingAgent"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="agentLocationKeyRef" refer="locationKey">
          <xs:selector xpath="loq:agentReferences/loq:agent/loq:location"/>
          <xs:field xpath="@idref"/>
@@ -175,23 +175,23 @@
          <xs:selector xpath="loq:agentReferences/loq:agent/loq:groupMemberOf"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="awardingOppAwardingBodyKeyRef" refer="allAgentKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:awardingOpportunity/loq:awardingBody"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:awardingOpportunity/loq:awardingBody"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="awardingOppLocationKeyRef" refer="locationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:awardingOpportunity/loq:location"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:awardingOpportunity/loq:location"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="awardingOppLearningAchievementSpecKeyRef" refer="allLearningAchievementSpecificationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:awardingOpportunity/loq:learningAchievementSpecification"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:awardingOpportunity/loq:learningAchievementSpecification"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="groupMemberKeyref" refer="allAgentKey">
          <xs:selector xpath="loq:groupReferences/loq:group/loq:member"/>
          <xs:field xpath="@idref"/>
@@ -200,43 +200,43 @@
          <xs:selector xpath="loq:groupReferences/loq:group/loq:location"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="learningAchievementSpecLearningOutcomeKeyRef" refer="learningOutcomeKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:learningOutcome"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:learningOutcome"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningAchievementSpecLearningActivitySpecificationKeyRef"
-         refer="learningActivitySpecificationKey">
+                 refer="learningActivitySpecificationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:influencedBy"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:influencedBy"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningAchievementSpecLearningAssessmentSpecificationKeyRef"
-         refer="learningAssessmentSpecificationKey">
+                 refer="learningAssessmentSpecificationKey">
          <xs:selector xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:provenBy"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningAchievementSpecLearningEntitlementSpecificationKeyRef"
-         refer="learningEntitlementSpecificationKey">
+                 refer="learningEntitlementSpecificationKey">
          <xs:selector xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:entitlesTo"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningAchievementSpecHasPartKeyRef"
-         refer="learningAchievementSpecificationKey">
+                 refer="learningAchievementSpecificationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification/loq:hasPart"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification/loq:hasPart"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningAchievementSpecSpecialisationOfKeyRef"
-         refer="learningAchievementSpecificationKey">
+                 refer="learningAchievementSpecificationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification/loq:specialisationOf"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification/loq:specialisationOf"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="learningActivitySpecInfluencesKeyRef"
-         refer="allLearningAchievementSpecificationKey">
+                 refer="allLearningAchievementSpecificationKey">
          <xs:selector xpath="loq:learningActivitySpecificationReferences/loq:*/loq:influences"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
@@ -245,84 +245,84 @@
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningActivitySpecSpecialisationOfKeyRef"
-         refer="learningActivitySpecificationKey">
+                 refer="learningActivitySpecificationKey">
          <xs:selector
-            xpath="loq:learningActivitySpecificationReferences/loq:*/loq:specialisationOf"/>
+                 xpath="loq:learningActivitySpecificationReferences/loq:*/loq:specialisationOf"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="learningAssessmentSpecGradingSchemeKeyRef" refer="gradingSchemeKey">
          <xs:selector
-            xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:gradingScheme"/>
+                 xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:gradingScheme"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningAssessmentSpecProvesKeyRef"
-         refer="allLearningAchievementSpecificationKey">
+                 refer="allLearningAchievementSpecificationKey">
          <xs:selector xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:proves"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningAssessmentSpecHasPartKeyRef"
-         refer="learningAssessmentSpecificationKey">
+                 refer="learningAssessmentSpecificationKey">
          <xs:selector xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:hasPart"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningAssessmentSpecSpecialisationOfKeyRef"
-         refer="learningAssessmentSpecificationKey">
+                 refer="learningAssessmentSpecificationKey">
          <xs:selector
-            xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:specialisationOf"/>
+                 xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:specialisationOf"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="learningEntitlementSpecLimitOrgKeyRef" refer="organisationKey">
          <xs:selector
-            xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:limitOrganisation"/>
+                 xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:limitOrganisation"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningEntitlementSpecMayResultFromKeyRef"
-         refer="allLearningAchievementSpecificationKey">
+                 refer="allLearningAchievementSpecificationKey">
          <xs:selector xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:entitledBy"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningEntitlementSpecHasPartKeyRef"
-         refer="learningEntitlementSpecificationKey">
+                 refer="learningEntitlementSpecificationKey">
          <xs:selector xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:hasPart"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningEntitlementSpecSpecialisationOfKeyRef"
-         refer="learningEntitlementSpecificationKey">
+                 refer="learningEntitlementSpecificationKey">
          <xs:selector
-            xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:specialisationOf"/>
+                 xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:specialisationOf"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="learningOpportunityProvidedByKeyref" refer="organisationKey">
          <xs:selector
-            xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:providedBy"/>
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:providedBy"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningOpportunityLocationKeyref" refer="locationKey">
          <xs:selector
-            xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:location"/>
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:location"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningOpportunityLearningAchievementSpecificationKeyref"
-         refer="allLearningAchievementSpecificationKey">
+                 refer="allLearningAchievementSpecificationKey">
          <xs:selector
-            xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:learningAchievementSpecification"/>
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:learningAchievementSpecification"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningOpportunityLearningActivitySpecificationKeyref"
-         refer="learningActivitySpecificationKey">
+                 refer="learningActivitySpecificationKey">
          <xs:selector
-            xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:learningActivitySpecification"/>
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:learningActivitySpecification"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="learningOpportunityHasPartKeyref" refer="learningOpportunityKey">
          <xs:selector
-            xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:hasPart"/>
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:hasPart"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="organisationAccreditationKeyRef" refer="accreditationKey">
          <xs:selector xpath="loq:agentReferences/loq:organisation/loq:accreditation"/>
          <xs:field xpath="@idref"/>
@@ -343,20 +343,20 @@
          <xs:selector xpath="loq:agentReferences/loq:organisation/loq:groupMemberOf"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="qualificationHasPartKeyRef" refer="qualificationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:qualification/loq:hasPart"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:qualification/loq:hasPart"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="qualificationSpecialisationOfKeyRef" refer="qualificationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:qualification/loq:specialisationOf"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:qualification/loq:specialisationOf"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
       <xs:keyref name="qualificationAccreditationKeyRef" refer="accreditationKey">
          <xs:selector
-            xpath="loq:learningAchievementSpecificationReferences/loq:qualification/loq:accreditation"/>
+                 xpath="loq:learningAchievementSpecificationReferences/loq:qualification/loq:accreditation"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
    </xs:element>
@@ -864,7 +864,7 @@
       </xs:sequence>
       <xs:attribute name="id" type="xs:anyURI" use="required"/>
    </xs:complexType>
-   
+
    <xs:complexType name="GroupType">
       <xs:annotation>
          <xs:documentation>An entity that represents collection of Agents.</xs:documentation>
@@ -908,7 +908,7 @@
       </xs:sequence>
       <xs:attribute name="id" use="required" type="xs:anyURI"/>
    </xs:complexType>
-   
+
    <xs:complexType name="RestrictedAdmsIdentifierType">
       <xs:annotation>
          <xs:documentation>Restricted ADMS IdentifierType class</xs:documentation>
@@ -930,7 +930,7 @@
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   
+
    <xs:complexType name="IdentifierType">
       <xs:annotation>
          <xs:documentation>An Identifier.</xs:documentation>
@@ -1104,7 +1104,7 @@
          <xs:extension base="RestrictedSpecificationType">
             <xs:sequence>
                <xs:element maxOccurs="unbounded" minOccurs="0" name="type"
-                  type="LearningActivityTypesRestrictionType">
+                           type="LearningActivityTypesRestrictionType">
                   <xs:annotation>
                      <xs:documentation>The type of the learning activity. A concept indicating the type of the learning activity.</xs:documentation>
                   </xs:annotation>
@@ -1131,9 +1131,9 @@
                </xs:element>
                <xs:element maxOccurs="unbounded" minOccurs="0" ref="influences">
                   <xs:annotation>
-                     <xs:documentation>What may be learned by undertaking the activity described by this learning activity specification. 
-                        The expected learning outcomes to which this learning activity specification contributes to. 
-                        This is given by a Learning Achievement Specification. 
+                     <xs:documentation>What may be learned by undertaking the activity described by this learning activity specification.
+                        The expected learning outcomes to which this learning activity specification contributes to.
+                        This is given by a Learning Achievement Specification.
                         A learning activity can lead to or contribute to the acquisition of a set of skills, knowdledge, autonomy and or responsibilty.
                         It MUST refer to an existing record in the 'learningAchievementSpecificationReferences-section.
                      </xs:documentation>
@@ -1172,7 +1172,7 @@
          <xs:extension base="RestrictedSpecificationType">
             <xs:sequence>
                <xs:element maxOccurs="unbounded" minOccurs="0" name="type"
-                  type="LearningAssessmentTypesRestrictionType">
+                           type="LearningAssessmentTypesRestrictionType">
                   <xs:annotation>
                      <xs:documentation>The type of the learning assessment. A concept indicating the type of the learning assessment.</xs:documentation>
                   </xs:annotation>
@@ -1230,7 +1230,7 @@
          <xs:extension base="RestrictedSpecificationType">
             <xs:sequence>
                <xs:element maxOccurs="1" minOccurs="1" name="type"
-                  type="LearningEntitlementTypesRestrictionType">
+                           type="LearningEntitlementTypesRestrictionType">
                   <xs:annotation>
                      <xs:documentation>The type of the learning entitlement. A concept indicating the type of the learning entitlement.</xs:documentation>
                   </xs:annotation>
@@ -1311,7 +1311,7 @@
             </xs:annotation>
          </xs:element>
          <xs:element name="type" type="LearningOpportunityTypesRestrictionType" minOccurs="0"
-            maxOccurs="unbounded">
+                     maxOccurs="unbounded">
             <xs:annotation>
                <xs:documentation>The type of the learning opportunity.</xs:documentation>
             </xs:annotation>
@@ -2025,7 +2025,7 @@
          </xs:simpleType>
       </xs:attribute>
    </xs:complexType>
-      
+
    <xs:complexType name="RegisteredOrganisationType">
       <xs:annotation>
          <xs:documentation/>
@@ -2089,31 +2089,31 @@
          </xs:annotation>
       </xs:attribute>
    </xs:complexType>
-   
+
    <!-- CONTAINER ELEMENTS -->
    <xs:element name="accreditationReferences" type="AccreditationReferencesType"/>
-   
+
    <xs:element name="agentReferences" type="AgentReferencesType"/>
-   
+
    <xs:element name="gradingSchemeReferences" type="GradingSchemeReferencesType"/>
-   
+
    <xs:element name="groupReferences" type="GroupReferencesType"/>
-   
+
    <xs:element name="learningAchievementSpecificationReferences" type="LearningAchievementSpecificationReferencesType"/>
-   
+
    <xs:element name="learningActivitySpecificationReferences" type="LearningActivitySpecificationReferencesType"/>
-   
+
    <xs:element name="learningAssessmentSpecificationReferences" type="LearningAssessmentSpecificationReferencesType"/>
-      
+
    <xs:element name="learningEntitlementSpecificationReferences" type="LearningEntitlementSpecificationReferencesType"/>
-   
+
    <xs:element name="learningOpportunityReferences" type="LearningOpportunityReferencesType"/>
-   
+
    <xs:element name="learningOutcomeReferences" type="LearningOutcomeReferencesType"/>
-   
+
    <xs:element name="locationReferences" type="LocationReferencesType"/>
-   
-   
+
+
    <xs:complexType name="AccreditationReferencesType">
       <xs:sequence>
          <xs:element maxOccurs="unbounded" minOccurs="0" name="accreditation" type="AccreditationType">
