@@ -1,8 +1,8 @@
-<xs:schema xmlns="http://data.europa.eu/snb/model/ams-constraints/"
-           xmlns:ams="http://data.europa.eu/snb/model/ams-constraints/"
+<xs:schema xmlns="http://data.europa.eu/snb/model/ap/ams-constraints/"
+           xmlns:ams="http://data.europa.eu/snb/model/ap/ams-constraints/"
            xmlns:adms="http://www.w3.org/ns/adms#"
            xmlns:dc="http://purl.org/dc/terms/"
-           xmlns:elm="http://data.europa.eu/snb/model#"
+           xmlns:elm="http://data.europa.eu/snb/model/elm/"
            xmlns:foaf="http://xmlns.com/foaf/0.1/"
            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
            xmlns:locn="http://www.w3.org/ns/locn#"
@@ -19,7 +19,7 @@
            xmlns:eat="http://data.europa.eu/snb/accreditation/25831c2"
            xmlns:ecet="http://data.europa.eu/snb/encoding/25831c2"
            elementFormDefault="qualified"
-           targetNamespace="http://data.europa.eu/snb/model/ams-constraints/"
+           targetNamespace="http://data.europa.eu/snb/model/ap/ams-constraints/"
            version="3.0.0">
 
    <xs:import namespace="http://www.w3.org/ns/regorg#" schemaLocation="external/rov.xsd"/>

@@ -8,7 +8,7 @@
  xmlns:dc="http://purl.org/dc/terms/"
  xmlns:foaf="http://xmlns.com/foaf/0.1/"
  xmlns:clv="http://data.europa.eu/m8g/"
- xmlns:elm="http://data.europa.eu/snb/model#"
+ xmlns:elm="http://data.europa.eu/snb/model/elm/"
  xmlns:locn="http://www.w3.org/ns/locn#"
  xmlns:rov="http://www.w3.org/ns/regorg#"
  xmlns:lng="http://publications.europa.eu/resource/authority/language"
@@ -35,8 +35,8 @@
  xmlns:cp="http://data.europa.eu/snb/education-credit/25831c2"
  xmlns:curr="http://publications.europa.eu/resource/authority/currency"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns="http://data.europa.eu/snb/model/ams-constraints/"
- xsi:schemaLocation="http://data.europa.eu/snb/model/ams-constraints/ ams.xsd" xsdVersion="3.0.0">
+ xmlns="http://data.europa.eu/snb/model/ap/ams-constraints/"
+ xsi:schemaLocation="http://data.europa.eu/snb/model/ap/ams-constraints/ ams.xsd" xsdVersion="3.0.0">
     
     <accreditationReferences>
         <accreditation id="http://ACCRED-01">

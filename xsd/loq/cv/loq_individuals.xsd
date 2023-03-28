@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://data.europa.eu/snb/model/loq-constraints/"
+<xs:schema xmlns="http://data.europa.eu/snb/model/ap/loq-constraints/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://data.europa.eu/snb/model/loq-constraints/">
+    targetNamespace="http://data.europa.eu/snb/model/ap/loq-constraints/">
 
     <xs:simpleType name="SubjectTypeCodeEnumType">
         <xs:annotation>
