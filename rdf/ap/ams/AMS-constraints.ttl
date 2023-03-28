@@ -8,8 +8,8 @@
 @prefix org:    <http://www.w3.org/ns/org#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix gr:     <http://purl.org/goodrelations/v1#>.
-@prefix elm:    <http://data.europa.eu/snb/model/>.
-@prefix ams:    <http://data.europa.eu/snb/model/ams-constraints/>.
+@prefix elm:    <http://data.europa.eu/snb/model/elm/>.
+@prefix ams:    <http://data.europa.eu/snb/model/ap/ams-constraints/>.
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
@@ -18,7 +18,7 @@
 @prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
 @prefix locn:   <http://www.w3.org/ns/locn#>.
 
-<http://data.europa.eu/snb/model/ams-constraints>
+<http://data.europa.eu/snb/model/ap/ams-constraints>
   a owl:Ontology;
   owl:imports rdf:;
   owl:imports skos:;

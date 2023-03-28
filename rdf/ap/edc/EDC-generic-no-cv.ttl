@@ -1,5 +1,5 @@
-@prefix edc:    <http://data.europa.eu/snb/model/edc-generic-no-cv/>.
-@prefix elm:    <http://data.europa.eu/snb/model/>.
+@prefix edc:    <http://data.europa.eu/snb/model/ap/edc-generic-no-cv/>.
+@prefix elm:    <http://data.europa.eu/snb/model/elm/>.
 @prefix dc:     <http://purl.org/dc/terms/>.
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
 @prefix foaf:   <http://xmlns.com/foaf/0.1/>.
@@ -18,7 +18,7 @@
 @prefix locn:   <http://www.w3.org/ns/locn#>.
 @prefix clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
 
-<http://data.europa.eu/snb/model/edc-generic-no-cv>
+<http://data.europa.eu/snb/model/ap/edc-generic-no-cv>
   a owl:Ontology;
   rdfs:label "SHACL constraints for EDC Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
@@ -1232,7 +1232,7 @@ edc:EuropeanDigitalPresentation-elm_verificationCheck
      a sh:propertyShape;
      sh:path cred:proof;
      sh:datatype xsd:anyURI;
-     sh:description "The proof of the european digital presentaion."@en;
+     sh:description "The proof of the european digital presentation."@en;
      sh:name "proof"@en;
      sh:severity sh:Violation;
      #sh:order 2;
