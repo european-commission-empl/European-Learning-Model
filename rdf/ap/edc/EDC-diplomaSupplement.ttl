@@ -1,0 +1,197 @@
+@prefix :       <http://data.europa.eu/snb/model/ap/edc-diploma-supplement/>.
+@prefix elm:    <http://data.europa.eu/snb/model/elm/>.
+@prefix dc:     <http://purl.org/dc/terms/>.
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix org:    <http://www.w3.org/ns/org#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix cc:     <http://creativecommons.org/ns#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
+@prefix person: <http://www.w3.org/ns/person#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix cred:   <https://www.w3.org/2018/credentials#>.
+@prefix locn:   <http://www.w3.org/ns/locn#>.
+@prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
+
+<http://data.europa.eu/snb/model/ap/edc-diploma-supplement>
+  a owl:Ontology;
+  owl:imports <http://data.europa.eu/snb/model/ap/edc-accredited>;
+  rdfs:label "SHACL constraints for EDC - Diploma Supplement Application Profile"@en;
+  dc:created "2021-09-10"^^xsd:date;
+  dc:modified "2022-10-07"^^xsd:date;
+  dc:title "SHACL constraints for European Digital Credentials - Diploma Supplement application profile"@en;
+  dc:description "SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used."@en;
+  rdfs:comment "This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used."@en;
+  owl:versionInfo "1.0.0";
+  dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
+  cc:attributionURL <http://ec.europa.eu/> ;
+  dc:license <https://creativecommons.org/licenses/by/4.0/>;
+  # dc:creator [foaf:mbox ""; foaf:name ""]; # to be added
+  # dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added
+  .
+
+:PersonShape
+  a sh:NodeShape;
+  sh:targetClass elm:Person;
+  rdfs:comment "A human being. Person is a subclass of Agent."@en;
+  rdfs:label "Person "@en;
+  sh:property :Person-foaf_fullName;
+  sh:property :Person-elm_dateOfBirth;
+  .
+
+:Person-foaf_fullName
+  a sh:PropertyShape;
+  sh:path foaf:fullName;
+  sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:maxCount 1;
+  sh:description "The complete name of the person as one string."@en;
+  sh:name "full name"@en;
+  sh:severity sh:Violation;
+  .
+
+:Person-elm_dateOfBirth
+  a sh:PropertyShape;
+  sh:path elm:dateOfBirth;
+  sh:datatype xsd:dateTime;
+  sh:minCount 1;
+  sh:maxCount 1;
+  sh:description "The date of birth of the person."@en;
+  sh:name "date of birth"@en;
+  sh:severity sh:Violation;
+  .
+
+:LearningAchievementShape
+  a sh:NodeShape;
+  sh:targetClass elm:LearningAchievement;
+  rdfs:comment "The acquisition of knowledge, skills or responsibility and autonomy. A recognised and/or awarded set of learning outcomes of an individual. Learning Achievement is a subclass of Claim."@en;
+  rdfs:label "Learning Achievement "@en;
+  sh:property :LearningAchievement-elm_creditReceived;
+  sh:property :LearningAchievement-elm_provenBy;
+  .
+
+:LearningAchievement-elm_creditReceived
+  a sh:PropertyShape;
+  sh:path elm:creditReceived;
+  sh:class elm:CreditPoint;
+  sh:description "The credit points received for this learning achievement."@en;
+  sh:name "credit received"@en;
+  sh:minCount 1;
+  sh:maxCount 1;
+  sh:severity sh:Violation;
+  .
+
+:LearningAchievement-elm_provenBy
+  a sh:PropertyShape;
+  sh:path elm:provenBy;
+  sh:class elm:LearningAssessment;
+  sh:description "An assessment which proves the acquisition of the learning outcomes which make up the achievement."@en;
+  sh:name "proven by"@en;
+  sh:minCount 1;
+  sh:maxCount 1;
+  sh:severity sh:Violation;
+  .
+
+:QualificationShape
+  a sh:NodeShape;
+    sh:targetClass elm:Qualification;
+    rdfs:comment "A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards. Qualification is a subclass of Learning Achievement Specification."@en;
+    rdfs:label "Qualification "@en;
+    sh:property :Qualification-dc_language;
+    sh:property :Qualification-elm_mode;
+    sh:property :Qualification-elm_ISCEDFCode;
+    sh:property :Qualification-elm_maximumDuration;
+    sh:property :Qualification-elm_learningOutcome;
+    sh:property :Qualification-elm_awardingOpportunity;
+    sh:property :Qualification-elm_hasPart;
+    sh:property :Qualification-elm_NQFLevel;
+  .
+
+:Qualification-elm_ISCEDFCode
+  a sh:PropertyShape;
+  sh:path elm:ISCEDFCode;
+  sh:class skos:Concept;
+  sh:description "Thematic Area according to the ISCED-F 2013 classification. It should be provided using the ISCEDF controlled vocabulary."@en;
+  sh:name "thematic area"@en;
+  sh:minCount 1;
+  sh:severity sh:Violation;
+  .
+
+:Qualification-elm_awardingOpportunity
+  a sh:PropertyShape;
+  sh:path elm:awardingOpportunity;
+  sh:class elm:AwardingOpportunity;
+  sh:description "Refers to an activity related to the awarding of the qualification, such as the country or region where the qualification is awarded, the awarding body and optionally the awarding period now or in the past."@en;
+  sh:name "awarding information"@en;
+  sh:minCount 1;
+  sh:severity sh:Violation;
+  .
+
+:Qualification-dc_language
+  a sh:PropertyShape;
+  sh:path dc:language;
+  sh:class skos:Concept;
+  sh:description "The language of the qualification. It should be provided using the Language Named Authority List."@en;
+  sh:name "language"@en;
+  sh:minCount 1;
+  sh:severity sh:Violation;
+  .
+
+:Qualification-elm_NQFLevel
+  a sh:PropertyShape;
+  sh:path elm:NQFLevel;
+  sh:class skos:Concept;
+  sh:description "The qualification level as specified by a Qualification Framework. It should be provided using a controlled vocabulary."@en;
+  sh:name "QF level"@en;
+  sh:minCount 1;
+  sh:severity sh:Violation;
+  .
+
+:Qualification-elm_maximumDuration
+  a sh:PropertyShape;
+  sh:path elm:maximumDuration;
+  sh:datatype xsd:duration;
+  sh:minCount 1;
+  sh:maxCount 1;
+  sh:description "The maximum duration (in months) that a person may use to complete the learning opportunity for which this qualification is designed."@en;
+  sh:name "maximum duration"@en;
+  sh:severity sh:Violation;
+  .
+
+:Qualification-elm_mode
+  a sh:PropertyShape;
+  sh:path elm:mode;
+  sh:class skos:Concept;
+  sh:description "The mode of learning, and or assessment. It should be provided using the EDC Controlled List of Modes Of Learning and Assessment."@en;
+  sh:name "mode"@en;
+  sh:minCount 1;
+  sh:severity sh:Violation;
+.
+
+:Qualification-elm_learningOutcome
+  a sh:PropertyShape;
+  sh:path elm:learningOutcome;
+  sh:class elm:LearningOutcome;
+  sh:description "An individual (expected) learning outcome of the qualification."@en;
+  sh:name "learning outcome"@en;
+  sh:minCount 1;
+  sh:severity sh:Violation;
+  .
+
+:Qualification-elm_hasPart
+  a sh:PropertyShape;
+  sh:path elm:hasPart;
+  sh:class elm:Qualification;
+  sh:description "A qualification can be composed of other partial qualification which when combined make up this qualification."@en;
+  sh:name "has part"@en;
+  sh:minCount 1;
+  sh:severity sh:Violation;
+  .
+  
+
+

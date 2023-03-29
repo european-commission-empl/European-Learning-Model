@@ -1,0 +1,811 @@
+{
+    "@context": {
+        "cred": "https://www.w3.org/2018/credentials#",
+        "elm": "http://data.europa.eu/snb/model/elm/",
+        "adms": "http://www.w3.org/ns/adms#",
+        "dc": "http://purl.org/dc/terms/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "org": "http://www.w3.org/ns/org#",
+        "rov": "http://www.w3.org/ns/regorg#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "person": "http://www.w3.org/ns/person#",
+        "clv":   "http://data.europa.eu/m8g",
+        "locn":   "http://www.w3.org/ns/locn#",
+        "vc": "http://data.europa.eu/snb/model/w3c/vc/",
+        "Accreditation": "elm:Accreditation",
+        "Agent": "elm:Agent",
+        "Amount": "elm:Amount",
+        "Address": "elm:Address",
+        "AwardingOpportunity": "elm:AwardingOpportunity",
+        "AwardingProcess": "elm:AwardingProcess",
+        "Claim": "elm:Claim",
+        "Concept": "skos:Concept",
+        "ConceptScheme":"skos:ConceptScheme",
+        "ContactPoint": "elm:ContactPoint",
+        "CreditPoint": "elm:CreditPoint",
+        "DisplayParameter": "elm:DisplayParameter",
+        "DisplayDetail": "elm:DisplayDetail",
+        "EuropeanDigitalCredential": "elm:EuropeanDigitalCredential",
+        "EuropeanDigitalPresentation": "elm:EuropeanDigitalPresentation",
+        "Evidence" : "elm:Evidence",
+        "Geometry":"locn:Geometry",
+        "GradingScheme": "elm:GradingScheme",
+        "Grant": "elm:Grant",
+        "Group": "elm:Group",
+        "Identifier": "elm:Identifier",
+        "IndividualDisplay" : "elm:IndividualDisplay",
+        "LearningAchievement": "elm:LearningAchievement",
+        "LearningAchievementSpecification": "elm:LearningAchievementSpecification",
+        "LearningActivity": "elm:LearningActivity",
+        "LearningActivitySpecification": "elm:LearningActivitySpecification",
+        "LearningAssessment": "elm:LearningAssessment",
+        "LearningAssessmentSpecification": "elm:LearningAssessmentSpecification",
+        "LearningEntitlement": "elm:LearningEntitlement",
+        "LearningEntitlementSpecification": "elm:LearningEntitlementSpecification",
+        "LearningOpportunity": "elm:LearningOpportunity",
+        "LearningOutcome": "elm:LearningOutcome",
+        "LegalIdentifier": "elm:LegalIdentifier",
+        "Location": "dc:Location",
+        "Mailbox": "elm:Mailbox",
+        "MediaObject": "elm:MediaObject",
+        "Note": "elm:Note",
+        "Organisation": "elm:Organisation",
+        "PeriodOfTime": "dc:PeriodOfTime",
+        "Person": "elm:Person",
+        "Phone": "elm:Phone",
+        "PriceDetail": "elm:PriceDetail",
+        "Qualification": "elm:Qualification",
+        "ResultCategory": "elm:ResultCategory",
+        "ResultDistribution": "elm:ResultDistribution",
+        "ShaclValidator2017":"elm:ShaclValidator2017",
+        "ShortenedGrading": "elm:ShortenedGrading",
+        "Specification": "elm:Specification",
+        "VerificationCheck": "elm:VerificationCheck",
+        "WebResource": "elm:WebResource",
+        "accreditation": {
+            "@id": "elm:accreditation",
+            "@type": "@id"
+        },
+        "accreditingAgent": {
+            "@id": "elm:accreditingAgent",
+            "@type": "@id"
+        },
+        "admissionProcedure": {
+            "@id": "elm:admissionProcedure",
+            "@type": "@id"
+        },
+        "additionalNote": {
+            "@id": "elm:additionalNote",
+            "@type": "@id"
+        },
+        "address": {
+            "@id": "elm:address",
+            "@type": "@id"
+        },
+        "altLabel": {
+            "@id": "skos:altLabel",
+            "@container": "@language"
+        },
+        "applicationDeadline": {
+            "@id": "elm:applicationDeadline",
+            "@type": "xsd:dateTime"
+        },
+        "areaDialingCode": {
+            "@id": "elm:areaDialingCode",
+            "@type": "xsd:string"
+        },
+        "assessedBy": {
+            "@id": "elm:assessedBy",
+            "@type": "@id"
+        },
+        "attachment": {
+            "@id": "elm:attachment",
+            "@type": "@id"
+        },
+        "attachmentType": {
+            "@id": "elm:attachmentType",
+            "@type": "@id"
+        },
+        "awardingBody": {
+            "@id": "elm:awardingBody",
+            "@type": "@id"
+        },
+        "awardingDate": {
+            "@id": "elm:awardingDate",
+            "@type": "xsd:dateTime"
+        },
+        "awardingOpportunity": {
+            "@id": "elm:awardingOpportunity",
+            "@type": "@id"
+        },
+        "awardedBy": {
+            "@id": "elm:awardedBy",
+            "@type": "@id"
+        },
+        "awards": {
+            "@id": "elm:awards",
+            "@type": "@id"
+        },
+        "bannerImage": {
+            "@id": "elm:bannerImage",
+            "@type": "@id"
+        },
+        "birthName": {
+            "@id": "person:birthName",
+              "@container": "@language"
+        },
+        "category": {
+            "@id": "elm:category",
+             "@container": "@language"
+        },
+        "citizenshipCountry": {
+            "@id": "elm:citizenshipCountry",
+            "@type": "@id"
+        },
+        "hasSubOrganization": {
+            "@id": "org:hasSubOrganization",
+            "@type": "@id"
+        },
+        "contactForm": {
+            "@id": "elm:contactForm",
+            "@type": "@id"
+        },
+        "contactHour": {
+            "@id": "elm:contactHour",
+            "@type": "xsd:string"
+        },
+        "contactPoint": {
+            "@id": "elm:contactPoint",
+            "@type": "@id"
+        },
+        "content": {
+            "@id": "elm:content",
+            "@type": "xsd:string"
+        },
+        "contentEncoding": {
+            "@id": "elm:contentEncoding",
+            "@type": "@id"
+        },
+        "contentSize": {
+            "@id": "elm:contentSize",
+            "@type": "xsd:integer"
+        },
+        "contentType": {
+            "@id": "elm:contentType",
+            "@type": "@id"
+        },
+        "contentURL": {
+            "@id": "elm:contentUrl",
+            "@type": "xsd:anyURI"
+        },
+        "count": {
+            "@id": "elm:count",
+            "@type": "xsd:positiveInteger"
+        },
+        "countryCode": {
+            "@id": "elm:countryCode",
+            "@type": "@id"
+        },
+        "countryDialing": {
+            "@id": "elm:countryDialing",
+            "@type": "xsd:string"
+        },
+        "creator": {
+            "@id": "dc:creator",
+            "@type": "@id"
+        },
+        "creditPoint": {
+          "@id": "elm:creditPoint",
+          "@type" : "@id"
+        },
+        "creditReceived": {
+            "@id": "elm:creditReceived",
+            "@type": "@id"
+        },
+        "dateCreated": {
+            "@id": "dc:created",
+            "@type": "xsd:dateTime"
+        },
+        "dateIssued": {
+            "@id": "dc:issued",
+            "@type": "xsd:dateTime"
+        },
+        "dateModified": {
+            "@id": "dc:modified",
+            "@type": "@id"
+        },
+        "dateOfBirth": {
+            "@id": "elm:dateOfBirth",
+            "@type": "xsd:dateTime"
+        },
+        "credentialProfiles": {
+            "@id": "elm:credentialProfiles",
+            "@type": "@id"
+        },
+        "decision": {
+            "@id": "elm:decision",
+            "@type": "@id"
+        },
+        "description": {
+            "@id": "dc:description",
+            "@container": "@language"
+        },
+        "descriptionHtml": {
+            "@id": "elm:descriptionHtml",
+            "@type": "@id"
+        },
+        "definition": {
+            "@id": "skos:definition",
+            "@container": "@language"
+        },
+        "dialNumber": {
+            "@id": "elm:dialNumber",
+            "@type": "xsd:string"
+          },
+        "directedBy":{
+          "@id": "elm:directedBy",
+          "@type": "@id"
+        },
+        "dcType" : {
+          "@id" : "dc:type",
+          "@type" : "@id"
+        },
+        "displayParameter": {
+            "@id": "elm:displayParameter",
+            "@type": "@id"
+        },
+        "displayDetail":{
+          "@id": "elm:displayDetail",
+          "@type": "@id"
+        },
+        "duration":{
+            "@id": "elm:duration",
+             "@type":"xsd:duration"
+        },
+        "educationLevel": {
+            "@id": "elm:educationLevel",
+            "@type": "@id"
+        },
+        "educationSubject": {
+            "@id": "elm:educationSubject",
+            "@type": "@id"
+        },
+        "eIDASIdentifier": {
+            "@id": "elm:eidasLegalIdentifier",
+            "@type": "@id"
+        },
+        "elmSubject":{
+            "@id": "elm:subject",
+            "@type": "@id"
+        },
+        "emailAddress": {
+            "@id": "elm:emailAddress",
+            "@type": "@id"
+        },
+        "embeddedEvidence": {
+            "@id": "elm:embeddedEvidence",
+            "@type": "@id"
+        },
+        "endDate": {
+            "@id": "elm:endDate",
+            "@type": "xsd:dateTime"
+        },
+        "entitlesTo": {
+            "@id": "elm:entitlesTo",
+            "@type": "@id"
+        },
+        "entitledBy": {
+            "@id": "elm:entitledBy",
+            "@type": "@id"
+        },
+        "entitlementStatus": {
+            "@id": "elm:entitlementStatus",
+            "@type": "@id"
+        },
+
+        "entryRequirement": {
+            "@id": "elm:entryRequirement",
+            "@type": "@id"
+        },
+        "eqfLevel": {
+            "@id": "elm:EQFLevel",
+            "@type": "@id"
+        },
+        "evidenceStatement": {
+            "@id": "elm:evidenceStatement",
+            "@type": "xsd:string"
+        },
+        "evidenceTarget": {
+            "@id": "elm:evidenceTarget",
+            "@type": "@id"
+        },
+        "expiryDate": {
+            "@id": "elm:expiryDate",
+            "@type": "xsd:dateTime"
+        },
+        "familyName": {
+            "@id": "foaf:familyName",
+             "@container": "@language"
+        },
+        "fullName": {
+            "@id": "foaf:fullName",
+            "@container": "@language"
+        },
+        "priceDetail": {
+            "@id": "elm:priceDetail",
+            "@type": "@id"
+        },
+        "amount": {
+            "@id": "elm:amount",
+            "@type": "@id"
+        },
+        "framework": {
+            "@id": "elm:framework",
+            "@type": "@id"
+        },
+        "fullAddress": {
+            "@id": "elm:fullAddress",
+            "@type": "@id"
+        },
+        "geographicName": {
+            "@id": "elm:geographicName",
+            "@container": "@language"
+        },
+        "gender": {
+            "@id": "elm:gender",
+            "@type": "@id"
+        },
+        "generalisationOf": {
+            "@id": "elm:generalisationOf",
+            "@type": "@id"
+        },
+        "givenName": {
+            "@id": "foaf:givenName",
+            "@container": "@language"
+        },
+        "grade": {
+            "@id": "elm:grade",
+            "@type": "@id"
+        },
+        "gradeStatus":{
+          "@id": "elm:gradeStatus",
+          "@type": "@id"
+        },
+        "gradingScheme": {
+            "@id": "elm:gradingScheme",
+            "@type": "@id"
+        },
+        "grant":{
+          "@id": "elm:grant",
+          "@type": "@id"
+        },
+        "groupMemberOf": {
+            "@id": "elm:groupMemberOf",
+            "@type": "@id"
+        },
+        "hasClaim": {
+            "@id": "elm:hasClaim",
+            "@type": "@id"
+        },
+        "hasCredential": {
+            "@id": "elm:hasCredential",
+            "@type": "@id"
+        },
+        "hasPart": {
+            "@id": "elm:hasPart",
+            "@type": "@id"
+        },
+        "homepage": {
+            "@id": "foaf:homepage",
+            "@type": "@id"
+        },
+	      "image": {
+	          "@id": "elm:image",
+            "@type": "@id"
+	      },
+        "identifier": {
+            "@id": "adms:identifier",
+            "@type": "@id"
+        },
+        "idVerification": {
+            "@id": "elm:idVerification",
+            "@type": "@id"
+        },
+        "influencedBy": {
+            "@id": "elm:influencedBy",
+            "@type": "@id"
+        },
+        "influences": {
+            "@id": "elm:influences",
+            "@type": "@id"
+        },
+        "inScheme": {
+            "@id": "skos:inScheme",
+            "@type": "@id"
+        },
+        "individualDisplay": {
+            "@id": "elm:individualDisplay",
+            "@type": "@id"
+        },
+        "isPartOf": {
+            "@id": "elm:isPartOf",
+            "@type": "@id"
+        },
+        "isPartialQualification": {
+            "@id": "elm:isPartialQualification",
+            "@type": "xsd:boolean"
+        },
+        "label": {
+            "@id": "elm:label",
+            "@type":"xsd:string"
+        },
+        "landingPage": {
+            "@id": "elm:landingPage",
+            "@type": "@id"
+        },
+        "language": {
+            "@id": "dc:language",
+            "@type": "@id"
+        },
+        "latitude": {
+          "@id": "clv:latitude",
+          "@type": "xsd:string"
+        },
+        "learningAchievementSpecification": {
+            "@id": "elm:learningAchievementSpecification",
+            "@type": "@id"
+        },
+        "legalName": {
+            "@id": "rov:legalName",
+             "@container": "@language"
+        },
+        "longitude": {
+          "@id": "clv:longitude",
+          "@type": "xsd:string"
+        },
+        "learningActivitySpecification": {
+            "@id": "elm:learningActivitySpecification",
+            "@type": "@id"
+        },
+        "learningOpportunity": {
+            "@id": "elm:learningOpportunity",
+            "@type": "@id"
+        },
+        "learningOutcome": {
+            "@id": "elm:learningOutcome",
+            "@type": "@id"
+        },
+        "learningOutcomeSummary": {
+            "@id": "elm:learningOutcomeSummary",
+            "@type": "@id"
+        },
+        "learningSetting": {
+            "@id": "elm:learningSetting",
+            "@type": "@id"
+        },
+        "learningSchedule": {
+            "@id": "elm:learningSchedule",
+            "@type": "@id"
+        },
+        "levelOfCompletion" : {
+	          "@id": "elm:levelOfCompletion",
+            "@type": "xsd:positiveInteger"
+	      },
+        "limitCredentialType": {
+            "@id": "elm:limitCredentialType",
+            "@type": "@id"
+        },
+        "limitEQFLevel": {
+            "@id": "elm:limitEQFLevel",
+            "@type": "@id"
+        },
+        "limitField": {
+            "@id": "elm:limitField",
+            "@type": "@id"
+        },
+        "limitJurisdiction": {
+            "@id": "elm:limitJurisdiction",
+            "@type": "@id"
+        },
+        "limitNationalOccupation": {
+            "@id": "elm:limitNationalOccupation",
+            "@type": "@id"
+        },
+        "limitOccupation": {
+            "@id": "elm:limitOccupation",
+            "@type": "@id"
+        },
+        "limitOrganisation": {
+            "@id": "elm:limitOrganisation",
+            "@type": "@id"
+        },
+        "limitQualification": {
+            "@id": "elm:limitQualification",
+            "@type": "@id"
+        },
+        "location": {
+            "@id": "elm:location",
+            "@type": "@id"
+        },
+        "logo": {
+            "@id": "elm:logo",
+            "@type": "@id"
+        },
+        "maximumDuration": {
+            "@id": "elm:maximumDuration",
+            "@type": "xsd:duration"
+        },
+        "maximumScore": {
+            "@id": "elm:maxScore",
+            "@type": "xsd:string"
+        },
+        "minimumScore": {
+            "@id": "elm:minScore",
+            "@type": "xsd:string"
+        },
+        "member": {
+            "@id": "foaf:member",
+            "@type": "@id"
+        },
+        "memberOf": {
+            "@id": "org:memberOf",
+            "@type": "@id"
+        },
+        "mode": {
+            "@id": "elm:mode",
+            "@type": "@id"
+        },
+        "educationalSystemNote": {
+            "@id": "elm:educationalSystemNote",
+            "@type": "@id"
+        },
+        "nationalID": {
+            "@id": "elm:nationalID",
+            "@type": "@id"
+        },
+        "notation": {
+            "@id": "skos:notation",
+            "@type": "xsd:string"
+        },
+        "noteFormat": {
+            "@id": "elm:noteFormat",
+            "@type": "@id"
+        },
+        "noteLiteral": {
+            "@id": "elm:noteLiteral",
+            "@container": "@language"
+        },
+        "nqfLevel": {
+            "@id": "elm:NQFLevel",
+            "@type": "@id"
+        },
+        "organisation": {
+            "@id": "elm:organisation",
+            "@type": "@id"
+        },
+        "page": {
+	          "@id": "elm:page",
+            "@type": "xsd:positiveInteger"
+	      },
+        "patronymicName": {
+            "@id": "person:patronymicName",
+            "@container": "@language"
+        },
+        "percentageEqual": {
+            "@id": "elm:percentageEqual",
+            "@type": "xsd:integer"
+        },
+        "percentageHigher": {
+            "@id": "elm:percentageHigher",
+            "@type": "xsd:integer"
+        },
+        "percentageLower": {
+            "@id": "elm:percentageLower",
+            "@type": "xsd:integer"
+        },
+        "placeOfBirth": {
+            "@id": "elm:placeOfBirth",
+            "@type": "@id"
+        },
+        "primaryLanguage": {
+            "@id": "elm:primaryLanguage",
+            "@type": "@id"
+        },
+        "point": {
+            "@id": "elm:point",
+            "@type": "xsd:string"
+        },
+        "phone": {
+            "@id": "elm:phone",
+            "@type": "@id"
+        },
+        "provenBy": {
+            "@id": "elm:provenBy",
+            "@type": "@id"
+        },
+        "proves": {
+            "@id": "elm:proves",
+            "@type": "@id"
+        },
+        "publisher":
+        {
+          "@id": "dc:publisher",
+          "@type": "@id"
+        },
+        "prefLabel": {
+            "@id": "skos:prefLabel",
+            "@container": "@language"
+        },
+        "phoneNumber": {
+            "@id": "elm:phoneNumber",
+            "@type": "xsd:string"
+        },
+        "providedBy": {
+            "@id": "elm:providedBy",
+            "@type": "@id"
+        },
+        "qualificationCode": {
+            "@id": "elm:qualificationCode",
+            "@type": "@id"
+        },
+        "registration": {
+            "@id": "rov:registration",
+            "@type": "@id"
+        },
+        "relatedESCOSkill": {
+            "@id": "elm:relatedESCOSkill",
+            "@type": "@id"
+        },
+        "relatedSkill": {
+            "@id": "elm:relatedSkill",
+            "@type": "@id"
+        },
+        "report": {
+            "@id": "elm:report",
+            "@type": "@id"
+        },
+        "reviewDate": {
+            "@id": "elm:reviewDate",
+            "@type": "xsd:dateTime"
+        },
+        "resultDestribution": {
+            "@id": "elm:resultDestribution",
+            "@type": "@id"
+        },
+        "resultCategory": {
+            "@id": "elm:resultCategory",
+            "@type": "@id"
+        },
+        "reusabilityLevel":{
+            "@id": "elm:reusabilityLevel",
+            "@type": "@id"
+        },
+        "scheduleInformation": {
+            "@id": "elm:scheduleInformation",
+            "@type": "@id"
+        },
+        "schemeAgency": {
+            "@id": "adms:schemeAgency",
+            "@container": "@language"
+        },
+        "schemeName": {
+            "@id": "elm:schemeName",
+            "@type": "xsd:string"
+        },
+        "schemeVersion": {
+            "@id": "elm:schemeVersion",
+            "@type": "xsd:string"
+        },
+        "schemeId": {
+            "@id": "elm:schemeId",
+            "@type": "xsd:anyURI"
+        },
+        "score": {
+            "@id": "elm:score",
+            "@type": "xsd:string"
+        },
+        "shortenedGrading": {
+            "@id": "elm:shortenedGrading",
+            "@type": "@id"
+        },
+        "spatial": {
+            "@id": "dc:spatial",
+            "@type": "@id"
+        },
+        "spatialCode": {
+            "@id": "elm:spatialCode",
+            "@type": "@id"
+        },
+        "specialisationOf": {
+            "@id": "elm:specialisationOf",
+            "@type": "@id"
+        },
+        "specifiedBy": {
+            "@id": "elm:specifiedBy",
+            "@type": "@id"
+        },
+        "startDate": {
+            "@id": "elm:startDate",
+            "@type": "xsd:dateTime"
+        },
+        "status": {
+            "@id": "elm:status",
+            "@type": "xsd:string"
+        },
+        "subject": {
+            "@id": "dc:subject",
+            "@type": "@id"
+        },
+        "subOrganizationOf": {
+            "@id": "org:subOrganizationOf",
+            "@type": "@id"
+        },
+        "summaryDisplay": {
+            "@id": "elm:summaryDisplay",
+            "@type": "xsd:string"
+        },
+        "supplementaryDocument": {
+            "@id": "elm:supplementaryDocument",
+            "@type": "@id"
+        },
+        "targetGroup": {
+            "@id": "elm:targetGroup",
+            "@type": "@id"
+        },
+        "taxIdentifier": {
+            "@id": "elm:taxIdentifier",
+            "@type": "@id"
+        },
+        "temporal": {
+            "@id": "dc:temporal",
+            "@type": "@id"
+        },
+        "thematicArea": {
+            "@id": "elm:ISCEDFCode",
+            "@type": "@id"
+        },
+        "title": {
+            "@id": "dc:title",
+            "@container": "@language"
+        },
+        "unit": {
+            "@id": "elm:unit",
+            "@type": "@id"
+        },
+        "used": {
+            "@id": "elm:used",
+            "@type": "@id"
+        },
+        "valid":{
+          "@id": "dc:valid",
+          "@type": "xsd:dateTime"
+        },
+        "value": {
+            "@id": "elm:value",
+            "@type": "xsd:decimal"
+        },
+        "vatIdentifier": {
+            "@id": "elm:vatIdentifier",
+            "@type": "@id"
+        },
+        "verificationCheck":{
+          "@id": "elm:verificationCheck",
+          "@type": "@id"
+        },
+        "verificationStatus":{
+          "@id": "elm:verificationStatus",
+          "@type": "@id"
+        },
+        "volumeOfLearning": {
+            "@id": "elm:volumeOfLearning",
+            "@type": "xsd:duration"
+        },
+        "workload": {
+            "@id": "elm:workload",
+            "@type": "xsd:duration"
+        }
+    }
+}

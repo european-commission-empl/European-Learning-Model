@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:clv="http://data.europa.eu/m8g/"
+    xmlns="http://www.w3.org/ns/locn#"
+    targetNamespace="http://www.w3.org/ns/locn#"
+    elementFormDefault="qualified">
+    
+    <xs:import namespace="http://data.europa.eu/m8g/" schemaLocation="core-location-ap.xsd"/>
+    
+    <xs:element name="geometry" type="GeometryType"/>
+    
+    <xs:complexType name="GeometryType">
+        <xs:annotation>
+            <xs:documentation>This class defines the geometry at the conceptual level, and it can be encoded by using different formats.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element ref="clv:longitude" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="clv:latitude" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>The geographic coordinate that specifies the north / south position of the Geomerty on the Earth's surface.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

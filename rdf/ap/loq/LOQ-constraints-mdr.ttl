@@ -1,0 +1,483 @@
+@prefix :       <http://data.europa.eu/snb/model/ap/loq-constraints-mdr/>.
+@prefix dc:     <http://purl.org/dc/terms/>.
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
+@prefix loq:    <https://data.europa.eu/snb/model/ap/loq-constraints/>.
+@prefix prov:   <http://www.w3.org/ns/prov#>.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix org:    <http://www.w3.org/ns/org#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix gr:     <http://purl.org/goodrelations/v1#>.
+@prefix dcat:   <http://www.w3.org/ns/dcat#>.
+@prefix elm:    <http://data.europa.eu/snb/model/elm/>.
+@prefix ams:    <http://data.europa.eu/snb/model/ap/ams-constraints/>.
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix cc:     <http://creativecommons.org/ns#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc/>.
+@prefix vp:     <http://data.europa.eu/snb/model/w3c/vp/>.
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+
+<http://data.europa.eu/snb/model/ap/loq-constraints-mdr>
+  a owl:Ontology;
+  owl:imports rdf:;
+  owl:import dc:;
+  owl:imports org:;
+  owl:imports adms:;
+  owl:imports foaf:;
+  owl:imports elm:;
+  owl:imports ams:;
+  owl:imports skos:;
+  owl:imports loq:;
+  owl:imports sh:;
+  rdfs:label "Controlled Vocabularies SHACL constraints for LOMS Application Profile"@en;
+  dc:created "2021-10-05"^^xsd:date;
+  dc:modified "2022-07-12"^^xsd:date;
+  dc:title "SHACL constraints for the controlled vocabularies used by Learning Opportunity Metadata Schema application profile"@en;
+  dc:description "Learning Opportunity Metadata Schema constraints for the controlled vocabularies used by Learning Opportunity Metadata Schema application profile, provides the constraints on controlled vocabularies used."@en;
+  rdfs:comment "This document specifies the set of SHACL constraints on classes and properties used in the Learning Opportunity Metadata Schema application profile, with respect to the controlled vocabularies used."@en;
+  owl:versionInfo "1.0.0";
+  dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
+  cc:attributionURL <http://ec.europa.eu/>;
+  dc:license <https://creativecommons.org/licenses/by/4.0/>;
+  # dc:creator [foaf:mbox ""; foaf:name ""]; # to be added
+  # dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added
+  .
+#-----------------------------------------------------------------
+#------------------------ Restrictions ---------------------------
+#-----------------------------------------------------------------
+:AccreditationTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Accreditation Type restriction" ;
+    rdfs:label "Accreditation Type restriction" ;
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/accreditation/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .  
+
+:ThematicAreaRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Thematic Area restriction";
+    rdfs:label "Thematic Area restriction";
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/isced-f/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .
+
+:EQFLevelRestriction
+    a sh:NodeShape ;
+    rdfs:comment "EQF Level restriction" ;
+    rdfs:label "EQF Level restriction" ;
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/eqf/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .  
+:JurisdictionRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Jurisdiction restriction" ;
+    rdfs:label "Jurisdiction restriction" ;
+    sh:property [
+        sh:hasValue <http://publications.europa.eu/resource/authority/atu> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .  
+# :CreditSystemRestriction
+#     a sh:NodeShape ;
+#     rdfs:comment "Credit System restriction" ;
+#     rdfs:label "Credit System restriction" ;
+#     sh:property [
+#         sh:hasValue <http://data.europa.eu/snb/education-credit/25831c2> ;
+#         sh:nodeKind sh:IRI ;
+#         sh:path skos:inScheme
+#     ] .  
+:CountryRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Country restriction" ;
+    rdfs:label "Country restriction" ;
+    sh:property [
+        sh:hasValue <http://publications.europa.eu/resource/authority/country> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .  
+
+:AmountUnitRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Amount Unit restriction" ;
+    rdfs:label "Amount Unit restriction" ;
+    sh:property [
+        sh:hasValue <http://publications.europa.eu/resource/authority/currency> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] . 
+
+:LanguageRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Language restriction";
+    rdfs:label "Language restriction";
+    sh:property [
+        sh:hasValue <http://publications.europa.eu/resource/authority/language> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .
+
+:LearningSettingRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Learning Setting restriction";
+    rdfs:label "Learning Setting restriction";
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/learning-setting/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .
+
+:LearningEntitlementStatusRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Learning Entitlement Status restriction" ;
+    rdfs:label "Learning Entitlement Status restriction" ;
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/entitlement-status/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ].
+
+:NQFLevelRestriction
+    a sh:NodeShape ;
+    rdfs:comment "NQF Level restriction" ;
+    rdfs:label "NQF Level restriction" ;
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/qdr/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .
+
+:LearningOutcomeTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Learning Outcome Type restriction" ;
+    rdfs:label "Learning Outcome Type restriction" ;
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/skill-type/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .
+
+:ReusabilityLevelRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Reusability Level restriction" ;
+    rdfs:label "Reusability Level restriction" ;
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/skill-reuse-level/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] . 
+
+:EscoSkillRestriction
+    a sh:NodeShape ;
+    rdfs:comment "ESCO Skill restriction" ;
+    rdfs:label "ESCO Skill restriction" ;
+    sh:property [
+        sh:pattern "^https://ec.europa.eu/esco/skill/" ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] . 
+
+:LearningOpportunityTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Learning Opportunity Type Restriction";
+    rdfs:label "Learning Opportunity Type Restriction";
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/learning-opportunity/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] .
+
+:AccreditationStatusRestriction  
+    a sh:NodeShape ; 
+    rdfs:comment "Accreditation Status restriction" ;
+    rdfs:label "Accreditation Status restriction" ;
+    sh:property [  
+         sh:nodeKind sh:IRI ;
+         sh:hasValue <https://publications.europa.eu/resource/authority/snb/status/25831c2>;
+         sh:nodeKind sh:IRI ;
+         sh:path skos:inScheme;
+         sh:severity sh:Violation;
+    ].
+:EscoOccupationRestriction
+    a sh:NodeShape ;
+    rdfs:comment "ESCO Occupation restriction" ;
+    rdfs:label "ESCO Occupation restriction" ;
+    sh:property [
+        sh:pattern "^http://data.europa.eu/esco/occupation" ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme
+    ] . 
+
+:CountryRegionRestriction
+    a sh:NodeShape;
+    rdfs:comment "Country Region restriction";
+    rdfs:label "Country Region restriction";
+    sh:property [
+        sh:nodeKind sh:IRI;
+        sh:path skos:inScheme;
+        sh:in (
+          <http://publications.europa.eu/resource/authority/country>
+          <http://data.europa.eu/nuts>
+        );
+        sh:severity sh:Violation;
+    ] .    
+# ------------------------------------------------------------------
+# ----------------------- Class Shapes -----------------------------
+# ------------------------------------------------------------------
+:AccreditationShapeCV
+ a sh:NodeShape;
+    sh:targetClass elm:Accreditation;
+    sh:property[
+        sh:node  :AccreditationTypeRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:name "type"@en;
+        sh:path dc:type;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ];
+    sh:property[
+        sh:node  :JurisdictionRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:name "accredited in jurisdiction"@en;
+        sh:path elm:limitJurisdiction;
+        sh:severity sh:Violation;
+    ];
+    sh:property[
+        sh:node :AccreditationStatusRestriction;
+        sh:path elm:status;
+        sh:name "status"@en;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ];
+.
+#-------------------------------------------   
+:AddressShapeCV
+    a sh:NodeShape;  
+    sh:targetClass elm:Address;
+    sh:property [
+        sh:node :CountryRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:name"country"@en;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:path elm:countryCode;
+        sh:severity sh:Violation
+    ];
+.
+#-------------------------------------------
+:AmountShapeCV
+    a sh:NodeShape;  
+    sh:targetClass elm:Amount;
+    sh:property [
+        sh:node :AmountUnitRestriction;
+        sh:nodeKind sh:IRI;
+        sh:path elm:unit;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:name "unit"@en;
+        sh:severity sh:Violation;
+    ].
+#-------------------------------------------
+# :CreditPointShapeCV
+#     a sh:NodeShape;  
+#     sh:targetClass elm:CreditPoint;
+#     sh:property [
+#         sh:node :CreditSystemRestriction;
+#         sh:nodeKind sh:IRI;
+#         sh:path elm:framework;
+#         sh:minCount 1;
+#         sh:maxCount 1;
+#         sh:name "framework"@en;
+#         sh:severity sh:Violation;
+#     ].   
+# ----------------------------------------------
+:LearningAchievementSpecificationShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:LearningAchievementSpecification;
+    sh:property [
+        sh:node :ThematicAreaRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "thematic area"@en;
+        sh:path elm:ISCEDFCode;
+        sh:severity sh:Violation
+    ], [
+        sh:node :LanguageRestriction;
+        sh:nodeKind sh:IRI;
+        sh:path dc:language;
+        sh:name "language"@en;
+        sh:severity sh:Violation
+    ], [
+        sh:node :LearningSettingRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "learning setting"@en;
+        sh:path elm:learningSetting;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ].
+
+# ----------------------------------------------
+:LearningActivitySpecificationShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:LearningActivitySpecification;
+    sh:property  [
+        sh:node :LanguageRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "language"@en;
+        sh:path dc:language;
+        sh:severity sh:Violation
+    ].
+
+# ----------------------------------------------
+:LearningAssessmentSpecificationShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:LearningAssessmentSpecification;
+    sh:property  [
+        sh:node :LanguageRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "language"@en;
+        sh:path dc:language;
+        sh:severity sh:Violation;
+    ]
+    .
+# ----------------------------------------------
+:LearningEntitlementSpecificationShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:LearningEntitlementSpecification;
+    sh:property [
+        sh:node :LearningEntitlementStatusRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "status"@en;
+        sh:path elm:status;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ], [
+        sh:node  :JurisdictionRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "valid within"@en;
+        sh:path elm:limitJurisdiction;
+        sh:severity sh:Violation;
+    ],[
+        sh:node :EscoOccupationRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "related occupation"@en;
+        sh:path elm:limitOccupation;
+        sh:severity sh:Violation;
+    ]
+    .
+#-------------------------------------------
+:LearningOpportunityShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:LearningOpportunity;
+    sh:property [
+        sh:node :LanguageRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name"default language"@en;
+        sh:path elm:defaultLanguage;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ];
+    .    
+#-------------------------------------------
+:LearningOutcomeShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:LearningOutcome;
+    sh:property [
+        sh:node :LearningOutcomeTypeRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "type"@en;
+        sh:path dc:type;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ],
+    [
+        sh:node :ReusabilityLevelRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "reusability level"@en;
+        sh:path elm:reusabilityLevel;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation;
+    ],
+    [
+        sh:node :EscoSkillRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "related ESCO skill(s)"@en;
+        sh:path elm:relatedESCOSkill;
+        sh:severity sh:Violation;
+    ].
+
+# ------------------------------------------------------------------
+:LegalIdentifierShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:LegalIdentifier;
+    sh:property[
+        sh:node :CountryRegionRestriction;;
+        sh:nodeKind sh:IRI;
+        sh:name"spatial"@en;
+        sh:path dc:spatial;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ].
+#----------------------------------------------
+:QualificationShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:Qualification;
+    sh:property [
+        sh:node :ThematicAreaRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "thematic area"@en;
+        sh:path elm:ISCEDFCode;
+        sh:severity sh:Violation
+    ], [
+        sh:node :LanguageRestriction;
+        sh:nodeKind sh:IRI;
+        sh:path dc:language;
+        sh:name "language"@en;
+        sh:severity sh:Violation
+    ], [
+        sh:node :LearningSettingRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "learning setting"@en;
+        sh:path elm:learningSetting;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ],[
+        sh:node :EQFLevelRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "EQF level"@en;
+        sh:path elm:EQFLevel;
+        sh:maxCount 1;
+        sh:minCount 1;
+        sh:severity sh:Violation
+    ],
+    [
+        sh:node :NQFLevelRestriction;
+        sh:nodeKind sh:IRI;
+        sh:name "NQF level"@en;
+        sh:path elm:NQFLevel;
+        sh:severity sh:Violation
+    ].
+# ----------------------------------------------
+:WebResourceShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:WebResource;
+    sh:property[
+        sh:node :LanguageRestriction;
+        sh:nodeKind sh:IRI;
+        sh:maxCount 1;
+         sh:name"language"@en;
+        sh:path dc:language;
+        sh:severity sh:Violation;
+    ].

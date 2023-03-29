@@ -1,0 +1,165 @@
+@prefix locn:   <http://www.w3.org/ns/locn#>.
+@prefix dc:     <http://purl.org/dc/terms/>.
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
+@prefix esco:   <http://data.europa.eu/esco/model#>.
+@prefix ns2:    <http://purl.org/iso25964/skos-thes#>.
+@prefix prov:   <http://www.w3.org/ns/prov#>.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix org:    <http://www.w3.org/ns/org#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix gr:     <http://purl.org/goodrelations/v1#>.
+@prefix dcat:   <http://www.w3.org/ns/dcat#>.
+@prefix elm:    <https://data.europa.eu/snb/model#>.
+@prefix cpv:    <https://www.w3.org/ns/person#>.
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix cc:     <http://creativecommons.org/ns#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
+@prefix person: <http://www.w3.org/ns/person#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix locn:   <http://www.w3.org/ns/locn#>.
+@prefix clv:    <http://data.europa.eu/m8g/>.
+
+
+# classes directly reused in elm (not via subClassOf)
+rdfs:Resource
+  skos:definition "A resource"@en;
+.
+rdfs:Literal
+  rdfs:comment "A literal"@en;
+.
+skos:Concept
+  skos:definition "A concept"@en;
+.
+dc:Location 
+ skos:definition"An identifiable geographic place."@en;
+.
+person:Person
+   skos:definition "A person."@en;
+.
+adms:Identifier
+  skos:definition "A character string used to identify a resource. An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency. The Identifier class is a critical aspect of the edci model. It is used to identify persons and organisations. In these cases and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised."@en;
+.
+esco:NodeLiteral
+ skos:definition "A character string used to identify a resource. An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency. The Identifier class is a critical aspect of the edci model. It is used to identify persons and organisations. In these cases and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised."@en;
+.
+dc:PeriodOfTime
+  skos:definition "An interval of time that is named or defined by its start and end."@en ;
+  skos:scopeNote "the start and end of the interval may be given by using properties elm:startDate and elm:endDate respectively. The interval can also be open - i.e., it can have just a start or just an end. A prefLabel can be assigned to the class, to five a name to the time interval, e.g semester"@en ;
+.
+locn:Geometry
+  skos:definition "A shape or form of a Location."@en;
+  skos:scopeNote "This class defines the notion of geometry at the conceptual level, and it shall be encoded by using different formats (see usage note of the locn:geometry property). Can be a point, line or polygon, expressed using coordinates in some coordinate reference system. We also refer to the Examples section of this specification for a number of different geometry examples expressed in different formats."@en;
+.
+  #----- properties
+dc:type #-> type of media object
+    skos:definition "The nature or genre of the resource."@en ;
+    # to be used in Agent class with QMS list of Organisation types
+.
+dc:language # --> the language
+    skos:definition "A language of the resource."@en ;
+  .
+dc:title 
+  skos:definition "A name given to the resource."@en ;
+.
+dc:created
+  skos:definition "Date of creation of the resource."@en;
+.
+dc:modified
+  skos:definition "Date on which the resource was changed."@en;
+  .
+dc:subject 
+  skos:definition "The subject of the resource."@en ;  
+.
+dc:hasPart
+  skos:definition "A related resource that is included either physically or logically in the described resource. A has part relationship."@en ;  
+.
+dc:issued 
+  skos:definition "The date of formal issuance of the resource."@en ;
+. 
+dc:spatial
+    skos:definition"The geographical area covered in which the physical location is located. A code should be used to identify the spatial scope "@en;
+.
+dc:date
+ skos:definition"A point or period of time associated with an event in the lifecycle of the resource."@en;
+.
+dc:format
+ skos:definition"The file format, physical medium, or dimensions of the resource."@en;
+.
+dc:temporal#---> used to associate PeriodOfTime
+ skos:definition"Temporal characteristics of the resource."@en;
+.
+
+esco:nodeLiteral
+   skos:definition"an association to a NodeLiteral.Free text metadata fields, such as the description, a historical or additional note of a qualification can contain a plain text or a XHTML fragment as literal value. By using a NodeLiteral both the datatype of the literal as the language can be specified."@en;
+   . 
+org:hasSubOrganization
+   skos:definition "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an organization which is a sub-part or child of this organization."@en;
+.
+
+org:isSubOrganizationOf
+  skos:definition "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an organization which is a sub-part or child of this organization."@en;
+.
+
+org:memberOf
+  skos:definition "Indicates that an agent (person or other organization) is a member of the Organization with no indication of the nature of that membership or the role played. Note that the choice of property name is not meant to limit the property to only formal membership arrangements, it is also intended to cover related concepts such as affiliation or other involvement in the organization. Extensions can specialize this relationship to indicate particular roles within the organization or more nuanced relationships to the organization."@en;
+  .
+
+org:hasMember
+  skos:definition "Indicates an agent (person or other organization) who is a member of the subject Organization. Inverse of org:memberOf, see that property for further clarification."@en;
+ .
+
+rov:registration
+  skos:definition"he legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The registration is therefore a fundamental relationship between a the organization and the authority with which it is registered. The details of the registration are provided as properties of the Identifier class which is defined by ADMS."@en;
+  .
+
+rov:legalName
+  skos:definition"The legal name of the business. A business might have more than one legal name, particularly in countries with more than one official language. In such cases the language of the string should be identified."@en;
+  .
+
+skos:altLabel
+  skos:definition"An alternative label"@en;
+  .
+
+skos:prefLabel
+  skos:definition" A prefered label"@en;
+  .
+
+skos:notation
+   skos:definition"This property assigns a notation as a typed litera"@en;
+   .
+
+foaf:homepage
+  skos:definition"A homepage for some thing"@en;
+  .
+
+foaf:name
+  skos:definition"A name."@en;
+  .
+
+foaf:givenName
+  skos:definition" The given name of some person."@en;
+  .
+
+foaf:familyName
+  skos:definition"The family name of some person."@en;
+  .
+
+foaf:topic
+  skos:definition"A topic of some page or document."@en;
+ .
+
+foaf:member
+  skos:definition "Indicates a member of a Group."@en;
+.
+
+clv:longitute
+  skos:definition "The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface."@en;
+.
+
+clv:latitude
+   skos:definition "The geographic coordinate that specifies the north / south position of the Geomerty on the Earth's surface."@en;
+.   

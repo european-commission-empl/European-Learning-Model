@@ -1,0 +1,2444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://data.europa.eu/snb/model/ap/loq-constraints/"
+           xmlns:loq="http://data.europa.eu/snb/model/ap/loq-constraints/"
+           xmlns:adms="http://www.w3.org/ns/adms#"
+           xmlns:dc="http://purl.org/dc/terms/"
+           xmlns:elm="http://data.europa.eu/snb/model/elm/"
+           xmlns:foaf="http://xmlns.com/foaf/0.1/"
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:locn="http://www.w3.org/ns/locn#"
+           xmlns:rov="http://www.w3.org/ns/regorg#"
+           xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:lng="http://publications.europa.eu/resource/authority/language"
+           xmlns:cou="http://publications.europa.eu/resource/authority/country"
+           xmlns:for="http://publications.europa.eu/resource/authority/file-type"
+           xmlns:nuts="http://data.europa.eu/nuts"
+           xmlns:atu="http://publications.europa.eu/resource/authority/atu"
+           xmlns:isced="http://data.europa.eu/snb/isced-f/25831c2"
+           xmlns:eqf="http://data.europa.eu/snb/eqf/25831c2"
+           xmlns:nqf="http://data.europa.eu/snb/qdr/25831c2"
+           xmlns:eat="http://data.europa.eu/snb/accreditation/25831c2"
+           xmlns:ecet="http://data.europa.eu/snb/encoding/25831c2"
+           xmlns:elot="http://data.europa.eu/snb/learning-opportunity/25831c2"
+           xmlns:act="http://data.europa.eu/snb/learning-activity/25831c2"
+           xmlns:ass="http://data.europa.eu/snb/assessment/25831c2"
+           xmlns:ent="http://data.europa.eu/snb/entitlement/25831c2"
+           xmlns:ents="http://data.europa.eu/snb/entitlement-status/25831c2"
+           xmlns:em="http://data.europa.eu/snb/learning-assessment/25831c2"
+           xmlns:sett="http://data.europa.eu/snb/learning-setting/25831c2"
+           xmlns:etg="http://data.europa.eu/snb/target-group/25831c2"
+           xmlns:st="http://data.europa.eu/snb/skill-type/25831c2"
+           xmlns:srl="http://data.europa.eu/snb/skill-reuse-level/25831c2"
+           xmlns:sched="http://data.europa.eu/snb/learning-schedule/25831c2"
+           xmlns:cp="http://data.europa.eu/snb/education-credit/25831c2"
+           xmlns:curr="http://publications.europa.eu/resource/authority/currency"
+           targetNamespace="http://data.europa.eu/snb/model/ap/loq-constraints/"
+           elementFormDefault="qualified" version="3.0.0">
+
+   <xs:include schemaLocation="cv/loq_individuals.xsd"/>
+
+   <xs:import namespace="http://www.w3.org/ns/regorg#" schemaLocation="external/rov.xsd"/>
+   <xs:import namespace="http://www.w3.org/ns/adms#" schemaLocation="external/adms.xsd"/>
+   <xs:import namespace="http://www.w3.org/ns/org#" schemaLocation="external/org.xsd"/>
+   <xs:import namespace="http://www.w3.org/2004/02/skos/core#" schemaLocation="external/skos.xsd"/>
+   <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="external/dc.xsd"/>
+   <xs:import namespace="http://xmlns.com/foaf/0.1/" schemaLocation="external/foaf.xsd"/>
+   <xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="external/rdf.xsd"/>
+   <xs:import namespace="http://www.w3.org/ns/locn#" schemaLocation="external/core-locn-ap.xsd"/>
+
+   <xs:import namespace="http://data.europa.eu/snb/isced-f/25831c2" schemaLocation="cv/isced-f.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/eqf/25831c2" schemaLocation="cv/eqf.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/accreditation/25831c2" schemaLocation="cv/europass-accreditation-types.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/encoding/25831c2" schemaLocation="cv/europass-content-encoding-types.xsd"/>
+
+   <xs:import namespace="http://publications.europa.eu/resource/authority/language" schemaLocation="cv/language.xsd"/>
+   <xs:import namespace="http://publications.europa.eu/resource/authority/country" schemaLocation="cv/country.xsd"/>
+   <xs:import namespace="http://publications.europa.eu/resource/authority/file-type" schemaLocation="cv/file-type.xsd"/>
+   <xs:import namespace="http://data.europa.eu/nuts" schemaLocation="cv/nuts.xsd"/>
+   <xs:import namespace="http://publications.europa.eu/resource/authority/atu" schemaLocation="cv/atu.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/learning-opportunity/25831c2" schemaLocation="cv/europass-learning-opportunity-types.xsd"/>
+
+   <xs:import namespace="http://data.europa.eu/snb/education-credit/25831c2" schemaLocation="cv/credit-points.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/learning-assessment/25831c2" schemaLocation="cv/europass-modes.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/learning-setting/25831c2" schemaLocation="cv/europass-learning-setting-types.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/target-group/25831c2" schemaLocation="cv/europass-target-groups.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/qdr/25831c2" schemaLocation="cv/nqf.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/skill-type/25831c2" schemaLocation="cv/skill-types.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/skill-reuse-level/25831c2" schemaLocation="cv/skill-reuse-levels.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/learning-activity/25831c2" schemaLocation="cv/europass-learning-activity-types.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/assessment/25831c2" schemaLocation="cv/europass-learning-assessment-types.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/entitlement/25831c2" schemaLocation="cv/europass-learning-entitlement-types.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/entitlement-status/25831c2" schemaLocation="cv/europass-learning-entitlement-statuses.xsd"/>
+   <xs:import namespace="http://data.europa.eu/snb/learning-schedule/25831c2" schemaLocation="cv/europass-learning-schedule-types.xsd"/>
+   <xs:import namespace="http://publications.europa.eu/resource/authority/currency" schemaLocation="cv/currency.xsd"/>
+
+   <xs:element name="Courses" type="CoursesRootType">
+      <xs:annotation>
+         <xs:documentation>This is the root element of the document.</xs:documentation>
+      </xs:annotation>
+      <xs:unique name="UniqueNotationCheck">
+         <xs:annotation>
+            <xs:documentation>The value of identifier notation should be unique across the document.</xs:documentation>
+         </xs:annotation>
+         <xs:selector xpath=".//loq:identifier"/>
+         <xs:field xpath="skos:notation"/>
+      </xs:unique>
+
+      <!-- KEYS -->
+      <xs:key name="accreditationKey">
+         <xs:selector xpath="loq:accreditationReferences/loq:accreditation"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="agentKey">
+         <xs:selector xpath="loq:agentReferences/loq:agent"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="gradingSchemeKey">
+         <xs:selector xpath="loq:gradingSchemeReferences/loq:gradingScheme"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="groupKey">
+         <xs:selector xpath="loq:groupReferences/loq:group"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="learningAchievementSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="learningActivitySpecificationKey">
+         <xs:selector
+                 xpath="loq:learningActivitySpecificationReferences/loq:learningActivitySpecification"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="learningAssessmentSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningAssessmentSpecificationReferences/loq:learningAssessmentSpecification"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="learningEntitlementSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningEntitlementSpecificationReferences/loq:learningEntitlementSpecification"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="learningOpportunityKey">
+         <xs:selector xpath="loq:learningOpportunityReferences/loq:learningOpportunity"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="learningOutcomeKey">
+         <xs:selector xpath="loq:learningOutcomeReferences/loq:learningOutcome"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="organisationKey">
+         <xs:selector xpath="loq:agentReferences/loq:organisation"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="locationKey">
+         <xs:selector xpath="loq:locationReferences/loq:location"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="qualificationKey">
+         <xs:selector xpath="loq:learningAchievementSpecificationReferences/loq:qualification|loq:learningAchievementSpecificationReferences/loq:qualificationReference"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="allAgentKey">
+         <xs:selector xpath="loq:agentReferences/loq:agent|loq:agentReferences/loq:organisation"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+      <xs:key name="allLearningAchievementSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification|loq:learningAchievementSpecificationReferences/loq:qualification|loq:learningAchievementSpecificationReferences/loq:qualificationReference"/>
+         <xs:field xpath="@id"/>
+      </xs:key>
+
+
+      <!-- KEYREFs -->
+      <xs:keyref name="accreditationOrganisationKeyref" refer="organisationKey">
+         <xs:selector xpath="loq:accreditationReferences/loq:*/loq:organisation"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="accreditationLimitQualificationKeyref" refer="qualificationKey">
+         <xs:selector xpath="loq:accreditationReferences/loq:*/loq:limitQualification"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="accreditationAccreditingAgentKeyref" refer="organisationKey">
+         <xs:selector xpath="loq:accreditationReferences/loq:*/loq:accreditingAgent"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="agentLocationKeyRef" refer="locationKey">
+         <xs:selector xpath="loq:agentReferences/loq:agent/loq:location"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="agentGroupMemberOfKeyRef" refer="groupKey">
+         <xs:selector xpath="loq:agentReferences/loq:agent/loq:groupMemberOf"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="awardingOppAwardingBodyKeyRef" refer="allAgentKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:awardingOpportunity/loq:awardingBody"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="awardingOppLocationKeyRef" refer="locationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:awardingOpportunity/loq:location"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="awardingOppLearningAchievementSpecKeyRef" refer="allLearningAchievementSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:awardingOpportunity/loq:learningAchievementSpecification"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="groupMemberKeyref" refer="allAgentKey">
+         <xs:selector xpath="loq:groupReferences/loq:group/loq:member"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="groupLocationKeyref" refer="locationKey">
+         <xs:selector xpath="loq:groupReferences/loq:group/loq:location"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="learningAchievementSpecLearningOutcomeKeyRef" refer="learningOutcomeKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:learningOutcome"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningAchievementSpecLearningActivitySpecificationKeyRef"
+                 refer="learningActivitySpecificationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:influencedBy"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningAchievementSpecLearningAssessmentSpecificationKeyRef"
+                 refer="learningAssessmentSpecificationKey">
+         <xs:selector xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:provenBy"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningAchievementSpecLearningEntitlementSpecificationKeyRef"
+                 refer="learningEntitlementSpecificationKey">
+         <xs:selector xpath="loq:learningAchievementSpecificationReferences/loq:*/loq:entitlesTo"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningAchievementSpecHasPartKeyRef"
+                 refer="learningAchievementSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification/loq:hasPart"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningAchievementSpecSpecialisationOfKeyRef"
+                 refer="learningAchievementSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:learningAchievementSpecification/loq:specialisationOf"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="learningActivitySpecInfluencesKeyRef"
+                 refer="allLearningAchievementSpecificationKey">
+         <xs:selector xpath="loq:learningActivitySpecificationReferences/loq:*/loq:influences"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningActivitySpecHasPartKeyRef" refer="learningActivitySpecificationKey">
+         <xs:selector xpath="loq:learningActivitySpecificationReferences/loq:*/loq:hasPart"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningActivitySpecSpecialisationOfKeyRef"
+                 refer="learningActivitySpecificationKey">
+         <xs:selector
+                 xpath="loq:learningActivitySpecificationReferences/loq:*/loq:specialisationOf"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="learningAssessmentSpecGradingSchemeKeyRef" refer="gradingSchemeKey">
+         <xs:selector
+                 xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:gradingScheme"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningAssessmentSpecProvesKeyRef"
+                 refer="allLearningAchievementSpecificationKey">
+         <xs:selector xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:proves"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningAssessmentSpecHasPartKeyRef"
+                 refer="learningAssessmentSpecificationKey">
+         <xs:selector xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:hasPart"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningAssessmentSpecSpecialisationOfKeyRef"
+                 refer="learningAssessmentSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningAssessmentSpecificationReferences/loq:*/loq:specialisationOf"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="learningEntitlementSpecLimitOrgKeyRef" refer="organisationKey">
+         <xs:selector
+                 xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:limitOrganisation"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningEntitlementSpecMayResultFromKeyRef"
+                 refer="allLearningAchievementSpecificationKey">
+         <xs:selector xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:entitledBy"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningEntitlementSpecHasPartKeyRef"
+                 refer="learningEntitlementSpecificationKey">
+         <xs:selector xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:hasPart"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningEntitlementSpecSpecialisationOfKeyRef"
+                 refer="learningEntitlementSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningEntitlementSpecificationReferences/loq:*/loq:specialisationOf"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="learningOpportunityProvidedByKeyref" refer="organisationKey">
+         <xs:selector
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:providedBy"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningOpportunityLocationKeyref" refer="locationKey">
+         <xs:selector
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:location"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningOpportunityLearningAchievementSpecificationKeyref"
+                 refer="allLearningAchievementSpecificationKey">
+         <xs:selector
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:learningAchievementSpecification"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningOpportunityLearningActivitySpecificationKeyref"
+                 refer="learningActivitySpecificationKey">
+         <xs:selector
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:learningActivitySpecification"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="learningOpportunityHasPartKeyref" refer="learningOpportunityKey">
+         <xs:selector
+                 xpath="loq:learningOpportunityReferences/loq:learningOpportunity/loq:hasPart"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="organisationAccreditationKeyRef" refer="accreditationKey">
+         <xs:selector xpath="loq:agentReferences/loq:organisation/loq:accreditation"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="organisationLocationKeyRef" refer="locationKey">
+         <xs:selector xpath="loq:agentReferences/loq:organisation/loq:location"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="organisationHasSubOrganizationKeyRef" refer="organisationKey">
+         <xs:selector xpath="loq:agentReferences/loq:organisation/loq:hasSubOrganization"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="organisationSubOrganizationOfKeyRef" refer="organisationKey">
+         <xs:selector xpath="loq:agentReferences/loq:organisation/loq:subOrganizationOf"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="organisationGroupMemberOfKeyRef" refer="groupKey">
+         <xs:selector xpath="loq:agentReferences/loq:organisation/loq:groupMemberOf"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+
+      <xs:keyref name="qualificationHasPartKeyRef" refer="qualificationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:qualification/loq:hasPart"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="qualificationSpecialisationOfKeyRef" refer="qualificationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:qualification/loq:specialisationOf"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+      <xs:keyref name="qualificationAccreditationKeyRef" refer="accreditationKey">
+         <xs:selector
+                 xpath="loq:learningAchievementSpecificationReferences/loq:qualification/loq:accreditation"/>
+         <xs:field xpath="@idref"/>
+      </xs:keyref>
+   </xs:element>
+
+
+   <!-- PROPERTIES FOR CLASSES -->
+   <xs:element name="address" type="AddressType"/>
+   <xs:element name="agent" type="AgentType"/>
+   <xs:element name="amount" type="AmountType"/>
+   <xs:element name="awardingOpportunity" type="AwardingOpportunityType"/>
+   <xs:element name="contactPoint" type="ContactPointType"/>
+   <xs:element name="creditPoint" type="CreditPointType"/>
+   <xs:element name="grant" type="GrantType"/>
+   <xs:element name="group" type="GroupType"/>
+   <xs:element name="identifier" type="IdentifierType"/>
+   <xs:element name="learningAssessmentSpecification" type="LearningAssessmentSpecificationType"/>
+   <xs:element name="learningEntitlementSpecification" type="LearningEntitlementSpecificationType"/>
+   <xs:element name="learningOpportunity" type="LearningOpportunityType"/>
+   <xs:element name="mailbox" type="MailboxType"/>
+   <xs:element name="phone" type="PhoneType"/>
+   <xs:element name="priceDetail" type="PriceDetailType"/>
+   <xs:element name="qualification" type="QualificationType"/>
+   <xs:element name="qualificationReference" type="QualificationReferenceType"/>
+
+
+   <!--  PROPERTIES -->
+   <xs:element name="additionalNote" type="NoteType"/>
+   <xs:element name="supplementaryDocument" type="WebResourceType"/>
+   <xs:element name="isPartialQualification" type="xs:boolean"/>
+   <xs:element name="EQFLevel" type="EQFLevelRestrictionType"/>
+   <xs:element name="NQFLevel" type="NQFLevelRestrictionType"/>
+   <xs:element name="qualificationCode" type="skos:ConceptType"/>
+   <xs:element name="phoneNumber" type="xs:string"/>
+   <xs:element name="countryDialing" type="xs:string"/>
+   <xs:element name="areaDialing" type="xs:string"/>
+   <xs:element name="dialNumber" type="xs:string"/>
+   <xs:element name="registration" type="LegalIdentifierType"/>
+   <xs:element name="eidasLegalIdentifier" type="LegalIdentifierType"/>
+   <xs:element name="vatIdentifier" type="LegalIdentifierType"/>
+   <xs:element name="taxIdentifier" type="LegalIdentifierType"/>
+   <xs:element name="hasSubOrganization" type="IdReferenceType"/>
+   <xs:element name="subOrganizationOf" type="IdReferenceType"/>
+   <xs:element name="logo" type="MediaObjectType"/>
+   <xs:element name="modified" type="xs:dateTime"/>
+   <xs:element name="contentEncoding" type="ContentEncodingRestrictionType"/>
+   <xs:element name="contentSize" type="xs:integer"/>
+   <xs:element name="content" type="xs:string"/>
+   <xs:element name="contentUrl" type="xs:anyURI"/>
+   <xs:element name="reusabilityLevel" type="ReusabilityLevelsRestrictionType"/>
+   <xs:element name="relatedSkill" type="skos:ConceptType"/>
+   <xs:element name="relatedESCOSkill" type="skos:ConceptType"/>
+   <xs:element name="duration" type="xs:duration"/>
+   <xs:element name="mode" type="ModesOfLearningandAssessmentRestrictionType"/>
+   <xs:element name="learningSchedule" type="LearningScheduleTypesRestrictionType"/>
+   <xs:element name="scheduleInformation" type="NoteType"/>
+   <xs:element name="admissionProcedure" type="NoteType"/>
+   <xs:element name="applicationDeadline" type="xs:dateTime"/>
+   <xs:element name="providedBy" type="IdReferenceType"/>
+   <xs:element name="bannerImage" type="MediaObjectType"/>
+   <xs:element name="entitlementStatus" type="LearningEntitlementStatusesRestrictionType"/>
+   <xs:element name="limitOrganisation" type="IdReferenceType"/>
+   <xs:element name="limitJurisdiction" type="JurisdictionRestrictionType"/>
+   <xs:element name="limitOccupation" type="skos:ConceptType"/>
+   <xs:element name="limitNationalOccupation" type="skos:ConceptType"/>
+   <xs:element name="entitledBy" type="IdReferenceType"/>
+   <xs:element name="proves" type="IdReferenceType"/>
+   <xs:element name="volumeOfLearning" type="xs:duration"/>
+   <xs:element name="influences" type="IdReferenceType"/>
+   <xs:element name="ISCEDFCode" type="ISCED-FCodeRestrictionType"/>
+   <xs:element name="educationSubject" type="skos:ConceptType"/>
+   <xs:element name="educationLevel" type="skos:ConceptType"/>
+   <xs:element name="learningSetting" type="LearningSettingTypesRestrictionType"/>
+   <xs:element name="maximumDuration" type="xs:duration"/>
+   <xs:element name="targetGroup" type="TargetGroupsRestrictionType"/>
+   <xs:element name="entryRequirement" type="NoteType"/>
+   <xs:element name="influencedBy" type="IdReferenceType"/>
+   <xs:element name="provenBy" type="IdReferenceType"/>
+   <xs:element name="entitlesTo" type="IdReferenceType"/>
+   <xs:element name="schemeName" type="xs:string"/>
+   <xs:element name="schemeVersion" type="xs:string"/>
+   <xs:element name="contactForm" type="WebResourceType"/>
+   <xs:element name="awardingBody" type="IdReferenceType"/>
+   <xs:element name="unit" type="CurrencyRestrictionType"/>
+   <xs:element name="value" type="xs:decimal"/>
+   <xs:element name="fullAddress" type="NoteType"/>
+   <xs:element name="countryCode" type="CountryRestrictionType"/>
+   <xs:element name="startDate" type="xs:dateTime"/>
+   <xs:element name="endDate" type="xs:dateTime"/>
+   <xs:element name="geographicName" type="rdf:LangStringType"/>
+   <xs:element name="spatialCode" type="MultipleCountryRestrictionType"/>
+   <xs:element name="spatial" type="MultipleCountryRestrictionType"/>
+   <xs:element name="topic" type="SubjectRestrictionType"/>
+   <xs:element name="subject" type="SubjectRestrictionType"/>
+   <xs:element name="language" type="LanguageRestrictionType"/>
+   <xs:element name="defaultLanguage" type="LanguageRestrictionType"/>
+   <xs:element name="description" type="rdf:LangStringType"/>
+   <xs:element name="homepage" type="WebResourceType"/>
+   <xs:element name="temporal" type="PeriodOfTimeType"/>
+   <xs:element name="decision" type="skos:ConceptType"/>
+   <xs:element name="report" type="WebResourceType"/>
+   <xs:element name="limitQualification" type="IdReferenceType"/>
+   <xs:element name="limitField" type="AccreditedThematicAreaRestrictionType"/>
+   <xs:element name="limitEQFLevel" type="AccreditedEQFLevelRestrictionType"/>
+   <xs:element name="accreditingAgent" type="IdReferenceType"/>
+   <xs:element name="reviewDate" type="xs:dateTime"/>
+   <xs:element name="expiryDate" type="xs:dateTime"/>
+   <xs:element name="landingPage" type="WebResourceType"/>
+   <xs:element name="framework" type="CreditPointFrameworkRestrictionType"/>
+   <xs:element name="point" type="xs:string"/>
+   <xs:element name="category" type="rdf:LangStringType"/>
+   <xs:element name="noteLiteral" type="rdf:LangStringType"/>
+   <xs:element name="learningOutcomeSummary" type="NoteType"/>
+   <xs:element name="contactHour" type="xs:string"/>
+   <xs:element name="member" type="IdReferenceType"/>
+   <xs:element name="groupMemberOf" type="IdReferenceType"/>
+   <xs:element name="title" type="rdf:LangStringType"/>
+   <xs:element name="contentType" type="ContentTypeRestrictionType"/>
+   <xs:element name="attachmentType" type="skos:ConceptType"/>
+   <xs:element name="publisher" type="IdReferenceType"/>
+   <xs:element name="noteFormat" type="skos:ConceptType"/>
+   <xs:element name="schemeAgency" type="rdf:LangStringType"/>
+   <xs:element name="legalName" type="rdf:LangStringType"/>
+   <xs:element name="issued" type="xs:dateTime"/>
+   <xs:element name="valid" type="xs:dateTime"/>
+   <xs:element name="status" type="xs:string"/>
+   <xs:element name="schemeId" type="xs:anyURI"/>
+
+
+   <!-- ComplexType FOR CLASSES  -->
+   <xs:complexType name="AccreditationType">
+      <xs:annotation>
+         <xs:documentation>The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about: - the quality assurance and/or licensing of an organisation. - the quality assurance and/or licensing of an organisation with respect to a specific qualification.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="identifier">
+            <xs:annotation>
+               <xs:documentation>An alternative Identifier of the Accreditation, as assigned to it by the accrediting agent.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="type" type="AccreditationTypeRestrictionType">
+            <xs:annotation>
+               <xs:documentation>The type of the accreditation</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="1" ref="title">
+            <xs:annotation>
+               <xs:documentation> The title of the accreditation. One value per language permitted. </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="description">
+            <xs:annotation>
+               <xs:documentation>The type as mandatory property. One value per language permitted. </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="decision">
+            <xs:annotation>
+               <xs:documentation>The Quality Decision issued by the Quality Assuring Authority.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="report">
+            <xs:annotation>
+               <xs:documentation>A publicly accessible report of the quality assurance decision.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="1" name="organisation" type="IdReferenceType">
+            <xs:annotation>
+               <xs:documentation>The organisation whose activities are being accredited. It MUST refer to an existing 'organisation'-record in the 'agentReferences'-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="limitQualification">
+            <xs:annotation>
+               <xs:documentation>The qualification that was accredited. It MUST refer to an existing 'qualification'-record in the 'learningAchivementSpecificationReferences'-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="limitField">
+            <xs:annotation>
+               <xs:documentation>The field of education for which the accreditation is valid.It should be provided using  ISCED-F contreolled vocabulary.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="limitEQFLevel">
+            <xs:annotation>
+               <xs:documentation>The european qualification level for which the accreditation is valid.It should be provided using  EQF contreolled vocabulary.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="limitJurisdiction">
+            <xs:annotation>
+               <xs:documentation>The jurisdiction for which the accreditation is valid. It should be provided using the Country Named Authority List.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="1" ref="accreditingAgent">
+            <xs:annotation>
+               <xs:documentation>The Quality Assuring Authority. (i.e assurer). It MUST refer to an existing 'organisation'-record in the 'agentReferences'-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="issued">
+            <xs:annotation>
+               <xs:documentation>The date when the sth was formally approved/issued.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="reviewDate">
+            <xs:annotation>
+               <xs:documentation>The date when the accreditation has to be re-viewed.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="expiryDate">
+            <xs:annotation>
+               <xs:documentation>The date when the accreditation expires or was expired..</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" ref="valid">
+            <xs:annotation>
+               <xs:documentation>The date when the accreditation became valid.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="additionalNote">
+            <xs:annotation>
+               <xs:documentation>An additional free text note about the resource.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="homepage">
+            <xs:annotation>
+               <xs:documentation>The homepage.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="landingPage">
+            <xs:annotation>
+               <xs:documentation>The landing page of the accreditation.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="supplementaryDocument">
+            <xs:annotation>
+               <xs:documentation>A public web document containing additional documentation about the resource.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="status" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The publication status of an organisation.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="modified">
+            <xs:annotation>
+               <xs:documentation>The date when the accreditation was last updated since it was published.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="publisher" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The publisher of the Accreditation.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:anyURI" use="required"/>
+   </xs:complexType>
+
+   <xs:complexType name="AddressType">
+      <xs:annotation>
+         <xs:documentation>An Address.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="identifier">
+            <xs:annotation>
+               <xs:documentation>An address identifier</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="fullAddress">
+            <xs:annotation>
+               <xs:documentation>The complete address with or without formatting.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="1" ref="countryCode">
+            <xs:annotation>
+               <xs:documentation>The address’ country code. It should be provided using the Country Named Authority List.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AgentType">
+      <xs:annotation>
+         <xs:documentation>An entity that is able to carry out actions.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="foaf:AgentType">
+            <xs:sequence>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="identifier">
+                  <xs:annotation>
+                     <xs:documentation>An identifier of an agent.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="skos:prefLabel">
+                  <xs:annotation>
+                     <xs:documentation>The preferred name of an agent.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="skos:altLabel">
+                  <xs:annotation>
+                     <xs:documentation>The alternative name of an agent.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="additionalNote">
+                  <xs:annotation>
+                     <xs:documentation>An additional free text note about the agent.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="location" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>The location of an agent.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="contactPoint">
+                  <xs:annotation>
+                     <xs:documentation>The contact information of an agent.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="groupMemberOf" maxOccurs="unbounded" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The group the agent is a member of. It MUST refer to an existing 'group'-record in the'groupReferences'-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="status" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The publication status of an Agent.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" ref="modified">
+                  <xs:annotation>
+                     <xs:documentation>The date when the agent was last modified.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="publisher" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The publisher of the Agent.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="AmountType">
+      <xs:annotation>
+         <xs:documentation>An amount.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" ref="unit">
+            <xs:annotation>
+               <xs:documentation>A code indicating the currency in which the amount is indicated/expressed.It is recommended to be used with the Currencies Named Authority List.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="1" ref="value">
+            <xs:annotation>
+               <xs:documentation>The numeric value (i.e. price, salary, etc.). </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AwardingOpportunityType">
+      <xs:annotation>
+         <xs:documentation>An awarding activity represents an activity related to the awarding of a LearningSpecification. It is used to specify the country or region where the LearningSpecification is awarded, the awarding body and optionally the awarding period now or in the past.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="identifier">
+            <xs:annotation>
+               <xs:documentation>An alternative Identifier of the Learning Achievement Specification.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" ref="awardingBody">
+            <xs:annotation>
+               <xs:documentation>The awarding body related to this awarding activity (i.e. the organisation that issues the qualification) Only in cases of co-awarding/co-graduation, where a qualification is issued to an individual by two or more organisations the cardinality is greater than 1. It MUST refer to an existing record in the 'agentReferences'-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" name="location" type="IdReferenceType">
+            <xs:annotation>
+               <xs:documentation>The location where the awarding activities take/took place (country/region where the qualification is awarded).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="temporal">
+            <xs:annotation>
+               <xs:documentation> The period of time when the awarding activities take place. If not specified it is undefined (“not known”).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="learningAchievementSpecification" type="IdReferenceType">
+            <xs:annotation>
+               <xs:documentation>The awarded Learning Achievement Specification. It MUST refer to an existing 'learningAchievementSpecification'-record in the 'learningAchievementSpecificationReferences'-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="ContactPointType">
+      <xs:annotation>
+         <xs:documentation>Details to Contact an Agent. A contact point for an agent.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="additionalNote">
+            <xs:annotation>
+               <xs:documentation>An additional free text note about the contact point.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="description">
+            <xs:annotation>
+               <xs:documentation>A free text description describing the contact details. One value per langauge allowed. </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="address">
+            <xs:annotation>
+               <xs:documentation>A postal address used for contacting the agent.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="phone">
+            <xs:annotation>
+               <xs:documentation>A phone number used for contacting the agent.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="1" ref="mailbox">
+            <xs:annotation>
+               <xs:documentation>An e-mail or wallet address used for contacting the agent.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="contactForm">
+            <xs:annotation>
+               <xs:documentation>A contact form used for contacting the agent.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="CreditPointType">
+      <xs:annotation>
+         <xs:documentation/>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="framework">
+            <xs:annotation>
+               <xs:documentation>The framework used to assign the  credit points to the learning specification. It should be provided using the Europass Standard List of Educational Credit Systems.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="point">
+            <xs:annotation>
+               <xs:documentation>The credit points assigned to the learning specification.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="GrantType">
+      <xs:annotation>
+         <xs:documentation>The Grant.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="title" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The title of the grant. One value per language is permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="description" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>A free text description of the grant. One value per language permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="dc:type" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+               <xs:documentation>The type of the grant</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="supplementaryDocument" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>A public web document containing additional documentation about the grant.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="contentUrl" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+               <xs:documentation>The public access URL</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="GradingSchemeType">
+      <xs:annotation>
+         <xs:documentation>A set of criteria that measures varying levels of achievement.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="identifier">
+            <xs:annotation>
+               <xs:documentation>An alternative Identifier of the Grading Scheme.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" ref="title">
+            <xs:annotation>
+               <xs:documentation> The title of the Grading Scheme. One value per language permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="description">
+            <xs:annotation>
+               <xs:documentation>A free text description. One value per language permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="supplementaryDocument">
+            <xs:annotation>
+               <xs:documentation>A public web document containing additional documentation about the Grading Scheme.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:anyURI" use="required"/>
+   </xs:complexType>
+
+   <xs:complexType name="GroupType">
+      <xs:annotation>
+         <xs:documentation>An entity that represents collection of Agents.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="skos:prefLabel" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The name of the group. One value per language permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="skos:altLabel" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The alternative name of the group.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="dc:type" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The type of the group. It should be provided using a controlled vocabulary.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="additionalNote" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>An additional free text note about the group.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="location" type="IdReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The location of the group.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="contactPoint" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The contact information of the group.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="member" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>An agent being a member of the group. It MUST refer to an existing record in the'agentReferences'-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:anyURI"/>
+   </xs:complexType>
+
+   <xs:complexType name="RestrictedAdmsIdentifierType">
+      <xs:annotation>
+         <xs:documentation>Restricted ADMS IdentifierType class</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="adms:IdentifierType">
+            <xs:sequence>
+               <xs:element ref="skos:notation">
+                  <xs:annotation>
+                     <xs:documentation>Content string which is the identifier datatyped with the identifier scheme.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" ref="dc:creator">
+                  <xs:annotation>
+                     <xs:documentation>Identification of the agent that manages the identifier scheme.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="IdentifierType">
+      <xs:annotation>
+         <xs:documentation>An Identifier.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="RestrictedAdmsIdentifierType">
+            <xs:sequence>
+               <xs:element minOccurs="0" ref="schemeAgency">
+                  <xs:annotation>
+                     <xs:documentation>The name of the agent that manages the identifier scheme. The agent that issued the identifier.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" ref="issued">
+                  <xs:annotation>
+                     <xs:documentation>The date on which the identifier was issued.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="schemeName">
+                  <xs:annotation>
+                     <xs:documentation>The name of the identifier scheme.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="schemeVersion">
+                  <xs:annotation>
+                     <xs:documentation>Identification of the version of the identifier scheme.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="schemeId">
+                  <xs:annotation>
+                     <xs:documentation>Identification of the scheme. It is strongly recommeded to use the datatype property of skos:notation instead of schemeId as this property will be deprecated in future ELM versions. </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="dc:type">
+                  <xs:annotation>
+                     <xs:documentation>The type.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="LearningAchievementSpecificationType">
+      <xs:annotation>
+         <xs:documentation>A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="RestrictedSpecificationType">
+            <xs:sequence>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="type" type="skos:ConceptType">
+                  <xs:annotation>
+                     <xs:documentation> The type of the Learning Opportunity.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="learningOutcomeSummary" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The full learning outcome description of the learning specification.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="1" ref="ISCEDFCode">
+                  <xs:annotation>
+                     <xs:documentation>Thematic Area according to the ISCED-F 2013 Classification.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="educationSubject">
+                  <xs:annotation>
+                     <xs:documentation>An associated field of education from another semantic framework than the ISCED classification.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="volumeOfLearning">
+                  <xs:annotation>
+                     <xs:documentation>The estimated number of hours the learner is expected to spend engaged in learning to earn the award. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="creditPoint">
+                  <xs:annotation>
+                     <xs:documentation>points assigned to the learning specification, following an alternative educational credit system.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="educationLevel">
+                  <xs:annotation>
+                     <xs:documentation>An associated level of education within a semantic framework describing education levels.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" ref="language">
+                  <xs:annotation>
+                     <xs:documentation>The language.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="mode">
+                  <xs:annotation>
+                     <xs:documentation>The mode of learning, and or assessment</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="learningSetting">
+                  <xs:annotation>
+                     <xs:documentation>The type of learning setting (formal, non-formal).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="maximumDuration">
+                  <xs:annotation>
+                     <xs:documentation>The maximum duration of a learning opportunity for which this specification/qualification is designed. The maximum duration a learning opportunity that implements this specification/qualification should take.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="targetGroup">
+                  <xs:annotation>
+                     <xs:documentation>A specific target group or category for which this specification is designed.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="entryRequirement">
+                  <xs:annotation>
+                     <xs:documentation>Specific entry requirements or prerequisites of individuals for which this specification is designed to start this learning opportunity.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="1" name="learningOutcome" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>An individual (expected) learning outcome of the learning specification. It MUST refer to an existing 'LearningOutcome'-record in the 'learningOutcomeReferences'-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="influencedBy">
+                  <xs:annotation>
+                     <xs:documentation>Activities which a person can perform to acquire the expected learning outcomes. It MUST refer to an existing 'LearningActivitySpecification'-record in the 'learningActivitySpecificationReferences'-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="provenBy">
+                  <xs:annotation>
+                     <xs:documentation>Assessments a person can undergo to prove the acquisition of the learning outcomes. It MUST refer to an existing 'LearningAssessmentSpecification'-record in the 'learningAssessmentSpecificationReferences'-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="entitlesTo">
+                  <xs:annotation>
+                     <xs:documentation>Rights (such as which the person may acquire as a result of acquiring the learning outcomes). It MUST refer to an existing 'LearningEntitlementSpecification'-record in the 'learningEntitlementSpecificationReferences'-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="hasPart" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>A learning specification can be composed of other partial learning specifications which when combined make up this learning specification. It MUST refer to an existing 'learningAchievementSpecification'record in the 'learningAchievementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="specialisationOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>A learning specification (e.g. a standard) of which this specification is a specialisation. It MUST refer to an existing 'learningAchievementSpecification'record in the 'learningAchievementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="isPartOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>A learning achievement specification, which this learning achievement specification is part of. It MUST refer to an existing 'learningAchievementSpecification'record in the 'learningAchievementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="generalisationOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>A learning specification (e.g. a standard) of which this specification is a generalisation. It MUST refer to an existing 'learningAchievementSpecification'record in the 'learningAchievementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="awardingOpportunity">
+                  <xs:annotation>
+                     <xs:documentation>Refers to an activity related to the awarding of the learning specification, such as the country or region where the qualification is awarded, the awarding body and optionally the awarding period now or in the past.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+
+   </xs:complexType>
+
+   <xs:complexType name="LearningActivitySpecificationType">
+      <xs:annotation>
+         <xs:documentation>The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="RestrictedSpecificationType">
+            <xs:sequence>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="type"
+                           type="LearningActivityTypesRestrictionType">
+                  <xs:annotation>
+                     <xs:documentation>The type of the learning activity. A concept indicating the type of the learning activity.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="contactHour">
+                  <xs:annotation>
+                     <xs:documentation>The contact hours.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="volumeOfLearning">
+                  <xs:annotation>
+                     <xs:documentation>The estimated number of hours the learner is expected to spend engaged in learning to earn the award. This would include the notional number of hours in class, in group work, in practicals, as well as hours engaged in self-motivated study.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="language">
+                  <xs:annotation>
+                     <xs:documentation>The language of instruction.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="mode">
+                  <xs:annotation>
+                     <xs:documentation>The mode of learning and or assessment (i.e. online, blended, presential, work based) provided by a controlled vocabullary</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="influences">
+                  <xs:annotation>
+                     <xs:documentation>What may be learned by undertaking the activity described by this learning activity specification.
+                        The expected learning outcomes to which this learning activity specification contributes to.
+                        This is given by a Learning Achievement Specification.
+                        A learning activity can lead to or contribute to the acquisition of a set of skills, knowdledge, autonomy and or responsibilty.
+                        It MUST refer to an existing record in the 'learningAchievementSpecificationReferences-section.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="hasPart" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>A learning activity specification can be composed of smaller learning specifications, which when combined make up this learning specification. It MUST refer to an existing 'learningActivitySpecification'record in the 'learningActivitySpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="specialisationOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>An activity specification (e.g. a standard) of which this specification is a specialisation. It MUST refer to an existing 'learningActivitySpecification'record in the 'learningActivitySpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="isPartOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>A learning activity specification, which this learning activity specification is part of. It MUST refer to an existing 'learningActivitySpecification'record in the 'learningActivitySpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="generalisationOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>An activity specification (e.g. a standard) of which this specification is a generalisation. It MUST refer to an existing 'learningActivitySpecification'record in the 'learningActivitySpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="LearningAssessmentSpecificationType">
+      <xs:annotation>
+         <xs:documentation>A Learning Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="RestrictedSpecificationType">
+            <xs:sequence>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="type"
+                           type="LearningAssessmentTypesRestrictionType">
+                  <xs:annotation>
+                     <xs:documentation>The type of the learning assessment. A concept indicating the type of the learning assessment.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="language">
+                  <xs:annotation>
+                     <xs:documentation>The language of instriction.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="mode">
+                  <xs:annotation>
+                     <xs:documentation>The mode of learning and or assessment (i.e. online, blended, presential, work based) provided by a controlled vocabullary</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" name="gradingScheme" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>A description of the specification of which learning outcomes are or have been proven. It MUST refer to an existing 'gradingScheme" record in the 'gradingSchemeReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="proves">
+                  <xs:annotation>
+                     <xs:documentation>The learning achievement (and related learning outcomes) this assessment is designed to test. It MUST refer to an existing record in the 'learningAchievementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="hasPart" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>Smaller assessments specifications, which when combined make up this assessmentspecification. It MUST refer to an existing 'learningAssessmentSpecification'record in the 'learningAssessmentSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="specialisationOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>An assessment specification (e.g. a standard) of which this specification is a specialisation. It MUST refer to an existing 'learningAssessmentSpecification'record in the 'learningAssessmentSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="isPartOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>A learning assessment specification, which this learning assessment specification is part of. It MUST refer to an existing 'learningAssessmentSpecification'record in the 'learningAssessmentSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="generalisationOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>An assessment specification (e.g. a standard) of which this specification is a generalisation. It MUST refer to an existing 'learningAssessmentSpecification'record in the 'learningAssessmentSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="LearningEntitlementSpecificationType">
+      <xs:annotation>
+         <xs:documentation>The specification of a right a person has access to, typically as a result of a learning achievement. It may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="RestrictedSpecificationType">
+            <xs:sequence>
+               <xs:element maxOccurs="1" minOccurs="1" name="type"
+                           type="LearningEntitlementTypesRestrictionType">
+                  <xs:annotation>
+                     <xs:documentation>The type of the learning entitlement. A concept indicating the type of the learning entitlement.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="1" ref="entitlementStatus">
+                  <xs:annotation>
+                     <xs:documentation>The status.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="limitOrganisation">
+                  <xs:annotation>
+                     <xs:documentation>The organisation which acknowledges the entitlement (i.e. the organisation offering the learning opportunity, membership or employment opportunity). It MUST refer to an existing 'organisation' record in the 'agentReferences'-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="limitJurisdiction">
+                  <xs:annotation>
+                     <xs:documentation>The jurisdiction for which the entitlement is valid (the region or country).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="limitOccupation">
+                  <xs:annotation>
+                     <xs:documentation>The ESCO Occupation or Occupational class which the individual may access through the entitlement.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="limitNationalOccupation">
+                  <xs:annotation>
+                     <xs:documentation>An Occupation or Occupational Category.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="entitledBy">
+                  <xs:annotation>
+                     <xs:documentation>The learning achivement specification that is entiled by this learning entitlement specification. It MUST refer to an existing record in the 'learningAchievementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="hasPart" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>Smaller entitlement specifications, which when combined make up this entitlement specification. It MUST refer to an existing 'learningEntitlementSpecification'record in the 'learningEntitlementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="specialisationOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>An entitlement specification (e.g. a standard) of which this specification is a specialisation. It MUST refer to an existing 'learningEntitlementSpecification'record in the 'learningEntitlementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="isPartOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>A learning  entitlement specification, which this learning entitlement specification is part of. It MUST refer to an existing 'learningEntitlementSpecification'record in the 'learningEntitlementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="generalisationOf" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>An entitlement specification (e.g. a standard) of which this specification is a generalisation. It MUST refer to an existing 'learningEntitlementSpecification'record in the 'learningEntitlementSpecificationReferences-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="LearningOpportunityType">
+      <xs:annotation>
+         <xs:documentation>An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="identifier">
+            <xs:annotation>
+               <xs:documentation>An alternative Identifier of the Learning Opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="1" ref="title">
+            <xs:annotation>
+               <xs:documentation> The title of Learning Opportunity. One value per language permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="description">
+            <xs:annotation>
+               <xs:documentation> A free text description. One value per lanuage permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="type" type="LearningOpportunityTypesRestrictionType" minOccurs="0"
+                     maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The type of the learning opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="additionalNote">
+            <xs:annotation>
+               <xs:documentation>An additional free text note about the Learning Opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" ref="homepage">
+            <xs:annotation>
+               <xs:documentation>The homepage.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="supplementaryDocument">
+            <xs:annotation>
+               <xs:documentation>A public web document containing additional documentation about the Learning Opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="temporal">
+            <xs:annotation>
+               <xs:documentation>The associated period of time shape.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="duration">
+            <xs:annotation>
+               <xs:documentation>The nominal duration for which the learning opportunity will continue to run. Note, this may be after the end-date, since admissions may be closed but the learning opportunity may still be ongoing.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="mode">
+            <xs:annotation>
+               <xs:documentation>The mode of learning Opportunity</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="grant" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The Grant related to the Learning Opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningSchedule">
+            <xs:annotation>
+               <xs:documentation>The learning schedule.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="scheduleInformation">
+            <xs:annotation>
+               <xs:documentation>Detailed information about the timetable or schedule. This may include weekly schedules (e.g. 'Every Monday, 4pm', but may also include the overall schedule for the course, (e.g. October: lectures, November: group-work, December: break, January: assessment).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="admissionProcedure">
+            <xs:annotation>
+               <xs:documentation>Specific information on how to apply for the course.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="applicationDeadline">
+            <xs:annotation>
+               <xs:documentation>The deadline for submitting an application to the learning opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="priceDetail">
+            <xs:annotation>
+               <xs:documentation>Information about the pricing of the course, including fees and scholarships/subsidies available.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="1" ref="providedBy">
+            <xs:annotation>
+               <xs:documentation>The organisation providing or directing the learning opportunity. In the case of, e.g. joint qualifications, there may be several organisations directing the learning opportunity. It MUST refer to an existing 'organisation'-record in the 'agentReferences'-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="location" type="IdReferenceType">
+            <xs:annotation>
+               <xs:documentation>The location where the learning opportunity will take place. This may also include a virtual space. It MUST refer to an existing 'location'-record in the'locationReferences'-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="1" name="learningAchievementSpecification" type="IdReferenceType">
+            <xs:annotation>
+               <xs:documentation> The learning achivement specification, including the curricula, of this learning opportunity. It MUST refer to an existing record in the 'learningAchievementSpecificationReferences-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" name="learningActivitySpecification" type="IdReferenceType">
+            <xs:annotation>
+               <xs:documentation> The learning activity specification of this learning opportunity. It MUST refer to an existing 'learningActivitySpecification' record in the 'learningActivitySpecificationReferences-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="hasPart" type="IdReferenceType">
+            <xs:annotation>
+               <xs:documentation>A learning opportunity can be composed of other learning opportunities, which when combined make up this larger learning opportunity. It MUST refer to an existing 'learningOpportunity' record in the 'learningOpportunityReferences'-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="isPartOf" type="IdReferenceType">
+            <xs:annotation>
+               <xs:documentation>A learning opportunity, which this learning achievement specification is part of. It MUST refer to an existing 'learningOpportunity'record in the 'learningOpportunityReferences-section.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="bannerImage">
+            <xs:annotation>
+               <xs:documentation>An image which is displayed alongside the learning opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="1" ref="defaultLanguage">
+            <xs:annotation>
+               <xs:documentation>The base language of the learning opportunity, to be considered authoritative.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="status" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The publication status of the learning opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" ref="modified">
+            <xs:annotation>
+               <xs:documentation>The date when the learning opportunity was last modified.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="publisher" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The publisher of the learning opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:anyURI" use="required"/>
+   </xs:complexType>
+
+   <xs:complexType name="LearningOutcomeType">
+      <xs:annotation>
+         <xs:documentation>A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="identifier">
+            <xs:annotation>
+               <xs:documentation>An alternative Identifier of the Learning Outcome.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="1" ref="title">
+            <xs:annotation>
+               <xs:documentation>A legible, descriptive name for the learning outcome. One value per language permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" name="type" type="LearningOutcomeTypesRestrictionType">
+            <xs:annotation>
+               <xs:documentation> The learning outcome type.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="additionalNote" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>An additional free text note about the Learning Outcome.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="reusabilityLevel">
+            <xs:annotation>
+               <xs:documentation>The reusability level.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="relatedSkill">
+            <xs:annotation>
+               <xs:documentation>A link to a related skill or the level of a related skill on a skill framework (except ESCO).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="relatedESCOSkill">
+            <xs:annotation>
+               <xs:documentation>A link to an ESCO  skill.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:anyURI" use="required"/>
+   </xs:complexType>
+
+   <xs:complexType name="LegalIdentifierType">
+      <xs:annotation>
+         <xs:documentation>A Legal Identifier.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="IdentifierType">
+            <xs:sequence>
+               <xs:element maxOccurs="1" minOccurs="1" ref="spatial">
+                  <xs:annotation>
+                     <xs:documentation>A spatial identifier.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="LocationType">
+      <xs:annotation>
+         <xs:documentation>An identifiable geographic place.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="dc:LocationType">
+            <xs:sequence>
+               <xs:element ref="identifier" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>A location identifier.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="geographicName" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>A proper noun applied to a spatial object. One value per lanuage permitted.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="spatialCode" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>A code identifying a spatial scope in which this physical location is located.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="description" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>A free text describing the location. One value per language permitted.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="address" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>An address associated with the location.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="locn:geometry" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>Associates the Location with the corresponding Geometry.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" use="required" type="xs:anyURI">
+               <xs:annotation>
+                  <xs:documentation>A portable identifier of the location.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="MailboxType">
+      <xs:annotation>
+         <xs:documentation>A mailbox.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleContent>
+         <xs:extension base="xs:anyURI"/>
+      </xs:simpleContent>
+   </xs:complexType>
+
+   <xs:complexType name="MediaObjectType">
+      <xs:annotation>
+         <xs:documentation>A media object.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="title" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The title of the media object. One value per language is permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="description" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>A free text description of the media object. One value per language permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="1" ref="contentType">
+            <xs:annotation>
+               <xs:documentation>The type of the media object.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="attachmentType">
+            <xs:annotation>
+               <xs:documentation>The type of the attachment of the media object.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="1" ref="contentEncoding">
+            <xs:annotation>
+               <xs:documentation>The encoding used to encode the binary data.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="contentSize">
+            <xs:annotation>
+               <xs:documentation>The content size of the media object.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="1" ref="content">
+            <xs:annotation>
+               <xs:documentation>The binary data of the media object.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="NoteType">
+      <xs:annotation>
+         <xs:documentation>
+            Free text metadata fields, such as the description, a historical or additional note of a qualification can contain a plain text or an XHTML fragment as literal value.
+            By using a Note both the datatype of the literal and the language can be specified.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="dc:subject" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The subject of the note.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="noteFormat" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The format of the note.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="noteLiteral">
+            <xs:annotation>
+               <xs:documentation>The textual content of the note.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="OrganisationType">
+      <xs:annotation>
+         <xs:documentation>A legal person / registered organisation.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="RegisteredOrganisationType">
+            <xs:sequence>
+               <xs:element ref="legalName" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>The legal name of the organisation. One value per language permitted.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="type" type="skos:ConceptType" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>The type of Organisation.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="identifier" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>A formally-issued Identifier for the organisation.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="eidasLegalIdentifier">
+                  <xs:annotation>
+                     <xs:documentation>The official identification number of the organisation, as awarded by the relevant national authority.authority.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="registration">
+                  <xs:annotation>
+                     <xs:documentation>The legal identifier of an organization. The identifier given to a registered organization by the authority with which it is registered. The legal status of a registered organization is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between an organization and the authority with which it is registered.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="vatIdentifier">
+                  <xs:annotation>
+                     <xs:documentation>The Value-Added Tax ID.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="taxIdentifier">
+                  <xs:annotation>
+                     <xs:documentation>Fiscal ID of the organisation.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="homepage">
+                  <xs:annotation>
+                     <xs:documentation>The homepage of the Organisation.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="additionalNote" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>An additional free text note about the organisation.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="accreditation" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation>Accreditation Records associated with the organisation. More information about the accreditation database is available here. It MUST refer to an existing 'accreditation'-record in the 'accreditationReferences'-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="location" type="IdReferenceType" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>A location related to an organisation. It MUST refer to an existing 'location'-record in the'locationReferences'-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="contactPoint" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>The contact information of an organisation.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="hasSubOrganization">
+                  <xs:annotation>
+                     <xs:documentation>A smaller organisation of which forms part of this organisation, e.g. a Department within a larger Organisation. It MUST refer to a 'organisation'-record in 'agentReferences' section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="subOrganizationOf">
+                  <xs:annotation>
+                     <xs:documentation>Indicates a larger Organisation of which this Unit is a part of, e.g. the Organisation within which a Department operates. It MUST refer to a 'organisation'-record in 'agentReferences' section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="logo">
+                  <xs:annotation>
+                     <xs:documentation>The logo of the Organisation.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="groupMemberOf" maxOccurs="unbounded" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The group the organisation is a member of. It MUST refer to an existing 'group'-record in the'groupReferences'-section. </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="status" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The publication status of the learning opportunity.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="0" ref="modified">
+                  <xs:annotation>
+                     <xs:documentation>The date when the organisation was last updated since it was published.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="publisher" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The publisher of the Organisation.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:anyURI" use="required"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="PeriodOfTimeType">
+      <xs:complexContent>
+         <xs:extension base="dc:PeriodOfTimeType">
+            <xs:sequence>
+               <xs:element ref="skos:prefLabel" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>The name of the time period, e.g., semester. One value per language permitted.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="startDate" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The start date of a period.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="endDate" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The end date of a period.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="PhoneType">
+      <xs:annotation>
+         <xs:documentation>A phone number.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" ref="phoneNumber">
+            <xs:annotation>
+               <xs:documentation>The full phone number as a string.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="countryDialing">
+            <xs:annotation>
+               <xs:documentation>The country dialing code for a contact number.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="areaDialing">
+            <xs:annotation>
+               <xs:documentation>The area dialing code for a contact number.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="dialNumber">
+            <xs:annotation>
+               <xs:documentation>The contact number, not including country dialling or area dialling codes. (e.g. '3445654', '1234567', etc.).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="PriceDetailType">
+      <xs:annotation>
+         <xs:documentation>The price details. The details about a price or price category.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="identifier">
+            <xs:annotation>
+               <xs:documentation>An alternative Identifier of the Accreditation, as assigned to it by the accrediting agent.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="amount">
+            <xs:annotation>
+               <xs:documentation>The full (sticker) price of the learning opportunity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="skos:prefLabel">
+            <xs:annotation>
+               <xs:documentation>The preferred name. One value per langauge permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="description">
+            <xs:annotation>
+               <xs:documentation> A free text description. One value per language permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="additionalNote">
+            <xs:annotation>
+               <xs:documentation>An additional free text note about the resource.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="QualificationType">
+      <xs:annotation>
+         <xs:documentation>A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="LearningAchievementSpecificationType">
+            <xs:sequence>
+               <xs:element maxOccurs="1" minOccurs="0" ref="isPartialQualification">
+                  <xs:annotation>
+                     <xs:documentation>Indicates whether a qualification is a full qualification or part of another qualification.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="1" minOccurs="1" ref="EQFLevel">
+                  <xs:annotation>
+                     <xs:documentation>The qualification level as specified by a European Qualification Framework.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="1" ref="NQFLevel">
+                  <xs:annotation>
+                     <xs:documentation>The qualification level as specified by a National Qualification Framework.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" ref="qualificationCode">
+                  <xs:annotation>
+                     <xs:documentation>An identifying code from a qualification based reference semantic asset. This property is used to classify the qualification information with a qualification from a known qualification framework. (e.g. the link to the accredidated NQF qualification)</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="accreditation" type="IdReferenceType">
+                  <xs:annotation>
+                     <xs:documentation> An associated accreditation. It MUST refer to an existing 'accreditation'-record in the 'accreditationReferences'-section.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="QualificationReferenceType">
+      <xs:annotation>
+         <xs:documentation>A reference for a qualification from another dataset that can be or has been awarded such as the (expected) learning.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="identifier">
+            <xs:annotation>
+               <xs:documentation>An Identifier of the Qualification Reference.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:anyURI" use="required"/>
+   </xs:complexType>
+
+   <xs:complexType name="SpecificationType" abstract="true">
+      <xs:annotation>
+         <xs:documentation>A specification</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="identifier" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element ref="title" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element ref="dc:type" minOccurs="0"/>
+         <xs:element ref="skos:altLabel" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element ref="description" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element ref="additionalNote" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element ref="homepage" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element ref="supplementaryDocument" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="hasPart" type="SpecificationType" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="specialisationOf" type="SpecificationType" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="isPartOf" type="SpecificationType" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="generalisationOf" type="SpecificationType" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element ref="category" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>A category to which  this specification belongs. This property can be used instead of dc:type, if the category cannot be provided via a controlled vocabulary.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="status" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The publication status of a specification.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" ref="modified">
+            <xs:annotation>
+               <xs:documentation>The date when the specification was last modified.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="publisher" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The publisher of the specification.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:anyURI"/>
+   </xs:complexType>
+
+   <xs:complexType name="WebResourceType">
+      <xs:annotation>
+         <xs:documentation>A public web document.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="title" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>The name of the document. One value per lanuage permitted.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="language" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The language of the document.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="contentUrl" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>The public access URL of the web resource.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+
+   <!-- ComplexType FOR XSD SPECIFIC CLASSES  -->
+   <xs:complexType name="CoursesRootType">
+      <xs:annotation>
+         <xs:documentation>Class representation for root element of the document</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningOpportunityReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningOpportunity entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningAchievementSpecificationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningAchievementSpecification entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningOutcomeReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningOutcome entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningActivitySpecificationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningActivitySpecification entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningAssessmentSpecificationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningAssessmentSepcification entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="learningEntitlementSpecificationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all LearningEntitlementSpecification entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="agentReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Agent entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="groupReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Group entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="accreditationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Accreditation entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="gradingSchemeReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all GradingScheme entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="1" minOccurs="0" ref="locationReferences">
+            <xs:annotation>
+               <xs:documentation>
+                  Container element to record all Location entities that can be linked or refered to from other places in the xml document.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="xsdVersion" use="optional" default="3.0.0">
+         <xs:annotation>
+            <xs:documentation>used xsd version</xs:documentation>
+         </xs:annotation>
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="3.0.0"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+   </xs:complexType>
+
+   <xs:complexType name="RegisteredOrganisationType">
+      <xs:annotation>
+         <xs:documentation/>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="rov:RegisteredOrganizationType">
+            <xs:sequence>
+               <xs:element ref="skos:altLabel" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="RestrictedSpecificationType">
+      <xs:annotation>
+         <xs:documentation>A specification</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="SpecificationType">
+            <xs:sequence>
+               <xs:element ref="identifier" minOccurs="0" maxOccurs="unbounded"/>
+               <xs:element ref="title" maxOccurs="unbounded"/>
+               <xs:element ref="skos:altLabel" minOccurs="0" maxOccurs="unbounded"/>
+               <xs:element ref="description" minOccurs="0" maxOccurs="unbounded"/>
+               <xs:element ref="additionalNote" minOccurs="0" maxOccurs="unbounded"/>
+               <xs:element ref="homepage" minOccurs="0" maxOccurs="unbounded"/>
+               <xs:element ref="supplementaryDocument" minOccurs="0" maxOccurs="unbounded"/>
+               <xs:element ref="category" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>A category to which  this specification belongs. This property can be used instead of dc:type, if the category cannot be provided via a controlled vocabulary.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="status" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The publication status of a specification.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" ref="modified">
+                  <xs:annotation>
+                     <xs:documentation>The date when the specification was last modified.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="publisher" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>The publisher of the specification.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" use="required" type="xs:anyURI"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:complexType name="IdReferenceType">
+      <xs:annotation>
+         <xs:documentation>A link or reference to another entity record in the document.</xs:documentation>
+      </xs:annotation>
+      <xs:attribute name="idref" type="xs:anyURI" use="required">
+         <xs:annotation>
+            <xs:documentation>The id of the referenced entity (record).</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+   </xs:complexType>
+
+   <!-- CONTAINER ELEMENTS -->
+   <xs:element name="accreditationReferences" type="AccreditationReferencesType"/>
+
+   <xs:element name="agentReferences" type="AgentReferencesType"/>
+
+   <xs:element name="gradingSchemeReferences" type="GradingSchemeReferencesType"/>
+
+   <xs:element name="groupReferences" type="GroupReferencesType"/>
+
+   <xs:element name="learningAchievementSpecificationReferences" type="LearningAchievementSpecificationReferencesType"/>
+
+   <xs:element name="learningActivitySpecificationReferences" type="LearningActivitySpecificationReferencesType"/>
+
+   <xs:element name="learningAssessmentSpecificationReferences" type="LearningAssessmentSpecificationReferencesType"/>
+
+   <xs:element name="learningEntitlementSpecificationReferences" type="LearningEntitlementSpecificationReferencesType"/>
+
+   <xs:element name="learningOpportunityReferences" type="LearningOpportunityReferencesType"/>
+
+   <xs:element name="learningOutcomeReferences" type="LearningOutcomeReferencesType"/>
+
+   <xs:element name="locationReferences" type="LocationReferencesType"/>
+
+
+   <xs:complexType name="AccreditationReferencesType">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="accreditation" type="AccreditationType">
+            <xs:annotation>
+               <xs:documentation>The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about: (1) the quality assurance and/or licensing of an organisation, (2) the quality assurance and/or licensing of an organisation with respect to a specific qualification.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AgentReferencesType">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element ref="agent" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>An entity that is able to carry out actions.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="organisation" type="OrganisationType">
+            <xs:annotation>
+               <xs:documentation>A registered organisation.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+   </xs:complexType>
+   <xs:complexType name="GradingSchemeReferencesType">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="gradingScheme" type="GradingSchemeType">
+            <xs:annotation>
+               <xs:documentation>
+                  A set of criteria that measures varying levels of achievement.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="GroupReferencesType">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element ref="group">
+            <xs:annotation>
+               <xs:documentation>An entity that represents collection of Agents.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+   </xs:complexType>
+   <xs:complexType name="LearningAchievementSpecificationReferencesType">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+         <xs:element name="learningAchievementSpecification" type="LearningAchievementSpecificationType">
+            <xs:annotation>
+               <xs:documentation>
+                  A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning achievement.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="qualification">
+            <xs:annotation>
+               <xs:documentation>
+                  A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="qualificationReference">
+            <xs:annotation>
+               <xs:documentation>
+                  Reference for a qualification from another dataset that can or has been awarded such as the (expected) learning outcomes.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+   </xs:complexType>
+   <xs:complexType name="LearningActivitySpecificationReferencesType">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="learningActivitySpecification" type="LearningActivitySpecificationType">
+            <xs:annotation>
+               <xs:documentation>
+                  The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="LearningAssessmentSpecificationReferencesType">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="learningAssessmentSpecification">
+            <xs:annotation>
+               <xs:documentation>
+                  A Learning  Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="LearningEntitlementSpecificationReferencesType">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="learningEntitlementSpecification">
+            <xs:annotation>
+               <xs:documentation>
+                  The specification of a right a person has access to, typically as a result of a learning achievement. It may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="LearningOpportunityReferencesType">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="learningOpportunity">
+            <xs:annotation>
+               <xs:documentation>
+                  An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="LearningOutcomeReferencesType">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="learningOutcome" type="LearningOutcomeType">
+            <xs:annotation>
+               <xs:documentation>
+                  A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="LocationReferencesType">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="location" type="LocationType">
+            <xs:annotation>
+               <xs:documentation>
+                  An identifiable geographic place.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+
+   <!-- TYPES USING CONTROLLED VOCABULARY -->
+   <xs:complexType name="LanguageRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="lng:LanguageEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ContentTypeRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="for:FileTypeEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ContentEncodingRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="ecet:ContentEncodingTypesEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="SubjectRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="SubjectTypeCodeEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="LearningOpportunityTypesRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="elot:LearningOpportunityTypesEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="LearningActivityTypesRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="act:LearningActivityTypesEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="LearningAssessmentTypesRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="ass:LearningAssessmentTypesEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="LearningEntitlementTypesRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="ent:LearningEntitlementTypesEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="LearningEntitlementStatusesRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="ents:LearningEntitlementStatusesEnumType" use="required"
+            />
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:simpleType name="AllCountriesType">
+      <xs:union memberTypes="cou:CountryEnumType nuts:NutsCodeEnumType"/>
+   </xs:simpleType>
+   <xs:complexType name="MultipleCountryRestrictionType">
+      <xs:attribute name="uri" type="AllCountriesType" use="required"/>
+   </xs:complexType>
+   <xs:complexType name="CountryRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="cou:CountryEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ISCED-FCodeRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="isced:ISCED-FEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="EQFLevelRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="eqf:EQFLevelEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="NQFLevelRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="nqf:NQFLevelEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="JurisdictionRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="atu:AdministrativeTerritorialUnitEnumType" use="required"
+            />
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="LearningScheduleTypesRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="sched:LearningScheduleTypesEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ReusabilityLevelsRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="srl:SkillReuseLevelEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="LearningOutcomeTypesRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="st:SkillTypesEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ModesOfLearningandAssessmentRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="em:ModesOfLearningandAssessmentEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="LearningSettingTypesRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="sett:LearningSettingTypesEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="TargetGroupsRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="etg:TargetGroupsEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="CurrencyRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="curr:CurrencyEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AccreditedThematicAreaRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="isced:ISCED-FEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AccreditedEQFLevelRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="eqf:EQFLevelEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AccreditationStatusRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="AccreditationStatusEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AccreditationTypeRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="eat:AccreditationTypesEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="CreditPointFrameworkRestrictionType">
+      <xs:complexContent>
+         <xs:restriction base="skos:ConceptType">
+            <xs:attribute name="uri" type="cp:CreditPointsEnumType" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+
+</xs:schema>

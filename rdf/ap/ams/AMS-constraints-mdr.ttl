@@ -1,0 +1,203 @@
+@prefix :       <http://data.europa.eu/snb/model/ap/ams-constraints-mdr/>.
+@prefix dc:     <http://purl.org/dc/terms/>.
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
+@prefix esco:   <http://data.europa.eu/esco/model#>.
+@prefix prov:   <http://www.w3.org/ns/prov#>.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix org:    <http://www.w3.org/ns/org#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix gr:     <http://purl.org/goodrelations/v1#>.
+@prefix dcat:   <http://www.w3.org/ns/dcat#>.
+@prefix elm:    <http://data.europa.eu/snb/model/elm/>.
+@prefix ams:    <http://data.europa.eu/snb/model/ap/ams-constraints/>.
+@prefix owl:    <http://www.w3.org/2002/07/owl#>.
+@prefix cc:     <http://creativecommons.org/ns#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
+@prefix rov:    <http://www.w3.org/ns/regorg#>.
+@prefix adms:   <http://www.w3.org/ns/adms#>.
+@prefix vc:     <http://data.europa.eu/snb/model/w3c/vc/>.
+@prefix vp:     <http://data.europa.eu/snb/model/w3c/vp/>.
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+
+<http://data.europa.eu/snb/model/ap/ams-constraints-mdr>
+  a owl:Ontology;
+  owl:imports rdf:;
+  owl:import dc:;
+  owl:imports org:;
+  owl:imports adms:;
+  owl:imports foaf:;
+  owl:imports skos:;
+  owl:imports elm:;
+  owl:imports ams:;
+  rdfs:label "Controlled Vocabularies SHACL constraints for AMS Application Profile"@en;
+  dc:created "2021-10-05"^^xsd:date;
+  dc:modified "2022-07-12"^^xsd:date;
+  dc:title "SHACL constraints for the controlled vocabularies used by Accreditation Metadata Schema application profile"@en;
+  dc:description "Accreditation Metadata Schema constraints for the controlled vocabularies used by Accreditation Metadata Schema application profile, provides the constraints on controlled vocabularies used."@en;
+  rdfs:comment "This document specifies the set SHACL constraints on classes and properties used in the Accreditation Metadata Schema application profile, with respect to controlled vocabularies used."@en;
+  owl:versionInfo "1.0.0";
+  dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
+  cc:attributionURL <http://ec.europa.eu/> ;
+  dc:license <https://creativecommons.org/licenses/by/4.0/>;
+#   dc:creator [foaf:mbox ""; foaf:name ""]; # to be added
+#   dc:contributor [foaf:mbox ""; foaf:name ""]; # to be added 
+  .
+#------------------ Class and Property Shapes -------------------
+:AccreditationShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:Accreditation;
+    sh:property[
+        sh:node  :AccreditationTypeRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:path dc:type;
+        sh:name "type"@en;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ],[
+        sh:node :ThematicAreaRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:name "accredited for thematic area"@en;
+        sh:path elm:limitField;
+        sh:severity sh:Violation;
+    ],[
+        sh:node :EQFLevelRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:name "accredited for EQF level"@en;
+        sh:path elm:limitEQFLevel;
+        sh:severity sh:Violation;
+    ],[
+        sh:node :JurisdictionRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:name "accredited in jurisdiction"@en;
+        sh:path elm:limitJurisdiction;
+        sh:severity sh:Violation;
+    ],[
+        sh:node :AccreditationStatusRestriction;
+        sh:path elm:status;
+        sh:name "status"@en;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ]
+    .
+#-------------------------------------------
+
+:AddressShapeCV
+    a sh:NodeShape;
+    sh:targetClass elm:Address;
+    sh:property[
+        sh:node :CountryRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:path elm:countryCode;
+        sh:name "country"@en;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ].
+#-------------------------------------------
+
+:WebResourceShapeCV
+    a sh:NodeShape ;
+    sh:targetClass elm:WebResource;
+    sh:property[
+        sh:node :LanguageRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:name "language"@en;
+        sh:maxCount 1;
+        sh:path dc:language;
+        sh:severity sh:Violation;
+    ].
+#-------------------------------------------
+:LegalIdentifierShapeCV
+    a sh:NodeShape ;
+    sh:targetClass elm:LegalIdentifier;
+    sh:property[
+        sh:node :CountryRestriction;
+        sh:nodeKind sh:IRI ;
+        sh:path dc:spatial;
+        sh:name "spatial"@en;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:severity sh:Violation;
+    ].
+
+#---------- Restrictions -----------------------
+:AccreditationTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Accreditation Type restriction" ;
+    rdfs:label "Accreditation Type  restriction" ;
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/accreditation/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme;
+        sh:severity sh:Violation;
+    ] .
+
+:JurisdictionRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Jurisdiction restriction" ;
+    rdfs:label "Jurisdiction restriction" ;
+    sh:property [
+        sh:hasValue <http://publications.europa.eu/resource/authority/atu> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme;
+        sh:severity sh:Violation;
+    ] .
+
+:EQFLevelRestriction
+    a sh:NodeShape ;
+    rdfs:comment "EQF Level restriction" ;
+    rdfs:label "EQF Level restriction" ;
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/eqf/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme;
+        sh:severity sh:Violation;
+    ] .
+
+:ThematicAreaRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Thematic Area restriction" ;
+    rdfs:label "Thematic Area restriction" ;
+    sh:property [
+        sh:hasValue <http://data.europa.eu/snb/isced-f/25831c2> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme;
+        sh:severity sh:Violation;
+    ] .
+
+:LanguageRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Language restriction";
+    rdfs:label "Language restriction";
+    sh:property [
+        sh:hasValue <http://publications.europa.eu/resource/authority/language> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme;
+        sh:severity sh:Violation;
+    ] .
+
+:CountryRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Country Code restriction" ;
+    rdfs:label "Country Code restriction" ;
+    sh:property [
+        sh:hasValue <http://publications.europa.eu/resource/authority/country> ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:inScheme;
+        sh:severity sh:Violation;
+    ] .
+
+:AccreditationStatusRestriction  
+    a sh:NodeShape ; 
+    rdfs:comment "Accreditation Status restriction" ;
+    rdfs:label "Accreditation Status restriction" ;
+    sh:property [  
+        sh:nodeKind sh:IRI ;
+         sh:hasValue <https://publications.europa.eu/resource/authority/snb/status/25831c2>;
+         sh:path skos:inScheme;
+         sh:severity sh:Violation;
+    ].
