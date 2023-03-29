@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Courses xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-         xmlns:loq="http://data.europa.eu/snb/model/loq-constraints/"
+         xmlns:loq="http://data.europa.eu/snb/model/ap/loq-constraints/"
          xmlns:adms="http://www.w3.org/ns/adms#"
          xmlns:dc="http://purl.org/dc/terms/"
          xmlns:elm="http://data.europa.eu/snb/model#"
@@ -36,8 +36,8 @@
          xmlns:clv="http://data.europa.eu/m8g/"
          xmlns:org="http://www.w3.org/ns/org#"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://data.europa.eu/snb/model/loq-constraints/"
-         xsi:schemaLocation="http://data.europa.eu/snb/model/loq-constraints/ loq.xsd" xsdVersion="3.0.0">
+         xmlns="http://data.europa.eu/snb/model/ap/loq-constraints/"
+         xsi:schemaLocation="http://data.europa.eu/snb/model/ap/loq-constraints/ loq.xsd" xsdVersion="3.0.0">
     <learningOpportunityReferences>
         <learningOpportunity id="http://LOP-01">
             <identifier>

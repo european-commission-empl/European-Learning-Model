@@ -6,7 +6,7 @@
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix org:    <http://www.w3.org/ns/org#>.
-@prefix elm:    <http://data.europa.eu/snb/model/>.
+@prefix elm:    <http://data.europa.eu/snb/model/elm/>.
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
@@ -16,7 +16,7 @@
 @prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
 
 
-<http://data.europa.eu/snb/model/>
+<http://data.europa.eu/snb/model/elm>
   a owl:Ontology;
   owl:imports rdf: ;
   owl:imports skos:; 
@@ -2390,6 +2390,6 @@ elm:embeddedEvidence
   .  
 
   #------- Individuals -------------------
-  <http://data.europa.eu/snb/model/edc-constraints.tll> a elm:ShaclValidator2017.
-  <http://data.europa.eu/snb/model/ams-constraints.tll> a elm:ShaclValidator2017.
-  <http://data.europa.eu/snb/model/loq-constraints.tll> a elm:ShaclValidator2017.
+  <http://data.europa.eu/snb/model/ap/edc-generic-no-cv> a elm:ShaclValidator2017.
+  <http://data.europa.eu/snb/model/ap/ams-constraints> a elm:ShaclValidator2017.
+  <http://data.europa.eu/snb/model/ap/loq-constraints> a elm:ShaclValidator2017.

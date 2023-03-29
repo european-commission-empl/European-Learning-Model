@@ -1,9 +1,9 @@
-@prefix :    <http://data.europa.eu/snb/model/edc-generic-full/>.
+@prefix :       <http://data.europa.eu/snb/model/ap/edc-generic-full/>.
 @prefix adms:   <http://www.w3.org/ns/adms#>.
 @prefix cred:   <https://www.w3.org/2018/credentials#>.
 @prefix dc:     <http://purl.org/dc/terms/>.
-@prefix edc:    <http://data.europa.eu/snb/model/edc-generic-no-cv/>.
-@prefix elm:    <http://data.europa.eu/snb/model/>.
+@prefix edc:    <http://data.europa.eu/snb/model/ap/edc-generic-no-cv/>.
+@prefix elm:    <http://data.europa.eu/snb/model/elm/>.
 @prefix foaf:   <http://xmlns.com/foaf/0.1/>.
 @prefix dcat:   <http://www.w3.org/ns/dcat#>.
 @prefix cpv:    <https://www.w3.org/ns/person#>.
@@ -19,9 +19,9 @@
 @prefix sh:     <http://www.w3.org/ns/shacl#> .
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
 
-<http://data.europa.eu/snb/model/edc-generic-full>
+<http://data.europa.eu/snb/model/ap/edc-generic-full>
   a owl:Ontology;
-  owl:imports <http://data.europa.eu/snb/model/edc-generic-no-cv>;
+  owl:imports <http://data.europa.eu/snb/model/ap/edc-generic-no-cv>;
   rdfs:label "Controlled Vocabularies SHACL constraints for EDC Application Profile"@en;
   dc:created "2021-09-25"^^xsd:date;
   dc:modified "2022-07-12"^^xsd:date;

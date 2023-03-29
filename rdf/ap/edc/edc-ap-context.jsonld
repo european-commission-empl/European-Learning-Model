@@ -1,7 +1,7 @@
 {
     "@context": {
         "cred": "https://www.w3.org/2018/credentials#",
-        "elm": "http://data.europa.eu/snb/model/",
+        "elm": "http://data.europa.eu/snb/model/elm/",
         "adms": "http://www.w3.org/ns/adms#",
         "dc": "http://purl.org/dc/terms/",
         "xsd": "http://www.w3.org/2001/XMLSchema#",

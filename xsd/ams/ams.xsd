@@ -1,8 +1,8 @@
-<xs:schema xmlns="http://data.europa.eu/snb/model/ams-constraints/"
-           xmlns:ams="http://data.europa.eu/snb/model/ams-constraints/"
+<xs:schema xmlns="http://data.europa.eu/snb/model/ap/ams-constraints/"
+           xmlns:ams="http://data.europa.eu/snb/model/ap/ams-constraints/"
            xmlns:adms="http://www.w3.org/ns/adms#"
            xmlns:dc="http://purl.org/dc/terms/"
-           xmlns:elm="http://data.europa.eu/snb/model#"
+           xmlns:elm="http://data.europa.eu/snb/model/elm/"
            xmlns:foaf="http://xmlns.com/foaf/0.1/"
            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
            xmlns:locn="http://www.w3.org/ns/locn#"
@@ -19,7 +19,7 @@
            xmlns:eat="http://data.europa.eu/snb/accreditation/25831c2"
            xmlns:ecet="http://data.europa.eu/snb/encoding/25831c2"
            elementFormDefault="qualified"
-           targetNamespace="http://data.europa.eu/snb/model/ams-constraints/"
+           targetNamespace="http://data.europa.eu/snb/model/ap/ams-constraints/"
            version="3.0.0">
 
    <xs:import namespace="http://www.w3.org/ns/regorg#" schemaLocation="external/rov.xsd"/>
@@ -49,10 +49,10 @@
          <xs:annotation>
             <xs:documentation>The value of identifier notation should be unique across the document.</xs:documentation>
          </xs:annotation>
-         <xs:selector xpath=".//skos:notation"/>
-         <xs:field xpath="."/>
+         <xs:selector xpath=".//ams:identifier"/>
+         <xs:field xpath="skos:notation"/>
       </xs:unique>
-            
+
       <xs:key name="accreditationKey">
          <xs:selector xpath="ams:accreditationReferences/ams:accreditation"/>
          <xs:field xpath="@id"/>
@@ -77,7 +77,7 @@
          <xs:selector xpath="ams:agentReferences/ams:agent|ams:agentReferences/ams:organisation"/>
          <xs:field xpath="@id"/>
       </xs:key>
-      
+
       <xs:keyref name="accreditationOrganisationKeyRef" refer="organisationKey">
          <xs:selector xpath="ams:accreditationReferences/ams:*/ams:organisation"/>
          <xs:field xpath="@idref"/>
@@ -95,7 +95,7 @@
          <xs:selector xpath="ams:agentReferences/ams:agent/ams:groupMemberOf"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="groupMemberKeyref" refer="allAgentKey">
          <xs:selector xpath="ams:groupReferences/ams:group/ams:member"/>
          <xs:field xpath="@idref"/>
@@ -104,7 +104,7 @@
          <xs:selector xpath="ams:groupReferences/ams:group/ams:location"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-      
+
       <xs:keyref name="organisationAccreditationKeyRef" refer="accreditationKey">
          <xs:selector xpath="ams:agentReferences/ams:organisation/ams:accreditation"/>
          <xs:field xpath="@idref"/>
@@ -125,8 +125,8 @@
          <xs:selector xpath="ams:agentReferences/ams:organisation/ams:groupMemberOf"/>
          <xs:field xpath="@idref"/>
       </xs:keyref>
-    </xs:element> 
-   
+   </xs:element>
+
 
    <!-- PROPERTIES FOR CLASSES  -->
    <xs:element name="address" type="AddressType"/>
@@ -191,8 +191,8 @@
    <xs:element name="issued" type="xs:dateTime"/>
    <xs:element name="valid" type="xs:dateTime"/>
    <xs:element name="limitCredentialType" type="skos:ConceptType"/>
-   <xs:element name="schemeId" type="xs:anyURI"/>   
-   
+   <xs:element name="schemeId" type="xs:anyURI"/>
+
    <!-- ComplexType FOR CLASSES  -->
    <xs:complexType name="AccreditationType">
       <xs:annotation>
@@ -321,7 +321,7 @@
          </xs:annotation>
       </xs:attribute>
    </xs:complexType>
-   
+
    <xs:complexType name="AddressType">
       <xs:annotation>
          <xs:documentation> An address.</xs:documentation>
@@ -344,7 +344,7 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   
+
    <xs:complexType name="AgentType">
       <xs:annotation>
          <xs:documentation>An entity that is able to carry out actions.</xs:documentation>
@@ -411,7 +411,7 @@
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
-   
+
    <xs:complexType name="ContactPointType">
       <xs:annotation>
          <xs:documentation>Details to Contact an Agent. A contact point for an agent.</xs:documentation>
@@ -450,7 +450,7 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   
+
    <xs:complexType name="GroupType">
       <xs:annotation>
          <xs:documentation>An entity that represents collection of Agents.</xs:documentation>
@@ -494,7 +494,7 @@
       </xs:sequence>
       <xs:attribute name="id" use="required" type="xs:anyURI"/>
    </xs:complexType>
-   
+
    <xs:complexType name="RestrictedAdmsIdentifierType">
       <xs:annotation>
          <xs:documentation>Restricted IdentifierType class</xs:documentation>
@@ -512,7 +512,7 @@
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
-   
+
    <xs:complexType name="IdentifierType">
       <xs:annotation>
          <xs:documentation>An Identifier.</xs:documentation>
@@ -554,7 +554,7 @@
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
-   
+
    <xs:complexType name="LegalIdentifierType">
       <xs:complexContent>
          <xs:extension base="IdentifierType">
@@ -568,7 +568,7 @@
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
-   
+
    <xs:complexType name="LocationType">
       <xs:annotation>
          <xs:documentation>An identifiable geographic place.</xs:documentation>
@@ -615,7 +615,7 @@
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
-   
+
    <xs:complexType name="MailboxType">
       <xs:annotation>
          <xs:documentation>A mailbox.</xs:documentation>
@@ -624,7 +624,7 @@
          <xs:extension base="xs:anyURI"/>
       </xs:simpleContent>
    </xs:complexType>
-   
+
    <xs:complexType name="MediaObjectType">
       <xs:annotation>
          <xs:documentation>A media object.</xs:documentation>
@@ -667,7 +667,7 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   
+
    <xs:complexType name="NoteType">
       <xs:annotation>
          <xs:documentation>
@@ -693,8 +693,8 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   
-   
+
+
    <xs:complexType name="OrganisationType">
       <xs:annotation>
          <xs:documentation>A legal person / registered organisation.</xs:documentation>
@@ -806,7 +806,7 @@
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
-   
+
    <xs:complexType name="PhoneType">
       <xs:annotation>
          <xs:documentation>A phone number.</xs:documentation>
@@ -834,7 +834,7 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   
+
    <xs:complexType name="WebResourceType">
       <xs:annotation>
          <xs:documentation>A public web document. One value per language permitted.</xs:documentation>
@@ -857,8 +857,8 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   
-   
+
+
    <!-- ComplexType FOR XSD SPECIFIC CLASSES  -->
    <xs:complexType name="AccreditationsRootType">
       <xs:annotation>
@@ -905,7 +905,7 @@
          </xs:simpleType>
       </xs:attribute>
    </xs:complexType>
-     
+
    <xs:complexType name="RegisteredOrganisationType">
       <xs:annotation>
          <xs:documentation/>
@@ -936,7 +936,7 @@
    <xs:element name="agentReferences" type="AgentReferencesType"/>
    <xs:element name="groupReferences" type="GroupReferencesType"/>
    <xs:element name="locationReferences" type="LocationReferencesType"/>
-   
+
    <xs:complexType name="AccreditationReferencesType">
       <xs:sequence>
          <xs:element name="accreditation" type="AccreditationType" maxOccurs="unbounded" minOccurs="0">
@@ -946,7 +946,7 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   
+
    <xs:complexType name="AgentReferencesType">
       <xs:sequence>
          <xs:element name="agent" type="AgentType" maxOccurs="unbounded" minOccurs="0">
@@ -961,7 +961,7 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   
+
    <xs:complexType name="GroupReferencesType">
       <xs:choice minOccurs="0" maxOccurs="unbounded">
          <xs:element ref="group">
@@ -971,7 +971,7 @@
          </xs:element>
       </xs:choice>
    </xs:complexType>
-   
+
    <xs:complexType name="LocationReferencesType">
       <xs:sequence>
          <xs:element name="location" type="LocationType" maxOccurs="unbounded" minOccurs="0">
@@ -983,7 +983,7 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   
+
    <!-- TYPES USING CONTROLLED VOCABULARY -->
    <xs:complexType name="LanguageRestrictionType">
       <xs:complexContent>

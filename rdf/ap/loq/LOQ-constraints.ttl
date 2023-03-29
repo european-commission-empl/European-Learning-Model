@@ -1,4 +1,4 @@
-@prefix :       <http://data.europa.eu/snb/model/loq-constraints/>.
+@prefix :       <http://data.europa.eu/snb/model/ap/loq-constraints/>.
 @prefix dc:     <http://purl.org/dc/terms/>.
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#>.
 @prefix prov:   <http://www.w3.org/ns/prov#>.
@@ -8,7 +8,7 @@
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix org:    <http://www.w3.org/ns/org#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
-@prefix elm:    <http://data.europa.eu/snb/model/>.
+@prefix elm:    <http://data.europa.eu/snb/model/elm/>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
@@ -18,7 +18,7 @@
 @prefix clv:    <http://data.europa.eu/m8g/>. #core location vocabulary
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 
-<http://data.europa.eu/snb/model/loq-constraints>
+<http://data.europa.eu/snb/model/ap/loq-constraints>
 a owl:Ontology;
   owl:imports rdf:;
   owl:imports dc:;
