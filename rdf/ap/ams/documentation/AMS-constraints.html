@@ -131,7 +131,7 @@
         table {
             display: table;
             border-spacing: 0px;
-            margin-botton: 1rem;
+            margin-bottom: 1rem;
         }
 
         tr:nth-child(even) {
@@ -203,13 +203,13 @@
             top: 0;
             left: 0;
             font-size: small;
-            padding: 10px 20px;
+            padding: 10px 10px;
             width: auto;
             border-right: solid 2px #eeeeee;
             bottom: 0;
             overflow-y: scroll;
             background-color:white;
-            max-width:275px;
+            max-width:255px;
         }
         .sp_list_toc {padding-left: 0px;}
     </style>
@@ -450,6 +450,18 @@
                             <div style="width:30px">0..1</div>
                         </td>
                         <td class="sp_table_propertyshapes_col_description">The date when the accreditation was last updated since it was published.</td>
+                    </tr>
+                    <tr>
+                        <td>limit abstract programme</td>
+                        <td><code><a href="http://data.europa.eu/snb/model/elm/limitAbstractProgramme">elm:limitAbstractProgramme</a></code></td>
+                        <td><code><a href="#ams:ConceptShape">Concept Shape</a></code><br></td>
+                        <td>
+                            <div style="width:30px">0..*</div>
+                        </td>
+                        <td class="sp_table_propertyshapes_col_description">Abstract programme or qualification to which the accreditation applies. It should
+                            be provided using SKOS concept that represents the abstract programme. For example,
+                            if accreditation is valid for a specific abstract programme, such as 'Computer Science',
+                            this property can be used to specify that information.</td>
                     </tr>
                     <tr>
                         <td>limit credential type</td>

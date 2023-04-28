@@ -281,7 +281,7 @@ edc:Accreditation-elm_landingPage
 edc:Accreditation-elm_status 
     a sh:PropertyShape; 
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the accreditation."@en;
     sh:name "status"@en;
@@ -2068,7 +2068,7 @@ edc:LearningAchievementSpecification-elm_generalisationOf
 edc:LearningAchievementSpecification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning achievement specification."@en;
     sh:name "status"@en;
@@ -2497,7 +2497,7 @@ edc:LearningActivitySpecification-elm_hasPart
 edc:LearningActivitySpecification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning activity specification."@en;
     sh:name "status"@en;
@@ -2938,7 +2938,7 @@ edc:LearningAssessmentSpecification-elm_generalisationOf
  edc:LearningAssessmentSpecification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning assessment specification."@en;
     sh:name "status"@en;
@@ -3334,7 +3334,7 @@ edc:LearningEntitlementSpecification-elm_generalisationOf
   edc:LearningEntitlementSpecification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning entitlement specification."@en;
     sh:name "status"@en;
@@ -3643,7 +3643,7 @@ edc:LearningOpportunity-dc_modified
   edc:LearningOpportunity-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning opportunity."@en;
     sh:name "status"@en;
@@ -4828,7 +4828,7 @@ edc:Qualification-elm_qualificationCode
 edc:Qualification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the qualification."@en;
     sh:name "status"@en;
@@ -5106,7 +5106,7 @@ edc:Specification-dc_modified
  edc:Specification-elm_status
     a sh:PropertyShape;
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the specification."@en;
     sh:name "status"@en;
