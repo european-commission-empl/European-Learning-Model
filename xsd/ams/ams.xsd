@@ -191,6 +191,7 @@
    <xs:element name="issued" type="xs:dateTime"/>
    <xs:element name="valid" type="xs:dateTime"/>
    <xs:element name="limitCredentialType" type="skos:ConceptType"/>
+   <xs:element name="limitAbstractProgramme" type="skos:ConceptType"/>
    <xs:element name="schemeId" type="xs:anyURI"/>
 
    <!-- ComplexType FOR CLASSES  -->
@@ -252,6 +253,11 @@
          <xs:element ref="limitCredentialType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
                <xs:documentation>The credential type for which the accreditation is valid.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="limitAbstractProgramme" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Abstract programme or qualification to which the accreditation applies. It should be provided using SKOS concept that represents the abstract programme. For example, if accreditation is valid for a specific abstract programme, such as 'Computer Science', this property can be used to specify that information.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element ref="accreditingAgent">

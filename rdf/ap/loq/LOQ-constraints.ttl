@@ -231,7 +231,7 @@ a owl:Ontology;
   ];
     sh:property[
          sh:path elm:status;
-         sh:class xsd:string;
+         sh:datatype xsd:string;
          sh:maxCount 1;
          sh:description "The publication status of the accreditation."@en;
          sh:name "status"@en;
@@ -396,7 +396,7 @@ a owl:Ontology;
   ];
   sh:property[
       sh:path elm:status;
-      sh:class xsd:string;
+      sh:datatype xsd:string;
       sh:maxCount 1;
       sh:description "The publication status of the organisation."@en;
       sh:name "status"@en;
@@ -1351,7 +1351,7 @@ a owl:Ontology;
   ];
   sh:property[
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning achievement specification."@en;
     sh:name "status"@en;
@@ -1544,7 +1544,7 @@ a owl:Ontology;
    ];
   sh:property[
       sh:path elm:status;
-         sh:class xsd:string;
+         sh:datatype xsd:string;
          sh:maxCount 1;
          sh:description "The publication status of the learning activity specification."@en;
          sh:name "status"@en;
@@ -1734,7 +1734,7 @@ a owl:Ontology;
  ];
  sh:property[
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning assessment specification."@en;
     sh:name "status"@en;
@@ -1942,7 +1942,7 @@ a owl:Ontology;
   ];
    sh:property[
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning entitlement specification."@en;
     sh:name "status"@en;
@@ -2228,7 +2228,7 @@ sh:property[
   # ];
   sh:property[
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the learning opportunity."@en;
     sh:name "status"@en;
@@ -2677,7 +2677,7 @@ sh:property[
   ];
   sh:property[
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the organisation."@en;
     sh:name "status"@en;
@@ -3165,7 +3165,7 @@ sh:property[
   ];
   sh:property[
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the qualification."@en;
     sh:name "status"@en;
@@ -3299,7 +3299,7 @@ sh:property[
   ];
 sh:property[
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the specification."@en;
     sh:name "status"@en;

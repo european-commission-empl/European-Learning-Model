@@ -130,6 +130,15 @@
                 <skos:inScheme>http://SvxskbEM/</skos:inScheme>
                 <skos:inScheme>http://becPRSBX/</skos:inScheme>
             </limitCredentialType>
+            <limitAbstractProgramme uri="http://oKDSiZETlap/">
+                <skos:prefLabel language="en">vzTlap</skos:prefLabel>
+                <skos:prefLabel language="nl">Klap</skos:prefLabel>
+                <skos:altLabel language="en">ifNuM.Fc23_Llap</skos:altLabel>
+                <skos:altLabel language="nl">c7.3lap</skos:altLabel>
+                <skos:notation type="http://jhbEMslRlap/">B5Utgfcn6.lap</skos:notation>
+                <skos:inScheme>http://SvxskbEMlap/</skos:inScheme>
+                <skos:inScheme>http://becPRSBXlap/</skos:inScheme>
+            </limitAbstractProgramme>
             <accreditingAgent idref="http://ORG-02"/>
             <issued>2023-05-20T10:51:20Z</issued>
             <reviewDate>2023-08-23T10:51:20</reviewDate>
