@@ -906,6 +906,7 @@
          </xs:annotation>
          <xs:simpleType>
             <xs:restriction base="xs:token">
+               <xs:enumeration value="3.0.0"/>
                <xs:enumeration value="3.1.0"/>
             </xs:restriction>
          </xs:simpleType>
