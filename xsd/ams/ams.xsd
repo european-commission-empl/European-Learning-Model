@@ -20,7 +20,7 @@
            xmlns:ecet="http://data.europa.eu/snb/encoding/25831c2"
            elementFormDefault="qualified"
            targetNamespace="http://data.europa.eu/snb/model/ap/ams-constraints/"
-           version="3.0.0">
+           version="3.1.0">
 
    <xs:import namespace="http://www.w3.org/ns/regorg#" schemaLocation="external/rov.xsd"/>
    <xs:import namespace="http://www.w3.org/ns/adms#" schemaLocation="external/adms.xsd"/>
@@ -900,13 +900,13 @@
             </xs:annotation>
          </xs:element>
       </xs:sequence>
-      <xs:attribute name="xsdVersion" use="optional" default="3.0.0">
+      <xs:attribute name="xsdVersion" use="optional" default="3.1.0">
          <xs:annotation>
             <xs:documentation>used xsd version</xs:documentation>
          </xs:annotation>
          <xs:simpleType>
             <xs:restriction base="xs:token">
-               <xs:enumeration value="3.0.0"/>
+               <xs:enumeration value="3.1.0"/>
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>

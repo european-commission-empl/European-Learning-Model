@@ -31,7 +31,7 @@
   owl:imports clv:;
   rdfs:label "Europass Learning Model"@en;
   dc:created "2021-08-01"^^xsd:date;
-  dc:modified "2023-05-17"^^xsd:date;
+  dc:modified "2023-06-05"^^xsd:date;
   dc:title "Europass Learning Model Ontology"@en;
   dc:abstract '''Data Model for Interoperability of Learning Opportunities, Qualifications and Credentials in Europe. 
   The Europass Learning Model aims to capture the results of any non-formal and formal learning across Europe, as well as 

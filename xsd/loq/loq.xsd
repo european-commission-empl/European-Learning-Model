@@ -34,7 +34,7 @@
            xmlns:cp="http://data.europa.eu/snb/education-credit/25831c2"
            xmlns:curr="http://publications.europa.eu/resource/authority/currency"
            targetNamespace="http://data.europa.eu/snb/model/ap/loq-constraints/"
-           elementFormDefault="qualified" version="3.0.0">
+           elementFormDefault="qualified" version="3.1.0">
 
    <xs:include schemaLocation="cv/loq_individuals.xsd"/>
 
@@ -2014,13 +2014,13 @@
             </xs:annotation>
          </xs:element>
       </xs:sequence>
-      <xs:attribute name="xsdVersion" use="optional" default="3.0.0">
+      <xs:attribute name="xsdVersion" use="optional" default="3.1.0">
          <xs:annotation>
             <xs:documentation>used xsd version</xs:documentation>
          </xs:annotation>
          <xs:simpleType>
             <xs:restriction base="xs:token">
-               <xs:enumeration value="3.0.0"/>
+               <xs:enumeration value="3.1.0"/>
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>

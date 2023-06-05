@@ -32,7 +32,7 @@ a owl:Ontology;
   owl:imports sh:;
   rdfs:label "SHACL constraints for LOQ Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
-  dc:modified "2023-05-17"^^xsd:date;
+  dc:modified "2023-06-05"^^xsd:date;
   dc:title "SHACL constraints for the Learning Opportunity and Qualification Schema application profile"@en;
   rdfs:comment '''This document specifies the set of classes and properties used in the LOMS application profile,
   and the constraints on occurrences and values used.'''@en;

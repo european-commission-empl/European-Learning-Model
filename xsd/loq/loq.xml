@@ -37,7 +37,7 @@
          xmlns:org="http://www.w3.org/ns/org#"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://data.europa.eu/snb/model/ap/loq-constraints/"
-         xsi:schemaLocation="http://data.europa.eu/snb/model/ap/loq-constraints/ loq.xsd" xsdVersion="3.0.0">
+         xsi:schemaLocation="http://data.europa.eu/snb/model/ap/loq-constraints/ loq.xsd" xsdVersion="3.1.0">
     <learningOpportunityReferences>
         <learningOpportunity id="http://LOP-01">
             <identifier>
