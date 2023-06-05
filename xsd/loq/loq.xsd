@@ -521,7 +521,7 @@
                <xs:documentation>A publicly accessible report of the quality assurance decision.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element maxOccurs="1" minOccurs="1" name="organisation" type="IdReferenceType">
+         <xs:element maxOccurs="unbounded" minOccurs="1" name="organisation" type="IdReferenceType">
             <xs:annotation>
                <xs:documentation>The organisation whose activities are being accredited. It MUST refer to an existing 'organisation'-record in the 'agentReferences'-section.</xs:documentation>
             </xs:annotation>
@@ -772,7 +772,7 @@
                <xs:documentation>A phone number used for contacting the agent.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element maxOccurs="unbounded" minOccurs="1" ref="mailbox">
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="mailbox">
             <xs:annotation>
                <xs:documentation>An e-mail or wallet address used for contacting the agent.</xs:documentation>
             </xs:annotation>
