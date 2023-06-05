@@ -282,7 +282,11 @@
             "@type": "@id"
         },
         "emailAddress": {
-            "@id": "elm:emailAddress",
+            "@id": "elm:mailbox",
+            "@type": "@id"
+        },
+        "mailbox": {
+            "@id": "elm:mailbox",
             "@type": "@id"
         },
         "embeddedEvidence": {
@@ -567,8 +571,7 @@
             "@type": "@id"
         },
         "notation": {
-            "@id": "skos:notation",
-            "@type": "xsd:string"
+            "@id": "skos:notation"
         },
         "noteFormat": {
             "@id": "elm:noteFormat",

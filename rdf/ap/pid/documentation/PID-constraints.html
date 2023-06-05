@@ -131,7 +131,7 @@
         table {
             display: table;
             border-spacing: 0px;
-            margin-botton: 1rem;
+            margin-bottom: 1rem;
         }
 
         tr:nth-child(even) {
@@ -203,13 +203,13 @@
             top: 0;
             left: 0;
             font-size: small;
-            padding: 10px 20px;
+            padding: 10px 10px;
             width: auto;
             border-right: solid 2px #eeeeee;
             bottom: 0;
             overflow-y: scroll;
             background-color:white;
-            max-width:275px;
+            max-width:255px;
         }
         .sp_list_toc {padding-left: 0px;}
     </style>
@@ -224,7 +224,7 @@
 <body>
 <div class="sp_container_principal container pt-4">
     <h1 class="mb-4 sp_section_title_header">SHACL constraints for the Person Identity application profile</h1>
-    <div><b>Creation date: </b>2022-07-12<br><b>Last updated: </b>2022-09-14<br><b>Version: </b>1.0.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
+    <div><b>Creation date: </b>2022-07-12<br><b>Last updated: </b>2023-05-17<br><b>Version: </b>1.1.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
     <div class="row mt-3">
         <div class="col">
             <h2 id="abstract" class="sp_section_subtitle">Abstract</h2>This document specifies the set of classes and properties used in the PID application profile,
@@ -585,7 +585,7 @@
                     <td><code><a href="http://data.europa.eu/snb/model/elm/mailbox">elm:mailbox</a></code></td>
                     <td><code><a href="#:MailboxShape">Mailbox Shape</a></code><br></td>
                     <td>
-                        <div style="width:30px">1..*</div>
+                        <div style="width:30px">0..*</div>
                     </td>
                     <td class="sp_table_propertyshapes_col_description">An e-mail address used for contacting the agent.</td>
                 </tr>
