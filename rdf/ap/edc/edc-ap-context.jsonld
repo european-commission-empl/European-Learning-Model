@@ -49,7 +49,7 @@
         "LearningOutcome": "elm:LearningOutcome",
         "LegalIdentifier": "elm:LegalIdentifier",
         "Location": "dc:Location",
-        "Mailbox": "elm:Mailbox",
+        "EmailAddress": "elm:EmailAddress",
         "MediaObject": "elm:MediaObject",
         "Note": "elm:Note",
         "Organisation": "elm:Organisation",
@@ -567,8 +567,7 @@
             "@type": "@id"
         },
         "notation": {
-            "@id": "skos:notation",
-            "@type": "xsd:string"
+            "@id": "skos:notation"
         },
         "noteFormat": {
             "@id": "elm:noteFormat",

@@ -32,11 +32,11 @@ a owl:Ontology;
   owl:imports sh:;
   rdfs:label "SHACL constraints for LOQ Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
-  dc:modified "2022-09-14"^^xsd:date;
+  dc:modified "2023-06-05"^^xsd:date;
   dc:title "SHACL constraints for the Learning Opportunity and Qualification Schema application profile"@en;
   rdfs:comment '''This document specifies the set of classes and properties used in the LOMS application profile,
   and the constraints on occurrences and values used.'''@en;
-  owl:versionInfo "1.0.0";
+  owl:versionInfo "1.1.0";
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
   dc:license <https://creativecommons.org/licenses/by/4.0/>;
@@ -118,7 +118,6 @@ a owl:Ontology;
        sh:path elm:organisation;
        sh:class elm:Organisation;
        sh:minCount 1;
-       sh:maxCount 1;
        sh:description "The organisation whose activities are being accredited."@en;
        sh:name "organisation"@en;
        sh:severity sh:Violation;
@@ -419,15 +418,15 @@ a owl:Ontology;
   .
 
 #-------------------------------------------------------------------------
-#--------------- Mailbox class and property  shapes ----------------------
+#--------------- EmailAddress class and property  shapes ----------------------
 #-------------------------------------------------------------------------
-:MailboxShape
+:EmailAddressShape
   a sh:NodeShape;
   sh:closed true ;
   sh:ignoredProperties (rdf:type) ;
-  sh:targetClass elm:Mailbox;
-  rdfs:comment "A mailbox."@en;
-  rdfs:label "Mailbox Shape"@en;
+  sh:targetClass elm:EmailAddress;
+  rdfs:comment "An e-mail address."@en;
+  rdfs:label "Email Address Shape"@en;
   .
 
 #-------------------------------------------------------------------------
@@ -658,11 +657,10 @@ a owl:Ontology;
     #sh:order 3;
   ];
   sh:property [
-    sh:path elm:mailbox;
-    sh:class elm:Mailbox;
-    sh:minCount 1;
+    sh:path elm:emailAddress;
+    sh:class elm:EmailAddress;
     sh:description "An e-mail address used for contacting the agent."@en;
-    sh:name "mailbox"@en;
+    sh:name "emailAddress"@en;
     sh:severity sh:Violation;
     sh:and (
       [

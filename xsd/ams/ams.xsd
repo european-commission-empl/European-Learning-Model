@@ -20,7 +20,7 @@
            xmlns:ecet="http://data.europa.eu/snb/encoding/25831c2"
            elementFormDefault="qualified"
            targetNamespace="http://data.europa.eu/snb/model/ap/ams-constraints/"
-           version="3.0.0">
+           version="3.1.0">
 
    <xs:import namespace="http://www.w3.org/ns/regorg#" schemaLocation="external/rov.xsd"/>
    <xs:import namespace="http://www.w3.org/ns/adms#" schemaLocation="external/adms.xsd"/>
@@ -134,7 +134,7 @@
    <xs:element name="contactPoint" type="ContactPointType"/>
    <xs:element name="group" type="GroupType"/>
    <xs:element name="identifier" type="IdentifierType"/>
-   <xs:element name="mailbox" type="MailboxType"/>
+   <xs:element name="emailAddress" type="EmailAddressType"/>
    <xs:element name="phone" type="PhoneType"/>
 
    <!-- PROPERTIES  -->
@@ -230,7 +230,7 @@
                <xs:documentation>A publicly accessible report of the quality assurance decision.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="organisation" type="IdReferenceType">
+         <xs:element name="organisation" type="IdReferenceType" maxOccurs="unbounded">
             <xs:annotation>
                <xs:documentation>The organisation whose activities are being accredited. It MUST refer to an existing 'organisation'-record in the 'agentReferences'-section.</xs:documentation>
             </xs:annotation>
@@ -444,9 +444,9 @@
                </xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element ref="mailbox" maxOccurs="unbounded">
+         <xs:element ref="emailAddress" maxOccurs="unbounded" minOccurs="0">
             <xs:annotation>
-               <xs:documentation>An email/wallet address used for contacting the agent.</xs:documentation>
+               <xs:documentation>An e-mail address used for contacting the agent.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element ref="contactForm" minOccurs="0" maxOccurs="unbounded">
@@ -622,9 +622,9 @@
       </xs:complexContent>
    </xs:complexType>
 
-   <xs:complexType name="MailboxType">
+   <xs:complexType name="EmailAddressType">
       <xs:annotation>
-         <xs:documentation>A mailbox.</xs:documentation>
+         <xs:documentation>An e-mail address.</xs:documentation>
       </xs:annotation>
       <xs:simpleContent>
          <xs:extension base="xs:anyURI"/>
@@ -900,13 +900,14 @@
             </xs:annotation>
          </xs:element>
       </xs:sequence>
-      <xs:attribute name="xsdVersion" use="optional" default="3.0.0">
+      <xs:attribute name="xsdVersion" use="optional" default="3.1.0">
          <xs:annotation>
             <xs:documentation>used xsd version</xs:documentation>
          </xs:annotation>
          <xs:simpleType>
             <xs:restriction base="xs:token">
                <xs:enumeration value="3.0.0"/>
+               <xs:enumeration value="3.1.0"/>
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>

@@ -1,0 +1,1645 @@
+
+<!DOCTYPE HTML><html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+            "Noto Color Emoji";
+            background-color: #fff;
+        }
+
+        .anchor {
+            float: left;
+            padding-right: 4px;
+            margin-left: -20px;
+            line-height: 1;
+            padding-top: 12px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        a:-webkit-any-link {
+            cursor: pointer;
+        }
+
+        .p {
+            font-size: 0.875em;
+        }
+
+        h2 {
+            margin: 25px 0px 10px 0px;
+        }
+
+        @media only print {
+        }
+
+        @page {
+            size: A4 portrait;
+            margin-top: 1.2cm;
+            margin-bottom: 1.2cm;
+            margin-left: 1.2cm;
+            margin-right: 1.2cm;
+            background-repeat: no-repeat;
+            background-position: 40px 10px;
+
+            @bottom-center
+            {
+                content
+                :
+                        counter(
+                                page
+                        );
+            }
+
+        }
+
+        /* This section draw the format web */
+        .ul_type_none {
+            list-style-type: none;
+        }
+
+        .sp_list_description_properties {
+            /* don't set it lower otherwise it gets hidden in PDF */
+            padding-left: 20px;
+        }
+
+        dl, ol, ul {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+
+        .sp_section_title_header {
+            font-family: Georgia, Garamond, serif;
+            margin-top: 25px;
+            margin-bottom: 2.5rem;
+            font-size: 1.5625rem;
+            display: block;
+            font-weight: 500;
+            color: #1e1e1f;
+            line-height: 1.2em;
+        }
+
+        .sp_section_subtitle {
+            font-family: Georgia, Garamond, serif;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 500;
+            color: #1e1e1f;
+            line-height: 1.2em;
+        }
+
+        .sp_section_title_table {
+            font-family: Georgia, Garamond, serif;
+            /* 0 because URI is right under */
+            margin-bottom: 0rem;
+            display: block;
+            font-weight: 500;
+            color: #1e1e1f;
+            line-height: 1.2em;
+        }
+
+
+        .sp_section_title_toc {
+            font-family: Georgia, Garamond, serif;
+        }
+
+        /* URI below the title of the section */
+        .sp_section_uri	 {
+            margin-top: 0px;
+        }
+
+        /* div wrapping section title and URI below - same as a paragraph margin */
+        .sp_section_title_table_wrapper {
+            margin-bottom: 16px;
+        }
+
+
+        table {
+            display: table;
+            border-spacing: 0px;
+            margin-bottom: 1rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+
+        .sp_table_prefixes table {
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+
+        .sp_table_prefixes td {
+            padding: 0.25rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .sp_table_propertyshapes {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .sp_table_propertyshapes thead {
+            display: table-header-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+
+        .sp_table_propertyshapes tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+        }
+
+        .sp_table_propertyshapes th:nth-child(4) {
+            width: 6%;
+        }
+
+        .sp_table_propertyshapes td {
+            padding: 0.75rem;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .sp_table_propertyshapes tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+
+        .sp_table_propertyshapes_col_description {
+            word-break: break-word;
+        }
+
+        .sp_serialization_badge {
+            margin-right: 0.5em;
+        }
+
+
+        .container {
+            width: calc(100% - 40px);
+            max-width: 1000px;
+            margin-left: 300px;
+            margin-right: auto;
+        }
+        .container {width: calc(100% - 500px);}
+        .toc {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: small;
+            padding: 10px 10px;
+            width: auto;
+            border-right: solid 2px #eeeeee;
+            bottom: 0;
+            overflow-y: scroll;
+            background-color:white;
+            max-width:255px;
+        }
+        .sp_list_toc {padding-left: 0px;}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="lang" content="en">
+    <meta property="og:locale" content="en">
+    <title>SHACL constraints for the Person Identity application profile</title>
+    <meta name="apple-mobile-web-app-title" content="SHACL constraints for the Person Identity application profile">
+    <meta name="twitter:title" content="SHACL constraints for the Person Identity application profile">
+    <meta property="og:title" content="SHACL constraints for the Person Identity application profile">
+</head>
+<body>
+<div class="sp_container_principal container pt-4">
+    <h1 class="mb-4 sp_section_title_header">SHACL constraints for the Person Identity application profile</h1>
+    <div><b>Creation date: </b>2022-07-12<br><b>Last updated: </b>2023-06-05<br><b>Version: </b>1.1.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
+    <div class="row mt-3">
+        <div class="col">
+            <h2 id="abstract" class="sp_section_subtitle">Abstract</h2>This document specifies the set of classes and properties used in the PID application profile,
+            and the constraints on occurrences and values used.</div>
+    </div>
+    <div class="sp_section_title_toc toc">
+        <h2 id="Index">Table of Contents</h2>
+        <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
+            <li><a href="#prefixes">Namespaces</a></li>
+            <li><a href="#:AddressShape">Address Shape</a></li>
+            <li><a href="#:AgentShape">Agent Shape</a></li>
+            <li><a href="#:ConceptScheme">Concept  Scheme Shape</a></li>
+            <li><a href="#:ConceptShape">Concept Shape</a></li>
+            <li><a href="#:ContactPointShape">Contact Point Shape</a></li>
+            <li><a href="#:EmailAddressShape">Email Address Shape</a></li>
+            <li><a href="#:GeometryShape">Geometry Shape</a></li>
+            <li><a href="#:GroupShape">Group Shape</a></li>
+            <li><a href="#:IdentifierShape">Identifier Shape</a></li>
+            <li><a href="#:LegalIdentifierShape">Legal Identifier Shape</a></li>
+            <li><a href="#:LocationShape">Location Shape</a></li>
+            <li><a href="#:MediaObjectShape">Media Object Shape</a></li>
+            <li><a href="#:NoteShape">Note Shape</a></li>
+            <li><a href="#:OrganisationShape">Organisation Shape</a></li>
+            <li><a href="#:PersonShape">Person Shape</a></li>
+            <li><a href="#:PhoneShape">Phone Shape</a></li>
+            <li><a href="#:WebResourceShape">Web Resource Shape</a></li>
+        </ul>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <section id="prefixes">
+                <h2 class="sp_section_subtitle">Namespaces</h2>
+                <table class="sp_table_prefixes table table-striped table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Prefix</th>
+                        <th>Namespace</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>adms</td>
+                        <td><a href="http://www.w3.org/ns/adms#" target="_blank">http://www.w3.org/ns/adms#</a></td>
+                    </tr>
+                    <tr>
+                        <td>clv</td>
+                        <td><a href="http://data.europa.eu/m8g/" target="_blank">http://data.europa.eu/m8g/</a></td>
+                    </tr>
+                    <tr>
+                        <td>dc</td>
+                        <td><a href="http://purl.org/dc/terms/" target="_blank">http://purl.org/dc/terms/</a></td>
+                    </tr>
+                    <tr>
+                        <td>elm</td>
+                        <td><a href="http://data.europa.eu/snb/model/elm/" target="_blank">http://data.europa.eu/snb/model/elm/</a></td>
+                    </tr>
+                    <tr>
+                        <td>foaf</td>
+                        <td><a href="http://xmlns.com/foaf/0.1/" target="_blank">http://xmlns.com/foaf/0.1/</a></td>
+                    </tr>
+                    <tr>
+                        <td>locn</td>
+                        <td><a href="http://www.w3.org/ns/locn#" target="_blank">http://www.w3.org/ns/locn#</a></td>
+                    </tr>
+                    <tr>
+                        <td>org</td>
+                        <td><a href="http://www.w3.org/ns/org#" target="_blank">http://www.w3.org/ns/org#</a></td>
+                    </tr>
+                    <tr>
+                        <td>person</td>
+                        <td><a href="http://www.w3.org/ns/person#" target="_blank">http://www.w3.org/ns/person#</a></td>
+                    </tr>
+                    <tr>
+                        <td>rdf</td>
+                        <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#" target="_blank">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></td>
+                    </tr>
+                    <tr>
+                        <td>rov</td>
+                        <td><a href="http://www.w3.org/ns/regorg#" target="_blank">http://www.w3.org/ns/regorg#</a></td>
+                    </tr>
+                    <tr>
+                        <td>skos</td>
+                        <td><a href="http://www.w3.org/2004/02/skos/core#" target="_blank">http://www.w3.org/2004/02/skos/core#</a></td>
+                    </tr>
+                    <tr>
+                        <td>xsd</td>
+                        <td><a href="http://www.w3.org/2001/XMLSchema#" target="_blank">http://www.w3.org/2001/XMLSchema#</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":AddressShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Address Shape</h2>
+            </div>
+            <p><em>An address.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Address">elm:Address</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>country</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/countryCode">elm:countryCode</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The address’ country code. It should be provided using the Country Named Authority
+                        List.</td>
+                </tr>
+                <tr>
+                    <td>full address</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/fullAddress">elm:fullAddress</a></code></td>
+                    <td><code><a href="#:NoteShape">Note Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The complete address with or without formatting.</td>
+                </tr>
+                <tr>
+                    <td>identifier</td>
+                    <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
+                    <td><code><a href="#:IdentifierShape">Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An address identifier.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":AgentShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Agent Shape</h2>
+            </div>
+            <p><em>An entity that is able to carry out actions.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Agent">elm:Agent</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>alternative name</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#altLabel">skos:altLabel</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The alternative name of the agent.</td>
+                </tr>
+                <tr>
+                    <td>contact information</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/contactPoint">elm:contactPoint</a></code></td>
+                    <td><code><a href="#:ContactPointShape">Contact Point Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The contact information of the agent.</td>
+                </tr>
+                <tr>
+                    <td>group member of</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/groupMemberOf">elm:groupMemberOf</a></code></td>
+                    <td><code><a href="#:GroupShape">Group Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The group the agent is a member of.</td>
+                </tr>
+                <tr>
+                    <td>identifier</td>
+                    <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
+                    <td><code><a href="#:IdentifierShape">Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An identifier of the agent.</td>
+                </tr>
+                <tr>
+                    <td>last modification date</td>
+                    <td><code><a href="http://purl.org/dc/terms/modified">dc:modified</a></code></td>
+                    <td><code>xsd:dateTime</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The date when the agent was last modified.</td>
+                </tr>
+                <tr>
+                    <td>location</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/location">elm:location</a></code></td>
+                    <td><code><a href="#:LocationShape">Location Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The location of the agent.</td>
+                </tr>
+                <tr>
+                    <td>more information</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/additionalNote">elm:additionalNote</a></code></td>
+                    <td><code><a href="#:NoteShape">Note Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An additional free text note about the agent.</td>
+                </tr>
+                <tr>
+                    <td>preferred name</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The preferred name of the agent.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":ConceptScheme">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Concept  Scheme Shape</h2>
+            </div>
+            <p><em>A controlled vocabulary modelled as a Concept Scheme.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a></li>
+            </ul>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":ConceptShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Concept Shape</h2>
+            </div>
+            <p><em>A term from a controlled vocabulary modelled as a skos:Concept.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>in scheme</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code><a href="#:ConceptScheme">Concept  Scheme Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The concept scheme this concept belongs to. The identification of the controlled vocabulary.</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The text equivalent of the code content component. One value per language is permitted.</td>
+                </tr>
+                <tr>
+                    <td>notation</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A notation, also known as classification code, is a string of characters used to uniquely
+                        identify a concept within the scope of a given concept scheme.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":ContactPointShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Contact Point Shape</h2>
+            </div>
+            <p><em>A contact point for an agent.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/ContactPoint">elm:ContactPoint</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>address</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/address">elm:address</a></code></td>
+                    <td><code><a href="#:AddressShape">Address Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A postal address used for contacting the agent.</td>
+                </tr>
+                <tr>
+                    <td>contact form</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/contactForm">elm:contactForm</a></code></td>
+                    <td><code><a href="#:WebResourceShape">Web Resource Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A contact form used for contacting the agent.</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td><code><a href="http://purl.org/dc/terms/description">dc:description</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A free text description of the contact details.</td>
+                </tr>
+                <tr>
+                    <td>emailAddress</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/emailAddress">elm:emailAddress</a></code></td>
+                    <td><code><a href="#:EmailAddressShape">Email Address Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An e-mail address used for contacting the agent.</td>
+                </tr>
+                <tr>
+                    <td>more information</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/additionalNote">elm:additionalNote</a></code></td>
+                    <td><code><a href="#:NoteShape">Note Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An additional free text note about the contact point.</td>
+                </tr>
+                <tr>
+                    <td>phone</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/phone">elm:phone</a></code></td>
+                    <td><code><a href="#:PhoneShape">Phone Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A phone number used for contacting the agent.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":EmailAddressShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Email Address Shape</h2>
+            </div>
+            <p><em>An e-mail address.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/EmailAddress">elm:EmailAddress</a></li>
+            </ul>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":GeometryShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Geometry Shape</h2>
+            </div>
+            <p><em>This class defines the geometry at the conceptual level, and it can be encoded by using different formats.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://www.w3.org/ns/locn#Geometry">locn:Geometry</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>latitude</td>
+                    <td><code><a href="http://data.europa.eu/m8g/latitude">clv:latitude</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The geographic coordinate that specifies the north / south position of the Geomerty
+                        on the Earth's surface.</td>
+                </tr>
+                <tr>
+                    <td>longitude</td>
+                    <td><code><a href="http://data.europa.eu/m8g/longitude">clv:longitude</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The geographic coordinate that specifies the east / west position of the Geometry
+                        on the Earth's surface.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":GroupShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Group Shape</h2>
+            </div>
+            <p><em>An entity that represents collection of Agents.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Group">elm:Group</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>alternative name</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#altLabel">skos:altLabel</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The alternative name of the group.</td>
+                </tr>
+                <tr>
+                    <td>contact information</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/contactPoint">elm:contactPoint</a></code></td>
+                    <td><code><a href="#:ContactPointShape">Contact Point Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The contact information of the group.</td>
+                </tr>
+                <tr>
+                    <td>has member</td>
+                    <td><code><a href="http://xmlns.com/foaf/0.1/member">foaf:member</a></code></td>
+                    <td><code><a href="#:AgentShape">Agent Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An agent being a member of the group.</td>
+                </tr>
+                <tr>
+                    <td>location</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/location">elm:location</a></code></td>
+                    <td><code><a href="#:LocationShape">Location Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The location of the group.</td>
+                </tr>
+                <tr>
+                    <td>more information</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/additionalNote">elm:additionalNote</a></code></td>
+                    <td><code><a href="#:NoteShape">Note Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An additional free text note about the group.</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The name of the group.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td><code><a href="http://purl.org/dc/terms/type">dc:type</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The type of the group. It should be provided using a controlled vocabulary.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":IdentifierShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Identifier Shape</h2>
+            </div>
+            <p><em>A character string used to identify a resource. An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency. The Identifier class is a critical aspect of the ELM. It is used to identify persons and organisations. In these cases, and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Identifier">elm:Identifier</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>date issued</td>
+                    <td><code><a href="http://purl.org/dc/terms/issued">dc:issued</a></code></td>
+                    <td><code>xsd:dateTime</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The date on which the identifier was issued.</td>
+                </tr>
+                <tr>
+                    <td>identifier content</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Content string which is the identifier.</td>
+                </tr>
+                <tr>
+                    <td>scheme agency</td>
+                    <td><code><a href="http://purl.org/dc/terms/creator">dc:creator</a></code></td>
+                    <td><code>IRI</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Identification of the agent that manages the identifier scheme. The agent that issued
+                        the identifier. (e.g., a URI).</td>
+                </tr>
+                <tr>
+                    <td>scheme agency name</td>
+                    <td><code><a href="http://www.w3.org/ns/adms#schemeAgency">adms:schemeAgency</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The name of the agent that manages the identifier scheme.</td>
+                </tr>
+                <tr>
+                    <td>scheme name</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/schemeName">elm:schemeName</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The name of the identifier scheme.</td>
+                </tr>
+                <tr>
+                    <td>scheme version</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/schemeVersion">elm:schemeVersion</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Identification of the version of the identifier scheme.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td><code><a href="http://purl.org/dc/terms/type">dc:type</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The type of the identifier.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":LegalIdentifierShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Legal Identifier Shape</h2>
+            </div>
+            <p><em>A legal identifier. A legal identifier is a formally issued identifier by a given authority within a given jurisdiction. The identifier has a spatial context. Legal Identifier is a subclass of Identifier.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/LegalIdentifier">elm:LegalIdentifier</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>date issued</td>
+                    <td><code><a href="http://purl.org/dc/terms/issued">dc:issued</a></code></td>
+                    <td><code>xsd:dateTime</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The date on which the identifier was issued.</td>
+                </tr>
+                <tr>
+                    <td>identifier content</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Content string which is the identifier.</td>
+                </tr>
+                <tr>
+                    <td>scheme agency</td>
+                    <td><code><a href="http://purl.org/dc/terms/creator">dc:creator</a></code></td>
+                    <td><code>IRI</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Identification of the agent that manages the identifier scheme. The agent that issued
+                        the identifier. (e.g., a URI).</td>
+                </tr>
+                <tr>
+                    <td>scheme agency name</td>
+                    <td><code><a href="http://www.w3.org/ns/adms#schemeAgency">adms:schemeAgency</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The name of the agent that manages the identifier scheme.</td>
+                </tr>
+                <tr>
+                    <td>scheme name</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/schemeName">elm:schemeName</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The name of the identifier scheme.</td>
+                </tr>
+                <tr>
+                    <td>scheme version</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/schemeVersion">elm:schemeVersion</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Identification of the version of the identifier scheme.</td>
+                </tr>
+                <tr>
+                    <td>spatial</td>
+                    <td><code><a href="http://purl.org/dc/terms/spatial">dc:spatial</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A spatial identifier. The identifier of the country and/or jurisdiction. It should
+                        be provided using the Country Named Authority List.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td><code><a href="http://purl.org/dc/terms/type">dc:type</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The type of the identifier.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":LocationShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Location Shape</h2>
+            </div>
+            <p><em>An identifiable geographic place.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://purl.org/dc/terms/Location">dc:Location</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>address</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/address">elm:address</a></code></td>
+                    <td><code><a href="#:AddressShape">Address Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">1..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An address associated with the location.</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td><code><a href="http://purl.org/dc/terms/description">dc:description</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A free text description of the location.</td>
+                </tr>
+                <tr>
+                    <td>geographic name</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/geographicName">elm:geographicName</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A proper noun applied to a spatial object.</td>
+                </tr>
+                <tr>
+                    <td>geometry</td>
+                    <td><code><a href="http://www.w3.org/ns/locn#geometry">locn:geometry</a></code></td>
+                    <td><code><a href="#:GeometryShape">Geometry Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Associates the Location with the corresponding Geometry.</td>
+                </tr>
+                <tr>
+                    <td>identifier</td>
+                    <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
+                    <td><code><a href="#:IdentifierShape">Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A location identifier.</td>
+                </tr>
+                <tr>
+                    <td>spatial code</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/spatialCode">elm:spatialCode</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A code identifying a spatial scope in which this physical location is located. It
+                        should be provided using the Administrative territorial unit Authority Table (ATU).</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":MediaObjectShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Media Object Shape</h2>
+            </div>
+            <p><em>A media object.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/MediaObject">elm:MediaObject</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>content</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/content">elm:content</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The binary data of the media object.</td>
+                </tr>
+                <tr>
+                    <td>content URL</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/contentUrl">elm:contentUrl</a></code></td>
+                    <td><code>xsd:anyURI</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The public access URL.</td>
+                </tr>
+                <tr>
+                    <td>content encoding</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/contentEncoding">elm:contentEncoding</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The encoding used to encode the binary data. It should be provided using the EDC Controlled
+                        List of Content Encoding Types.</td>
+                </tr>
+                <tr>
+                    <td>content size</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/contentSize">elm:contentSize</a></code></td>
+                    <td><code>xsd:integer</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The content size of the media object.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td><code><a href="http://purl.org/dc/terms/type">dc:type</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The type of the media object. It should be provided using the Filetype Named Authority
+                        List.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":NoteShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Note Shape</h2>
+            </div>
+            <p><em>Free text metadata fields, such as the description, a historical or additional note of a qualification can contain a plain text or a XHTML fragment as literal value. By using a Note both the datatype of the literal and the language can be specified.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Note">elm:Note</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>language</td>
+                    <td><code><a href="http://purl.org/dc/terms/language">dc:language</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The language of the note. It should be provided using Language Named Authority List.</td>
+                </tr>
+                <tr>
+                    <td>note format</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/noteFormat">elm:noteFormat</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The format of the note. It should be provided using the IANA  types for text, text/plain,
+                        text/html etc.</td>
+                </tr>
+                <tr>
+                    <td>note literal</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/noteLiteral">elm:noteLiteral</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The textual content of the note.</td>
+                </tr>
+                <tr>
+                    <td>subject</td>
+                    <td><code><a href="http://purl.org/dc/terms/subject">dc:subject</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The subject of the note. It should be provided using a controlled vocabulary.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":OrganisationShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Organisation Shape</h2>
+            </div>
+            <p><em>A legal person / registered organisation. Organisation is a subclass of Agent.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Organisation">elm:Organisation</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>VAT number</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/vatIdentifier">elm:vatIdentifier</a></code></td>
+                    <td><code><a href="#:LegalIdentifierShape">Legal Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The Value-Added Tax ID.</td>
+                </tr>
+                <tr>
+                    <td>alternative name</td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#altLabel">skos:altLabel</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The alternative name of the organisation.</td>
+                </tr>
+                <tr>
+                    <td>child organisation</td>
+                    <td><code><a href="http://www.w3.org/ns/org#hasSubOrganization">org:hasSubOrganization</a></code></td>
+                    <td><code><a href="#:OrganisationShape">Organisation Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">A smaller organisation of which forms part of this organisation, e.g., a department
+                        within a larger organisation.</td>
+                </tr>
+                <tr>
+                    <td>contact information</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/contactPoint">elm:contactPoint</a></code></td>
+                    <td><code><a href="#:ContactPointShape">Contact Point Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The contact information of an organisation.</td>
+                </tr>
+                <tr>
+                    <td>eIDAS identifier</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/eidasLegalIdentifier">elm:eidasLegalIdentifier</a></code></td>
+                    <td><code><a href="#:LegalIdentifierShape">Legal Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The official identification number of the organisation, as awarded by the relevant
+                        national authority.</td>
+                </tr>
+                <tr>
+                    <td>group member of</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/groupMemberOf">elm:groupMemberOf</a></code></td>
+                    <td><code><a href="#:GroupShape">Group Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The group the organisation  is a member of.</td>
+                </tr>
+                <tr>
+                    <td>homepage</td>
+                    <td><code><a href="http://xmlns.com/foaf/0.1/homepage">foaf:homepage</a></code></td>
+                    <td><code><a href="#:WebResourceShape">Web Resource Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The homepage of the organisation.</td>
+                </tr>
+                <tr>
+                    <td>identifier</td>
+                    <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
+                    <td><code><a href="#:IdentifierShape">Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An alternative identifier of the organisation.</td>
+                </tr>
+                <tr>
+                    <td>last modification date</td>
+                    <td><code><a href="http://purl.org/dc/terms/modified">dc:modified</a></code></td>
+                    <td><code>xsd:dateTime</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The date when the organisation was last modified.</td>
+                </tr>
+                <tr>
+                    <td>legal name</td>
+                    <td><code><a href="http://www.w3.org/ns/regorg#legalName">rov:legalName</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">1..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The legal name of the organisation.</td>
+                </tr>
+                <tr>
+                    <td>location</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/location">elm:location</a></code></td>
+                    <td><code><a href="#:LocationShape">Location Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">1..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The location of the organisation.</td>
+                </tr>
+                <tr>
+                    <td>logo</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/logo">elm:logo</a></code></td>
+                    <td><code><a href="#:MediaObjectShape">Media Object Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The logo of the organisation.</td>
+                </tr>
+                <tr>
+                    <td>more information</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/additionalNote">elm:additionalNote</a></code></td>
+                    <td><code><a href="#:NoteShape">Note Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An additional free text note about the organisation.</td>
+                </tr>
+                <tr>
+                    <td>parent organisation</td>
+                    <td><code><a href="http://www.w3.org/ns/org#subOrganizationOf">org:subOrganizationOf</a></code></td>
+                    <td><code><a href="#:OrganisationShape">Organisation Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Indicates a larger organisation of which this organisation is a part of, e.g., the
+                        organisation within which a department operates.</td>
+                </tr>
+                <tr>
+                    <td>registration</td>
+                    <td><code><a href="http://www.w3.org/ns/regorg#registration">rov:registration</a></code></td>
+                    <td><code><a href="#:LegalIdentifierShape">Legal Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The legal identifier of an organisation. The identifier given to a registered organisation
+                        by the authority with which it is registered. The legal status of a registered organisation
+                        is conferred on it by an authority within a given jurisdiction. The Legal Identifier
+                        is therefore a fundamental relationship between an organisation and the authority
+                        with which it is registered.</td>
+                </tr>
+                <tr>
+                    <td>tax/fiscal identifier</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/taxIdentifier">elm:taxIdentifier</a></code></td>
+                    <td><code><a href="#:LegalIdentifierShape">Legal Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Fiscal ID of the organisation.</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td><code><a href="http://purl.org/dc/terms/type">dc:type</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The type of the organisation.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":PersonShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Person Shape</h2>
+            </div>
+            <p><em>A human being. Person is a subclass of Agent.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Person">elm:Person</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>birth name</td>
+                    <td><code><a href="http://www.w3.org/ns/person#birthName">person:birthName</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The name of the person at birth. Birth names tend to be persistent and for this reason
+                        they are recorded by some public sector information systems. There is no granularity
+                        for birth name - the full name should be recorded in a single field.</td>
+                </tr>
+                <tr>
+                    <td>citizenship</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/citizenshipCountry">elm:citizenshipCountry</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The country (or countries) that conferred citizenship rights on the person. It should
+                        be provided using the Country Named Authority List.</td>
+                </tr>
+                <tr>
+                    <td>contact information</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/contactPoint">elm:contactPoint</a></code></td>
+                    <td><code><a href="#:ContactPointShape">Contact Point Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The contact information of the person.</td>
+                </tr>
+                <tr>
+                    <td>date of birth</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/dateOfBirth">elm:dateOfBirth</a></code></td>
+                    <td><code>xsd:dateTime</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The date of birth of the person.</td>
+                </tr>
+                <tr>
+                    <td>family name</td>
+                    <td><code><a href="http://xmlns.com/foaf/0.1/familyName">foaf:familyName</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The family name of the person.</td>
+                </tr>
+                <tr>
+                    <td>full name</td>
+                    <td><code><a href="http://xmlns.com/foaf/0.1/fullName">foaf:fullName</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The complete name of the person as one string.</td>
+                </tr>
+                <tr>
+                    <td>gender</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/gender">elm:gender</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The gender of the person. It should be provided using the Human Sex Named Authority
+                        List.</td>
+                </tr>
+                <tr>
+                    <td>given name</td>
+                    <td><code><a href="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The given name of the person.</td>
+                </tr>
+                <tr>
+                    <td>group member of</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/groupMemberOf">elm:groupMemberOf</a></code></td>
+                    <td><code><a href="#:GroupShape">Group Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The group the person is a member of.</td>
+                </tr>
+                <tr>
+                    <td>identifier</td>
+                    <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
+                    <td><code><a href="#:IdentifierShape">Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">An identifier of the person.</td>
+                </tr>
+                <tr>
+                    <td>last modification date</td>
+                    <td><code><a href="http://purl.org/dc/terms/modified">dc:modified</a></code></td>
+                    <td><code>xsd:dateTime</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The date when the person (information) was last modified.</td>
+                </tr>
+                <tr>
+                    <td>location</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/location">elm:location</a></code></td>
+                    <td><code><a href="#:LocationShape">Location Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The location of the person.</td>
+                </tr>
+                <tr>
+                    <td>member of</td>
+                    <td><code><a href="http://www.w3.org/ns/org#memberOf">org:memberOf</a></code></td>
+                    <td><code><a href="#:OrganisationShape">Organisation Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The organisation of which the person is a member.</td>
+                </tr>
+                <tr>
+                    <td>national ID number</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/nationalId">elm:nationalId</a></code></td>
+                    <td><code><a href="#:LegalIdentifierShape">Legal Identifier Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The 'primary' national identifier of the person.</td>
+                </tr>
+                <tr>
+                    <td>patronymic name</td>
+                    <td><code><a href="http://www.w3.org/ns/person#patronimycName">person:patronimycName</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">Patronymic names are important in some countries. Iceland does not have a concept
+                        of 'family name' in the way that many other European countries do, for example, Erik
+                        Magnusson and Erika Magnusdottir are siblings, both offspring of Mangnus, irrespective
+                        of his patronymic name. In Bulgaria and Russia, patronymic names are in everyday usage,
+                        for example, the Sergeyevich in 'Mikhail Sergeyevich Gorbachev.</td>
+                </tr>
+                <tr>
+                    <td>place of birth</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/placeOfBirth">elm:placeOfBirth</a></code></td>
+                    <td><code><a href="#:LocationShape">Location Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The place of birth of the person.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":PhoneShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Phone Shape</h2>
+            </div>
+            <p><em>A phone.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Phone">elm:Phone</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>area dialling code</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/areaDialing">elm:areaDialing</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The area dialling code for a contact number.</td>
+                </tr>
+                <tr>
+                    <td>country dialling code</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/countryDialing">elm:countryDialing</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The country dialling code for a contact number.</td>
+                </tr>
+                <tr>
+                    <td>full phone number</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/phoneNumber">elm:phoneNumber</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The full phone number as a string.</td>
+                </tr>
+                <tr>
+                    <td>phone number</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/dialNumber">elm:dialNumber</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The contact number, not including country dialling or area dialling codes. (e.g.,
+                        '3445654', '1234567', etc.).</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":WebResourceShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Web Resource Shape</h2>
+            </div>
+            <p><em>A public web resource.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/WebResource">elm:WebResource</a></li>
+            </ul>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>URL</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/contentUrl">elm:contentUrl</a></code></td>
+                    <td><code>xsd:anyURI</code><br></td>
+                    <td>
+                        <div style="width:30px">1..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The public access URL.</td>
+                </tr>
+                <tr>
+                    <td>language</td>
+                    <td><code><a href="http://purl.org/dc/terms/language">dc:language</a></code></td>
+                    <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The language of the web resource. It should be provided using Language Named Authority
+                        List.</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td><code><a href="http://purl.org/dc/terms/title">dc:title</a></code></td>
+                    <td><code>rdf:langString</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"> The title of the web resource. One value per language is permitted.</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br></div><script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js">//</script><script>
+    anchors.options = {
+        icon: '#'
+    };
+    anchors.options.placement = 'left';
+    anchors.add();
+</script></body>
+</html>

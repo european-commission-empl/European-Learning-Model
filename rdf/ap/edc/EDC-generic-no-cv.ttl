@@ -22,11 +22,11 @@
   a owl:Ontology;
   rdfs:label "SHACL constraints for EDC Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
-  dc:modified "2022-10-07"^^xsd:date;
+  dc:modified "2023-06-05"^^xsd:date;
   dc:title "SHACL constraints for European Digital Credentials  application profile"@en;
   dc:description "SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used."@en;
   rdfs:comment "This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used."@en;
-  owl:versionInfo "1.0.0";
+  owl:versionInfo "1.1.0";
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
   dc:license <https://creativecommons.org/licenses/by/4.0/>;
@@ -178,8 +178,6 @@ edc:Accreditation-elm_organisation
   a sh:PropertyShape; 
   sh:path elm:organisation;
   sh:class elm:Organisation;
-  sh:minCount 1;
-  sh:maxCount 1;
   sh:description "The organisation whose activities are being accredited."@en;
   sh:name "organisation"@en;
   sh:severity sh:Violation;
@@ -260,7 +258,7 @@ edc:Accreditation-elm_reviewDate
 
 edc:Accreditation-elm_expiryDate
   a sh:PropertyShape; 
-  sh:path elm:expirydate;
+  sh:path elm:expiryDate;
   sh:datatype xsd:dateTime;
   sh:maxCount 1;
   sh:description "The date when the accreditation expires or was expired."@en;
@@ -774,7 +772,7 @@ edc:ContactPointShape
   sh:property edc:ContactPoint-dc_description;
   sh:property edc:ContactPoint-elm_address;
   sh:property edc:ContactPoint-elm_phone;
-  sh:property edc:ContactPoint-elm_mailbox;
+  sh:property edc:ContactPoint-elm_emailAddress;
   sh:property edc:ContactPoint-elm_contactForm;
   .
 edc:ContactPoint-dc_description
@@ -815,13 +813,12 @@ edc:ContactPoint-elm_phone
   #sh:order 3;
   .
 
-edc:ContactPoint-elm_mailbox
+edc:ContactPoint-elm_emailAddress
   a sh:PropertyShape; 
   sh:path elm:emailAddress;
-  sh:class elm:Mailbox;
-  sh:minCount 1;
+  sh:class elm:EmailAddress;
   sh:description "An e-mail address used for contacting the agent."@en;
-  sh:name "mailbox"@en;
+  sh:name "emailAddress"@en;
   sh:severity sh:Violation;
   #sh:order 4;
   .
@@ -3765,12 +3762,12 @@ edc:LegalIdentifier-dc_spatial
   sh:severity sh:Violation;
   . 
 
-#------ Mailbox class and properties shapes --------
-edc:MailboxShape
+#------ EmailAddress class and properties shapes --------
+edc:EmailAddressShape
   a sh:NodeShape;
-  sh:targetClass elm:Mailbox;
-  rdfs:comment "A mailbox."@en;
-  rdfs:label "Mailbox"@en;
+  sh:targetClass elm:EmailAddress;
+  rdfs:comment "An e-mail address."@en;
+  rdfs:label "Email Address"@en;
   .
 
 #------ Media Object class and properties shapes --------
