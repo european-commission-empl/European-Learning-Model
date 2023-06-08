@@ -23,11 +23,11 @@
   owl:imports <http://data.europa.eu/snb/model/ap/edc-generic-full>;
   rdfs:label "SHACL constraints for EDC - Issued By Mandate Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
-  dc:modified "2022-10-07"^^xsd:date;
+  dc:modified "2023-06-05"^^xsd:date;
   dc:title "SHACL constraints for European Digital Credentials - Issued By Mandate application profile"@en;
   dc:description "SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships, and the constraints on occurrences and values used."@en;
   rdfs:comment "This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used."@en;
-  owl:versionInfo "1.0.0";
+  owl:versionInfo "1.1.0";
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
   dc:license <https://creativecommons.org/licenses/by/4.0/>;

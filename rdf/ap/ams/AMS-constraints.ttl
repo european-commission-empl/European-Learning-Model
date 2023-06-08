@@ -30,11 +30,11 @@
   owl:imports sh:;
   rdfs:label "SHACL constraints for AMS Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
-  dc:modified "2022-09-14"^^xsd:date;
+  dc:modified "2023-06-05"^^xsd:date;
   dc:title "SHACL constraints for Accreditation Metadata Schema application profile"@en;
   dc:description "SHACL constraints for the Accreditation Metadata Schema application Profile provides the classes with their attributes and relationships, and the constraints on occurrences and values used."@en;
   rdfs:comment "This document specifies the set  classes and properties used in the Accreditation Metadata Schema application profile, and the constraints on occurrences and values used."@en;
-  owl:versionInfo "1.0.0";
+  owl:versionInfo "1.1.0";
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
   dc:license <https://creativecommons.org/licenses/by/4.0/>;
@@ -116,7 +116,6 @@ ams:AccreditationShape
     sh:path elm:organisation;
     sh:class elm:Organisation;
     sh:minCount 1;
-    sh:maxCount 1;
     sh:description "The organisation whose activities are being accredited."@en;
     sh:name "organisation"@en;
     sh:severity sh:Violation;
@@ -155,14 +154,22 @@ ams:AccreditationShape
     sh:severity sh:Violation;
     #sh:order 10;
   ];
-   sh:property[
-      sh:path elm:limitCredentialType;
-      sh:class skos:Concept;
-      sh:description "The credential type for which the accreditation is valid. It MUST be provided using the Credential Type controlled vocabulary."@en;
-      sh:name "limit credential type"@en;
-      sh:severity sh:Violation;
-      #sh:order 11;
-    ];
+  sh:property[
+     sh:path elm:limitCredentialType;
+     sh:class skos:Concept;
+     sh:description "The credential type for which the accreditation is valid. It MUST be provided using the Credential Type controlled vocabulary."@en;
+     sh:name "limit credential type"@en;
+     sh:severity sh:Violation;
+     #sh:order 11;
+  ];
+  sh:property[
+     sh:path elm:limitAbstractProgramme;
+     sh:class skos:Concept;
+     sh:description "Abstract programme or qualification to which the accreditation applies. It should be provided using SKOS concept that represents the abstract programme. For example, if accreditation is valid for a specific abstract programme, such as 'Computer Science', this property can be used to specify that information."@en;
+     sh:name "limit abstract programme"@en;
+     sh:severity sh:Violation;
+     #sh:order 12;
+  ];
   sh:property [
     sh:path elm:accreditingAgent;
     sh:class elm:Organisation;
@@ -171,7 +178,7 @@ ams:AccreditationShape
     sh:description "The Quality Assuring Authority (i.e., assurer)."@en;
     sh:name "accrediting agent"@en;
     sh:severity sh:Violation;
-    #sh:order 12;
+    #sh:order 13;
   ];
   sh:property [
     sh:path dc:issued;
@@ -180,7 +187,7 @@ ams:AccreditationShape
     sh:description "The date when the accreditation was formally approved/issued."@en;
     sh:name "accreditation date issued"@en;
     sh:severity sh:Violation;
-    #sh:order 13;
+    #sh:order 14;
   ];
   sh:property [
     sh:path elm:reviewDate;
@@ -189,7 +196,7 @@ ams:AccreditationShape
     sh:description "The date when the accreditation has to be re-viewed."@en;
     sh:name "review date"@en;
     sh:severity sh:Violation;
-    #sh:order 14;
+    #sh:order 15;
   ];
   sh:property [
     sh:path elm:expiryDate;
@@ -198,7 +205,7 @@ ams:AccreditationShape
     sh:description "The date when the accreditation expires or was expired."@en;
     sh:name "expiry date"@en;
     sh:severity sh:Violation;
-    #sh:order 15;
+    #sh:order 16;
   ];
   sh:property [
     sh:path elm:additionalNote;
@@ -206,7 +213,7 @@ ams:AccreditationShape
     sh:description "An additional free text note about the accreditation."@en;
     sh:name "more information"@en;
     sh:severity sh:Violation;
-    #sh:order 16;
+    #sh:order 17;
   ];
   sh:property [
     sh:path foaf:homepage;
@@ -215,7 +222,7 @@ ams:AccreditationShape
     sh:name "homepage"@en;
     sh:severity sh:Violation;
     sh:node ams:URLRegexRestriction;
-    #sh:order 17;
+    #sh:order 18;
   ];
   sh:property [
     sh:path elm:landingPage;
@@ -223,7 +230,7 @@ ams:AccreditationShape
     sh:description "The landing page of the accreditation."@en;
     sh:name "landing page"@en;
     sh:severity sh:Violation;
-    #sh:order 18;
+    #sh:order 19;
   ];
   sh:property [
     sh:path elm:supplementaryDocument;
@@ -232,16 +239,16 @@ ams:AccreditationShape
     sh:name "other documents"@en;
     sh:severity sh:Violation;
     sh:node ams:URLRegexRestriction;
-    #sh:order 19;
+    #sh:order 20;
   ];
   sh:property [
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the accreditation."@en;
     sh:name "status"@en;
     sh:severity sh:Violation;
-    #sh:order 20;
+    #sh:order 21;
   ];
   sh:property [
     sh:path dc:modified;
@@ -250,7 +257,7 @@ ams:AccreditationShape
     sh:description "The date when the accreditation was last updated since it was published."@en;
     sh:name "last modification date"@en;
     sh:severity sh:Violation;
-    #sh:order 21;
+    #sh:order 22;
   ];
   sh:property[
     sh:path dc:publisher;
@@ -261,7 +268,7 @@ ams:AccreditationShape
           );
     sh:description "The publisher of the Accreditation."@en;
     sh:name "publisher"@en;
-    #sh:order 22;
+    #sh:order 23;
     sh:severity sh:Violation; 
   ];
   sh:property[
@@ -271,7 +278,7 @@ ams:AccreditationShape
     sh:description "The date when the accreditation became valid."@en;
     sh:name "validation  date"@en;
     sh:severity sh:Violation;
-    #sh:order 23;
+    #sh:order 24;
   ]
 .
 
@@ -355,7 +362,7 @@ ams:AgentShape
   ];
   sh:property[
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the agent."@en;
     sh:name "status"@en;
@@ -627,7 +634,7 @@ ams:OrganisationShape
   ];
   sh:property[
     sh:path elm:status;
-    sh:class xsd:string;
+    sh:datatype xsd:string;
     sh:maxCount 1;
     sh:description "The publication status of the organisation."@en;
     sh:name "status"@en;
@@ -808,11 +815,10 @@ ams:ContactPointShape
     #sh:order 3;
   ];
   sh:property [
-    sh:path elm:mailbox;
-    sh:class elm:Mailbox;
-    sh:minCount 1;
+    sh:path elm:emailAddress;
+    sh:class elm:EmailAddress;
     sh:description "An e-mail address used for contacting the agent."@en;
-    sh:name "mailbox"@en;
+    sh:name "emailAddress"@en;
     sh:severity sh:Violation;
     sh:and (
       [
@@ -1013,14 +1019,14 @@ ams:LegalIdentifierShape
   ];
   .
 
-#------ Mailbox class and property  shapes --------
-ams:MailboxShape
+#------ EmailAddress class and property  shapes --------
+ams:EmailAddressShape
   a sh:NodeShape;
   sh:closed true ;
   sh:ignoredProperties (rdf:type) ;
-  sh:targetClass elm:Mailbox;
-  rdfs:comment "A mailbox."@en;
-  rdfs:label "Mailbox Shape"@en;
+  sh:targetClass elm:EmailAddress;
+  rdfs:comment "An e-mail address."@en;
+  rdfs:label "Email Address Shape"@en;
   .
 
 #------ Media Object class and property  shapes --------

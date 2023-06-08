@@ -34,7 +34,7 @@
            xmlns:cp="http://data.europa.eu/snb/education-credit/25831c2"
            xmlns:curr="http://publications.europa.eu/resource/authority/currency"
            targetNamespace="http://data.europa.eu/snb/model/ap/loq-constraints/"
-           elementFormDefault="qualified" version="3.0.0">
+           elementFormDefault="qualified" version="3.1.0">
 
    <xs:include schemaLocation="cv/loq_individuals.xsd"/>
 
@@ -375,7 +375,7 @@
    <xs:element name="learningAssessmentSpecification" type="LearningAssessmentSpecificationType"/>
    <xs:element name="learningEntitlementSpecification" type="LearningEntitlementSpecificationType"/>
    <xs:element name="learningOpportunity" type="LearningOpportunityType"/>
-   <xs:element name="mailbox" type="MailboxType"/>
+   <xs:element name="emailAddress" type="EmailAddressType"/>
    <xs:element name="phone" type="PhoneType"/>
    <xs:element name="priceDetail" type="PriceDetailType"/>
    <xs:element name="qualification" type="QualificationType"/>
@@ -521,7 +521,7 @@
                <xs:documentation>A publicly accessible report of the quality assurance decision.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element maxOccurs="1" minOccurs="1" name="organisation" type="IdReferenceType">
+         <xs:element maxOccurs="unbounded" minOccurs="1" name="organisation" type="IdReferenceType">
             <xs:annotation>
                <xs:documentation>The organisation whose activities are being accredited. It MUST refer to an existing 'organisation'-record in the 'agentReferences'-section.</xs:documentation>
             </xs:annotation>
@@ -772,9 +772,9 @@
                <xs:documentation>A phone number used for contacting the agent.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element maxOccurs="unbounded" minOccurs="1" ref="mailbox">
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="emailAddress">
             <xs:annotation>
-               <xs:documentation>An e-mail or wallet address used for contacting the agent.</xs:documentation>
+               <xs:documentation>An e-mail address used for contacting the agent.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element maxOccurs="unbounded" minOccurs="0" ref="contactForm">
@@ -1543,9 +1543,9 @@
       </xs:complexContent>
    </xs:complexType>
 
-   <xs:complexType name="MailboxType">
+   <xs:complexType name="EmailAddressType">
       <xs:annotation>
-         <xs:documentation>A mailbox.</xs:documentation>
+         <xs:documentation>An e-mail address.</xs:documentation>
       </xs:annotation>
       <xs:simpleContent>
          <xs:extension base="xs:anyURI"/>
@@ -2014,13 +2014,14 @@
             </xs:annotation>
          </xs:element>
       </xs:sequence>
-      <xs:attribute name="xsdVersion" use="optional" default="3.0.0">
+      <xs:attribute name="xsdVersion" use="optional" default="3.1.0">
          <xs:annotation>
             <xs:documentation>used xsd version</xs:documentation>
          </xs:annotation>
          <xs:simpleType>
             <xs:restriction base="xs:token">
                <xs:enumeration value="3.0.0"/>
+               <xs:enumeration value="3.1.0"/>
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>

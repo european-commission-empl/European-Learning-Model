@@ -131,7 +131,7 @@
         table {
             display: table;
             border-spacing: 0px;
-            margin-botton: 1rem;
+            margin-bottom: 1rem;
         }
 
         tr:nth-child(even) {
@@ -203,13 +203,13 @@
             top: 0;
             left: 0;
             font-size: small;
-            padding: 10px 20px;
+            padding: 10px 10px;
             width: auto;
             border-right: solid 2px #eeeeee;
             bottom: 0;
             overflow-y: scroll;
             background-color:white;
-            max-width:275px;
+            max-width:255px;
         }
         .sp_list_toc {padding-left: 0px;}
     </style>
@@ -224,7 +224,7 @@
 <body>
 <div class="sp_container_principal container pt-4">
     <h1 class="mb-4 sp_section_title_header">SHACL constraints for Accreditation Metadata Schema application profile</h1>
-    <div><b>Creation date: </b>2021-09-10<br><b>Last updated: </b>2022-09-14<br><b>Version: </b>1.0.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
+    <div><b>Creation date: </b>2021-09-10<br><b>Last updated: </b>2023-06-05<br><b>Version: </b>1.1.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
     <div class="row mt-3">
         <div class="col">
             <h2 id="abstract" class="sp_section_subtitle">Abstract</h2>This document specifies the set  classes and properties used in the Accreditation Metadata Schema application profile, and the constraints on occurrences and values used.</div>
@@ -240,12 +240,12 @@
             <li><a href="#ams:ConceptScheme">Concept  Scheme Shape</a></li>
             <li><a href="#ams:ConceptShape">Concept Shape</a></li>
             <li><a href="#ams:ContactPointShape">Contact Point Shape</a></li>
+            <li><a href="#ams:EmailAddressShape">Email Address Shape</a></li>
             <li><a href="#ams:GeometryShape">Geometry Shape</a></li>
             <li><a href="#ams:GroupShape">Group Shape</a></li>
             <li><a href="#ams:IdentifierShape">Identifier Shape</a></li>
             <li><a href="#ams:LegalIdentifierShape">Legal Identifier Shape</a></li>
             <li><a href="#ams:LocationShape">Location Shape</a></li>
-            <li><a href="#ams:MailboxShape">Mailbox Shape</a></li>
             <li><a href="#ams:MediaObjectShape">Media Object Shape</a></li>
             <li><a href="#ams:NoteShape">Note Shape</a></li>
             <li><a href="#ams:OrganisationShape">Organisation Shape</a></li>
@@ -452,6 +452,18 @@
                         <td class="sp_table_propertyshapes_col_description">The date when the accreditation was last updated since it was published.</td>
                     </tr>
                     <tr>
+                        <td>limit abstract programme</td>
+                        <td><code><a href="http://data.europa.eu/snb/model/elm/limitAbstractProgramme">elm:limitAbstractProgramme</a></code></td>
+                        <td><code><a href="#ams:ConceptShape">Concept Shape</a></code><br></td>
+                        <td>
+                            <div style="width:30px">0..*</div>
+                        </td>
+                        <td class="sp_table_propertyshapes_col_description">Abstract programme or qualification to which the accreditation applies. It should
+                            be provided using SKOS concept that represents the abstract programme. For example,
+                            if accreditation is valid for a specific abstract programme, such as 'Computer Science',
+                            this property can be used to specify that information.</td>
+                    </tr>
+                    <tr>
                         <td>limit credential type</td>
                         <td><code><a href="http://data.europa.eu/snb/model/elm/limitCredentialType">elm:limitCredentialType</a></code></td>
                         <td><code><a href="#ams:ConceptShape">Concept Shape</a></code><br></td>
@@ -475,7 +487,7 @@
                         <td><code><a href="http://data.europa.eu/snb/model/elm/organisation">elm:organisation</a></code></td>
                         <td><code><a href="#ams:OrganisationShape">Organisation Shape</a></code><br></td>
                         <td>
-                            <div style="width:30px">1..1</div>
+                            <div style="width:30px">1..*</div>
                         </td>
                         <td class="sp_table_propertyshapes_col_description">The organisation whose activities are being accredited.</td>
                     </tr>
@@ -853,11 +865,11 @@
                     <td class="sp_table_propertyshapes_col_description">A free text description of the contact details.</td>
                 </tr>
                 <tr>
-                    <td>mailbox</td>
-                    <td><code><a href="http://data.europa.eu/snb/model/elm/mailbox">elm:mailbox</a></code></td>
-                    <td><code><a href="#ams:MailboxShape">Mailbox Shape</a></code><br></td>
+                    <td>emailAddress</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/emailAddress">elm:emailAddress</a></code></td>
+                    <td><code><a href="#ams:EmailAddressShape">Email Address Shape</a></code><br></td>
                     <td>
-                        <div style="width:30px">1..*</div>
+                        <div style="width:30px">0..*</div>
                     </td>
                     <td class="sp_table_propertyshapes_col_description">An e-mail address used for contacting the agent.</td>
                 </tr>
@@ -881,6 +893,19 @@
                 </tr>
                 </tbody>
             </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id="ams:EmailAddressShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Email Address Shape</h2>
+            </div>
+            <p><em>An e-mail address.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/EmailAddress">elm:EmailAddress</a></li>
+                <li>Closed shape</li>
+            </ul>
         </section>
     </div>
 </div><br><div class="row mt-3">
@@ -1305,19 +1330,6 @@
                 </tr>
                 </tbody>
             </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id="ams:MailboxShape">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Mailbox Shape</h2>
-            </div>
-            <p><em>A mailbox.</em></p>
-            <ul class="sp_list_description_properties">
-                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Mailbox">elm:Mailbox</a></li>
-                <li>Closed shape</li>
-            </ul>
         </section>
     </div>
 </div><br><div class="row mt-3">

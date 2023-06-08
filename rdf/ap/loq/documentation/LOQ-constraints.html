@@ -131,7 +131,7 @@
         table {
             display: table;
             border-spacing: 0px;
-            margin-botton: 1rem;
+            margin-bottom: 1rem;
         }
 
         tr:nth-child(even) {
@@ -203,13 +203,13 @@
             top: 0;
             left: 0;
             font-size: small;
-            padding: 10px 20px;
+            padding: 10px 10px;
             width: auto;
             border-right: solid 2px #eeeeee;
             bottom: 0;
             overflow-y: scroll;
             background-color:white;
-            max-width:275px;
+            max-width:255px;
         }
         .sp_list_toc {padding-left: 0px;}
     </style>
@@ -225,7 +225,7 @@
 <div class="sp_container_principal container pt-4">
     <h1 class="mb-4 sp_section_title_header">SHACL constraints for the Learning Opportunity and Qualification Schema application
         profile</h1>
-    <div><b>Creation date: </b>2021-09-10<br><b>Last updated: </b>2022-09-14<br><b>Version: </b>1.0.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
+    <div><b>Creation date: </b>2021-09-10<br><b>Last updated: </b>2023-06-05<br><b>Version: </b>1.1.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
     <div class="row mt-3">
         <div class="col">
             <h2 id="abstract" class="sp_section_subtitle">Abstract</h2>This document specifies the set of classes and properties used in the LOMS application profile,
@@ -244,6 +244,7 @@
             <li><a href="#:ConceptShape">Concept Shape</a></li>
             <li><a href="#:ContactPointShape">Contact Point Shape</a></li>
             <li><a href="#:CreditPointShape">Credit Points Shape</a></li>
+            <li><a href="#:EmailAddressShape">Email Address Shape</a></li>
             <li><a href="#:GeometryShape">Geometry Shape</a></li>
             <li><a href="#:GradingSchemeShape">Grading Scheme Shape</a></li>
             <li><a href="#:GrantShape">Grant Shape</a></li>
@@ -257,7 +258,6 @@
             <li><a href="#:LearningOutcomeShape">Learning Outcome Shape</a></li>
             <li><a href="#:LegalIdentifierShape">Legal Identifier Shape</a></li>
             <li><a href="#:LocationShape">Location Shape</a></li>
-            <li><a href="#:MailboxShape">Mailbox Shape</a></li>
             <li><a href="#:MediaObjectShape">Media Object Shape</a></li>
             <li><a href="#:NoteShape">Note Shape</a></li>
             <li><a href="#:OrganisationShape">Organisation Shape</a></li>
@@ -481,7 +481,7 @@
                     <td><code><a href="http://data.europa.eu/snb/model/elm/organisation">elm:organisation</a></code></td>
                     <td><code><a href="#:OrganisationShape">Organisation Shape</a></code><br></td>
                     <td>
-                        <div style="width:30px">1..1</div>
+                        <div style="width:30px">1..*</div>
                     </td>
                     <td class="sp_table_propertyshapes_col_description">The organisation whose activities are being accredited.</td>
                 </tr>
@@ -989,11 +989,11 @@
                     <td class="sp_table_propertyshapes_col_description">A free text description of the contact details.</td>
                 </tr>
                 <tr>
-                    <td>mailbox</td>
-                    <td><code><a href="http://data.europa.eu/snb/model/elm/mailbox">elm:mailbox</a></code></td>
-                    <td><code><a href="#:MailboxShape">Mailbox Shape</a></code><br></td>
+                    <td>emailAddress</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/emailAddress">elm:emailAddress</a></code></td>
+                    <td><code><a href="#:EmailAddressShape">Email Address Shape</a></code><br></td>
                     <td>
-                        <div style="width:30px">1..*</div>
+                        <div style="width:30px">0..*</div>
                     </td>
                     <td class="sp_table_propertyshapes_col_description">An e-mail address used for contacting the agent.</td>
                 </tr>
@@ -1062,6 +1062,19 @@
                 </tr>
                 </tbody>
             </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":EmailAddressShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Email Address Shape</h2>
+            </div>
+            <p><em>An e-mail address.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/EmailAddress">elm:EmailAddress</a></li>
+                <li>Closed shape</li>
+            </ul>
         </section>
     </div>
 </div><br><div class="row mt-3">
@@ -2390,15 +2403,6 @@
                 </tr>
                 <tr>
                     <td>status</td>
-                    <td><code><a href="http://data.europa.eu/snb/model/elm/status">elm:status</a></code></td>
-                    <td><code>xsd:string</code><br></td>
-                    <td>
-                        <div style="width:30px">0..1</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description">The publication status of the learning entitlement specification.</td>
-                </tr>
-                <tr>
-                    <td>status</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/entitlementStatus">elm:entitlementStatus</a></code></td>
                     <td><code><a href="#:ConceptShape">Concept Shape</a></code><br></td>
                     <td>
@@ -2406,6 +2410,15 @@
                     </td>
                     <td class="sp_table_propertyshapes_col_description">The status of the learning entitlement specification. It should be provided using
                         the EDC Controlled List of Entitlement Status.</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/status">elm:status</a></code></td>
+                    <td><code>xsd:string</code><br></td>
+                    <td>
+                        <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description">The publication status of the learning entitlement specification.</td>
                 </tr>
                 <tr>
                     <td>title</td>
@@ -3012,19 +3025,6 @@
                 </tr>
                 </tbody>
             </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":MailboxShape">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Mailbox Shape</h2>
-            </div>
-            <p><em>A mailbox.</em></p>
-            <ul class="sp_list_description_properties">
-                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Mailbox">elm:Mailbox</a></li>
-                <li>Closed shape</li>
-            </ul>
         </section>
     </div>
 </div><br><div class="row mt-3">
