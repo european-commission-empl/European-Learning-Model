@@ -1,0 +1,192 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:locn="http://www.w3.org/ns/locn#"
+    xmlns:clv="http://data.europa.eu/m8g/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:rov="http://www.w3.org/ns/regorg#"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:cred="https://www.w3.org/2018/credentials#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:sh="http://www.w3.org/ns/shacl#"
+    xmlns:elm="http://data.europa.eu/snb/model/elm/"
+    xmlns:cpv="http://www.w3.org/ns/person#"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:org="http://www.w3.org/ns/org#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement">
+    <dc:publisher rdf:resource="http://publications.europa.eu/resource/authority/corporate-body/DEMP"/>
+    <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
+    <rdfs:label xml:lang="en">SHACL constraints for EDC - Diploma Supplement Application Profile</rdfs:label>
+    <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2021-09-10</dc:created>
+    <owl:imports rdf:resource="http://data.europa.eu/snb/model/ap/edc-accredited"/>
+    <dc:description xml:lang="en">SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used.</dc:description>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2023-06-05</dc:modified>
+    <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <owl:versionInfo>1.1.0</owl:versionInfo>
+    <rdfs:comment xml:lang="en">This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</rdfs:comment>
+    <dc:title xml:lang="en">SHACL constraints for European Digital Credentials - Diploma Supplement application profile</dc:title>
+  </owl:Ontology>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/PersonShape">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Person-elm_dateOfBirth">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:name xml:lang="en">date of birth</sh:name>
+        <sh:description xml:lang="en">The date of birth of the person.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/dateOfBirth"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Person-foaf_fullName">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:name xml:lang="en">full name</sh:name>
+        <sh:description xml:lang="en">The complete name of the person as one string.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+        <sh:path rdf:resource="http://xmlns.com/foaf/0.1/fullName"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <rdfs:label xml:lang="en">Person </rdfs:label>
+    <rdfs:comment xml:lang="en">A human being. Person is a subclass of Agent.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Person"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/LearningAchievementShape">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/LearningAchievement-elm_provenBy">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">proven by</sh:name>
+        <sh:description xml:lang="en">An assessment which proves the acquisition of the learning outcomes which make up the achievement.</sh:description>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/LearningAssessment"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/provenBy"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/LearningAchievement-elm_creditReceived">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">credit received</sh:name>
+        <sh:description xml:lang="en">The credit points received for this learning achievement.</sh:description>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/CreditPoint"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/creditReceived"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <rdfs:label xml:lang="en">Learning Achievement </rdfs:label>
+    <rdfs:comment xml:lang="en">The acquisition of knowledge, skills or responsibility and autonomy. A recognised and/or awarded set of learning outcomes of an individual. Learning Achievement is a subclass of Claim.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/LearningAchievement"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/QualificationShape">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Qualification-elm_mode">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">mode</sh:name>
+        <sh:description xml:lang="en">The mode of learning, and or assessment. It should be provided using the EDC Controlled List of Modes Of Learning and Assessment.</sh:description>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/mode"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Qualification-elm_maximumDuration">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:name xml:lang="en">maximum duration</sh:name>
+        <sh:description xml:lang="en">The maximum duration (in months) that a person may use to complete the learning opportunity for which this qualification is designed.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/maximumDuration"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Qualification-elm_hasPart">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">has part</sh:name>
+        <sh:description xml:lang="en">A qualification can be composed of other partial qualification which when combined make up this qualification.</sh:description>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Qualification"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/hasPart"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Qualification-elm_learningOutcome">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">learning outcome</sh:name>
+        <sh:description xml:lang="en">An individual (expected) learning outcome of the qualification.</sh:description>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/LearningOutcome"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/learningOutcome"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Qualification"/>
+    <rdfs:comment xml:lang="en">A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards. Qualification is a subclass of Learning Achievement Specification.</rdfs:comment>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Qualification-elm_awardingOpportunity">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">awarding information</sh:name>
+        <sh:description xml:lang="en">Refers to an activity related to the awarding of the qualification, such as the country or region where the qualification is awarded, the awarding body and optionally the awarding period now or in the past.</sh:description>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/AwardingOpportunity"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/awardingOpportunity"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <rdfs:label xml:lang="en">Qualification </rdfs:label>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Qualification-elm_ISCEDFCode">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">thematic area</sh:name>
+        <sh:description xml:lang="en">Thematic Area according to the ISCED-F 2013 classification. It should be provided using the ISCEDF controlled vocabulary.</sh:description>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/ISCEDFCode"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Qualification-dc_language">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">language</sh:name>
+        <sh:description xml:lang="en">The language of the qualification. It should be provided using the Language Named Authority List.</sh:description>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:path rdf:resource="http://purl.org/dc/terms/language"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/Qualification-elm_NQFLevel">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">QF level</sh:name>
+        <sh:description xml:lang="en">The qualification level as specified by a Qualification Framework. It should be provided using a controlled vocabulary.</sh:description>
+        <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/NQFLevel"/>
+      </sh:PropertyShape>
+    </sh:property>
+  </sh:NodeShape>
+</rdf:RDF>

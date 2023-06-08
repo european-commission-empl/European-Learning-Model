@@ -1,0 +1,92 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:locn="http://www.w3.org/ns/locn#"
+    xmlns:clv="http://data.europa.eu/m8g/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:rov="http://www.w3.org/ns/regorg#"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns="http://data.europa.eu/snb/model/ap/edc-accredited/"
+    xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:cred="https://www.w3.org/2018/credentials#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:sh="http://www.w3.org/ns/shacl#"
+    xmlns:elm="http://data.europa.eu/snb/model/elm/"
+    xmlns:cpv="http://www.w3.org/ns/person#"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:org="http://www.w3.org/ns/org#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://data.europa.eu/snb/model/ap/edc-accredited">
+    <dc:publisher rdf:resource="http://publications.europa.eu/resource/authority/corporate-body/DEMP"/>
+    <dc:title xml:lang="en">SHACL constraints for European Digital Credentials - Accredited application profile</dc:title>
+    <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <rdfs:label xml:lang="en">SHACL constraints for EDC - Accredited Application Profile</rdfs:label>
+    <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2021-09-10</dc:created>
+    <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
+    <dc:description xml:lang="en">SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used.</dc:description>
+    <rdfs:comment xml:lang="en">This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</rdfs:comment>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2023-06-05</dc:modified>
+    <owl:versionInfo>1.1.0</owl:versionInfo>
+    <owl:imports rdf:resource="http://data.europa.eu/snb/model/ap/edc-generic-full"/>
+  </owl:Ontology>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-accredited/EvidenceShape">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:name xml:lang="en">evidence accreditation</sh:name>
+      <sh:description xml:lang="en">The accreditation of the evidence.</sh:description>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:minCount>
+      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Accreditation"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/accreditation"/>
+    </sh:property>
+    <rdfs:label xml:lang="en">Evidence </rdfs:label>
+    <rdfs:comment xml:lang="en">The evidence of the verifiable credential. It contains information about the process which resulted in the issuance of the verifiable credential.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Evidence"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-accredited/EuropeanDigitalCredentialShape">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-accredited/EuropeanDigitalCredential-cred_evidence">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:name xml:lang="en">evidence</sh:name>
+        <sh:description xml:lang="en">The evidence of the european digital credential.</sh:description>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Evidence"/>
+        <sh:path rdf:resource="https://www.w3.org/2018/credentials#evidence"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <rdfs:label xml:lang="en">European Digital Credential </rdfs:label>
+    <rdfs:comment xml:lang="en">A set of claims made by an issuer in Europe, using the EDC Standards. A European Digital Credential for Learning is a set of one or more claims which may be used to demonstrate that the owner has certain skills or has achieved certain learning outcomes through formal, non-formal or informal learning. European Digital Credential class is a subclass of Verifiable Credential.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/EuropeanDigitalCredential"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-accredited/PersonShape">
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-accredited/Person-elm_hasClaim">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:name xml:lang="en">has claim</sh:name>
+        <sh:description xml:lang="en">A claim of the person. A person should have at least one claim. It is strongly recommended to use the subclasses of the Claim directly here (e.g Learning Achievement, Learning Activity, Learning Assessment, Learning Entitlement) and only use the Claim superclass in the rare occasion when the claim provided is not covered by the existing subclasses.</sh:description>
+        <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:maxCount>
+        <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</sh:minCount>
+        <sh:node>
+          <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-accredited/ClaimNodeShape">
+            <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/LearningAchievement"/>
+            <sh:message>The node is a Claim, which is either a Learning Achievement, or a  Learning Activity, or a Learning Assessment or a Learning Entitlement and rarely a Claim with type property being mandatory.</sh:message>
+            <rdfs:comment xml:lang="en">This shape is used for validation purposes, in case the range of a property is a Claim (superclass). A Claim Node is either a Learning Achievement Shape, a Learning Activity Shape, a Learning Assessment Shape, a Learning Entitlement Shape, and rarely it can be a Claim Type Node Shape, that is a Claim where the extra restriction of type property being mandatory is imposed. It is strongly recommended to use the subclasses of the Claim (e.g Learning Achievement, Learning Activity, Learning Assessment, Learning Entitlement) and only use the Claim superclass in the rare occasion when the claim provided is not covered by the existing subclasses. In such case, the node shape used for validation of the Claim is the Claim Type Node Shape, where it is mandatory to provide type of the claim using a controlled list.</rdfs:comment>
+            <rdfs:label>Claim Node </rdfs:label>
+          </sh:NodeShape>
+        </sh:node>
+        <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/hasClaim"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <rdfs:label xml:lang="en">Person </rdfs:label>
+    <rdfs:comment xml:lang="en">A human being. Person is a subclass of Agent.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Person"/>
+  </sh:NodeShape>
+</rdf:RDF>
