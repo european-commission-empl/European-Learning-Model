@@ -1,0 +1,466 @@
+<rdf:RDF
+    xmlns:locn="http://www.w3.org/ns/locn#"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:gr="http://purl.org/goodrelations/v1#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:ams="http://data.europa.eu/snb/model/ap/ams-constraints/"
+    xmlns:sh="http://www.w3.org/ns/shacl#"
+    xmlns:elm="http://data.europa.eu/snb/model/elm/"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:org="http://www.w3.org/ns/org#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:loq="https://data.europa.eu/snb/model/ap/loq-constraints/"
+    xmlns:vc="http://data.europa.eu/snb/model/w3c/vc/"
+    xmlns:clv="http://data.europa.eu/m8g/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:rov="http://www.w3.org/ns/regorg#"
+    xmlns:vp="http://data.europa.eu/snb/model/w3c/vp/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:cred="https://www.w3.org/2018/credentials#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/"
+    xmlns:cpv="http://www.w3.org/ns/person#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <owl:Ontology rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr">
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+    <owl:imports rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <owl:imports rdf:resource="http://data.europa.eu/snb/model/elm/"/>
+    <dc:description xml:lang="en">Learning Opportunity Metadata Schema constraints for the controlled vocabularies used by Learning Opportunity Metadata Schema application profile, provides the constraints on controlled vocabularies used.</dc:description>
+    <owl:imports rdf:resource="https://data.europa.eu/snb/model/ap/loq-constraints/"/>
+    <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
+    <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    <rdfs:label xml:lang="en">Controlled Vocabularies SHACL constraints for LOMS Application Profile</rdfs:label>
+    <owl:imports rdf:resource="http://www.w3.org/ns/adms#"/>
+    <dc:title xml:lang="en">SHACL constraints for the controlled vocabularies used by Learning Opportunity Metadata Schema application profile</dc:title>
+    <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2021-10-05</dc:created>
+    <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
+    <dc:publisher rdf:resource="http://publications.europa.eu/resource/authority/corporate-body/DEMP"/>
+    <owl:versionInfo>1.1.0</owl:versionInfo>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2023-06-05</dc:modified>
+    <owl:import rdf:resource="http://purl.org/dc/terms/"/>
+    <rdfs:comment xml:lang="en">This document specifies the set of SHACL constraints on classes and properties used in the Learning Opportunity Metadata Schema application profile, with respect to the controlled vocabularies used.</rdfs:comment>
+    <owl:imports rdf:resource="http://data.europa.eu/snb/model/ap/ams-constraints/"/>
+    <owl:imports rdf:resource="http://www.w3.org/ns/shacl#"/>
+  </owl:Ontology>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/WebResourceShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://purl.org/dc/terms/language"/>
+      <sh:name xml:lang="en">language</sh:name>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LanguageRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+          </sh:property>
+          <rdfs:label>Language restriction</rdfs:label>
+          <rdfs:comment>Language restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/WebResource"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningOutcomeShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/relatedESCOSkill"/>
+      <sh:name xml:lang="en">related ESCO skill(s)</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/EscoSkillRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:pattern>^https://ec.europa.eu/esco/skill/</sh:pattern>
+          </sh:property>
+          <rdfs:label>ESCO Skill restriction</rdfs:label>
+          <rdfs:comment>ESCO Skill restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/reusabilityLevel"/>
+      <sh:name xml:lang="en">reusability level</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/ReusabilityLevelRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://data.europa.eu/snb/skill-reuse-level/25831c2"/>
+          </sh:property>
+          <rdfs:label>Reusability Level restriction</rdfs:label>
+          <rdfs:comment>Reusability Level restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
+      <sh:name xml:lang="en">type</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningOutcomeTypeRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://data.europa.eu/snb/skill-type/25831c2"/>
+          </sh:property>
+          <rdfs:label>Learning Outcome Type restriction</rdfs:label>
+          <rdfs:comment>Learning Outcome Type restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/LearningOutcome"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/AccreditationShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:name xml:lang="en">status</sh:name>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/status"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/AccreditationStatusRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:hasValue rdf:resource="https://publications.europa.eu/resource/authority/snb/status/25831c2"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+          </sh:property>
+          <rdfs:label>Accreditation Status restriction</rdfs:label>
+          <rdfs:comment>Accreditation Status restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/limitJurisdiction"/>
+      <sh:name xml:lang="en">accredited in jurisdiction</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/JurisdictionRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://publications.europa.eu/resource/authority/atu"/>
+          </sh:property>
+          <rdfs:label>Jurisdiction restriction</rdfs:label>
+          <rdfs:comment>Jurisdiction restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:minCount>
+      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
+      <sh:name xml:lang="en">type</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/AccreditationTypeRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://data.europa.eu/snb/accreditation/25831c2"/>
+          </sh:property>
+          <rdfs:label>Accreditation Type restriction</rdfs:label>
+          <rdfs:comment>Accreditation Type restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Accreditation"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningActivitySpecificationShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://purl.org/dc/terms/language"/>
+      <sh:name xml:lang="en">language</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LanguageRestriction"/>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/LearningActivitySpecification"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/QualificationShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/NQFLevel"/>
+      <sh:name xml:lang="en">NQF level</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/NQFLevelRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://data.europa.eu/snb/qdr/25831c2"/>
+          </sh:property>
+          <rdfs:label>NQF Level restriction</rdfs:label>
+          <rdfs:comment>NQF Level restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:minCount>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/EQFLevel"/>
+      <sh:name xml:lang="en">EQF level</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/EQFLevelRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://data.europa.eu/snb/eqf/25831c2"/>
+          </sh:property>
+          <rdfs:label>EQF Level restriction</rdfs:label>
+          <rdfs:comment>EQF Level restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/learningSetting"/>
+      <sh:name xml:lang="en">learning setting</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningSettingRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://data.europa.eu/snb/learning-setting/25831c2"/>
+          </sh:property>
+          <rdfs:label>Learning Setting restriction</rdfs:label>
+          <rdfs:comment>Learning Setting restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:name xml:lang="en">language</sh:name>
+      <sh:path rdf:resource="http://purl.org/dc/terms/language"/>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LanguageRestriction"/>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/ISCEDFCode"/>
+      <sh:name xml:lang="en">thematic area</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/ThematicAreaRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://data.europa.eu/snb/isced-f/25831c2"/>
+          </sh:property>
+          <rdfs:label>Thematic Area restriction</rdfs:label>
+          <rdfs:comment>Thematic Area restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Qualification"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LegalIdentifierShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:minCount>
+      <sh:path rdf:resource="http://purl.org/dc/terms/spatial"/>
+      <sh:name xml:lang="en">spatial</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/CountryRegionRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+            <sh:in rdf:parseType="Collection">
+              <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/country"/>
+              <rdf:Description rdf:about="http://data.europa.eu/nuts"/>
+            </sh:in>
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+          </sh:property>
+          <rdfs:label>Country Region restriction</rdfs:label>
+          <rdfs:comment>Country Region restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/LegalIdentifier"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/AddressShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/countryCode"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:minCount>
+      <sh:name xml:lang="en">country</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/CountryRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://publications.europa.eu/resource/authority/country"/>
+          </sh:property>
+          <rdfs:label>Country restriction</rdfs:label>
+          <rdfs:comment>Country restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Address"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningEntitlementSpecificationShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/limitOccupation"/>
+      <sh:name xml:lang="en">related occupation</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/EscoOccupationRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:pattern>^http://data.europa.eu/esco/occupation</sh:pattern>
+          </sh:property>
+          <rdfs:label>ESCO Occupation restriction</rdfs:label>
+          <rdfs:comment>ESCO Occupation restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/limitJurisdiction"/>
+      <sh:name xml:lang="en">valid within</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/JurisdictionRestriction"/>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:minCount>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/status"/>
+      <sh:name xml:lang="en">status</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningEntitlementStatusRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://data.europa.eu/snb/entitlement-status/25831c2"/>
+          </sh:property>
+          <rdfs:label>Learning Entitlement Status restriction</rdfs:label>
+          <rdfs:comment>Learning Entitlement Status restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/LearningEntitlementSpecification"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningOpportunityTypeRestriction">
+    <sh:property rdf:parseType="Resource">
+      <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:hasValue rdf:resource="http://data.europa.eu/snb/learning-opportunity/25831c2"/>
+    </sh:property>
+    <rdfs:label>Learning Opportunity Type Restriction</rdfs:label>
+    <rdfs:comment>Learning Opportunity Type Restriction</rdfs:comment>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningAssessmentSpecificationShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://purl.org/dc/terms/language"/>
+      <sh:name xml:lang="en">language</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LanguageRestriction"/>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/LearningAssessmentSpecification"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningOpportunityShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/defaultLanguage"/>
+      <sh:name xml:lang="en">default language</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LanguageRestriction"/>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/LearningOpportunity"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningAchievementSpecificationShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/learningSetting"/>
+      <sh:name xml:lang="en">learning setting</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LearningSettingRestriction"/>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:name xml:lang="en">language</sh:name>
+      <sh:path rdf:resource="http://purl.org/dc/terms/language"/>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/LanguageRestriction"/>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/ISCEDFCode"/>
+      <sh:name xml:lang="en">thematic area</sh:name>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/ThematicAreaRestriction"/>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/AmountShapeCV">
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:name xml:lang="en">unit</sh:name>
+      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:maxCount>
+      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:minCount>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/unit"/>
+      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+      <sh:node>
+        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/loq-constraints-mdr/AmountUnitRestriction">
+          <sh:property rdf:parseType="Resource">
+            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+            <sh:hasValue rdf:resource="http://publications.europa.eu/resource/authority/currency"/>
+          </sh:property>
+          <rdfs:label>Amount Unit restriction</rdfs:label>
+          <rdfs:comment>Amount Unit restriction</rdfs:comment>
+        </sh:NodeShape>
+      </sh:node>
+    </sh:property>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Amount"/>
+  </sh:NodeShape>
+</rdf:RDF>
