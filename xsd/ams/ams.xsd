@@ -134,7 +134,7 @@
    <xs:element name="contactPoint" type="ContactPointType"/>
    <xs:element name="group" type="GroupType"/>
    <xs:element name="identifier" type="IdentifierType"/>
-   <xs:element name="mailbox" type="MailboxType"/>
+   <xs:element name="emailAddress" type="EmailAddressType"/>
    <xs:element name="phone" type="PhoneType"/>
 
    <!-- PROPERTIES  -->
@@ -444,9 +444,9 @@
                </xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element ref="mailbox" maxOccurs="unbounded" minOccurs="0">
+         <xs:element ref="emailAddress" maxOccurs="unbounded" minOccurs="0">
             <xs:annotation>
-               <xs:documentation>An email/wallet address used for contacting the agent.</xs:documentation>
+               <xs:documentation>An e-mail address used for contacting the agent.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element ref="contactForm" minOccurs="0" maxOccurs="unbounded">
@@ -622,9 +622,9 @@
       </xs:complexContent>
    </xs:complexType>
 
-   <xs:complexType name="MailboxType">
+   <xs:complexType name="EmailAddressType">
       <xs:annotation>
-         <xs:documentation>A mailbox.</xs:documentation>
+         <xs:documentation>An e-mail address.</xs:documentation>
       </xs:annotation>
       <xs:simpleContent>
          <xs:extension base="xs:anyURI"/>

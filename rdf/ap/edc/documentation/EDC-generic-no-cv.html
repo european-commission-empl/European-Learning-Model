@@ -249,6 +249,7 @@
             <li><a href="#edc:CreditPointShape">Credit Point </a></li>
             <li><a href="#edc:DisplayDetailShape">Display Detail </a></li>
             <li><a href="#edc:DisplayParameterShape">Display Parameter </a></li>
+            <li><a href="#edc:EmailAddressShape">Email Address</a></li>
             <li><a href="#edc:EuropeanDigitalCredentialShape">European Digital Credential </a></li>
             <li><a href="#edc:EuropeanDigitalPresentationShape">European Digital Presentation </a></li>
             <li><a href="#edc:EvidenceShape">Evidence </a></li>
@@ -271,7 +272,6 @@
             <li><a href="#edc:LearningOutcomeShape">Learning Outcome </a></li>
             <li><a href="#edc:LegalIdentifierShape">Legal Identifier </a></li>
             <li><a href="#edc:LocationShape">Location </a></li>
-            <li><a href="#edc:MailboxShape">Mailbox</a></li>
             <li><a href="#edc:MediaObjectShape">Media Object </a></li>
             <li><a href="#edc:NoteShape">Note </a></li>
             <li><a href="#edc:OrganisationShape">Organisation </a></li>
@@ -452,7 +452,7 @@
                     </tr>
                     <tr>
                         <td>expiry date</td>
-                        <td><code><a href="http://data.europa.eu/snb/model/elm/expirydate">elm:expirydate</a></code></td>
+                        <td><code><a href="http://data.europa.eu/snb/model/elm/expiryDate">elm:expiryDate</a></code></td>
                         <td><code>xsd:dateTime</code><br></td>
                         <td>
                             <div style="width:30px">0..1</div>
@@ -1291,9 +1291,9 @@
                     <td class="sp_table_propertyshapes_col_description">A free text description of the contact point.</td>
                 </tr>
                 <tr>
-                    <td>mailbox</td>
-                    <td><code><a href="http://data.europa.eu/snb/model/elm/mailbox">elm:mailbox</a></code></td>
-                    <td><code><a href="#edc:MailboxShape">Mailbox</a></code><br></td>
+                    <td>emailAddress</td>
+                    <td><code><a href="http://data.europa.eu/snb/model/elm/emailAddress">elm:emailAddress</a></code></td>
+                    <td><code><a href="#edc:EmailAddressShape">Email Address</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1488,6 +1488,18 @@
                 </tr>
                 </tbody>
             </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id="edc:EmailAddressShape">
+            <div class="sp_section_title_table_wrapper">
+                <h2 class="sp_section_title_table">Email Address</h2>
+            </div>
+            <p><em>An e-mail address.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/EmailAddress">elm:EmailAddress</a></li>
+            </ul>
         </section>
     </div>
 </div><br><div class="row mt-3">
@@ -4479,18 +4491,6 @@
                 </tr>
                 </tbody>
             </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id="edc:MailboxShape">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Mailbox</h2>
-            </div>
-            <p><em>A mailbox.</em></p>
-            <ul class="sp_list_description_properties">
-                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Mailbox">elm:Mailbox</a></li>
-            </ul>
         </section>
     </div>
 </div><br><div class="row mt-3">

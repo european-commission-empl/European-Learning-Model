@@ -375,7 +375,7 @@
    <xs:element name="learningAssessmentSpecification" type="LearningAssessmentSpecificationType"/>
    <xs:element name="learningEntitlementSpecification" type="LearningEntitlementSpecificationType"/>
    <xs:element name="learningOpportunity" type="LearningOpportunityType"/>
-   <xs:element name="mailbox" type="MailboxType"/>
+   <xs:element name="emailAddress" type="EmailAddressType"/>
    <xs:element name="phone" type="PhoneType"/>
    <xs:element name="priceDetail" type="PriceDetailType"/>
    <xs:element name="qualification" type="QualificationType"/>
@@ -772,9 +772,9 @@
                <xs:documentation>A phone number used for contacting the agent.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element maxOccurs="unbounded" minOccurs="0" ref="mailbox">
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="emailAddress">
             <xs:annotation>
-               <xs:documentation>An e-mail or wallet address used for contacting the agent.</xs:documentation>
+               <xs:documentation>An e-mail address used for contacting the agent.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element maxOccurs="unbounded" minOccurs="0" ref="contactForm">
@@ -1543,9 +1543,9 @@
       </xs:complexContent>
    </xs:complexType>
 
-   <xs:complexType name="MailboxType">
+   <xs:complexType name="EmailAddressType">
       <xs:annotation>
-         <xs:documentation>A mailbox.</xs:documentation>
+         <xs:documentation>An e-mail address.</xs:documentation>
       </xs:annotation>
       <xs:simpleContent>
          <xs:extension base="xs:anyURI"/>

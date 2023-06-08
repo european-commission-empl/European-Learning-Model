@@ -258,7 +258,7 @@ edc:Accreditation-elm_reviewDate
 
 edc:Accreditation-elm_expiryDate
   a sh:PropertyShape; 
-  sh:path elm:expirydate;
+  sh:path elm:expiryDate;
   sh:datatype xsd:dateTime;
   sh:maxCount 1;
   sh:description "The date when the accreditation expires or was expired."@en;
@@ -772,7 +772,7 @@ edc:ContactPointShape
   sh:property edc:ContactPoint-dc_description;
   sh:property edc:ContactPoint-elm_address;
   sh:property edc:ContactPoint-elm_phone;
-  sh:property edc:ContactPoint-elm_mailbox;
+  sh:property edc:ContactPoint-elm_emailAddress;
   sh:property edc:ContactPoint-elm_contactForm;
   .
 edc:ContactPoint-dc_description
@@ -813,12 +813,12 @@ edc:ContactPoint-elm_phone
   #sh:order 3;
   .
 
-edc:ContactPoint-elm_mailbox
+edc:ContactPoint-elm_emailAddress
   a sh:PropertyShape; 
-  sh:path elm:mailbox;
-  sh:class elm:Mailbox;
+  sh:path elm:emailAddress;
+  sh:class elm:EmailAddress;
   sh:description "An e-mail address used for contacting the agent."@en;
-  sh:name "mailbox"@en;
+  sh:name "emailAddress"@en;
   sh:severity sh:Violation;
   #sh:order 4;
   .
@@ -3762,12 +3762,12 @@ edc:LegalIdentifier-dc_spatial
   sh:severity sh:Violation;
   . 
 
-#------ Mailbox class and properties shapes --------
-edc:MailboxShape
+#------ EmailAddress class and properties shapes --------
+edc:EmailAddressShape
   a sh:NodeShape;
-  sh:targetClass elm:Mailbox;
-  rdfs:comment "A mailbox."@en;
-  rdfs:label "Mailbox"@en;
+  sh:targetClass elm:EmailAddress;
+  rdfs:comment "An e-mail address."@en;
+  rdfs:label "Email Address"@en;
   .
 
 #------ Media Object class and properties shapes --------

@@ -49,7 +49,7 @@
         "LearningOutcome": "elm:LearningOutcome",
         "LegalIdentifier": "elm:LegalIdentifier",
         "Location": "dc:Location",
-        "Mailbox": "elm:Mailbox",
+        "EmailAddress": "elm:EmailAddress",
         "MediaObject": "elm:MediaObject",
         "Note": "elm:Note",
         "Organisation": "elm:Organisation",
@@ -282,11 +282,7 @@
             "@type": "@id"
         },
         "emailAddress": {
-            "@id": "elm:mailbox",
-            "@type": "@id"
-        },
-        "mailbox": {
-            "@id": "elm:mailbox",
+            "@id": "elm:emailAddress",
             "@type": "@id"
         },
         "embeddedEvidence": {

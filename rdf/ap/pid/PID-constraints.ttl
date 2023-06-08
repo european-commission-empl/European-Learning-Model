@@ -812,10 +812,10 @@ sh:property[
     #sh:order 3;
   ];
   sh:property [
-    sh:path elm:mailbox;
-    sh:class elm:Mailbox;
+    sh:path elm:emailAddress;
+    sh:class elm:EmailAddress;
     sh:description "An e-mail address used for contacting the agent."@en;
-    sh:name "mailbox"@en;
+    sh:name "emailAddress"@en;
     sh:severity sh:Violation;
     #sh:order 4;
   ];
@@ -993,13 +993,13 @@ sh:property[
 .
 
 #-------------------------------------------------------------------------
-#--------------- Mailbox class and property  shapes ----------------------
+#--------------- EmailAddress class and property  shapes ----------------------
 #-------------------------------------------------------------------------
-:MailboxShape
+:EmailAddressShape
   a sh:NodeShape;
-  sh:targetClass elm:Mailbox;
-  rdfs:comment "A mailbox."@en;
-  rdfs:label "Mailbox Shape"@en;
+  sh:targetClass elm:EmailAddress;
+  rdfs:comment "An e-mail address."@en;
+  rdfs:label "Email Address Shape"@en;
   .
 
 #-------------------------------------------------------------------------

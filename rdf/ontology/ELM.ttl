@@ -39,7 +39,7 @@
   examination results, degrees and diplomas, diploma supplements, professional certifications, employer recommendations and any other kind 
   of claims that are related to learning'''@en;
   cc:attributionName "European Commission"@en;
-  rdfs:comment "This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as weel as the ranges and domains of properties are defined in the application profiles that import the ELM ontology."@en;
+  rdfs:comment "This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as well as the ranges and domains of properties are defined in the application profiles that import the ELM ontology."@en;
   owl:versionInfo "3.1.0";
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
@@ -158,12 +158,12 @@ elm:DisplayParameter
   rdfs:label "Display Parameter"@en;
   rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
 .
-elm:DisplayDetails
+elm:DisplayDetail
   a rdfs:Class;
   a owl:Class;
-  dc:identifier "elm:DisplayDetails ";
-  rdfs:comment "The display details."@en;
-  rdfs:label "Display Details"@en;
+  dc:identifier "elm:DisplayDetail";
+  rdfs:comment "The display detail."@en;
+  rdfs:label "Display Detail"@en;
   rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
 .
 elm:Evidence
@@ -349,7 +349,7 @@ elm:LegalIdentifier
   a rdfs:Class;
   a owl:Class;
   dc:identifier "elm:LegalIdentifier";
-  rdfs:comment "A Legal Identifier. A legal identifier is a formally issued identifier by a given authorithy within a given jurisdiction. The identifier has a spatial context."@en;
+  rdfs:comment "A Legal Identifier. A legal identifier is a formally issued identifier by a given authority within a given jurisdiction. The identifier has a spatial context."@en;
   rdfs:label "Legal Identifier"@en;
   rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:subClassOf elm:Identifier;
@@ -357,12 +357,12 @@ elm:LegalIdentifier
 
 # -- Location ->dc:Location
 
-elm:Mailbox
+elm:EmailAddress
   a rdfs:Class;
   a owl:Class;
-  dc:identifier "elm:Mailbox";
-  rdfs:comment "A mailbox."@en;
-  rdfs:label "Mailbox"@en;
+  dc:identifier "elm:EmailAddress";
+  rdfs:comment "An e-mail address."@en;
+  rdfs:label "Email Address"@en;
   rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
 .
 
@@ -505,8 +505,8 @@ elm:ShaclValidator2017
   a rdfs:Class;
   a owl:Class;
   dc:identifier "elm:ShaclValidator2017";
-  rdfs:comment "This class defines the shacl validators."@en;
-  rdfs:label "Shacl Validator2017"@en;
+  rdfs:comment "This class defines the SHACL validators."@en;
+  rdfs:label "Shacl Validator 2017"@en;
   rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   .
 # -----------------------------------------------------------------------
@@ -569,7 +569,7 @@ elm:hasPart
   a rdf:Property;
 	a owl:ObjectProperty, owl:SymmetricProperty;
   dc:identifier "elm:hasPart";
-	rdfs:comment "An association property, that defines a part/whole relatonship between instances of the same class. A related resource that is included either physically or logically in the described resource."@en;
+	rdfs:comment "An association property, that defines a part/whole relationship between instances of the same class. A related resource that is included either physically or logically in the described resource."@en;
   rdfs:label "has part"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:subPropertyOf dc:hasPart;
@@ -579,11 +579,23 @@ elm:isPartOf
   a rdf:Property;
 	a owl:ObjectProperty, owl:SymmetricProperty;
   dc:identifier "elm:isPartOf";
-	rdfs:comment "An association property, that defines a part/whole relatonship between instances of the same class. A related resource in which the described resource is physically or logically included."@en;
+	rdfs:comment "An association property, that defines a part/whole relationship between instances of the same class. A related resource in which the described resource is physically or logically included."@en;
   rdfs:label "is part of"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:subPropertyOf dc:isPartOf;
 .
+
+elm:descriptionHtml
+  a rdf:Property;
+	a owl:DatatypeProperty;
+  dc:identifier "elm:descriptionHtml";
+	rdfs:comment "A description in HTML format"@en;
+  rdfs:label "description html"@en;
+	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
+  rdfs:range rdf:HTML;
+  rdfs:subPropertyOf dc:description;
+.
+
 #-----------   Accreditation properties    -------------
 
 ## Re-used properties
@@ -592,13 +604,13 @@ elm:isPartOf
 
 elm:decision
   a rdf:Property;
-	a owl:ObjectProperty;
+	a owl:DataProperty;
   dc:identifier "elm:decision";
 	rdfs:comment "The Quality Decision issued by the Quality Assuring Authority."@en;
   rdfs:label "decision"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:domain elm:Accreditation;
-  rdfs:range xsd:String;
+  rdfs:range xsd:string;
 .
 
 elm:report
@@ -875,7 +887,7 @@ elm:specifiedBy
   a rdf:Property;
 	a owl:ObjectProperty;
   dc:identifier "elm:specifiedBy";
-	rdfs:comment "The specification of a learning process,  e.g., the learning achievement is specified by a learning achievement specification. ranges and domains are restricted onappllication profile level"@en;
+	rdfs:comment "The specification of a learning process,  e.g., the learning achievement is specified by a learning achievement specification. ranges and domains are restricted on application profile level"@en;
   rdfs:label "specified by"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:domain elm:Claim;
@@ -912,15 +924,15 @@ elm:phone
   rdfs:range elm:Phone;
   .
 
-elm:mailbox
+elm:emailAddress
   a rdf:Property;
 	a owl:ObjectProperty;
-  dc:identifier "elm:mailbox";
-	rdfs:comment "An email  used for contacting the agent. This property associates the Contact Inforation class with the Mailbox class."@en;
-  rdfs:label "mailbox"@en;
+  dc:identifier "elm:emailAddress";
+	rdfs:comment "An e-mail  used for contacting the agent. This property associates the Contact Information class with the Email Address class."@en;
+  rdfs:label "emailAddress"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:domain elm:ContactPoint;
-  rdfs:range elm:Mailbox;
+  rdfs:range elm:EmailAddress;
   .
 
 elm:contactForm
@@ -940,7 +952,7 @@ elm:framework
   a rdf:Property;
 	a owl:ObjectProperty;
   dc:identifier "framework";
-	rdfs:comment "The framework used to assign the  credit points to the learning specification. It ishould be provided using the Europass Standard List of Educational Credit Systems."@en;
+	rdfs:comment "The framework used to assign the  credit points to the learning specification. It should be provided using the Europass Standard List of Educational Credit Systems."@en;
   rdfs:label "framework"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   .
@@ -1020,7 +1032,7 @@ elm:attachment
   a rdf:Property; 
 	a owl:ObjectProperty;
   dc:identifier "elm:attachment";
-	rdfs:comment "Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Euroean digital credential document."@en;
+	rdfs:comment "Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the European digital credential document."@en;
   rdfs:label "attachment"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:domain elm:EuropeanDigitalCredential;
@@ -1045,7 +1057,7 @@ elm:verifiableCredential
   a rdf:Property;
 	a owl:ObjectProperty;
   dc:identifier "elm:verifiableCredential";
-	rdfs:comment "A verifiable European Digital Credential. This is an association to the European Dif=gital Credential class."@en;
+	rdfs:comment "A verifiable European Digital Credential. This is an association to the European Digital Credential class."@en;
   rdfs:label "verifiable credential"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:domain elm:EuropeanDigitalPresentation;
@@ -1076,17 +1088,19 @@ elm:verificationCheck
 #-------------      Individual Display  properties     -------------------------
 #dc:language
 
-elm:displayDetails
+elm:displayDetail
+  a rdf:Property;
   a owl:ObjectProperty;
-  dc:identifier "elm:displayDetails";
-	rdfs:comment "The details of the display"@en;
-  rdfs:label "display details"@en;
+  dc:identifier "elm:displayDetail";
+	rdfs:comment "The detail of the display"@en;
+  rdfs:label "display detail"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:domain elm:IndividualDisplay;
-  rdfs:range elm:DisplayDetails;
+  rdfs:range elm:DisplayDetail;
   . 
 #------------- Display  Details properties     -------------------------
 elm:image
+  a rdf:Property;
   a owl:ObjectProperty;
   dc:identifier "elm:image";
 	rdfs:comment "An image associated with the display"@en;
@@ -1095,6 +1109,7 @@ elm:image
   rdfs:range elm:mediaObject;
   .
 elm:page
+  a rdf:Property;
   a owl:DatatypeProperty;
   dc:identifier "elm:image";
 	rdfs:comment "The page number of the display"@en;
@@ -1796,7 +1811,7 @@ elm:spatialCode
   rdfs:range skos:Concept;
   .
 
-#----------- Mailbox Class properties ---------------
+#----------- EmailAddress Class properties ---------------
 
 # ---------  Media Object properties ----------
 
@@ -2055,7 +2070,7 @@ elm:hasClaim
   a rdf:Property;
   a owl:ObjectProperty;
   dc:identifier "elm:hasClaim";
-  rdfs:comment "A claiml of the person. A person shoud at least have one claim."@en;
+  rdfs:comment "A claim of the person. A person should at least have one claim."@en;
   rdfs:label "has claim"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:domain elm:Person;

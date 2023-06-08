@@ -6,7 +6,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://data.europa.eu/snb/model/elm","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://data.europa.eu/snb/model/elm","name":"Europass Learning Model Ontology", "headline":"This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as weel as the ranges and domains of properties are defined in the application profiles that import the ELM ontology.", "datePublished":"Mon Jun 05 11:26:55 CEST 2023", "version":"3.1.0", "license":"https://creativecommons.org/licenses/by/4.0/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://data.europa.eu/snb/model/elm","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://data.europa.eu/snb/model/elm","name":"Europass Learning Model Ontology", "headline":"This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as weel as the ranges and domains of properties are defined in the application profiles that import the ELM ontology.", "datePublished":"Wed Jun 07 16:24:55 CEST 2023", "version":"3.1.0", "license":"https://creativecommons.org/licenses/by/4.0/"}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -133,12 +133,16 @@ This ontology has the following classes and properties.</span>
       <a href="#/CreditPoint" title="http://data.europa.eu/snb/model/elm/CreditPoint">Credit Point</a>
    </li>
    <li>
-      <a href="#/DisplayDetails"
-         title="http://data.europa.eu/snb/model/elm/DisplayDetails">Display Details</a>
+      <a href="#/DisplayDetail"
+         title="http://data.europa.eu/snb/model/elm/DisplayDetail">Display Detail</a>
    </li>
    <li>
       <a href="#/DisplayParameter"
          title="http://data.europa.eu/snb/model/elm/DisplayParameter">Display Parameter</a>
+   </li>
+   <li>
+      <a href="#/EmailAddress"
+         title="http://data.europa.eu/snb/model/elm/EmailAddress">Email Address</a>
    </li>
    <li>
       <a href="#/EuropeanDigitalCredential"
@@ -213,9 +217,6 @@ This ontology has the following classes and properties.</span>
          title="http://data.europa.eu/snb/model/elm/LegalIdentifier">Legal Identifier</a>
    </li>
    <li>
-      <a href="#/Mailbox" title="http://data.europa.eu/snb/model/elm/Mailbox">Mailbox</a>
-   </li>
-   <li>
       <a href="#/MediaObject" title="http://data.europa.eu/snb/model/elm/MediaObject">Media Object</a>
    </li>
    <li>
@@ -252,7 +253,7 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#/ShaclValidator2017"
-         title="http://data.europa.eu/snb/model/elm/ShaclValidator2017">Shacl Validator2017</a>
+         title="http://data.europa.eu/snb/model/elm/ShaclValidator2017">Shacl Validator 2017</a>
    </li>
    <li>
       <a href="#/ShortenedGrading"
@@ -367,9 +368,6 @@ This ontology has the following classes and properties.</span>
          title="http://data.europa.eu/snb/model/elm/creditReceived">credit received</a>
    </li>
    <li>
-      <a href="#/decision" title="http://data.europa.eu/snb/model/elm/decision">decision</a>
-   </li>
-   <li>
       <a href="#/defaultLanguage"
          title="http://data.europa.eu/snb/model/elm/defaultLanguage">default language</a>
    </li>
@@ -377,8 +375,8 @@ This ontology has the following classes and properties.</span>
       <a href="#/directedBy" title="http://data.europa.eu/snb/model/elm/directedBy">directed by</a>
    </li>
    <li>
-      <a href="#/displayDetails"
-         title="http://data.europa.eu/snb/model/elm/displayDetails">display details</a>
+      <a href="#/displayDetail"
+         title="http://data.europa.eu/snb/model/elm/displayDetail">display detail</a>
    </li>
    <li>
       <a href="#/displayParameter"
@@ -399,6 +397,9 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#/eidasLegalIdentifier"
          title="http://data.europa.eu/snb/model/elm/eidasLegalIdentifier">eIDAS identifier</a>
+   </li>
+   <li>
+      <a href="#/emailAddress" title="http://data.europa.eu/snb/model/elm/emailAddress">emailAddress</a>
    </li>
    <li>
       <a href="#/embeddedEvidence"
@@ -549,9 +550,6 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#/logo" title="http://data.europa.eu/snb/model/elm/logo">logo</a>
-   </li>
-   <li>
-      <a href="#/mailbox" title="http://data.europa.eu/snb/model/elm/mailbox">mailbox</a>
    </li>
    <li>
       <a href="#/maxScore" title="http://data.europa.eu/snb/model/elm/maxScore">
@@ -732,6 +730,17 @@ This ontology has the following classes and properties.</span>
       <a href="#/dateOfBirth" title="http://data.europa.eu/snb/model/elm/dateOfBirth">date of birth</a>
    </li>
    <li>
+      <a href="#/decision" title="http://data.europa.eu/snb/model/elm/decision">
+         <span>decision</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/descriptionHtml"
+         title="http://data.europa.eu/snb/model/elm/descriptionHtml">
+         <span>description html</span>
+      </a>
+   </li>
+   <li>
       <a href="#/summaryDisplay"
          title="http://data.europa.eu/snb/model/elm/summaryDisplay">display code </a>
    </li>
@@ -891,12 +900,16 @@ This section provides details for each class and property defined by Europass Le
          <a href="#/CreditPoint" title="http://data.europa.eu/snb/model/elm/CreditPoint">Credit Point</a>
       </li>
       <li>
-         <a href="#/DisplayDetails"
-            title="http://data.europa.eu/snb/model/elm/DisplayDetails">Display Details</a>
+         <a href="#/DisplayDetail"
+            title="http://data.europa.eu/snb/model/elm/DisplayDetail">Display Detail</a>
       </li>
       <li>
          <a href="#/DisplayParameter"
             title="http://data.europa.eu/snb/model/elm/DisplayParameter">Display Parameter</a>
+      </li>
+      <li>
+         <a href="#/EmailAddress"
+            title="http://data.europa.eu/snb/model/elm/EmailAddress">Email Address</a>
       </li>
       <li>
          <a href="#/EuropeanDigitalCredential"
@@ -971,9 +984,6 @@ This section provides details for each class and property defined by Europass Le
             title="http://data.europa.eu/snb/model/elm/LegalIdentifier">Legal Identifier</a>
       </li>
       <li>
-         <a href="#/Mailbox" title="http://data.europa.eu/snb/model/elm/Mailbox">Mailbox</a>
-      </li>
-      <li>
          <a href="#/MediaObject" title="http://data.europa.eu/snb/model/elm/MediaObject">Media Object</a>
       </li>
       <li>
@@ -1010,7 +1020,7 @@ This section provides details for each class and property defined by Europass Le
       </li>
       <li>
          <a href="#/ShaclValidator2017"
-            title="http://data.europa.eu/snb/model/elm/ShaclValidator2017">Shacl Validator2017</a>
+            title="http://data.europa.eu/snb/model/elm/ShaclValidator2017">Shacl Validator 2017</a>
       </li>
       <li>
          <a href="#/ShortenedGrading"
@@ -1055,7 +1065,7 @@ This section provides details for each class and property defined by Europass Le
             <sup class="type-op" title="object property">op</sup>, <a href="#/accreditingAgent"
                title="http://data.europa.eu/snb/model/elm/accreditingAgent">accrediting agent</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/decision" title="http://data.europa.eu/snb/model/elm/decision">decision</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#/landingPage" title="http://data.europa.eu/snb/model/elm/landingPage">landing page</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#/landingPage" title="http://data.europa.eu/snb/model/elm/landingPage">landing page</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/limitAbstractProgramme"
                title="http://data.europa.eu/snb/model/elm/limitAbstractProgramme">limit abstract programme</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/limitCredentialType"
@@ -1319,7 +1329,7 @@ This section provides details for each class and property defined by Europass Le
          <dt>is in domain of</dt>
          <dd>
             <a href="#/contactForm" title="http://data.europa.eu/snb/model/elm/contactForm">contact form</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#/mailbox" title="http://data.europa.eu/snb/model/elm/mailbox">mailbox</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/emailAddress" title="http://data.europa.eu/snb/model/elm/emailAddress">emailAddress</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/phone" title="http://data.europa.eu/snb/model/elm/phone">phone</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
@@ -1354,15 +1364,15 @@ This section provides details for each class and property defined by Europass Le
          </dd>
       </dl>
    </div>
-   <div class="entity" id="/DisplayDetails">
-      <h3>Display Details<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="/DisplayDetail">
+      <h3>Display Detail<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/DisplayDetails</p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/DisplayDetail</p>
       <div class="comment">
-         <span class="markdown">The display details.</span>
+         <span class="markdown">The display detail.</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -1373,8 +1383,8 @@ This section provides details for each class and property defined by Europass Le
       <dl class="description">
          <dt>is in range of</dt>
          <dd>
-            <a href="#/displayDetails"
-               title="http://data.europa.eu/snb/model/elm/displayDetails">display details</a>
+            <a href="#/displayDetail"
+               title="http://data.europa.eu/snb/model/elm/displayDetail">display detail</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -1406,6 +1416,30 @@ This section provides details for each class and property defined by Europass Le
          <dd>
             <a href="#/displayParameter"
                title="http://data.europa.eu/snb/model/elm/displayParameter">display parameter</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/EmailAddress">
+      <h3>Email Address<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/EmailAddress</p>
+      <div class="comment">
+         <span class="markdown">An e-mail address.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/emailAddress" title="http://data.europa.eu/snb/model/elm/emailAddress">emailAddress</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -1608,6 +1642,7 @@ This section provides details for each class and property defined by Europass Le
             <a href="http://www.w3.org/ns/adms#Identifier"
                target="_blank"
                title="http://www.w3.org/ns/adms#Identifier">identifier</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has sub-classes</dt>
          <dd>
@@ -1636,8 +1671,8 @@ This section provides details for each class and property defined by Europass Le
       <dl class="description">
          <dt>is in domain of</dt>
          <dd>
-            <a href="#/displayDetails"
-               title="http://data.europa.eu/snb/model/elm/displayDetails">display details</a>
+            <a href="#/displayDetail"
+               title="http://data.europa.eu/snb/model/elm/displayDetail">display detail</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
@@ -2074,7 +2109,7 @@ This section provides details for each class and property defined by Europass Le
       <p>
          <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/LegalIdentifier</p>
       <div class="comment">
-         <span class="markdown">A Legal Identifier. A legal identifier is a formally issued identifier by a given authorithy within a given jurisdiction. The identifier has a spatial context.</span>
+         <span class="markdown">A Legal Identifier. A legal identifier is a formally issued identifier by a given authority within a given jurisdiction. The identifier has a spatial context.</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -2097,30 +2132,6 @@ This section provides details for each class and property defined by Europass Le
                title="http://data.europa.eu/snb/model/elm/vatIdentifier">VAT number</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/eidasLegalIdentifier"
                title="http://data.europa.eu/snb/model/elm/eidasLegalIdentifier">eIDAS identifier</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="/Mailbox">
-      <h3>Mailbox<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/Mailbox</p>
-      <div class="comment">
-         <span class="markdown">A mailbox.</span>
-      </div>
-      <dl class="definedBy">
-         <dt>Is defined by</dt>
-         <dd>
-            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
-         </dd>
-      </dl>
-      <dl class="description">
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#/mailbox" title="http://data.europa.eu/snb/model/elm/mailbox">mailbox</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -2472,14 +2483,14 @@ This section provides details for each class and property defined by Europass Le
       </dl>
    </div>
    <div class="entity" id="/ShaclValidator2017">
-      <h3>Shacl Validator2017<sup class="type-c" title="class">c</sup>
+      <h3>Shacl Validator 2017<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
          <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/ShaclValidator2017</p>
       <div class="comment">
-         <span class="markdown">This class defines the shacl validators.</span>
+         <span class="markdown">This class defines the SHACL validators.</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -2755,9 +2766,6 @@ This section provides details for each class and property defined by Europass Le
             title="http://data.europa.eu/snb/model/elm/creditReceived">credit received</a>
       </li>
       <li>
-         <a href="#/decision" title="http://data.europa.eu/snb/model/elm/decision">decision</a>
-      </li>
-      <li>
          <a href="#/defaultLanguage"
             title="http://data.europa.eu/snb/model/elm/defaultLanguage">default language</a>
       </li>
@@ -2765,8 +2773,8 @@ This section provides details for each class and property defined by Europass Le
          <a href="#/directedBy" title="http://data.europa.eu/snb/model/elm/directedBy">directed by</a>
       </li>
       <li>
-         <a href="#/displayDetails"
-            title="http://data.europa.eu/snb/model/elm/displayDetails">display details</a>
+         <a href="#/displayDetail"
+            title="http://data.europa.eu/snb/model/elm/displayDetail">display detail</a>
       </li>
       <li>
          <a href="#/displayParameter"
@@ -2787,6 +2795,9 @@ This section provides details for each class and property defined by Europass Le
       <li>
          <a href="#/eidasLegalIdentifier"
             title="http://data.europa.eu/snb/model/elm/eidasLegalIdentifier">eIDAS identifier</a>
+      </li>
+      <li>
+         <a href="#/emailAddress" title="http://data.europa.eu/snb/model/elm/emailAddress">emailAddress</a>
       </li>
       <li>
          <a href="#/embeddedEvidence"
@@ -2937,9 +2948,6 @@ This section provides details for each class and property defined by Europass Le
       </li>
       <li>
          <a href="#/logo" title="http://data.europa.eu/snb/model/elm/logo">logo</a>
-      </li>
-      <li>
-         <a href="#/mailbox" title="http://data.europa.eu/snb/model/elm/mailbox">mailbox</a>
       </li>
       <li>
          <a href="#/maxScore" title="http://data.europa.eu/snb/model/elm/maxScore">
@@ -3482,7 +3490,7 @@ This section provides details for each class and property defined by Europass Le
       <p>
          <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/attachment</p>
       <div class="comment">
-         <span class="markdown">Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the Euroean digital credential document.</span>
+         <span class="markdown">Any digital document (PDF, JPEG or PNG format) that an issuer has attached to the European digital credential document.</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -3911,40 +3919,6 @@ This section provides details for each class and property defined by Europass Le
          </dl>
       </div>
    </div>
-   <div class="entity" id="/decision">
-      <h3>decision<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/decision</p>
-      <div class="comment">
-         <span class="markdown">The Quality Decision issued by the Quality Assuring Authority.</span>
-      </div>
-      <dl class="definedBy">
-         <dt>Is defined by</dt>
-         <dd>
-            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
-         </dd>
-      </dl>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#/Accreditation"
-                  title="http://data.europa.eu/snb/model/elm/Accreditation">Accreditation</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#String"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#String">string</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
    <div class="entity" id="/defaultLanguage">
       <h3>default language<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -4005,15 +3979,15 @@ This section provides details for each class and property defined by Europass Le
          </dl>
       </div>
    </div>
-   <div class="entity" id="/displayDetails">
-      <h3>display details<sup class="type-op" title="object property">op</sup>
+   <div class="entity" id="/displayDetail">
+      <h3>display detail<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/displayDetails</p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/displayDetail</p>
       <div class="comment">
-         <span class="markdown">The details of the display</span>
+         <span class="markdown">The detail of the display</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -4031,8 +4005,8 @@ This section provides details for each class and property defined by Europass Le
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#/DisplayDetails"
-                  title="http://data.europa.eu/snb/model/elm/DisplayDetails">Display Details</a>
+               <a href="#/DisplayDetail"
+                  title="http://data.europa.eu/snb/model/elm/DisplayDetail">Display Detail</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -4192,6 +4166,39 @@ This section provides details for each class and property defined by Europass Le
             <dd>
                <a href="#/LegalIdentifier"
                   title="http://data.europa.eu/snb/model/elm/LegalIdentifier">Legal Identifier</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/emailAddress">
+      <h3>emailAddress<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/emailAddress</p>
+      <div class="comment">
+         <span class="markdown">An e-mail  used for contacting the agent. This property associates the Contact Information class with the Email Address class.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/ContactPoint"
+                  title="http://data.europa.eu/snb/model/elm/ContactPoint">Contact Point</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/EmailAddress"
+                  title="http://data.europa.eu/snb/model/elm/EmailAddress">Email Address</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -4470,7 +4477,7 @@ This section provides details for each class and property defined by Europass Le
       <p>
          <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/framework</p>
       <div class="comment">
-         <span class="markdown">The framework used to assign the  credit points to the learning specification. It ishould be provided using the Europass Standard List of Educational Credit Systems.</span>
+         <span class="markdown">The framework used to assign the  credit points to the learning specification. It should be provided using the Europass Standard List of Educational Credit Systems.</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -4713,7 +4720,7 @@ This section provides details for each class and property defined by Europass Le
       <p>
          <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/hasClaim</p>
       <div class="comment">
-         <span class="markdown">A claiml of the person. A person shoud at least have one claim.</span>
+         <span class="markdown">A claim of the person. A person should at least have one claim.</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -4803,7 +4810,7 @@ This section provides details for each class and property defined by Europass Le
       <p>
          <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/hasPart</p>
       <div class="comment">
-         <span class="markdown">An association property, that defines a part/whole relatonship between instances of the same class. A related resource that is included either physically or logically in the described resource.</span>
+         <span class="markdown">An association property, that defines a part/whole relationship between instances of the same class. A related resource that is included either physically or logically in the described resource.</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -4981,7 +4988,7 @@ This section provides details for each class and property defined by Europass Le
       <p>
          <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/isPartOf</p>
       <div class="comment">
-         <span class="markdown">An association property, that defines a part/whole relatonship between instances of the same class. A related resource in which the described resource is physically or logically included.</span>
+         <span class="markdown">An association property, that defines a part/whole relationship between instances of the same class. A related resource in which the described resource is physically or logically included.</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -5460,38 +5467,6 @@ This section provides details for each class and property defined by Europass Le
             <dt>has range</dt>
             <dd>
                <a href="#/MediaObject" title="http://data.europa.eu/snb/model/elm/MediaObject">Media Object</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="/mailbox">
-      <h3>mailbox<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/mailbox</p>
-      <div class="comment">
-         <span class="markdown">An email  used for contacting the agent. This property associates the Contact Inforation class with the Mailbox class.</span>
-      </div>
-      <dl class="definedBy">
-         <dt>Is defined by</dt>
-         <dd>
-            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
-         </dd>
-      </dl>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#/ContactPoint"
-                  title="http://data.europa.eu/snb/model/elm/ContactPoint">Contact Point</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#/Mailbox" title="http://data.europa.eu/snb/model/elm/Mailbox">Mailbox</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -6232,7 +6207,7 @@ This section provides details for each class and property defined by Europass Le
       <p>
          <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/specifiedBy</p>
       <div class="comment">
-         <span class="markdown">The specification of a learning process,  e.g., the learning achievement is specified by a learning achievement specification. ranges and domains are restricted onappllication profile level</span>
+         <span class="markdown">The specification of a learning process,  e.g., the learning achievement is specified by a learning achievement specification. ranges and domains are restricted on application profile level</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -6516,7 +6491,7 @@ This section provides details for each class and property defined by Europass Le
       <p>
          <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/verifiableCredential</p>
       <div class="comment">
-         <span class="markdown">A verifiable European Digital Credential. This is an association to the European Dif=gital Credential class.</span>
+         <span class="markdown">A verifiable European Digital Credential. This is an association to the European Digital Credential class.</span>
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
@@ -6649,6 +6624,17 @@ This section provides details for each class and property defined by Europass Le
       </li>
       <li>
          <a href="#/dateOfBirth" title="http://data.europa.eu/snb/model/elm/dateOfBirth">date of birth</a>
+      </li>
+      <li>
+         <a href="#/decision" title="http://data.europa.eu/snb/model/elm/decision">
+            <span>decision</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/descriptionHtml"
+            title="http://data.europa.eu/snb/model/elm/descriptionHtml">
+            <span>description html</span>
+         </a>
       </li>
       <li>
          <a href="#/summaryDisplay"
@@ -7086,6 +7072,56 @@ This section provides details for each class and property defined by Europass Le
                <a href="http://www.w3.org/2001/XMLSchema#dateTime"
                   target="_blank"
                   title="http://www.w3.org/2001/XMLSchema#dateTime">date time</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/decision">
+      <h3>decision<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/decision</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/Accreditation"
+                  title="http://data.europa.eu/snb/model/elm/Accreditation">Accreditation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#string"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
+            </dd>
+            <dt>is also defined as</dt>
+            <dd>
+               <a href="#/decision">named individual</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/descriptionHtml">
+      <h3>description html<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/descriptionHtml</p>
+      <div class="description">
+         <dl>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                  target="_blank"
+                  title="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">h t m l</a>
+            </dd>
+            <dt>is also defined as</dt>
+            <dd>
+               <a href="#/descriptionHtml">annotation property</a>
             </dd>
          </dl>
       </div>
