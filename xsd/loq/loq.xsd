@@ -375,7 +375,7 @@
    <xs:element name="learningAssessmentSpecification" type="LearningAssessmentSpecificationType"/>
    <xs:element name="learningEntitlementSpecification" type="LearningEntitlementSpecificationType"/>
    <xs:element name="learningOpportunity" type="LearningOpportunityType"/>
-   <xs:element name="emailAddress" type="EmailAddressType"/>
+   <xs:element name="emailAddress" type="MailboxType"/>
    <xs:element name="phone" type="PhoneType"/>
    <xs:element name="priceDetail" type="PriceDetailType"/>
    <xs:element name="qualification" type="QualificationType"/>
@@ -1543,9 +1543,9 @@
       </xs:complexContent>
    </xs:complexType>
 
-   <xs:complexType name="EmailAddressType">
+   <xs:complexType name="MailboxType">
       <xs:annotation>
-         <xs:documentation>An e-mail address.</xs:documentation>
+         <xs:documentation>A mailbox.</xs:documentation>
       </xs:annotation>
       <xs:simpleContent>
          <xs:extension base="xs:anyURI"/>

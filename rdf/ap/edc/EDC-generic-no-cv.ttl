@@ -816,7 +816,7 @@ edc:ContactPoint-elm_phone
 edc:ContactPoint-elm_emailAddress
   a sh:PropertyShape; 
   sh:path elm:emailAddress;
-  sh:class elm:EmailAddress;
+  sh:class elm:Mailbox;
   sh:description "An e-mail address used for contacting the agent."@en;
   sh:name "emailAddress"@en;
   sh:severity sh:Violation;
@@ -3762,12 +3762,12 @@ edc:LegalIdentifier-dc_spatial
   sh:severity sh:Violation;
   . 
 
-#------ EmailAddress class and properties shapes --------
-edc:EmailAddressShape
+#------ Mailbox class and properties shapes --------
+edc:MailboxShape
   a sh:NodeShape;
-  sh:targetClass elm:EmailAddress;
-  rdfs:comment "An e-mail address."@en;
-  rdfs:label "Email Address"@en;
+  sh:targetClass elm:Mailbox;
+  rdfs:comment "A mailbox."@en;
+  rdfs:label "Mailbox"@en;
   .
 
 #------ Media Object class and properties shapes --------

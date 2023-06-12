@@ -816,7 +816,7 @@ ams:ContactPointShape
   ];
   sh:property [
     sh:path elm:emailAddress;
-    sh:class elm:EmailAddress;
+    sh:class elm:Mailbox;
     sh:description "An e-mail address used for contacting the agent."@en;
     sh:name "emailAddress"@en;
     sh:severity sh:Violation;
@@ -1019,14 +1019,14 @@ ams:LegalIdentifierShape
   ];
   .
 
-#------ EmailAddress class and property  shapes --------
-ams:EmailAddressShape
+#------ Mailbox class and property  shapes --------
+ams:MailboxShape
   a sh:NodeShape;
   sh:closed true ;
   sh:ignoredProperties (rdf:type) ;
-  sh:targetClass elm:EmailAddress;
-  rdfs:comment "An e-mail address."@en;
-  rdfs:label "Email Address Shape"@en;
+  sh:targetClass elm:Mailbox;
+  rdfs:comment "A mailbox."@en;
+  rdfs:label "Mailbox Shape"@en;
   .
 
 #------ Media Object class and property  shapes --------

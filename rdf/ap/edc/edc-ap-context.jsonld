@@ -49,7 +49,7 @@
         "LearningOutcome": "elm:LearningOutcome",
         "LegalIdentifier": "elm:LegalIdentifier",
         "Location": "dc:Location",
-        "EmailAddress": "elm:EmailAddress",
+        "Mailbox": "elm:Mailbox",
         "MediaObject": "elm:MediaObject",
         "Note": "elm:Note",
         "Organisation": "elm:Organisation",
