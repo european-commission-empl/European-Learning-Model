@@ -357,12 +357,12 @@ elm:LegalIdentifier
 
 # -- Location ->dc:Location
 
-elm:EmailAddress
+elm:Mailbox
   a rdfs:Class;
   a owl:Class;
-  dc:identifier "elm:EmailAddress";
-  rdfs:comment "An e-mail address."@en;
-  rdfs:label "Email Address"@en;
+  dc:identifier "elm:Mailbox";
+  rdfs:comment "A mailbox."@en;
+  rdfs:label "Mailbox"@en;
   rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
 .
 
@@ -932,7 +932,7 @@ elm:emailAddress
   rdfs:label "emailAddress"@en;
 	rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
   rdfs:domain elm:ContactPoint;
-  rdfs:range elm:EmailAddress;
+  rdfs:range elm:Mailbox;
   .
 
 elm:contactForm
@@ -1811,7 +1811,7 @@ elm:spatialCode
   rdfs:range skos:Concept;
   .
 
-#----------- EmailAddress Class properties ---------------
+#----------- Mailbox Class properties ---------------
 
 # ---------  Media Object properties ----------
 

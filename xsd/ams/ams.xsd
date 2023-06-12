@@ -134,7 +134,7 @@
    <xs:element name="contactPoint" type="ContactPointType"/>
    <xs:element name="group" type="GroupType"/>
    <xs:element name="identifier" type="IdentifierType"/>
-   <xs:element name="emailAddress" type="EmailAddressType"/>
+   <xs:element name="emailAddress" type="MailboxType"/>
    <xs:element name="phone" type="PhoneType"/>
 
    <!-- PROPERTIES  -->
@@ -622,9 +622,9 @@
       </xs:complexContent>
    </xs:complexType>
 
-   <xs:complexType name="EmailAddressType">
+   <xs:complexType name="MailboxType">
       <xs:annotation>
-         <xs:documentation>An e-mail address.</xs:documentation>
+         <xs:documentation>A mailbox.</xs:documentation>
       </xs:annotation>
       <xs:simpleContent>
          <xs:extension base="xs:anyURI"/>

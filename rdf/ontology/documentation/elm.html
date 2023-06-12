@@ -6,7 +6,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://data.europa.eu/snb/model/elm","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://data.europa.eu/snb/model/elm","name":"Europass Learning Model Ontology", "headline":"This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as weel as the ranges and domains of properties are defined in the application profiles that import the ELM ontology.", "datePublished":"Wed Jun 07 16:24:55 CEST 2023", "version":"3.1.0", "license":"https://creativecommons.org/licenses/by/4.0/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://data.europa.eu/snb/model/elm","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://data.europa.eu/snb/model/elm","name":"Europass Learning Model Ontology", "headline":"This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as weel as the ranges and domains of properties are defined in the application profiles that import the ELM ontology.", "datePublished":"Fri Jun 09 17:15:56 CEST 2023", "version":"3.1.0", "license":"https://creativecommons.org/licenses/by/4.0/"}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -141,10 +141,6 @@ This ontology has the following classes and properties.</span>
          title="http://data.europa.eu/snb/model/elm/DisplayParameter">Display Parameter</a>
    </li>
    <li>
-      <a href="#/EmailAddress"
-         title="http://data.europa.eu/snb/model/elm/EmailAddress">Email Address</a>
-   </li>
-   <li>
       <a href="#/EuropeanDigitalCredential"
          title="http://data.europa.eu/snb/model/elm/EuropeanDigitalCredential">European Digital Credential</a>
    </li>
@@ -215,6 +211,9 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#/LegalIdentifier"
          title="http://data.europa.eu/snb/model/elm/LegalIdentifier">Legal Identifier</a>
+   </li>
+   <li>
+      <a href="#/Mailbox" title="http://data.europa.eu/snb/model/elm/Mailbox">Mailbox</a>
    </li>
    <li>
       <a href="#/MediaObject" title="http://data.europa.eu/snb/model/elm/MediaObject">Media Object</a>
@@ -908,10 +907,6 @@ This section provides details for each class and property defined by Europass Le
             title="http://data.europa.eu/snb/model/elm/DisplayParameter">Display Parameter</a>
       </li>
       <li>
-         <a href="#/EmailAddress"
-            title="http://data.europa.eu/snb/model/elm/EmailAddress">Email Address</a>
-      </li>
-      <li>
          <a href="#/EuropeanDigitalCredential"
             title="http://data.europa.eu/snb/model/elm/EuropeanDigitalCredential">European Digital Credential</a>
       </li>
@@ -982,6 +977,9 @@ This section provides details for each class and property defined by Europass Le
       <li>
          <a href="#/LegalIdentifier"
             title="http://data.europa.eu/snb/model/elm/LegalIdentifier">Legal Identifier</a>
+      </li>
+      <li>
+         <a href="#/Mailbox" title="http://data.europa.eu/snb/model/elm/Mailbox">Mailbox</a>
       </li>
       <li>
          <a href="#/MediaObject" title="http://data.europa.eu/snb/model/elm/MediaObject">Media Object</a>
@@ -1420,30 +1418,6 @@ This section provides details for each class and property defined by Europass Le
          </dd>
       </dl>
    </div>
-   <div class="entity" id="/EmailAddress">
-      <h3>Email Address<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/EmailAddress</p>
-      <div class="comment">
-         <span class="markdown">An e-mail address.</span>
-      </div>
-      <dl class="definedBy">
-         <dt>Is defined by</dt>
-         <dd>
-            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
-         </dd>
-      </dl>
-      <dl class="description">
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#/emailAddress" title="http://data.europa.eu/snb/model/elm/emailAddress">emailAddress</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
    <div class="entity" id="/EuropeanDigitalCredential">
       <h3>European Digital Credential<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -1642,7 +1616,6 @@ This section provides details for each class and property defined by Europass Le
             <a href="http://www.w3.org/ns/adms#Identifier"
                target="_blank"
                title="http://www.w3.org/ns/adms#Identifier">identifier</a>
-            <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has sub-classes</dt>
          <dd>
@@ -2132,6 +2105,30 @@ This section provides details for each class and property defined by Europass Le
                title="http://data.europa.eu/snb/model/elm/vatIdentifier">VAT number</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#/eidasLegalIdentifier"
                title="http://data.europa.eu/snb/model/elm/eidasLegalIdentifier">eIDAS identifier</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Mailbox">
+      <h3>Mailbox<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/Mailbox</p>
+      <div class="comment">
+         <span class="markdown">A mailbox.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/emailAddress" title="http://data.europa.eu/snb/model/elm/emailAddress">emailAddress</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -4197,8 +4194,7 @@ This section provides details for each class and property defined by Europass Le
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#/EmailAddress"
-                  title="http://data.europa.eu/snb/model/elm/EmailAddress">Email Address</a>
+               <a href="#/Mailbox" title="http://data.europa.eu/snb/model/elm/Mailbox">Mailbox</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>

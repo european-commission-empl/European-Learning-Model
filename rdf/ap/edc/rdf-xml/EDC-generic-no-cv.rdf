@@ -215,10 +215,12 @@
                   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/ClaimTypeNodeShape">
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-                      <sh:name xml:lang="en">more information</sh:name>
-                      <sh:description xml:lang="en">An additional free text note about the claim.</sh:description>
-                      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Note"/>
-                      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/additionalNote"/>
+                      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                      >1</sh:minCount>
+                      <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+                      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
+                      <sh:name>type</sh:name>
+                      <sh:description xml:lang="en">When the claim (superclass is used) the type is mandatory.</sh:description>
                     </sh:property>
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
@@ -229,12 +231,10 @@
                     </sh:property>
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-                      <sh:uniqueLang rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-                      >true</sh:uniqueLang>
-                      <sh:name xml:lang="en">description</sh:name>
-                      <sh:description xml:lang="en">A free text description of the claim.</sh:description>
-                      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-                      <sh:path rdf:resource="http://purl.org/dc/terms/description"/>
+                      <sh:name xml:lang="en">more information</sh:name>
+                      <sh:description xml:lang="en">An additional free text note about the claim.</sh:description>
+                      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Note"/>
+                      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/additionalNote"/>
                     </sh:property>
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
@@ -252,14 +252,12 @@
                     </sh:property>
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-                      <sh:name xml:lang="en">awarded by</sh:name>
-                      <sh:description xml:lang="en">The awarding details of the claim.</sh:description>
-                      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                      >1</sh:maxCount>
-                      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                      >1</sh:minCount>
-                      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/AwardingProcess"/>
-                      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/awardedBy"/>
+                      <sh:uniqueLang rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                      >true</sh:uniqueLang>
+                      <sh:name xml:lang="en">description</sh:name>
+                      <sh:description xml:lang="en">A free text description of the claim.</sh:description>
+                      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+                      <sh:path rdf:resource="http://purl.org/dc/terms/description"/>
                     </sh:property>
                     <rdfs:comment xml:lang="en">This shape does not apply on a class. This shape checks if a node is a Claim (when used directly and not via one of its subclasses),  having type as a mandatory property.</rdfs:comment>
                     <rdfs:label xml:lang="en">Claim Type Node </rdfs:label>
@@ -276,12 +274,14 @@
                     </sh:property>
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+                      <sh:name xml:lang="en">awarded by</sh:name>
+                      <sh:description xml:lang="en">The awarding details of the claim.</sh:description>
+                      <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                      >1</sh:maxCount>
                       <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
                       >1</sh:minCount>
-                      <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-                      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
-                      <sh:name>type</sh:name>
-                      <sh:description xml:lang="en">When the claim (superclass is used) the type is mandatory.</sh:description>
+                      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/AwardingProcess"/>
+                      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/awardedBy"/>
                     </sh:property>
                   </sh:NodeShape>
                 </sh:node>
@@ -1211,39 +1211,6 @@
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/GroupShape">
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-      <sh:description xml:lang="en">The alternative name of the group.</sh:description>
-      <sh:name xml:lang="en">alternative name</sh:name>
-      <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>
-      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-    </sh:property>
-    <sh:property rdf:parseType="Resource">
-      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-      <sh:description xml:lang="en">The type of the group. It should be provided using a controlled vocabulary.</sh:description>
-      <sh:name xml:lang="en">type</sh:name>
-      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
-      <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    </sh:property>
-    <sh:property rdf:parseType="Resource">
-      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-      <sh:uniqueLang rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-      >true</sh:uniqueLang>
-      <sh:description xml:lang="en">The preferred name of the group.</sh:description>
-      <sh:name xml:lang="en">preferred name</sh:name>
-      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-      >1</sh:minCount>
-      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-      <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
-    </sh:property>
-    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Group"/>
-    <sh:property rdf:parseType="Resource">
-      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-      <sh:name xml:lang="en">location</sh:name>
-      <sh:description xml:lang="en">The location of the group.</sh:description>
-      <sh:class rdf:resource="http://purl.org/dc/terms/Location"/>
-      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/location"/>
-    </sh:property>
-    <sh:property rdf:parseType="Resource">
-      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
       <sh:name xml:lang="en">has member</sh:name>
       <sh:description xml:lang="en">An agent being a member of the group.</sh:description>
       <sh:or rdf:parseType="Collection">
@@ -1259,7 +1226,14 @@
       </sh:or>
       <sh:path rdf:resource="http://xmlns.com/foaf/0.1/member"/>
     </sh:property>
-    <rdfs:label xml:lang="en">Group </rdfs:label>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Group"/>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:name xml:lang="en">location</sh:name>
+      <sh:description xml:lang="en">The location of the group.</sh:description>
+      <sh:class rdf:resource="http://purl.org/dc/terms/Location"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/location"/>
+    </sh:property>
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
       <sh:name xml:lang="en">contact information</sh:name>
@@ -1267,13 +1241,39 @@
       <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/ContactPoint"/>
       <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/contactPoint"/>
     </sh:property>
-    <rdfs:comment xml:lang="en">An entity that represents collection of Agents.</rdfs:comment>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:uniqueLang rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+      >true</sh:uniqueLang>
+      <sh:description xml:lang="en">The preferred name of the group.</sh:description>
+      <sh:name xml:lang="en">preferred name</sh:name>
+      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:minCount>
+      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+      <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    </sh:property>
+    <rdfs:label xml:lang="en">Group </rdfs:label>
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
       <sh:name xml:lang="en">more information</sh:name>
       <sh:description xml:lang="en">An additional free text note about the group.</sh:description>
       <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Note"/>
       <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/additionalNote"/>
+    </sh:property>
+    <rdfs:comment xml:lang="en">An entity that represents collection of Agents.</rdfs:comment>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:description xml:lang="en">The alternative name of the group.</sh:description>
+      <sh:name xml:lang="en">alternative name</sh:name>
+      <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>
+      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:description xml:lang="en">The type of the group. It should be provided using a controlled vocabulary.</sh:description>
+      <sh:name xml:lang="en">type</sh:name>
+      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
+      <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     </sh:property>
   </sh:NodeShape>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/LearningOutcomeShape">
@@ -3009,11 +3009,6 @@
       </sh:PropertyShape>
     </sh:property>
   </sh:NodeShape>
-  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/EmailAddressShape">
-    <rdfs:label xml:lang="en">Email Address</rdfs:label>
-    <rdfs:comment xml:lang="en">An e-mail address.</rdfs:comment>
-    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/EmailAddress"/>
-  </sh:NodeShape>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/ContactPointShape">
     <sh:property>
       <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/ContactPoint-dc_description">
@@ -3070,7 +3065,7 @@
         <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
         <sh:name xml:lang="en">emailAddress</sh:name>
         <sh:description xml:lang="en">An e-mail address used for contacting the agent.</sh:description>
-        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/EmailAddress"/>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Mailbox"/>
         <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/emailAddress"/>
       </sh:PropertyShape>
     </sh:property>
@@ -3535,6 +3530,11 @@
         <sh:path rdf:resource="http://purl.org/dc/terms/spatial"/>
       </sh:PropertyShape>
     </sh:property>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/MailboxShape">
+    <rdfs:label xml:lang="en">Mailbox</rdfs:label>
+    <rdfs:comment xml:lang="en">A mailbox.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Mailbox"/>
   </sh:NodeShape>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/EuropeanDigitalPresentationShape">
     <sh:property>

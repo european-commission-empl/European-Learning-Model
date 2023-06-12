@@ -167,6 +167,13 @@
     <dc:identifier>elm:AwardingProcess</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Mailbox">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Mailbox</rdfs:label>
+    <rdfs:comment xml:lang="en">A mailbox.</rdfs:comment>
+    <dc:identifier>elm:Mailbox</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/ShaclValidator2017">
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
     <rdfs:label xml:lang="en">Shacl Validator 2017</rdfs:label>
@@ -230,13 +237,6 @@
     <rdfs:label xml:lang="en">Learning Assessment Specification</rdfs:label>
     <rdfs:comment xml:lang="en">A Learning Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence.</rdfs:comment>
     <dc:identifier>elm:LearningAssessmentSpecification</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/EmailAddress">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Email Address</rdfs:label>
-    <rdfs:comment xml:lang="en">An e-mail address.</rdfs:comment>
-    <dc:identifier>elm:EmailAddress</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/ResultDistribution">
@@ -1053,7 +1053,7 @@
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://data.europa.eu/snb/model/elm/emailAddress">
-    <rdfs:range rdf:resource="http://data.europa.eu/snb/model/elm/EmailAddress"/>
+    <rdfs:range rdf:resource="http://data.europa.eu/snb/model/elm/Mailbox"/>
     <rdfs:domain rdf:resource="http://data.europa.eu/snb/model/elm/ContactPoint"/>
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
     <rdfs:label xml:lang="en">emailAddress</rdfs:label>
