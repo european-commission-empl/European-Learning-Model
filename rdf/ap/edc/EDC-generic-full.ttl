@@ -225,17 +225,6 @@
         sh:path skos:inScheme
     ] .
 
-:LimitCredentialTypeRestriction
-   a sh:NodeShape ;
-    rdfs:comment "Limit Credential Type Restriction";
-    rdfs:label "Limit Credential Type Restriction";
-    sh:property [
-        sh:class skos:ConceptScheme ;
-        sh:hasValue <http://data.europa.eu/snb/credential/25831c2> ;
-        sh:nodeKind sh:IRI ;
-        sh:path skos:inScheme
-    ] .
-
 :VerificationCheckStatusRestriction
     a sh:NodeShape ;
     rdfs:comment "Verification Check Status restriction" ;
@@ -296,13 +285,6 @@
         sh:nodeKind sh:IRI ;
         sh:name "accredited in jurisdiction"@en;
         sh:path elm:limitJurisdiction;
-        sh:severity sh:Violation;
-    ];
-    sh:property[
-        sh:node :LimitCredentialTypeRestriction;
-        sh:nodeKind sh:IRI ;
-        sh:name "limit credential type"@en;
-        sh:path elm:limitCredentialType;
         sh:severity sh:Violation;
     ];
 .
