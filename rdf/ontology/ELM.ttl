@@ -13,7 +13,8 @@
 @prefix cpv:    <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix locn:   <http://www.w3.org/ns/locn#>.
-@prefix  clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
+@prefix clv:    <http://data.europa.eu/m8g/>. #core location vocabulary
+@prefix sec:    <https://w3id.org/security#>.
 
 
 <http://data.europa.eu/snb/model/elm>
@@ -29,9 +30,10 @@
   owl:imports cred:;
   owl:imports locn:;
   owl:imports clv:;
+  owl:imports sec:;
   rdfs:label "Europass Learning Model"@en;
   dc:created "2021-08-01"^^xsd:date;
-  dc:modified "2023-06-05"^^xsd:date;
+  dc:modified "2023-07-06"^^xsd:date;
   dc:title "Europass Learning Model Ontology"@en;
   dc:abstract '''Data Model for Interoperability of Learning Opportunities, Qualifications and Credentials in Europe. 
   The Europass Learning Model aims to capture the results of any non-formal and formal learning across Europe, as well as 
@@ -40,7 +42,7 @@
   of claims that are related to learning'''@en;
   cc:attributionName "European Commission"@en;
   rdfs:comment "This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as well as the ranges and domains of properties are defined in the application profiles that import the ELM ontology."@en;
-  owl:versionInfo "3.1.0";
+  owl:versionInfo "3.2.0";
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
   dc:license <https://creativecommons.org/licenses/by/4.0/>;
@@ -172,6 +174,33 @@ elm:Evidence
    dc:identifier "elm:Evidence";
    rdfs:comment "The evidence."@en;
    rdfs:label "Evidence"@en;
+   rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
+.
+
+elm:Proof
+   a rdfs:Class;
+   a owl:Class;
+   dc:identifier "elm:Proof";
+   rdfs:comment "The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation."@en;
+   rdfs:label "Proof"@en;
+   rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
+.
+
+elm:TermsOfUse
+   a rdfs:Class;
+   a owl:Class;
+   dc:identifier "elm:TermsOfUse";
+   rdfs:comment "The terms of use. It defines the terms under which the verifiable credential was issued."@en;
+   rdfs:label "Terms Of Use"@en;
+   rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
+.
+
+elm:CredentialStatus
+   a rdfs:Class;
+   a owl:Class;
+   dc:identifier "elm:CredentialStatus";
+   rdfs:comment "The credential status. It defines discovery information about the current status of a Verifiable Credential."@en;
+   rdfs:label "Credential Status"@en;
    rdfs:isDefinedBy <http://data.europa.eu/snb/model/elm>;
 .
 
@@ -1014,7 +1043,7 @@ elm:individualDisplay
 #----------    European Digital Credential Properties   ---------------------
 
 ## Re-used properties
-### adms:identifier, dc:issued,  cred:issuer, cred:credentialSubject, cred:proof
+### adms:identifier, dc:issued,  cred:issuer, cred:credentialSubject, sec:proof
 ### cred:validFrom, cred:validUntil, cred:issuanceDate,cred:expirationDate, cred:evidence, cred:termsOfUse, cred:credentialStatus, cred:credentialSchema
 
 elm:displayParameter

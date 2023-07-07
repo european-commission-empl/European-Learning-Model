@@ -4,6 +4,7 @@
     xmlns:locn="http://www.w3.org/ns/locn#"
     xmlns:clv="http://data.europa.eu/m8g/"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:sec="https://w3id.org/security#"
     xmlns:rov="http://www.w3.org/ns/regorg#"
     xmlns:dc="http://purl.org/dc/terms/"
     xmlns:adms="http://www.w3.org/ns/adms#"
@@ -22,13 +23,13 @@
     <dc:description xml:lang="en">SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used.</dc:description>
     <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
     <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2023-06-05</dc:modified>
-    <owl:versionInfo>1.1.0</owl:versionInfo>
+    >2023-07-06</dc:modified>
     <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
     <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
     >2021-09-10</dc:created>
     <rdfs:label xml:lang="en">SHACL constraints for EDC Application Profile</rdfs:label>
     <dc:title xml:lang="en">SHACL constraints for European Digital Credentials  application profile</dc:title>
+    <owl:versionInfo>1.2.0</owl:versionInfo>
     <rdfs:comment xml:lang="en">This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</rdfs:comment>
   </owl:Ontology>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/PriceDetailShape">
@@ -215,29 +216,6 @@
                   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/ClaimTypeNodeShape">
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-                      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                      >1</sh:minCount>
-                      <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-                      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
-                      <sh:name>type</sh:name>
-                      <sh:description xml:lang="en">When the claim (superclass is used) the type is mandatory.</sh:description>
-                    </sh:property>
-                    <sh:property rdf:parseType="Resource">
-                      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-                      <sh:name xml:lang="en">other documents</sh:name>
-                      <sh:description xml:lang="en">A public web document containing additional documentation about the claim.</sh:description>
-                      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/WebResource"/>
-                      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/supplementaryDocument"/>
-                    </sh:property>
-                    <sh:property rdf:parseType="Resource">
-                      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-                      <sh:name xml:lang="en">more information</sh:name>
-                      <sh:description xml:lang="en">An additional free text note about the claim.</sh:description>
-                      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Note"/>
-                      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/additionalNote"/>
-                    </sh:property>
-                    <sh:property rdf:parseType="Resource">
-                      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
                       <sh:name xml:lang="en">identifier</sh:name>
                       <sh:description xml:lang="en">An identifier of the claim.</sh:description>
                       <sh:or rdf:parseType="Collection">
@@ -252,15 +230,11 @@
                     </sh:property>
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-                      <sh:uniqueLang rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-                      >true</sh:uniqueLang>
-                      <sh:name xml:lang="en">description</sh:name>
-                      <sh:description xml:lang="en">A free text description of the claim.</sh:description>
-                      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-                      <sh:path rdf:resource="http://purl.org/dc/terms/description"/>
+                      <sh:name xml:lang="en">other documents</sh:name>
+                      <sh:description xml:lang="en">A public web document containing additional documentation about the claim.</sh:description>
+                      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/WebResource"/>
+                      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/supplementaryDocument"/>
                     </sh:property>
-                    <rdfs:comment xml:lang="en">This shape does not apply on a class. This shape checks if a node is a Claim (when used directly and not via one of its subclasses),  having type as a mandatory property.</rdfs:comment>
-                    <rdfs:label xml:lang="en">Claim Type Node </rdfs:label>
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
                       <sh:uniqueLang rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
@@ -272,6 +246,7 @@
                       <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
                       <sh:path rdf:resource="http://purl.org/dc/terms/title"/>
                     </sh:property>
+                    <rdfs:comment xml:lang="en">This shape does not apply on a class. This shape checks if a node is a Claim (when used directly and not via one of its subclasses),  having type as a mandatory property.</rdfs:comment>
                     <sh:property rdf:parseType="Resource">
                       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
                       <sh:name xml:lang="en">awarded by</sh:name>
@@ -282,6 +257,32 @@
                       >1</sh:minCount>
                       <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/AwardingProcess"/>
                       <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/awardedBy"/>
+                    </sh:property>
+                    <rdfs:label xml:lang="en">Claim Type Node </rdfs:label>
+                    <sh:property rdf:parseType="Resource">
+                      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+                      <sh:uniqueLang rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                      >true</sh:uniqueLang>
+                      <sh:name xml:lang="en">description</sh:name>
+                      <sh:description xml:lang="en">A free text description of the claim.</sh:description>
+                      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+                      <sh:path rdf:resource="http://purl.org/dc/terms/description"/>
+                    </sh:property>
+                    <sh:property rdf:parseType="Resource">
+                      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+                      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                      >1</sh:minCount>
+                      <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+                      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
+                      <sh:name>type</sh:name>
+                      <sh:description xml:lang="en">When the claim (superclass is used) the type is mandatory.</sh:description>
+                    </sh:property>
+                    <sh:property rdf:parseType="Resource">
+                      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+                      <sh:name xml:lang="en">more information</sh:name>
+                      <sh:description xml:lang="en">An additional free text note about the claim.</sh:description>
+                      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Note"/>
+                      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/additionalNote"/>
                     </sh:property>
                   </sh:NodeShape>
                 </sh:node>
@@ -646,6 +647,7 @@
         <sh:description xml:lang="en">The schema of the european digital credential.</sh:description>
         <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >1</sh:minCount>
+        <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
         <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/ShaclValidator2017"/>
         <sh:path rdf:resource="https://www.w3.org/2018/credentials#credentialSchema"/>
       </sh:PropertyShape>
@@ -676,7 +678,8 @@
         <sh:description xml:lang="en">The status of the european digital credential.</sh:description>
         <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >1</sh:maxCount>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/CredentialStatus"/>
         <sh:path rdf:resource="https://www.w3.org/2018/credentials#credentialStatus"/>
       </sh:PropertyShape>
     </sh:property>
@@ -745,8 +748,17 @@
         <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
         <sh:name xml:lang="en">terms of use</sh:name>
         <sh:description xml:lang="en">The terms of use of european digital credential.</sh:description>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/TermsOfUse"/>
         <sh:path rdf:resource="https://www.w3.org/2018/credentials#termsOfUse"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/EuropeanDigitalCredential-sec_proof">
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:name xml:lang="en">proof</sh:name>
+        <sh:description xml:lang="en">The proof of the european digital credential.</sh:description>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Proof"/>
+        <sh:path rdf:resource="https://w3id.org/security#proof"/>
       </sh:PropertyShape>
     </sh:property>
     <sh:property>
@@ -775,15 +787,6 @@
           </rdf:Description>
         </sh:or>
         <sh:path rdf:resource="http://www.w3.org/ns/adms#identifier"/>
-      </sh:PropertyShape>
-    </sh:property>
-    <sh:property>
-      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/EuropeanDigitalCredential-cred_proof">
-        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-        <sh:name xml:lang="en">proof</sh:name>
-        <sh:description xml:lang="en">The proof of the european digital credential.</sh:description>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <sh:path rdf:resource="https://www.w3.org/2018/credentials#proof"/>
       </sh:PropertyShape>
     </sh:property>
   </sh:NodeShape>
@@ -1211,6 +1214,31 @@
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/GroupShape">
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:description xml:lang="en">The type of the group. It should be provided using a controlled vocabulary.</sh:description>
+      <sh:name xml:lang="en">type</sh:name>
+      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
+      <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:name xml:lang="en">location</sh:name>
+      <sh:description xml:lang="en">The location of the group.</sh:description>
+      <sh:class rdf:resource="http://purl.org/dc/terms/Location"/>
+      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/location"/>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+      <sh:uniqueLang rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+      >true</sh:uniqueLang>
+      <sh:description xml:lang="en">The preferred name of the group.</sh:description>
+      <sh:name xml:lang="en">preferred name</sh:name>
+      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+      >1</sh:minCount>
+      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+      <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    </sh:property>
+    <sh:property rdf:parseType="Resource">
+      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
       <sh:name xml:lang="en">has member</sh:name>
       <sh:description xml:lang="en">An agent being a member of the group.</sh:description>
       <sh:or rdf:parseType="Collection">
@@ -1229,10 +1257,10 @@
     <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Group"/>
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-      <sh:name xml:lang="en">location</sh:name>
-      <sh:description xml:lang="en">The location of the group.</sh:description>
-      <sh:class rdf:resource="http://purl.org/dc/terms/Location"/>
-      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/location"/>
+      <sh:description xml:lang="en">The alternative name of the group.</sh:description>
+      <sh:name xml:lang="en">alternative name</sh:name>
+      <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>
+      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
     </sh:property>
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
@@ -1243,38 +1271,13 @@
     </sh:property>
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-      <sh:uniqueLang rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-      >true</sh:uniqueLang>
-      <sh:description xml:lang="en">The preferred name of the group.</sh:description>
-      <sh:name xml:lang="en">preferred name</sh:name>
-      <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-      >1</sh:minCount>
-      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-      <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
-    </sh:property>
-    <rdfs:label xml:lang="en">Group </rdfs:label>
-    <sh:property rdf:parseType="Resource">
-      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
       <sh:name xml:lang="en">more information</sh:name>
       <sh:description xml:lang="en">An additional free text note about the group.</sh:description>
       <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Note"/>
       <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/additionalNote"/>
     </sh:property>
+    <rdfs:label xml:lang="en">Group </rdfs:label>
     <rdfs:comment xml:lang="en">An entity that represents collection of Agents.</rdfs:comment>
-    <sh:property rdf:parseType="Resource">
-      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-      <sh:description xml:lang="en">The alternative name of the group.</sh:description>
-      <sh:name xml:lang="en">alternative name</sh:name>
-      <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>
-      <sh:datatype rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-    </sh:property>
-    <sh:property rdf:parseType="Resource">
-      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-      <sh:description xml:lang="en">The type of the group. It should be provided using a controlled vocabulary.</sh:description>
-      <sh:name xml:lang="en">type</sh:name>
-      <sh:path rdf:resource="http://purl.org/dc/terms/type"/>
-      <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    </sh:property>
   </sh:NodeShape>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/LearningOutcomeShape">
     <rdfs:comment xml:lang="en">A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.</rdfs:comment>
@@ -1844,7 +1847,8 @@
         <sh:description xml:lang="en">The status of the verifiable credential.</sh:description>
         <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >1</sh:maxCount>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/CredentialStatus"/>
         <sh:path rdf:resource="https://www.w3.org/2018/credentials#credentialStatus"/>
       </sh:PropertyShape>
     </sh:property>
@@ -1857,6 +1861,17 @@
         <sh:description xml:lang="en">The evidence of the verifiable credential.</sh:description>
         <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Evidence"/>
         <sh:path rdf:resource="https://www.w3.org/2018/credentials#evidence"/>
+      </sh:PropertyShape>
+    </sh:property>
+    <sh:property>
+      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/VerifiableCredential-sec_proof">
+        <sh:deactivated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</sh:deactivated>
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
+        <sh:name xml:lang="en">proof</sh:name>
+        <sh:description xml:lang="en">The proof of the verifiable credential.</sh:description>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Proof"/>
+        <sh:path rdf:resource="https://w3id.org/security#proof"/>
       </sh:PropertyShape>
     </sh:property>
     <sh:property>
@@ -1874,17 +1889,6 @@
     </sh:property>
     <sh:targetClass rdf:resource="https://www.w3.org/2018/credentials#VerifiableCredential"/>
     <sh:property>
-      <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/VerifiableCredential-cred_proof">
-        <sh:deactivated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-        >true</sh:deactivated>
-        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-        <sh:name xml:lang="en">proof</sh:name>
-        <sh:description xml:lang="en">The proof of the verifiable credential.</sh:description>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <sh:path rdf:resource="https://www.w3.org/2018/credentials#proof"/>
-      </sh:PropertyShape>
-    </sh:property>
-    <sh:property>
       <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/VerifiableCredential-cred_issuer">
         <sh:name xml:lang="en">issuer</sh:name>
         <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
@@ -1894,9 +1898,6 @@
         >true</sh:deactivated>
         <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
         >1</sh:maxCount>
-        <sh:path rdf:resource="https://www.w3.org/2018/credentials#issuer"/>
-        <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/IssuerNodeShape"/>
-        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
         <sh:or rdf:parseType="Collection">
           <rdf:Description>
             <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Agent"/>
@@ -1908,6 +1909,9 @@
             <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Organisation"/>
           </rdf:Description>
         </sh:or>
+        <sh:path rdf:resource="https://www.w3.org/2018/credentials#issuer"/>
+        <sh:node rdf:resource="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/IssuerNodeShape"/>
+        <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
       </sh:PropertyShape>
     </sh:property>
     <sh:property>
@@ -1933,7 +1937,7 @@
         <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
         <sh:name xml:lang="en">terms of use</sh:name>
         <sh:description xml:lang="en">The terms of use of verifiable credential.</sh:description>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/TermsOfUse"/>
         <sh:path rdf:resource="https://www.w3.org/2018/credentials#termsOfUse"/>
       </sh:PropertyShape>
     </sh:property>
@@ -3009,6 +3013,11 @@
       </sh:PropertyShape>
     </sh:property>
   </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/CredentialStatusShape">
+    <rdfs:label xml:lang="en">Credential Status</rdfs:label>
+    <rdfs:comment xml:lang="en">The credential status. It defines discovery information about the current status of a Verifiable Credential.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/CredentialStatus"/>
+  </sh:NodeShape>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/ContactPointShape">
     <sh:property>
       <sh:PropertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/ContactPoint-dc_description">
@@ -3538,12 +3547,12 @@
   </sh:NodeShape>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/EuropeanDigitalPresentationShape">
     <sh:property>
-      <sh:propertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/EuropeanDigitalPresentation-cred_proof">
+      <sh:propertyShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/EuropeanDigitalPresentation-sec_proof">
         <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
         <sh:name xml:lang="en">proof</sh:name>
         <sh:description xml:lang="en">The proof of the european digital presentation.</sh:description>
-        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <sh:path rdf:resource="https://www.w3.org/2018/credentials#proof"/>
+        <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Proof"/>
+        <sh:path rdf:resource="https://w3id.org/security#proof"/>
       </sh:propertyShape>
     </sh:property>
     <sh:property>
@@ -3738,6 +3747,11 @@
     <rdfs:label xml:lang="en">Awarding Opportunity</rdfs:label>
     <rdfs:comment xml:lang="en">An awarding opportunity describes how, where, from whom and when a claim may be obtained.</rdfs:comment>
     <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/AwardingOpportunity"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/TermsOfUseShape">
+    <rdfs:label xml:lang="en">Terms Of Use</rdfs:label>
+    <rdfs:comment xml:lang="en">The terms of use. It defines the terms under which the verifiable credential was issued.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/TermsOfUse"/>
   </sh:NodeShape>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/PeriodOfTimeShape">
     <sh:property>
@@ -4561,9 +4575,9 @@
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
       <sh:name xml:lang="en">proof</sh:name>
-      <sh:description xml:lang="en">The proof of the verifiable presentaion.</sh:description>
-      <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-      <sh:path rdf:resource="https://www.w3.org/2018/credentials#proof"/>
+      <sh:description xml:lang="en">The proof of the verifiable presentation.</sh:description>
+      <sh:class rdf:resource="http://data.europa.eu/snb/model/elm/Proof"/>
+      <sh:path rdf:resource="https://w3id.org/security#proof"/>
     </sh:property>
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
@@ -5176,6 +5190,11 @@
     <rdfs:label xml:lang="en">Result Category </rdfs:label>
     <rdfs:comment xml:lang="en">Description of a single score or score range within a histogram of results.</rdfs:comment>
     <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/ResultCategory"/>
+  </sh:NodeShape>
+  <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/ProofShape">
+    <rdfs:label xml:lang="en">Proof</rdfs:label>
+    <rdfs:comment xml:lang="en">The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation.</rdfs:comment>
+    <sh:targetClass rdf:resource="http://data.europa.eu/snb/model/elm/Proof"/>
   </sh:NodeShape>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-no-cv/LearningActivityShape">
     <sh:property>

@@ -6,7 +6,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://data.europa.eu/snb/model/elm","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://data.europa.eu/snb/model/elm","name":"Europass Learning Model Ontology", "headline":"This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as weel as the ranges and domains of properties are defined in the application profiles that import the ELM ontology.", "datePublished":"Fri Jun 09 17:15:56 CEST 2023", "version":"3.1.0", "license":"https://creativecommons.org/licenses/by/4.0/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://data.europa.eu/snb/model/elm","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://data.europa.eu/snb/model/elm","name":"Europass Learning Model Ontology", "headline":"This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as weel as the ranges and domains of properties are defined in the application profiles that import the ELM ontology.", "datePublished":"Thu Jul 06 16:14:40 CEST 2023", "version":"3.2.0", "license":"https://creativecommons.org/licenses/by/4.0/"}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -63,18 +63,18 @@ $(function(){
 <dt>Latest version:</dt>
 <dd><a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a></dd>
 <dt>Revision:</dt>
-<dd>3.1.0</dd>
+<dd>3.2.0</dd>
 <dt>Publisher:</dt>
 <dd><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a></dd>
 <dt>Imported Ontologies:</dt>
-<dd><a href="http://data.europa.eu/m8g/">clv</a></dd><dd><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">rdf</a></dd><dd><a href="http://www.w3.org/ns/adms/">adms</a></dd><dd><a href="http://www.w3.org/ns/locn/">locn</a></dd><dd><a href="http://www.w3.org/ns/person/">cpv</a></dd><dd><a href="http://www.w3.org/ns/regorg/">rov</a></dd><dd><a href="http://www.w3.org/2004/02/skos/core#">skos</a></dd><dd><a href="http://purl.org/dc/terms/">dc</a></dd><dd><a href="https://www.w3.org/2018/credentials#">cred</a></dd><dd><a href="http://xmlns.com/foaf/0.1/">foaf</a></dd>
+<dd><a href="http://data.europa.eu/m8g/">clv</a></dd><dd><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">rdf</a></dd><dd><a href="http://www.w3.org/ns/adms/">adms</a></dd><dd><a href="http://www.w3.org/ns/locn/">locn</a></dd><dd><a href="http://www.w3.org/ns/person/">cpv</a></dd><dd><a href="http://www.w3.org/ns/regorg/">rov</a></dd><dd><a href="http://www.w3.org/2004/02/skos/core#">skos</a></dd><dd><a href="http://purl.org/dc/terms/">dc</a></dd><dd><a href="https://www.w3.org/2018/credentials#">cred</a></dd><dd><a href="http://xmlns.com/foaf/0.1/">foaf</a></dd><dd><a href="https://w3id.org/security#">sec</a></dd>
 
 <dt>License: </dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
 <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">
 <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0" alt="License" />
 </a>
 <br/></dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSEvaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
-<dd>Europass Learning Model Ontology. Revision: 3.1.0.</dd>
+<dd>Europass Learning Model Ontology. Revision: 3.2.0.</dd>
 </dl>
 
 <a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
@@ -128,6 +128,10 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#/ContactPoint"
          title="http://data.europa.eu/snb/model/elm/ContactPoint">Contact Point</a>
+   </li>
+   <li>
+      <a href="#/CredentialStatus"
+         title="http://data.europa.eu/snb/model/elm/CredentialStatus">Credential Status</a>
    </li>
    <li>
       <a href="#/CreditPoint" title="http://data.europa.eu/snb/model/elm/CreditPoint">Credit Point</a>
@@ -235,6 +239,9 @@ This ontology has the following classes and properties.</span>
       <a href="#/PriceDetail" title="http://data.europa.eu/snb/model/elm/PriceDetail">Price Detail</a>
    </li>
    <li>
+      <a href="#/Proof" title="http://data.europa.eu/snb/model/elm/Proof">Proof</a>
+   </li>
+   <li>
       <a href="#/Qualification"
          title="http://data.europa.eu/snb/model/elm/Qualification">Qualification</a>
    </li>
@@ -261,6 +268,9 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#/Specification"
          title="http://data.europa.eu/snb/model/elm/Specification">Specification</a>
+   </li>
+   <li>
+      <a href="#/TermsOfUse" title="http://data.europa.eu/snb/model/elm/TermsOfUse">Terms Of Use</a>
    </li>
    <li>
       <a href="#/VerificationCheck"
@@ -896,6 +906,10 @@ This section provides details for each class and property defined by Europass Le
             title="http://data.europa.eu/snb/model/elm/ContactPoint">Contact Point</a>
       </li>
       <li>
+         <a href="#/CredentialStatus"
+            title="http://data.europa.eu/snb/model/elm/CredentialStatus">Credential Status</a>
+      </li>
+      <li>
          <a href="#/CreditPoint" title="http://data.europa.eu/snb/model/elm/CreditPoint">Credit Point</a>
       </li>
       <li>
@@ -1001,6 +1015,9 @@ This section provides details for each class and property defined by Europass Le
          <a href="#/PriceDetail" title="http://data.europa.eu/snb/model/elm/PriceDetail">Price Detail</a>
       </li>
       <li>
+         <a href="#/Proof" title="http://data.europa.eu/snb/model/elm/Proof">Proof</a>
+      </li>
+      <li>
          <a href="#/Qualification"
             title="http://data.europa.eu/snb/model/elm/Qualification">Qualification</a>
       </li>
@@ -1027,6 +1044,9 @@ This section provides details for each class and property defined by Europass Le
       <li>
          <a href="#/Specification"
             title="http://data.europa.eu/snb/model/elm/Specification">Specification</a>
+      </li>
+      <li>
+         <a href="#/TermsOfUse" title="http://data.europa.eu/snb/model/elm/TermsOfUse">Terms Of Use</a>
       </li>
       <li>
          <a href="#/VerificationCheck"
@@ -1335,6 +1355,23 @@ This section provides details for each class and property defined by Europass Le
          <dd>
             <a href="#/contactPoint" title="http://data.europa.eu/snb/model/elm/contactPoint">learning entitlements</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/CredentialStatus">
+      <h3>Credential Status<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/CredentialStatus</p>
+      <div class="comment">
+         <span class="markdown">The credential status. It defines discovery information about the current status of a Verifiable Credential.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
          </dd>
       </dl>
    </div>
@@ -2283,6 +2320,7 @@ This section provides details for each class and property defined by Europass Le
             <sup class="type-c" title="class">c</sup>, <a href="http://www.w3.org/ns/person#Person"
                target="_blank"
                title="http://www.w3.org/ns/person#Person">person</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
          <dd>
@@ -2361,6 +2399,23 @@ This section provides details for each class and property defined by Europass Le
          <dd>
             <a href="#/priceDetail" title="http://data.europa.eu/snb/model/elm/priceDetail">price detail</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Proof">
+      <h3>Proof<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/Proof</p>
+      <div class="comment">
+         <span class="markdown">The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
          </dd>
       </dl>
    </div>
@@ -2593,6 +2648,23 @@ This section provides details for each class and property defined by Europass Le
          <dd>
             <a href="#/Claim" title="http://data.europa.eu/snb/model/elm/Claim">Claim</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/TermsOfUse">
+      <h3>Terms Of Use<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://data.europa.eu/snb/model/elm/TermsOfUse</p>
+      <div class="comment">
+         <span class="markdown">The terms of use. It defines the terms under which the verifiable credential was issued.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://data.europa.eu/snb/model/elm">http://data.europa.eu/snb/model/elm</a>
          </dd>
       </dl>
    </div>
@@ -5432,6 +5504,7 @@ This section provides details for each class and property defined by Europass Le
                <a href="http://purl.org/dc/terms/Location"
                   target="_blank"
                   title="http://purl.org/dc/terms/Location">location</a>
+               <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
@@ -5687,6 +5760,7 @@ This section provides details for each class and property defined by Europass Le
                <a href="http://purl.org/dc/terms/Location"
                   target="_blank"
                   title="http://purl.org/dc/terms/Location">location</a>
+               <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is also defined as</dt>
             <dd>data property</dd>
@@ -7333,6 +7407,7 @@ This section provides details for each class and property defined by Europass Le
                <a href="http://purl.org/dc/terms/Location"
                   target="_blank"
                   title="http://purl.org/dc/terms/Location">location</a>
+               <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>

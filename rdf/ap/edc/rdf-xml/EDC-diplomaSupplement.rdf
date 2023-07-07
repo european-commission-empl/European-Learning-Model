@@ -18,17 +18,17 @@
     xmlns="http://data.europa.eu/snb/model/ap/edc-diploma-supplement/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <owl:Ontology rdf:about="http://data.europa.eu/snb/model/ap/edc-diploma-supplement">
+    <owl:versionInfo>1.2.0</owl:versionInfo>
     <dc:publisher rdf:resource="http://publications.europa.eu/resource/authority/corporate-body/DEMP"/>
     <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
     <rdfs:label xml:lang="en">SHACL constraints for EDC - Diploma Supplement Application Profile</rdfs:label>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2023-07-06</dc:modified>
     <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
     >2021-09-10</dc:created>
     <owl:imports rdf:resource="http://data.europa.eu/snb/model/ap/edc-accredited"/>
     <dc:description xml:lang="en">SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used.</dc:description>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2023-06-05</dc:modified>
     <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-    <owl:versionInfo>1.1.0</owl:versionInfo>
     <rdfs:comment xml:lang="en">This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</rdfs:comment>
     <dc:title xml:lang="en">SHACL constraints for European Digital Credentials - Diploma Supplement application profile</dc:title>
   </owl:Ontology>

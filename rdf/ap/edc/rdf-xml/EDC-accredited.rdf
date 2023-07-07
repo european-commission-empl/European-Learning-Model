@@ -25,11 +25,11 @@
     <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
     >2021-09-10</dc:created>
     <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
+    <owl:versionInfo>1.2.0</owl:versionInfo>
     <dc:description xml:lang="en">SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used.</dc:description>
-    <rdfs:comment xml:lang="en">This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</rdfs:comment>
     <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2023-06-05</dc:modified>
-    <owl:versionInfo>1.1.0</owl:versionInfo>
+    >2023-07-06</dc:modified>
+    <rdfs:comment xml:lang="en">This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</rdfs:comment>
     <owl:imports rdf:resource="http://data.europa.eu/snb/model/ap/edc-generic-full"/>
   </owl:Ontology>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-accredited/EvidenceShape">

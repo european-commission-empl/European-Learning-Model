@@ -38,6 +38,10 @@
             margin: 25px 0px 10px 0px;
         }
 
+        h3 {
+            font-size: 1.4em;
+        }
+
         @media only print {
         }
 
@@ -125,6 +129,7 @@
         /* div wrapping section title and URI below - same as a paragraph margin */
         .sp_section_title_table_wrapper {
             margin-bottom: 16px;
+            border-bottom: 1px solid;
         }
 
 
@@ -212,6 +217,7 @@
             max-width:255px;
         }
         .sp_list_toc {padding-left: 0px;}
+        .sp_list_toc_l2 {padding-left: 10px;}
     </style>
     <meta charset="UTF-8">
     <meta name="lang" content="en">
@@ -225,53 +231,57 @@
 <div class="sp_container_principal container pt-4">
     <h1 class="mb-4 sp_section_title_header">SHACL constraints for the controlled vocabularies used by European Digital Credentials
         application profile</h1>
-    <div><b>Creation date: </b>2021-09-25<br><b>Last updated: </b>2023-06-05<br><b>Version: </b>1.1.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
+    <div><b>Creation date: </b>2021-09-25<br><b>Last updated: </b>2023-07-06<br><b>Version: </b>1.2.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
     <div class="row mt-3">
         <div class="col">
-            <h2 id="abstract" class="sp_section_subtitle">Abstract</h2>This document specifies the set SHACL constraints on classes and properties used in the EDC application profile, with respect to the controlled vocabularies used.</div>
+            <h2 id="abstract" class="sp_section_subtitle">Abstract</h2><p>This document specifies the set SHACL constraints on classes and properties used in the EDC application profile, with respect to the controlled vocabularies used.</p>
+        </div>
     </div>
     <div class="sp_section_title_toc toc">
         <h2 id="Index">Table of Contents</h2>
         <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
             <li><a href="#prefixes">Namespaces</a></li>
             <li><a href="#description">Description</a></li>
-            <li><a href="#:AccreditationTypeRestriction">Accreditation Type restriction</a></li>
-            <li><a href="#:AmountUnitRestriction">Amount Unit restriction</a></li>
-            <li><a href="#:ClaimTypeRestriction">Claim Type restriction</a></li>
-            <li><a href="#:CountryRestriction">Country restriction</a></li>
-            <li><a href="#:EQFLevelRestriction">EQF Level restriction</a></li>
-            <li><a href="#:EscoOccupationRestriction">ESCO Occupation restriction</a></li>
-            <li><a href="#:EscoSkillRestriction">ESCO Skill restriction</a></li>
-            <li><a href="#:EuropeanDigitalCredentialTypeRestriction">European Digital Credential Type restriction</a></li>
-            <li><a href="#:EvidenceTypeRestriction">Evidence Type restriction</a></li>
-            <li><a href="#:JurisdictionRestriction">Jurisdiction restriction</a></li>
-            <li><a href="#:LanguageRestriction">Language restriction</a></li>
-            <li><a href="#:LearningEntitlementStatusRestriction">Learning Entitlement Status restriction</a></li>
-            <li><a href="#:LearningOutcomeTypeRestriction">Learning Outcome Type restriction</a></li>
-            <li><a href="#:LearningSettingRestriction">Learning Setting restriction</a></li>
-            <li><a href="#:NQFLevelRestriction">NQF Level restriction</a></li>
-            <li><a href="#:ReusabilityLevelRestriction">Reusability Level restriction</a></li>
-            <li><a href="#:ThematicAreaRestriction">Thematic Area restriction</a></li>
-            <li><a href="#:VerificationCheckStatusRestriction">Verification Check Status restriction</a></li>
-            <li><a href="#:VerificationCheckTypeRestriction">Verification Check Type restriction</a></li>
-            <li><a href="#:AccreditationShapeCV">:AccreditationShapeCV</a></li>
-            <li><a href="#:AddressShapeCV">:AddressShapeCV</a></li>
-            <li><a href="#:AmountShapeCV">:AmountShapeCV</a></li>
-            <li><a href="#:ClaimShapeCV">:ClaimShapeCV</a></li>
-            <li><a href="#:DisplayParameterCV">:DisplayParameterCV</a></li>
-            <li><a href="#:EuropeanDigitalCredentialShapeCV">:EuropeanDigitalCredentialShapeCV</a></li>
-            <li><a href="#:EvidenceShapeCV">:EvidenceShapeCV</a></li>
-            <li><a href="#:LearningAchievementSpecificationShapeCV">:LearningAchievementSpecificationShapeCV</a></li>
-            <li><a href="#:LearningActivitySpecificationShapeCV">:LearningActivitySpecificationShapeCV</a></li>
-            <li><a href="#:LearningAssessmentSpecificationShapeCV">:LearningAssessmentSpecificationShapeCV</a></li>
-            <li><a href="#:LearningEntitlementSpecificationShapeCV">:LearningEntitlementSpecificationShapeCV</a></li>
-            <li><a href="#:LearningOpportunityShapeCV">:LearningOpportunityShapeCV</a></li>
-            <li><a href="#:LearningOutcomeShapeCV">:LearningOutcomeShapeCV</a></li>
-            <li><a href="#:LegalIdentifierShapeCV">:LegalIdentifierShapeCV</a></li>
-            <li><a href="#:PersonShapeCV">:PersonShapeCV</a></li>
-            <li><a href="#:QualificationShapeCV">:QualificationShapeCV</a></li>
-            <li><a href="#:VerificationCheckShapeCV">:VerificationCheckShapeCV</a></li>
-            <li><a href="#:WebResourceShapeCV">:WebResourceShapeCV</a></li>
+            <li><a href="#documentation">Model documentation</a><ul role="list" class="ul_type_none sp_list_toc_l2">
+                <li><a href="#:AccreditationShapeCV">:AccreditationShapeCV</a></li>
+                <li><a href="#:AddressShapeCV">:AddressShapeCV</a></li>
+                <li><a href="#:AmountShapeCV">:AmountShapeCV</a></li>
+                <li><a href="#:ClaimShapeCV">:ClaimShapeCV</a></li>
+                <li><a href="#:DisplayParameterCV">:DisplayParameterCV</a></li>
+                <li><a href="#:EuropeanDigitalCredentialShapeCV">:EuropeanDigitalCredentialShapeCV</a></li>
+                <li><a href="#:EvidenceShapeCV">:EvidenceShapeCV</a></li>
+                <li><a href="#:LearningAchievementSpecificationShapeCV">:LearningAchievementSpecificationShapeCV</a></li>
+                <li><a href="#:LearningActivitySpecificationShapeCV">:LearningActivitySpecificationShapeCV</a></li>
+                <li><a href="#:LearningAssessmentSpecificationShapeCV">:LearningAssessmentSpecificationShapeCV</a></li>
+                <li><a href="#:LearningEntitlementSpecificationShapeCV">:LearningEntitlementSpecificationShapeCV</a></li>
+                <li><a href="#:LearningOpportunityShapeCV">:LearningOpportunityShapeCV</a></li>
+                <li><a href="#:LearningOutcomeShapeCV">:LearningOutcomeShapeCV</a></li>
+                <li><a href="#:LegalIdentifierShapeCV">:LegalIdentifierShapeCV</a></li>
+                <li><a href="#:PersonShapeCV">:PersonShapeCV</a></li>
+                <li><a href="#:QualificationShapeCV">:QualificationShapeCV</a></li>
+                <li><a href="#:VerificationCheckShapeCV">:VerificationCheckShapeCV</a></li>
+                <li><a href="#:WebResourceShapeCV">:WebResourceShapeCV</a></li>
+                <li><a href="#:AccreditationTypeRestriction">Accreditation Type restriction</a></li>
+                <li><a href="#:AmountUnitRestriction">Amount Unit restriction</a></li>
+                <li><a href="#:ClaimTypeRestriction">Claim Type restriction</a></li>
+                <li><a href="#:CountryRestriction">Country restriction</a></li>
+                <li><a href="#:EQFLevelRestriction">EQF Level restriction</a></li>
+                <li><a href="#:EscoOccupationRestriction">ESCO Occupation restriction</a></li>
+                <li><a href="#:EscoSkillRestriction">ESCO Skill restriction</a></li>
+                <li><a href="#:EuropeanDigitalCredentialTypeRestriction">European Digital Credential Type restriction</a></li>
+                <li><a href="#:EvidenceTypeRestriction">Evidence Type restriction</a></li>
+                <li><a href="#:JurisdictionRestriction">Jurisdiction restriction</a></li>
+                <li><a href="#:LanguageRestriction">Language restriction</a></li>
+                <li><a href="#:LearningEntitlementStatusRestriction">Learning Entitlement Status restriction</a></li>
+                <li><a href="#:LearningOutcomeTypeRestriction">Learning Outcome Type restriction</a></li>
+                <li><a href="#:LearningSettingRestriction">Learning Setting restriction</a></li>
+                <li><a href="#:NQFLevelRestriction">NQF Level restriction</a></li>
+                <li><a href="#:ReusabilityLevelRestriction">Reusability Level restriction</a></li>
+                <li><a href="#:ThematicAreaRestriction">Thematic Area restriction</a></li>
+                <li><a href="#:VerificationCheckStatusRestriction">Verification Check Status restriction</a></li>
+                <li><a href="#:VerificationCheckTypeRestriction">Verification Check Type restriction</a></li>
+            </ul>
+            </li>
         </ul>
     </div>
     <div class="row mt-3">
@@ -303,14 +313,18 @@
             </section>
         </div>
     </div><br><div>
-    <h2 id="description" class="sp_section_subtitle">Description</h2>EDC constraints for the controlled vocabularies used by EDC application profile, provides the constraints on controlled vocabularies used.</div>
+    <h2 id="description" class="sp_section_subtitle">Description</h2><p>EDC constraints for the controlled vocabularies used by EDC application profile, provides the constraints on controlled vocabularies used.</p>
+</div>
+    <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
     <div class="row mt-3">
         <div class="col">
-            <section id=":AccreditationTypeRestriction">
+            <section id=":AccreditationShapeCV">
                 <div class="sp_section_title_table_wrapper">
-                    <h2 class="sp_section_title_table">Accreditation Type restriction</h2>
+                    <h3 class="sp_section_title_table">:AccreditationShapeCV</h3>
                 </div>
-                <p><em>Accreditation Type restriction</em></p>
+                <ul class="sp_list_description_properties">
+                    <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Accreditation">elm:Accreditation</a></li>
+                </ul>
                 <table class="sp_table_propertyshapes table-striped table-responsive">
                     <thead>
                     <tr>
@@ -323,11 +337,38 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td></td>
-                        <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                        <td><code>http://data.europa.eu/snb/accreditation/25831c2</code><br></td>
+                        <td>accredited for EQF level</td>
+                        <td><code><a href="http://data.europa.eu/snb/model/elm/limitEQFLevel">elm:limitEQFLevel</a></code></td>
+                        <td><code><a href="#:EQFLevelRestriction">EQF Level restriction</a></code><br></td>
                         <td>
                             <div style="width:30px">0..*</div>
+                        </td>
+                        <td class="sp_table_propertyshapes_col_description"></td>
+                    </tr>
+                    <tr>
+                        <td>accredited for thematic area</td>
+                        <td><code><a href="http://data.europa.eu/snb/model/elm/limitField">elm:limitField</a></code></td>
+                        <td><code><a href="#:ThematicAreaRestriction">Thematic Area restriction</a></code><br></td>
+                        <td>
+                            <div style="width:30px">0..*</div>
+                        </td>
+                        <td class="sp_table_propertyshapes_col_description"></td>
+                    </tr>
+                    <tr>
+                        <td>accredited in jurisdiction</td>
+                        <td><code><a href="http://data.europa.eu/snb/model/elm/limitJurisdiction">elm:limitJurisdiction</a></code></td>
+                        <td><code><a href="#:JurisdictionRestriction">Jurisdiction restriction</a></code><br></td>
+                        <td>
+                            <div style="width:30px">0..*</div>
+                        </td>
+                        <td class="sp_table_propertyshapes_col_description"></td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td><code><a href="http://purl.org/dc/terms/type">dc:type</a></code></td>
+                        <td><code><a href="#:AccreditationTypeRestriction">Accreditation Type restriction</a></code><br></td>
+                        <td>
+                            <div style="width:30px">1..1</div>
                         </td>
                         <td class="sp_table_propertyshapes_col_description"></td>
                     </tr>
@@ -337,627 +378,9 @@
         </div>
     </div><br><div class="row mt-3">
     <div class="col">
-        <section id=":AmountUnitRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Amount Unit restriction</h2>
-            </div>
-            <p><em>Amount Unit restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://publications.europa.eu/resource/authority/currency</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":ClaimTypeRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Claim Type restriction</h2>
-            </div>
-            <p><em>Claim Type restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/claim-type/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":CountryRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Country restriction</h2>
-            </div>
-            <p><em>Country restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://publications.europa.eu/resource/authority/country</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":EQFLevelRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">EQF Level restriction</h2>
-            </div>
-            <p><em>EQF Level restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/eqf/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":EscoOccupationRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">ESCO Occupation restriction</h2>
-            </div>
-            <p><em>ESCO Occupation restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/esco/concept-scheme/occupations</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":EscoSkillRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">ESCO Skill restriction</h2>
-            </div>
-            <p><em>ESCO Skill restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/esco/concept-scheme/skills</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":EuropeanDigitalCredentialTypeRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">European Digital Credential Type restriction</h2>
-            </div>
-            <p><em>European Digital Credential Type restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/credential/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":EvidenceTypeRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Evidence Type restriction</h2>
-            </div>
-            <p><em>Evidence Type restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/evidence-type/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":JurisdictionRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Jurisdiction restriction</h2>
-            </div>
-            <p><em>Jurisdiction restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://publications.europa.eu/resource/authority/atu</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":LanguageRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Language restriction</h2>
-            </div>
-            <p><em>Language restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://publications.europa.eu/resource/authority/language</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":LearningEntitlementStatusRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Entitlement Status restriction</h2>
-            </div>
-            <p><em>Learning Entitlement Status restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/entitlement-status/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":LearningOutcomeTypeRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Outcome Type restriction</h2>
-            </div>
-            <p><em>Learning Outcome Type restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/skill-type/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":LearningSettingRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Setting restriction</h2>
-            </div>
-            <p><em>Learning Setting restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/learning-setting/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":NQFLevelRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">NQF Level restriction</h2>
-            </div>
-            <p><em>NQF Level restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/qdr/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":ReusabilityLevelRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Reusability Level restriction</h2>
-            </div>
-            <p><em>Reusability Level restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/skill-reuse-level/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":ThematicAreaRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Thematic Area restriction</h2>
-            </div>
-            <p><em>Thematic Area restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/isced-f/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":VerificationCheckStatusRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Verification Check Status restriction</h2>
-            </div>
-            <p><em>Verification Check Status restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/verification-status/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":VerificationCheckTypeRestriction">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Verification Check Type restriction</h2>
-            </div>
-            <p><em>Verification Check Type restriction</em></p>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                    <td><code>http://data.europa.eu/snb/verification/25831c2</code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
-        <section id=":AccreditationShapeCV">
-            <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:AccreditationShapeCV</h2>
-            </div>
-            <ul class="sp_list_description_properties">
-                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Accreditation">elm:Accreditation</a></li>
-            </ul>
-            <table class="sp_table_propertyshapes table-striped table-responsive">
-                <thead>
-                <tr>
-                    <th>Property name</th>
-                    <th>URI</th>
-                    <th>Expected value</th>
-                    <th>Card.</th>
-                    <th class="sp_description_column">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>accredited for EQF level</td>
-                    <td><code><a href="http://data.europa.eu/snb/model/elm/limitEQFLevel">elm:limitEQFLevel</a></code></td>
-                    <td><code><a href="#:EQFLevelRestriction">EQF Level restriction</a></code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                <tr>
-                    <td>accredited for thematic area</td>
-                    <td><code><a href="http://data.europa.eu/snb/model/elm/limitField">elm:limitField</a></code></td>
-                    <td><code><a href="#:ThematicAreaRestriction">Thematic Area restriction</a></code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                <tr>
-                    <td>accredited in jurisdiction</td>
-                    <td><code><a href="http://data.europa.eu/snb/model/elm/limitJurisdiction">elm:limitJurisdiction</a></code></td>
-                    <td><code><a href="#:JurisdictionRestriction">Jurisdiction restriction</a></code><br></td>
-                    <td>
-                        <div style="width:30px">0..*</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td><code><a href="http://purl.org/dc/terms/type">dc:type</a></code></td>
-                    <td><code><a href="#:AccreditationTypeRestriction">Accreditation Type restriction</a></code><br></td>
-                    <td>
-                        <div style="width:30px">1..1</div>
-                    </td>
-                    <td class="sp_table_propertyshapes_col_description"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-</div><br><div class="row mt-3">
-    <div class="col">
         <section id=":AddressShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:AddressShapeCV</h2>
+                <h3 class="sp_section_title_table">:AddressShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Address">elm:Address</a></li>
@@ -990,7 +413,7 @@
     <div class="col">
         <section id=":AmountShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:AmountShapeCV</h2>
+                <h3 class="sp_section_title_table">:AmountShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Amount">elm:Amount</a></li>
@@ -1023,7 +446,7 @@
     <div class="col">
         <section id=":ClaimShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:ClaimShapeCV</h2>
+                <h3 class="sp_section_title_table">:ClaimShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Claim">elm:Claim</a></li>
@@ -1056,7 +479,7 @@
     <div class="col">
         <section id=":DisplayParameterCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:DisplayParameterCV</h2>
+                <h3 class="sp_section_title_table">:DisplayParameterCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/DisplayParameter">elm:DisplayParameter</a></li>
@@ -1098,7 +521,7 @@
     <div class="col">
         <section id=":EuropeanDigitalCredentialShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:EuropeanDigitalCredentialShapeCV</h2>
+                <h3 class="sp_section_title_table">:EuropeanDigitalCredentialShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/EuropeanDigitalCredential">elm:EuropeanDigitalCredential</a></li>
@@ -1131,7 +554,7 @@
     <div class="col">
         <section id=":EvidenceShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:EvidenceShapeCV</h2>
+                <h3 class="sp_section_title_table">:EvidenceShapeCV</h3>
             </div>
             <p><em>The evidence of the verifiable credential. It contains information about the process which resulted in the issuance of the verifiable credential.</em></p>
             <ul class="sp_list_description_properties">
@@ -1165,7 +588,7 @@
     <div class="col">
         <section id=":LearningAchievementSpecificationShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:LearningAchievementSpecificationShapeCV</h2>
+                <h3 class="sp_section_title_table">:LearningAchievementSpecificationShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification">elm:LearningAchievementSpecification</a></li>
@@ -1216,7 +639,7 @@
     <div class="col">
         <section id=":LearningActivitySpecificationShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:LearningActivitySpecificationShapeCV</h2>
+                <h3 class="sp_section_title_table">:LearningActivitySpecificationShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/LearningActivitySpecification">elm:LearningActivitySpecification</a></li>
@@ -1249,7 +672,7 @@
     <div class="col">
         <section id=":LearningAssessmentSpecificationShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:LearningAssessmentSpecificationShapeCV</h2>
+                <h3 class="sp_section_title_table">:LearningAssessmentSpecificationShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/LearningAssessmentSpecification">elm:LearningAssessmentSpecification</a></li>
@@ -1282,7 +705,7 @@
     <div class="col">
         <section id=":LearningEntitlementSpecificationShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:LearningEntitlementSpecificationShapeCV</h2>
+                <h3 class="sp_section_title_table">:LearningEntitlementSpecificationShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/LearningEntitlementSpecification">elm:LearningEntitlementSpecification</a></li>
@@ -1333,7 +756,7 @@
     <div class="col">
         <section id=":LearningOpportunityShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:LearningOpportunityShapeCV</h2>
+                <h3 class="sp_section_title_table">:LearningOpportunityShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/LearningOpportunity">elm:LearningOpportunity</a></li>
@@ -1366,7 +789,7 @@
     <div class="col">
         <section id=":LearningOutcomeShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:LearningOutcomeShapeCV</h2>
+                <h3 class="sp_section_title_table">:LearningOutcomeShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/LearningOutcome">elm:LearningOutcome</a></li>
@@ -1417,7 +840,7 @@
     <div class="col">
         <section id=":LegalIdentifierShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:LegalIdentifierShapeCV</h2>
+                <h3 class="sp_section_title_table">:LegalIdentifierShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/LegalIdentifier">elm:LegalIdentifier</a></li>
@@ -1450,7 +873,7 @@
     <div class="col">
         <section id=":PersonShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:PersonShapeCV</h2>
+                <h3 class="sp_section_title_table">:PersonShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Person">elm:Person</a></li>
@@ -1483,7 +906,7 @@
     <div class="col">
         <section id=":QualificationShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:QualificationShapeCV</h2>
+                <h3 class="sp_section_title_table">:QualificationShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Qualification">elm:Qualification</a></li>
@@ -1552,7 +975,7 @@
     <div class="col">
         <section id=":VerificationCheckShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:VerificationCheckShapeCV</h2>
+                <h3 class="sp_section_title_table">:VerificationCheckShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/VerificationCheck">elm:VerificationCheck</a></li>
@@ -1594,7 +1017,7 @@
     <div class="col">
         <section id=":WebResourceShapeCV">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">:WebResourceShapeCV</h2>
+                <h3 class="sp_section_title_table">:WebResourceShapeCV</h3>
             </div>
             <ul class="sp_list_description_properties">
                 <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/WebResource">elm:WebResource</a></li>
@@ -1616,6 +1039,595 @@
                     <td><code><a href="#:LanguageRestriction">Language restriction</a></code><br></td>
                     <td>
                         <div style="width:30px">0..1</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":AccreditationTypeRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Accreditation Type restriction</h3>
+            </div>
+            <p><em>Accreditation Type restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/accreditation/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":AmountUnitRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Amount Unit restriction</h3>
+            </div>
+            <p><em>Amount Unit restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://publications.europa.eu/resource/authority/currency</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":ClaimTypeRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Claim Type restriction</h3>
+            </div>
+            <p><em>Claim Type restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/claim-type/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":CountryRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Country restriction</h3>
+            </div>
+            <p><em>Country restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://publications.europa.eu/resource/authority/country</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":EQFLevelRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">EQF Level restriction</h3>
+            </div>
+            <p><em>EQF Level restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/eqf/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":EscoOccupationRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">ESCO Occupation restriction</h3>
+            </div>
+            <p><em>ESCO Occupation restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/esco/concept-scheme/occupations</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":EscoSkillRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">ESCO Skill restriction</h3>
+            </div>
+            <p><em>ESCO Skill restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/esco/concept-scheme/skills</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":EuropeanDigitalCredentialTypeRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">European Digital Credential Type restriction</h3>
+            </div>
+            <p><em>European Digital Credential Type restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/credential/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":EvidenceTypeRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Evidence Type restriction</h3>
+            </div>
+            <p><em>Evidence Type restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/evidence-type/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":JurisdictionRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Jurisdiction restriction</h3>
+            </div>
+            <p><em>Jurisdiction restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://publications.europa.eu/resource/authority/atu</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":LanguageRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Language restriction</h3>
+            </div>
+            <p><em>Language restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://publications.europa.eu/resource/authority/language</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":LearningEntitlementStatusRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Learning Entitlement Status restriction</h3>
+            </div>
+            <p><em>Learning Entitlement Status restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/entitlement-status/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":LearningOutcomeTypeRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Learning Outcome Type restriction</h3>
+            </div>
+            <p><em>Learning Outcome Type restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/skill-type/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":LearningSettingRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Learning Setting restriction</h3>
+            </div>
+            <p><em>Learning Setting restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/learning-setting/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":NQFLevelRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">NQF Level restriction</h3>
+            </div>
+            <p><em>NQF Level restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/qdr/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":ReusabilityLevelRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Reusability Level restriction</h3>
+            </div>
+            <p><em>Reusability Level restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/skill-reuse-level/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":ThematicAreaRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Thematic Area restriction</h3>
+            </div>
+            <p><em>Thematic Area restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/isced-f/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":VerificationCheckStatusRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Verification Check Status restriction</h3>
+            </div>
+            <p><em>Verification Check Status restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/verification-status/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
+                    </td>
+                    <td class="sp_table_propertyshapes_col_description"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
+        <section id=":VerificationCheckTypeRestriction">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Verification Check Type restriction</h3>
+            </div>
+            <p><em>Verification Check Type restriction</em></p>
+            <table class="sp_table_propertyshapes table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Property name</th>
+                    <th>URI</th>
+                    <th>Expected value</th>
+                    <th>Card.</th>
+                    <th class="sp_description_column">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                    <td><code>http://data.europa.eu/snb/verification/25831c2</code><br></td>
+                    <td>
+                        <div style="width:30px">0..*</div>
                     </td>
                     <td class="sp_table_propertyshapes_col_description"></td>
                 </tr>
