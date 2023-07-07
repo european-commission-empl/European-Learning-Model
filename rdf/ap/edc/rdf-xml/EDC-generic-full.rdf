@@ -206,24 +206,6 @@
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-full/AccreditationShapeCV">
     <sh:property rdf:parseType="Resource">
       <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
-      <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/limitCredentialType"/>
-      <sh:name xml:lang="en">limit credential type</sh:name>
-      <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-      <sh:node>
-        <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-full/LimitCredentialTypeRestriction">
-          <sh:property rdf:parseType="Resource">
-            <sh:path rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-            <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-            <sh:hasValue rdf:resource="http://data.europa.eu/snb/credential/25831c2"/>
-            <sh:class rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-          </sh:property>
-          <rdfs:label>Limit Credential Type Restriction</rdfs:label>
-          <rdfs:comment>Limit Credential Type Restriction</rdfs:comment>
-        </sh:NodeShape>
-      </sh:node>
-    </sh:property>
-    <sh:property rdf:parseType="Resource">
-      <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Violation"/>
       <sh:path rdf:resource="http://data.europa.eu/snb/model/elm/limitJurisdiction"/>
       <sh:name xml:lang="en">accredited in jurisdiction</sh:name>
       <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
