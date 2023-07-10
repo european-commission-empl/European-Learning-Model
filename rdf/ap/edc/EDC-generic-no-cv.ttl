@@ -11,22 +11,23 @@
 @prefix owl:    <http://www.w3.org/2002/07/owl#>.
 @prefix cc:     <http://creativecommons.org/ns#>.
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#>.
-@prefix cpv: <http://www.w3.org/ns/person#>.
+@prefix cpv:    <http://www.w3.org/ns/person#>.
 @prefix rov:    <http://www.w3.org/ns/regorg#>.
 @prefix sh:     <http://www.w3.org/ns/shacl#> .
 @prefix cred:   <https://www.w3.org/2018/credentials#>.
 @prefix locn:   <http://www.w3.org/ns/locn#>.
-@prefix clv:   <http://data.europa.eu/m8g/>. #core location vocabulary
+@prefix clv:    <http://data.europa.eu/m8g/>. #core location vocabulary
+@prefix sec:    <https://w3id.org/security#>.
 
 <http://data.europa.eu/snb/model/ap/edc-generic-no-cv>
   a owl:Ontology;
   rdfs:label "SHACL constraints for EDC Application Profile"@en;
   dc:created "2021-09-10"^^xsd:date;
-  dc:modified "2023-06-05"^^xsd:date;
+  dc:modified "2023-07-06"^^xsd:date;
   dc:title "SHACL constraints for European Digital Credentials  application profile"@en;
   dc:description "SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used."@en;
   rdfs:comment "This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used."@en;
-  owl:versionInfo "1.1.0";
+  owl:versionInfo "1.2.0";
   dc:publisher <http://publications.europa.eu/resource/authority/corporate-body/DEMP>;
   cc:attributionURL <http://ec.europa.eu/> ;
   dc:license <https://creativecommons.org/licenses/by/4.0/>;
@@ -989,7 +990,7 @@ edc:EuropeanDigitalCredentialShape
   sh:property edc:EuropeanDigitalCredential-cred_validFrom;
   sh:property edc:EuropeanDigitalCredential-cred_expirationDate;
   sh:property edc:EuropeanDigitalCredential-cred_validUntil;
-  sh:property edc:EuropeanDigitalCredential-cred_proof;
+  sh:property edc:EuropeanDigitalCredential-sec_proof;
   sh:property edc:EuropeanDigitalCredential-cred_evidence;
   sh:property edc:EuropeanDigitalCredential-cred_termsOfUse;
   sh:property edc:EuropeanDigitalCredential-cred_credentialSchema;
@@ -1131,10 +1132,10 @@ edc:EuropeanDigitalCredential-cred_validUntil
   sh:severity sh:Violation;
   #sh:order 11;
 .
-edc:EuropeanDigitalCredential-cred_proof
+edc:EuropeanDigitalCredential-sec_proof
   a sh:PropertyShape; 
-  sh:path cred:proof;
-  sh:datatype xsd:anyURI;
+  sh:path sec:proof;
+  sh:class elm:Proof;
   sh:description "The proof of the european digital credential."@en;
   sh:name "proof"@en;
   sh:severity sh:Violation;
@@ -1152,7 +1153,8 @@ edc:EuropeanDigitalCredential-cred_evidence
  edc:EuropeanDigitalCredential-cred_credentialStatus
   a sh:PropertyShape; 
   sh:path cred:credentialStatus;
-  sh:datatype xsd:anyURI;
+  sh:class elm:CredentialStatus;
+  sh:nodeKind sh:IRI ;
   sh:maxCount 1;
   sh:description "The status of the european digital credential."@en;
   sh:name "credential status"@en;
@@ -1162,7 +1164,8 @@ edc:EuropeanDigitalCredential-cred_evidence
  edc:EuropeanDigitalCredential-cred_credentialSchema
   a sh:PropertyShape; 
   sh:path cred:credentialSchema;
-  sh:class elm:ShaclValidator2017; # or sh:datatype xsd:anyURI;
+  sh:class elm:ShaclValidator2017;
+  sh:nodeKind sh:IRI ;
   sh:minCount 1;
   sh:description "The schema of the european digital credential."@en;
   sh:name "credential schema"@en;
@@ -1172,7 +1175,7 @@ edc:EuropeanDigitalCredential-cred_evidence
  edc:EuropeanDigitalCredential-cred_termsOfUse
   a sh:PropertyShape; 
   sh:path cred:termsOfUse;
-  sh:datatype xsd:anyURI;
+  sh:class elm:TermsOfUse;
   sh:description "The terms of use of european digital credential."@en;
   sh:name "terms of use"@en;
   sh:severity sh:Violation;
@@ -1203,7 +1206,7 @@ edc:EuropeanDigitalPresentationShape
   sh:property edc:EuropeanDigitalPresentation-cred_verifiableCredential;
   sh:property edc:EuropeanDigitalPresentation-elm_verificationCheck;
   sh:property edc:EuropeanDigitalPresentation-cred_holder;
-  sh:property edc:EuropeanDigitalPresentation-cred_proof;
+  sh:property edc:EuropeanDigitalPresentation-sec_proof;
 .
 
 edc:EuropeanDigitalPresentation-cred_verifiableCredential
@@ -1225,10 +1228,10 @@ edc:EuropeanDigitalPresentation-elm_verificationCheck
   sh:severity sh:Violation;
   #sh:order 1;
   . 
- edc:EuropeanDigitalPresentation-cred_proof 
+ edc:EuropeanDigitalPresentation-sec_proof 
      a sh:propertyShape;
-     sh:path cred:proof;
-     sh:datatype xsd:anyURI;
+     sh:path sec:proof;
+     sh:class elm:Proof;
      sh:description "The proof of the european digital presentation."@en;
      sh:name "proof"@en;
      sh:severity sh:Violation;
@@ -5540,7 +5543,7 @@ edc:GroupShape
   sh:property edc:VerifiableCredential-cred_validFrom;
   sh:property edc:VerifiableCredential-cred_validUntil;
   sh:property edc:VerifiableCredential-cred_expirationDate;
-  sh:property edc:VerifiableCredential-cred_proof;
+  sh:property edc:VerifiableCredential-sec_proof;
   sh:property edc:VerifiableCredential-cred_evidence;
   sh:property edc:VerifiableCredential-cred_termsOfUse;
   sh:property edc:VerifiableCredential-cred_credentialSchema;
@@ -5644,10 +5647,10 @@ edc:VerifiableCredential-cred_expirationDate
   sh:deactivated true ;
   #sh:order 6;
   .
-edc:VerifiableCredential-cred_proof
+edc:VerifiableCredential-sec_proof
   a sh:PropertyShape; 
-  sh:path cred:proof;
-  sh:datatype xsd:anyURI;
+  sh:path sec:proof;
+  sh:class elm:Proof;
   sh:description "The proof of the verifiable credential."@en;
   sh:name "proof"@en;
   sh:severity sh:Violation;
@@ -5667,7 +5670,8 @@ edc:VerifiableCredential-cred_evidence
  edc:VerifiableCredential-cred_credentialStatus
   a sh:PropertyShape; 
   sh:path cred:credentialStatus;
-  sh:datatype xsd:anyURI;
+  sh:class elm:CredentialStatus;
+  sh:nodeKind sh:IRI ;
   sh:maxCount 1;
   sh:description "The status of the verifiable credential."@en;
   sh:name "credential status"@en;
@@ -5689,7 +5693,7 @@ edc:VerifiableCredential-cred_evidence
  edc:VerifiableCredential-cred_termsOfUse
   a sh:PropertyShape; 
   sh:path cred:termsOfUse;
-  sh:datatype xsd:anyURI;
+  sh:class elm:TermsOfUse;
   sh:description "The terms of use of verifiable credential."@en;
   sh:name "terms of use"@en;
   sh:severity sh:Violation;
@@ -5888,7 +5892,34 @@ edc:EvidenceShape
      sh:name "evidence accreditation"@en;
      sh:severity sh:Violation;
   ];
-  .     
+  .
+#---------------------------------------------------------------
+#--------- Terms Of Use shape ---------------------------------
+#---------------------------------------------------------------
+edc:TermsOfUseShape
+  a sh:NodeShape;
+  sh:targetClass elm:TermsOfUse;
+  rdfs:comment "The terms of use. It defines the terms under which the verifiable credential was issued."@en;
+  rdfs:label "Terms Of Use"@en;
+  .
+#-------------------------------------------------
+#------ Proof class and properties shapes --------
+#-------------------------------------------------
+edc:ProofShape
+  a sh:NodeShape;
+  sh:targetClass elm:Proof;
+  rdfs:comment "The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation."@en;
+  rdfs:label "Proof"@en;
+  .
+#---------------------------------------------------------------
+#--------- Credential Status shape -------------------
+#---------------------------------------------------------------
+edc:CredentialStatusShape
+  a sh:NodeShape;
+  sh:targetClass elm:CredentialStatus;
+  rdfs:comment "The credential status. It defines discovery information about the current status of a Verifiable Credential."@en;
+  rdfs:label "Credential Status"@en;
+  .
 #---------------------------------------------------------------        
 #--------- Verifiable Presentation shape -------------------
 #---------------------------------------------------------------  
@@ -5905,9 +5936,9 @@ edc:VerifiablePresentationShape
      sh:severity sh:Violation;
   ];
  sh:property[
-     sh:path cred:proof;
-     sh:datatype xsd:anyURI;
-     sh:description "The proof of the verifiable presentaion."@en;
+     sh:path sec:proof;
+     sh:class elm:Proof;
+     sh:description "The proof of the verifiable presentation."@en;
      sh:name "proof"@en;
      sh:severity sh:Violation;
   ];

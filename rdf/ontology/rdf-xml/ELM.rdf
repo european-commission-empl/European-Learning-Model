@@ -3,6 +3,7 @@
     xmlns:locn="http://www.w3.org/ns/locn#"
     xmlns:clv="http://data.europa.eu/m8g/"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:sec="https://w3id.org/security#"
     xmlns:rov="http://www.w3.org/ns/regorg#"
     xmlns:dc="http://purl.org/dc/terms/"
     xmlns:adms="http://www.w3.org/ns/adms#"
@@ -20,11 +21,14 @@
     >2021-08-01</dc:created>
     <owl:imports rdf:resource="http://www.w3.org/ns/locn#"/>
     <rdfs:label xml:lang="en">Europass Learning Model</rdfs:label>
+    <owl:imports rdf:resource="https://w3id.org/security#"/>
     <owl:imports rdf:resource="http://www.w3.org/ns/regorg#"/>
     <owl:imports rdf:resource="http://data.europa.eu/snb/model/elm/"/>
     <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
     <cc:attributionName xml:lang="en">European Commission</cc:attributionName>
     <dc:publisher rdf:resource="http://publications.europa.eu/resource/authority/corporate-body/DEMP"/>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2023-07-06</dc:modified>
     <owl:imports rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <dc:license>
       <rdf:Description rdf:about="https://creativecommons.org/licenses/by/4.0/">
@@ -37,6 +41,7 @@
     <owl:imports rdf:resource="https://www.w3.org/2018/credentials#"/>
     <dc:title xml:lang="en">Europass Learning Model Ontology</dc:title>
     <owl:imports rdf:resource="http://data.europa.eu/m8g/"/>
+    <owl:versionInfo>3.2.0</owl:versionInfo>
     <owl:imports rdf:resource="http://www.w3.org/ns/adms#"/>
     <rdfs:comment xml:lang="en">This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as well as the ranges and domains of properties are defined in the application profiles that import the ELM ontology.</rdfs:comment>
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -47,9 +52,6 @@
   of claims that are related to learning</dc:abstract>
     <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
-    <owl:versionInfo>3.1.0</owl:versionInfo>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2023-06-05</dc:modified>
   </owl:Ontology>
   <rdfs:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningEntitlement">
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
@@ -70,20 +72,6 @@
     </owl:disjointWith>
     <dc:identifier>elm:LearningEntitlement</dc:identifier>
   </rdfs:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Grant">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Grant</rdfs:label>
-    <rdfs:comment xml:lang="en">A Grant.</rdfs:comment>
-    <dc:identifier>elm:Grant</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningOutcome">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Learning Outcome</rdfs:label>
-    <rdfs:comment xml:lang="en">A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.</rdfs:comment>
-    <dc:identifier>elm:LearningOutcome</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/EuropeanDigitalCredential">
     <rdfs:subClassOf rdf:resource="https://www.w3.org/2018/credentials#VerifiableCredential"/>
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
@@ -107,6 +95,178 @@
     <dc:identifier>elm:IndividualDisplay</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAchievement">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Claim"/>
+    </rdfs:subClassOf>
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Learning Achievement</rdfs:label>
+    <rdfs:comment xml:lang="en">The acquisition of knowledge, skills or responsibility and autonomy. A recognised and/or awarded set of learning outcomes of an individual.</rdfs:comment>
+    <dc:identifier>elm:LearningAchievement</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/DisplayDetail">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Display Detail</rdfs:label>
+    <rdfs:comment xml:lang="en">The display detail.</rdfs:comment>
+    <dc:identifier>elm:DisplayDetail</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/TermsOfUse">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Terms Of Use</rdfs:label>
+    <rdfs:comment xml:lang="en">The terms of use. It defines the terms under which the verifiable credential was issued.</rdfs:comment>
+    <dc:identifier>elm:TermsOfUse</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Mailbox">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Mailbox</rdfs:label>
+    <rdfs:comment xml:lang="en">A mailbox.</rdfs:comment>
+    <dc:identifier>elm:Mailbox</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/GradingScheme">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Grading Scheme</rdfs:label>
+    <rdfs:comment xml:lang="en">A set of criteria that measures varying levels of achievement.</rdfs:comment>
+    <dc:identifier>elm:GradingScheme</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Person">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/person#Person"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Agent"/>
+    </rdfs:subClassOf>
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Person</rdfs:label>
+    <rdfs:comment xml:lang="en">A human being.</rdfs:comment>
+    <dc:identifier>elm:Person</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Organisation">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/regorg#RegisteredOrganization"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Agent"/>
+    </rdfs:subClassOf>
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Organisation</rdfs:label>
+    <rdfs:comment xml:lang="en">A legal person / registered organisation.</rdfs:comment>
+    <dc:identifier>elm:Organisation</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/CreditPoint">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Credit Point</rdfs:label>
+    <rdfs:comment xml:lang="en">The credit points.</rdfs:comment>
+    <dc:identifier>elm:CreditPoint</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningActivity">
+    <owl:disjointWith rdf:resource="http://data.europa.eu/snb/model/elm/LearningAchievement"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Claim"/>
+    </rdfs:subClassOf>
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Learning Activity</rdfs:label>
+    <rdfs:comment xml:lang="en">Any process which leads to the acquisition of knowledge, skills or responsibility and autonomy.</rdfs:comment>
+    <dc:identifier>elm:LearningActivity</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningOpportunity">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Learning Opportunity</rdfs:label>
+    <rdfs:comment xml:lang="en">An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment.</rdfs:comment>
+    <dc:identifier>elm:LearningOpportunity</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Qualification">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification"/>
+    </rdfs:subClassOf>
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Qualification</rdfs:label>
+    <rdfs:comment xml:lang="en">A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.</rdfs:comment>
+    <dc:identifier>elm:Qualification</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/QualificationReference">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Qualification Reference</rdfs:label>
+    <rdfs:comment xml:lang="en">A reference for a qualification from another dataset that can be or has been awarded such as the (expected) learning.</rdfs:comment>
+    <dc:identifier>elm:QualificationReference</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/ResultCategory">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Result Category</rdfs:label>
+    <rdfs:comment xml:lang="en">Description of a single score or score range within a histogram of results.</rdfs:comment>
+    <dc:identifier>elm:ResultCategory</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/AwardingBody">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Agent"/>
+    </rdfs:subClassOf>
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Awarding Body</rdfs:label>
+    <rdfs:comment xml:lang="en">An awarding body.</rdfs:comment>
+    <dc:identifier>elm:AwardingBody</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Amount">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Amount</rdfs:label>
+    <rdfs:comment xml:lang="en">An amount.</rdfs:comment>
+    <dc:identifier>elm:Amount</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/AwardingOpportunity">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Awarding Opportunity</rdfs:label>
+    <rdfs:comment xml:lang="en">An awarding opportunity describes how, where, from whom and when a claim may be obtained.</rdfs:comment>
+    <dc:identifier>elm:AwardingOpportunity</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/DisplayParameter">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Display Parameter</rdfs:label>
+    <rdfs:comment xml:lang="en">The display parameters.</rdfs:comment>
+    <dc:identifier>elm:DisplayParameter </dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Specification"/>
+    </rdfs:subClassOf>
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Learning Achievement Specification</rdfs:label>
+    <rdfs:comment xml:lang="en">A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning achievement.</rdfs:comment>
+    <dc:identifier>elm:LearningAchievementSpecification</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Group">
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Group</rdfs:label>
+    <rdfs:comment xml:lang="en">An entity that represents collection of Agents.</rdfs:comment>
+    <dc:identifier>elm:Group</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Grant">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Grant</rdfs:label>
+    <rdfs:comment xml:lang="en">A Grant.</rdfs:comment>
+    <dc:identifier>elm:Grant</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningOutcome">
+    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
+    <rdfs:label xml:lang="en">Learning Outcome</rdfs:label>
+    <rdfs:comment xml:lang="en">A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.</rdfs:comment>
+    <dc:identifier>elm:LearningOutcome</dc:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Claim">
     <owl:disjointWith>
       <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Specification"/>
@@ -117,12 +277,11 @@
     <dc:identifier>elm:Claim</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAchievement">
-    <rdfs:subClassOf rdf:resource="http://data.europa.eu/snb/model/elm/Claim"/>
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Proof">
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Learning Achievement</rdfs:label>
-    <rdfs:comment xml:lang="en">The acquisition of knowledge, skills or responsibility and autonomy. A recognised and/or awarded set of learning outcomes of an individual.</rdfs:comment>
-    <dc:identifier>elm:LearningAchievement</dc:identifier>
+    <rdfs:label xml:lang="en">Proof</rdfs:label>
+    <rdfs:comment xml:lang="en">The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation.</rdfs:comment>
+    <dc:identifier>elm:Proof</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/ShortenedGrading">
@@ -153,13 +312,6 @@
     <dc:identifier>elm:PriceDetail</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/DisplayDetail">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Display Detail</rdfs:label>
-    <rdfs:comment xml:lang="en">The display detail.</rdfs:comment>
-    <dc:identifier>elm:DisplayDetail</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/AwardingProcess">
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
     <rdfs:label xml:lang="en">Awarding Process</rdfs:label>
@@ -167,11 +319,11 @@
     <dc:identifier>elm:AwardingProcess</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Mailbox">
+  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/CredentialStatus">
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Mailbox</rdfs:label>
-    <rdfs:comment xml:lang="en">A mailbox.</rdfs:comment>
-    <dc:identifier>elm:Mailbox</dc:identifier>
+    <rdfs:label xml:lang="en">Credential Status</rdfs:label>
+    <rdfs:comment xml:lang="en">The credential status. It defines discovery information about the current status of a Verifiable Credential.</rdfs:comment>
+    <dc:identifier>elm:CredentialStatus</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/ShaclValidator2017">
@@ -189,26 +341,8 @@
     <dc:identifier>elm:Agent</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/GradingScheme">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Grading Scheme</rdfs:label>
-    <rdfs:comment xml:lang="en">A set of criteria that measures varying levels of achievement.</rdfs:comment>
-    <dc:identifier>elm:GradingScheme</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Person">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/person#Person"/>
-    <rdfs:subClassOf rdf:resource="http://data.europa.eu/snb/model/elm/Agent"/>
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Person</rdfs:label>
-    <rdfs:comment xml:lang="en">A human being.</rdfs:comment>
-    <dc:identifier>elm:Person</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningActivitySpecification">
-    <owl:disjointWith>
-      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification"/>
-    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification"/>
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Specification"/>
     </rdfs:subClassOf>
@@ -227,9 +361,7 @@
   </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAssessmentSpecification">
     <owl:disjointWith rdf:resource="http://data.europa.eu/snb/model/elm/LearningActivitySpecification"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification"/>
-    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification"/>
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Specification"/>
     </rdfs:subClassOf>
@@ -247,9 +379,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningEntitlementSpecification">
-    <owl:disjointWith>
-      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification"/>
-    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification"/>
     <owl:disjointWith rdf:resource="http://data.europa.eu/snb/model/elm/LearningAssessmentSpecification"/>
     <rdfs:comment xml:lang="en">The specification of a right a person has access to, typically as a result of a learning achievement. It may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career.</rdfs:comment>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
@@ -261,60 +391,11 @@
     <dc:identifier>elm:LearningEntitlementSpecification</dc:identifier>
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
   </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Organisation">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/regorg#RegisteredOrganization"/>
-    <rdfs:subClassOf rdf:resource="http://data.europa.eu/snb/model/elm/Agent"/>
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Organisation</rdfs:label>
-    <rdfs:comment xml:lang="en">A legal person / registered organisation.</rdfs:comment>
-    <dc:identifier>elm:Organisation</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/CreditPoint">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Credit Point</rdfs:label>
-    <rdfs:comment xml:lang="en">The credit points.</rdfs:comment>
-    <dc:identifier>elm:CreditPoint</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningActivity">
-    <owl:disjointWith rdf:resource="http://data.europa.eu/snb/model/elm/LearningAchievement"/>
-    <rdfs:subClassOf rdf:resource="http://data.europa.eu/snb/model/elm/Claim"/>
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Learning Activity</rdfs:label>
-    <rdfs:comment xml:lang="en">Any process which leads to the acquisition of knowledge, skills or responsibility and autonomy.</rdfs:comment>
-    <dc:identifier>elm:LearningActivity</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/VerificationCheck">
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
     <rdfs:label xml:lang="en">Verification Check</rdfs:label>
     <rdfs:comment xml:lang="en">A verification check.</rdfs:comment>
     <dc:identifier>elm:VerificationCheck</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningOpportunity">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Learning Opportunity</rdfs:label>
-    <rdfs:comment xml:lang="en">An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment.</rdfs:comment>
-    <dc:identifier>elm:LearningOpportunity</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Qualification">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification"/>
-    </rdfs:subClassOf>
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Qualification</rdfs:label>
-    <rdfs:comment xml:lang="en">A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards.</rdfs:comment>
-    <dc:identifier>elm:Qualification</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/QualificationReference">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Qualification Reference</rdfs:label>
-    <rdfs:comment xml:lang="en">A reference for a qualification from another dataset that can be or has been awarded such as the (expected) learning.</rdfs:comment>
-    <dc:identifier>elm:QualificationReference</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Note">
@@ -324,33 +405,11 @@
     <dc:identifier>elm:Note</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/ResultCategory">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Result Category</rdfs:label>
-    <rdfs:comment xml:lang="en">Description of a single score or score range within a histogram of results.</rdfs:comment>
-    <dc:identifier>elm:ResultCategory</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/AwardingBody">
-    <rdfs:subClassOf rdf:resource="http://data.europa.eu/snb/model/elm/Agent"/>
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Awarding Body</rdfs:label>
-    <rdfs:comment xml:lang="en">An awarding body.</rdfs:comment>
-    <dc:identifier>elm:AwardingBody</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Accreditation">
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
     <rdfs:label xml:lang="en">Accreditation</rdfs:label>
     <rdfs:comment xml:lang="en">The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about:  (1) the quality assurance and/or licensing of an organisation,  (2) the quality assurance and/or licensing of an organisation with respect to a specific qualification.</rdfs:comment>
     <dc:identifier>elm:Accreditation</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Amount">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Amount</rdfs:label>
-    <rdfs:comment xml:lang="en">An amount.</rdfs:comment>
-    <dc:identifier>elm:Amount</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/MediaObject">
@@ -368,13 +427,6 @@
     <rdfs:label xml:lang="en">Legal Identifier</rdfs:label>
     <rdfs:comment xml:lang="en">A Legal Identifier. A legal identifier is a formally issued identifier by a given authority within a given jurisdiction. The identifier has a spatial context.</rdfs:comment>
     <dc:identifier>elm:LegalIdentifier</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/AwardingOpportunity">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Awarding Opportunity</rdfs:label>
-    <rdfs:comment xml:lang="en">An awarding opportunity describes how, where, from whom and when a claim may be obtained.</rdfs:comment>
-    <dc:identifier>elm:AwardingOpportunity</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAssessment">
@@ -395,23 +447,6 @@
     <dc:identifier>elm:Identifier</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/DisplayParameter">
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Display Parameter</rdfs:label>
-    <rdfs:comment xml:lang="en">The display parameters.</rdfs:comment>
-    <dc:identifier>elm:DisplayParameter </dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/LearningAchievementSpecification">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Specification"/>
-    </rdfs:subClassOf>
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Learning Achievement Specification</rdfs:label>
-    <rdfs:comment xml:lang="en">A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning achievement.</rdfs:comment>
-    <dc:identifier>elm:LearningAchievementSpecification</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/WebResource">
     <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
     <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
@@ -425,14 +460,6 @@
     <rdfs:label xml:lang="en">Specification</rdfs:label>
     <rdfs:comment xml:lang="en">A specification. The superclass of all learning specifications.</rdfs:comment>
     <dc:identifier>elm:Specification</dc:identifier>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Group">
-    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
-    <rdfs:isDefinedBy rdf:resource="http://data.europa.eu/snb/model/elm"/>
-    <rdfs:label xml:lang="en">Group</rdfs:label>
-    <rdfs:comment xml:lang="en">An entity that represents collection of Agents.</rdfs:comment>
-    <dc:identifier>elm:Group</dc:identifier>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </owl:Class>
   <owl:Class rdf:about="http://data.europa.eu/snb/model/elm/Phone">

@@ -24,15 +24,15 @@
     <dc:publisher rdf:resource="http://publications.europa.eu/resource/authority/corporate-body/DEMP"/>
     <owl:imports rdf:resource="http://data.europa.eu/snb/model/ap/edc-generic-no-cv"/>
     <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2023-06-05</dc:modified>
-    <owl:versionInfo>1.1.0</owl:versionInfo>
     <dc:description xml:lang="en">EDC constraints for the controlled vocabularies used by EDC application profile, provides the constraints on controlled vocabularies used.</dc:description>
     <rdfs:comment xml:lang="en">This document specifies the set SHACL constraints on classes and properties used in the EDC application profile, with respect to the controlled vocabularies used.</rdfs:comment>
     <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2023-07-06</dc:modified>
     <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
     >2021-09-25</dc:created>
     <rdfs:label xml:lang="en">Controlled Vocabularies SHACL constraints for EDC Application Profile</rdfs:label>
+    <owl:versionInfo>1.2.0</owl:versionInfo>
   </owl:Ontology>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-generic-full/AmountShapeCV">
     <sh:property rdf:parseType="Resource">

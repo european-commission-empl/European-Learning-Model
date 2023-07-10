@@ -18,10 +18,10 @@
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <owl:Ontology rdf:about="http://data.europa.eu/snb/model/ap/edc-converted">
+    <owl:versionInfo>1.2.0</owl:versionInfo>
     <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
     <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2023-06-05</dc:modified>
-    <owl:versionInfo>1.1.0</owl:versionInfo>
+    >2023-07-06</dc:modified>
     <rdfs:label xml:lang="en">SHACL constraints for EDC - Converted Application Profile</rdfs:label>
     <rdfs:comment xml:lang="en">This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</rdfs:comment>
     <dc:title xml:lang="en">SHACL constraints for European Digital Credentials - Converted application profile</dc:title>

@@ -38,6 +38,10 @@
             margin: 25px 0px 10px 0px;
         }
 
+        h3 {
+            font-size: 1.4em;
+        }
+
         @media only print {
         }
 
@@ -125,6 +129,7 @@
         /* div wrapping section title and URI below - same as a paragraph margin */
         .sp_section_title_table_wrapper {
             margin-bottom: 16px;
+            border-bottom: 1px solid;
         }
 
 
@@ -212,6 +217,7 @@
             max-width:255px;
         }
         .sp_list_toc {padding-left: 0px;}
+        .sp_list_toc_l2 {padding-left: 10px;}
     </style>
     <meta charset="UTF-8">
     <meta name="lang" content="en">
@@ -224,72 +230,79 @@
 <body>
 <div class="sp_container_principal container pt-4">
     <h1 class="mb-4 sp_section_title_header">SHACL constraints for European Digital Credentials  application profile</h1>
-    <div><b>Creation date: </b>2021-09-10<br><b>Last updated: </b>2023-06-05<br><b>Version: </b>1.1.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
+    <div><b>Creation date: </b>2021-09-10<br><b>Last updated: </b>2023-07-06<br><b>Version: </b>1.2.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/authority/corporate-body/DEMP" target="_blank">http://publications.europa.eu/resource/authority/corporate-body/DEMP</a><br><br></div>
     <div class="row mt-3">
         <div class="col">
-            <h2 id="abstract" class="sp_section_subtitle">Abstract</h2>This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</div>
+            <h2 id="abstract" class="sp_section_subtitle">Abstract</h2><p>This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</p>
+        </div>
     </div>
     <div class="sp_section_title_toc toc">
         <h2 id="Index">Table of Contents</h2>
         <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
             <li><a href="#prefixes">Namespaces</a></li>
             <li><a href="#description">Description</a></li>
-            <li><a href="#edc:AccreditationShape">Accreditation</a></li>
-            <li><a href="#edc:AddressShape">Address </a></li>
-            <li><a href="#edc:AgentShape">Agent </a></li>
-            <li><a href="#edc:AmountShape">Amount </a></li>
-            <li><a href="#edc:AwardingOpportunityShape">Awarding Opportunity</a></li>
-            <li><a href="#edc:AwardingProcessShape">Awarding Process </a></li>
-            <li><a href="#edc:ClaimShape">Claim </a></li>
-            <li><a href="#edc:ClaimNodeShape">Claim Node </a></li>
-            <li><a href="#edc:ClaimTypeNodeShape">Claim Type Node </a></li>
-            <li><a href="#edc:ConceptShape">Concept </a></li>
-            <li><a href="#edc:ConceptSchemeShape">Concept  Scheme </a></li>
-            <li><a href="#edc:ContactPointShape">Contact Point </a></li>
-            <li><a href="#edc:CreditPointShape">Credit Point </a></li>
-            <li><a href="#edc:DisplayDetailShape">Display Detail </a></li>
-            <li><a href="#edc:DisplayParameterShape">Display Parameter </a></li>
-            <li><a href="#edc:EuropeanDigitalCredentialShape">European Digital Credential </a></li>
-            <li><a href="#edc:EuropeanDigitalPresentationShape">European Digital Presentation </a></li>
-            <li><a href="#edc:EvidenceShape">Evidence </a></li>
-            <li><a href="#edc:GeometryShape">Geometry </a></li>
-            <li><a href="#edc:GradingSchemeShape">Grading Scheme </a></li>
-            <li><a href="#edc:GrantShape">Grant </a></li>
-            <li><a href="#edc:GroupShape">Group </a></li>
-            <li><a href="#edc:IdentifierShape">Identifier </a></li>
-            <li><a href="#edc:IndividualDisplayShape">Individual Display </a></li>
-            <li><a href="#edc:IssuerNodeShape">Issuer Node</a></li>
-            <li><a href="#edc:LearningAchievementShape">Learning Achievement </a></li>
-            <li><a href="#edc:LearningAchievementSpecificationShape">Learning Achievement Specification </a></li>
-            <li><a href="#edc:LearningActivityShape">Learning Activity </a></li>
-            <li><a href="#edc:LearningActivitySpecificationShape">Learning Activity Specification </a></li>
-            <li><a href="#edc:LearningAssessmentShape">Learning Assessment </a></li>
-            <li><a href="#edc:LearningAssessmentSpecificationShape">Learning Assessment Specification </a></li>
-            <li><a href="#edc:LearningEntitlementShape">Learning Entitlement </a></li>
-            <li><a href="#edc:LearningEntitlementSpecificationShape">Learning Entitlement Specification </a></li>
-            <li><a href="#edc:LearningOpportunityShape">Learning Opportunity </a></li>
-            <li><a href="#edc:LearningOutcomeShape">Learning Outcome </a></li>
-            <li><a href="#edc:LegalIdentifierShape">Legal Identifier </a></li>
-            <li><a href="#edc:LocationShape">Location </a></li>
-            <li><a href="#edc:MailboxShape">Mailbox</a></li>
-            <li><a href="#edc:MediaObjectShape">Media Object </a></li>
-            <li><a href="#edc:NoteShape">Note </a></li>
-            <li><a href="#edc:OrganisationShape">Organisation </a></li>
-            <li><a href="#edc:PeriodOfTimeShape">Period Of Time </a></li>
-            <li><a href="#edc:PersonShape">Person </a></li>
-            <li><a href="#edc:PhoneShape">Phone </a></li>
-            <li><a href="#edc:PriceDetailShape">Price Detail </a></li>
-            <li><a href="#edc:QualificationShape">Qualification </a></li>
-            <li><a href="#edc:ResultCategoryShape">Result Category </a></li>
-            <li><a href="#edc:ResultDistributionShape">Result Distribution </a></li>
-            <li><a href="#edc:ShaclValidator2017Shape">Shacl Validator 2017 </a></li>
-            <li><a href="#edc:ShortenedGradingShape">Shortened Grading </a></li>
-            <li><a href="#edc:SpecificationShape">Specification </a></li>
-            <li><a href="#edc:SpecificationNodeShape">Specification Node </a></li>
-            <li><a href="#edc:VerifiableCredentialShape">Verifiable Credential </a></li>
-            <li><a href="#edc:VerifiablePresentationShape">Verifiable Presentation </a></li>
-            <li><a href="#edc:VerificationCheckShape">Verification Check </a></li>
-            <li><a href="#edc:WebResourceShape">Web Resource </a></li>
+            <li><a href="#documentation">Model documentation</a><ul role="list" class="ul_type_none sp_list_toc_l2">
+                <li><a href="#edc:AccreditationShape">Accreditation</a></li>
+                <li><a href="#edc:AddressShape">Address </a></li>
+                <li><a href="#edc:AgentShape">Agent </a></li>
+                <li><a href="#edc:AmountShape">Amount </a></li>
+                <li><a href="#edc:AwardingOpportunityShape">Awarding Opportunity</a></li>
+                <li><a href="#edc:AwardingProcessShape">Awarding Process </a></li>
+                <li><a href="#edc:ClaimShape">Claim </a></li>
+                <li><a href="#edc:ClaimNodeShape">Claim Node </a></li>
+                <li><a href="#edc:ClaimTypeNodeShape">Claim Type Node </a></li>
+                <li><a href="#edc:ConceptShape">Concept </a></li>
+                <li><a href="#edc:ConceptSchemeShape">Concept  Scheme </a></li>
+                <li><a href="#edc:ContactPointShape">Contact Point </a></li>
+                <li><a href="#edc:CredentialStatusShape">Credential Status</a></li>
+                <li><a href="#edc:CreditPointShape">Credit Point </a></li>
+                <li><a href="#edc:DisplayDetailShape">Display Detail </a></li>
+                <li><a href="#edc:DisplayParameterShape">Display Parameter </a></li>
+                <li><a href="#edc:EuropeanDigitalCredentialShape">European Digital Credential </a></li>
+                <li><a href="#edc:EuropeanDigitalPresentationShape">European Digital Presentation </a></li>
+                <li><a href="#edc:EvidenceShape">Evidence </a></li>
+                <li><a href="#edc:GeometryShape">Geometry </a></li>
+                <li><a href="#edc:GradingSchemeShape">Grading Scheme </a></li>
+                <li><a href="#edc:GrantShape">Grant </a></li>
+                <li><a href="#edc:GroupShape">Group </a></li>
+                <li><a href="#edc:IdentifierShape">Identifier </a></li>
+                <li><a href="#edc:IndividualDisplayShape">Individual Display </a></li>
+                <li><a href="#edc:IssuerNodeShape">Issuer Node</a></li>
+                <li><a href="#edc:LearningAchievementShape">Learning Achievement </a></li>
+                <li><a href="#edc:LearningAchievementSpecificationShape">Learning Achievement Specification </a></li>
+                <li><a href="#edc:LearningActivityShape">Learning Activity </a></li>
+                <li><a href="#edc:LearningActivitySpecificationShape">Learning Activity Specification </a></li>
+                <li><a href="#edc:LearningAssessmentShape">Learning Assessment </a></li>
+                <li><a href="#edc:LearningAssessmentSpecificationShape">Learning Assessment Specification </a></li>
+                <li><a href="#edc:LearningEntitlementShape">Learning Entitlement </a></li>
+                <li><a href="#edc:LearningEntitlementSpecificationShape">Learning Entitlement Specification </a></li>
+                <li><a href="#edc:LearningOpportunityShape">Learning Opportunity </a></li>
+                <li><a href="#edc:LearningOutcomeShape">Learning Outcome </a></li>
+                <li><a href="#edc:LegalIdentifierShape">Legal Identifier </a></li>
+                <li><a href="#edc:LocationShape">Location </a></li>
+                <li><a href="#edc:MailboxShape">Mailbox</a></li>
+                <li><a href="#edc:MediaObjectShape">Media Object </a></li>
+                <li><a href="#edc:NoteShape">Note </a></li>
+                <li><a href="#edc:OrganisationShape">Organisation </a></li>
+                <li><a href="#edc:PeriodOfTimeShape">Period Of Time </a></li>
+                <li><a href="#edc:PersonShape">Person </a></li>
+                <li><a href="#edc:PhoneShape">Phone </a></li>
+                <li><a href="#edc:PriceDetailShape">Price Detail </a></li>
+                <li><a href="#edc:ProofShape">Proof</a></li>
+                <li><a href="#edc:QualificationShape">Qualification </a></li>
+                <li><a href="#edc:ResultCategoryShape">Result Category </a></li>
+                <li><a href="#edc:ResultDistributionShape">Result Distribution </a></li>
+                <li><a href="#edc:ShaclValidator2017Shape">Shacl Validator 2017 </a></li>
+                <li><a href="#edc:ShortenedGradingShape">Shortened Grading </a></li>
+                <li><a href="#edc:SpecificationShape">Specification </a></li>
+                <li><a href="#edc:SpecificationNodeShape">Specification Node </a></li>
+                <li><a href="#edc:TermsOfUseShape">Terms Of Use</a></li>
+                <li><a href="#edc:VerifiableCredentialShape">Verifiable Credential </a></li>
+                <li><a href="#edc:VerifiablePresentationShape">Verifiable Presentation </a></li>
+                <li><a href="#edc:VerificationCheckShape">Verification Check </a></li>
+                <li><a href="#edc:WebResourceShape">Web Resource </a></li>
+            </ul>
+            </li>
         </ul>
     </div>
     <div class="row mt-3">
@@ -349,6 +362,10 @@
                         <td><a href="http://www.w3.org/ns/regorg#" target="_blank">http://www.w3.org/ns/regorg#</a></td>
                     </tr>
                     <tr>
+                        <td>sec</td>
+                        <td><a href="https://w3id.org/security#" target="_blank">https://w3id.org/security#</a></td>
+                    </tr>
+                    <tr>
                         <td>skos</td>
                         <td><a href="http://www.w3.org/2004/02/skos/core#" target="_blank">http://www.w3.org/2004/02/skos/core#</a></td>
                     </tr>
@@ -361,12 +378,14 @@
             </section>
         </div>
     </div><br><div>
-    <h2 id="description" class="sp_section_subtitle">Description</h2>SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used.</div>
+    <h2 id="description" class="sp_section_subtitle">Description</h2><p>SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships,  and the constraints on occurrences and values used.</p>
+</div>
+    <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
     <div class="row mt-3">
         <div class="col">
             <section id="edc:AccreditationShape">
                 <div class="sp_section_title_table_wrapper">
-                    <h2 class="sp_section_title_table">Accreditation</h2>
+                    <h3 class="sp_section_title_table">Accreditation</h3>
                 </div>
                 <p><em>The quality assurance or licensing of an organisation or a qualification. An accreditation instance can be used to specify information about: (1) the quality assurance and/or licensing of an organisation, (2) the quality assurance and/or licensing of an organisation with respect to a specific qualification.</em></p>
                 <ul class="sp_list_description_properties">
@@ -471,7 +490,7 @@
                     <tr>
                         <td>identifier</td>
                         <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                        <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                        <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                         <td>
                             <div style="width:30px">0..*</div>
                         </td>
@@ -604,7 +623,7 @@
     <div class="col">
         <section id="edc:AddressShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Address </h2>
+                <h3 class="sp_section_title_table">Address </h3>
             </div>
             <p><em>An Address.</em></p>
             <ul class="sp_list_description_properties">
@@ -643,7 +662,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -657,7 +676,7 @@
     <div class="col">
         <section id="edc:AgentShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Agent </h2>
+                <h3 class="sp_section_title_table">Agent </h3>
             </div>
             <p><em>An entity that is able to carry out actions.</em></p>
             <ul class="sp_list_description_properties">
@@ -704,7 +723,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -754,7 +773,7 @@
     <div class="col">
         <section id="edc:AmountShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Amount </h2>
+                <h3 class="sp_section_title_table">Amount </h3>
             </div>
             <p><em>An amount.</em></p>
             <ul class="sp_list_description_properties">
@@ -798,7 +817,7 @@
     <div class="col">
         <section id="edc:AwardingOpportunityShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Awarding Opportunity</h2>
+                <h3 class="sp_section_title_table">Awarding Opportunity</h3>
             </div>
             <p><em>An awarding opportunity describes how, where, from whom and when a claim may be obtained.</em></p>
             <ul class="sp_list_description_properties">
@@ -818,7 +837,7 @@
                 <tr>
                     <td>awarded learning achievement specification</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/learningAchievementSpecification">elm:learningAchievementSpecification</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..1</div>
                     </td>
@@ -827,7 +846,7 @@
                 <tr>
                     <td>awarding body</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/awardingBody">elm:awardingBody</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">1..*</div>
                     </td>
@@ -839,7 +858,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -873,7 +892,7 @@
     <div class="col">
         <section id="edc:AwardingProcessShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Awarding Process </h2>
+                <h3 class="sp_section_title_table">Awarding Process </h3>
             </div>
             <p><em>The process of an organisation making a Claim to person based on a Specification. It is used to specify the organisation that awarded the Claim to the individual, or the country or region where the Claim was made, and optionally the date.</em></p>
             <ul class="sp_list_description_properties">
@@ -902,7 +921,7 @@
                 <tr>
                     <td>awarding body</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/awardingBody">elm:awardingBody</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">1..*</div>
                     </td>
@@ -951,7 +970,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -984,7 +1003,7 @@
     <div class="col">
         <section id="edc:ClaimShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Claim </h2>
+                <h3 class="sp_section_title_table">Claim </h3>
             </div>
             <p><em>A claim made by an issuer. This class carries properties common to all claims, including Learning Achievement, Learning Activity, Learning Assessment and Learning Entitlement. It serves as an extension point that enables the definition of additional subclasses.</em></p>
             <ul class="sp_list_description_properties">
@@ -1022,7 +1041,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1077,7 +1096,7 @@
     <div class="col">
         <section id="edc:ClaimNodeShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Claim Node </h2>
+                <h3 class="sp_section_title_table">Claim Node </h3>
             </div>
             <p><em>This shape is used for validation purposes, in case the range of a property is a Claim (superclass). A Claim Node is either a Learning Achievement Shape, a Learning Activity Shape, a Learning Assessment Shape, a Learning Entitlement Shape, and rarely it can be a Claim Type Node Shape, that is a Claim where the extra restriction of type property being mandatory is imposed. It is strongly recommended to use the subclasses of the Claim (e.g Learning Achievement, Learning Activity, Learning Assessment, Learning Entitlement) and only use the Claim superclass in the rare occasion when the claim provided is not covered by the existing subclasses. In such case, the node shape used for validation of the Claim is the Claim Type Node Shape, where it is mandatory to provide type of the claim using a controlled list.</em></p>
         </section>
@@ -1086,7 +1105,7 @@
     <div class="col">
         <section id="edc:ClaimTypeNodeShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Claim Type Node </h2>
+                <h3 class="sp_section_title_table">Claim Type Node </h3>
             </div>
             <p><em>This shape does not apply on a class. This shape checks if a node is a Claim (when used directly and not via one of its subclasses),  having type as a mandatory property.</em></p>
             <table class="sp_table_propertyshapes table-striped table-responsive">
@@ -1121,7 +1140,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1171,7 +1190,7 @@
     <div class="col">
         <section id="edc:ConceptShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Concept </h2>
+                <h3 class="sp_section_title_table">Concept </h3>
             </div>
             <p><em>A term from a controlled vocabulary modelled as a skos:Concept.</em></p>
             <ul class="sp_list_description_properties">
@@ -1234,7 +1253,7 @@
     <div class="col">
         <section id="edc:ConceptSchemeShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Concept  Scheme </h2>
+                <h3 class="sp_section_title_table">Concept  Scheme </h3>
             </div>
             <p><em>A controlled vocabulary modelled as a Concept Scheme.</em></p>
             <ul class="sp_list_description_properties">
@@ -1246,7 +1265,7 @@
     <div class="col">
         <section id="edc:ContactPointShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Contact Point </h2>
+                <h3 class="sp_section_title_table">Contact Point </h3>
             </div>
             <p><em>A contact point for an agent.</em></p>
             <ul class="sp_list_description_properties">
@@ -1323,9 +1342,21 @@
     </div>
 </div><br><div class="row mt-3">
     <div class="col">
+        <section id="edc:CredentialStatusShape">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Credential Status</h3>
+            </div>
+            <p><em>The credential status. It defines discovery information about the current status of a Verifiable Credential.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/CredentialStatus">elm:CredentialStatus</a></li>
+            </ul>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
         <section id="edc:CreditPointShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Credit Point </h2>
+                <h3 class="sp_section_title_table">Credit Point </h3>
             </div>
             <p><em>The credit points.</em></p>
             <ul class="sp_list_description_properties">
@@ -1369,7 +1400,7 @@
     <div class="col">
         <section id="edc:DisplayDetailShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Display Detail </h2>
+                <h3 class="sp_section_title_table">Display Detail </h3>
             </div>
             <p><em>The detail(s) of the individual display.</em></p>
             <ul class="sp_list_description_properties">
@@ -1412,7 +1443,7 @@
     <div class="col">
         <section id="edc:DisplayParameterShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Display Parameter </h2>
+                <h3 class="sp_section_title_table">Display Parameter </h3>
             </div>
             <p><em>The display parameters.</em></p>
             <ul class="sp_list_description_properties">
@@ -1494,7 +1525,7 @@
     <div class="col">
         <section id="edc:EuropeanDigitalCredentialShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">European Digital Credential </h2>
+                <h3 class="sp_section_title_table">European Digital Credential </h3>
             </div>
             <p><em>A set of claims made by an issuer in Europe, using the EDC Standards. A European Digital Credential for Learning is a set of one or more claims which may be used to demonstrate that the owner has certain skills or has achieved certain learning outcomes through formal, non-formal or informal learning. European Digital Credential class is a subclass of Verifiable Credential.</em></p>
             <ul class="sp_list_description_properties">
@@ -1543,7 +1574,7 @@
                 <tr>
                     <td>credential status</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#credentialStatus">cred:credentialStatus</a></code></td>
-                    <td><code>xsd:anyURI</code><br></td>
+                    <td><code><a href="#edc:CredentialStatusShape">Credential Status</a></code><br></td>
                     <td>
                         <div style="width:30px">0..1</div>
                     </td>
@@ -1579,7 +1610,7 @@
                 <tr>
                     <td>holder</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#holder">cred:holder</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1588,7 +1619,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1628,7 +1659,7 @@
                 <tr>
                     <td>owner</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#credentialSubject">cred:credentialSubject</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">1..1</div>
                     </td>
@@ -1637,8 +1668,8 @@
                 </tr>
                 <tr>
                     <td>proof</td>
-                    <td><code><a href="https://www.w3.org/2018/credentials#proof">cred:proof</a></code></td>
-                    <td><code>xsd:anyURI</code><br></td>
+                    <td><code><a href="https://w3id.org/security#proof">sec:proof</a></code></td>
+                    <td><code><a href="#edc:ProofShape">Proof</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1647,7 +1678,7 @@
                 <tr>
                     <td>terms of use</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#termsOfUse">cred:termsOfUse</a></code></td>
-                    <td><code>xsd:anyURI</code><br></td>
+                    <td><code><a href="#edc:TermsOfUseShape">Terms Of Use</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1681,7 +1712,7 @@
     <div class="col">
         <section id="edc:EuropeanDigitalPresentationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">European Digital Presentation </h2>
+                <h3 class="sp_section_title_table">European Digital Presentation </h3>
             </div>
             <p><em>A verifiable presentation of a set of European Digital Credentials. European Digital Presentation is a subclass of Verifiable Presentation.</em></p>
             <ul class="sp_list_description_properties">
@@ -1701,7 +1732,7 @@
                 <tr>
                     <td>holder</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#holder">cred:holder</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1709,8 +1740,8 @@
                 </tr>
                 <tr>
                     <td>proof</td>
-                    <td><code><a href="https://www.w3.org/2018/credentials#proof">cred:proof</a></code></td>
-                    <td><code>xsd:anyURI</code><br></td>
+                    <td><code><a href="https://w3id.org/security#proof">sec:proof</a></code></td>
+                    <td><code><a href="#edc:ProofShape">Proof</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1742,7 +1773,7 @@
     <div class="col">
         <section id="edc:EvidenceShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Evidence </h2>
+                <h3 class="sp_section_title_table">Evidence </h3>
             </div>
             <p><em>The evidence of the verifiable credential. It contains information about the process which resulted in the issuance of the verifiable credential.</em></p>
             <ul class="sp_list_description_properties">
@@ -1789,7 +1820,7 @@
                 <tr>
                     <td>evidence target</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/evidenceTarget">elm:evidenceTarget</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">0..1</div>
                     </td>
@@ -1812,7 +1843,7 @@
     <div class="col">
         <section id="edc:GeometryShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Geometry </h2>
+                <h3 class="sp_section_title_table">Geometry </h3>
             </div>
             <p><em>This class defines the geometry at the conceptual level, and it can be encoded by using different formats.</em></p>
             <ul class="sp_list_description_properties">
@@ -1857,7 +1888,7 @@
     <div class="col">
         <section id="edc:GradingSchemeShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Grading Scheme </h2>
+                <h3 class="sp_section_title_table">Grading Scheme </h3>
             </div>
             <p><em>A set of criteria that measures varying levels of achievement.</em></p>
             <ul class="sp_list_description_properties">
@@ -1886,7 +1917,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -1918,7 +1949,7 @@
     <div class="col">
         <section id="edc:GrantShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Grant </h2>
+                <h3 class="sp_section_title_table">Grant </h3>
             </div>
             <p><em>A Grant.</em></p>
             <ul class="sp_list_description_properties">
@@ -1988,7 +2019,7 @@
     <div class="col">
         <section id="edc:GroupShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Group </h2>
+                <h3 class="sp_section_title_table">Group </h3>
             </div>
             <p><em>An entity that represents collection of Agents.</em></p>
             <ul class="sp_list_description_properties">
@@ -2026,7 +2057,7 @@
                 <tr>
                     <td>has member</td>
                     <td><code><a href="http://xmlns.com/foaf/0.1/member">foaf:member</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -2076,7 +2107,7 @@
     <div class="col">
         <section id="edc:IdentifierShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Identifier </h2>
+                <h3 class="sp_section_title_table">Identifier </h3>
             </div>
             <p><em>A character string used to identify a resource. An identifier is a character string used to uniquely identify one instance of an object within an identification scheme that is managed by an agency. The Identifier class is a critical aspect of the ELM. It is used to identify persons and organisations. In these cases, and more, the identifier itself will be some sort of alpha-numeric string but that string only has meaning if it is contextualised.</em></p>
             <ul class="sp_list_description_properties">
@@ -2175,7 +2206,7 @@
     <div class="col">
         <section id="edc:IndividualDisplayShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Individual Display </h2>
+                <h3 class="sp_section_title_table">Individual Display </h3>
             </div>
             <p><em>An individual display of a display parameter.</em></p>
             <ul class="sp_list_description_properties">
@@ -2218,7 +2249,7 @@
     <div class="col">
         <section id="edc:IssuerNodeShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Issuer Node</h2>
+                <h3 class="sp_section_title_table">Issuer Node</h3>
             </div>
             <p><em>This shape  adds an extra constraint on  the issuer of the European Digital Credential.</em></p>
             <table class="sp_table_propertyshapes table-striped table-responsive">
@@ -2249,7 +2280,7 @@
     <div class="col">
         <section id="edc:LearningAchievementShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Achievement </h2>
+                <h3 class="sp_section_title_table">Learning Achievement </h3>
             </div>
             <p><em>The acquisition of knowledge, skills or responsibility and autonomy. A recognised and/or awarded set of learning outcomes of an individual. Learning Achievement is a subclass of Claim.</em></p>
             <ul class="sp_list_description_properties">
@@ -2314,7 +2345,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -2379,7 +2410,7 @@
                 <tr>
                     <td>specified by</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/specifiedBy">elm:specifiedBy</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..1</div>
                     </td>
@@ -2414,7 +2445,7 @@
     <div class="col">
         <section id="edc:LearningAchievementSpecificationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Achievement Specification </h2>
+                <h3 class="sp_section_title_table">Learning Achievement Specification </h3>
             </div>
             <p><em>A description of what a person may learn using the opportunity, expressed as learning outcomes. A specification of learning achievement. Learning Achievement Specification is a subclass of Specification.</em></p>
             <ul class="sp_list_description_properties">
@@ -2522,7 +2553,7 @@
                 <tr>
                     <td>generalisation of</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/generalisationOf">elm:generalisationOf</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -2532,7 +2563,7 @@
                 <tr>
                     <td>has part</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/hasPart">elm:hasPart</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -2551,7 +2582,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -2569,7 +2600,7 @@
                 <tr>
                     <td>is part of </td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/isPartOf">elm:isPartOf</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -2674,7 +2705,7 @@
                 <tr>
                     <td>specialisation of</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/specialisationOf">elm:specialisationOf</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -2748,7 +2779,7 @@
     <div class="col">
         <section id="edc:LearningActivityShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Activity </h2>
+                <h3 class="sp_section_title_table">Learning Activity </h3>
             </div>
             <p><em>Any process which leads to the acquisition of knowledge, skills or responsibility and autonomy. Learning Activity is a subclass of Claim.</em></p>
             <ul class="sp_list_description_properties">
@@ -2786,7 +2817,7 @@
                 <tr>
                     <td>directed by</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/directedBy">elm:directedBy</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -2805,7 +2836,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -2934,7 +2965,7 @@
     <div class="col">
         <section id="edc:LearningActivitySpecificationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Activity Specification </h2>
+                <h3 class="sp_section_title_table">Learning Activity Specification </h3>
             </div>
             <p><em>The specification of a process which leads to the acquisition of knowledge, skills or responsibility and autonomy. Learning Activity Specification is a subclass of Specification.</em></p>
             <ul class="sp_list_description_properties">
@@ -3018,7 +3049,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -3027,7 +3058,7 @@
                 <tr>
                     <td>influences</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/influences">elm:influences</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -3148,7 +3179,7 @@
     <div class="col">
         <section id="edc:LearningAssessmentShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Assessment </h2>
+                <h3 class="sp_section_title_table">Learning Assessment </h3>
             </div>
             <p><em>The result of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence. Learning Assessment is a subclass of Claim.</em></p>
             <ul class="sp_list_description_properties">
@@ -3168,7 +3199,7 @@
                 <tr>
                     <td>assessed by</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/assessedBy">elm:assessedBy</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -3232,7 +3263,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -3352,7 +3383,7 @@
     <div class="col">
         <section id="edc:LearningAssessmentSpecificationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Assessment Specification </h2>
+                <h3 class="sp_section_title_table">Learning Assessment Specification </h3>
             </div>
             <p><em>A Learning Assessment Specification is a specification of a process establishing the extent to which a learner has attained particular knowledge, skills and competences against criteria such as learning outcomes or standards of competence. Learning Assessment Specification is a subclass of Specification.</em></p>
             <ul class="sp_list_description_properties">
@@ -3436,7 +3467,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -3503,7 +3534,7 @@
                 <tr>
                     <td>proves</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/proves">elm:proves</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -3556,7 +3587,7 @@
     <div class="col">
         <section id="edc:LearningEntitlementShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Entitlement </h2>
+                <h3 class="sp_section_title_table">Learning Entitlement </h3>
             </div>
             <p><em>A right, e.g., to practice a profession, take advantage of a learning opportunity or join an organisation, as a result of the acquisition of knowledge, skills, responsibility and/or autonomy. Learning Entitlement is a subclass of Claim.</em></p>
             <ul class="sp_list_description_properties">
@@ -3630,7 +3661,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -3701,7 +3732,7 @@
     <div class="col">
         <section id="edc:LearningEntitlementSpecificationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Entitlement Specification </h2>
+                <h3 class="sp_section_title_table">Learning Entitlement Specification </h3>
             </div>
             <p><em>The specification of a right a person has access to, typically as a result of a learning achievement. It may take the form of the right to be a member of an organisation, to follow a certain learning opportunity specification, or to follow a certain career. Learning Entitlement Specification is a subclass of Specification.</em></p>
             <ul class="sp_list_description_properties">
@@ -3748,7 +3779,7 @@
                 <tr>
                     <td>entitled by</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/entitledBy">elm:entitledBy</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -3787,7 +3818,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -3926,7 +3957,7 @@
     <div class="col">
         <section id="edc:LearningOpportunityShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Opportunity </h2>
+                <h3 class="sp_section_title_table">Learning Opportunity </h3>
             </div>
             <p><em>An opportunity to realise a given set of learning outcomes via a learning activity and/or assessment.</em></p>
             <ul class="sp_list_description_properties">
@@ -4049,7 +4080,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -4076,7 +4107,7 @@
                 <tr>
                     <td>learning achievement specification</td>
                     <td><code><a href="http://data.europa.eu/snb/model/elm/learningAchievementSpecification">elm:learningAchievementSpecification</a></code></td>
-                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification </a></code><code>or</code><code><a href="# elm:Qualification"> elm:Qualification </a></code><br></td>
+                    <td><code><a href="#elm:LearningAchievementSpecification">elm:LearningAchievementSpecification</a></code><code> or </code><code><a href="#elm:Qualification">elm:Qualification</a></code><br></td>
                     <td>
                         <div style="width:30px">0..1</div>
                     </td>
@@ -4206,7 +4237,7 @@
     <div class="col">
         <section id="edc:LearningOutcomeShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Learning Outcome </h2>
+                <h3 class="sp_section_title_table">Learning Outcome </h3>
             </div>
             <p><em>A statement regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.</em></p>
             <ul class="sp_list_description_properties">
@@ -4226,7 +4257,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -4296,7 +4327,7 @@
     <div class="col">
         <section id="edc:LegalIdentifierShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Legal Identifier </h2>
+                <h3 class="sp_section_title_table">Legal Identifier </h3>
             </div>
             <p><em>A legal identifier. A legal identifier is a formally issued identifier by a given authority within a given jurisdiction. The identifier has a spatial context. Legal Identifier is a subclass of Identifier.</em></p>
             <ul class="sp_list_description_properties">
@@ -4405,7 +4436,7 @@
     <div class="col">
         <section id="edc:LocationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Location </h2>
+                <h3 class="sp_section_title_table">Location </h3>
             </div>
             <p><em>An identifiable geographic place.</em></p>
             <ul class="sp_list_description_properties">
@@ -4461,7 +4492,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -4485,7 +4516,7 @@
     <div class="col">
         <section id="edc:MailboxShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Mailbox</h2>
+                <h3 class="sp_section_title_table">Mailbox</h3>
             </div>
             <p><em>A mailbox.</em></p>
             <ul class="sp_list_description_properties">
@@ -4497,7 +4528,7 @@
     <div class="col">
         <section id="edc:MediaObjectShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Media Object </h2>
+                <h3 class="sp_section_title_table">Media Object </h3>
             </div>
             <p><em>A media object.</em></p>
             <ul class="sp_list_description_properties">
@@ -4598,7 +4629,7 @@
     <div class="col">
         <section id="edc:NoteShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Note </h2>
+                <h3 class="sp_section_title_table">Note </h3>
             </div>
             <p><em>Free text metadata fields, such as the description, a historical or additional note of a qualification can contain a plain text or a XHTML fragment as literal value. By using a Note both the datatype of the literal and the language can be specified.</em></p>
             <ul class="sp_list_description_properties">
@@ -4651,7 +4682,7 @@
     <div class="col">
         <section id="edc:OrganisationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Organisation </h2>
+                <h3 class="sp_section_title_table">Organisation </h3>
             </div>
             <p><em>A legal person / registered organisation. Organisation is a subclass of Agent.</em></p>
             <ul class="sp_list_description_properties">
@@ -4754,7 +4785,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -4854,7 +4885,7 @@
     <div class="col">
         <section id="edc:PeriodOfTimeShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Period Of Time </h2>
+                <h3 class="sp_section_title_table">Period Of Time </h3>
             </div>
             <p><em>A period of time.</em></p>
             <ul class="sp_list_description_properties">
@@ -4907,7 +4938,7 @@
     <div class="col">
         <section id="edc:PersonShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Person </h2>
+                <h3 class="sp_section_title_table">Person </h3>
             </div>
             <p><em>A human being. Person is a subclass of Agent.</em></p>
             <ul class="sp_list_description_properties">
@@ -5033,7 +5064,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -5105,7 +5136,7 @@
     <div class="col">
         <section id="edc:PhoneShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Phone </h2>
+                <h3 class="sp_section_title_table">Phone </h3>
             </div>
             <p><em>A phone.</em></p>
             <ul class="sp_list_description_properties">
@@ -5167,7 +5198,7 @@
     <div class="col">
         <section id="edc:PriceDetailShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Price Detail </h2>
+                <h3 class="sp_section_title_table">Price Detail </h3>
             </div>
             <p><em>The price details. The details about a price or price category.</em></p>
             <ul class="sp_list_description_properties">
@@ -5205,7 +5236,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -5235,9 +5266,21 @@
     </div>
 </div><br><div class="row mt-3">
     <div class="col">
+        <section id="edc:ProofShape">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Proof</h3>
+            </div>
+            <p><em>The cryptographic proof that can be used to detect tampering and verify the authorship of a credential or presentation.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/Proof">elm:Proof</a></li>
+            </ul>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
         <section id="edc:QualificationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Qualification </h2>
+                <h3 class="sp_section_title_table">Qualification </h3>
             </div>
             <p><em>A specification of an assessment and validation process which is obtained when a competent authority determines that an individual has achieved learning outcomes to given standards. Qualification is a subclass of Learning Achievement Specification.</em></p>
             <ul class="sp_list_description_properties">
@@ -5401,7 +5444,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -5614,7 +5657,7 @@
     <div class="col">
         <section id="edc:ResultCategoryShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Result Category </h2>
+                <h3 class="sp_section_title_table">Result Category </h3>
             </div>
             <p><em>Description of a single score or score range within a histogram of results.</em></p>
             <ul class="sp_list_description_properties">
@@ -5685,7 +5728,7 @@
     <div class="col">
         <section id="edc:ResultDistributionShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Result Distribution </h2>
+                <h3 class="sp_section_title_table">Result Distribution </h3>
             </div>
             <p><em>It describes a histogram of results achieved by all the students of this course instance.</em></p>
             <ul class="sp_list_description_properties">
@@ -5728,7 +5771,7 @@
     <div class="col">
         <section id="edc:ShaclValidator2017Shape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Shacl Validator 2017 </h2>
+                <h3 class="sp_section_title_table">Shacl Validator 2017 </h3>
             </div>
             <p><em>A shacl schema for credential validation.</em></p>
             <ul class="sp_list_description_properties">
@@ -5740,7 +5783,7 @@
     <div class="col">
         <section id="edc:ShortenedGradingShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Shortened Grading </h2>
+                <h3 class="sp_section_title_table">Shortened Grading </h3>
             </div>
             <p><em>Indicator of how well the student was graded when compared to other students.</em></p>
             <ul class="sp_list_description_properties">
@@ -5792,7 +5835,7 @@
     <div class="col">
         <section id="edc:SpecificationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Specification </h2>
+                <h3 class="sp_section_title_table">Specification </h3>
             </div>
             <p><em>A specification. The superclass of all learning specifications. This class carries properties common to all specifications, including Learning Achievement Specification, Learning Activity Specification, Learning Assessment Specification and Learning Entitlement Specification. It serves as an extension point that enables the definition of additional subclasses.</em></p>
             <ul class="sp_list_description_properties">
@@ -5848,7 +5891,7 @@
                 <tr>
                     <td>identifier</td>
                     <td><code><a href="http://www.w3.org/ns/adms#identifier">adms:identifier</a></code></td>
-                    <td><code><a href="#elm:Identifier">elm:Identifier </a></code><code>or</code><code><a href="# elm:LegalIdentifier"> elm:LegalIdentifier </a></code><br></td>
+                    <td><code><a href="#elm:Identifier">elm:Identifier</a></code><code> or </code><code><a href="#elm:LegalIdentifier">elm:LegalIdentifier</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -5916,16 +5959,28 @@
     <div class="col">
         <section id="edc:SpecificationNodeShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Specification Node </h2>
+                <h3 class="sp_section_title_table">Specification Node </h3>
             </div>
             <p><em>A Specification Node is either a Learning Achievement Specification Shape, or a Learning Activity Specification Shape, or a Learning Assessment Specification Shape or a Learning Entitlement Specification  Shape. This shape is used for validation purposes, in case the range of a property is a Specification (superclass).</em></p>
         </section>
     </div>
 </div><br><div class="row mt-3">
     <div class="col">
+        <section id="edc:TermsOfUseShape">
+            <div class="sp_section_title_table_wrapper">
+                <h3 class="sp_section_title_table">Terms Of Use</h3>
+            </div>
+            <p><em>The terms of use. It defines the terms under which the verifiable credential was issued.</em></p>
+            <ul class="sp_list_description_properties">
+                <li>Applies to: <a href="http://data.europa.eu/snb/model/elm/TermsOfUse">elm:TermsOfUse</a></li>
+            </ul>
+        </section>
+    </div>
+</div><br><div class="row mt-3">
+    <div class="col">
         <section id="edc:VerifiableCredentialShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Verifiable Credential </h2>
+                <h3 class="sp_section_title_table">Verifiable Credential </h3>
             </div>
             <p><em>A Verifiable Credential. This is the superclass of European Digital credential for Learning.</em></p>
             <ul class="sp_list_description_properties">
@@ -5954,7 +6009,7 @@
                 <tr>
                     <td>credential status</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#credentialStatus">cred:credentialStatus</a></code></td>
-                    <td><code>xsd:anyURI</code><br></td>
+                    <td><code><a href="#edc:CredentialStatusShape">Credential Status</a></code><br></td>
                     <td>
                         <div style="width:30px">0..1</div>
                     </td>
@@ -5963,7 +6018,7 @@
                 <tr>
                     <td>credential subject (owner)</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#credentialSubject">cred:credentialSubject</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">1..1</div>
                     </td>
@@ -5990,7 +6045,7 @@
                 <tr>
                     <td>holder</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#holder">cred:holder</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">0..1</div>
                     </td>
@@ -6025,8 +6080,8 @@
                 </tr>
                 <tr>
                     <td>proof</td>
-                    <td><code><a href="https://www.w3.org/2018/credentials#proof">cred:proof</a></code></td>
-                    <td><code>xsd:anyURI</code><br></td>
+                    <td><code><a href="https://w3id.org/security#proof">sec:proof</a></code></td>
+                    <td><code><a href="#edc:ProofShape">Proof</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -6035,7 +6090,7 @@
                 <tr>
                     <td>terms of use</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#termsOfUse">cred:termsOfUse</a></code></td>
-                    <td><code>xsd:anyURI</code><br></td>
+                    <td><code><a href="#edc:TermsOfUseShape">Terms Of Use</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -6068,7 +6123,7 @@
     <div class="col">
         <section id="edc:VerifiablePresentationShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Verifiable Presentation </h2>
+                <h3 class="sp_section_title_table">Verifiable Presentation </h3>
             </div>
             <p><em>A verifiable presentation of a set of credentials. A composition of a set of credentials that can be presented to and verified by a verifier.</em></p>
             <ul class="sp_list_description_properties">
@@ -6088,7 +6143,7 @@
                 <tr>
                     <td>holder</td>
                     <td><code><a href="https://www.w3.org/2018/credentials#holder">cred:holder</a></code></td>
-                    <td><code><a href="#elm:Agent">elm:Agent </a></code><code>or</code><code><a href="# elm:Person"> elm:Person </a></code><code>or</code><code><a href="# elm:Organisation"> elm:Organisation </a></code><code>or</code><br></td>
+                    <td><code><a href="#elm:Agent">elm:Agent</a></code><code> or </code><code><a href="#elm:Person">elm:Person</a></code><code> or </code><code><a href="#elm:Organisation">elm:Organisation</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
@@ -6096,12 +6151,12 @@
                 </tr>
                 <tr>
                     <td>proof</td>
-                    <td><code><a href="https://www.w3.org/2018/credentials#proof">cred:proof</a></code></td>
-                    <td><code>xsd:anyURI</code><br></td>
+                    <td><code><a href="https://w3id.org/security#proof">sec:proof</a></code></td>
+                    <td><code><a href="#edc:ProofShape">Proof</a></code><br></td>
                     <td>
                         <div style="width:30px">0..*</div>
                     </td>
-                    <td class="sp_table_propertyshapes_col_description">The proof of the verifiable presentaion.</td>
+                    <td class="sp_table_propertyshapes_col_description">The proof of the verifiable presentation.</td>
                 </tr>
                 <tr>
                     <td>verifiable credential</td>
@@ -6120,7 +6175,7 @@
     <div class="col">
         <section id="edc:VerificationCheckShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Verification Check </h2>
+                <h3 class="sp_section_title_table">Verification Check </h3>
             </div>
             <p><em>A verification check.</em></p>
             <ul class="sp_list_description_properties">
@@ -6183,7 +6238,7 @@
     <div class="col">
         <section id="edc:WebResourceShape">
             <div class="sp_section_title_table_wrapper">
-                <h2 class="sp_section_title_table">Web Resource </h2>
+                <h3 class="sp_section_title_table">Web Resource </h3>
             </div>
             <p><em>A web resource.</em></p>
             <ul class="sp_list_description_properties">

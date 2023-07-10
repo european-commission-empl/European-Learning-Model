@@ -20,17 +20,17 @@
   <owl:Ontology rdf:about="http://data.europa.eu/snb/model/ap/edc-issued-by-mandate">
     <owl:imports rdf:resource="http://data.europa.eu/snb/model/ap/edc-generic-full"/>
     <dc:description xml:lang="en">SHACL constraints for EDCI application Profile.The EDC application provides the classes with their attributes and relationships, and the constraints on occurrences and values used.</dc:description>
+    <owl:versionInfo>1.2.0</owl:versionInfo>
     <dc:title xml:lang="en">SHACL constraints for European Digital Credentials - Issued By Mandate application profile</dc:title>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2023-07-06</dc:modified>
     <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
     <rdfs:comment xml:lang="en">This document specifies the set of classes and properties used in the EDCI application profile, and the constraints on occurrences and values used.</rdfs:comment>
     <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
     <dc:publisher rdf:resource="http://publications.europa.eu/resource/authority/corporate-body/DEMP"/>
-    <owl:versionInfo>1.1.0</owl:versionInfo>
     <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
     >2021-09-10</dc:created>
     <rdfs:label xml:lang="en">SHACL constraints for EDC - Issued By Mandate Application Profile</rdfs:label>
-    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
-    >2023-06-05</dc:modified>
   </owl:Ontology>
   <sh:NodeShape rdf:about="http://data.europa.eu/snb/model/ap/edc-issued-by-mandate/EvidenceShape">
     <sh:property rdf:parseType="Resource">
