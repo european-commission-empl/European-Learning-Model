@@ -565,8 +565,8 @@
             "@id": "elm:educationalSystemNote",
             "@type": "@id"
         },
-        "nationalID": {
-            "@id": "elm:nationalID",
+        "nationalId": {
+            "@id": "elm:nationalId",
             "@type": "@id"
         },
         "notation": {
@@ -673,8 +673,8 @@
             "@id": "elm:reviewDate",
             "@type": "xsd:dateTime"
         },
-        "resultDestribution": {
-            "@id": "elm:resultDestribution",
+        "resultDistribution": {
+            "@id": "elm:resultDistribution",
             "@type": "@id"
         },
         "resultCategory": {
