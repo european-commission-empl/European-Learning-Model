@@ -565,7 +565,7 @@
             "@id": "elm:educationalSystemNote",
             "@type": "@id"
         },
-        "nationalId": {
+        "nationalID": {
             "@id": "elm:nationalId",
             "@type": "@id"
         },
