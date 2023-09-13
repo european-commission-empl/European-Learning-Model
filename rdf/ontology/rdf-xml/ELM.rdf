@@ -20,13 +20,14 @@
     <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
     >2021-08-01</dc:created>
     <owl:imports rdf:resource="http://www.w3.org/ns/locn#"/>
-    <rdfs:label xml:lang="en">Europass Learning Model</rdfs:label>
     <owl:imports rdf:resource="https://w3id.org/security#"/>
     <owl:imports rdf:resource="http://www.w3.org/ns/regorg#"/>
     <owl:imports rdf:resource="http://data.europa.eu/snb/model/elm/"/>
     <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
     <cc:attributionName xml:lang="en">European Commission</cc:attributionName>
     <dc:publisher rdf:resource="http://publications.europa.eu/resource/authority/corporate-body/DEMP"/>
+    <rdfs:label xml:lang="en">European Learning Model</rdfs:label>
+    <rdfs:comment xml:lang="en">This document specifies the set of RDF/OWL classes and properties used in the European Learning Model. The associations between classes and properties, as well as the ranges and domains of properties are defined in the application profiles that import the ELM ontology.</rdfs:comment>
     <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
     >2023-07-06</dc:modified>
     <owl:imports rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -39,17 +40,16 @@
     </dc:license>
     <owl:imports rdf:resource="http://www.w3.org/ns/person#"/>
     <owl:imports rdf:resource="https://www.w3.org/2018/credentials#"/>
-    <dc:title xml:lang="en">Europass Learning Model Ontology</dc:title>
     <owl:imports rdf:resource="http://data.europa.eu/m8g/"/>
-    <owl:versionInfo>3.2.0</owl:versionInfo>
-    <owl:imports rdf:resource="http://www.w3.org/ns/adms#"/>
-    <rdfs:comment xml:lang="en">This document specifies the set of RDF/OWL classes and properties used in the Europass Learning Model. The associations between classes and properties, as well as the ranges and domains of properties are defined in the application profiles that import the ELM ontology.</rdfs:comment>
-    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
     <dc:abstract xml:lang="en">Data Model for Interoperability of Learning Opportunities, Qualifications and Credentials in Europe. 
-  The Europass Learning Model aims to capture the results of any non-formal and formal learning across Europe, as well as 
+  The European Learning Model aims to capture the results of any non-formal and formal learning across Europe, as well as
   the validation of non-formal and informal learning. It is designed to provide a single format to describe certificates of attendance, 
   examination results, degrees and diplomas, diploma supplements, professional certifications, employer recommendations and any other kind 
   of claims that are related to learning</dc:abstract>
+    <owl:versionInfo>3.2.0</owl:versionInfo>
+    <owl:imports rdf:resource="http://www.w3.org/ns/adms#"/>
+    <dc:title xml:lang="en">European Learning Model Ontology</dc:title>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
     <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
   </owl:Ontology>
@@ -1759,7 +1759,6 @@
     <rdfs:label xml:lang="lt">Europos skaitmeninis kredencialas</rdfs:label>
     <rdfs:comment xml:lang="ga">Cineál speisialta dintiúir infhíoraithe a úsáidtear chun sonraí foghlama agus fostaíochta a chur in iúl, i gcomhréir leis an Moladh ón gComhairle an 22 Bealtaine 2017 maidir leis an gCreat Eorpach um Cháilíochtaí don fhoghlaim ar feadh an tsaoil.</rdfs:comment>
     <rdfs:comment xml:lang="pl">Specjalny rodzaj weryfikowalnego poświadczenia wykorzystywanego do wyrażenia danych dotyczących uczenia się i zatrudnienia, zgodnie z zaleceniem Rady z dnia 22 maja 2017 r. w sprawie europejskich ram kwalifikacji dla uczenia się przez całe życie.</rdfs:comment>
-    <rdfs:comment xml:lang="en">A set of claims made by an issuer in Europe, using the Europass Standards. A Europass credential is a set of one or more claims which may be used to demonstrate that the owner has certain skills or has achieved certain learning outcomes through formal, non-formal or informal learning.</rdfs:comment>
     <rdfs:label xml:lang="bg">Европейско цифрово удостоверение</rdfs:label>
     <rdfs:label xml:lang="et">Euroopa digitaalne õppetõend</rdfs:label>
     <rdfs:comment xml:lang="el">Ειδικός τύπος επαληθεύσιμου διαπιστευτηρίου που χρησιμοποιείται για την έκφραση δεδομένων μάθησης και απασχόλησης, σύμφωνα με τη σύσταση του Συμβουλίου, της 22ας Μαΐου 2017, σχετικά με το ευρωπαϊκό πλαίσιο επαγγελματικών προσόντων για τη διά βίου μάθηση.</rdfs:comment>
@@ -1780,6 +1779,7 @@
     <rdfs:comment xml:lang="lv">Pārbaudāma apliecinājuma dokumenta īpašs tips, ko izmanto, lai sniegtu mācību un nodarbinātības datus saskaņā ar Padomes 2017. gada 22. maija Ieteikumu par Eiropas kvalifikāciju ietvarstruktūru mūžizglītībai.</rdfs:comment>
     <rdfs:comment xml:lang="es">Un tipo especial de credencial verificable utilizado para expresar datos de aprendizaje y empleo, en consonancia con la Recomendación del Consejo, de 22 de mayo de 2017, relativa al Marco Europeo de Cualificaciones para el aprendizaje permanente.</rdfs:comment>
     <rdfs:label xml:lang="sk">Európsky digitálny certifikát</rdfs:label>
+    <rdfs:comment xml:lang="en">A set of claims made by an issuer in Europe, using the European Standards. A European credential is a set of one or more claims which may be used to demonstrate that the owner has certain skills or has achieved certain learning outcomes through formal, non-formal or informal learning.</rdfs:comment>
     <rdfs:comment xml:lang="cs">Zvláštní typ ověřitelného certifikátu, který se používá k vyjádření údajů o vzdělávání a zaměstnání v souladu s doporučením Rady ze dne 22. května 2017 o evropském rámci kvalifikací pro celoživotní učení.</rdfs:comment>
     <rdfs:label xml:lang="da">Europæisk digitalt eksamensbevis</rdfs:label>
     <rdfs:comment xml:lang="fi">Erityinen todennettava osaamistodistus, jota käytetään oppimiseen ja työkokemukseen liittyvien tietojen ilmaisemiseen eurooppalaisesta tutkintojen viitekehyksestä elinikäisen oppimisen edistämiseksi 22 päivänä toukokuuta 2017 annetun neuvoston suosituksen mukaisesti.</rdfs:comment>
@@ -3769,7 +3769,6 @@ Var norādīt tikai vērtības, kas ņemtas no akreditācijas statusu kontrolēt
     <rdfs:comment xml:lang="sl">Status objave zagotavljanja kakovosti ali licenciranja organizacije ali kvalifikacije.
 Če je vrednost navedena, mora izhajati iz kontroliranega besednjaka za status akreditacije (http://publications.europa.eu/resource/dataset/accreditation-status).</rdfs:comment>
     <rdfs:label xml:lang="sr">0.0</rdfs:label>
-    <skos:usageNote xml:lang="en">It is recommended to be used with a controlled vocabulary. For the status of an entitlement the Europass Standard List of Entitlement Status Controlled vocabulary is recommended. Dor the status of the verification check the Europass Standard List of Verification Statuses is recommended. </skos:usageNote>
     <rdfs:label xml:lang="pt">Estatuto</rdfs:label>
     <dc:identifier>elm:status</dc:identifier>
     <rdfs:label xml:lang="el">Κατάσταση</rdfs:label>
@@ -3793,6 +3792,7 @@ Falls angegeben, muss der Wert aus dem kontrollierten Vokabular für den Akkredi
 Jos arvo määritellään, sen on oltava kontrolloidusta sanastosta Akkreditoinnin tila(http://publications.europa.eu/resource/dataset/accreditation-status).</rdfs:comment>
     <rdfs:comment xml:lang="sv">Publiceringsstatusen för kvalitetssäkringen eller licensieringen av en organisation eller en kvalifikation.
 I förekommande fall måste värdet komma från den kontrollerade ordlistan för ackrediteringsstatusen (http://publications.europa.eu/resource/dataset/accreditation-status).</rdfs:comment>
+    <skos:usageNote xml:lang="en">It is recommended to be used with a controlled vocabulary. For the status of an entitlement the European Standard List of Entitlement Status Controlled vocabulary is recommended. Dor the status of the verification check the European Standard List of Verification Statuses is recommended. </skos:usageNote>
     <rdfs:comment xml:lang="lt">Organizacijos arba kvalifikacijos kokybės užtikrinimo arba licencijavimo skelbimo būsena.
 Jei nurodoma, vertė turi būti iš akreditacijų būsenų kontrolinio žodyno (http://publications.europa.eu/resource/dataset/accreditation-status).</rdfs:comment>
     <rdfs:comment xml:lang="tr">Kalite güvencesi veya bir niteliğin veya bir kuruluşu ruhsatlandırmasının yayınlanma durumu. Verilmişse, değerin Akreditasyon durumu kontrol edilmiş sözlükten gelmesi zorunludur (http://publications.europa.eu/resource/dataset/accreditation-status).</rdfs:comment>
@@ -7943,7 +7943,6 @@ Il nome del sistema di crediti utilizzato dovrebbe essere tratto da un vocabolar
     <rdfs:label xml:lang="no">rammeverk</rdfs:label>
     <rdfs:comment xml:lang="mk">Рамка која се користи за доделување на кредитни поени на спецификацијата на учење. Името на употребениот кредитен систем треба да биде од контролиран вокабулар (e.g. http://publications.europa.eu/resource/dataset/education-credit). Давателите на податоци можат да користат сопствена котролирана листа(и).</rdfs:comment>
     <rdfs:comment xml:lang="no">Rammeverket som brukes for å tildele studiepoeng til læringsspesifikasjonen. Navnet på det brukte kredittsystemet skal komme fra et kontrollert vokabular (e.g. http://publications.europa.eu/resource/dataset/education-credit). Dataleverandører kan bruke sin(e) egen/egne kontrollerte liste(r).</rdfs:comment>
-    <rdfs:comment xml:lang="en">The framework used to assign the  credit points to the learning specification. It should be provided using the Europass Standard List of Educational Credit Systems.</rdfs:comment>
     <rdfs:comment xml:lang="is">Ramminn sem notaður er til að úthluta námseiningum í námsskilmála. Heiti einingakerfis sem notað er þarf að koma úr stýrðum orðaforða (e.g. http://publications.europa.eu/resource/dataset/education-credit). Gagnaveitendur geta notað þeirra eigin stýrðan lista.</rdfs:comment>
     <rdfs:comment xml:lang="ga">An creat a úsáidtear chun na pointí creidmheasa a shannadh don tsonraíocht foghlama.
 Ba cheart ainm an chórais creidmheasa a úsáidtear teacht ó stór focal rialaithe (e.g. http://publications.europa.eu/resource/dataset/education-credit). Is féidir le soláthraithe sonraí a liosta nó a liostaí rialaithe féin a úsáid.</rdfs:comment>
@@ -7996,6 +7995,7 @@ The name of the used credit system should come from a controlled vocabulary (e.g
     <rdfs:comment xml:lang="el">Το πλαίσιο που χρησιμοποιήθηκε για την απόδοση των ακαδημαϊκών μονάδων στην προδιαγραφή μάθησης.
 Η ονομασία του χρησιμοποιούμενου συστήματος ακαδημαϊκών μονάδων θα πρέπει να προέρχεται από ελεγχόμενο λεξιλόγιο (π.χ. http://publications.europa.eu/resource/dataset/education-credit). Οι πάροχοι δεδομένων μπορούν να χρησιμοποιούν τον/τους δικό/-ούς τους ελεγχόμενο/-ους κατάλογο/-λόγους.</rdfs:comment>
     <rdfs:label xml:lang="is">rammi</rdfs:label>
+    <rdfs:comment xml:lang="en">The framework used to assign the  credit points to the learning specification. It should be provided using the European Standard List of Educational Credit Systems.</rdfs:comment>
     <rdfs:label xml:lang="lv">ietvars</rdfs:label>
     <rdfs:comment xml:lang="ro">Cadrul utilizat pentru atribuirea de credite specificației de învățare.
 Denumirea sistemului de credite utilizat ar trebui să provină dintr-un vocabular controlat (e.g. http://publications.europa.eu/resource/dataset/education-credit). Furnizorii de date își pot utiliza propriile liste.</rdfs:comment>
@@ -10157,8 +10157,8 @@ Var norādīt tikai vērtības, kas ņemtas no kontrolētas vārdnīcas (piem., 
 Az értéknek (ha meg van adva) ellenőrzött szójegyzékből kell származnia (e.g. http://publications.europa.eu/resource/dataset/supervision-verification). Az adatszolgáltatók használhatják a saját ellenőrzött listájukat (listáikat).</rdfs:comment>
     <rdfs:comment xml:lang="es">Método de supervisión de la evaluación y verificación de la identidad.
 Si se facilita, el valor debe proceder de un vocabulario controlado (por ejemplo, http://publications.europa.eu/resource/dataset/supervision-verification). Los proveedores de datos pueden utilizar su propia lista o listas controladas.</rdfs:comment>
+    <skos:usageNote xml:lang="en">It is recommended to be used with European Standard List of Methods Of Supervision And Verification controlled vocabulary.</skos:usageNote>
     <rdfs:label xml:lang="bg">метод на наблюдение на оценяването и проверка на самоличността</rdfs:label>
-    <skos:usageNote xml:lang="en">It is recommended to be used with Europass Standard List of Methods Of Supervision And Verification controlled vocabulary.</skos:usageNote>
     <rdfs:label xml:lang="es">método de evaluación, supervisión y verificación de la identidad</rdfs:label>
     <rdfs:label xml:lang="tr">değerlendirme denetim ve kimlik doğrulama yöntemi</rdfs:label>
     <rdfs:label xml:lang="cs">metoda hodnocení, dohledu a ověřování totožnosti</rdfs:label>

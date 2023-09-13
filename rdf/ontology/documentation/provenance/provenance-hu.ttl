@@ -3,7 +3,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <> .
 <http://data.europa.eu/snb/model/elm> a prov:Entity;
-	 dc:title "Europass Learning Model Ontology";
+	 dc:title "European Learning Model Ontology";
 	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
 	 prov:specializationOf <http://data.europa.eu/snb/model/elm>;
 .
