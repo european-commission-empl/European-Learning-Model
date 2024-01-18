@@ -36,7 +36,7 @@
  xmlns:curr="http://publications.europa.eu/resource/authority/currency"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns="http://data.europa.eu/snb/model/ap/ams-constraints/"
- xsi:schemaLocation="http://data.europa.eu/snb/model/ap/ams-constraints/ ams.xsd" xsdVersion="3.1.0">
+ xsi:schemaLocation="http://data.europa.eu/snb/model/ap/ams-constraints/ ams.xsd" xsdVersion="3.2.0">
     
     <accreditationReferences>
         <accreditation id="http://ACCRED-01">
