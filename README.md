@@ -1,7 +1,7 @@
 # Archived Repository
 This repository is archived and no longer updated. Use the links below to access the European Learning Model:
-•	[model documentation is published via the ELM Browser](https://europa.eu/europass/elm-browser/index.html)
-•	[technical artefacts are published via EU Vocabularies](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/snb-model)
+* [model documentation is published via the ELM Browser](https://europa.eu/europass/elm-browser/index.html)
+* [technical artefacts are published via EU Vocabularies](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/snb-model)
 
 
 # European Learning Model v3
